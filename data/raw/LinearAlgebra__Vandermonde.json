@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Vandermonde",
+    "name": "det_projVandermonde",
+    "statement": "Fin n \u2192 R) : (projVandermonde v w).det = \u220f i : Fin n, \u220f j \u2208 Finset.Ioi i, (v j * w i - v i * w j)",
+    "have_tree": [
+      {
+        "name": "hdet",
+        "type": "",
+        "body": "det_projVandermonde_of_field (u true) (u false)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Vandermonde",
+    "name": "eval_matrixOfPolynomials_eq_vandermonde_mul_matrixOfPolynomials",
+    "statement": "Fin n \u2192 R) (p : Fin n \u2192 R[X]) (h_deg : \u2200 i, (p i).natDegree \u2264 i) : Matrix.of (fun i j => ((p j).eval (v i))) = (Matrix.vandermonde v) * (Matrix.of (fun (i j : Fin n) => (p j).coeff i))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(p j).support \u2286 range n",
+        "body": "supp_subset_range <| Nat.lt_of_le_of_lt (h_deg j) <| Fin.prop j",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Vandermonde",
+    "name": "superFactorial_dvd_vandermonde_det",
+    "statement": "\u2115} (v : Fin (n + 1) \u2192 \u2124) : \u2191n.superFactorial \u2223 (vandermonde v).det",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "det_eval_matrixOfPolynomials_eq_det_vandermonde (fun i \u21a6 \u2191(w' i))",
+        "children": []
+      }
+    ]
+  }
+]

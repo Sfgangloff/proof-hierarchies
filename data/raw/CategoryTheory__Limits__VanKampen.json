@@ -1,0 +1,181 @@
+[
+  {
+    "module": "VanKampen",
+    "name": "IsVanKampenColimit.precompose_isIso",
+    "statement": "J \u2964 C} (\u03b1 : F \u27f6 G) [IsIso \u03b1] {c : Cocone G} (hc : IsVanKampenColimit c) : IsVanKampenColimit ((Cocone.precompose \u03b1).obj c)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsPullback (\u03b1.app j \u226b c.\u03b9.app j) (\u03b1.app j) (\ud835\udfd9 _) (c.\u03b9.app j)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VanKampen",
+    "name": "IsVanKampenColimit.whiskerEquivalence",
+    "statement": "Type*} [Category* K] (e : J \u224c K) {F : K \u2964 C} {c : Cocone F} (hc : IsVanKampenColimit c) : IsVanKampenColimit (c.whisker e.functor)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso (\ud835\udfd9 (Cocone.whisker e.functor c).pt)",
+        "body": "inferInstance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VanKampen",
+    "name": "isVanKampenColimit_of_evaluation",
+    "statement": "J \u2964 C \u2964 D) (c : Cocone F) (hc : \u2200 x : C, IsVanKampenColimit (((evaluation C D).obj x).mapCocone c)) : IsVanKampenColimit c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "fun x => hc x (((evaluation C D).obj x).mapCocone c') (whiskerRight \u03b1 _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VanKampen",
+    "name": "IsUniversalColimit.map_reflective",
+    "statement": "C \u2964 D} {Gr : D \u2964 C} (adj : Gl \u22a3 Gr) [Gr.Full] [Gr.Faithful] {F : J \u2964 D} {c : Cocone (F \u22d9 Gr)} (H : IsUniversalColimit c) [\u2200 X (f : X \u27f6 Gl.obj c.pt), HasPullback (Gr.map f) (adj.unit.app c.pt)] [\u2200 X (f : X \u27f6 Gl.obj c.pt), PreservesLimit (cospan (Gr.map f) (adj.unit.app c.pt)) Gl] : IsUniversalColimit (Gl.mapCocone c)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "adj.rightAdjoint_preservesLimits",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "PreservesColimitsOfSize.{u', v'} Gl",
+        "body": "adj.leftAdjoint_preservesColimits",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasPullback (Gl.map (Gr.map f)) (Gl.map (adj.unit.app c.pt))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u03b1'",
+        "type": "NatTrans.Equifibered \u03b1'",
+        "body": "h\u03b1.comp (.of_isIso _)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsIso cf",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VanKampen",
+    "name": "IsVanKampenColimit.map_reflective",
+    "statement": "C \u2964 D} {Gr : D \u2964 C} (adj : Gl \u22a3 Gr) [Gr.Full] [Gr.Faithful] {F : J \u2964 D} {c : Cocone (F \u22d9 Gr)} (H : IsVanKampenColimit c) [\u2200 X (f : X \u27f6 Gl.obj c.pt), HasPullback (Gr.map f) (adj.unit.app c.pt)] [\u2200 X (f : X \u27f6 Gl.obj c.pt), PreservesLimit (cospan (Gr.map f) (adj.unit.app c.pt)) Gl] [\u2200 X i (f : X \u27f6 c.pt), PreservesLimit (cospan f (c.\u03b9.app i)) Gl] : IsVanKampenColimit (Gl.mapCocone c)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "adj.rightAdjoint_preservesLimits",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "PreservesColimitsOfSize.{u', v'} Gl",
+        "body": "adj.leftAdjoint_preservesColimits",
+        "children": []
+      },
+      {
+        "name": "h\u03b1'",
+        "type": "NatTrans.Equifibered \u03b1'",
+        "body": "h\u03b1.comp (.of_isIso _)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "((H (colimit.cocone <| F' \u22d9 Gr) (whiskerRight \u03b1' Gr)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VanKampen",
+    "name": "isVanKampenColimit_of_isEmpty",
+    "statement": "J \u2964 C} (c : Cocone F) (hc : IsColimit c) : IsVanKampenColimit c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsInitial c.pt",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(IsColimit.precomposeInvEquiv (Functor.uniqueFromEmpty _) _).symm",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "VanKampen",
+    "name": "isUniversalColimit_extendCofan",
+    "statement": "\u2115} (f : Fin (n + 1) \u2192 C) {c\u2081 : Cofan fun i : Fin n \u21a6 f i.succ} {c\u2082 : BinaryCofan (f 0) c\u2081.pt} (t\u2081 : IsUniversalColimit c\u2081) (t\u2082 : IsUniversalColimit c\u2082) [\u2200 {Z} (i : Z \u27f6 c\u2082.pt), HasPullback c\u2082.inr i] : IsUniversalColimit (extendCofan c\u2081 c\u2082)",
+    "have_tree": [
+      {
+        "name": "t\u2081'",
+        "type": "",
+        "body": "@t\u2081 (Discrete.functor (fun j \u21a6 F.obj \u27e8j.succ\u27e9))",
+        "children": []
+      },
+      {
+        "name": "t\u2082'",
+        "type": "",
+        "body": "@t\u2082 (pair (F.obj \u27e80\u27e9) (pullback c\u2082.inr i))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VanKampen",
+    "name": "isVanKampenColimit_extendCofan",
+    "statement": "\u2115} (f : Fin (n + 1) \u2192 C) {c\u2081 : Cofan fun i : Fin n \u21a6 f i.succ} {c\u2082 : BinaryCofan (f 0) c\u2081.pt} (t\u2081 : IsVanKampenColimit c\u2081) (t\u2082 : IsVanKampenColimit c\u2082) [\u2200 {Z} (i : Z \u27f6 c\u2082.pt), HasPullback c\u2082.inr i] [HasFiniteCoproducts C] : IsVanKampenColimit (extendCofan c\u2081 c\u2082)",
+    "have_tree": [
+      {
+        "name": "t\u2082'",
+        "type": "",
+        "body": "(@t\u2082 (pair (F.obj \u27e80\u27e9) (\u2210 fun (j : Fin n) \u21a6 F.obj \u27e8j.succ\u27e9))",
+        "children": [
+          {
+            "name": "t\u2081'",
+            "type": "",
+            "body": "(@t\u2081 (Discrete.functor (fun j \u21a6 F.obj \u27e8j.succ\u27e9)) (Cofan.mk _ _) (Discrete.natTrans",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "VanKampen",
+    "name": "isPullback_initial_to_of_cofan_isVanKampen",
+    "statement": "Type*} {F : Discrete \u03b9 \u2964 C} {c : Cocone F} (hc : IsVanKampenColimit c) (i j : Discrete \u03b9) (hi : i \u2260 j) : IsPullback (initial.to _) (initial.to _) (c.\u03b9.app i) (c.\u03b9.app j)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 i, Subsingleton (\u22a5_ C \u27f6 (Discrete.functor f).obj i)",
+        "body": "inferInstance",
+        "children": []
+      }
+    ]
+  }
+]

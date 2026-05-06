@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Upcrossing",
+      "name": "StronglyAdapted.upcrossingStrat",
+      "statement": "StronglyAdapted \u2131 f) : StronglyAdapted \u2131 (upcrossingStrat a b f N)",
+      "have_tree": [
+        {
+          "name": "hl",
+          "type": "",
+          "body": "hf.isStoppingTime_lowerCrossingTime (a := a) (b := b) (N := N) (n := i) n",
+          "children": []
+        },
+        {
+          "name": "hu",
+          "type": "",
+          "body": "hf.isStoppingTime_upperCrossingTime (a := a) (b := b) (N := N) (n := i + 1) n",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Upcrossing",
+          "name": "StronglyAdapted.upcrossingStrat",
+          "statement": "StronglyAdapted \u2131 f) : StronglyAdapted \u2131 (upcrossingStrat a b f N)",
+          "have_tree": [
+            {
+              "name": "hu",
+              "type": "",
+              "body": "hf.isStoppingTime_upperCrossingTime (a := a) (b := b) (N := N) (n := i + 1) n",
+              "children": []
+            },
+            {
+              "name": "hl",
+              "type": "",
+              "body": "hf.isStoppingTime_lowerCrossingTime (a := a) (b := b) (N := N) (n := i) n",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Upcrossing",
+      "name": "crossing_pos_eq",
+      "statement": "a < b) : upperCrossingTime 0 (b - a) (fun n \u03c9 => (f n \u03c9 - a)\u207a) N n = upperCrossingTime a b f N n \u2227 lowerCrossingTime 0 (b - a) (fun n \u03c9 => (f n \u03c9 - a)\u207a) N n = lowerCrossingTime a b f N n",
+      "have_tree": [
+        {
+          "name": "hab'",
+          "type": "0 < b - a",
+          "body": "sub_pos.2 hab",
+          "children": []
+        },
+        {
+          "name": "hf",
+          "type": "\u2200 \u03c9 i, b - a \u2264 (f i \u03c9 - a)\u207a \u2194 b \u2264 f i \u03c9",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Upcrossing",
+          "name": "crossing_pos_eq",
+          "statement": "a < b) : upperCrossingTime 0 (b - a) (fun n \u03c9 => (f n \u03c9 - a)\u207a) N n = upperCrossingTime a b f N n \u2227 lowerCrossingTime 0 (b - a) (fun n \u03c9 => (f n \u03c9 - a)\u207a) N n = lowerCrossingTime a b f N n",
+          "have_tree": [
+            {
+              "name": "hf",
+              "type": "\u2200 \u03c9 i, b - a \u2264 (f i \u03c9 - a)\u207a \u2194 b \u2264 f i \u03c9",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hab'",
+              "type": "0 < b - a",
+              "body": "sub_pos.2 hab",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

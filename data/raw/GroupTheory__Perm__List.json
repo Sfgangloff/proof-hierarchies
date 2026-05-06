@@ -1,0 +1,41 @@
+[
+  {
+    "module": "List",
+    "name": "mem_or_mem_of_zipWith_swap_prod_ne",
+    "statement": "\u2200 {l l' : List \u03b1} {x : \u03b1}, (zipWith swap l l').prod x \u2260 x \u2192 x \u2208 l \u2228 x \u2208 l' | [], _, _ => by simp | _, [], _ => by simp | a::l, b::l', x => fun hx \u21a6 if h : (zipWith swap l l').prod x = x then (eq_or_eq_of_swap_apply_ne_self (a",
+    "have_tree": [
+      {
+        "name": "hx'",
+        "type": "x \u2208 { x | (zipWith swap l l').prod x \u2260 x }",
+        "body": "by simpa using hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "List",
+    "name": "support_formPerm_le",
+    "statement": "support (formPerm l) \u2264 l.toFinset",
+    "have_tree": [
+      {
+        "name": "hx'",
+        "type": "x \u2208 { x | formPerm l x \u2260 x }",
+        "body": "by simpa using hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "List",
+    "name": "formPerm_rotate_one",
+    "statement": "List \u03b1) (h : Nodup l) : formPerm (l.rotate 1) = formPerm l",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "Nodup (l.rotate 1)",
+        "body": "by simpa using h",
+        "children": []
+      }
+    ]
+  }
+]

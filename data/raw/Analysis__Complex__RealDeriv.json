@@ -1,0 +1,47 @@
+[
+  {
+    "module": "RealDeriv",
+    "name": "HasStrictDerivAt.real_of_complex",
+    "statement": "HasStrictDerivAt e e' z) : HasStrictDerivAt (fun x : \u211d => (e x).re) e'.re z",
+    "have_tree": [
+      {
+        "name": "C",
+        "type": "HasStrictFDerivAt re reCLM (e (ofRealCLM z))",
+        "body": "reCLM.hasStrictFDerivAt",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RealDeriv",
+    "name": "HasDerivAt.real_of_complex",
+    "statement": "HasDerivAt e e' z) : HasDerivAt (fun x : \u211d => (e x).re) e'.re z",
+    "have_tree": [
+      {
+        "name": "C",
+        "type": "HasFDerivAt re reCLM (e (ofRealCLM z))",
+        "body": "reCLM.hasFDerivAt",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RealDeriv",
+    "name": "ContDiffAt.real_of_complex",
+    "statement": "WithTop \u2115\u221e} (h : ContDiffAt \u2102 n e z) : ContDiffAt \u211d n (fun x : \u211d => (e x).re) z",
+    "have_tree": [
+      {
+        "name": "B",
+        "type": "ContDiffAt \u211d n e z",
+        "body": "h.restrict_scalars \u211d",
+        "children": []
+      },
+      {
+        "name": "C",
+        "type": "ContDiffAt \u211d n re (e z)",
+        "body": "reCLM.contDiff.contDiffAt",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "module": "Thickening",
+    "name": "_root_.Bornology.IsBounded.cthickening",
+    "statement": "Type*} [PseudoMetricSpace \u03b1] {\u03b4 : \u211d} {E : Set \u03b1} (h : IsBounded E) : IsBounded (cthickening \u03b4 E)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsBounded (thickening (max (\u03b4 + 1) 1) E)",
+        "body": "h.thickening",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Thickening",
+    "name": "cthickening_eq_iInter_thickening'",
+    "statement": "\u211d} (\u03b4_nn : 0 \u2264 \u03b4) (s : Set \u211d) (hs\u03b4 : s \u2286 Ioi \u03b4) (hs : \u2200 \u03b5, \u03b4 < \u03b5 \u2192 (s \u2229 Ioc \u03b4 \u03b5).Nonempty) (E : Set \u03b1) : cthickening \u03b4 E = \u22c2 \u03b5 \u2208 s, thickening \u03b5 E",
+    "have_tree": [
+      {
+        "name": "ss",
+        "type": "",
+        "body": "cthickening_subset_thickening' (lt_of_le_of_lt \u03b4_nn h\u03b5'.1) h\u03b5'.1 E",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Thickening",
+    "name": "_root_.IsCompact.cthickening_eq_biUnion_closedBall",
+    "statement": "Type*} [PseudoMetricSpace \u03b1] {\u03b4 : \u211d} {E : Set \u03b1} (hE : IsCompact E) (h\u03b4 : 0 \u2264 \u03b4) : cthickening \u03b4 E = \u22c3 x \u2208 E, closedBall x \u03b4",
+    "have_tree": [
+      {
+        "name": "D1",
+        "type": "edist x y \u2264 ENNReal.ofReal \u03b4",
+        "body": "(le_of_eq hy.symm).trans hx",
+        "children": []
+      },
+      {
+        "name": "D2",
+        "type": "dist x y \u2264 \u03b4",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Thickening",
+    "name": "IsCompact.exists_thickening_image_subset",
+    "statement": "Type*} [PseudoEMetricSpace \u03b2] {f : \u03b1 \u2192 \u03b2} {K : Set \u03b1} {U : Set \u03b2} (hK : IsCompact K) (ho : IsOpen U) (hf : \u2200 x \u2208 K, ContinuousAt f x) (hKU : MapsTo f K U) : \u2203 \u03b5 > 0, \u2203 V \u2208 \ud835\udcdd\u02e2 K, thickening \u03b5 (f '' V) \u2286 U",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "{f x} \u2286 U",
+        "body": "by rw [singleton_subset_iff]; exact hKU hx",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "V \u2208 \ud835\udcdd x",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

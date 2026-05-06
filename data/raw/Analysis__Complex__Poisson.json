@@ -1,0 +1,85 @@
+[
+  {
+    "module": "Poisson",
+    "name": "re_herglotzRieszKernel_le_aux",
+    "statement": "\u211d) (h\u2081 : 0 < r) (h\u2082 : r < R) : ((R * exp (\u03b8 * I) + r * exp (\u03c6 * I)) / (R * exp (\u03b8 * I) - r * exp (\u03c6 * I))).re \u2264 (R + r) / (R - r)",
+    "have_tree": [
+      {
+        "name": "h_cos",
+        "type": "(R ^ 2 + r ^ 2 - 2 * R * r * Real.cos (\u03b8 - \u03c6)) \u2265 (R - r) ^ 2",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Poisson",
+    "name": "le_re_herglotzRieszKernel_aux",
+    "statement": "\u211d) (h\u2081 : 0 < r) (h\u2082 : r < R) : (R - r) / (R + r) \u2264 ((R * exp (\u03b8 * I) + r * exp (\u03c6 * I)) / (R * exp (\u03b8 * I) - r * exp (\u03c6 * I))).re",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "calc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Poisson",
+    "name": "DiffContOnCl.circleAverage_re_smul_on_ball_zero",
+    "statement": "DiffContOnCl \u2102 f (ball 0 R)) (hw : w \u2208 ball 0 R) : Real.circleAverage (fun z \u21a6 ((z + w) / (z - w)).re \u2022 f z) 0 R = f w",
+    "have_tree": [
+      {
+        "name": "h\u2081q",
+        "type": "0 < q",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "h\u2082q",
+        "type": "q < 1",
+        "body": "by simpa [\u2190 div_lt_one hR] using hw",
+        "children": [
+          {
+            "name": "hz",
+            "type": "z \u2260 0",
+            "body": "by aesop",
+            "children": []
+          },
+          {
+            "name": "h\u2081",
+            "type": "\u2200 z \u2208 sphere 0 R, z - w \u2260 0",
+            "body": "by aesop (add simp sub_eq_zero)",
+            "children": []
+          },
+          {
+            "name": "h\u2083",
+            "type": "ContinuousOn f (sphere 0 R)",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Poisson",
+    "name": "DiffContOnCl.circleAverage_re_herglotzRieszKernel_smul",
+    "statement": "\u2102} (hf : DiffContOnCl \u2102 f (ball c R)) (hw : w \u2208 ball c R) : Real.circleAverage ((re \u2218 herglotzRieszKernel c w) \u2022 f) c R = f w",
+    "have_tree": [
+      {
+        "name": "h\u2081g",
+        "type": "DiffContOnCl \u2102 (fun z \u21a6 f (z + c)) (ball 0 R)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u2082g",
+        "type": "w - c \u2208 ball 0 R",
+        "body": "by simpa using mem_ball_iff_norm.1 hw",
+        "children": []
+      }
+    ]
+  }
+]

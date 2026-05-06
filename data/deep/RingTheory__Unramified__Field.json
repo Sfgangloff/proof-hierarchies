@@ -1,0 +1,132 @@
+[
+  {
+    "module": "Field",
+    "name": "bijective_of_isAlgClosed_of_isLocalRing",
+    "statement": "Function.Bijective (algebraMap K A)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "finite_of_free (R := K) (S := A)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsArtinianRing A",
+        "body": "isArtinian_of_tower K inferInstance",
+        "children": []
+      },
+      {
+        "name": "hA",
+        "type": "IsNilpotent (IsLocalRing.maximalIdeal A)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "(Algebra.ofId _ _).toLinearMap \u2218\u2097 f = LinearMap.id",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf\u2081",
+        "type": "f 1 \u2022 (1 : A \u29f8 IsLocalRing.maximalIdeal A) = 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf\u2082",
+        "type": "1 - f 1 \u2208 IsLocalRing.maximalIdeal A",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf\u2083",
+        "type": "IsIdempotentElem (1 - f 1)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf\u2084",
+        "type": "f 1 = 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(1 - f 1) ^ n = 0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u21d1(algebraMap K A) = \u21d1f \u2218 \u21d1e",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "range_eq_top_of_isPurelyInseparable",
+    "statement": "(algebraMap K L).range = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial (L \u2297[K] L)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "ExpChar (L \u2297[K] L) (ringExpChar K)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(1 \u2297\u209c x - x \u2297\u209c 1 : L \u2297[K] L) ^ (ringExpChar K) ^ n = 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "(1 \u2297\u209c x : L \u2297[K] L) = x \u2297\u209c 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "inst",
+            "type": "IsReduced (L \u2297[K] L)",
+            "body": "isReduced_of_field L _",
+            "children": []
+          },
+          {
+            "name": "ha",
+            "type": "Basis.extend h a = 1",
+            "body": "by simp [a]",
+            "children": []
+          },
+          {
+            "name": "hb",
+            "type": "Basis.extend h b = x",
+            "body": "by simp [b]",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "DFunLike.congr_fun",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "IsUnit b",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

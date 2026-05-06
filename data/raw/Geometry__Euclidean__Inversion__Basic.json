@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Basic",
+    "name": "dist_inversion_center",
+    "statement": "P) (R : \u211d) : dist (inversion c R x) c = R ^ 2 / dist x c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "dist x c \u2260 0",
+        "body": "dist_ne_zero.2 hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "dist_inversion_mul_dist_center_eq",
+    "statement": "x \u2260 c) (hy : y \u2260 c) : dist (inversion c R x) y * dist x c = dist x (inversion c R y) * dist y c",
+    "have_tree": [
+      {
+        "name": "hy'",
+        "type": "inversion c R y \u2260 c",
+        "body": "by simp [*]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mul_dist_le_mul_dist_add_mul_dist",
+    "statement": "P) : dist a c * dist b d \u2264 dist a b * dist c d + dist b c * dist a d",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "dist_triangle (inversion a 1 b) (inversion a 1 c) (inversion a 1 d)",
+        "children": []
+      }
+    ]
+  }
+]

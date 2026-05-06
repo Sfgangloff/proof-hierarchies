@@ -1,0 +1,188 @@
+[
+  {
+    "module": "Closure",
+    "name": "subtypeClosure",
+    "statement": "Matroid \u03b1) : ClosureOperator (Iic M.E)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hne.coe_sort",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Closure",
+    "name": "Indep.closure_eq_setOf_isBasis_insert",
+    "statement": "M.Indep I) : M.closure I = {x | M.IsBasis I (insert x I)}",
+    "have_tree": [
+      {
+        "name": "hIF",
+        "type": "M.IsBasis I F",
+        "body": "hI.isBasis_setOf_insert_isBasis",
+        "children": []
+      },
+      {
+        "name": "hF",
+        "type": "M.IsFlat F",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Closure",
+    "name": "Indep.mem_closure_iff'",
+    "statement": "M.Indep I) : x \u2208 M.closure I \u2194 x \u2208 M.E \u2227 (M.Indep (insert x I) \u2192 x \u2208 I)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hI.subset_ground",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Closure",
+    "name": "Indep.closure_inter_eq_self_of_subset",
+    "statement": "M.Indep I) (hJI : J \u2286 I) : M.closure J \u2229 I = J",
+    "have_tree": [
+      {
+        "name": "hJ",
+        "type": "",
+        "body": "hI.subset hJI",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Closure",
+    "name": "Indep.closure_sInter_eq_biInter_closure_of_forall_subset",
+    "statement": "Set (Set \u03b1)} (hI : M.Indep I) (hne : Js.Nonempty) (hIs : \u2200 J \u2208 Js, J \u2286 I) : M.closure (\u22c2\u2080 Js) = (\u22c2 J \u2208 Js, M.closure J)",
+    "have_tree": [
+      {
+        "name": "hiX",
+        "type": "\u22c2\u2080 Js \u2286 I",
+        "body": "(sInter_subset_of_mem hne.some_mem).trans (hIs _ hne.some_mem)",
+        "children": []
+      },
+      {
+        "name": "hiI",
+        "type": "",
+        "body": "hI.subset hiX",
+        "children": []
+      },
+      {
+        "name": "heEI",
+        "type": "e \u2208 M.E \\ I",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hIb",
+        "type": "M.IsBasis I (insert e I)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Closure",
+    "name": "closure_biInter_eq_biInter_closure_of_biUnion_indep",
+    "statement": "Type*} {A : Set \u03b9} (hA : A.Nonempty) {I : \u03b9 \u2192 Set \u03b1} (h : M.Indep (\u22c3 i \u2208 A, I i)) : M.closure (\u22c2 i \u2208 A, I i) = \u22c2 i \u2208 A, M.closure (I i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hA.coe_sort",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Closure",
+    "name": "exists_isBasis_inter_ground_isBasis_closure",
+    "statement": "Matroid \u03b1) (X : Set \u03b1) : \u2203 I, M.IsBasis I (X \u2229 M.E) \u2227 M.IsBasis I (M.closure X)",
+    "have_tree": [
+      {
+        "name": "hI'",
+        "type": "",
+        "body": "hI.isBasis_closure_right; rw [closure_inter_ground] at hI'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Closure",
+    "name": "Indep.union_indep_iff_forall_notMem_closure_right",
+    "statement": "M.Indep I) (hJ : M.Indep J) : M.Indep (I \u222a J) \u2194 \u2200 e \u2208 J \\ I, e \u2209 M.closure (I \u222a (J \\ {e}))",
+    "have_tree": [
+      {
+        "name": "heJI",
+        "type": "e \u2208 J \\ I",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Closure",
+    "name": "mem_closure_insert",
+    "statement": "e \u2209 M.closure X) (hef : e \u2208 M.closure (insert f X)) : f \u2208 M.closure (insert e X)",
+    "have_tree": [
+      {
+        "name": "hfE",
+        "type": "f \u2208 M.E",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "heE",
+        "type": "e \u2208 M.E",
+        "body": "(M.closure_subset_ground _) hef",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Closure",
+    "name": "closure_insert_congr",
+    "statement": "e \u2208 M.closure (insert f X) \\ M.closure X) : M.closure (insert e X) = M.closure (insert f X)",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "",
+        "body": "closure_exchange he",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Closure",
+    "name": "spanning_iff_exists_isBase_subset'",
+    "statement": "M.Spanning S \u2194 (\u2203 B, M.IsBase B \u2227 B \u2286 S) \u2227 S \u2286 M.E",
+    "have_tree": [
+      {
+        "name": "hB'",
+        "type": "",
+        "body": "hB.isBasis_closure_right",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Closure",
+    "name": "map_closure_eq",
+    "statement": "Type*} (M : Matroid \u03b1) (f : \u03b1 \u2192 \u03b2) (hf) (X : Set \u03b2) : (M.map f hf).closure X = f '' M.closure (f \u207b\u00b9' X)",
+    "have_tree": [
+      {
+        "name": "hrw",
+        "type": "",
+        "body": "image_insert_eq \u25b8 hJI",
+        "children": []
+      }
+    ]
+  }
+]

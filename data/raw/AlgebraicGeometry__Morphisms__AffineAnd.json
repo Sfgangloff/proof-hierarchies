@@ -1,0 +1,66 @@
+[
+  {
+    "module": "AffineAnd",
+    "name": "affineAnd_isLocal",
+    "statement": "RingHom.RespectsIso Q) (hQl : RingHom.LocalizationAwayPreserves Q) (hQs : RingHom.OfLocalizationSpan Q) : (affineAnd Q).IsLocal where respectsIso",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "Q (Scheme.Hom.app f ((Y.basicOpen a.1).\u03b9 ''\u1d41 \u22a4)).hom",
+        "body": "hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AffineAnd",
+    "name": "targetAffineLocally_affineAnd_iff_affineLocally",
+    "statement": "RingHom.PropertyIsLocal Q) {X Y : Scheme.{u}} (f : X \u27f6 Y) : targetAffineLocally (affineAnd Q) f \u2194 IsAffineHom f \u2227 affineLocally Q f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsAffine (f \u207b\u00b9\u1d41 U)",
+        "body": "hf.isAffine_preimage U U.2",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAffine X",
+        "body": "isAffine_of_isAffineHom f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AffineAnd",
+    "name": "HasAffineProperty.SpecMap_iff_of_affineAnd",
+    "statement": "MorphismProperty Scheme.{u}} (hP : HasAffineProperty P (affineAnd Q)) (hQi : RingHom.RespectsIso Q) {R S : CommRingCat.{u}} (f : R \u27f6 S) : P (Spec.map f) \u2194 Q f.hom",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "RingHom.toMorphismProperty_respectsIso_iff.mp hQi",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AffineAnd",
+    "name": "HasAffineProperty.coprodDesc_affineAnd",
+    "statement": "MorphismProperty Scheme.{u}} (hP : HasAffineProperty P (affineAnd Q)) (hQi : RingHom.RespectsIso Q) (hQ : \u2200 {R S T : Type u} [CommRing R] [CommRing S] [CommRing T] (f : R \u2192+* S) (g : R \u2192+* T), Q f \u2192 Q g \u2192 Q (f.prod g)) {U V X : Scheme.{u}} (f : U \u27f6 X) (g : V \u27f6 X) (hf : P f) (hg : P g) : P (Limits.coprod.desc f g)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "HasAffineProperty.affineAnd_le_isAffineHom P hP f hf",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "HasAffineProperty.affineAnd_le_isAffineHom P hP g hg",
+        "children": []
+      }
+    ]
+  }
+]

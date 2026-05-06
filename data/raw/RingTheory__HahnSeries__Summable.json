@@ -1,0 +1,125 @@
+[
+  {
+    "module": "Summable",
+    "name": "single",
+    "statement": "\u03b9) (x : R\u27e6\u0393\u27e7) : SummableFamily \u0393 R \u03b9 where toFun",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(Pi.single (M",
+        "body": "fun _ \u21a6 R\u27e6\u0393\u27e7) i x i).support.IsPWO := by simp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "hsum_leadingCoeff_of_le",
+    "statement": "SummableFamily \u0393 R \u03b1} {g : \u0393} {a : \u03b1} (ha : g = (s a).orderTop) (hg : \u2200 b : \u03b1, \u2200 g' \u2208 (s b).support, g \u2264 g') (hna : \u2200 b : \u03b1, b \u2260 a \u2192 (s b).coeff g = 0) : s.hsum.leadingCoeff = (s a).coeff g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hsum_orderTop_of_le ha hg hna",
+        "children": []
+      },
+      {
+        "name": "hs",
+        "type": "s.hsum \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "coeff_smul",
+    "statement": "SummableFamily \u0393 R \u03b1) (t : SummableFamily \u0393' V \u03b2) (g : \u0393') : (smul s t).hsum.coeff g = \u2211 gh \u2208 VAddAntidiagonal s.isPWO_iUnion_support t.isPWO_iUnion_support g, (s.hsum.coeff gh.1) \u2022 (t.hsum.coeff gh.2)",
+    "have_tree": [
+      {
+        "name": "hsupp",
+        "type": "",
+        "body": "smul_support_subset_prod s t gh",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "smul_hsum",
+    "statement": "SummableFamily \u0393 R \u03b1) (t : SummableFamily \u0393' V \u03b2) : (smul s t).hsum = (of R).symm (s.hsum \u2022 (of R) (t.hsum))",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "Finset.exists_ne_zero_of_sum_ne_zero hgh.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "ofFinsupp",
+    "statement": "\u03b1 \u2192\u2080 R\u27e6\u0393\u27e7) : SummableFamily \u0393 R \u03b1 where toFun",
+    "have_tree": [
+      {
+        "name": "haf",
+        "type": "a \u2208 f.support",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "pow_finite_co_support",
+    "statement": "R\u27e6\u0393\u27e7} (hx : 0 < x.orderTop) (g : \u0393) : Set.Finite {a | ((fun n \u21a6 x ^ n) a).coeff g \u2260 0}",
+    "have_tree": [
+      {
+        "name": "hpwo",
+        "type": "Set.IsPWO (\u22c3 n, support (x ^ n))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "unit_aux",
+    "statement": "R\u27e6\u0393\u27e7) {r : R} (hr : r * x.leadingCoeff = 1) (oinv : \u0393) (hxo : oinv + x.order = 0) : 0 < (1 - single oinv r * x).orderTop",
+    "have_tree": [
+      {
+        "name": "hy'",
+        "type": "0 < (single oinv r * y).order",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "isUnit_of_isUnit_leadingCoeff_AddUnitOrder",
+    "statement": "R\u27e6\u0393\u27e7} (hx : IsUnit x.leadingCoeff) (hxo : IsAddUnit x.order) : IsUnit x",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "SummableFamily.one_sub_self_mul_hsum_powers (unit_aux x iu _ hxo.addUnit.neg_add)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "toOrderTopSubOnePos",
+    "statement": "R\u27e6\u0393\u27e7} (h : 0 < (x - 1).orderTop) : orderTopSubOnePos \u0393 R where val",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

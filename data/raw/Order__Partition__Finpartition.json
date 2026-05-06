@@ -1,0 +1,99 @@
+[
+  {
+    "module": "Finpartition",
+    "name": "copy",
+    "statement": "\u03b1} (P : Finpartition a) (h : a = b) : Finpartition b where parts",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "P.supIndep hu hb (by simp [hbu]) (map_rel e.symm hx) ?_",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finpartition",
+    "name": "parts_top_subset",
+    "statement": "\u03b1) [Decidable (a = \u22a5)] : (\u22a4 : Finpartition a).parts \u2286 {a}",
+    "have_tree": [
+      {
+        "name": "hb",
+        "type": "b \u2208 Finpartition.parts (dite _ _ _)",
+        "body": "hb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finpartition",
+    "name": "exists_le_of_le",
+    "statement": "\u03b1} {P Q : Finpartition a} (h : P \u2264 Q) (hb : b \u2208 Q.parts) : \u2203 c \u2208 P.parts, c \u2264 b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 p \u2208 P.parts, \u2203 q \u2208 Q.parts.erase b, p \u2264 q",
+        "body": "by grind [h _]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "P.parts.sup id \u2264 (Q.parts.erase b).sup id",
+        "body": "by grind [Finset.le_sup, Finset.sup_le_iff]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finpartition",
+    "name": "card_mono",
+    "statement": "\u03b1} {P Q : Finpartition a} (h : P \u2264 Q) : #Q.parts \u2264 #P.parts",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 b \u2208 Q.parts, \u2203 c \u2208 P.parts, c \u2264 b",
+        "body": "fun b \u21a6 exists_le_of_le h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finpartition",
+    "name": "sum_restrict",
+    "statement": "Finpartition a) (hb : b \u2264 a) {M : Type*} [AddCommMonoid M] (f : \u03b1 \u2192 M) (hf : f \u22a5 = 0) : \u2211 p \u2208 (P.restrict hb).parts, f p = \u2211 q \u2208 P.parts, f (q \u2293 b)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Disjoint (x \u2293 b) (y \u2293 b)",
+        "body": "(P.disjoint hx.1 hy.1 hne).mono inf_le_left inf_le_left",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finpartition",
+    "name": "sum_combine",
+    "statement": "Type*} {I : Finset \u03b9} {s : \u03b9 \u2192 \u03b1} (P : \u2200 i, Finpartition (s i)) (ha : I.SupIndep s) {M : Type*} [AddCommMonoid M] (f : \u03b1 \u2192 M) : \u2211 p \u2208 (Finpartition.combine P ha).parts, f p = \u2211 i \u2208 I, \u2211 p \u2208 (P i).parts, f p",
+    "have_tree": [
+      {
+        "name": "hp_disj",
+        "type": "Disjoint p p",
+        "body": "(ha.pairwiseDisjoint hi hj hij).mono ((P i).le hpi) ((P j).le hpj)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finpartition",
+    "name": "mem_part_iff_exists",
+    "statement": "a \u2208 P.part b \u2194 \u2203 p \u2208 P.parts, a \u2208 p \u2227 b \u2208 p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "b \u2208 s",
+        "body": "P.part_nonempty.1 \u27e8a, h\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

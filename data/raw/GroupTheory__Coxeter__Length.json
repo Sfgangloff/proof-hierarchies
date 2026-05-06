@@ -1,0 +1,111 @@
+[
+  {
+    "module": "Length",
+    "name": "length_inv",
+    "statement": "W) : \u2113 (w\u207b\u00b9) = \u2113 w",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "cs.length_wordProd_le \u03c9.reverse",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "cs.length_wordProd_le \u03c9.reverse",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Length",
+    "name": "length_mul_le",
+    "statement": "W) : \u2113 (w\u2081 * w\u2082) \u2264 \u2113 w\u2081 + \u2113 w\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "cs.length_wordProd_le (\u03c9\u2081 ++ \u03c9\u2082)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Length",
+    "name": "length_mul_simple_ne",
+    "statement": "W) (i : B) : \u2113 (w * s i) \u2260 \u2113 w",
+    "have_tree": [
+      {
+        "name": "length_mod_two",
+        "type": "",
+        "body": "cs.length_mul_mod_two w (s i)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Length",
+    "name": "length_simple_mul",
+    "statement": "W) (i : B) : \u2113 (s i * w) = \u2113 w + 1 \u2228 \u2113 (s i * w) + 1 = \u2113 w",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "cs.length_mul_simple w\u207b\u00b9 i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Length",
+    "name": "isReduced_take_and_drop",
+    "statement": "List B} (h\u03c9 : cs.IsReduced \u03c9) (j : \u2115) : cs.IsReduced (\u03c9.take j) \u2227 cs.IsReduced (\u03c9.drop j)",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "\u2113 (\u03c0 (\u03c9.take j)) \u2264 (\u03c9.take j).length",
+        "body": "cs.length_wordProd_le (\u03c9.take j)",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "\u2113 (\u03c0 (\u03c9.drop j)) \u2264 (\u03c9.drop j).length",
+        "body": "cs.length_wordProd_le (\u03c9.drop j)",
+        "children": []
+      },
+      {
+        "name": "h\u2083",
+        "type": "",
+        "body": "calc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Length",
+    "name": "not_isReduced_alternatingWord",
+    "statement": "B) {m : \u2115} (hM : M i i' \u2260 0) (hm : m > M i i') : \u00accs.IsReduced (alternatingWord i i' m)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "M i i' + 1 \u2264 M i i' * 2",
+        "body": "by linarith [Nat.one_le_iff_ne_zero.mpr hM]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Length",
+    "name": "exists_leftDescent_of_ne_one",
+    "statement": "W} (hw : w \u2260 1) : \u2203 i : B, cs.IsLeftDescent w i",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "\u03c9 \u2260 []",
+        "body": "by rintro rfl; simp at hw",
+        "children": []
+      }
+    ]
+  }
+]

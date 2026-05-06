@@ -1,0 +1,41 @@
+[
+  {
+    "module": "AddCircleMulti",
+    "name": "mFourier_single",
+    "statement": "d \u2192 AddCircle (1 : \u211d)) (i : d) : mFourier (Pi.single i 1) z = fourier 1 (z i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Finset.prod_mul_prod_compl {i} (fun j \u21a6 fourier ((Pi.single i (1 : \u2124) : d \u2192 \u2124) j) (z j))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AddCircleMulti",
+    "name": "coe_measurableEquivPiIoc",
+    "statement": "\u21d1(measurableEquivPiIoc b) = fun x => \u27e8fun i => (AddCircle.equivIoc 1 (b i) (x i)).1, fun i => (AddCircle.equivIoc 1 (b i) (x i)).2\u27e9",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Measure.map_map (\u03bc := volume.comap Subtype.val) (measurable_pi_lambda",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AddCircleMulti",
+    "name": "hasSum_mFourier_series_of_summable",
+    "statement": "Summable (mFourierCoeff f)) : HasSum (fun i \u21a6 mFourierCoeff f i \u2022 mFourier i) f",
+    "have_tree": [
+      {
+        "name": "sum_L2",
+        "type": "",
+        "body": "hasSum_mFourier_series_L2 (ContinuousMap.toLp 2 volume \u2102 f)",
+        "children": []
+      }
+    ]
+  }
+]

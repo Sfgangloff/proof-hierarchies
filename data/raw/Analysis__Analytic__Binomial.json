@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Binomial",
+    "name": "one_div_sub_pow_hasFPowerSeriesOnBall_zero",
+    "statement": "\u2115) {z : \u2102} (hz : z \u2260 0) : HasFPowerSeriesOnBall (fun x \u21a6 1 / (z - x) ^ (a + 1)) (.ofScalars \u2102 (\ud835\udd5c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "one_div_one_sub_pow_hasFPowerSeriesOnBall_zero a",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "this.compContinuousLinearMap",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Binomial",
+    "name": "one_div_one_sub_rpow_hasFPowerSeriesOnBall_zero",
+    "statement": "\u211d) : HasFPowerSeriesOnBall (fun x \u21a6 1 / (1 - x) ^ a) (.ofScalars \u211d fun n \u21a6 Ring.choose (a + n - 1) n) 0 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Complex.one_div_one_sub_cpow_hasFPowerSeriesOnBall_zero a).restrictScalars (\ud835\udd5c := \u211d)",
+        "children": [
+          {
+            "name": "_",
+            "type": "|x| < 1",
+            "body": "by simpa [enorm_eq_nnnorm] using hx",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "0 \u2264 1 - x",
+            "body": "by grind",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Binomial",
+    "name": "one_div_sub_pow_hasFPowerSeriesOnBall_zero",
+    "statement": "\u2115) {r : \u211d} (hr : r \u2260 0) : HasFPowerSeriesOnBall (fun x \u21a6 1 / (r - x) ^ (a + 1)) (.ofScalars \u211d (\ud835\udd5c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Complex.one_div_sub_pow_hasFPowerSeriesOnBall_zero a (z := r)",
+        "children": []
+      }
+    ]
+  }
+]

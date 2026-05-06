@@ -1,0 +1,102 @@
+[
+  {
+    "module": "Minpoly",
+    "name": "separable_minpoly_mod",
+    "statement": "\u2115} [Fact p.Prime] (hdiv : \u00acp \u2223 n) : Separable (map (Int.castRingHom (ZMod p)) (minpoly \u2124 \u03bc))",
+    "have_tree": [
+      {
+        "name": "hdvd",
+        "type": "map (Int.castRingHom (ZMod p)) (minpoly \u2124 \u03bc) \u2223 X ^ n - 1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Minpoly",
+    "name": "minpoly_eq_pow",
+    "statement": "\u2115} [hprime : Fact p.Prime] (hdiv : \u00acp \u2223 n) : minpoly \u2124 \u03bc = minpoly \u2124 (\u03bc ^ p)",
+    "have_tree": [
+      {
+        "name": "hpos",
+        "type": "",
+        "body": "Nat.pos_of_ne_zero hn",
+        "children": []
+      },
+      {
+        "name": "Pmonic",
+        "type": "P.Monic",
+        "body": "minpoly.monic (h.isIntegral hpos)",
+        "children": []
+      },
+      {
+        "name": "Qmonic",
+        "type": "Q.Monic",
+        "body": "minpoly.monic ((h.pow_of_prime hprime.1 hdiv).isIntegral hpos)",
+        "children": []
+      },
+      {
+        "name": "Pirr",
+        "type": "Irreducible P",
+        "body": "minpoly.irreducible (h.isIntegral hpos)",
+        "children": []
+      },
+      {
+        "name": "Qirr",
+        "type": "Irreducible Q",
+        "body": "minpoly.irreducible ((h.pow_of_prime hprime.1 hdiv).isIntegral hpos)",
+        "children": []
+      },
+      {
+        "name": "PQprim",
+        "type": "IsPrimitive (P * Q)",
+        "body": "Pmonic.isPrimitive.mul Qmonic.isPrimitive",
+        "children": []
+      },
+      {
+        "name": "prod",
+        "type": "P * Q \u2223 X ^ n - 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "habs",
+        "type": "map (Int.castRingHom (ZMod p)) P ^ 2 \u2223 map (Int.castRingHom (ZMod p)) P ^ 2 * R",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Minpoly",
+    "name": "minpoly_eq_pow_coprime",
+    "statement": "\u2115} (hcop : Nat.Coprime m n) : minpoly \u2124 \u03bc = minpoly \u2124 (\u03bc ^ m)",
+    "have_tree": [
+      {
+        "name": "hdiv",
+        "type": "",
+        "body": "(Nat.Prime.coprime_iff_not_dvd hprime).1 (Nat.Coprime.coprime_mul_right hcop)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Minpoly",
+    "name": "is_roots_of_minpoly",
+    "statement": "primitiveRoots n K \u2286 (map (Int.castRingHom K) (minpoly \u2124 \u03bc)).roots.toFinset",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero n",
+        "body": "\u27e8hn\u27e9",
+        "children": []
+      },
+      {
+        "name": "hpos",
+        "type": "",
+        "body": "Nat.pos_of_ne_zero hn",
+        "children": []
+      }
+    ]
+  }
+]

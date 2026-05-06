@@ -1,0 +1,22 @@
+[
+  {
+    "module": "KonigLemma",
+    "name": "exists_seq_forall_proj_of_forall_finite",
+    "statement": "\u2115 \u2192 Type*} [Finite (\u03b1 0)] [\u2200 i, Nonempty (\u03b1 i)] (\u03c0 : {i j : \u2115} \u2192 (hij : i \u2264 j) \u2192 \u03b1 j \u2192 \u03b1 i) (\u03c0_refl : \u2200 \u2983i\u2984 (a : \u03b1 i), \u03c0 rfl.le a = a) (\u03c0_trans : \u2200 \u2983i j k\u2984 (hij : i \u2264 j) (hjk : j \u2264 k) a, \u03c0 hij (\u03c0 hjk a) = \u03c0 (hij.trans hjk) a) (hfin : \u2200 i a, {b : \u03b1 (i+1) | \u03c0 (Nat.le_add_right i 1) b = a}.Finite) : \u2203 f : (i : \u2115) \u2192 \u03b1 i, \u2200 \u2983i j\u2984 (hij : i \u2264 j), \u03c0 hij (f j) = f i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsStronglyAtomic \u03b1s",
+        "body": "by",
+        "children": [
+          {
+            "name": "hle",
+            "type": "i + 1 \u2264 j",
+            "body": "hij.lt_of_ne (by rintro rfl; simp [\u2190 h2, \u03c0_refl] at hne)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,221 @@
+[
+  {
+    "module": "Killing",
+    "name": "ker_restrict_eq_bot_of_isCartanSubalgebra",
+    "statement": "LieSubalgebra R L) [H.IsCartanSubalgebra] : LinearMap.ker ((killingForm R L).restrict H) = \u22a5",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "Codisjoint (rootSpace H 0) (LieModule.posFittingComp R H L)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Killing",
+    "name": "killingForm_apply_eq_zero_of_mem_rootSpace_of_add_ne_zero",
+    "statement": "H \u2192 K} {x y : L} (hx : x \u2208 rootSpace H \u03b1) (hy : y \u2208 rootSpace H \u03b2) (h\u03b1\u03b2 : \u03b1 + \u03b2 \u2260 0) : killingForm K L x y = 0",
+    "have_tree": [
+      {
+        "name": "h\u03c3",
+        "type": "\u2200 \u03b3, \u03c3 \u03b3 \u2260 \u03b3",
+        "body": "fun \u03b3 \u21a6 by simpa only [\u03c3, \u2190 add_assoc] using add_ne_right.mpr h\u03b1\u03b2",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "\u2200 \u03b3, MapsTo f (rootSpace H \u03b3) (rootSpace H (\u03c3 \u03b3))",
+        "body": "fun \u03b3 \u21a6",
+        "children": []
+      },
+      {
+        "name": "hds",
+        "type": "",
+        "body": "DirectSum.isInternal_submodule_of_iSupIndep_of_iSup_eq_top",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Killing",
+    "name": "mem_ker_killingForm_of_mem_rootSpace_of_forall_rootSpace_neg",
+    "statement": "H \u2192 K} {x : L} (hx : x \u2208 rootSpace H \u03b1) (hx' : \u2200 y \u2208 rootSpace H (-\u03b1), killingForm K L x y = 0) : x \u2208 LinearMap.ker (killingForm K L)",
+    "have_tree": [
+      {
+        "name": "hy",
+        "type": "y \u2208 \u2a06 \u03b2, rootSpace H \u03b2",
+        "body": "by simp [iSup_genWeightSpace_eq_top K H L]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Killing",
+    "name": "eq_zero_of_isNilpotent_ad_of_mem_isCartanSubalgebra",
+    "statement": "L} (hx : x \u2208 H) (hx' : _root_.IsNilpotent (ad K L x)) : x = 0",
+    "have_tree": [
+      {
+        "name": "comm",
+        "type": "Commute (toEnd K H L \u27e8x, hx\u27e9) (toEnd K H L y)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Killing",
+    "name": "cartanEquivDual_symm_apply_mem_corootSpace",
+    "statement": "Weight K H L) : (cartanEquivDual H).symm \u03b1 \u2208 corootSpace \u03b1",
+    "have_tree": [
+      {
+        "name": "he\u03b1",
+        "type": "e \u2208 rootSpace H \u03b1",
+        "body": "(mem_genWeightSpace L \u03b1 e).mpr fun x \u21a6 \u27e81, by simp [\u2190 he x]\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Killing",
+    "name": "isSemisimple_ad_of_mem_isCartanSubalgebra",
+    "statement": "L} (hx : x \u2208 H) : (ad K L x).IsSemisimple",
+    "have_tree": [
+      {
+        "name": "hyz",
+        "type": "\u2045y, z\u2046 \u2208 rootSpace H (\u03b1 + \u03b2)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Killing",
+    "name": "coroot_zero",
+    "statement": "coroot (0 : Weight K H L) = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsUnit (2 * (\u03b1 \u03b1')\u207b\u00b9)",
+        "body": "by simpa using root_apply_cartanEquivDual_symm_ne_zero h\u03b1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Killing",
+    "name": "coroot_eq_iff",
+    "statement": "Weight K H L) : coroot \u03b1 = coroot \u03b2 \u2194 \u03b1 = \u03b2",
+    "have_tree": [
+      {
+        "name": "h\u03b2",
+        "type": "\u03b2.IsZero",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u03b2",
+        "type": "\u03b2.IsNonZero",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Killing",
+    "name": "exists_isSl2Triple_of_weight_isNonZero",
+    "statement": "Weight K H L} (h\u03b1 : \u03b1.IsNonZero) : \u2203 h e f : L, IsSl2Triple h e f \u2227 e \u2208 rootSpace H \u03b1 \u2227 f \u2208 rootSpace H (-\u03b1)",
+    "have_tree": [
+      {
+        "name": "hef",
+        "type": "",
+        "body": "lie_eq_killingForm_smul_of_mem_rootSpace_of_mem_rootSpace_neg he\u03b1 hf\u03b1",
+        "children": []
+      },
+      {
+        "name": "hh",
+        "type": "\u03b1 h \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsAddTorsionFree L",
+            "body": ".of_isTorsionFree K L",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Killing",
+    "name": "_root_.IsSl2Triple.h_eq_coroot",
+    "statement": "Weight K H L} (h\u03b1 : \u03b1.IsNonZero) {h e f : L} (ht : IsSl2Triple h e f) (he\u03b1 : e \u2208 rootSpace H \u03b1) (hf\u03b1 : f \u2208 rootSpace H (-\u03b1)) : h = coroot \u03b1",
+    "have_tree": [
+      {
+        "name": "hef",
+        "type": "",
+        "body": "lie_eq_killingForm_smul_of_mem_rootSpace_of_mem_rootSpace_neg he\u03b1 hf\u03b1",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "lie_eq_smul_of_mem_rootSpace he\u03b1 h",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hef\u2080",
+        "type": "killingForm K L e f \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "ht.h_ne_zero",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Killing",
+    "name": "finrank_rootSpace_eq_one",
+    "statement": "Weight K H L) (h\u03b1 : \u03b1.IsNonZero) : finrank K (rootSpace H \u03b1) = 1",
+    "have_tree": [
+      {
+        "name": "h\u2080",
+        "type": "finrank K (rootSpace H \u03b1) \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hF",
+        "type": "LinearMap.ker F \u2260 \u22a5",
+        "body": "F.ker_ne_bot_of_finrank_lt <| by rwa [finrank_self]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Killing",
+    "name": "mem_sl2SubalgebraOfRoot_iff",
+    "statement": "Weight K H L} (h\u03b1 : \u03b1.IsNonZero) {h e f : L} (t : IsSl2Triple h e f) (hte : e \u2208 rootSpace H \u03b1) (htf : f \u2208 rootSpace H (-\u03b1)) {x : L} : x \u2208 sl2SubalgebraOfRoot h\u03b1 \u2194 \u2203 c\u2081 c\u2082 c\u2083 : K, x = c\u2081 \u2022 e + c\u2082 \u2022 f + c\u2083 \u2022 \u2045e, f\u2046",
+    "have_tree": [
+      {
+        "name": "hce\u2080",
+        "type": "ce \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hcf\u2080",
+        "type": "cf \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

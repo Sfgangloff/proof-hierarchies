@@ -1,0 +1,66 @@
+[
+  {
+    "module": "RingDivision",
+    "name": "rootMultiplicity_mul_X_sub_C_pow",
+    "statement": "R[X]} {a : R} {n : \u2115} (h : p \u2260 0) : (p * (X - C a) ^ n).rootMultiplicity a = p.rootMultiplicity a + n",
+    "have_tree": [
+      {
+        "name": "h2",
+        "type": "",
+        "body": "monic_X_sub_C a |>.pow n |>.mul_left_ne_zero h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RingDivision",
+    "name": "rootMultiplicity_X_sub_C_pow",
+    "statement": "R) (n : \u2115) : rootMultiplicity a ((X - C a) ^ n) = n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "rootMultiplicity_mul_X_sub_C_pow (a := a) (n := n) C.map_one_ne_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RingDivision",
+    "name": "pairwise_coprime_X_sub_C",
+    "statement": "Type v} {s : I \u2192 K} (H : Function.Injective s) : Pairwise (IsCoprime on fun i : I => X - C (s i))",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "p \u2260 0",
+        "body": "left_ne_zero_of_mul hpq",
+        "children": []
+      },
+      {
+        "name": "hq",
+        "type": "q \u2260 0",
+        "body": "right_ne_zero_of_mul hpq",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RingDivision",
+    "name": "exists_multiset_roots",
+    "statement": "\u2200 {p : R[X]} (_ : p \u2260 0), \u2203 s : Multiset R, (Multiset.card s : WithBot \u2115) \u2264 degree p \u2227 \u2200 a, s.count a = rootMultiplicity a p | p, hp => haveI",
+    "have_tree": [
+      {
+        "name": "hdeg",
+        "type": "degree (X - C x) \u2264 degree p",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hdiv0",
+        "type": "p /\u2098 (X - C x) \u2260 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

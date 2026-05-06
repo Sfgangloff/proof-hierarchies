@@ -1,0 +1,53 @@
+[
+  {
+    "module": "GenFun",
+    "name": "aux_dvd_of_coeff_ne_zero",
+    "statement": "\u2115 \u2192 \u2115 \u2192 R} {d : \u2115} {s : Finset \u2115} (hs0 : 0 \u2209 s) {g : \u2115 \u2192\u2080 \u2115} (hg : g \u2208 s.finsuppAntidiag d) (hprod : \u2200 i \u2208 s, (coeff (g i)) (1 + \u2211' j, f i (j + 1) \u2022 X ^ (i * (j + 1))) \u2260 (0 : R)) (x : \u2115) : x \u2223 g x",
+    "have_tree": [
+      {
+        "name": "hx0",
+        "type": "x \u2260 0",
+        "body": "fun h \u21a6 hs0 (h \u25b8 hx)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GenFun",
+    "name": "aux_prod_f_eq_prod_coeff",
+    "statement": "\u2115 \u2192 \u2115 \u2192 R) {n : \u2115} (p : Partition n) {s : Finset \u2115} (hs : Icc 1 n \u2286 s) (hs0 : 0 \u2209 s) : p.parts.toFinsupp.prod f = \u220f i \u2208 s, coeff (p.toFinsuppAntidiag i) (1 + \u2211' j, f i (j + 1) \u2022 X ^ (i * (j + 1)))",
+    "have_tree": [
+      {
+        "name": "hx0",
+        "type": "x \u2260 0",
+        "body": "fun h \u21a6 hs0 (h \u25b8 hx.1)",
+        "children": []
+      },
+      {
+        "name": "hsum",
+        "type": "",
+        "body": "(summable_genFun_term' f hx0).map_tsum _",
+        "children": []
+      },
+      {
+        "name": "hi0",
+        "type": "i \u2260 0",
+        "body": "(p.parts_pos hi).ne.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GenFun",
+    "name": "hasProd_genFun",
+    "statement": "\u2115 \u2192 \u2115 \u2192 R) : HasProd (fun i \u21a6 1 + \u2211' j, f (i + 1) (j + 1) \u2022 X ^ ((i + 1) * (j + 1))) (genFun f)",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "Icc 1 d \u2286 s.map (addRightEmbedding 1)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

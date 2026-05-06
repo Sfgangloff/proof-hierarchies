@@ -1,0 +1,175 @@
+[
+  {
+    "module": "Similarity",
+    "name": "similar_of_angle_angle",
+    "statement": "\u00ac Collinear \u211d {a, b, c}) (h\u2081 : \u2220 a b c = \u2220 a' b' c') (h\u2082 : \u2220 b c a = \u2220 b' c' a') : ![a, b, c] \u223c ![a', b', c']",
+    "have_tree": [
+      {
+        "name": "hne_pi_div_two",
+        "type": "\u2220 a b c \u2260 Real.pi / 2 \u2228 \u2220 b c a \u2260 Real.pi / 2",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "angle_lt_pi_div_two_of_angle_eq_pi_div_two hq.1 (ne\u2082\u2083_of_not_collinear h_not_col).symm",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "not_all_eq",
+        "type": "a' \u2260 b' \u2228 b' \u2260 c' \u2228 a' \u2260 c'",
+        "body": "by grind [angle_self_left]",
+        "children": []
+      },
+      {
+        "name": "h_not_col'",
+        "type": "\u00ac Collinear \u211d {a', b', c'}",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_pos1",
+        "type": "0 < dist a b",
+        "body": "by simp [dist_pos, ne\u2081\u2082_of_not_collinear h_not_col]",
+        "children": []
+      },
+      {
+        "name": "h_pos1'",
+        "type": "0 < dist a' b'",
+        "body": "by simp [dist_pos, ne\u2081\u2082_of_not_collinear h_not_col']",
+        "children": []
+      },
+      {
+        "name": "h_pos2",
+        "type": "0 < dist b c",
+        "body": "by simp [dist_pos, ne\u2082\u2083_of_not_collinear h_not_col]",
+        "children": []
+      },
+      {
+        "name": "h_pos2'",
+        "type": "0 < dist b' c'",
+        "body": "by simp [dist_pos, ne\u2082\u2083_of_not_collinear h_not_col']",
+        "children": [
+          {
+            "name": "hsum",
+            "type": "",
+            "body": "angle_add_angle_add_angle_eq_pi c (ne\u2081\u2082_of_not_collinear h_not_col)",
+            "children": []
+          },
+          {
+            "name": "hsum'",
+            "type": "",
+            "body": "angle_add_angle_add_angle_eq_pi c' (ne\u2081\u2082_of_not_collinear h_not_col')",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_sin_ne1",
+        "type": "Real.sin (\u2220 b c a) \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_sin_ne2",
+        "type": "Real.sin (\u2220 c a b) \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_sin1",
+        "type": "",
+        "body": "law_sin c a b",
+        "children": []
+      },
+      {
+        "name": "h_sin1'",
+        "type": "",
+        "body": "law_sin c' a' b'",
+        "children": []
+      },
+      {
+        "name": "h_sin2",
+        "type": "",
+        "body": "law_sin a b c",
+        "children": []
+      },
+      {
+        "name": "h_sin2'",
+        "type": "",
+        "body": "law_sin a' b' c'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Similarity",
+    "name": "similar_of_side_angle_side",
+    "statement": "\u00ac Collinear \u211d {a, b, c}) (h_not_col' : \u00ac Collinear \u211d {a', b', c'}) (h : \u2220 a b c = \u2220 a' b' c') (hd : dist a b * dist b' c' = dist b c * dist a' b') : ![a, b, c] \u223c ![a', b', c']",
+    "have_tree": [
+      {
+        "name": "dist_a'b'",
+        "type": "dist a' b' \u2260 0",
+        "body": "by simp [ne\u2081\u2082_of_not_collinear h_not_col']",
+        "children": []
+      },
+      {
+        "name": "dist_b'c'",
+        "type": "dist b' c' \u2260 0",
+        "body": "by simp [ne\u2082\u2083_of_not_collinear h_not_col']",
+        "children": []
+      },
+      {
+        "name": "k_pos",
+        "type": "0 < k",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hcos",
+        "type": "",
+        "body": "law_cos a b c",
+        "children": []
+      },
+      {
+        "name": "hcos'",
+        "type": "",
+        "body": "law_cos a' b' c'",
+        "children": []
+      },
+      {
+        "name": "dist_ac_pos",
+        "type": "0 < dist a c",
+        "body": "by grind [dist_pos, ne\u2081\u2083_of_not_collinear]",
+        "children": []
+      },
+      {
+        "name": "k_dist_a'c'",
+        "type": "0 \u2264 k * dist a' c'",
+        "body": "by positivity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Similarity",
+    "name": "_root_.Similar.angle_eq",
+    "statement": "![a, b, c] \u223c ![a', b', c']) : \u2220 a b c = \u2220 a' b' c'",
+    "have_tree": [
+      {
+        "name": "h_cos",
+        "type": "",
+        "body": "law_cos a b c",
+        "children": []
+      },
+      {
+        "name": "h_cos'",
+        "type": "",
+        "body": "law_cos a' b' c'",
+        "children": []
+      }
+    ]
+  }
+]

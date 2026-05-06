@@ -1,0 +1,135 @@
+[
+  {
+    "module": "Basic",
+    "name": "existsUnique_zpow_near_of_one_lt",
+    "statement": "G} (ha : 1 < a) (g : G) : \u2203! k : \u2124, a ^ k \u2264 g \u2227 g < a ^ (k + 1)",
+    "have_tree": [
+      {
+        "name": "h_ne",
+        "type": "s.Nonempty",
+        "body": "\u27e8-k, by simpa [s] using inv_le_inv' hk\u27e9",
+        "children": []
+      },
+      {
+        "name": "hm''",
+        "type": "g < a ^ (m + 1)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "add_one_pow_unbounded_of_pos",
+    "statement": "R) (hy : 0 < y) : \u2203 n : \u2115, x < (y + 1) ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 \u2264 1 + y",
+        "body": "add_nonneg zero_le_one hy.le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_nat_pow_near",
+    "statement": "1 \u2264 x) (hy : 1 < y) : \u2203 n : \u2115, y ^ n \u2264 x \u2227 x < y ^ (n + 1)",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "x < y ^ n",
+        "body": "Nat.find_spec h",
+        "children": []
+      },
+      {
+        "name": "hnp",
+        "type": "0 < n",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hltn",
+        "type": "Nat.pred n < n",
+        "body": "Nat.pred_lt (ne_of_gt hnp)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_mem_Ioc_zpow",
+    "statement": "0 < x) (hy : 1 < y) : \u2203 n : \u2124, x \u2208 Ioc (y ^ n) (y ^ (n + 1))",
+    "have_tree": [
+      {
+        "name": "hyp",
+        "type": "0 < y",
+        "body": "lt_trans zero_lt_one hy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_pow_btwn_of_lt_mul",
+    "statement": "K} (h : a < b * c) (hb\u2080 : 0 < b) (hb\u2081 : b \u2264 1) (hc\u2080 : 0 < c) (hc\u2081 : c < 1) : \u2203 n : \u2115, a < c ^ n \u2227 c ^ n < b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "exists_pow_lt_of_lt_one hb\u2080 hc\u2081",
+        "children": []
+      },
+      {
+        "name": "hn",
+        "type": "Nat.find this \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_div_btwn",
+    "statement": "K} {n : \u2115} (h : x < y) (nh : (y - x)\u207b\u00b9 < n) : \u2203 z : \u2124, x < (z : K) / n \u2227 (z : K) / n < y",
+    "have_tree": [
+      {
+        "name": "n0'",
+        "type": "",
+        "body": "(inv_pos.2 (sub_pos.2 h)).trans nh",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_pow_btwn",
+    "statement": "\u2115} (hn : n \u2260 0) {x y : K} (h : x < y) (hy : 0 < y) : \u2203 q : K, 0 < q \u2227 x < q ^ n \u2227 q ^ n < y",
+    "have_tree": [
+      {
+        "name": "m_pos",
+        "type": "0 < m",
+        "body": "(Nat.find_pos _).mpr <| by simpa [zero_pow hn] using hy",
+        "children": []
+      },
+      {
+        "name": "qny",
+        "type": "q ^ n < y",
+        "body": "lt_of_not_ge (Nat.find_min ex <| Nat.pred_lt m_pos.ne')",
+        "children": []
+      },
+      {
+        "name": "q1y",
+        "type": "|q| < max 1 y",
+        "body": "(abs_eq_self.mpr <| by positivity).trans_lt <| lt_max_iff.mpr",
+        "children": []
+      },
+      {
+        "name": "xqn",
+        "type": "max x 0 < q ^ n",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

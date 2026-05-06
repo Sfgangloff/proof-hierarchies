@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "StronglyMeasurable",
+      "name": "limUnder",
+      "statement": "Nonempty E] (hf : \u2200 i, StronglyMeasurable (f i)) : StronglyMeasurable (fun x \u21a6 limUnder l (f \u00b7 x))",
+      "have_tree": [
+        {
+          "name": "mconv",
+          "type": "MeasurableSet conv",
+          "body": "StronglyMeasurable.measurableSet_exists_tendsto hf",
+          "children": []
+        },
+        {
+          "name": "hs",
+          "type": "IsSeparable s",
+          "body": "(IsSeparable.iUnion (fun i \u21a6 (hf i).isSeparable_range)).closure.union",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "StronglyMeasurable",
+          "name": "limUnder",
+          "statement": "Nonempty E] (hf : \u2200 i, StronglyMeasurable (f i)) : StronglyMeasurable (fun x \u21a6 limUnder l (f \u00b7 x))",
+          "have_tree": [
+            {
+              "name": "hs",
+              "type": "IsSeparable s",
+              "body": "(IsSeparable.iUnion (fun i \u21a6 (hf i).isSeparable_range)).closure.union",
+              "children": []
+            },
+            {
+              "name": "mconv",
+              "type": "MeasurableSet conv",
+              "body": "StronglyMeasurable.measurableSet_exists_tendsto hf",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

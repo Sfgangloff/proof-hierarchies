@@ -1,0 +1,296 @@
+[
+  {
+    "original": {
+      "module": "AbstractFuncEq",
+      "name": "StrongFEPair.symm",
+      "statement": "StrongFEPair E) : StrongFEPair E where toWeakFEPair",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "(P.hg_top (-(r + P.k))).comp_tendsto tendsto_inv_nhdsGT_zero",
+          "children": []
+        },
+        {
+          "name": "h_nv",
+          "type": "P.\u03b5\u207b\u00b9 * \u2191(x ^ P.k) \u2260 0",
+          "body": "mul_ne_zero P.symm.h\u03b5 h_nv2",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "AbstractFuncEq",
+          "name": "StrongFEPair.symm",
+          "statement": "StrongFEPair E) : StrongFEPair E where toWeakFEPair",
+          "have_tree": [
+            {
+              "name": "h_nv",
+              "type": "P.\u03b5\u207b\u00b9 * \u2191(x ^ P.k) \u2260 0",
+              "body": "mul_ne_zero P.symm.h\u03b5 h_nv2",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(P.hg_top (-(r + P.k))).comp_tendsto tendsto_inv_nhdsGT_zero",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "AbstractFuncEq",
+      "name": "\u039b_eq",
+      "statement": "P.\u039b = mellin P.f",
+      "have_tree": [
+        {
+          "name": "step1",
+          "type": "",
+          "body": "mellin_comp_rpow P.g (-s) (-1)",
+          "children": []
+        },
+        {
+          "name": "step2",
+          "type": "",
+          "body": "mellin_cpow_smul (fun t \u21a6 P.g (1 / t)) (P.k - s) (-P.k)",
+          "children": []
+        },
+        {
+          "name": "step3",
+          "type": "",
+          "body": "mellin_const_smul (fun t \u21a6 (t : \u2102) ^ (-P.k : \u2102) \u2022 P.g (1 / t)) (P.k - s) P.\u03b5",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "AbstractFuncEq",
+          "name": "\u039b_eq",
+          "statement": "P.\u039b = mellin P.f",
+          "have_tree": [
+            {
+              "name": "step2",
+              "type": "",
+              "body": "mellin_cpow_smul (fun t \u21a6 P.g (1 / t)) (P.k - s) (-P.k)",
+              "children": []
+            },
+            {
+              "name": "step1",
+              "type": "",
+              "body": "mellin_comp_rpow P.g (-s) (-1)",
+              "children": []
+            },
+            {
+              "name": "step3",
+              "type": "",
+              "body": "mellin_const_smul (fun t \u21a6 (t : \u2102) ^ (-P.k : \u2102) \u2022 P.g (1 / t)) (P.k - s) P.\u03b5",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "AbstractFuncEq",
+          "name": "\u039b_eq",
+          "statement": "P.\u039b = mellin P.f",
+          "have_tree": [
+            {
+              "name": "step1",
+              "type": "",
+              "body": "mellin_comp_rpow P.g (-s) (-1)",
+              "children": []
+            },
+            {
+              "name": "step3",
+              "type": "",
+              "body": "mellin_const_smul (fun t \u21a6 (t : \u2102) ^ (-P.k : \u2102) \u2022 P.g (1 / t)) (P.k - s) P.\u03b5",
+              "children": []
+            },
+            {
+              "name": "step2",
+              "type": "",
+              "body": "mellin_cpow_smul (fun t \u21a6 P.g (1 / t)) (P.k - s) (-P.k)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "AbstractFuncEq",
+      "name": "f_modif_aux2",
+      "statement": "\u2102} (hs : P.k < re s) : mellin (fun x \u21a6 P.f_modif x - P.f x + P.f\u2080) s = (1 / s) \u2022 P.f\u2080 + (P.\u03b5 / (P.k - s)) \u2022 P.g\u2080",
+      "have_tree": [
+        {
+          "name": "h_re1",
+          "type": "-1 < re (s - 1)",
+          "body": "by simpa using P.hk.trans hs",
+          "children": []
+        },
+        {
+          "name": "h_re2",
+          "type": "-1 < re (s - P.k - 1)",
+          "body": "by simpa using hs",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "AbstractFuncEq",
+          "name": "f_modif_aux2",
+          "statement": "\u2102} (hs : P.k < re s) : mellin (fun x \u21a6 P.f_modif x - P.f x + P.f\u2080) s = (1 / s) \u2022 P.f\u2080 + (P.\u03b5 / (P.k - s)) \u2022 P.g\u2080",
+          "have_tree": [
+            {
+              "name": "h_re2",
+              "type": "-1 < re (s - P.k - 1)",
+              "body": "by simpa using hs",
+              "children": []
+            },
+            {
+              "name": "h_re1",
+              "type": "-1 < re (s - 1)",
+              "body": "by simpa using P.hk.trans hs",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "AbstractFuncEq",
+      "name": "hasMellin",
+      "statement": "\u2102} (hs : P.k < s.re) : HasMellin (P.f \u00b7 - P.f\u2080) s (P.\u039b s)",
+      "have_tree": [
+        {
+          "name": "hc1",
+          "type": "MellinConvergent (P.f \u00b7 - P.f\u2080) s",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "hc2",
+          "type": "HasMellin P.f_modif s (P.\u039b\u2080 s)",
+          "body": "P.toStrongFEPair.hasMellin s",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "(hasMellin_sub hc2.1 hc1).2",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "AbstractFuncEq",
+          "name": "hasMellin",
+          "statement": "\u2102} (hs : P.k < s.re) : HasMellin (P.f \u00b7 - P.f\u2080) s (P.\u039b s)",
+          "have_tree": [
+            {
+              "name": "hc2",
+              "type": "HasMellin P.f_modif s (P.\u039b\u2080 s)",
+              "body": "P.toStrongFEPair.hasMellin s",
+              "children": []
+            },
+            {
+              "name": "hc1",
+              "type": "MellinConvergent (P.f \u00b7 - P.f\u2080) s",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(hasMellin_sub hc2.1 hc1).2",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "AbstractFuncEq",
+          "name": "hasMellin",
+          "statement": "\u2102} (hs : P.k < s.re) : HasMellin (P.f \u00b7 - P.f\u2080) s (P.\u039b s)",
+          "have_tree": [
+            {
+              "name": "hc1",
+              "type": "MellinConvergent (P.f \u00b7 - P.f\u2080) s",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(hasMellin_sub hc2.1 hc1).2",
+              "children": []
+            },
+            {
+              "name": "hc2",
+              "type": "HasMellin P.f_modif s (P.\u039b\u2080 s)",
+              "body": "P.toStrongFEPair.hasMellin s",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

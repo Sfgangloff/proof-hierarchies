@@ -1,0 +1,246 @@
+[
+  {
+    "original": {
+      "module": "MeanValue",
+      "name": "norm_image_sub_le_of_norm_deriv_right_le_segment",
+      "statement": "\u211d \u2192 E} {C : \u211d} (hf : ContinuousOn f (Icc a b)) (hf' : \u2200 x \u2208 Ico a b, HasDerivWithinAt f (f' x) (Ici x) x) (bound : \u2200 x \u2208 Ico a b, \u2016f' x\u2016 \u2264 C) : \u2200 x \u2208 Icc a b, \u2016f x - f a\u2016 \u2264 C * (x - a)",
+      "have_tree": [
+        {
+          "name": "hg",
+          "type": "ContinuousOn g (Icc a b)",
+          "body": "hf.sub continuousOn_const",
+          "children": []
+        },
+        {
+          "name": "hg'",
+          "type": "\u2200 x \u2208 Ico a b, HasDerivWithinAt g (f' x) (Ici x) x",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hB",
+          "type": "\u2200 x, HasDerivAt B C x",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "MeanValue",
+          "name": "norm_image_sub_le_of_norm_deriv_right_le_segment",
+          "statement": "\u211d \u2192 E} {C : \u211d} (hf : ContinuousOn f (Icc a b)) (hf' : \u2200 x \u2208 Ico a b, HasDerivWithinAt f (f' x) (Ici x) x) (bound : \u2200 x \u2208 Ico a b, \u2016f' x\u2016 \u2264 C) : \u2200 x \u2208 Icc a b, \u2016f x - f a\u2016 \u2264 C * (x - a)",
+          "have_tree": [
+            {
+              "name": "hg'",
+              "type": "\u2200 x \u2208 Ico a b, HasDerivWithinAt g (f' x) (Ici x) x",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hg",
+              "type": "ContinuousOn g (Icc a b)",
+              "body": "hf.sub continuousOn_const",
+              "children": []
+            },
+            {
+              "name": "hB",
+              "type": "\u2200 x, HasDerivAt B C x",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "MeanValue",
+          "name": "norm_image_sub_le_of_norm_deriv_right_le_segment",
+          "statement": "\u211d \u2192 E} {C : \u211d} (hf : ContinuousOn f (Icc a b)) (hf' : \u2200 x \u2208 Ico a b, HasDerivWithinAt f (f' x) (Ici x) x) (bound : \u2200 x \u2208 Ico a b, \u2016f' x\u2016 \u2264 C) : \u2200 x \u2208 Icc a b, \u2016f x - f a\u2016 \u2264 C * (x - a)",
+          "have_tree": [
+            {
+              "name": "hg",
+              "type": "ContinuousOn g (Icc a b)",
+              "body": "hf.sub continuousOn_const",
+              "children": []
+            },
+            {
+              "name": "hB",
+              "type": "\u2200 x, HasDerivAt B C x",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hg'",
+              "type": "\u2200 x \u2208 Ico a b, HasDerivWithinAt g (f' x) (Ici x) x",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "MeanValue",
+      "name": "eq_of_derivWithin_eq",
+      "statement": "DifferentiableOn \u211d f (Icc a b)) (gdiff : DifferentiableOn \u211d g (Icc a b)) (hderiv : EqOn (derivWithin f (Icc a b)) (derivWithin g (Icc a b)) (Ico a b)) (hi : f a = g a) : \u2200 y \u2208 Icc a b, f y = g y",
+      "have_tree": [
+        {
+          "name": "A",
+          "type": "\u2200 y \u2208 Ico a b, HasDerivWithinAt f (derivWithin f (Icc a b) y) (Ici y) y",
+          "body": "fun y hy =>",
+          "children": []
+        },
+        {
+          "name": "B",
+          "type": "\u2200 y \u2208 Ico a b, HasDerivWithinAt g (derivWithin g (Icc a b) y) (Ici y) y",
+          "body": "fun y hy =>",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "MeanValue",
+          "name": "eq_of_derivWithin_eq",
+          "statement": "DifferentiableOn \u211d f (Icc a b)) (gdiff : DifferentiableOn \u211d g (Icc a b)) (hderiv : EqOn (derivWithin f (Icc a b)) (derivWithin g (Icc a b)) (Ico a b)) (hi : f a = g a) : \u2200 y \u2208 Icc a b, f y = g y",
+          "have_tree": [
+            {
+              "name": "B",
+              "type": "\u2200 y \u2208 Ico a b, HasDerivWithinAt g (derivWithin g (Icc a b) y) (Ici y) y",
+              "body": "fun y hy =>",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "\u2200 y \u2208 Ico a b, HasDerivWithinAt f (derivWithin f (Icc a b) y) (Ici y) y",
+              "body": "fun y hy =>",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "MeanValue",
+      "name": "_root_.IsOpen.exists_is_const_of_fderiv_eq_zero",
+      "statement": "IsOpen s) (hs' : IsPreconnected s) (hf : DifferentiableOn \ud835\udd5c f s) (hf' : s.EqOn (fderiv \ud835\udd5c f) 0) : \u2203 a, \u2200 x \u2208 s, f x = a",
+      "have_tree": [
+        {
+          "name": "h\u2081",
+          "type": "",
+          "body": "hs.isOpen_inter_preimage_of_fderiv_eq_zero hf hf' {f y}",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "",
+          "body": "hf.continuousOn.comp_continuous continuous_subtype_val (fun x \u21a6 x.2)",
+          "children": []
+        },
+        {
+          "name": "ht''",
+          "type": "\u2200 a \u2208 s, a \u2208 t \u2194 f a \u2260 f y",
+          "body": "by simpa [Set.ext_iff] using ht'",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "MeanValue",
+          "name": "_root_.IsOpen.exists_is_const_of_fderiv_eq_zero",
+          "statement": "IsOpen s) (hs' : IsPreconnected s) (hf : DifferentiableOn \ud835\udd5c f s) (hf' : s.EqOn (fderiv \ud835\udd5c f) 0) : \u2203 a, \u2200 x \u2208 s, f x = a",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "hf.continuousOn.comp_continuous continuous_subtype_val (fun x \u21a6 x.2)",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "hs.isOpen_inter_preimage_of_fderiv_eq_zero hf hf' {f y}",
+              "children": []
+            },
+            {
+              "name": "ht''",
+              "type": "\u2200 a \u2208 s, a \u2208 t \u2194 f a \u2260 f y",
+              "body": "by simpa [Set.ext_iff] using ht'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "MeanValue",
+          "name": "_root_.IsOpen.exists_is_const_of_fderiv_eq_zero",
+          "statement": "IsOpen s) (hs' : IsPreconnected s) (hf : DifferentiableOn \ud835\udd5c f s) (hf' : s.EqOn (fderiv \ud835\udd5c f) 0) : \u2203 a, \u2200 x \u2208 s, f x = a",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "hs.isOpen_inter_preimage_of_fderiv_eq_zero hf hf' {f y}",
+              "children": []
+            },
+            {
+              "name": "ht''",
+              "type": "\u2200 a \u2208 s, a \u2208 t \u2194 f a \u2260 f y",
+              "body": "by simpa [Set.ext_iff] using ht'",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "hf.continuousOn.comp_continuous continuous_subtype_val (fun x \u21a6 x.2)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

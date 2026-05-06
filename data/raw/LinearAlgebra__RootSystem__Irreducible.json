@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Irreducible",
+    "name": "invtRootSubmodule.eq_span_root",
+    "statement": "Type*} [Field K] [NeZero (2 : K)] [Module K M] [Module K N] {P : RootPairing \u03b9 K M N} [P.IsRootSystem] (q : P.invtRootSubmodule) : (q : Submodule K M) = span K (P.root '' {i | P.root i \u2208 (q : Submodule K M)})",
+    "have_tree": [
+      {
+        "name": "hSQ",
+        "type": "span K (P.root '' {i | P.root i \u2208 Q}) \u2264 Q",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "htQ",
+        "type": "t \u2208 Q",
+        "body": "by simpa using Q.sub_mem hv (hSQ hs)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Irreducible",
+    "name": "isSimpleModule_weylGroupRootRep",
+    "statement": "IsSimpleModule R[P.weylGroup] P.weylGroupRootRep.asModule",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsIrreducible.nontrivial P",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Irreducible",
+    "name": "isIrreducible_iff_invtRootSubmodule",
+    "statement": "Type*} [Field K] [Module K M] [Module K N] [Nontrivial M] (P : RootPairing \u03b9 K M N) : P.IsIrreducible \u2194 IsSimpleOrder P.invtRootSubmodule",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsIrreducible.eq_top_of_invtSubmodule_reflection q hq",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,79 @@
+[
+  {
+    "module": "AbelLimit",
+    "name": "stolzCone_subset_stolzSet_aux'",
+    "statement": "\u211d) : \u2203 M \u03b5, 0 < M \u2227 0 < \u03b5 \u2227 \u2200 x y, 0 < x \u2192 x < \u03b5 \u2192 |y| < s * x \u2192 \u221a(x ^ 2 + y ^ 2) < M * (1 - \u221a((1 - x) ^ 2 + y ^ 2))",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "\u221a((1 - x) ^ 2 + y ^ 2) \u2264 1 - x / 2",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AbelLimit",
+    "name": "abel_aux",
+    "statement": "Tendsto (fun n \u21a6 \u2211 i \u2208 range n, f i) atTop (\ud835\udcdd l)) {z : \u2102} (hz : \u2016z\u2016 < 1) : Tendsto (fun n \u21a6 (1 - z) * \u2211 i \u2208 range n, (l - \u2211 j \u2208 range (i + 1), f j) * z ^ i) atTop (\ud835\udcdd (l - \u2211' n, f n * z ^ n))",
+    "have_tree": [
+      {
+        "name": "k",
+        "type": "",
+        "body": "h.sub (summable_powerSeries_of_norm_lt_one h.cauchySeq hz).hasSum.tendsto_sum_nat",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AbelLimit",
+    "name": "tendsto_tsum_powerSeries_nhdsWithin_stolzSet",
+    "statement": "Tendsto (fun n \u21a6 \u2211 i \u2208 range n, f i) atTop (\ud835\udcdd l)) {M : \u211d} : Tendsto (fun z \u21a6 \u2211' n, f n * z ^ n) (\ud835\udcdd[stolzSet M] 1) (\ud835\udcdd l)",
+    "have_tree": [
+      {
+        "name": "hm",
+        "type": "",
+        "body": "Metric.tendsto_atTop.mp h",
+        "children": []
+      },
+      {
+        "name": "p",
+        "type": "",
+        "body": "abel_aux h zn",
+        "children": []
+      },
+      {
+        "name": "S\u2081",
+        "type": "\u20161 - z\u2016 * \u2211 i \u2208 range B\u2081, \u2016l - s (i + 1)\u2016 * \u2016z\u2016 ^ i < \u03b5 / 4",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "S\u2082",
+        "type": "\u20161 - z\u2016 * \u2211 i \u2208 Ico B\u2081 (max B\u2081 B\u2082), \u2016l - s (i + 1)\u2016 * \u2016z\u2016 ^ i < \u03b5 / 4",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hB\u2081 (i + 1) (by linarith only [(mem_Ico.mp hi).1])",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "AbelLimit",
+    "name": "tendsto_tsum_powerSeries_nhdsWithin_lt",
+    "statement": "Tendsto (fun n \u21a6 \u2211 i \u2208 range n, f i) atTop (\ud835\udcdd l)) : Tendsto (fun x \u21a6 \u2211' n, f n * x ^ n) (\ud835\udcdd[<] 1) (\ud835\udcdd l)",
+    "have_tree": [
+      {
+        "name": "m",
+        "type": "(\ud835\udcdd l).map ofReal \u2264 \ud835\udcdd \u2191l",
+        "body": "ofRealCLM.continuous.tendsto l",
+        "children": []
+      }
+    ]
+  }
+]

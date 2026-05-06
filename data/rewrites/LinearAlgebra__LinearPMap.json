@@ -1,0 +1,122 @@
+[
+  {
+    "original": {
+      "module": "LinearPMap",
+      "name": "sup_le",
+      "statement": "E \u2192\u209b\u2097.[\u03c3] F} (H : \u2200 (x : f.domain) (y : g.domain), (x : E) = y \u2192 f x = g y) (fh : f \u2264 h) (gh : g \u2264 h) : f.sup g H \u2264 h",
+      "have_tree": [
+        {
+          "name": "Hf",
+          "type": "f \u2264 f.sup g H \u2293 h",
+          "body": "le_inf (f.left_le_sup g H) fh",
+          "children": []
+        },
+        {
+          "name": "Hg",
+          "type": "g \u2264 f.sup g H \u2293 h",
+          "body": "le_inf (f.right_le_sup g H) gh",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "LinearPMap",
+          "name": "sup_le",
+          "statement": "E \u2192\u209b\u2097.[\u03c3] F} (H : \u2200 (x : f.domain) (y : g.domain), (x : E) = y \u2192 f x = g y) (fh : f \u2264 h) (gh : g \u2264 h) : f.sup g H \u2264 h",
+          "have_tree": [
+            {
+              "name": "Hg",
+              "type": "g \u2264 f.sup g H \u2293 h",
+              "body": "le_inf (f.right_le_sup g H) gh",
+              "children": []
+            },
+            {
+              "name": "Hf",
+              "type": "f \u2264 f.sup g H \u2293 h",
+              "body": "le_inf (f.left_le_sup g H) fh",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "LinearPMap",
+      "name": "sSup_aux",
+      "statement": "Set (E \u2192\u209b\u2097.[\u03c3] F)) (hc : DirectedOn (\u00b7 \u2264 \u00b7) c) : \u2203 f : \u21a5(sSup (domain '' c)) \u2192\u209b\u2097[\u03c3] F, (\u27e8_, f\u27e9 : E \u2192\u209b\u2097.[\u03c3] F) \u2208 upperBounds c",
+      "have_tree": [
+        {
+          "name": "hdir",
+          "type": "DirectedOn (\u00b7 \u2264 \u00b7) (domain '' c)",
+          "body": "",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "(mem_sSup_of_directed (cne.image _) hdir).1 x.2",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "LinearPMap",
+          "name": "sSup_aux",
+          "statement": "Set (E \u2192\u209b\u2097.[\u03c3] F)) (hc : DirectedOn (\u00b7 \u2264 \u00b7) c) : \u2203 f : \u21a5(sSup (domain '' c)) \u2192\u209b\u2097[\u03c3] F, (\u27e8_, f\u27e9 : E \u2192\u209b\u2097.[\u03c3] F) \u2208 upperBounds c",
+          "have_tree": [
+            {
+              "name": "hdir",
+              "type": "DirectedOn (\u00b7 \u2264 \u00b7) (domain '' c)",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "LinearPMap",
+          "name": "sSup_aux",
+          "statement": "Set (E \u2192\u209b\u2097.[\u03c3] F)) (hc : DirectedOn (\u00b7 \u2264 \u00b7) c) : \u2203 f : \u21a5(sSup (domain '' c)) \u2192\u209b\u2097[\u03c3] F, (\u27e8_, f\u27e9 : E \u2192\u209b\u2097.[\u03c3] F) \u2208 upperBounds c",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "(mem_sSup_of_directed (cne.image _) hdir).1 x.2",
+              "children": []
+            },
+            {
+              "name": "hdir",
+              "type": "DirectedOn (\u00b7 \u2264 \u00b7) (domain '' c)",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

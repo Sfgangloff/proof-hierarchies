@@ -1,0 +1,78 @@
+[
+  {
+    "module": "Uniformity",
+    "name": "le_two_mul_dist_ofPreNNDist",
+    "statement": "X \u2192 X \u2192 \u211d\u22650) (dist_self : \u2200 x, d x x = 0) (dist_comm : \u2200 x y, d x y = d y x) (hd : \u2200 x\u2081 x\u2082 x\u2083 x\u2084, d x\u2081 x\u2084 \u2264 2 * max (d x\u2081 x\u2082) (max (d x\u2082 x\u2083) (d x\u2083 x\u2084))) (x y : X) : \u2191(d x y) \u2264 2 * @dist X (@PseudoMetricSpace.toDist X (PseudoMetricSpace.ofPreNNDist d dist_self dist_comm)) x y",
+    "have_tree": [
+      {
+        "name": "hs\u2080",
+        "type": "0 \u2208 s",
+        "body": "by simp [s]",
+        "children": []
+      },
+      {
+        "name": "hsne",
+        "type": "s.Nonempty",
+        "body": "\u27e80, hs\u2080\u27e9",
+        "children": [
+          {
+            "name": "hs_ub",
+            "type": "length l \u2208 upperBounds s",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hs_bdd",
+            "type": "BddAbove s",
+            "body": "\u27e8length l, hs_ub\u27e9",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hM_lt",
+        "type": "M < length L",
+        "body": "by rwa [hL_len, Nat.lt_succ_iff]",
+        "children": []
+      },
+      {
+        "name": "hM_lty",
+        "type": "M < length (l ++ [y])",
+        "body": "lt_length_right_of_zipWith hM_lt",
+        "children": [
+          {
+            "name": "hlen_lt",
+            "type": "length l - (M + 1) < length l",
+            "body": "Nat.sub_lt_of_pos_le M.succ_pos hMl",
+            "children": []
+          },
+          {
+            "name": "hMs'",
+            "type": "L.sum \u2264 2 * (L.take (M + 1)).sum",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Uniformity",
+    "name": "UniformSpace.metrizable_uniformity",
+    "statement": "Type*) [UniformSpace X] [IsCountablyGenerated (\ud835\udce4 X)] : \u2203 I : PseudoMetricSpace X, I.toUniformSpace = \u2039_\u203a",
+    "have_tree": [
+      {
+        "name": "hdist_le",
+        "type": "\u2200 x y, dist x y \u2264 d x y",
+        "body": "PseudoMetricSpace.dist_ofPreNNDist_le _ _ _",
+        "children": []
+      },
+      {
+        "name": "hd_le",
+        "type": "\u2200 x y, \u2191(d x y) \u2264 2 * dist x y",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "SmoothNumbers",
+      "name": "mul_mem_factoredNumbers",
+      "statement": "Finset \u2115} {m n : \u2115} (hm : m \u2208 factoredNumbers s) (hn : n \u2208 factoredNumbers s) : m * n \u2208 factoredNumbers s",
+      "have_tree": [
+        {
+          "name": "hm'",
+          "type": "",
+          "body": "primeFactors_subset_of_mem_factoredNumbers hm",
+          "children": []
+        },
+        {
+          "name": "hn'",
+          "type": "",
+          "body": "primeFactors_subset_of_mem_factoredNumbers hn",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "SmoothNumbers",
+          "name": "mul_mem_factoredNumbers",
+          "statement": "Finset \u2115} {m n : \u2115} (hm : m \u2208 factoredNumbers s) (hn : n \u2208 factoredNumbers s) : m * n \u2208 factoredNumbers s",
+          "have_tree": [
+            {
+              "name": "hn'",
+              "type": "",
+              "body": "primeFactors_subset_of_mem_factoredNumbers hn",
+              "children": []
+            },
+            {
+              "name": "hm'",
+              "type": "",
+              "body": "primeFactors_subset_of_mem_factoredNumbers hm",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "SmoothNumbers",
+      "name": "pow_mul_mem_smoothNumbers",
+      "statement": "\u2115} (hp : p \u2260 0) (e : \u2115) (hn : n \u2208 smoothNumbers p) : p ^ e * n \u2208 smoothNumbers (succ p)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "NoZeroDivisors \u2115",
+          "body": "inferInstance -- this is needed twice --> speed-up",
+          "children": []
+        },
+        {
+          "name": "hp'",
+          "type": "",
+          "body": "pow_ne_zero e hp",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "SmoothNumbers",
+          "name": "pow_mul_mem_smoothNumbers",
+          "statement": "\u2115} (hp : p \u2260 0) (e : \u2115) (hn : n \u2208 smoothNumbers p) : p ^ e * n \u2208 smoothNumbers (succ p)",
+          "have_tree": [
+            {
+              "name": "hp'",
+              "type": "",
+              "body": "pow_ne_zero e hp",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "NoZeroDivisors \u2115",
+              "body": "inferInstance -- this is needed twice --> speed-up",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

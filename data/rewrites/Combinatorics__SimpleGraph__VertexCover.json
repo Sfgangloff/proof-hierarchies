@@ -1,0 +1,196 @@
+[
+  {
+    "original": {
+      "module": "VertexCover",
+      "name": "vertexCoverNum_top",
+      "statement": "vertexCoverNum (completeGraph V) = ENat.card V - 1",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "n - 1 \u2264 ENat.card V",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "1 < (Set.univ \\ t).encard",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "@ht\u2082 a b (by simp [hne])",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "VertexCover",
+          "name": "vertexCoverNum_top",
+          "statement": "vertexCoverNum (completeGraph V) = ENat.card V - 1",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "1 < (Set.univ \\ t).encard",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "n - 1 \u2264 ENat.card V",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "@ht\u2082 a b (by simp [hne])",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "VertexCover",
+          "name": "vertexCoverNum_top",
+          "statement": "vertexCoverNum (completeGraph V) = ENat.card V - 1",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "n - 1 \u2264 ENat.card V",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "@ht\u2082 a b (by simp [hne])",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "1 < (Set.univ \\ t).encard",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "VertexCover",
+      "name": "IsContained.vertexCoverNum_le_vertexCoverNum",
+      "statement": "G \u2291 H) : vertexCoverNum G \u2264 vertexCoverNum H",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "H.isIndepSet_iff_isAntichain_adj.mp <| isIndepSet_compl_iff_isVertexCover.mpr hs\u2082",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "IsAntichain G.Adj (f \u207b\u00b9' s\u1d9c)",
+          "body": "this.preimage hf (fun _ _ hadj \u21a6 f.map_rel' hadj)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "G.IsVertexCover (f \u207b\u00b9' s)",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "VertexCover",
+          "name": "IsContained.vertexCoverNum_le_vertexCoverNum",
+          "statement": "G \u2291 H) : vertexCoverNum G \u2264 vertexCoverNum H",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsAntichain G.Adj (f \u207b\u00b9' s\u1d9c)",
+              "body": "this.preimage hf (fun _ _ hadj \u21a6 f.map_rel' hadj)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "H.isIndepSet_iff_isAntichain_adj.mp <| isIndepSet_compl_iff_isVertexCover.mpr hs\u2082",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "G.IsVertexCover (f \u207b\u00b9' s)",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "VertexCover",
+          "name": "IsContained.vertexCoverNum_le_vertexCoverNum",
+          "statement": "G \u2291 H) : vertexCoverNum G \u2264 vertexCoverNum H",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H.isIndepSet_iff_isAntichain_adj.mp <| isIndepSet_compl_iff_isVertexCover.mpr hs\u2082",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "G.IsVertexCover (f \u207b\u00b9' s)",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsAntichain G.Adj (f \u207b\u00b9' s\u1d9c)",
+              "body": "this.preimage hf (fun _ _ hadj \u21a6 f.map_rel' hadj)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "module": "RingHoms",
+    "name": "norm_sub_modPart_aux",
+    "statement": "\u211a) (h : \u2016(r : \u211a_[p])\u2016 \u2264 1) : \u2191p \u2223 r.num - r.num * r.den.gcdA p % p * \u2191r.den",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_arg (fun x => x % p : \u2124 \u2192 ZMod p) (gcd_eq_gcd_ab r.den p)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RingHoms",
+    "name": "zmod_congr_of_sub_mem_span_aux",
+    "statement": "\u2115) (x : \u2124_[p]) (a b : \u2124) (ha : x - a \u2208 (Ideal.span {(p : \u2124_[p]) ^ n})) (hb : x - b \u2208 (Ideal.span {(p : \u2124_[p]) ^ n})) : (a : ZMod (p ^ n)) = b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "dvd_add ha hb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RingHoms",
+    "name": "zmod_congr_of_sub_mem_max_ideal",
+    "statement": "\u2124_[p]) (m n : \u2115) (hm : x - m \u2208 maximalIdeal \u2124_[p]) (hn : x - n \u2208 maximalIdeal \u2124_[p]) : (m : ZMod p) = n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "zmod_congr_of_sub_mem_span_aux 1 x m n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RingHoms",
+    "name": "existsUnique_mem_range",
+    "statement": "\u2203! n : \u2115, n < p \u2227 x - n \u2208 maximalIdeal \u2124_[p]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(zmod_congr_of_sub_mem_max_ideal x n m hn\u2082 hm\u2082).symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RingHoms",
+    "name": "zmodRepr_unique",
+    "statement": "\u2115) (hy\u2081 : y < p) (hy\u2082 : x - y \u2208 maximalIdeal \u2124_[p]) : zmodRepr x = y",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "(Classical.choose_spec (existsUnique_mem_range x)).right",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RingHoms",
+    "name": "appr",
+    "statement": "\u2124_[p] \u2192 \u2115 \u2192 \u2115 | _x, 0 => 0 | x, n + 1 => let y",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "p ^ n < p ^ (n + 1)",
+        "body": "by apply Nat.pow_lt_pow_right hp_prime.1.one_lt n.lt_add_one",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RingHoms",
+    "name": "appr_spec",
+    "statement": "\u2115) : \u2200 x : \u2124_[p], x - appr x n \u2208 Ideal.span {(p : \u2124_[p]) ^ n}",
+    "have_tree": [
+      {
+        "name": "hc'",
+        "type": "c \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RingHoms",
+    "name": "lift",
+    "statement": "R \u2192+* \u2124_[p] where toFun",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "le_of_lt (hk (max n k) (le_max_right _ _))",
+        "children": []
+      }
+    ]
+  }
+]

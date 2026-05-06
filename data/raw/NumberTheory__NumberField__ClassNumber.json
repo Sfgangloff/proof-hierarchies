@@ -1,0 +1,79 @@
+[
+  {
+    "module": "ClassNumber",
+    "name": "exists_ideal_in_class_of_norm_le",
+    "statement": "ClassGroup (\ud835\udcde K)) : \u2203 I : (Ideal (\ud835\udcde K))\u2070, ClassGroup.mk0 I = C \u2227 absNorm (I : Ideal (\ud835\udcde K)) \u2264 M K",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "I\u2080 \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ClassNumber",
+    "name": "isPrincipalIdealRing_of_isPrincipal_of_pow_le_of_mem_primesOver_of_mem_Icc",
+    "statement": "\u2200 p \u2208 Finset.Icc 1 \u230a(M K)\u230b\u208a, p.Prime \u2192 \u2200 (P : Ideal (\ud835\udcde K)), P \u2208 primesOver (span {(p : \u2124)}) (\ud835\udcde K) \u2192 p ^ ((span ({\u2191p} : Set \u2124)).inertiaDeg P) \u2264 \u230a(M K)\u230b\u208a \u2192 Submodule.IsPrincipal P) : IsPrincipalIdealRing (\ud835\udcde K)",
+    "have_tree": [
+      {
+        "name": "hp0",
+        "type": "p \u2260 0",
+        "body": "fun h \u21a6 nonZeroDivisors.coe_ne_zero \u27e8P, HP\u27e9 <|",
+        "children": []
+      },
+      {
+        "name": "hpprime",
+        "type": "",
+        "body": "(span_singleton_prime hp0).mp",
+        "children": []
+      },
+      {
+        "name": "hlies",
+        "type": "P.LiesOver (span {p})",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hpabsprime",
+        "type": "",
+        "body": "Int.prime_iff_natAbs_prime.mp (hpprime (hP.under _))",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(isPrime_of_prime (prime_span_singleton_iff.mpr <|",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "ClassNumber",
+    "name": "isPrincipalIdealRing_of_isPrincipal_of_lt_or_isPrincipal_of_mem_primesOver_of_mem_Icc",
+    "statement": "\u2200 p \u2208 Finset.Icc 1 \u230a(M K)\u230b\u208a, p.Prime \u2192 \u2203 P \u2208 primesOver (span {(p : \u2124)}) (\ud835\udcde K), \u230a(M K)\u230b\u208a < p ^ ((span ({\u2191p} : Set \u2124)).inertiaDeg P) \u2228 Submodule.IsPrincipal P) : IsPrincipalIdealRing (\ud835\udcde K)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(isPrime_of_prime (prime_span_singleton_iff.mpr (prime_iff_prime_int.mp hp))).isMaximal",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ClassNumber",
+    "name": "isPrincipalIdealRing_of_abs_discr_lt",
+    "statement": "|discr K| < (2 * (\u03c0 / 4) ^ nrComplexPlaces K * ((finrank \u211a K) ^ (finrank \u211a K) / (finrank \u211a K)!)) ^ 2) : IsPrincipalIdealRing (\ud835\udcde K)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < finrank \u211a K",
+        "body": "finrank_pos -- Lean needs to know this for `positivity` to succeed",
+        "children": []
+      }
+    ]
+  }
+]

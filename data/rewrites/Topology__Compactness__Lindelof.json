@@ -1,0 +1,249 @@
+[
+  {
+    "original": {
+      "module": "Lindelof",
+      "name": "IsLindelof.of_isClosed_subset",
+      "statement": "IsLindelof s) (ht : IsClosed t) (h : t \u2286 s) : IsLindelof t",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "NeBot (l.comap f \u2293 \ud835\udcdf s)",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Tendsto f (\ud835\udcdd x \u2293 (comap f l \u2293 \ud835\udcdf s)) (\ud835\udcdd (f x) \u2293 l)",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Lindelof",
+          "name": "IsLindelof.of_isClosed_subset",
+          "statement": "IsLindelof s) (ht : IsClosed t) (h : t \u2286 s) : IsLindelof t",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Tendsto f (\ud835\udcdd x \u2293 (comap f l \u2293 \ud835\udcdf s)) (\ud835\udcdd (f x) \u2293 l)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "NeBot (l.comap f \u2293 \ud835\udcdf s)",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Lindelof",
+      "name": "IsLindelof.image",
+      "statement": "X \u2192 Y} (hs : IsLindelof s) (hf : Continuous f) : IsLindelof (f '' s)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "x \u2208 t",
+          "body": "ht\u2082 x hx hfx.of_inf_left",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "t\u1d9c \u2229 t \u2208 \ud835\udcdd[t\u1d9c] x",
+          "body": "inter_mem_nhdsWithin _ (ht\u2081.mem_nhds this)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "\ud835\udcdd[t\u1d9c] x \u2260 \u22a5",
+          "body": "hfx.of_inf_right.ne",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Lindelof",
+          "name": "IsLindelof.image",
+          "statement": "X \u2192 Y} (hs : IsLindelof s) (hf : Continuous f) : IsLindelof (f '' s)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "t\u1d9c \u2229 t \u2208 \ud835\udcdd[t\u1d9c] x",
+              "body": "inter_mem_nhdsWithin _ (ht\u2081.mem_nhds this)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "x \u2208 t",
+              "body": "ht\u2082 x hx hfx.of_inf_left",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\ud835\udcdd[t\u1d9c] x \u2260 \u22a5",
+              "body": "hfx.of_inf_right.ne",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Lindelof",
+          "name": "IsLindelof.image",
+          "statement": "X \u2192 Y} (hs : IsLindelof s) (hf : Continuous f) : IsLindelof (f '' s)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "x \u2208 t",
+              "body": "ht\u2082 x hx hfx.of_inf_left",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\ud835\udcdd[t\u1d9c] x \u2260 \u22a5",
+              "body": "hfx.of_inf_right.ne",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "t\u1d9c \u2229 t \u2208 \ud835\udcdd[t\u1d9c] x",
+              "body": "inter_mem_nhdsWithin _ (ht\u2081.mem_nhds this)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Lindelof",
+      "name": "IsLindelof.elim_countable_subfamily_closed",
+      "statement": "Type v} (hs : IsLindelof s) (t : \u03b9 \u2192 Set X) (htc : \u2200 i, IsClosed (t i)) (hst : (s \u2229 \u22c2 i, t i) = \u2205) : \u2203 u : Set \u03b9, u.Countable \u2227 (s \u2229 \u22c2 i \u2208 u, t i) = \u2205",
+      "have_tree": [
+        {
+          "name": "hUo",
+          "type": "\u2200 i, IsOpen (U i)",
+          "body": "by simp only [U, Pi.compl_apply, isOpen_compl_iff]; exact htc",
+          "children": []
+        },
+        {
+          "name": "hsU",
+          "type": "s \u2286 \u22c3 i, U i",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Lindelof",
+          "name": "IsLindelof.elim_countable_subfamily_closed",
+          "statement": "Type v} (hs : IsLindelof s) (t : \u03b9 \u2192 Set X) (htc : \u2200 i, IsClosed (t i)) (hst : (s \u2229 \u22c2 i, t i) = \u2205) : \u2203 u : Set \u03b9, u.Countable \u2227 (s \u2229 \u22c2 i \u2208 u, t i) = \u2205",
+          "have_tree": [
+            {
+              "name": "hsU",
+              "type": "s \u2286 \u22c3 i, U i",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hUo",
+              "type": "\u2200 i, IsOpen (U i)",
+              "body": "by simp only [U, Pi.compl_apply, isOpen_compl_iff]; exact htc",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Lindelof",
+      "name": "Set.Countable.isLindelof_biUnion",
+      "statement": "Set \u03b9} {f : \u03b9 \u2192 Set X} (hs : s.Countable) (hf : \u2200 i \u2208 s, IsLindelof (f i)) : IsLindelof (\u22c3 i \u2208 s, f i)",
+      "have_tree": [
+        {
+          "name": "hiU",
+          "type": "\u2200 i \u2208 s, f i \u2286 \u22c3 i, U i",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "iSets",
+          "type": "",
+          "body": "fun i is \u21a6 (hf i is).elim_countable_subcover U hU (hiU i is)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Lindelof",
+          "name": "Set.Countable.isLindelof_biUnion",
+          "statement": "Set \u03b9} {f : \u03b9 \u2192 Set X} (hs : s.Countable) (hf : \u2200 i \u2208 s, IsLindelof (f i)) : IsLindelof (\u22c3 i \u2208 s, f i)",
+          "have_tree": [
+            {
+              "name": "iSets",
+              "type": "",
+              "body": "fun i is \u21a6 (hf i is).elim_countable_subcover U hU (hiU i is)",
+              "children": []
+            },
+            {
+              "name": "hiU",
+              "type": "\u2200 i \u2208 s, f i \u2286 \u22c3 i, U i",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

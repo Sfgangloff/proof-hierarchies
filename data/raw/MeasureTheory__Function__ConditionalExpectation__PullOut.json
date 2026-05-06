@@ -1,0 +1,52 @@
+[
+  {
+    "module": "PullOut",
+    "name": "condExp_stronglyMeasurable_bilin_of_bound",
+    "statement": "m \u2264 m\u03a9) [IsFiniteMeasure \u03bc] {f : \u03a9 \u2192 F} {g : \u03a9 \u2192 E} (hf : StronglyMeasurable[m] f) (hg : Integrable g \u03bc) (c : \u211d) (hf_bound : \u2200\u1d50 \u03c9 \u2202\u03bc, \u2016f \u03c9\u2016 \u2264 c) : \u03bc[fun \u03c9 \u21a6 B (f \u03c9) (g \u03c9) | m] =\u1d50[\u03bc] fun \u03c9 \u21a6 B (f \u03c9) (\u03bc[g | m] \u03c9)",
+    "have_tree": [
+      {
+        "name": "hfs_tendsto",
+        "type": "\u2200\u1d50 \u03c9 \u2202\u03bc, Tendsto (fs \u00b7 \u03c9) atTop (\ud835\udcdd (f \u03c9))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(ae \u03bc).NeBot",
+        "body": "ae_neBot.2 h\u03bc",
+        "children": []
+      },
+      {
+        "name": "hc",
+        "type": "0 \u2264 c",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hfs_bound",
+        "type": "\u2200 n \u03c9, \u2016fs n \u03c9\u2016 \u2264 c",
+        "body": "hf.norm_approxBounded_le hc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PullOut",
+    "name": "condExp_bilin_of_stronglyMeasurable_left",
+    "statement": "\u03a9 \u2192 F} {g : \u03a9 \u2192 E} (hf : StronglyMeasurable[m] f) (hfg : Integrable (fun \u03c9 \u21a6 B (f \u03c9) (g \u03c9)) \u03bc) (hg : Integrable g \u03bc) : \u03bc[fun \u03c9 \u21a6 B (f \u03c9) (g \u03c9) | m] =\u1d50[\u03bc] fun \u03c9 \u21a6 B (f \u03c9) (\u03bc[g | m] \u03c9)",
+    "have_tree": [
+      {
+        "name": "h_mem",
+        "type": "\u03c9 \u2208 \u22c3 i, sets i",
+        "body": "by rw [h_univ]; exact Set.mem_univ _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsFiniteMeasure (\u03bc.restrict (sets n))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

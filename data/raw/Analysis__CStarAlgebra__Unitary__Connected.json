@@ -1,0 +1,86 @@
+[
+  {
+    "module": "Connected",
+    "name": "Unitary.two_mul_one_sub_le_norm_sub_one_sq",
+    "statement": "A} (hu : u \u2208 unitary A) {z : \u2102} (hz : z \u2208 spectrum \u2102 u) : 2 * (1 - z.re) \u2264 \u2016u - 1\u2016 ^ 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "spectrum.subset_circle_of_unitary hu hz",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Connected",
+    "name": "Unitary.norm_sub_one_sq_eq",
+    "statement": "A} (hu : u \u2208 unitary A) {x : \u211d} (hz : IsLeast (re '' (spectrum \u2102 u)) x) : \u2016u - 1\u2016 ^ 2 = 2 * (1 - x)",
+    "have_tree": [
+      {
+        "name": "h_eqOn",
+        "type": "(spectrum \u2102 u).EqOn (fun z \u21a6 \u2016z - 1\u2016 ^ 2) (fun z \u21a6 2 * (1 - z.re))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "IsGreatest ((fun z \u21a6 2 * (1 - z.re)) '' (spectrum \u2102 u)) (2 * (1 - x))",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "pow_left_monotoneOn (n := 2) |>.mono (s\u2082 := ((\u2016\u00b7 - 1\u2016) '' spectrum \u2102 u)) (by simp)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Connected",
+    "name": "Unitary.norm_sub_one_lt_two_iff",
+    "statement": "A} (hu : u \u2208 unitary A) : \u2016u - 1\u2016 < 2 \u2194 -1 \u2209 spectrum \u2102 u",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "two_mul_one_sub_le_norm_sub_one_sq hu h1 |>.trans_lt h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Connected",
+    "name": "Unitary.norm_expUnitary_smul_argSelfAdjoint_sub_one_le",
+    "statement": "unitary A) {t : \u211d} (ht : t \u2208 Set.Icc 0 1) (hu : \u2016(u - 1 : A)\u2016 < 2) : \u2016(expUnitary (t \u2022 argSelfAdjoint u) - 1 : A)\u2016 \u2264 \u2016(u - 1 : A)\u2016",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "\u2016t \u2022 argSelfAdjoint u\u2016 \u2264 \u2016argSelfAdjoint u\u2016",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Connected",
+    "name": "Unitary.continuousOn_argSelfAdjoint",
+    "statement": "ContinuousOn (argSelfAdjoint : unitary A \u2192 selfAdjoint A) (ball (1 : unitary A) 2)",
+    "have_tree": [
+      {
+        "name": "h\u03b5",
+        "type": "0 < \u03b5",
+        "body": "lt_of_le_of_lt (by positivity) hu\u03b5",
+        "children": []
+      },
+      {
+        "name": "hu\u03b5'",
+        "type": "dist u 1 < \u221a\u03b5",
+        "body": "Real.lt_sqrt_of_sq_lt hu\u03b5",
+        "children": []
+      }
+    ]
+  }
+]

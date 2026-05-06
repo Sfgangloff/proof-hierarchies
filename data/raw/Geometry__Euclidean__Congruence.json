@@ -1,0 +1,76 @@
+[
+  {
+    "module": "Congruence",
+    "name": "angle_side_angle",
+    "statement": "\u00acCollinear \u211d {a, b, c}) (ha\u2081 : \u2220 a b c = \u2220 a' b' c') (hd : dist b c = dist b' c') (ha\u2082 : \u2220 b c a = \u2220 b' c' a') : ![a, b, c] \u2245 ![a', b', c']",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "\u00acCollinear \u211d {a', b', c'}",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "ha\u2083",
+        "type": "",
+        "body": "angle_add_angle_add_angle_eq_pi b (ne\u2081\u2083_of_not_collinear h)",
+        "children": []
+      },
+      {
+        "name": "ha\u2083'",
+        "type": "",
+        "body": "angle_add_angle_add_angle_eq_pi b' (ne\u2081\u2083_of_not_collinear h')",
+        "children": []
+      },
+      {
+        "name": "h_bac",
+        "type": "\u00acCollinear \u211d {b, a, c}",
+        "body": "by simpa [Set.insert_comm] using h",
+        "children": []
+      },
+      {
+        "name": "h_bac'",
+        "type": "\u00acCollinear \u211d {b', a', c'}",
+        "body": "by simpa [Set.insert_comm] using h'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Congruence",
+    "name": "angle_angle_side",
+    "statement": "\u00acCollinear \u211d {a, b, c}) (ha\u2081 : \u2220 a b c = \u2220 a' b' c') (ha\u2082 : \u2220 b c a = \u2220 b' c' a') (hd : dist c a = dist c' a') : ![a, b, c] \u2245 ![a', b', c']",
+    "have_tree": [
+      {
+        "name": "ha\u2083",
+        "type": "",
+        "body": "angle_add_angle_add_angle_eq_pi b (ne\u2081\u2083_of_not_collinear h)",
+        "children": []
+      },
+      {
+        "name": "h'",
+        "type": "\u00acCollinear \u211d {a', b', c'}",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "ha\u2083'",
+        "type": "",
+        "body": "angle_add_angle_add_angle_eq_pi b' (ne\u2081\u2083_of_not_collinear h')",
+        "children": []
+      },
+      {
+        "name": "h_bca",
+        "type": "\u00acCollinear \u211d {b, c, a}",
+        "body": "by rwa [Set.insert_comm, Set.pair_comm] at h",
+        "children": []
+      },
+      {
+        "name": "h1",
+        "type": "",
+        "body": "angle_side_angle h_bca ha\u2082 hd ha\u2083",
+        "children": []
+      }
+    ]
+  }
+]

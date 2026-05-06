@@ -1,0 +1,240 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "mem_range_of_degree_eq_one",
+      "statement": "(minpoly A x).degree = 1) : x \u2208 (algebraMap A B).range",
+      "have_tree": [
+        {
+          "name": "h",
+          "type": "IsIntegral A x",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "key",
+          "type": "",
+          "body": "minpoly.aeval A x",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "mem_range_of_degree_eq_one",
+          "statement": "(minpoly A x).degree = 1) : x \u2208 (algebraMap A B).range",
+          "have_tree": [
+            {
+              "name": "key",
+              "type": "",
+              "body": "minpoly.aeval A x",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "IsIntegral A x",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "unique'",
+      "statement": "A[X]} (hm : p.Monic) (hp : Polynomial.aeval x p = 0) (hl : \u2200 q : A[X], degree q < degree p \u2192 q = 0 \u2228 Polynomial.aeval x q \u2260 0) : p = minpoly A x",
+      "have_tree": [
+        {
+          "name": "hx",
+          "type": "IsIntegral A x",
+          "body": "\u27e8p, hm, hp\u27e9",
+          "children": []
+        },
+        {
+          "name": "hlead",
+          "type": "",
+          "body": "congr_arg leadingCoeff hr",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "natDegree r \u2264 0",
+          "body": "by",
+          "children": [
+            {
+              "name": "hr0",
+              "type": "r \u2260 0",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          2,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "unique'",
+          "statement": "A[X]} (hm : p.Monic) (hp : Polynomial.aeval x p = 0) (hl : \u2200 q : A[X], degree q < degree p \u2192 q = 0 \u2228 Polynomial.aeval x q \u2260 0) : p = minpoly A x",
+          "have_tree": [
+            {
+              "name": "hx",
+              "type": "IsIntegral A x",
+              "body": "\u27e8p, hm, hp\u27e9",
+              "children": []
+            },
+            {
+              "name": "hlead",
+              "type": "",
+              "body": "congr_arg leadingCoeff hr",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "natDegree r \u2264 0",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Basic",
+          "name": "unique'",
+          "statement": "A[X]} (hm : p.Monic) (hp : Polynomial.aeval x p = 0) (hl : \u2200 q : A[X], degree q < degree p \u2192 q = 0 \u2228 Polynomial.aeval x q \u2260 0) : p = minpoly A x",
+          "have_tree": [
+            {
+              "name": "hx",
+              "type": "IsIntegral A x",
+              "body": "\u27e8p, hm, hp\u27e9",
+              "children": []
+            },
+            {
+              "name": "hlead",
+              "type": "",
+              "body": "congr_arg leadingCoeff hr",
+              "children": []
+            },
+            {
+              "name": "hr0",
+              "type": "r \u2260 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "natDegree r \u2264 0",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "unique'",
+          "statement": "A[X]} (hm : p.Monic) (hp : Polynomial.aeval x p = 0) (hl : \u2200 q : A[X], degree q < degree p \u2192 q = 0 \u2228 Polynomial.aeval x q \u2260 0) : p = minpoly A x",
+          "have_tree": [
+            {
+              "name": "hlead",
+              "type": "",
+              "body": "congr_arg leadingCoeff hr",
+              "children": []
+            },
+            {
+              "name": "hx",
+              "type": "IsIntegral A x",
+              "body": "\u27e8p, hm, hp\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "natDegree r \u2264 0",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hr0",
+                  "type": "r \u2260 0",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "unique'",
+          "statement": "A[X]} (hm : p.Monic) (hp : Polynomial.aeval x p = 0) (hl : \u2200 q : A[X], degree q < degree p \u2192 q = 0 \u2228 Polynomial.aeval x q \u2260 0) : p = minpoly A x",
+          "have_tree": [
+            {
+              "name": "hx",
+              "type": "IsIntegral A x",
+              "body": "\u27e8p, hm, hp\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "natDegree r \u2264 0",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hr0",
+                  "type": "r \u2260 0",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hlead",
+              "type": "",
+              "body": "congr_arg leadingCoeff hr",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

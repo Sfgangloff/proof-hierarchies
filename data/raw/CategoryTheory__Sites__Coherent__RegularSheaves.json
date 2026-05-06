@@ -1,0 +1,85 @@
+[
+  {
+    "module": "RegularSheaves",
+    "name": "EqualizerCondition.mk",
+    "statement": "C\u1d52\u1d56 \u2964 Type*) (hP : \u2200 (X B : C) (\u03c0 : X \u27f6 B) [EffectiveEpi \u03c0] [HasPullback \u03c0 \u03c0], Function.Bijective (mapToEqualizer P \u03c0 (pullback.fst \u03c0 \u03c0) (pullback.snd \u03c0 \u03c0) pullback.condition)) : EqualizerCondition P",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "HasPullback \u03c0 \u03c0",
+        "body": "\u27e8c, hc\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RegularSheaves",
+    "name": "equalizerCondition_iff_isIso_lift",
+    "statement": "C\u1d52\u1d56 \u2964 Type*) : EqualizerCondition P \u2194 \u2200 (X B : C) (\u03c0 : X \u27f6 B) [EffectiveEpi \u03c0] [HasPullback \u03c0 \u03c0], IsIso (equalizer.lift (P.map \u03c0.op) (equalizerCondition_w' P \u03c0))",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "hP.bijective_mapToEqualizer_pullback \u03c0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RegularSheaves",
+    "name": "parallelPair_pullback_initial",
+    "statement": "C} (\u03c0 : X \u27f6 B) (c : PullbackCone \u03c0 \u03c0) (hc : IsLimit c) : (parallelPair (C",
+    "have_tree": [
+      {
+        "name": "hi",
+        "type": "",
+        "body": "Over.w i.hom",
+        "children": []
+      },
+      {
+        "name": "hj",
+        "type": "",
+        "body": "Over.w j.hom",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RegularSheaves",
+    "name": "isLimit_forkOf\u03b9_equiv",
+    "statement": "C\u1d52\u1d56 \u2964 D) {X B : C} (\u03c0 : X \u27f6 B) (c : PullbackCone \u03c0 \u03c0) (hc : IsLimit c) : IsLimit (Fork.of\u03b9 (P.map \u03c0.op) (equalizerCondition_w P c)) \u2243 IsLimit (P.mapCone (Sieve.ofArrows (fun (_ : Unit) \u21a6 X) fun _ \u21a6 \u03c0).arrows.cocone.op)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "H.Initial",
+        "body": "parallelPair_pullback_initial \u03c0 c hc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RegularSheaves",
+    "name": "isSheaf_yoneda_obj",
+    "statement": "C) : Presieve.IsSheaf (regularTopology C) (yoneda.obj W)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "S.regular",
+        "body": "\u27e8_, hS\u27e9",
+        "children": []
+      },
+      {
+        "name": "h_colim",
+        "type": "",
+        "body": "isColimitOfEffectiveEpiStruct f hf.effectiveEpi.some",
+        "children": []
+      },
+      {
+        "name": "hx_ext",
+        "type": "",
+        "body": "Presieve.FamilyOfElements.Compatible.sieveExtend hx",
+        "children": []
+      }
+    ]
+  }
+]

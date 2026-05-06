@@ -1,0 +1,84 @@
+[
+  {
+    "module": "RiemannLebesgueLemma",
+    "name": "fourierIntegral_half_period_translate",
+    "statement": "V} (hw : w \u2260 0) : (\u222b v : V, \ud835\udc1e (-\u27eav, w\u27eb) \u2022 f (v + i w)) = -\u222b v : V, \ud835\udc1e (-\u27eav, w\u27eb) \u2022 f v",
+    "have_tree": [
+      {
+        "name": "hiw",
+        "type": "\u27eai w, w\u27eb = 1 / 2",
+        "body": "by",
+        "children": [
+          {
+            "name": "H",
+            "type": "exp (- (\u03c0 * I)) = (-1)\u207b\u00b9",
+            "body": "by rw [exp_neg, exp_pi_mul_I]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "RiemannLebesgueLemma",
+    "name": "tendsto_integral_exp_inner_smul_cocompact_of_continuous_compact_support",
+    "statement": "Continuous f) (hf2 : HasCompactSupport f) : Tendsto (fun w : V => \u222b v : V, \ud835\udc1e (-\u27eav, w\u27eb) \u2022 f v) (cocompact V) (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "mA",
+        "type": "MeasurableSet A",
+        "body": "by",
+        "children": [
+          {
+            "name": "hc",
+            "type": "IsCompact A",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hw_ne",
+        "type": "w \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hw'_nm",
+        "type": "\u2016i w\u2016 = 1 / (2 * \u2016w\u2016)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2016(1 / 2 : \u2102)\u2016 = 2\u207b\u00b9",
+        "body": "by simp",
+        "children": []
+      },
+      {
+        "name": "int_A",
+        "type": "\u222b v : V, \u2016f v - f (v + i w)\u2016 = \u222b v in A, \u2016f v - f (v + i w)\u2016",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "bdA",
+        "type": "\u2200 v : V, v \u2208 A \u2192 \u2016\u2016f v - f (v + i w)\u2016\u2016 \u2264 \u03b5 / B",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "bdA2",
+        "type": "",
+        "body": "norm_setIntegral_le_of_norm_le_const (hB_vol.trans_lt ENNReal.coe_lt_top) bdA",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2016_\u2016 = \u222b v : V in A, \u2016f v - f (v + i w)\u2016",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

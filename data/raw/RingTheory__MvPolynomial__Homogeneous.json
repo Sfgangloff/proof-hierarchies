@@ -1,0 +1,90 @@
+[
+  {
+    "module": "Homogeneous",
+    "name": "coeff_isHomogeneous_of_optionEquivLeft_symm",
+    "statement": "Finite \u03c3] {p : Polynomial (MvPolynomial \u03c3 R)} (hp : ((optionEquivLeft R \u03c3).symm p).IsHomogeneous n) (i j : \u2115) (h : i + j = n) : (p.coeff i).IsHomogeneous j",
+    "have_tree": [
+      {
+        "name": "h\u03c6",
+        "type": "\u03c6.IsHomogeneous n",
+        "body": "hp.rename_isHomogeneous",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Homogeneous",
+    "name": "exists_eval_ne_zero_of_coeff_finSuccEquiv_ne_zero_aux",
+    "statement": "\u2115} {F : MvPolynomial (Fin (Nat.succ N)) R} {n : \u2115} (hF : IsHomogeneous F n) (hFn : ((finSuccEquiv R N) F).coeff n \u2260 0) : \u2203 r, eval r F \u2260 0",
+    "have_tree": [
+      {
+        "name": "hF\u2080",
+        "type": "F \u2260 0",
+        "body": "by contrapose hFn; simp [hFn]",
+        "children": []
+      },
+      {
+        "name": "hdeg",
+        "type": "natDegree (finSuccEquiv R N F) < n + 1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Homogeneous",
+    "name": "exists_eval_ne_zero_of_totalDegree_le_card_aux",
+    "statement": "\u2115} {F : MvPolynomial (Fin N) R} {n : \u2115} (hF : F.IsHomogeneous n) (hF\u2080 : F \u2260 0) (hnR : n \u2264 #R) : \u2203 r, eval r F \u2260 0",
+    "have_tree": [
+      {
+        "name": "hdeg",
+        "type": "natDegree (finSuccEquiv R N F) < n + 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hin",
+        "type": "i \u2264 n",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hin",
+        "type": "i < n",
+        "body": "hin.lt_or_eq.elim id <| by aesop",
+        "children": []
+      },
+      {
+        "name": "h\u03c6\u2080",
+        "type": "\u03c6 \u2260 0",
+        "body": "fun h\u03c6\u2080 \u21a6 hr <| by",
+        "children": []
+      },
+      {
+        "name": "h\u03c6R",
+        "type": "\u03c6.natDegree < #R",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Homogeneous",
+    "name": "eq_zero_of_forall_eval_eq_zero_of_le_card",
+    "statement": "F.IsHomogeneous n) (h : \u2200 r : \u03c3 \u2192 R, eval r F = 0) (hnR : n \u2264 #R) : F = 0",
+    "have_tree": [
+      {
+        "name": "hF\u2080",
+        "type": "F \u2260 0",
+        "body": "by rintro rfl; simp at h",
+        "children": []
+      },
+      {
+        "name": "hF",
+        "type": "F.IsHomogeneous n",
+        "body": "by rwa [rename_isHomogeneous_iff hf] at hF",
+        "children": []
+      }
+    ]
+  }
+]

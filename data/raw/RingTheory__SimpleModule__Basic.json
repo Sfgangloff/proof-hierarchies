@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Basic",
+    "name": "isSimpleModule_iff_toSpanSingleton_surjective",
+    "statement": "IsSimpleModule R M \u2194 Nontrivial M \u2227 \u2200 x : M, x \u2260 0 \u2192 Function.Surjective (LinearMap.toSpanSingleton R M x) where mp h",
+    "have_tree": [
+      {
+        "name": "hy",
+        "type": "y \u2260 0",
+        "body": "left_ne_zero_of_mul (hyx.symm \u25b8 one_ne_zero)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_sSupIndep_sSup_simples_eq_top",
+    "statement": "\u2203 s : Set (Submodule R M), sSupIndep s \u2227 sSup s = \u22a4 \u2227 \u2200 m \u2208 s, IsSimpleModule R m",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "sSup_simples_eq_top R M",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsSemisimpleModule.exists_linearEquiv_fin_dfinsupp",
+    "statement": "\u2203 (n : \u2115) (S : Fin n \u2192 Submodule R M) (_ : M \u2243\u2097[R] \u03a0\u2080 i : Fin n, S i), \u2200 i, IsSimpleModule R (S i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "WellFoundedGT.finite_of_iSupIndep ((sSupIndep_iff _).mp h)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "jacobson_density",
+    "statement": "End (End R M) M) (s : Finset M) : \u2203 r : R, \u2200 m \u2208 s, f m = r \u2022 m",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "f x \u2208 R \u2219 x",
+        "body": "by rw [\u2190 this, map_smul, End.smul_def]; apply projection_apply_mem",
+        "children": []
+      }
+    ]
+  }
+]

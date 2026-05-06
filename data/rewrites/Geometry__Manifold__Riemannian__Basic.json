@@ -1,0 +1,741 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "eventually_riemannianEDist_le_edist_extChartAt",
+      "statement": "M) : \u2203 C > (0 : \u211d\u22650), \u2200\u1da0 y in \ud835\udcdd x, riemannianEDist I x y \u2264 C * edist (extChartAt I x x) (extChartAt I x y)",
+      "have_tree": [
+        {
+          "name": "A",
+          "type": "(extChartAt I x) \u207b\u00b9' (ball (extChartAt I x x) r \u2229 range I) \u2208 \ud835\udcdd x",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "\u03b7_smooth",
+          "type": "CMDiff[Icc 0 1] 1 \u03b7",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "riemannianEDist I x y \u2264 pathELength I \u03b3 0 1",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "eventually_riemannianEDist_le_edist_extChartAt",
+          "statement": "M) : \u2203 C > (0 : \u211d\u22650), \u2200\u1da0 y in \ud835\udcdd x, riemannianEDist I x y \u2264 C * edist (extChartAt I x x) (extChartAt I x y)",
+          "have_tree": [
+            {
+              "name": "\u03b7_smooth",
+              "type": "CMDiff[Icc 0 1] 1 \u03b7",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "(extChartAt I x) \u207b\u00b9' (ball (extChartAt I x x) r \u2229 range I) \u2208 \ud835\udcdd x",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "riemannianEDist I x y \u2264 pathELength I \u03b3 0 1",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "eventually_riemannianEDist_le_edist_extChartAt",
+          "statement": "M) : \u2203 C > (0 : \u211d\u22650), \u2200\u1da0 y in \ud835\udcdd x, riemannianEDist I x y \u2264 C * edist (extChartAt I x x) (extChartAt I x y)",
+          "have_tree": [
+            {
+              "name": "A",
+              "type": "(extChartAt I x) \u207b\u00b9' (ball (extChartAt I x x) r \u2229 range I) \u2208 \ud835\udcdd x",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "riemannianEDist I x y \u2264 pathELength I \u03b3 0 1",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "\u03b7_smooth",
+              "type": "CMDiff[Icc 0 1] 1 \u03b7",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "eventually_riemannianEDist_lt",
+      "statement": "M) {c : \u211d\u22650\u221e} (hc : 0 < c) : \u2200\u1da0 y in \ud835\udcdd x, riemannianEDist I x y < c",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "(extChartAt I x) \u207b\u00b9' (Metric.eball (extChartAt I x x) (c / C)) \u2208 \ud835\udcdd x",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "edist (extChartAt I x x) (extChartAt I x y) < c / C",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "eventually_riemannianEDist_lt",
+          "statement": "M) {c : \u211d\u22650\u221e} (hc : 0 < c) : \u2200\u1da0 y in \ud835\udcdd x, riemannianEDist I x y < c",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "edist (extChartAt I x x) (extChartAt I x y) < c / C",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(extChartAt I x) \u207b\u00b9' (Metric.eball (extChartAt I x x) (c / C)) \u2208 \ud835\udcdd x",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "setOf_riemannianEDist_lt_subset_nhds",
+      "statement": "M} {s : Set M} (hs : s \u2208 \ud835\udcdd x) : \u2203 c > (0 : \u211d\u22650), {y | riemannianEDist I x y < c} \u2286 s",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "Filter.inter_mem (Filter.inter_mem hs hC) (extChartAt_source_mem_nhds (I := I) x)",
+          "children": []
+        },
+        {
+          "name": "uc'",
+          "type": "u \u2286 (chartAt H x).source",
+          "body": "by simpa [extChartAt_source I x] using uc",
+          "children": []
+        },
+        {
+          "name": "zero_mem",
+          "type": "0 \u2208 A",
+          "body": "by simpa  [h\u03b3x, A] using mem_of_mem_nhds u_mem",
+          "children": []
+        },
+        {
+          "name": "A_closed",
+          "type": "IsClosed (A \u2229 Icc 0 1)",
+          "body": "",
+          "children": [
+            {
+              "name": "_",
+              "type": "1 \u2208 A",
+              "body": "this \u27e8zero_le_one, le_rfl\u27e9",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "hC",
+          "type": "CMDiff[Icc 0 t\u2081] 1 \u03b3'",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "\u2016\u03b3' t\u2081 - \u03b3' 0\u2016\u2091 < r",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "\u03b3' t\u2081 \u2208 (extChartAt I x).symm \u207b\u00b9' v",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          3,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "setOf_riemannianEDist_lt_subset_nhds",
+          "statement": "M} {s : Set M} (hs : s \u2208 \ud835\udcdd x) : \u2203 c > (0 : \u211d\u22650), {y | riemannianEDist I x y < c} \u2286 s",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Filter.inter_mem (Filter.inter_mem hs hC) (extChartAt_source_mem_nhds (I := I) x)",
+              "children": []
+            },
+            {
+              "name": "uc'",
+              "type": "u \u2286 (chartAt H x).source",
+              "body": "by simpa [extChartAt_source I x] using uc",
+              "children": []
+            },
+            {
+              "name": "zero_mem",
+              "type": "0 \u2208 A",
+              "body": "by simpa  [h\u03b3x, A] using mem_of_mem_nhds u_mem",
+              "children": []
+            },
+            {
+              "name": "A_closed",
+              "type": "IsClosed (A \u2229 Icc 0 1)",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hC",
+              "type": "CMDiff[Icc 0 t\u2081] 1 \u03b3'",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2016\u03b3' t\u2081 - \u03b3' 0\u2016\u2091 < r",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03b3' t\u2081 \u2208 (extChartAt I x).symm \u207b\u00b9' v",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          3
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Basic",
+          "name": "setOf_riemannianEDist_lt_subset_nhds",
+          "statement": "M} {s : Set M} (hs : s \u2208 \ud835\udcdd x) : \u2203 c > (0 : \u211d\u22650), {y | riemannianEDist I x y < c} \u2286 s",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Filter.inter_mem (Filter.inter_mem hs hC) (extChartAt_source_mem_nhds (I := I) x)",
+              "children": []
+            },
+            {
+              "name": "uc'",
+              "type": "u \u2286 (chartAt H x).source",
+              "body": "by simpa [extChartAt_source I x] using uc",
+              "children": []
+            },
+            {
+              "name": "zero_mem",
+              "type": "0 \u2208 A",
+              "body": "by simpa  [h\u03b3x, A] using mem_of_mem_nhds u_mem",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "1 \u2208 A",
+              "body": "this \u27e8zero_le_one, le_rfl\u27e9",
+              "children": []
+            },
+            {
+              "name": "A_closed",
+              "type": "IsClosed (A \u2229 Icc 0 1)",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hC",
+              "type": "CMDiff[Icc 0 t\u2081] 1 \u03b3'",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2016\u03b3' t\u2081 - \u03b3' 0\u2016\u2091 < r",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03b3' t\u2081 \u2208 (extChartAt I x).symm \u207b\u00b9' v",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "setOf_riemannianEDist_lt_subset_nhds",
+          "statement": "M} {s : Set M} (hs : s \u2208 \ud835\udcdd x) : \u2203 c > (0 : \u211d\u22650), {y | riemannianEDist I x y < c} \u2286 s",
+          "have_tree": [
+            {
+              "name": "uc'",
+              "type": "u \u2286 (chartAt H x).source",
+              "body": "by simpa [extChartAt_source I x] using uc",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Filter.inter_mem (Filter.inter_mem hs hC) (extChartAt_source_mem_nhds (I := I) x)",
+              "children": []
+            },
+            {
+              "name": "zero_mem",
+              "type": "0 \u2208 A",
+              "body": "by simpa  [h\u03b3x, A] using mem_of_mem_nhds u_mem",
+              "children": []
+            },
+            {
+              "name": "A_closed",
+              "type": "IsClosed (A \u2229 Icc 0 1)",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "1 \u2208 A",
+                  "body": "this \u27e8zero_le_one, le_rfl\u27e9",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hC",
+              "type": "CMDiff[Icc 0 t\u2081] 1 \u03b3'",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2016\u03b3' t\u2081 - \u03b3' 0\u2016\u2091 < r",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03b3' t\u2081 \u2208 (extChartAt I x).symm \u207b\u00b9' v",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "setOf_riemannianEDist_lt_subset_nhds",
+          "statement": "M} {s : Set M} (hs : s \u2208 \ud835\udcdd x) : \u2203 c > (0 : \u211d\u22650), {y | riemannianEDist I x y < c} \u2286 s",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Filter.inter_mem (Filter.inter_mem hs hC) (extChartAt_source_mem_nhds (I := I) x)",
+              "children": []
+            },
+            {
+              "name": "zero_mem",
+              "type": "0 \u2208 A",
+              "body": "by simpa  [h\u03b3x, A] using mem_of_mem_nhds u_mem",
+              "children": []
+            },
+            {
+              "name": "uc'",
+              "type": "u \u2286 (chartAt H x).source",
+              "body": "by simpa [extChartAt_source I x] using uc",
+              "children": []
+            },
+            {
+              "name": "A_closed",
+              "type": "IsClosed (A \u2229 Icc 0 1)",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "1 \u2208 A",
+                  "body": "this \u27e8zero_le_one, le_rfl\u27e9",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hC",
+              "type": "CMDiff[Icc 0 t\u2081] 1 \u03b3'",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2016\u03b3' t\u2081 - \u03b3' 0\u2016\u2091 < r",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03b3' t\u2081 \u2208 (extChartAt I x).symm \u207b\u00b9' v",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "setOf_riemannianEDist_lt_subset_nhds",
+          "statement": "M} {s : Set M} (hs : s \u2208 \ud835\udcdd x) : \u2203 c > (0 : \u211d\u22650), {y | riemannianEDist I x y < c} \u2286 s",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Filter.inter_mem (Filter.inter_mem hs hC) (extChartAt_source_mem_nhds (I := I) x)",
+              "children": []
+            },
+            {
+              "name": "uc'",
+              "type": "u \u2286 (chartAt H x).source",
+              "body": "by simpa [extChartAt_source I x] using uc",
+              "children": []
+            },
+            {
+              "name": "A_closed",
+              "type": "IsClosed (A \u2229 Icc 0 1)",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "1 \u2208 A",
+                  "body": "this \u27e8zero_le_one, le_rfl\u27e9",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "zero_mem",
+              "type": "0 \u2208 A",
+              "body": "by simpa  [h\u03b3x, A] using mem_of_mem_nhds u_mem",
+              "children": []
+            },
+            {
+              "name": "hC",
+              "type": "CMDiff[Icc 0 t\u2081] 1 \u03b3'",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2016\u03b3' t\u2081 - \u03b3' 0\u2016\u2091 < r",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03b3' t\u2081 \u2208 (extChartAt I x).symm \u207b\u00b9' v",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5,
+          6
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "setOf_riemannianEDist_lt_subset_nhds",
+          "statement": "M} {s : Set M} (hs : s \u2208 \ud835\udcdd x) : \u2203 c > (0 : \u211d\u22650), {y | riemannianEDist I x y < c} \u2286 s",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Filter.inter_mem (Filter.inter_mem hs hC) (extChartAt_source_mem_nhds (I := I) x)",
+              "children": []
+            },
+            {
+              "name": "uc'",
+              "type": "u \u2286 (chartAt H x).source",
+              "body": "by simpa [extChartAt_source I x] using uc",
+              "children": []
+            },
+            {
+              "name": "zero_mem",
+              "type": "0 \u2208 A",
+              "body": "by simpa  [h\u03b3x, A] using mem_of_mem_nhds u_mem",
+              "children": []
+            },
+            {
+              "name": "hC",
+              "type": "CMDiff[Icc 0 t\u2081] 1 \u03b3'",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "A_closed",
+              "type": "IsClosed (A \u2229 Icc 0 1)",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "1 \u2208 A",
+                  "body": "this \u27e8zero_le_one, le_rfl\u27e9",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "\u2016\u03b3' t\u2081 - \u03b3' 0\u2016\u2091 < r",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03b3' t\u2081 \u2208 (extChartAt I x).symm \u207b\u00b9' v",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4,
+          6
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "setOf_riemannianEDist_lt_subset_nhds",
+          "statement": "M} {s : Set M} (hs : s \u2208 \ud835\udcdd x) : \u2203 c > (0 : \u211d\u22650), {y | riemannianEDist I x y < c} \u2286 s",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Filter.inter_mem (Filter.inter_mem hs hC) (extChartAt_source_mem_nhds (I := I) x)",
+              "children": []
+            },
+            {
+              "name": "uc'",
+              "type": "u \u2286 (chartAt H x).source",
+              "body": "by simpa [extChartAt_source I x] using uc",
+              "children": []
+            },
+            {
+              "name": "zero_mem",
+              "type": "0 \u2208 A",
+              "body": "by simpa  [h\u03b3x, A] using mem_of_mem_nhds u_mem",
+              "children": []
+            },
+            {
+              "name": "A_closed",
+              "type": "IsClosed (A \u2229 Icc 0 1)",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "1 \u2208 A",
+                  "body": "this \u27e8zero_le_one, le_rfl\u27e9",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "\u2016\u03b3' t\u2081 - \u03b3' 0\u2016\u2091 < r",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hC",
+              "type": "CMDiff[Icc 0 t\u2081] 1 \u03b3'",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03b3' t\u2081 \u2208 (extChartAt I x).symm \u207b\u00b9' v",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          5
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "setOf_riemannianEDist_lt_subset_nhds",
+          "statement": "M} {s : Set M} (hs : s \u2208 \ud835\udcdd x) : \u2203 c > (0 : \u211d\u22650), {y | riemannianEDist I x y < c} \u2286 s",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Filter.inter_mem (Filter.inter_mem hs hC) (extChartAt_source_mem_nhds (I := I) x)",
+              "children": []
+            },
+            {
+              "name": "uc'",
+              "type": "u \u2286 (chartAt H x).source",
+              "body": "by simpa [extChartAt_source I x] using uc",
+              "children": []
+            },
+            {
+              "name": "zero_mem",
+              "type": "0 \u2208 A",
+              "body": "by simpa  [h\u03b3x, A] using mem_of_mem_nhds u_mem",
+              "children": []
+            },
+            {
+              "name": "A_closed",
+              "type": "IsClosed (A \u2229 Icc 0 1)",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "1 \u2208 A",
+                  "body": "this \u27e8zero_le_one, le_rfl\u27e9",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hC",
+              "type": "CMDiff[Icc 0 t\u2081] 1 \u03b3'",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03b3' t\u2081 \u2208 (extChartAt I x).symm \u207b\u00b9' v",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2016\u03b3' t\u2081 - \u03b3' 0\u2016\u2091 < r",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

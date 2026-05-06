@@ -1,0 +1,73 @@
+[
+  {
+    "module": "FactorisationProperties",
+    "name": "abundancyIndex_le_of_dvd",
+    "statement": "n \u2260 0) (hd : m \u2223 n) : m.abundancyIndex \u2264 n.abundancyIndex",
+    "have_tree": [
+      {
+        "name": "hk0",
+        "type": "k \u2260 0",
+        "body": "by grind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorisationProperties",
+    "name": "Abundant.of_dvd",
+    "statement": "Abundant m) (hd : m \u2223 n) (hn : n \u2260 0) : Abundant n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "abundancyIndex_le_of_dvd hn hd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorisationProperties",
+    "name": "Abundant.mul_left",
+    "statement": "Abundant n) (hm : m \u2260 0) : Abundant (m * n)",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "n \u2260 0",
+        "body": "by grind [not_abundant_zero]",
+        "children": []
+      },
+      {
+        "name": "hmn",
+        "type": "m * n \u2260 0",
+        "body": "mul_ne_zero hm hn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorisationProperties",
+    "name": "infinite_even_abundant",
+    "statement": "{n : \u2115 | Even n \u2227 n.Abundant}.Infinite",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "Abundant 12",
+        "body": "by decide",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorisationProperties",
+    "name": "infinite_odd_abundant",
+    "statement": "{n : \u2115 | Odd n \u2227 n.Abundant}.Infinite",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "Abundant 945",
+        "body": "by decide +kernel",
+        "children": []
+      }
+    ]
+  }
+]

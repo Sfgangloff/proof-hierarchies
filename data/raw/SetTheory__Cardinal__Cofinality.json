@@ -1,0 +1,118 @@
+[
+  {
+    "module": "Cofinality",
+    "name": "cof_lt_aleph0_iff",
+    "statement": "Order.cof \u03b1 < \u2135\u2080 \u2194 Order.cof \u03b1 \u2264 1",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "s.Finite",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cofinality",
+    "name": "ord_cof_eq",
+    "statement": "Type*) [LinearOrder \u03b1] [WellFoundedLT \u03b1] : \u2203 s : Set \u03b1, IsCofinal s \u2227 typeLT s = (Order.cof \u03b1).ord",
+    "have_tree": [
+      {
+        "name": "ht",
+        "type": "",
+        "body": "hs.trans (isCofinal_setOf_imp_lt r)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cofinality",
+    "name": "lift_cof_iSup_add_one",
+    "statement": "\u03b2 \u2192 Ordinal} (hf : StrictMono f) : Cardinal.lift.{v} (cof (\u2a06 i, f i + 1)) = Cardinal.lift.{u} (Order.cof \u03b2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "StrictMono (\u03b2",
+        "body": "Iio (\u2a06 i, f i + 1)) (fun i \u21a6 \u27e8f i, ?_\u27e9) := fun x y h \u21a6 hf h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cofinality",
+    "name": "sSup_add_one_lt_of_lt_cof",
+    "statement": "Set Ordinal.{u}} {a : Ordinal.{u}} (ha : #s < (lift.{u + 1} a).cof) (hs : \u2200 i \u2208 s, i < a) : sSup ((\u00b7 + 1) '' s) < a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Small.{u} (Iio (typeLT s))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cofinality",
+    "name": "cof_eq'",
+    "statement": "\u03b1 \u2192 \u03b1 \u2192 Prop) [H : IsWellOrder \u03b1 r] (h : IsSuccLimit (type r)) : \u2203 S : Set \u03b1, (\u2200 a, \u2203 b \u2208 S, r a b) \u2227 #S = cof (type r)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "WellFoundedLT \u03b1",
+        "body": "H.toIsWellFounded",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NoMaxOrder \u03b1",
+        "body": "isSuccPrelimit_type_lt_iff.1 h.isSuccPrelimit",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cofinality",
+    "name": "mk_bounded_subset",
+    "statement": "Type*} (h : \u2200 x < #\u03b1, 2 ^ x < #\u03b1) {r : \u03b1 \u2192 \u03b1 \u2192 Prop} [IsWellOrder \u03b1 r] (hr : (#\u03b1).ord = type r) : #{ s : Set \u03b1 // Bounded r s } = #\u03b1",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "IsStrongLimit #\u03b1",
+        "body": "\u27e8ha, @h\u27e9",
+        "children": []
+      },
+      {
+        "name": "ha",
+        "type": "",
+        "body": "h'.aleph0_le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cofinality",
+    "name": "mk_subset_mk_lt_cof",
+    "statement": "Type*} (h : \u2200 x < #\u03b1, 2 ^ x < #\u03b1) : #{ s : Set \u03b1 // #s < cof (#\u03b1).ord } = #\u03b1",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "IsStrongLimit #\u03b1",
+        "body": "\u27e8ha, @h\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cofinality",
+    "name": "lt_power_cof_ord",
+    "statement": "Cardinal} (hc : \u2135\u2080 \u2264 c) : c < c ^ c.ord.cof",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NoMaxOrder \u03b1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

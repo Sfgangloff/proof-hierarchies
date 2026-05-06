@@ -1,0 +1,79 @@
+[
+  {
+    "module": "SpecificAsymptotics",
+    "name": "Asymptotics.isLittleO_pow_pow_cobounded_of_lt",
+    "statement": "p < q) : (\u00b7 ^ p) =o[cobounded R] (\u00b7 ^ q)",
+    "have_tree": [
+      {
+        "name": "noc",
+        "type": "NormOneClass R",
+        "body": "NormMulClass.toNormOneClass",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SpecificAsymptotics",
+    "name": "Asymptotics.IsEquivalent.rpow",
+    "statement": "Type*} {u v : \u03b1 \u2192 \u211d} {l : Filter \u03b1} (hv : 0 \u2264 v) (h : u ~[l] v) {r : \u211d} : u ^ r ~[l] v ^ r",
+    "have_tree": [
+      {
+        "name": "h\u03c6r",
+        "type": "Tendsto ((fun x \u21a6 x ^ r) \u2218 \u03c6) l (\ud835\udcdd 1)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SpecificAsymptotics",
+    "name": "Asymptotics.IsEquivalent.log",
+    "statement": "Type*} {l : Filter \u03b1} {f g : \u03b1 \u2192 \u211d} (hfg : f ~[l] g) (g_tendsto : Tendsto g l atTop) : (fun n \u21a6 Real.log (f n)) ~[l] (fun n \u21a6 Real.log (g n))",
+    "have_tree": [
+      {
+        "name": "hg",
+        "type": "",
+        "body": "g_tendsto.eventually_ne_atTop 0",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "",
+        "body": "hfg.symm.tendsto_atTop g_tendsto |>.eventually_ne_atTop 0",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hfg.log (by norm_num) |>.congr' <| by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SpecificAsymptotics",
+    "name": "Asymptotics.isLittleO_sum_range_of_tendsto_zero",
+    "statement": "Type*} [NormedAddCommGroup \u03b1] {f : \u2115 \u2192 \u03b1} (h : Tendsto f atTop (\ud835\udcdd 0)) : (fun n => \u2211 i \u2208 range n, f i) =o[atTop] fun n => (n : \u211d)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "((isLittleO_one_iff \u211d).2 h).sum_range fun i => zero_le_one",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SpecificAsymptotics",
+    "name": "Filter.Tendsto.cesaro_smul",
+    "statement": "Type*} [NormedAddCommGroup E] [NormedSpace \u211d E] {u : \u2115 \u2192 E} {l : E} (h : Tendsto u atTop (\ud835\udcdd l)) : Tendsto (fun n : \u2115 => (n\u207b\u00b9 : \u211d) \u2022 \u2211 i \u2208 range n, u i) atTop (\ud835\udcdd l)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Asymptotics.isLittleO_sum_range_of_tendsto_zero (tendsto_sub_nhds_zero_iff.2 h)",
+        "children": []
+      }
+    ]
+  }
+]

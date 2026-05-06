@@ -1,0 +1,172 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "ordCompl_dvd_ordCompl_of_dvd",
+      "statement": "\u2115} (hab : a \u2223 b) (p : \u2115) : ordCompl[p] a \u2223 ordCompl[p] b",
+      "have_tree": [
+        {
+          "name": "ha",
+          "type": "",
+          "body": "(Nat.div_pos (ordProj_le p ha0) (ordProj_pos a p)).ne'",
+          "children": []
+        },
+        {
+          "name": "hb",
+          "type": "",
+          "body": "(Nat.div_pos (ordProj_le p hb0) (ordProj_pos b p)).ne'",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "ordCompl_dvd_ordCompl_of_dvd",
+          "statement": "\u2115} (hab : a \u2223 b) (p : \u2115) : ordCompl[p] a \u2223 ordCompl[p] b",
+          "have_tree": [
+            {
+              "name": "hb",
+              "type": "",
+              "body": "(Nat.div_pos (ordProj_le p hb0) (ordProj_pos b p)).ne'",
+              "children": []
+            },
+            {
+              "name": "ha",
+              "type": "",
+              "body": "(Nat.div_pos (ordProj_le p ha0) (ordProj_pos a p)).ne'",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "factorization_gcd",
+      "statement": "\u2115} (ha_pos : a \u2260 0) (hb_pos : b \u2260 0) : (gcd a b).factorization = a.factorization \u2293 b.factorization",
+      "have_tree": [
+        {
+          "name": "hea'",
+          "type": "",
+          "body": "(factorization_le_iff_dvd he_pos ha_pos).mpr hea",
+          "children": []
+        },
+        {
+          "name": "heb'",
+          "type": "",
+          "body": "(factorization_le_iff_dvd he_pos hb_pos).mpr heb",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "factorization_gcd",
+          "statement": "\u2115} (ha_pos : a \u2260 0) (hb_pos : b \u2260 0) : (gcd a b).factorization = a.factorization \u2293 b.factorization",
+          "have_tree": [
+            {
+              "name": "heb'",
+              "type": "",
+              "body": "(factorization_le_iff_dvd he_pos hb_pos).mpr heb",
+              "children": []
+            },
+            {
+              "name": "hea'",
+              "type": "",
+              "body": "(factorization_le_iff_dvd he_pos ha_pos).mpr hea",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "exists_eq_pow_of_pow_eq_pow",
+      "statement": "\u2115} (hmn : m \u2260 0 \u2228 n \u2260 0) (h : a ^ m = b ^ n) : letI g",
+      "have_tree": [
+        {
+          "name": "coprime",
+          "type": "m'.Coprime n'",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "g \u2260 0",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "exists_eq_pow_of_pow_eq_pow",
+          "statement": "\u2115} (hmn : m \u2260 0 \u2228 n \u2260 0) (h : a ^ m = b ^ n) : letI g",
+          "have_tree": [
+            {
+              "name": "coprime",
+              "type": "m'.Coprime n'",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Basic",
+          "name": "exists_eq_pow_of_pow_eq_pow",
+          "statement": "\u2115} (hmn : m \u2260 0 \u2228 n \u2260 0) (h : a ^ m = b ^ n) : letI g",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "g \u2260 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "coprime",
+              "type": "m'.Coprime n'",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "module": "Field",
+    "name": "Filter.Tendsto.atTop_mul_neg",
+    "statement": "\ud835\udd5c} (hC : C < 0) (hf : Tendsto f l atTop) (hg : Tendsto g l (\ud835\udcdd C)) : Tendsto (fun x => f x * g x) l atBot",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.atTop_mul_pos (neg_pos.2 hC) hg.neg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "Filter.Tendsto.atBot_mul_pos",
+    "statement": "\ud835\udd5c} (hC : 0 < C) (hf : Tendsto f l atBot) (hg : Tendsto g l (\ud835\udcdd C)) : Tendsto (fun x => f x * g x) l atBot",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(tendsto_neg_atBot_atTop.comp hf).atTop_mul_pos hC hg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "Filter.Tendsto.atBot_mul_neg",
+    "statement": "\ud835\udd5c} (hC : C < 0) (hf : Tendsto f l atBot) (hg : Tendsto g l (\ud835\udcdd C)) : Tendsto (fun x => f x * g x) l atTop",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(tendsto_neg_atBot_atTop.comp hf).atTop_mul_neg hC hg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "bdd_le_mul_tendsto_zero'",
+    "statement": "\u03b1 \u2192 \ud835\udd5c} (C : \ud835\udd5c) (hf : \u2200\u1da0 x in l, |f x| \u2264 C) (hg : Tendsto g l (\ud835\udcdd 0)) : Tendsto (fun x \u21a6 f x * g x) l (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "hC",
+        "type": "Tendsto (fun x \u21a6 |C * g x|) l (\ud835\udcdd 0)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "bdd_le_mul_tendsto_zero",
+    "statement": "\u03b1 \u2192 \ud835\udd5c} {b B : \ud835\udd5c} (hb : \u2200\u1da0 x in l, b \u2264 f x) (hB : \u2200\u1da0 x in l, f x \u2264 B) (hg : Tendsto g l (\ud835\udcdd 0)) : Tendsto (fun x \u21a6 f x * g x) l (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "hbC",
+        "type": "-C \u2264 b",
+        "body": "neg_le.mpr (le_max_of_le_left (neg_le_abs b))",
+        "children": []
+      },
+      {
+        "name": "hBC",
+        "type": "B \u2264 C",
+        "body": "le_max_of_le_right (le_abs_self B)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "tendsto_const_mul_zpow_atTop_nhds_iff",
+    "statement": "\u2124} {c d : \ud835\udd5c} (hc : c \u2260 0) : Tendsto (fun x : \ud835\udd5c => c * x ^ n) atTop (\ud835\udcdd d) \u2194 n = 0 \u2227 c = d \u2228 n < 0 \u2227 d = 0",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "",
+        "body": "Int.negSucc_lt_zero n",
+        "children": []
+      }
+    ]
+  }
+]

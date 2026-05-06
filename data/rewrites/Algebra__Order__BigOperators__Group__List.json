@@ -1,0 +1,149 @@
+[
+  {
+    "original": {
+      "module": "List",
+      "name": "le_prod_of_submultiplicative_on_pred",
+      "statement": "\u03b1 \u2192 \u03b2) (p : \u03b1 \u2192 Prop) (h_one : f 1 \u2264 1) (hp_one : p 1) (h_mul : \u2200 a b, p a \u2192 p b \u2192 f (a * b) \u2264 f a * f b) (hp_mul : \u2200 a b, p a \u2192 p b \u2192 p (a * b)) (l : List \u03b1) (hpl : \u2200 a, a \u2208 l \u2192 p a) : f l.prod \u2264 (l.map f).prod",
+      "have_tree": [
+        {
+          "name": "hpla",
+          "type": "\u2200 x, x \u2208 s \u2192 p x",
+          "body": "fun x hx => hpl x (mem_cons_of_mem _ hx)",
+          "children": []
+        },
+        {
+          "name": "hp_prod",
+          "type": "p s.prod",
+          "body": "prod_induction p hp_mul hp_one hpla",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "List",
+          "name": "le_prod_of_submultiplicative_on_pred",
+          "statement": "\u03b1 \u2192 \u03b2) (p : \u03b1 \u2192 Prop) (h_one : f 1 \u2264 1) (hp_one : p 1) (h_mul : \u2200 a b, p a \u2192 p b \u2192 f (a * b) \u2264 f a * f b) (hp_mul : \u2200 a b, p a \u2192 p b \u2192 p (a * b)) (l : List \u03b1) (hpl : \u2200 a, a \u2208 l \u2192 p a) : f l.prod \u2264 (l.map f).prod",
+          "have_tree": [
+            {
+              "name": "hp_prod",
+              "type": "p s.prod",
+              "body": "prod_induction p hp_mul hp_one hpla",
+              "children": []
+            },
+            {
+              "name": "hpla",
+              "type": "\u2200 x, x \u2208 s \u2192 p x",
+              "body": "fun x hx => hpl x (mem_cons_of_mem _ hx)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "List",
+      "name": "le_prod_nonempty_of_submultiplicative_on_pred",
+      "statement": "\u03b1 \u2192 \u03b2) (p : \u03b1 \u2192 Prop) (h_mul : \u2200 a b, p a \u2192 p b \u2192 f (a * b) \u2264 f a * f b) (hp_mul : \u2200 a b, p a \u2192 p b \u2192 p (a * b)) (l : List \u03b1) (hl_nonempty : l \u2260 []) (hl : \u2200 a, a \u2208 l \u2192 p a) : f l.prod \u2264 (l.map f).prod",
+      "have_tree": [
+        {
+          "name": "hla_restrict",
+          "type": "\u2200 x, x \u2208 l \u2192 p x",
+          "body": "fun x hx => hl x (mem_cons_of_mem _ hx)",
+          "children": []
+        },
+        {
+          "name": "hp_sup",
+          "type": "p l.prod",
+          "body": "prod_induction_nonempty p hp_mul hl_empty hla_restrict",
+          "children": []
+        },
+        {
+          "name": "hp_a",
+          "type": "p a",
+          "body": "hl a mem_cons_self",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "List",
+          "name": "le_prod_nonempty_of_submultiplicative_on_pred",
+          "statement": "\u03b1 \u2192 \u03b2) (p : \u03b1 \u2192 Prop) (h_mul : \u2200 a b, p a \u2192 p b \u2192 f (a * b) \u2264 f a * f b) (hp_mul : \u2200 a b, p a \u2192 p b \u2192 p (a * b)) (l : List \u03b1) (hl_nonempty : l \u2260 []) (hl : \u2200 a, a \u2208 l \u2192 p a) : f l.prod \u2264 (l.map f).prod",
+          "have_tree": [
+            {
+              "name": "hp_sup",
+              "type": "p l.prod",
+              "body": "prod_induction_nonempty p hp_mul hl_empty hla_restrict",
+              "children": []
+            },
+            {
+              "name": "hla_restrict",
+              "type": "\u2200 x, x \u2208 l \u2192 p x",
+              "body": "fun x hx => hl x (mem_cons_of_mem _ hx)",
+              "children": []
+            },
+            {
+              "name": "hp_a",
+              "type": "p a",
+              "body": "hl a mem_cons_self",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "List",
+          "name": "le_prod_nonempty_of_submultiplicative_on_pred",
+          "statement": "\u03b1 \u2192 \u03b2) (p : \u03b1 \u2192 Prop) (h_mul : \u2200 a b, p a \u2192 p b \u2192 f (a * b) \u2264 f a * f b) (hp_mul : \u2200 a b, p a \u2192 p b \u2192 p (a * b)) (l : List \u03b1) (hl_nonempty : l \u2260 []) (hl : \u2200 a, a \u2208 l \u2192 p a) : f l.prod \u2264 (l.map f).prod",
+          "have_tree": [
+            {
+              "name": "hla_restrict",
+              "type": "\u2200 x, x \u2208 l \u2192 p x",
+              "body": "fun x hx => hl x (mem_cons_of_mem _ hx)",
+              "children": []
+            },
+            {
+              "name": "hp_a",
+              "type": "p a",
+              "body": "hl a mem_cons_self",
+              "children": []
+            },
+            {
+              "name": "hp_sup",
+              "type": "p l.prod",
+              "body": "prod_induction_nonempty p hp_mul hl_empty hla_restrict",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

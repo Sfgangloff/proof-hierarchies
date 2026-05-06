@@ -1,0 +1,129 @@
+[
+  {
+    "module": "Basic",
+    "name": "isTopologicalBasis_biInter_Ioi_Iio_of_generateFrom",
+    "statement": "Set \u03b1) (h : ts = generateFrom { s | \u2203 a \u2208 c, s = Ioi a \u2228 s = Iio a }) : IsTopologicalBasis {s | \u2203 (f g : Set \u03b1), f \u2286 c \u2227 g \u2286 c \u2227 f.Finite \u2227 g.Finite \u2227 s = (\u22c2 a \u2208 f, Ioi a) \u2229 (\u22c2 a \u2208 g, Iio a)}",
+    "have_tree": [
+      {
+        "name": "k_eq",
+        "type": "k = kl \u222a kr",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200 s \u2208 k, \u2203 a \u2208 c, s = Ioi a \u2228 s = Iio a",
+            "body": "hk",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "Finite kl",
+        "body": "k_fin.subset (by simp [k_eq])",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Finite kr",
+        "body": "k_fin.subset (by simp [k_eq])",
+        "children": []
+      },
+      {
+        "name": "Al",
+        "type": "\u2200 s : kl, \u2203 a \u2208 c, s = Ioi a",
+        "body": "fun s \u21a6 s.2.2",
+        "children": []
+      },
+      {
+        "name": "Ar",
+        "type": "\u2200 s : kr, \u2203 a \u2208 c, s = Iio a",
+        "body": "fun s \u21a6 s.2.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "countable_setOf_covBy_right",
+    "statement": "Set.Countable { x : \u03b1 | \u2203 y, x \u22d6 y }",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 x \u2208 s, \u2203 y, x \u22d6 y",
+        "body": "fun x => id",
+        "children": []
+      },
+      {
+        "name": "Hy",
+        "type": "\u2200 x z, x \u2208 s \u2192 z < y x \u2192 z \u2264 x",
+        "body": "fun x z hx => (hy x hx).le_of_lt",
+        "children": [
+          {
+            "name": "_",
+            "type": "s \u2286 \u22c3 a \u2208 countableBasis \u03b1, { x | x \u2208 s \u2227 x \u2208 a \u2227 y x \u2209 a }",
+            "body": "fun x hx => by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u2200 x \u2208 t, \u2203 z < x, Ioc z x \u2286 a",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "PairwiseDisjoint t fun x => Ioc (z x) x",
+        "body": "fun x xt x' x't hxx' => by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "countable_image_lt_image_Ioi_within",
+    "statement": "Set \u03b2) (f : \u03b2 \u2192 \u03b1) : Set.Countable {x \u2208 t | \u2203 z, f x < z \u2227 \u2200 y \u2208 t, x < y \u2192 z \u2264 f y}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b1",
+        "body": "Nonempty.map f (by infer_instance)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 x, x \u2208 s \u2192 \u2203 z, f x < z \u2227 \u2200 y \u2208 t, x < y \u2192 z \u2264 f y",
+        "body": "fun x hx \u21a6 hx.2",
+        "children": []
+      },
+      {
+        "name": "I",
+        "type": "InjOn f s",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "fs_count",
+        "type": "(f '' s).Countable",
+        "body": "by",
+        "children": [
+          {
+            "name": "A",
+            "type": "(f '' s).PairwiseDisjoint fun x => Ioo x (z (invFunOn f s x))",
+            "body": "by",
+            "children": [
+              {
+                "name": "hlt",
+                "type": "u < v",
+                "body": "hle.lt_of_ne (ne_of_apply_ne _ huv)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

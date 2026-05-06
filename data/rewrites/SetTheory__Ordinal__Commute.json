@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Commute",
+      "name": "addCommute_iff_eq_mul_natCast",
+      "statement": "Ordinal} : AddCommute o\u2081 o\u2082 \u2194 \u2203 (o : Ordinal) (n\u2081 n\u2082 : \u2115), o * n\u2081 = o\u2081 \u2227 o * n\u2082 = o\u2082",
+      "have_tree": [
+        {
+          "name": "hcomm'",
+          "type": "AddCommute o\u2081 o\u2083",
+          "body": "add_left_cancel (a := o\u2081) <| by grind",
+          "children": []
+        },
+        {
+          "name": "hlt",
+          "type": "o\u2081 + o\u2083 < o\u2081 + o\u2082",
+          "body": "by simpa [hsub, hcomm.eq] using h\u2081.pos",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Commute",
+          "name": "addCommute_iff_eq_mul_natCast",
+          "statement": "Ordinal} : AddCommute o\u2081 o\u2082 \u2194 \u2203 (o : Ordinal) (n\u2081 n\u2082 : \u2115), o * n\u2081 = o\u2081 \u2227 o * n\u2082 = o\u2082",
+          "have_tree": [
+            {
+              "name": "hlt",
+              "type": "o\u2081 + o\u2083 < o\u2081 + o\u2082",
+              "body": "by simpa [hsub, hcomm.eq] using h\u2081.pos",
+              "children": []
+            },
+            {
+              "name": "hcomm'",
+              "type": "AddCommute o\u2081 o\u2083",
+              "body": "add_left_cancel (a := o\u2081) <| by grind",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

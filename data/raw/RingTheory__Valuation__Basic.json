@@ -1,0 +1,92 @@
+[
+  {
+    "module": "Basic",
+    "name": "map_eq_of_sub_lt",
+    "statement": "v (y - x) < v x) : v y = v x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Valuation.map_add_of_distinct_val v (ne_of_gt h).symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_div_eq_of_unit",
+    "statement": "(ValueGroup\u2080 v)\u02e3) : \u2203 r s, 0 < v r \u2227 0 < v s \u2227 v.restrict r / v.restrict s = \u03b3.1",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "0 < v x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "ha0",
+        "type": "v.restrict a \u2260 0",
+        "body": "by simp [ha]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isNontrivial_iff_exists_unit",
+    "statement": "w.IsNontrivial \u2194 \u2203 x : K\u02e3, w x \u2260 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial \u0393\u2080",
+        "body": "\u27e8w x, 0, hx0\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nontrivial \u0393\u2080",
+        "body": "\u27e8w x, 1, hx\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "valueGroup\u2080Fun",
+    "statement": "v.IsEquiv w) (x : ValueGroup\u2080 v) : ValueGroup\u2080 w",
+    "have_tree": [
+      {
+        "name": "c",
+        "type": "",
+        "body": "(x.zero_or_exists_mk'.resolve_left hx).choose",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "valueGroup\u2080Fun_spec",
+    "statement": "v.IsEquiv w) {r s : R} (hr : v r \u2260 0) (hs : v s \u2260 0) : valueGroup\u2080Fun h (valueGroup.mk v r s hr hs) = valueGroup.mk w r s ((h.eq_zero).ne.mp hr) ((h.eq_zero).ne.mp hs)",
+    "have_tree": [
+      {
+        "name": "c_spec",
+        "type": "",
+        "body": "H.choose_spec",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "orderMonoidIso_spec",
+    "statement": "v.IsEquiv w) (a : R) : h.orderMonoidIso (v.restrict a) = w.restrict a",
+    "have_tree": [
+      {
+        "name": "h_res",
+        "type": "",
+        "body": "h.restrict",
+        "children": []
+      }
+    ]
+  }
+]

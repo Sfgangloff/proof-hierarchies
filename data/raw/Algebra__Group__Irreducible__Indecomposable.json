@@ -1,0 +1,59 @@
+[
+  {
+    "module": "Indecomposable",
+    "name": "Submonoid.closure_image_isMulIndecomposable_baseOf",
+    "statement": "\u03b9 \u2192 M) (f : M \u2192* S) : closure (v '' IsMulIndecomposable.baseOf v f) = closure (v '' {i | 1 < f (v i)})",
+    "have_tree": [
+      {
+        "name": "hne",
+        "type": "s.Nonempty",
+        "body": "\u27e8i, hi, hi'\u27e9",
+        "children": []
+      },
+      {
+        "name": "hi\u2083",
+        "type": "i \u2209 t",
+        "body": "by contrapose hi\u2081; exact subset_closure <| mem_image_of_mem v hi\u2081",
+        "children": []
+      },
+      {
+        "name": "hj'",
+        "type": "v j \u2208 closure (v '' t)",
+        "body": "hi\u2082 j hj <| by aesop",
+        "children": []
+      },
+      {
+        "name": "hk'",
+        "type": "v k \u2208 closure (v '' t)",
+        "body": "hi\u2082 k hk <| by aesop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Indecomposable",
+    "name": "pairwise_div_notMem_range",
+    "statement": "\u03b9 \u2192 G) (hv_one : \u2200 i, v i \u2260 1) (hv_inv : \u2200 i, v i\u207b\u00b9 = (v i)\u207b\u00b9) (s t : Set \u03b9) (hst : s \u2286 {i | IsMulIndecomposable v t i}) (hv_t : \u2200 i, i \u2208 t \u2228 i\u207b\u00b9 \u2208 t) : s.Pairwise fun i j \u21a6 v i / v j \u2209 range v",
+    "have_tree": [
+      {
+        "name": "h_sub",
+        "type": "s \u2286 t",
+        "body": "hst.trans (IsMulIndecomposable.subset _ _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Indecomposable",
+    "name": "pairwise_div_notMem_range'",
+    "statement": "\u03b9 \u2192 G) (hv_inv : \u2200 i, v i\u207b\u00b9 = (v i)\u207b\u00b9) (f : G \u2192* S) (hf : \u2200 i, f (v i) \u2260 1) (s : Set \u03b9) (hst : s \u2286 {j | IsMulIndecomposable v {i | 1 < f (v i)} j}) : s.Pairwise fun i j \u21a6 v i / v j \u2209 range v",
+    "have_tree": [
+      {
+        "name": "hv_one",
+        "type": "\u2200 i, v i \u2260 1",
+        "body": "fun i \u21a6 by contrapose! hf; exact \u27e8i, by simp [hf]\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

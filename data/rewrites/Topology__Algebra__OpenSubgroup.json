@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "OpenSubgroup",
+      "name": "isOpen_of_mem_nhds",
+      "statement": "Subgroup G) {g : G} (hg : (H : Set G) \u2208 \ud835\udcdd g) : IsOpen (H : Set G)",
+      "have_tree": [
+        {
+          "name": "hg'",
+          "type": "g \u2208 H",
+          "body": "SetLike.mem_coe.1 (mem_of_mem_nhds hg)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Filter.Tendsto (fun y \u21a6 y * (x\u207b\u00b9 * g)) (\ud835\udcdd x) (\ud835\udcdd g)",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "OpenSubgroup",
+          "name": "isOpen_of_mem_nhds",
+          "statement": "Subgroup G) {g : G} (hg : (H : Set G) \u2208 \ud835\udcdd g) : IsOpen (H : Set G)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Filter.Tendsto (fun y \u21a6 y * (x\u207b\u00b9 * g)) (\ud835\udcdd x) (\ud835\udcdd g)",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hg'",
+              "type": "g \u2208 H",
+              "body": "SetLike.mem_coe.1 (mem_of_mem_nhds hg)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "OpenSubgroup",
+      "name": "exist_mul_closure_nhds",
+      "statement": "Set G} (WClopen : IsClopen W) : \u2203 T \u2208 \ud835\udcdd (1 : G), W * T \u2286 W",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "(x, 1) \u2208 (fun p \u21a6 p.1 * p.2) \u207b\u00b9' W",
+          "body": "by simp [memW]",
+          "children": []
+        },
+        {
+          "name": "h6",
+          "type": "U * V \u2286 W",
+          "body": "mul_subset_iff.mpr (fun _ hx _ hy \u21a6 prodsub (mk_mem_prod hx hy))",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "OpenSubgroup",
+          "name": "exist_mul_closure_nhds",
+          "statement": "Set G} (WClopen : IsClopen W) : \u2203 T \u2208 \ud835\udcdd (1 : G), W * T \u2286 W",
+          "have_tree": [
+            {
+              "name": "h6",
+              "type": "U * V \u2286 W",
+              "body": "mul_subset_iff.mpr (fun _ hx _ hy \u21a6 prodsub (mk_mem_prod hx hy))",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(x, 1) \u2208 (fun p \u21a6 p.1 * p.2) \u207b\u00b9' W",
+              "body": "by simp [memW]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

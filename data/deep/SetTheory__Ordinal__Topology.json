@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Topology",
+    "name": "IsAcc.inter_Ioo_nonempty",
+    "statement": "Ordinal} {S : Set Ordinal} (hS : o.IsAcc S) {p : Ordinal} (hp : p < o) : (S \u2229 Ioo p o).Nonempty",
+    "have_tree": [
+      {
+        "name": "plim",
+        "type": "",
+        "body": "IsAcc.isSuccLimit h",
+        "children": [
+          {
+            "name": "plim",
+            "type": "IsSuccLimit p",
+            "body": "by",
+            "children": [
+              {
+                "name": "aux1",
+                "type": "",
+                "body": "Subtype.mk_lt_mk.mp mem.1.1",
+                "children": []
+              },
+              {
+                "name": "aux2",
+                "type": "",
+                "body": "Subtype.mk_lt_mk.mp mem.1.2",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "hp",
+        "type": "o = p + 1",
+        "body": "(le_succ_iff_eq_or_le.mp (le_of_not_gt ho)).resolve_right",
+        "children": []
+      },
+      {
+        "name": "ppos",
+        "type": "p \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2191x < o",
+            "body": "x.2",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

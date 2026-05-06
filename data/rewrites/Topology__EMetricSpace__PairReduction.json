@@ -1,0 +1,874 @@
+[
+  {
+    "original": {
+      "module": "PairReduction",
+      "name": "pow_logSizeRadius_le_card_le_logSizeRadius",
+      "statement": "1 < a) (ht : t \u2208 V) : a ^ (logSizeRadius t V a c - 1) \u2264 #(V.filter fun x \u21a6 edist t x \u2264 (logSizeRadius t V a c - 1) * c)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Nat.find (exists_radius_le t V ha c) - 1 < Nat.find (exists_radius_le t V ha c)",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "h",
+          "type": "",
+          "body": "Nat.find_min (exists_radius_le t V ha c) this",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "PairReduction",
+          "name": "pow_logSizeRadius_le_card_le_logSizeRadius",
+          "statement": "1 < a) (ht : t \u2208 V) : a ^ (logSizeRadius t V a c - 1) \u2264 #(V.filter fun x \u21a6 edist t x \u2264 (logSizeRadius t V a c - 1) * c)",
+          "have_tree": [
+            {
+              "name": "h",
+              "type": "",
+              "body": "Nat.find_min (exists_radius_le t V ha c) this",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Nat.find (exists_radius_le t V ha c) - 1 < Nat.find (exists_radius_le t V ha c)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "PairReduction",
+      "name": "iSup_edist_pairSet",
+      "statement": "Type*} [PseudoEMetricSpace E] (ha : 1 < a) (f : T \u2192 E) : \u2a06 (s : J) (t : { t : J // edist s t \u2264 c}), edist (f s) (f t) \u2264 2 * \u2a06 p : pairSet J a c, edist (f p.1.1) (f p.1.2)",
+      "have_tree": [
+        {
+          "name": "hJ",
+          "type": "J.Nonempty",
+          "body": "\u27e8s, hs\u27e9",
+          "children": [
+            {
+              "name": "hl",
+              "type": "l < #J - 1",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hP",
+              "type": "",
+              "body": "Nat.findGreatest_is_greatest (lt_add_one l) (Nat.add_one_le_of_lt hl)",
+              "children": []
+            },
+            {
+              "name": "hts",
+              "type": "edist t s \u2264 c",
+              "body": "by rw [edist_comm]; exact hst",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "hsB",
+          "type": "s \u2208 (logSizeBallSeq J hJ a c l).ball c",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "htB",
+          "type": "t \u2208 (logSizeBallSeq J hJ a c l).ball c",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hsP",
+          "type": "((logSizeBallSeq J hJ a c l).point, s) \u2208 pairSetSeq J a c l",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "htP",
+          "type": "((logSizeBallSeq J hJ a c l).point, t) \u2208 pairSetSeq J a c l",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "PairReduction",
+          "name": "iSup_edist_pairSet",
+          "statement": "Type*} [PseudoEMetricSpace E] (ha : 1 < a) (f : T \u2192 E) : \u2a06 (s : J) (t : { t : J // edist s t \u2264 c}), edist (f s) (f t) \u2264 2 * \u2a06 p : pairSet J a c, edist (f p.1.1) (f p.1.2)",
+          "have_tree": [
+            {
+              "name": "hJ",
+              "type": "J.Nonempty",
+              "body": "\u27e8s, hs\u27e9",
+              "children": [
+                {
+                  "name": "hP",
+                  "type": "",
+                  "body": "Nat.findGreatest_is_greatest (lt_add_one l) (Nat.add_one_le_of_lt hl)",
+                  "children": []
+                },
+                {
+                  "name": "hts",
+                  "type": "edist t s \u2264 c",
+                  "body": "by rw [edist_comm]; exact hst",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsB",
+              "type": "s \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htB",
+              "type": "t \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hsP",
+              "type": "((logSizeBallSeq J hJ a c l).point, s) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htP",
+              "type": "((logSizeBallSeq J hJ a c l).point, t) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          1
+        ],
+        "result": {
+          "module": "PairReduction",
+          "name": "iSup_edist_pairSet",
+          "statement": "Type*} [PseudoEMetricSpace E] (ha : 1 < a) (f : T \u2192 E) : \u2a06 (s : J) (t : { t : J // edist s t \u2264 c}), edist (f s) (f t) \u2264 2 * \u2a06 p : pairSet J a c, edist (f p.1.1) (f p.1.2)",
+          "have_tree": [
+            {
+              "name": "hJ",
+              "type": "J.Nonempty",
+              "body": "\u27e8s, hs\u27e9",
+              "children": [
+                {
+                  "name": "hl",
+                  "type": "l < #J - 1",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "hts",
+                  "type": "edist t s \u2264 c",
+                  "body": "by rw [edist_comm]; exact hst",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsB",
+              "type": "s \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htB",
+              "type": "t \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hsP",
+              "type": "((logSizeBallSeq J hJ a c l).point, s) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htP",
+              "type": "((logSizeBallSeq J hJ a c l).point, t) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          2
+        ],
+        "result": {
+          "module": "PairReduction",
+          "name": "iSup_edist_pairSet",
+          "statement": "Type*} [PseudoEMetricSpace E] (ha : 1 < a) (f : T \u2192 E) : \u2a06 (s : J) (t : { t : J // edist s t \u2264 c}), edist (f s) (f t) \u2264 2 * \u2a06 p : pairSet J a c, edist (f p.1.1) (f p.1.2)",
+          "have_tree": [
+            {
+              "name": "hJ",
+              "type": "J.Nonempty",
+              "body": "\u27e8s, hs\u27e9",
+              "children": [
+                {
+                  "name": "hl",
+                  "type": "l < #J - 1",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "hP",
+                  "type": "",
+                  "body": "Nat.findGreatest_is_greatest (lt_add_one l) (Nat.add_one_le_of_lt hl)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsB",
+              "type": "s \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htB",
+              "type": "t \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hsP",
+              "type": "((logSizeBallSeq J hJ a c l).point, s) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htP",
+              "type": "((logSizeBallSeq J hJ a c l).point, t) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "PairReduction",
+          "name": "iSup_edist_pairSet",
+          "statement": "Type*} [PseudoEMetricSpace E] (ha : 1 < a) (f : T \u2192 E) : \u2a06 (s : J) (t : { t : J // edist s t \u2264 c}), edist (f s) (f t) \u2264 2 * \u2a06 p : pairSet J a c, edist (f p.1.1) (f p.1.2)",
+          "have_tree": [
+            {
+              "name": "hl",
+              "type": "l < #J - 1",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hJ",
+              "type": "J.Nonempty",
+              "body": "\u27e8s, hs\u27e9",
+              "children": [
+                {
+                  "name": "hP",
+                  "type": "",
+                  "body": "Nat.findGreatest_is_greatest (lt_add_one l) (Nat.add_one_le_of_lt hl)",
+                  "children": []
+                },
+                {
+                  "name": "hts",
+                  "type": "edist t s \u2264 c",
+                  "body": "by rw [edist_comm]; exact hst",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsB",
+              "type": "s \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htB",
+              "type": "t \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hsP",
+              "type": "((logSizeBallSeq J hJ a c l).point, s) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htP",
+              "type": "((logSizeBallSeq J hJ a c l).point, t) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "PairReduction",
+          "name": "iSup_edist_pairSet",
+          "statement": "Type*} [PseudoEMetricSpace E] (ha : 1 < a) (f : T \u2192 E) : \u2a06 (s : J) (t : { t : J // edist s t \u2264 c}), edist (f s) (f t) \u2264 2 * \u2a06 p : pairSet J a c, edist (f p.1.1) (f p.1.2)",
+          "have_tree": [
+            {
+              "name": "hP",
+              "type": "",
+              "body": "Nat.findGreatest_is_greatest (lt_add_one l) (Nat.add_one_le_of_lt hl)",
+              "children": []
+            },
+            {
+              "name": "hJ",
+              "type": "J.Nonempty",
+              "body": "\u27e8s, hs\u27e9",
+              "children": [
+                {
+                  "name": "hl",
+                  "type": "l < #J - 1",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "hts",
+                  "type": "edist t s \u2264 c",
+                  "body": "by rw [edist_comm]; exact hst",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsB",
+              "type": "s \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htB",
+              "type": "t \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hsP",
+              "type": "((logSizeBallSeq J hJ a c l).point, s) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htP",
+              "type": "((logSizeBallSeq J hJ a c l).point, t) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 2,
+        "result": {
+          "module": "PairReduction",
+          "name": "iSup_edist_pairSet",
+          "statement": "Type*} [PseudoEMetricSpace E] (ha : 1 < a) (f : T \u2192 E) : \u2a06 (s : J) (t : { t : J // edist s t \u2264 c}), edist (f s) (f t) \u2264 2 * \u2a06 p : pairSet J a c, edist (f p.1.1) (f p.1.2)",
+          "have_tree": [
+            {
+              "name": "hts",
+              "type": "edist t s \u2264 c",
+              "body": "by rw [edist_comm]; exact hst",
+              "children": []
+            },
+            {
+              "name": "hJ",
+              "type": "J.Nonempty",
+              "body": "\u27e8s, hs\u27e9",
+              "children": [
+                {
+                  "name": "hl",
+                  "type": "l < #J - 1",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "hP",
+                  "type": "",
+                  "body": "Nat.findGreatest_is_greatest (lt_add_one l) (Nat.add_one_le_of_lt hl)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsB",
+              "type": "s \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htB",
+              "type": "t \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hsP",
+              "type": "((logSizeBallSeq J hJ a c l).point, s) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htP",
+              "type": "((logSizeBallSeq J hJ a c l).point, t) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "PairReduction",
+          "name": "iSup_edist_pairSet",
+          "statement": "Type*} [PseudoEMetricSpace E] (ha : 1 < a) (f : T \u2192 E) : \u2a06 (s : J) (t : { t : J // edist s t \u2264 c}), edist (f s) (f t) \u2264 2 * \u2a06 p : pairSet J a c, edist (f p.1.1) (f p.1.2)",
+          "have_tree": [
+            {
+              "name": "hsB",
+              "type": "s \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hJ",
+              "type": "J.Nonempty",
+              "body": "\u27e8s, hs\u27e9",
+              "children": [
+                {
+                  "name": "hl",
+                  "type": "l < #J - 1",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "hP",
+                  "type": "",
+                  "body": "Nat.findGreatest_is_greatest (lt_add_one l) (Nat.add_one_le_of_lt hl)",
+                  "children": []
+                },
+                {
+                  "name": "hts",
+                  "type": "edist t s \u2264 c",
+                  "body": "by rw [edist_comm]; exact hst",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "htB",
+              "type": "t \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hsP",
+              "type": "((logSizeBallSeq J hJ a c l).point, s) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htP",
+              "type": "((logSizeBallSeq J hJ a c l).point, t) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "PairReduction",
+          "name": "iSup_edist_pairSet",
+          "statement": "Type*} [PseudoEMetricSpace E] (ha : 1 < a) (f : T \u2192 E) : \u2a06 (s : J) (t : { t : J // edist s t \u2264 c}), edist (f s) (f t) \u2264 2 * \u2a06 p : pairSet J a c, edist (f p.1.1) (f p.1.2)",
+          "have_tree": [
+            {
+              "name": "hJ",
+              "type": "J.Nonempty",
+              "body": "\u27e8s, hs\u27e9",
+              "children": [
+                {
+                  "name": "hl",
+                  "type": "l < #J - 1",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "hP",
+                  "type": "",
+                  "body": "Nat.findGreatest_is_greatest (lt_add_one l) (Nat.add_one_le_of_lt hl)",
+                  "children": []
+                },
+                {
+                  "name": "hts",
+                  "type": "edist t s \u2264 c",
+                  "body": "by rw [edist_comm]; exact hst",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "htB",
+              "type": "t \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hsB",
+              "type": "s \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hsP",
+              "type": "((logSizeBallSeq J hJ a c l).point, s) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htP",
+              "type": "((logSizeBallSeq J hJ a c l).point, t) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "PairReduction",
+          "name": "iSup_edist_pairSet",
+          "statement": "Type*} [PseudoEMetricSpace E] (ha : 1 < a) (f : T \u2192 E) : \u2a06 (s : J) (t : { t : J // edist s t \u2264 c}), edist (f s) (f t) \u2264 2 * \u2a06 p : pairSet J a c, edist (f p.1.1) (f p.1.2)",
+          "have_tree": [
+            {
+              "name": "hJ",
+              "type": "J.Nonempty",
+              "body": "\u27e8s, hs\u27e9",
+              "children": [
+                {
+                  "name": "hl",
+                  "type": "l < #J - 1",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "hP",
+                  "type": "",
+                  "body": "Nat.findGreatest_is_greatest (lt_add_one l) (Nat.add_one_le_of_lt hl)",
+                  "children": []
+                },
+                {
+                  "name": "hts",
+                  "type": "edist t s \u2264 c",
+                  "body": "by rw [edist_comm]; exact hst",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsB",
+              "type": "s \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hsP",
+              "type": "((logSizeBallSeq J hJ a c l).point, s) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htB",
+              "type": "t \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htP",
+              "type": "((logSizeBallSeq J hJ a c l).point, t) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "PairReduction",
+          "name": "iSup_edist_pairSet",
+          "statement": "Type*} [PseudoEMetricSpace E] (ha : 1 < a) (f : T \u2192 E) : \u2a06 (s : J) (t : { t : J // edist s t \u2264 c}), edist (f s) (f t) \u2264 2 * \u2a06 p : pairSet J a c, edist (f p.1.1) (f p.1.2)",
+          "have_tree": [
+            {
+              "name": "hJ",
+              "type": "J.Nonempty",
+              "body": "\u27e8s, hs\u27e9",
+              "children": [
+                {
+                  "name": "hl",
+                  "type": "l < #J - 1",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "hP",
+                  "type": "",
+                  "body": "Nat.findGreatest_is_greatest (lt_add_one l) (Nat.add_one_le_of_lt hl)",
+                  "children": []
+                },
+                {
+                  "name": "hts",
+                  "type": "edist t s \u2264 c",
+                  "body": "by rw [edist_comm]; exact hst",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsB",
+              "type": "s \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htB",
+              "type": "t \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htP",
+              "type": "((logSizeBallSeq J hJ a c l).point, t) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hsP",
+              "type": "((logSizeBallSeq J hJ a c l).point, s) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0
+        ],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "PairReduction",
+          "name": "iSup_edist_pairSet",
+          "statement": "Type*} [PseudoEMetricSpace E] (ha : 1 < a) (f : T \u2192 E) : \u2a06 (s : J) (t : { t : J // edist s t \u2264 c}), edist (f s) (f t) \u2264 2 * \u2a06 p : pairSet J a c, edist (f p.1.1) (f p.1.2)",
+          "have_tree": [
+            {
+              "name": "hJ",
+              "type": "J.Nonempty",
+              "body": "\u27e8s, hs\u27e9",
+              "children": [
+                {
+                  "name": "hP",
+                  "type": "",
+                  "body": "Nat.findGreatest_is_greatest (lt_add_one l) (Nat.add_one_le_of_lt hl)",
+                  "children": []
+                },
+                {
+                  "name": "hl",
+                  "type": "l < #J - 1",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "hts",
+                  "type": "edist t s \u2264 c",
+                  "body": "by rw [edist_comm]; exact hst",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsB",
+              "type": "s \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htB",
+              "type": "t \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hsP",
+              "type": "((logSizeBallSeq J hJ a c l).point, s) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htP",
+              "type": "((logSizeBallSeq J hJ a c l).point, t) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0
+        ],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "PairReduction",
+          "name": "iSup_edist_pairSet",
+          "statement": "Type*} [PseudoEMetricSpace E] (ha : 1 < a) (f : T \u2192 E) : \u2a06 (s : J) (t : { t : J // edist s t \u2264 c}), edist (f s) (f t) \u2264 2 * \u2a06 p : pairSet J a c, edist (f p.1.1) (f p.1.2)",
+          "have_tree": [
+            {
+              "name": "hJ",
+              "type": "J.Nonempty",
+              "body": "\u27e8s, hs\u27e9",
+              "children": [
+                {
+                  "name": "hl",
+                  "type": "l < #J - 1",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "hts",
+                  "type": "edist t s \u2264 c",
+                  "body": "by rw [edist_comm]; exact hst",
+                  "children": []
+                },
+                {
+                  "name": "hP",
+                  "type": "",
+                  "body": "Nat.findGreatest_is_greatest (lt_add_one l) (Nat.add_one_le_of_lt hl)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsB",
+              "type": "s \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htB",
+              "type": "t \u2208 (logSizeBallSeq J hJ a c l).ball c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hsP",
+              "type": "((logSizeBallSeq J hJ a c l).point, s) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htP",
+              "type": "((logSizeBallSeq J hJ a c l).point, t) \u2208 pairSetSeq J a c l",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

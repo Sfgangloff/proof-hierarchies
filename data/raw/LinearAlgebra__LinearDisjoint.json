@@ -1,0 +1,104 @@
+[
+  {
+    "module": "LinearDisjoint",
+    "name": "map",
+    "statement": "M.LinearDisjoint N) {T : Type w} [Semiring T] [Algebra R T] (f : S \u2192\u2090[R] T) (hf : Function.Injective f) : (M.map (f : S \u2192\u2097[R] T)).LinearDisjoint (N.map (f : S \u2192\u2097[R] T))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.comp H",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearDisjoint",
+    "name": "linearIndependent_mul_of_flat_left",
+    "statement": "M.LinearDisjoint N) [Module.Flat R M] {\u03ba \u03b9 : Type*} {m : \u03ba \u2192 M} {n : \u03b9 \u2192 N} (hm : LinearIndependent R m) (hn : LinearIndependent R n) : LinearIndependent R fun (i : \u03ba \u00d7 \u03b9) \u21a6 (m i.1).1 * (n i.2).1",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "Function.Injective i1",
+        "body": "Module.Flat.rTensor_preserves_injective_linearMap _ hm",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "Function.Injective i2",
+        "body": "Module.Flat.lTensor_preserves_injective_linearMap _ hn",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "Function.Injective i",
+        "body": "H.injective.comp h2 |>.comp h1 |>.comp i0.injective",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearDisjoint",
+    "name": "linearIndependent_mul_of_flat_right",
+    "statement": "M.LinearDisjoint N) [Module.Flat R N] {\u03ba \u03b9 : Type*} {m : \u03ba \u2192 M} {n : \u03b9 \u2192 N} (hm : LinearIndependent R m) (hn : LinearIndependent R n) : LinearIndependent R fun (i : \u03ba \u00d7 \u03b9) \u21a6 (m i.1).1 * (n i.2).1",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "Function.Injective i1",
+        "body": "Module.Flat.lTensor_preserves_injective_linearMap _ hn",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "Function.Injective i2",
+        "body": "Module.Flat.rTensor_preserves_injective_linearMap _ hm",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "Function.Injective i",
+        "body": "H.injective.comp h2 |>.comp h1 |>.comp i0.injective",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearDisjoint",
+    "name": "of_le_left_of_flat",
+    "statement": "M.LinearDisjoint N) {M' : Submodule R S} (h : M' \u2264 M) [Module.Flat R N] : M'.LinearDisjoint N",
+    "have_tree": [
+      {
+        "name": "hi",
+        "type": "Function.Injective i",
+        "body": "H.injective.comp <|",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearDisjoint",
+    "name": "of_le_right_of_flat",
+    "statement": "M.LinearDisjoint N) {N' : Submodule R S} (h : N' \u2264 N) [Module.Flat R M] : M.LinearDisjoint N'",
+    "have_tree": [
+      {
+        "name": "hi",
+        "type": "Function.Injective i",
+        "body": "H.injective.comp <|",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearDisjoint",
+    "name": "rank_inf_le_one_of_commute_of_flat",
+    "statement": "Module.Flat R M \u2228 Module.Flat R N) (hc : \u2200 (m n : \u21a5(M \u2293 N)), Commute m.1 n.1) : Module.rank R \u21a5(M \u2293 N) \u2264 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.comp ![a, b] fun i j hij \u21a6 by",
+        "children": []
+      }
+    ]
+  }
+]

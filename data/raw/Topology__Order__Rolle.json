@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Rolle",
+    "name": "exists_Ioo_extr_on_Icc",
+    "statement": "a < b) (hfc : ContinuousOn f (Icc a b)) (hfI : f a = f b) : \u2203 c \u2208 Ioo a b, IsExtrOn f (Icc a b) c",
+    "have_tree": [
+      {
+        "name": "ne",
+        "type": "(Icc a b).Nonempty",
+        "body": "nonempty_Icc.2 (le_of_lt hab)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rolle",
+    "name": "exists_isExtrOn_Ioo_of_tendsto",
+    "statement": "a < b) (hfc : ContinuousOn f (Ioo a b)) (ha : Tendsto f (\ud835\udcdd[>] a) (\ud835\udcdd l)) (hb : Tendsto f (\ud835\udcdd[<] b) (\ud835\udcdd l)) : \u2203 c \u2208 Ioo a b, IsExtrOn f (Ioo a b) c",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "EqOn (extendFrom (Ioo a b) f) f (Ioo a b)",
+        "body": "extendFrom_extends hfc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rolle",
+    "name": "exists_isExtrOn_uIoo_of_tendsto",
+    "statement": "a \u2260 b) (hfc : ContinuousOn f (uIoo a b)) (ha : Tendsto f (\ud835\udcdd[uIoo a b] a) (\ud835\udcdd l)) (hb : Tendsto f (\ud835\udcdd[uIoo a b] b) (\ud835\udcdd l)) : \u2203 c \u2208 uIoo a b, IsExtrOn f (uIoo a b) c",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "EqOn (extendFrom (uIoo a b) f) f (uIoo a b)",
+        "body": "extendFrom_extends hfc",
+        "children": []
+      }
+    ]
+  }
+]

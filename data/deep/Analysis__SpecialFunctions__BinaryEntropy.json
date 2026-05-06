@@ -1,0 +1,86 @@
+[
+  {
+    "module": "BinaryEntropy",
+    "name": "qaryEntropy_strictMonoOn",
+    "statement": "2 \u2264 q) : StrictMonoOn (qaryEntropy q) (Icc 0 (1 - 1 / q))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "2 \u2264 (q : \u211d)",
+        "body": "Nat.ofNat_le_cast.mpr qLe2",
+        "children": []
+      },
+      {
+        "name": "zero_le_qinv",
+        "type": "0 < (q : \u211d)\u207b\u00b9",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 < 1 - p",
+        "body": "by",
+        "children": [
+          {
+            "name": "p_lt_1_minus_qinv",
+            "type": "p < 1 - (q : \u211d)\u207b\u00b9",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "q * p < q - 1",
+                "body": "by",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "BinaryEntropy",
+    "name": "qaryEntropy_strictAntiOn",
+    "statement": "2 \u2264 q) : StrictAntiOn (qaryEntropy q) (Icc (1 - 1 / q) 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "2 \u2264 (q : \u211d)",
+        "body": "Nat.ofNat_le_cast.mpr qLe2",
+        "children": []
+      },
+      {
+        "name": "qinv_lt_1",
+        "type": "(q : \u211d)\u207b\u00b9 < 1",
+        "body": "inv_lt_one_of_one_lt\u2080 (by linarith)",
+        "children": []
+      },
+      {
+        "name": "zero_lt_1_sub_p",
+        "type": "0 < 1 - p",
+        "body": "by simp_all only [sub_pos, interior_Icc, mem_Ioo]",
+        "children": [
+          {
+            "name": "_",
+            "type": "(q : \u211d) - 1 < p * q",
+            "body": "by",
+            "children": [
+              {
+                "name": "h1",
+                "type": "",
+                "body": "mul_lt_mul_of_pos_right hp.1 qpos",
+                "children": []
+              },
+              {
+                "name": "h2",
+                "type": "(1 - (q : \u211d)\u207b\u00b9) * \u2191q = q - 1",
+                "body": "by calc (1 - (q : \u211d)\u207b\u00b9) * \u2191q",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

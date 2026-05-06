@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "sin_lt_sin_of_lt_of_le_pi_div_two",
+      "statement": "\u211d} (hx\u2081 : -(\u03c0 / 2) \u2264 x) (hy\u2082 : y \u2264 \u03c0 / 2) (hxy : x < y) : sin x < sin y",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "0 < sin ((y - x) / 2)",
+          "body": "by apply sin_pos_of_pos_of_lt_pi <;> linarith",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "0 < cos ((y + x) / 2)",
+          "body": "by refine cos_pos_of_mem_Ioo \u27e8?_, ?_\u27e9 <;> linarith",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "sin_lt_sin_of_lt_of_le_pi_div_two",
+          "statement": "\u211d} (hx\u2081 : -(\u03c0 / 2) \u2264 x) (hy\u2082 : y \u2264 \u03c0 / 2) (hxy : x < y) : sin x < sin y",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "0 < cos ((y + x) / 2)",
+              "body": "by refine cos_pos_of_mem_Ioo \u27e8?_, ?_\u27e9 <;> linarith",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "0 < sin ((y - x) / 2)",
+              "body": "by apply sin_pos_of_pos_of_lt_pi <;> linarith",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

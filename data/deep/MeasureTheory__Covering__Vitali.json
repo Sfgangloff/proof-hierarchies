@@ -1,0 +1,219 @@
+[
+  {
+    "module": "Vitali",
+    "name": "exists_disjoint_subfamily_covering_enlargement",
+    "statement": "\u03b9 \u2192 Set \u03b1) (t : Set \u03b9) (\u03b4 : \u03b9 \u2192 \u211d) (\u03c4 : \u211d) (h\u03c4 : 1 < \u03c4) (\u03b4nonneg : \u2200 a \u2208 t, 0 \u2264 \u03b4 a) (R : \u211d) (\u03b4le : \u2200 a \u2208 t, \u03b4 a \u2264 R) (hne : \u2200 a \u2208 t, (B a).Nonempty) : \u2203 u \u2286 t, u.PairwiseDisjoint B \u2227 \u2200 a \u2208 t, \u2203 b \u2208 u, (B a \u2229 B b).Nonempty \u2227 \u03b4 a \u2264 \u03c4 * \u03b4 b",
+    "have_tree": [
+      {
+        "name": "a_disj",
+        "type": "\u2200 c \u2208 u, Disjoint (B a) (B c)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "Anonempty",
+        "type": "A.Nonempty",
+        "body": "\u27e8a, hat, a_disj\u27e9",
+        "children": []
+      },
+      {
+        "name": "bddA",
+        "type": "BddAbove (\u03b4 '' A)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 \u2264 m",
+            "body": "(\u03b4nonneg a hat).trans (le_csSup bddA (mem_image_of_mem _ \u27e8hat, a_disj\u27e9))",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "a'_ne_u",
+        "type": "a' \u2209 u",
+        "body": "fun H => (hne _ a'A.1).ne_empty (disjoint_self.1 (a'A.2 _ H))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Vitali",
+    "name": "exists_disjoint_subfamily_covering_enlargement_closedBall",
+    "statement": "Set \u03b9) (x : \u03b9 \u2192 \u03b1) (r : \u03b9 \u2192 \u211d) (R : \u211d) (hr : \u2200 a \u2208 t, r a \u2264 R) (\u03c4 : \u211d) (h\u03c4 : 3 < \u03c4) : \u2203 u \u2286 t, (u.PairwiseDisjoint fun a => closedBall (x a) (r a)) \u2227 \u2200 a \u2208 t, \u2203 b \u2208 u, closedBall (x a) (r a) \u2286 closedBall (x b) (\u03c4 * r b)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2200 a \u2208 t', \u2203 b \u2208 u, closedBall (x a) (r a) \u2286 closedBall (x b) (\u03c4 * r b)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "dist (x a) (x b) \u2264 r a + r b",
+            "body": "dist_le_add_of_nonempty_closedBall_inter_closedBall hb",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Vitali",
+    "name": "exists_disjoint_covering_ae",
+    "statement": "Measure \u03b1) [IsLocallyFiniteMeasure \u03bc] (s : Set \u03b1) (t : Set \u03b9) (C : \u211d\u22650) (r : \u03b9 \u2192 \u211d) (c : \u03b9 \u2192 \u03b1) (B : \u03b9 \u2192 Set \u03b1) (hB : \u2200 a \u2208 t, B a \u2286 closedBall (c a) (r a)) (\u03bcB : \u2200 a \u2208 t, \u03bc (closedBall (c a) (3 * r a)) \u2264 C * \u03bc (B a)) (ht : \u2200 a \u2208 t, (interior (B a)).Nonempty) (h't : \u2200 a \u2208 t, IsClosed (B a)) (hf : \u2200 x \u2208 s, \u2200 \u03b5 > (0 : \u211d), \u2203 a \u2208 t, r a \u2264 \u03b5 \u2227 c a = x) : \u2203 u \u2286 t, u.Countable \u2227 u.PairwiseDisjoint B \u2227 \u03bc (s \\ \u22c3 a \u2208 u, B a) = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 x, \u2203 R, 0 < R \u2227 R \u2264 1 \u2227 \u03bc (closedBall x (20 * R)) < \u221e",
+        "body": "fun x \u21a6 by",
+        "children": [
+          {
+            "name": "A",
+            "type": "\u2200 a \u2208 t', r a \u2264 1",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "A'",
+            "type": "\u2200 a \u2208 t', (B a).Nonempty",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "ut",
+        "type": "u \u2286 t",
+        "body": "fun a hau => (ut' hau).1",
+        "children": []
+      },
+      {
+        "name": "u_count",
+        "type": "u.Countable",
+        "body": "u_disj.countable_of_nonempty_interior fun a ha => ht a (ut ha)",
+        "children": []
+      },
+      {
+        "name": "vu",
+        "type": "v \u2286 u",
+        "body": "fun a ha => ha.1",
+        "children": [
+          {
+            "name": "Idist_v",
+            "type": "\u2200 a \u2208 v, dist (c a) x \u2264 r a + R x",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "R0_bdd",
+            "type": "BddAbove (r '' v)",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "r a \u2264 R0",
+                "body": "le_csSup R0_bdd (mem_image_of_mem _ \u27e8au, hax\u27e9)",
+                "children": []
+              },
+              {
+                "name": "vnonempty",
+                "type": "v.Nonempty",
+                "body": "by",
+                "children": [
+                  {
+                    "name": "_",
+                    "type": "r b \u2264 R0",
+                    "body": "le_csSup R0_bdd (mem_image_of_mem _ \u27e8bu, hbx\u27e9)",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "I",
+        "type": "(\u2211' a : v, \u03bc (B a)) < \u221e",
+        "body": "by",
+        "children": [
+          {
+            "name": "k_closed",
+            "type": "IsClosed k",
+            "body": "isClosed_biUnion_finset fun i _ => h't _ (ut (vu i.2))",
+            "children": []
+          },
+          {
+            "name": "z_notmem_k",
+            "type": "z \u2209 k",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "z \u2208 (s \\ \u22c3 a \u2208 u, B a) \u2229 \u22c3 a \u2208 u, B a",
+                "body": "",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "ball x (R x) \\ k \u2208 \ud835\udcdd z",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "ax",
+            "type": "B a \u2286 ball x (R x)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "bv",
+            "type": "b \u2208 v",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "b'_notmem_w",
+            "type": "b' \u2209 w",
+            "body": "by",
+            "children": [
+              {
+                "name": "b'k",
+                "type": "B b' \u2286 k",
+                "body": "@Finset.subset_set_biUnion_of_mem _ _ _ (fun y : v => B y) _ b'w",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "(ball x (R x) \\ k \u2229 k).Nonempty",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "zb",
+            "type": "c a \u2208 closedBall (c b) (3 * r b)",
+            "body": "by",
+            "children": [
+              {
+                "name": "A",
+                "type": "dist (c a) e \u2264 r a",
+                "body": "mem_closedBall'.1 (hB a hat ea)",
+                "children": []
+              },
+              {
+                "name": "B",
+                "type": "dist e (c b) \u2264 r b",
+                "body": "mem_closedBall.1 (hB b (ut bu) eb)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

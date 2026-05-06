@@ -1,0 +1,307 @@
+[
+  {
+    "original": {
+      "module": "MeanInequalitiesPow",
+      "name": "add_rpow_le_one_of_add_le_one",
+      "statement": "\u211d} (a b : \u211d\u22650) (hab : a + b \u2264 1) (hp1 : 1 \u2264 p) : a ^ p + b ^ p \u2264 1",
+      "have_tree": [
+        {
+          "name": "ha",
+          "type": "a \u2264 1",
+          "body": "(self_le_add_right a b).trans hab",
+          "children": []
+        },
+        {
+          "name": "hb",
+          "type": "b \u2264 1",
+          "body": "(self_le_add_left b a).trans hab",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "MeanInequalitiesPow",
+          "name": "add_rpow_le_one_of_add_le_one",
+          "statement": "\u211d} (a b : \u211d\u22650) (hab : a + b \u2264 1) (hp1 : 1 \u2264 p) : a ^ p + b ^ p \u2264 1",
+          "have_tree": [
+            {
+              "name": "hb",
+              "type": "b \u2264 1",
+              "body": "(self_le_add_left b a).trans hab",
+              "children": []
+            },
+            {
+              "name": "ha",
+              "type": "a \u2264 1",
+              "body": "(self_le_add_right a b).trans hab",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "MeanInequalitiesPow",
+      "name": "add_rpow_le_rpow_add",
+      "statement": "\u211d} (a b : \u211d\u22650) (hp1 : 1 \u2264 p) : a ^ p + b ^ p \u2264 (a + b) ^ p",
+      "have_tree": [
+        {
+          "name": "hp_pos",
+          "type": "0 < p",
+          "body": "by positivity",
+          "children": []
+        },
+        {
+          "name": "h",
+          "type": "",
+          "body": "add_rpow_le_one_of_add_le_one (a / (a + b)) (b / (a + b)) h_add.le hp1",
+          "children": []
+        },
+        {
+          "name": "hab_0",
+          "type": "(a + b) ^ p \u2260 0",
+          "body": "by simp [h_nonzero]",
+          "children": []
+        },
+        {
+          "name": "h_mul",
+          "type": "(a + b) ^ p * (a ^ p / (a + b) ^ p + b ^ p / (a + b) ^ p) \u2264 (a + b) ^ p",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "MeanInequalitiesPow",
+          "name": "add_rpow_le_rpow_add",
+          "statement": "\u211d} (a b : \u211d\u22650) (hp1 : 1 \u2264 p) : a ^ p + b ^ p \u2264 (a + b) ^ p",
+          "have_tree": [
+            {
+              "name": "h",
+              "type": "",
+              "body": "add_rpow_le_one_of_add_le_one (a / (a + b)) (b / (a + b)) h_add.le hp1",
+              "children": []
+            },
+            {
+              "name": "hp_pos",
+              "type": "0 < p",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hab_0",
+              "type": "(a + b) ^ p \u2260 0",
+              "body": "by simp [h_nonzero]",
+              "children": []
+            },
+            {
+              "name": "h_mul",
+              "type": "(a + b) ^ p * (a ^ p / (a + b) ^ p + b ^ p / (a + b) ^ p) \u2264 (a + b) ^ p",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "MeanInequalitiesPow",
+          "name": "add_rpow_le_rpow_add",
+          "statement": "\u211d} (a b : \u211d\u22650) (hp1 : 1 \u2264 p) : a ^ p + b ^ p \u2264 (a + b) ^ p",
+          "have_tree": [
+            {
+              "name": "hp_pos",
+              "type": "0 < p",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hab_0",
+              "type": "(a + b) ^ p \u2260 0",
+              "body": "by simp [h_nonzero]",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "",
+              "body": "add_rpow_le_one_of_add_le_one (a / (a + b)) (b / (a + b)) h_add.le hp1",
+              "children": []
+            },
+            {
+              "name": "h_mul",
+              "type": "(a + b) ^ p * (a ^ p / (a + b) ^ p + b ^ p / (a + b) ^ p) \u2264 (a + b) ^ p",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "MeanInequalitiesPow",
+          "name": "add_rpow_le_rpow_add",
+          "statement": "\u211d} (a b : \u211d\u22650) (hp1 : 1 \u2264 p) : a ^ p + b ^ p \u2264 (a + b) ^ p",
+          "have_tree": [
+            {
+              "name": "hp_pos",
+              "type": "0 < p",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "",
+              "body": "add_rpow_le_one_of_add_le_one (a / (a + b)) (b / (a + b)) h_add.le hp1",
+              "children": []
+            },
+            {
+              "name": "h_mul",
+              "type": "(a + b) ^ p * (a ^ p / (a + b) ^ p + b ^ p / (a + b) ^ p) \u2264 (a + b) ^ p",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hab_0",
+              "type": "(a + b) ^ p \u2260 0",
+              "body": "by simp [h_nonzero]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "MeanInequalitiesPow",
+      "name": "rpow_arith_mean_le_arith_mean_rpow",
+      "statement": "\u03b9 \u2192 \u211d\u22650\u221e) (hw' : \u2211 i \u2208 s, w i = 1) {p : \u211d} (hp : 1 \u2264 p) : (\u2211 i \u2208 s, w i * z i) ^ p \u2264 \u2211 i \u2208 s, w i * z i ^ p",
+      "have_tree": [
+        {
+          "name": "hp_pos",
+          "type": "0 < p",
+          "body": "by positivity",
+          "children": []
+        },
+        {
+          "name": "hp_nonneg",
+          "type": "0 \u2264 p",
+          "body": "by positivity",
+          "children": []
+        },
+        {
+          "name": "hp_not_neg",
+          "type": "\u00acp < 0",
+          "body": "by simp [hp_nonneg]",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "MeanInequalitiesPow",
+          "name": "rpow_arith_mean_le_arith_mean_rpow",
+          "statement": "\u03b9 \u2192 \u211d\u22650\u221e) (hw' : \u2211 i \u2208 s, w i = 1) {p : \u211d} (hp : 1 \u2264 p) : (\u2211 i \u2208 s, w i * z i) ^ p \u2264 \u2211 i \u2208 s, w i * z i ^ p",
+          "have_tree": [
+            {
+              "name": "hp_nonneg",
+              "type": "0 \u2264 p",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hp_pos",
+              "type": "0 < p",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hp_not_neg",
+              "type": "\u00acp < 0",
+              "body": "by simp [hp_nonneg]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "MeanInequalitiesPow",
+          "name": "rpow_arith_mean_le_arith_mean_rpow",
+          "statement": "\u03b9 \u2192 \u211d\u22650\u221e) (hw' : \u2211 i \u2208 s, w i = 1) {p : \u211d} (hp : 1 \u2264 p) : (\u2211 i \u2208 s, w i * z i) ^ p \u2264 \u2211 i \u2208 s, w i * z i ^ p",
+          "have_tree": [
+            {
+              "name": "hp_pos",
+              "type": "0 < p",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hp_not_neg",
+              "type": "\u00acp < 0",
+              "body": "by simp [hp_nonneg]",
+              "children": []
+            },
+            {
+              "name": "hp_nonneg",
+              "type": "0 \u2264 p",
+              "body": "by positivity",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

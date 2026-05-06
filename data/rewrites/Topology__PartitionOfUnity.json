@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "PartitionOfUnity",
+      "name": "exists_isSubordinate_of_locallyFinite_of_prop",
+      "statement": "(X \u2192 \u211d) \u2192 Prop) (h01 : \u2200 s t, IsClosed s \u2192 IsClosed t \u2192 Disjoint s t \u2192 \u2203 f : C(X, \u211d), p f \u2227 EqOn f 0 s \u2227 EqOn f 1 t \u2227 \u2200 x, f x \u2208 Icc (0 : \u211d) 1) (hs : IsClosed s) (U : \u03b9 \u2192 Set X) (ho : \u2200 i, IsOpen (U i)) (hf : LocallyFinite U) (hU : s \u2286 \u22c3 i, U i) : \u2203 f : BumpCovering \u03b9 X s, (\u2200 i, p (f i)) \u2227 f.IsSubordinate U",
+      "have_tree": [
+        {
+          "name": "hVU'",
+          "type": "\u2200 i, V i \u2286 U i",
+          "body": "fun i => Subset.trans subset_closure (hVU i)",
+          "children": []
+        },
+        {
+          "name": "hsupp",
+          "type": "\u2200 i, support (f i) \u2286 V i",
+          "body": "fun i => support_subset_iff'.2 (hf0 i)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "PartitionOfUnity",
+          "name": "exists_isSubordinate_of_locallyFinite_of_prop",
+          "statement": "(X \u2192 \u211d) \u2192 Prop) (h01 : \u2200 s t, IsClosed s \u2192 IsClosed t \u2192 Disjoint s t \u2192 \u2203 f : C(X, \u211d), p f \u2227 EqOn f 0 s \u2227 EqOn f 1 t \u2227 \u2200 x, f x \u2208 Icc (0 : \u211d) 1) (hs : IsClosed s) (U : \u03b9 \u2192 Set X) (ho : \u2200 i, IsOpen (U i)) (hf : LocallyFinite U) (hU : s \u2286 \u22c3 i, U i) : \u2203 f : BumpCovering \u03b9 X s, (\u2200 i, p (f i)) \u2227 f.IsSubordinate U",
+          "have_tree": [
+            {
+              "name": "hsupp",
+              "type": "\u2200 i, support (f i) \u2286 V i",
+              "body": "fun i => support_subset_iff'.2 (hf0 i)",
+              "children": []
+            },
+            {
+              "name": "hVU'",
+              "type": "\u2200 i, V i \u2286 U i",
+              "body": "fun i => Subset.trans subset_closure (hVU i)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

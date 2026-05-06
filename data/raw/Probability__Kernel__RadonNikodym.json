@@ -1,0 +1,132 @@
+[
+  {
+    "module": "RadonNikodym",
+    "name": "measurable_rnDerivAux_right",
+    "statement": "Kernel \u03b1 \u03b3) (a : \u03b1) : Measurable (fun x : \u03b3 \u21a6 rnDerivAux \u03ba \u03b7 a x)",
+    "have_tree": [
+      {
+        "name": "h_le",
+        "type": "\u03ba \u2264 \u03ba + \u03b7",
+        "body": "le_add_of_nonneg_right bot_le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RadonNikodym",
+    "name": "withDensity_one_sub_rnDerivAux",
+    "statement": "Kernel \u03b1 \u03b3) [IsFiniteKernel \u03ba] [IsFiniteKernel \u03b7] : withDensity (\u03ba + \u03b7) (fun a x \u21a6 Real.toNNReal (1 - rnDerivAux \u03ba (\u03ba + \u03b7) a x)) = \u03b7",
+    "have_tree": [
+      {
+        "name": "h_le",
+        "type": "\u03ba \u2264 \u03ba + \u03b7",
+        "body": "le_add_of_nonneg_right bot_le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RadonNikodym",
+    "name": "singularPart_of_subset_mutuallySingularSetSlice",
+    "statement": "\u03b1} {s : Set \u03b3} (hsm : MeasurableSet s) (hs : s \u2286 mutuallySingularSetSlice \u03ba \u03b7 a) : singularPart \u03ba \u03b7 a s = \u03ba a s",
+    "have_tree": [
+      {
+        "name": "hs'",
+        "type": "\u2200 x \u2208 s, 1 \u2264 rnDerivAux \u03ba (\u03ba + \u03b7) a x",
+        "body": "fun _ hx \u21a6 hs hx",
+        "children": [
+          {
+            "name": "h_le",
+            "type": "\u03ba \u2264 \u03ba + \u03b7",
+            "body": "le_add_of_nonneg_right bot_le",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "RadonNikodym",
+    "name": "withDensity_rnDeriv_of_subset_compl_mutuallySingularSetSlice",
+    "statement": "\u03b1} {s : Set \u03b3} (hsm : MeasurableSet s) (hs : s \u2286 (mutuallySingularSetSlice \u03ba \u03b7 a)\u1d9c) : withDensity \u03b7 (rnDeriv \u03ba \u03b7) a s = \u03ba a s",
+    "have_tree": [
+      {
+        "name": "hs'",
+        "type": "\u2200 x \u2208 s, rnDerivAux \u03ba (\u03ba + \u03b7) a x < 1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RadonNikodym",
+    "name": "rnDeriv_add_singularPart",
+    "statement": "Kernel \u03b1 \u03b3) [IsFiniteKernel \u03ba] [IsFiniteKernel \u03b7] : withDensity \u03b7 (rnDeriv \u03ba \u03b7) + singularPart \u03ba \u03b7 = \u03ba",
+    "have_tree": [
+      {
+        "name": "hm",
+        "type": "",
+        "body": "measurableSet_mutuallySingularSetSlice \u03ba \u03b7 a",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RadonNikodym",
+    "name": "singularPart_eq_zero_iff_measure_eq_zero",
+    "statement": "Kernel \u03b1 \u03b3) [IsFiniteKernel \u03ba] [IsFiniteKernel \u03b7] (a : \u03b1) : singularPart \u03ba \u03b7 a = 0 \u2194 \u03ba a (mutuallySingularSetSlice \u03ba \u03b7 a) = 0",
+    "have_tree": [
+      {
+        "name": "h_eq_add",
+        "type": "",
+        "body": "rnDeriv_add_singularPart \u03ba \u03b7",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RadonNikodym",
+    "name": "withDensity_rnDeriv_eq_zero_iff_measure_eq_zero",
+    "statement": "Kernel \u03b1 \u03b3) [IsFiniteKernel \u03ba] [IsFiniteKernel \u03b7] (a : \u03b1) : withDensity \u03b7 (rnDeriv \u03ba \u03b7) a = 0 \u2194 \u03ba a (mutuallySingularSetSlice \u03ba \u03b7 a)\u1d9c = 0",
+    "have_tree": [
+      {
+        "name": "h_eq_add",
+        "type": "",
+        "body": "rnDeriv_add_singularPart \u03ba \u03b7",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RadonNikodym",
+    "name": "withDensity_rnDeriv_eq",
+    "statement": "\u03b1} (h : \u03ba a \u226a \u03b7 a) : \u03b7.withDensity (\u03ba.rnDeriv \u03b7) a = \u03ba a",
+    "have_tree": [
+      {
+        "name": "h_ae",
+        "type": "",
+        "body": "\u03ba.rnDeriv_eq_rnDeriv_measure (\u03b7 := \u03b7) (a := a)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RadonNikodym",
+    "name": "rnDeriv_withDensity",
+    "statement": "\u03b1 \u2192 \u03b3 \u2192 \u211d\u22650\u221e} [IsFiniteKernel (withDensity \u03ba f)] (hf : Measurable (Function.uncurry f)) (a : \u03b1) : (\u03ba.withDensity f).rnDeriv \u03ba a =\u1d50[\u03ba a] f a",
+    "have_tree": [
+      {
+        "name": "h_ae",
+        "type": "",
+        "body": "(\u03ba.withDensity f).rnDeriv_eq_rnDeriv_measure (\u03b7 := \u03ba) (a := a)",
+        "children": []
+      },
+      {
+        "name": "hf'",
+        "type": "\u2200 a, Measurable (f a)",
+        "body": "fun _ \u21a6 hf.of_uncurry_left",
+        "children": []
+      }
+    ]
+  }
+]

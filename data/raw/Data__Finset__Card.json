@@ -1,0 +1,105 @@
+[
+  {
+    "module": "Card",
+    "name": "surjOn_of_injOn_of_card_le",
+    "statement": "\u03b1 \u2192 \u03b2) (hf : Set.MapsTo f s t) (hinj : Set.InjOn f s) (hst : #t \u2264 #s) : Set.SurjOn f s t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "s.image f \u2286 t",
+        "body": "by aesop (add simp Finset.subset_iff)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "surj_on_of_inj_on_of_card_le",
+    "statement": "\u2200 a \u2208 s, \u03b2) (hf : \u2200 a ha, f a ha \u2208 t) (hinj : \u2200 a\u2081 a\u2082 ha\u2081 ha\u2082, f a\u2081 ha\u2081 = f a\u2082 ha\u2082 \u2192 a\u2081 = a\u2082) (hst : #t \u2264 #s) : \u2200 b \u2208 t, \u2203 a ha, b = f a ha",
+    "have_tree": [
+      {
+        "name": "hinj'",
+        "type": "Set.InjOn f' s.attach",
+        "body": "fun x hx y hy hxy \u21a6 Subtype.ext (hinj _ _ x.2 y.2 hxy)",
+        "children": []
+      },
+      {
+        "name": "hmapsto'",
+        "type": "Set.MapsTo f' s.attach t",
+        "body": "fun x hx \u21a6 hf _ _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "injOn_of_surjOn_of_card_le",
+    "statement": "\u03b1 \u2192 \u03b2) (hf : Set.MapsTo f s t) (hsurj : Set.SurjOn f s t) (hst : #s \u2264 #t) : Set.InjOn f s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "#(s.image f) \u2264 #s",
+        "body": "card_image_le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "inj_on_of_surj_on_of_card_le",
+    "statement": "\u2200 a \u2208 s, \u03b2) (hf : \u2200 a ha, f a ha \u2208 t) (hsurj : \u2200 b \u2208 t, \u2203 a ha, f a ha = b) (hst : #s \u2264 #t) \u2983a\u2081\u2984 (ha\u2081 : a\u2081 \u2208 s) \u2983a\u2082\u2984 (ha\u2082 : a\u2082 \u2208 s) (ha\u2081a\u2082 : f a\u2081 ha\u2081 = f a\u2082 ha\u2082) : a\u2081 = a\u2082",
+    "have_tree": [
+      {
+        "name": "hsurj'",
+        "type": "Set.SurjOn f' s.attach t",
+        "body": "fun x hx \u21a6 by simpa [f'] using hsurj x hx",
+        "children": []
+      },
+      {
+        "name": "hinj'",
+        "type": "",
+        "body": "injOn_of_surjOn_of_card_le f' (fun x hx \u21a6 hf _ _) hsurj' (by simpa)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "exists_eq_insert_iff",
+    "statement": "Finset \u03b1} : (\u2203 a \u2209 s, insert a s = t) \u2194 s \u2286 t \u2227 #s + 1 = #t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "eq_of_subset_of_card_le h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "exists_mem_ne",
+    "statement": "1 < #s) (a : \u03b1) : \u2203 b \u2208 s, b \u2260 a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b1",
+        "body": "\u27e8a\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "lt_wf",
+    "statement": "WellFounded (@LT.lt (Finset \u03b1) _)",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "Subrelation (@LT.lt (Finset \u03b1) _) (InvImage (\u00b7 < \u00b7) card)",
+        "body": "fun {_ _} hxy =>",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Finset",
+      "name": "sq_sum_div_le_sum_sq_div",
+      "statement": "Finset \u03b9) (f : \u03b9 \u2192 R) {g : \u03b9 \u2192 R} (hg : \u2200 i \u2208 s, 0 < g i) : (\u2211 i \u2208 s, f i) ^ 2 / \u2211 i \u2208 s, g i \u2264 \u2211 i \u2208 s, f i ^ 2 / g i",
+      "have_tree": [
+        {
+          "name": "hg'",
+          "type": "\u2200 i \u2208 s, 0 \u2264 g i",
+          "body": "fun i hi \u21a6 (hg i hi).le",
+          "children": []
+        },
+        {
+          "name": "H",
+          "type": "\u2200 i \u2208 s, 0 \u2264 f i ^ 2 / g i",
+          "body": "fun i hi \u21a6 div_nonneg (sq_nonneg _) (hg' i hi)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Finset",
+          "name": "sq_sum_div_le_sum_sq_div",
+          "statement": "Finset \u03b9) (f : \u03b9 \u2192 R) {g : \u03b9 \u2192 R} (hg : \u2200 i \u2208 s, 0 < g i) : (\u2211 i \u2208 s, f i) ^ 2 / \u2211 i \u2208 s, g i \u2264 \u2211 i \u2208 s, f i ^ 2 / g i",
+          "have_tree": [
+            {
+              "name": "H",
+              "type": "\u2200 i \u2208 s, 0 \u2264 f i ^ 2 / g i",
+              "body": "fun i hi \u21a6 div_nonneg (sq_nonneg _) (hg' i hi)",
+              "children": []
+            },
+            {
+              "name": "hg'",
+              "type": "\u2200 i \u2208 s, 0 \u2264 g i",
+              "body": "fun i hi \u21a6 (hg i hi).le",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

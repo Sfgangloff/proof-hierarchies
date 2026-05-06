@@ -1,0 +1,58 @@
+[
+  {
+    "module": "Exp",
+    "name": "exp_add_of_commute",
+    "statement": "A} (h\u2081 : Commute a b) (h\u2082 : IsNilpotent a) (h\u2083 : IsNilpotent b) : exp (a + b) = exp a * exp b",
+    "have_tree": [
+      {
+        "name": "s\u2081",
+        "type": "",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "split\u2081",
+        "type": "",
+        "body": "sum_filter_add_sum_filter_not (R2N \u00d7\u02e2 R2N)",
+        "children": []
+      },
+      {
+        "name": "split\u2082",
+        "type": "",
+        "body": "sum_filter_add_sum_filter_not (R2N \u00d7\u02e2 R2N)",
+        "children": []
+      },
+      {
+        "name": "s\u2082",
+        "type": "",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exp",
+    "name": "exp_mul_of_derivation",
+    "statement": "Type*) [CommRing R] [NonUnitalNonAssocRing B] [Module R B] [SMulCommClass R B B] [IsScalarTower R B B] [Module \u211a B] (D : B \u2192\u2097[R] B) (h_der : \u2200 x y, D (x * y) = x * D y + (D x) * y) (h_nil : IsNilpotent D) (x y : B) : exp D (x * y) = (exp D x) * (exp D y)",
+    "have_tree": [
+      {
+        "name": "h_nilL",
+        "type": "IsNilpotent DL",
+        "body": "h_nil.map <| lTensorAlgHom R B B",
+        "children": []
+      },
+      {
+        "name": "h_nilR",
+        "type": "IsNilpotent DR",
+        "body": "h_nil.map <| rTensorAlgHom R B B",
+        "children": []
+      },
+      {
+        "name": "h_comm",
+        "type": "Commute DL DR",
+        "body": "by ext; simp [DL, DR]",
+        "children": []
+      }
+    ]
+  }
+]

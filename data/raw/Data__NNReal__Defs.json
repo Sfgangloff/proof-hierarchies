@@ -1,0 +1,79 @@
+[
+  {
+    "module": "Defs",
+    "name": "coe_sInf",
+    "statement": "Set \u211d\u22650) : (\u2191(sInf s) : \u211d) = sInf (((\u2191) : \u211d\u22650 \u2192 \u211d) '' s)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "sInf (Subtype.val '' s) \u2208 Set.Ici 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "le_of_forall_lt_one_mul_le",
+    "statement": "\u211d\u22650} (h : \u2200 a < 1, a * x \u2264 y) : x \u2264 y",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "x \u2260 0",
+        "body": "pos_iff_ne_zero.1 (lt_of_le_of_lt (zero_le _) ha)",
+        "children": []
+      },
+      {
+        "name": "hx'",
+        "type": "x\u207b\u00b9 \u2260 0",
+        "body": "by rwa [Ne, inv_eq_zero]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "a * x\u207b\u00b9 < 1",
+        "body": "by rwa [\u2190 lt_inv_iff_mul_lt hx', inv_inv]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "a * x\u207b\u00b9 * x \u2264 y",
+        "body": "h _ this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "NNReal.exists_lt_of_strictMono",
+    "statement": "Nontrivial \u0393\u2080\u02e3] {f : \u0393\u2080 \u2192*\u2080 \u211d\u22650} (hf : StrictMono f) {r : \u211d\u22650} (hr : 0 < r) : \u2203 d : \u0393\u2080\u02e3, f d < r",
+    "have_tree": [
+      {
+        "name": "hfu",
+        "type": "f u < 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "hg1'",
+            "type": "1 < g",
+            "body": "lt_of_le_of_ne (not_lt.mp hu1) hg1.symm",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "Real.exists_lt_of_strictMono",
+    "statement": "Nontrivial \u0393\u2080\u02e3] {f : \u0393\u2080 \u2192*\u2080 \u211d\u22650} (hf : StrictMono f) {r : \u211d} (hr : 0 < r) : \u2203 d : \u0393\u2080\u02e3, (f d : \u211d) < r",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "0 < s",
+        "body": "hr",
+        "children": []
+      }
+    ]
+  }
+]

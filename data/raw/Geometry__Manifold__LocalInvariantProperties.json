@@ -1,0 +1,137 @@
+[
+  {
+    "module": "LocalInvariantProperties",
+    "name": "left_invariance",
+    "statement": "Set H} {x : H} {f : H \u2192 H'} {e' : OpenPartialHomeomorph H' H'} (he' : e' \u2208 G') (hfs : ContinuousWithinAt f s x) (hxe' : f x \u2208 e'.source) : P (e' \u2218 f) s x \u2194 P f s x",
+    "have_tree": [
+      {
+        "name": "h2f",
+        "type": "",
+        "body": "hfs.preimage_mem_nhdsWithin (e'.open_source.mem_nhds hxe')",
+        "children": []
+      },
+      {
+        "name": "h3f",
+        "type": "",
+        "body": "",
+        "children": [
+          {
+            "name": "h2",
+            "type": "",
+            "body": "hG.left_invariance' (G'.symm he') inter_subset_right (e'.mapsTo hxe') h",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LocalInvariantProperties",
+    "name": "right_invariance",
+    "statement": "Set H} {x : H} {f : H \u2192 H'} {e : OpenPartialHomeomorph H H} (he : e \u2208 G) (hxe : x \u2208 e.source) : P (f \u2218 e.symm) (e.symm \u207b\u00b9' s) (e x) \u2194 P f s x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hG.right_invariance' (G.symm he) (e.mapsTo hxe) h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocalInvariantProperties",
+    "name": "liftPropWithinAt_indep_chart_target_aux2",
+    "statement": "H \u2192 M') {x : H} {s : Set H} (hf : f \u2208 G'.maximalAtlas M') (xf : g x \u2208 f.source) (hf' : f' \u2208 G'.maximalAtlas M') (xf' : g x \u2208 f'.source) (hgs : ContinuousWithinAt g s x) : P (f \u2218 g) s x \u2194 P (f' \u2218 g) s x",
+    "have_tree": [
+      {
+        "name": "hcont",
+        "type": "ContinuousWithinAt (f \u2218 g) s x",
+        "body": "(f.continuousAt xf).comp_continuousWithinAt hgs",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocalInvariantProperties",
+    "name": "liftPropWithinAt_indep_chart'",
+    "statement": "e \u2208 G.maximalAtlas M) (xe : x \u2208 e.source) (hf : f \u2208 G'.maximalAtlas M') (xf : g x \u2208 f.source) : LiftPropWithinAt P g s x \u2194 ContinuousWithinAt g s x \u2227 LiftPropWithinAt P (f \u2218 g \u2218 e.symm) (e.symm \u207b\u00b9' s) (e x)",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "(e.symm.continuousWithinAt_iff_continuousWithinAt_comp_right xe).mp h.1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "ContinuousAt f ((g \u2218 e.symm) (e x))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocalInvariantProperties",
+    "name": "liftPropOn_of_locally_liftPropOn",
+    "statement": "\u2200 x \u2208 s, \u2203 u, IsOpen u \u2227 x \u2208 u \u2227 LiftPropOn P g (s \u2229 u)) : LiftPropOn P g s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hu x \u27e8hx, xu\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocalInvariantProperties",
+    "name": "liftPropAt_symm_of_mem_maximalAtlas",
+    "statement": "H} (hG : G.LocalInvariantProp G Q) (hQ : \u2200 y, Q id univ y) (he : e \u2208 maximalAtlas M G) (hx : x \u2208 e.target) : LiftPropAt Q e.symm x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "e.symm x \u2208 e.source",
+        "body": "by simp only [hx, mfld_simps]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocalInvariantProperties",
+    "name": "isLocalStructomorphWithinAt_localInvariantProp",
+    "statement": "LocalInvariantProp G G (IsLocalStructomorphWithinAt G)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "s \u2229 u \u2229 e.source \u2286 s \u2229 e.source",
+        "body": "by mfld_set_tac",
+        "children": []
+      },
+      {
+        "name": "hxs",
+        "type": "x \u2208 s",
+        "body": "by simpa only [e'.left_inv he'x, mfld_simps] using hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocalInvariantProperties",
+    "name": "HasGroupoid.comp",
+    "statement": "\u2200 e \u2208 G\u2082, LiftPropOn (IsLocalStructomorphWithinAt G\u2081) (e : H\u2082 \u2192 H\u2082) e.source) : @HasGroupoid H\u2081 _ H\u2083 _ (ChartedSpace.comp H\u2081 H\u2082 H\u2083) G\u2081",
+    "have_tree": [
+      {
+        "name": "hxs",
+        "type": "x \u2208 f.symm \u207b\u00b9' (e.symm \u226b\u2095 e').source",
+        "body": "by simp only [hx, mfld_simps]",
+        "children": []
+      },
+      {
+        "name": "hs",
+        "type": "IsOpen (f.symm \u226b\u2095 e.symm \u226b\u2095 e' \u226b\u2095 f').source",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "module": "StronglyTranscendental",
+    "name": "IsStronglyTranscendental.of_map",
+    "statement": "S} {f : S \u2192\u2090[R] T} (hf : Function.Injective f) (h : IsStronglyTranscendental R (f x)) : IsStronglyTranscendental R x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h (f u) p (by rw [aeval_algHom_apply, \u2190 map_mul, hp, map_zero])",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StronglyTranscendental",
+    "name": "IsStronglyTranscendental.of_isLocalization_left",
+    "statement": "Submonoid R) [IsLocalization M S] [IsScalarTower R S T] {x : T} (h : IsStronglyTranscendental R x) : IsStronglyTranscendental S x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h t (IsLocalization.integerNormalization M p) (by simp [H, hp])",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StronglyTranscendental",
+    "name": "IsStronglyTranscendental.iff_of_isFractionRing",
+    "statement": "Type*) [Field K] [Algebra R K] [Algebra S K] [IsScalarTower R S K] [FaithfulSMul R S] [IsFractionRing S K] {x : S} : IsStronglyTranscendental R x \u2194 Transcendental R (algebraMap S K x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FaithfulSMul R K",
+        "body": ".trans R S K",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StronglyTranscendental",
+    "name": "IsStronglyTranscendental.of_transcendental",
+    "statement": "Type*} [Field K] [Algebra R K] [Algebra S K] [IsScalarTower R S K] [FaithfulSMul R S] [FaithfulSMul S K] {x : S} (H : Transcendental R (algebraMap S K x)) : IsStronglyTranscendental R x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FaithfulSMul R K",
+        "body": ".trans R S K",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StronglyTranscendental",
+    "name": "isStronglyTranscendental_mk_of_mem_minimalPrimes",
+    "statement": "S} (hx : IsStronglyTranscendental R x) (q : Ideal S) (hq : q \u2208 minimalPrimes S) : IsStronglyTranscendental R (Ideal.Quotient.mk q x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hq.1.1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Ring.KrullDimLE 0 (Localization.AtPrime q)",
+        "body": ".of_isLocalization _ hq _",
+        "children": []
+      }
+    ]
+  }
+]

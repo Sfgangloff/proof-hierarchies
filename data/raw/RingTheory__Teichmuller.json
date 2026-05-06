@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Teichmuller",
+    "name": "teichmullerFun_sModEq",
+    "statement": "Perfection (R \u29f8 I) p} {y : R} {n : \u2115} (h : Ideal.Quotient.mk I y = coeff _ p n x) : teichmullerFun x \u2261 y ^ p ^ n [SMOD I ^ (n + 1)]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(exists_teichmullerFun x).choose_spec (n + 1)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Teichmuller",
+    "name": "teichmuller_zero",
+    "statement": "teichmuller p I 0 = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "p \u2260 0",
+        "body": "Nat.Prime.ne_zero Fact.out",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Teichmuller",
+    "name": "mk_teichmuller",
+    "statement": "Perfection (R \u29f8 I) p) : Ideal.Quotient.mk I (teichmuller p I x) = coeff _ p 0 x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "teichmuller_sModEq <| Ideal.Quotient.mk_out <| coeff _ p 0 x",
+        "children": []
+      }
+    ]
+  }
+]

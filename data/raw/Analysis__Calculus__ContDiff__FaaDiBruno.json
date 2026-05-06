@@ -1,0 +1,124 @@
+[
+  {
+    "module": "FaaDiBruno",
+    "name": "emb_injective",
+    "statement": "Injective (fun (p : \u03a3 m, Fin (c.partSize m)) \u21a6 c.emb p.1 p.2)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "Disjoint (range (c.emb m)) (range (c.emb m'))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FaaDiBruno",
+    "name": "one_lt_partSize_index_zero",
+    "statement": "OrderedFinpartition (n + 1)) (hc : range (c.emb 0) \u2260 {0}) : 1 < c.partSize (c.index 0)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "{0} \u2282 range (c.emb (c.index 0))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FaaDiBruno",
+    "name": "eraseLeft",
+    "statement": "OrderedFinpartition (n + 1)) (hc : range (c.emb 0) = {0}) : OrderedFinpartition n where length",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "c.disjoint (mem_univ (Fin.cast this (succ i))) (mem_univ 0) (ne_of_beq_false rfl)",
+        "children": []
+      },
+      {
+        "name": "i_ne",
+        "type": "i \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "succ x \u2208 range (c.emb i)",
+            "body": "by rw [\u2190 hij]; apply mem_range_self",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "FaaDiBruno",
+    "name": "eraseMiddle",
+    "statement": "OrderedFinpartition (n + 1)) (hc : range (c.emb 0) \u2260 {0}) : OrderedFinpartition n where length",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "",
+        "body": "c.one_lt_partSize_index_zero hc",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "",
+        "body": "c.one_lt_partSize_index_zero hc",
+        "children": []
+      },
+      {
+        "name": "j_ne",
+        "type": "j \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FaaDiBruno",
+    "name": "applyOrderedFinpartition_update_right",
+    "statement": "\u2200 (i : Fin c.length), E [\u00d7c.partSize i]\u2192L[\ud835\udd5c] F) (j : Fin n) (v : Fin n \u2192 E) (z : E) : c.applyOrderedFinpartition p (update v j z) = update (c.applyOrderedFinpartition p v) (c.index j) (p (c.index j) (Function.update (v \u2218 c.emb (c.index j)) (c.invEmbedding j) z))",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "Disjoint (range (c.emb m)) (range (c.emb (c.index j)))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "j \u2208 range (c.emb (c.index j))",
+        "body": "mem_range.2 \u27e8c.invEmbedding j, by simp\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FaaDiBruno",
+    "name": "taylorComp_sub_taylorComp_isBigO",
+    "statement": "Type*} [NormedAddCommGroup H] {l : Filter \u03b1} {p\u2081 p\u2082 : \u03b1 \u2192 FormalMultilinearSeries \ud835\udd5c F G} {q\u2081 q\u2082 : \u03b1 \u2192 FormalMultilinearSeries \ud835\udd5c E F} {f : \u03b1 \u2192 H} {n : \u2115} (hp_bdd : \u2200 k \u2264 n, l.IsBoundedUnder (\u00b7 \u2264 \u00b7) (\u2016p\u2081 \u00b7 k\u2016)) (hpf : \u2200 k \u2264 n, (fun a \u21a6 p\u2081 a k - p\u2082 a k) =O[l] f) (hq\u2081_bdd : \u2200 k \u2264 n, l.IsBoundedUnder (\u00b7 \u2264 \u00b7) (\u2016q\u2081 \u00b7 k\u2016)) (hq\u2082_bdd : \u2200 k \u2264 n, l.IsBoundedUnder (\u00b7 \u2264 \u00b7) (\u2016q\u2082 \u00b7 k\u2016)) (hqf : \u2200 k \u2264 n, (fun a \u21a6 q\u2081 a k - q\u2082 a k) =O[l] f) : (fun a \u21a6 (p\u2081 a).taylorComp (q\u2081 a) n - (p\u2082 a).taylorComp (q\u2082 a) n) =O[l] f",
+    "have_tree": [
+      {
+        "name": "H\u2085",
+        "type": "",
+        "body": "((H\u2082.prod_left H\u2083).norm_left.pow (c.length - 1)).mul H\u2084.norm_norm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FaaDiBruno",
+    "name": "HasFTaylorSeriesUpToOn.comp",
+    "statement": "WithTop \u2115\u221e} {g : F \u2192 G} {f : E \u2192 F} (hg : HasFTaylorSeriesUpToOn n g q t) (hf : HasFTaylorSeriesUpToOn n f p s) (h : MapsTo f s t) : HasFTaylorSeriesUpToOn n (g \u2218 f) (fun x \u21a6 (q (f x)).taylorComp (p x)) s",
+    "have_tree": [
+      {
+        "name": "K",
+        "type": "HasFDerivWithinAt f ((continuousMultilinearCurryFin1 \ud835\udd5c E F) (p x 1)) s x",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

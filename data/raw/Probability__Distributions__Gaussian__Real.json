@@ -1,0 +1,99 @@
+[
+  {
+    "module": "Real",
+    "name": "integrable_gaussianPDFReal",
+    "statement": "\u211d) (v : \u211d\u22650) : Integrable (gaussianPDFReal \u03bc v)",
+    "have_tree": [
+      {
+        "name": "hg",
+        "type": "Integrable g",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "lintegral_gaussianPDFReal_eq_one",
+    "statement": "\u211d) {v : \u211d\u22650} (h : v \u2260 0) : \u222b\u207b x, ENNReal.ofReal (gaussianPDFReal \u03bc v x) = 1",
+    "have_tree": [
+      {
+        "name": "hfm",
+        "type": "AEStronglyMeasurable (gaussianPDFReal \u03bc v) volume",
+        "body": "by fun_prop",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "0 \u2264\u2090\u209b gaussianPDFReal \u03bc v",
+        "body": "ae_of_all _ (gaussianPDFReal_nonneg \u03bc v)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "integral_gaussianPDFReal_eq_one",
+    "statement": "\u211d) {v : \u211d\u22650} (hv : v \u2260 0) : \u222b x, gaussianPDFReal \u03bc v x = 1",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "lintegral_gaussianPDFReal_eq_one \u03bc hv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "gaussianReal_map_add_const",
+    "statement": "\u211d) : (gaussianReal \u03bc v).map (\u00b7 + y) = gaussianReal (\u03bc + y) v",
+    "have_tree": [
+      {
+        "name": "he'",
+        "type": "\u2200 x, HasDerivAt e ((fun _ \u21a6 1) x) x",
+        "body": "fun _ \u21a6 (hasDerivAt_id _).sub_const y",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "gaussianReal_map_const_mul",
+    "statement": "\u211d) : (gaussianReal \u03bc v).map (c * \u00b7) = gaussianReal (c * \u03bc) (.mk (c ^ 2) (sq_nonneg _) * v)",
+    "have_tree": [
+      {
+        "name": "he'",
+        "type": "\u2200 x, HasDerivAt e ((fun _ \u21a6 c\u207b\u00b9) x) x",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "complexMGF_gaussianReal",
+    "statement": "p.map X = gaussianReal \u03bc v) (z : \u2102) : complexMGF X p z = cexp (z * \u03bc + v * z ^ 2 / 2)",
+    "have_tree": [
+      {
+        "name": "hX_meas",
+        "type": "AEMeasurable X p",
+        "body": "aemeasurable_of_map_neZero (by rw [hX]; infer_instance)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "mgf_gaussianReal",
+    "statement": "p.map X = gaussianReal \u03bc v) (t : \u211d) : mgf X p t = rexp (\u03bc * t + v * t ^ 2 / 2)",
+    "have_tree": [
+      {
+        "name": "hX_meas",
+        "type": "AEMeasurable X p",
+        "body": "aemeasurable_of_map_neZero (by rw [hX]; infer_instance)",
+        "children": []
+      }
+    ]
+  }
+]

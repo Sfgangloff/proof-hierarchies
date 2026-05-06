@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Monotone",
+      "name": "tendsto_apply_add_mul_sq_div_sub",
+      "statement": "\u211d \u2192 \u211d} {x a c d : \u211d} {l : Filter \u211d} (hl : l \u2264 \ud835\udcdd[\u2260] x) (hf : Tendsto (fun y => (f y - d) / (y - x)) l (\ud835\udcdd a)) (h' : Tendsto (fun y => y + c * (y - x) ^ 2) l l) : Tendsto (fun y => (f (y + c * (y - x) ^ 2) - d) / (y - x)) l (\ud835\udcdd a)",
+      "have_tree": [
+        {
+          "name": "Z",
+          "type": "",
+          "body": "(hf.comp h').mul L",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "\u2200\u1da0 y in l, y + c * (y - x) ^ 2 \u2260 x",
+          "body": "by apply Tendsto.mono_right h' hl self_mem_nhdsWithin",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Monotone",
+          "name": "tendsto_apply_add_mul_sq_div_sub",
+          "statement": "\u211d \u2192 \u211d} {x a c d : \u211d} {l : Filter \u211d} (hl : l \u2264 \ud835\udcdd[\u2260] x) (hf : Tendsto (fun y => (f y - d) / (y - x)) l (\ud835\udcdd a)) (h' : Tendsto (fun y => y + c * (y - x) ^ 2) l l) : Tendsto (fun y => (f (y + c * (y - x) ^ 2) - d) / (y - x)) l (\ud835\udcdd a)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "\u2200\u1da0 y in l, y + c * (y - x) ^ 2 \u2260 x",
+              "body": "by apply Tendsto.mono_right h' hl self_mem_nhdsWithin",
+              "children": []
+            },
+            {
+              "name": "Z",
+              "type": "",
+              "body": "(hf.comp h').mul L",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,223 @@
+[
+  {
+    "module": "SubGaussian",
+    "name": "aestronglyMeasurable",
+    "statement": "HasSubgaussianMGF X c \u03ba \u03bd) : AEStronglyMeasurable X (\u03ba \u2218\u2098 \u03bd)",
+    "have_tree": [
+      {
+        "name": "h_int",
+        "type": "",
+        "body": "h.integrable_exp_mul 1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SubGaussian",
+    "name": "ae_aestronglyMeasurable",
+    "statement": "HasSubgaussianMGF X c \u03ba \u03bd) : \u2200\u1d50 \u03c9' \u2202\u03bd, AEStronglyMeasurable X (\u03ba \u03c9')",
+    "have_tree": [
+      {
+        "name": "h_int",
+        "type": "",
+        "body": "h.ae_integrable_exp_mul 1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SubGaussian",
+    "name": "ae_forall_memLp_exp_mul",
+    "statement": "HasSubgaussianMGF X c \u03ba \u03bd) (p : \u211d\u22650) : \u2200\u1d50 \u03c9' \u2202\u03bd, \u2200 t, MemLp (fun \u03c9 \u21a6 exp (t * X \u03c9)) p (\u03ba \u03c9')",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "",
+        "body": "(hi (p * t)).lintegral_lt_top",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SubGaussian",
+    "name": "memLp_exp_mul",
+    "statement": "HasSubgaussianMGF X c \u03ba \u03bd) (t : \u211d) (p : \u211d\u22650) : MemLp (fun \u03c9 \u21a6 exp (t * X \u03c9)) p (\u03ba \u2218\u2098 \u03bd)",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "(h.integrable_exp_mul (p * t)).2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SubGaussian",
+    "name": "of_rat",
+    "statement": "\u2200 t : \u211d, Integrable (fun \u03c9 \u21a6 exp (t * X \u03c9)) (\u03ba \u2218\u2098 \u03bd)) (h_mgf : \u2200 q : \u211a, \u2200\u1d50 \u03c9' \u2202\u03bd, mgf X (\u03ba \u03c9') q \u2264 exp (c * q ^ 2 / 2)) : Kernel.HasSubgaussianMGF X c \u03ba \u03bd where integrable_exp_mul",
+    "have_tree": [
+      {
+        "name": "h_int",
+        "type": "\u2200\u1d50 \u03c9' \u2202\u03bd, \u2200 t, Integrable (fun \u03c9 \u21a6 exp (t * X \u03c9)) (\u03ba \u03c9')",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SubGaussian",
+    "name": "zero_measure",
+    "statement": "HasSubgaussianMGF X c \u03ba (0 : Measure \u03a9')",
+    "have_tree": [
+      {
+        "name": "h''",
+        "type": "",
+        "body": "Measure.ae_ae_of_ae_comp h'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SubGaussian",
+    "name": "of_map",
+    "statement": "Type*} {m\u03a9'' : MeasurableSpace \u03a9''} {\u03ba : Kernel \u03a9' \u03a9''} {Y : \u03a9'' \u2192 \u03a9} {X : \u03a9 \u2192 \u211d} (hY : Measurable Y) (h : HasSubgaussianMGF X c (\u03ba.map Y) \u03bd) : HasSubgaussianMGF (X \u2218 Y) c \u03ba \u03bd where integrable_exp_mul t",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "h.integrable_exp_mul t",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SubGaussian",
+    "name": "measure_pos_eq_zero_of_hasSubGaussianMGF_zero",
+    "statement": "HasSubgaussianMGF X 0 \u03ba \u03bd) : \u2200\u1d50 \u03c9' \u2202\u03bd, (\u03ba \u03c9') {\u03c9 | 0 < X \u03c9} = 0",
+    "have_tree": [
+      {
+        "name": "hl",
+        "type": "Filter.Tendsto (fun t \u21a6 rexp (-(t * \u03b5))) Filter.atTop (\ud835\udcdd 0)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SubGaussian",
+    "name": "ae_eq_zero_of_hasSubgaussianMGF_zero'",
+    "statement": "HasSubgaussianMGF X 0 \u03ba \u03bd) : X =\u1d50[\u03ba \u2218\u2098 \u03bd] 0",
+    "have_tree": [
+      {
+        "name": "hX",
+        "type": "",
+        "body": "h.aestronglyMeasurable",
+        "children": []
+      },
+      {
+        "name": "h'",
+        "type": "HasSubgaussianMGF (hX.mk X) 0 \u03ba \u03bd",
+        "body": "h.congr hX.ae_eq_mk",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SubGaussian",
+    "name": "ae_trim_condExp_le",
+    "statement": "HasCondSubgaussianMGF m hm X c \u03bc) (t : \u211d) : \u2200\u1d50 \u03c9' \u2202(\u03bc.trim hm), (\u03bc[fun \u03c9 \u21a6 exp (t * X \u03c9) | m]) \u03c9' \u2264 exp (c * t ^ 2 / 2)",
+    "have_tree": [
+      {
+        "name": "h_eq",
+        "type": "",
+        "body": "condExp_ae_eq_trim_integral_condExpKernel hm (h.integrable_exp_mul t)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SubGaussian",
+    "name": "aestronglyMeasurable",
+    "statement": "HasSubgaussianMGF X c \u03bc) : AEStronglyMeasurable X \u03bc",
+    "have_tree": [
+      {
+        "name": "h_int",
+        "type": "",
+        "body": "h.integrable_exp_mul 1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SubGaussian",
+    "name": "of_map",
+    "statement": "Type*} {m\u03a9' : MeasurableSpace \u03a9'} {\u03bc : Measure \u03a9'} {Y : \u03a9' \u2192 \u03a9} {X : \u03a9 \u2192 \u211d} (hY : AEMeasurable Y \u03bc) (h : HasSubgaussianMGF X c (\u03bc.map Y)) : HasSubgaussianMGF (X \u2218 Y) c \u03bc where integrable_exp_mul t",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "h.integrable_exp_mul t",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SubGaussian",
+    "name": "add",
+    "statement": "\u03a9 \u2192 \u211d} {cX cY : \u211d\u22650} (hX : HasSubgaussianMGF X cX \u03bc) (hY : HasSubgaussianMGF Y cY \u03bc) : HasSubgaussianMGF (fun \u03c9 \u21a6 X \u03c9 + Y \u03c9) ((cX.sqrt + cY.sqrt) ^ 2) \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(HasSubgaussianMGF_iff_kernel.1 hX).add (HasSubgaussianMGF_iff_kernel.1 hY)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SubGaussian",
+    "name": "sum_of_iIndepFun_of_forall_aemeasurable",
+    "statement": "Type*} {X : \u03b9 \u2192 \u03a9 \u2192 \u211d} (h_indep : iIndepFun X \u03bc) {c : \u03b9 \u2192 \u211d\u22650} (h_meas : \u2200 i, AEMeasurable (X i) \u03bc) {s : Finset \u03b9} (h_subG : \u2200 i \u2208 s, HasSubgaussianMGF (X i) (c i) \u03bc) : HasSubgaussianMGF (fun \u03c9 \u21a6 \u2211 i \u2208 s, X i \u03c9) (\u2211 i \u2208 s, c i) \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsProbabilityMeasure \u03bc",
+        "body": "h_indep.isProbabilityMeasure",
+        "children": [
+          {
+            "name": "h_indep'",
+            "type": "",
+            "body": "(h_indep.indepFun_finsetSum_of_notMem\u2080 h_meas his).symm",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "SubGaussian",
+    "name": "measure_sum_range_ge_le_of_iIndepFun",
+    "statement": "\u2115 \u2192 \u03a9 \u2192 \u211d} (h_indep : iIndepFun X \u03bc) {c : \u211d\u22650} {n : \u2115} (h_subG : \u2200 i < n, HasSubgaussianMGF (X i) c \u03bc) {\u03b5 : \u211d} (h\u03b5 : 0 \u2264 \u03b5) : \u03bc.real {\u03c9 | \u03b5 \u2264 \u2211 i \u2208 Finset.range n, X i \u03c9} \u2264 exp (-\u03b5 ^ 2 / (2 * n * c))",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "(sum_of_iIndepFun h_indep (c := fun _ \u21a6 c)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SubGaussian",
+    "name": "mgf_le_of_mem_Icc_of_integral_eq_zero",
+    "statement": "\u211d} (hm : AEMeasurable X \u03bc) (hb : \u2200\u1d50 \u03c9 \u2202\u03bc, X \u03c9 \u2208 Set.Icc a b) (hc : \u03bc[X] = 0) (ht : 0 < t) : mgf X \u03bc t \u2264 exp ((\u2016b - a\u2016\u208a / 2) ^ 2 * t ^ 2 / 2)",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "Set.Icc 0 t \u2286 interior (integrableExpSet X \u03bc)",
+        "body": "by simp [hi, integrableExpSet]",
+        "children": []
+      }
+    ]
+  }
+]

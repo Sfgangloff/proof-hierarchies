@@ -1,0 +1,86 @@
+[
+  {
+    "module": "AddCircle",
+    "name": "memLp_haarAddCircle_iff",
+    "statement": "Fact (0 < T)] {f : AddCircle T \u2192 \u2102} {p : \u211d\u22650\u221e} : MemLp f p AddCircle.haarAddCircle \u2194 MemLp f p",
+    "have_tree": [
+      {
+        "name": "hT'",
+        "type": "",
+        "body": "hT.out",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.smul_measure (c := (ENNReal.ofReal T)\u207b\u00b9) (by finiteness)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AddCircle",
+    "name": "orthonormal_fourier",
+    "statement": "Orthonormal \u2102 (@fourierLp T _ 2 _)",
+    "have_tree": [
+      {
+        "name": "hij",
+        "type": "j + -i \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AddCircle",
+    "name": "hasSum_sq_fourierCoeff",
+    "statement": "Lp \u2102 2 <| @haarAddCircle T hT) : HasSum (fun i => \u2016fourierCoeff f i\u2016 ^ 2) (\u222b t : AddCircle T, \u2016f t\u2016 ^ 2 \u2202haarAddCircle)",
+    "have_tree": [
+      {
+        "name": "H\u2083",
+        "type": "",
+        "body": "congr_arg RCLike.re (@L2.inner_def (AddCircle T) \u2102 \u2102 _ _ _ _ _ f f)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AddCircle",
+    "name": "hasSum_sq_fourierCoeffOn",
+    "statement": "\u211d} {f : \u211d \u2192 \u2102} (hab : a < b) (hL2 : MemLp f 2 (volume.restrict (Ioc a b))) : HasSum (fun i => \u2016fourierCoeffOn hab f i\u2016 ^ 2) ((b - a)\u207b\u00b9 \u2022 \u222b x in a..b, \u2016f x\u2016 ^ 2)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "hL2.memLp_liftIoc.haarAddCircle",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AddCircle",
+    "name": "hasSum_fourier_series_of_summable",
+    "statement": "Summable (fourierCoeff f)) : HasSum (fun i => fourierCoeff f i \u2022 fourier i) f",
+    "have_tree": [
+      {
+        "name": "sum_L2",
+        "type": "",
+        "body": "hasSum_fourier_series_L2 (toLp (E := \u2102) 2 haarAddCircle \u2102 f)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AddCircle",
+    "name": "fourierCoeffOn_of_hasDeriv_right",
+    "statement": "\u211d} (hab : a < b) {f f' : \u211d \u2192 \u2102} {n : \u2124} (hn : n \u2260 0) (hf : ContinuousOn f [[a, b]]) (hff' : \u2200 x, x \u2208 Ioo (min a b) (max a b) \u2192 HasDerivWithinAt f (f' x) (Ioi x) x) (hf' : IntervalIntegrable f' volume a b) : fourierCoeffOn hab f n = 1 / (-2 * \u03c0 * I * n) * (fourier (-n) (a : AddCircle (b - a)) * (f b - f a) - (b - a) * fourierCoeffOn hab f' n)",
+    "have_tree": [
+      {
+        "name": "hT",
+        "type": "Fact (0 < b - a)",
+        "body": "\u27e8by linarith\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

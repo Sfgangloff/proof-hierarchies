@@ -1,0 +1,295 @@
+[
+  {
+    "module": "Stopping",
+    "name": "IsStoppingTime.measurableSet_lt_of_isLUB",
+    "statement": "IsStoppingTime f \u03c4) (i : \u03b9) (h_lub : IsLUB (Set.Iio i) i) : MeasurableSet[f i] {\u03c9 | \u03c4 \u03c9 < i}",
+    "have_tree": [
+      {
+        "name": "h_nhds",
+        "type": "Set.Ici k \u2208 \ud835\udcdd i",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "isStoppingTime_of_measurableSet_lt_of_isRightContinuous'",
+    "statement": "f.IsRightContinuous] (h\u03c41 : \u2200 i, MeasurableSet[f i] {\u03c9 | \u03c4 \u03c9 < i}) (h\u03c42 : \u2200 i, \ud835\udcdd[>] i = \u22a5 \u2192 MeasurableSet[f i] {\u03c9 | \u03c4 \u03c9 = i}) : IsStoppingTime f \u03c4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(\ud835\udcdd[>] t).NeBot",
+        "body": "\u27e8ht\u27e9",
+        "children": [
+          {
+            "name": "h_freq",
+            "type": "\u2203\u1da0 x in \ud835\udcdd[>] t, t < x",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "exists_seq_forall_of_frequently h_freq",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "measurableSet_inter_le_const_iff",
+    "statement": "IsStoppingTime f \u03c4) (s : Set \u03a9) (i : \u03b9) : MeasurableSet[h\u03c4.measurableSpace] (s \u2229 {\u03c9 | \u03c4 \u03c9 \u2264 i}) \u2194 MeasurableSet[(h\u03c4.min_const i).measurableSpace] (s \u2229 {\u03c9 | \u03c4 \u03c9 \u2264 i})",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "h.2 i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "measurableSet_stopping_time_le",
+    "statement": "IsStoppingTime f \u03c4) (h\u03c0 : IsStoppingTime f \u03c0) : MeasurableSet[h\u03c0.measurableSpace] {\u03c9 | \u03c4 \u03c9 \u2264 \u03c0 \u03c9}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "MeasurableSet[(h\u03c4.min h\u03c0).measurableSpace] {\u03c9 | \u03c4 \u03c9 \u2264 \u03c0 \u03c9}",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "measurableSet_eq_stopping_time",
+    "statement": "IsStoppingTime f \u03c4) (h\u03c0 : IsStoppingTime f \u03c0) : MeasurableSet[h\u03c4.measurableSpace] {\u03c9 | \u03c4 \u03c9 = \u03c0 \u03c9}",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "measurableSet_eq_stopping_time_min h\u03c4 h\u03c0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "stoppedProcess_stoppedProcess_of_le_right",
+    "statement": "\u03c3 \u2264 \u03c4) : stoppedProcess (stoppedProcess u \u03c4) \u03c3 = stoppedProcess u \u03c3",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "MeasurableSet[m_prod] s",
+        "body": "@measurable_snd (Set.Iic i) \u03a9 _ (f i) _ (h\u03c4 i)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "ProgMeasurable.stoppedProcess",
+    "statement": "ProgMeasurable f u) (h\u03c4 : IsStoppingTime f \u03c4) : ProgMeasurable f (stoppedProcess u \u03c4)",
+    "have_tree": [
+      {
+        "name": "h_meas",
+        "type": "",
+        "body": "progMeasurable_min_stopping_time h\u03c4",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "stoppedValue_eq_of_mem_finset",
+    "statement": "Finset \u03b9} (hbdd : \u2200 \u03c9, \u03c4 \u03c9 \u2208 (WithTop.some '' s)) : stoppedValue u \u03c4 = \u2211 i \u2208 s, Set.indicator {\u03c9 | \u03c4 \u03c9 = i} (u i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u03c4 y \u2260 \u22a4",
+        "body": "fun h_contra \u21a6 by simp [h_contra] at hbdd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "stoppedValue_eq'",
+    "statement": "\u03b9} (hbdd : \u2200 \u03c9, \u03c4 \u03c9 \u2264 N) : stoppedValue u \u03c4 = \u2211 i \u2208 Finset.Iic N, Set.indicator {\u03c9 | \u03c4 \u03c9 = i} (u i)",
+    "have_tree": [
+      {
+        "name": "h_top",
+        "type": "\u03c4 \u03c9 \u2260 \u22a4",
+        "body": "fun h_contra \u21a6 by simp [h_contra] at hbdd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "stoppedProcess_eq_of_mem_finset",
+    "statement": "Finset \u03b9} (n : \u03b9) (hbdd : \u2200 \u03c9, \u03c4 \u03c9 < n \u2192 \u03c4 \u03c9 \u2208 WithTop.some '' s) : stoppedProcess u \u03c4 n = Set.indicator {a | n \u2264 \u03c4 a} (u n) + \u2211 i \u2208 s with i < n, Set.indicator {\u03c9 | \u03c4 \u03c9 = i} (u i)",
+    "have_tree": [
+      {
+        "name": "h_top",
+        "type": "\u03c4 \u03c9 \u2260 \u22a4",
+        "body": "fun h_contra \u21a6 by simp [h_contra] at h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "stoppedProcess_eq''",
+    "statement": "\u03b9) : stoppedProcess u \u03c4 n = Set.indicator {a | n \u2264 \u03c4 a} (u n) + \u2211 i \u2208 Finset.Iio n, Set.indicator {\u03c9 | \u03c4 \u03c9 = i} (u i)",
+    "have_tree": [
+      {
+        "name": "h_mem",
+        "type": "\u2200 \u03c9, \u03c4 \u03c9 < n \u2192 \u03c4 \u03c9 \u2208 WithTop.some '' (Finset.Iio n)",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_top",
+            "type": "\u03c4 \u03c9 \u2260 \u22a4",
+            "body": "fun h_contra \u21a6 by simp [h_contra] at h",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "memLp_stoppedValue_of_mem_finset",
+    "statement": "IsStoppingTime \u2131 \u03c4) (hu : \u2200 n, MemLp (u n) p \u03bc) {s : Finset \u03b9} (hbdd : \u2200 \u03c9, \u03c4 \u03c9 \u2208 WithTop.some '' s) : MemLp (stoppedValue u \u03c4) p \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Set.range \u03c4 \u2286 WithTop.some '' s",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "memLp_stoppedValue",
+    "statement": "IsStoppingTime \u2131 \u03c4) (hu : \u2200 n, MemLp (u n) p \u03bc) {N : \u03b9} (hbdd : \u2200 \u03c9, \u03c4 \u03c9 \u2264 N) : MemLp (stoppedValue u \u03c4) p \u03bc",
+    "have_tree": [
+      {
+        "name": "h_top",
+        "type": "\u03c4 \u03c9 \u2260 \u22a4",
+        "body": "fun h_contra \u21a6 by simp [h_contra] at hbdd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "integrable_stoppedValue",
+    "statement": "IsStoppingTime \u2131 \u03c4) (hu : \u2200 n, Integrable (u n) \u03bc) {N : \u03b9} (hbdd : \u2200 \u03c9, \u03c4 \u03c9 \u2264 N) : Integrable (stoppedValue u \u03c4) \u03bc",
+    "have_tree": [
+      {
+        "name": "h_top",
+        "type": "\u03c4 \u03c9 \u2260 \u22a4",
+        "body": "fun h_contra \u21a6 by simp [h_contra] at hbdd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "memLp_stoppedProcess",
+    "statement": "IsStoppingTime \u2131 \u03c4) (hu : \u2200 n, MemLp (u n) p \u03bc) (n : \u03b9) : MemLp (stoppedProcess u \u03c4 n) p \u03bc",
+    "have_tree": [
+      {
+        "name": "h_top",
+        "type": "\u03c4 \u03c9 \u2260 \u22a4",
+        "body": "fun h_contra \u21a6 by simp [h_contra] at h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "integrable_stoppedProcess",
+    "statement": "IsStoppingTime \u2131 \u03c4) (hu : \u2200 n, Integrable (u n) \u03bc) (n : \u03b9) : Integrable (stoppedProcess u \u03c4 n) \u03bc",
+    "have_tree": [
+      {
+        "name": "h_top",
+        "type": "\u03c4 \u03c9 \u2260 \u22a4",
+        "body": "fun h_contra \u21a6 by simp [h_contra] at h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "stoppedValue_sub_eq_sum",
+    "statement": "\u03c4 \u2264 \u03c0) (h\u03c0 : \u2200 \u03c9, \u03c0 \u03c9 \u2260 \u221e) : stoppedValue u \u03c0 - stoppedValue u \u03c4 = fun \u03c9 => (\u2211 i \u2208 Finset.Ico (\u03c4 \u03c9).untopA (\u03c0 \u03c9).untopA, (u (i + 1) - u i)) \u03c9",
+    "have_tree": [
+      {
+        "name": "h_le'",
+        "type": "(\u03c4 \u03c9).untopA \u2264 (\u03c0 \u03c9).untopA",
+        "body": "untopA_mono (mod_cast h\u03c0 \u03c9) (hle \u03c9)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "stoppedValue_eq",
+    "statement": "\u2115} (hbdd : \u2200 \u03c9, \u03c4 \u03c9 \u2264 N) : stoppedValue u \u03c4 = fun x => (\u2211 i \u2208 Finset.range (N + 1), Set.indicator {\u03c9 | \u03c4 \u03c9 = i} (u i)) x",
+    "have_tree": [
+      {
+        "name": "h_top",
+        "type": "\u03c4 \u03c9 \u2260 \u22a4",
+        "body": "fun h_contra \u21a6 by simp [h_contra] at hbdd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "IsStoppingTime.piecewise_of_le",
+    "statement": "IsStoppingTime \ud835\udca2 \u03c4) (h\u03b7_st : IsStoppingTime \ud835\udca2 \u03b7) (h\u03c4 : \u2200 \u03c9, i \u2264 \u03c4 \u03c9) (h\u03b7 : \u2200 \u03c9, i \u2264 \u03b7 \u03c9) (hs : MeasurableSet[\ud835\udca2 i] s) : IsStoppingTime \ud835\udca2 (s.piecewise \u03c4 \u03b7)",
+    "have_tree": [
+      {
+        "name": "h\u03b7n",
+        "type": "\u2200 \u03c9, \u00ac\u03b7 \u03c9 \u2264 n",
+        "body": "fun \u03c9 h\u03b7n => hin (mod_cast (h\u03b7 \u03c9).trans h\u03b7n)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "condExp_min_stopping_time_ae_eq_restrict_le_const",
+    "statement": "IsStoppingTime \u2131 \u03c4) (i : \u03b9) [SigmaFinite (\u03bc.trim (h\u03c4.min_const i).measurableSpace_le)] : \u03bc[f | (h\u03c4.min_const i).measurableSpace] =\u1d50[\u03bc.restrict {x | \u03c4 x \u2264 i}] \u03bc[f | h\u03c4.measurableSpace]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "SigmaFinite (\u03bc.trim h\u03c4.measurableSpace_le)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "condExp_min_stopping_time_ae_eq_restrict_le",
+    "statement": "IsStoppingTime \u2131 \u03c4) (h\u03c3 : IsStoppingTime \u2131 \u03c3) [SigmaFinite (\u03bc.trim (h\u03c4.min h\u03c3).measurableSpace_le)] : \u03bc[f | (h\u03c4.min h\u03c3).measurableSpace] =\u1d50[\u03bc.restrict {x | \u03c4 x \u2264 \u03c3 x}] \u03bc[f | h\u03c4.measurableSpace]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "SigmaFinite (\u03bc.trim h\u03c4.measurableSpace_le)",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

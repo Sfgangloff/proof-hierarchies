@@ -1,0 +1,85 @@
+[
+  {
+    "module": "Deriv",
+    "name": "abs_log_sub_add_sum_range_le",
+    "statement": "\u211d} (h : |x| < 1) (n : \u2115) : |(\u2211 i \u2208 range n, x ^ (i + 1) / (i + 1)) + log (1 - x)| \u2264 |x| ^ (n + 1) / (1 - |x|)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2200 y \u2208 Ioo (-1 : \u211d) 1, HasDerivAt F (F' y) y",
+        "body": "fun y hy \u21a6 by",
+        "children": [
+          {
+            "name": "_",
+            "type": "HasDerivAt F ((\u2211 i \u2208 range n, \u2191(i + 1) * y ^ i / (\u2191i + 1)) + (-1) / (1 - y)) y",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "B",
+        "type": "\u2200 y \u2208 Icc (-|x|) |x|, |F' y| \u2264 |x| ^ n / (1 - |x|)",
+        "body": "fun y hy \u21a6",
+        "children": [
+          {
+            "name": "_",
+            "type": "|y| \u2264 |x|",
+            "body": "abs_le.2 hy",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "1 - |x| \u2264 |1 - y|",
+            "body": "le_trans (by linarith [hy.2]) (le_abs_self _)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "C",
+        "type": "\u2016F x - F 0\u2016 \u2264 |x| ^ n / (1 - |x|) * \u2016x - 0\u2016",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Deriv",
+    "name": "sum_range_sub_log_div_le",
+    "statement": "\u211d} (h : |x| < 1) (n : \u2115) : |1 / 2 * log ((1 + x) / (1 - x)) - \u2211 i \u2208 range n, x ^ (2 * i + 1) / (2 * i + 1)| \u2264 |x| ^ (2 * n + 1) / (1 - x ^ 2)",
+    "have_tree": [
+      {
+        "name": "hI",
+        "type": "Icc (-|x|) |x| \u2286 Ioo (-1 : \u211d) 1",
+        "body": "Icc_subset_Ioo (by simp [h]) h",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "\u2200 y \u2208 Ioo (-1 : \u211d) 1, HasDerivAt F (F' y) y",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "\u2200 y \u2208 Set.Icc (-|x|) |x|, \u2016F' y\u2016 \u2264 |x| ^ (2 * n) / (1 - x ^ 2)",
+        "body": "fun y hy \u21a6 by",
+        "children": [
+          {
+            "name": "_",
+            "type": "y ^ 2 \u2264 x ^ 2",
+            "body": "sq_le_sq.2 (abs_le.2 hy)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "C",
+        "type": "\u2016F x - F 0\u2016 \u2264 |x| ^ (2 * n) / (1 - x ^ 2) * \u2016x - 0\u2016",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

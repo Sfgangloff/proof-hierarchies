@@ -1,0 +1,212 @@
+[
+  {
+    "module": "Nondegenerate",
+    "name": "finrank_range_polarization_eq_finrank_span_coroot",
+    "statement": "finrank S (LinearMap.range (P.PolarizationIn S)) = finrank S (P.corootSpan S)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsReflexive R N",
+        "body": ".of_isPerfPair P.flip.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.IsTorsionFree S N",
+        "body": ".trans_faithfulSMul S R N",
+        "children": []
+      },
+      {
+        "name": "h_ne",
+        "type": "\u220f i, (P.RootFormIn S (P.rootSpanMem S i) (P.rootSpanMem S i)) \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(FaithfulSMul.algebraMap_eq_zero_iff S R).mpr h",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Nondegenerate",
+    "name": "polarizationIn_Injective",
+    "statement": "Function.Injective (P.PolarizationIn S)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.IsTorsionFree S M",
+        "body": ".trans_faithfulSMul S R M",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nondegenerate",
+    "name": "exists_coroot_ne",
+    "statement": "P.rootSpan S} (hx : x \u2260 0) : \u2203 i, P.coroot'In S i x \u2260 0",
+    "have_tree": [
+      {
+        "name": "hI",
+        "type": "",
+        "body": "P.polarizationIn_Injective S",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "(map_ne_zero_iff (P.PolarizationIn S) hI).mpr hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nondegenerate",
+    "name": "posRootForm_posForm_pos_of_ne_zero",
+    "statement": "P.rootSpan S} (hx : x \u2260 0) : 0 < (P.posRootForm S).posForm x x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "P.isAnisotropic_of_isValuedIn S",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2203 i \u2208 Finset.univ, 0 < (P.coroot'In S i) x * (P.coroot'In S i) x",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nondegenerate",
+    "name": "disjoint_rootSpan_ker_rootForm",
+    "statement": "Disjoint (P.rootSpan R) (LinearMap.ker P.RootForm)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nondegenerate",
+    "name": "isCompl_rootSpan_ker_rootForm",
+    "statement": "IsCompl (P.rootSpan R) (LinearMap.ker P.RootForm)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsReflexive R N",
+        "body": ".of_isPerfPair P.flip.toLinearMap",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nondegenerate",
+    "name": "ker_rootForm_eq_dualAnnihilator",
+    "statement": "P.RootForm.ker = (P.corootSpan R).dualAnnihilator.map (P.toPerfPair.symm : Dual R N \u2192\u2097[R] M)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsReflexive R N",
+        "body": ".of_isPerfPair P.flip.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "aux0",
+        "type": "",
+        "body": "Subspace.finrank_add_finrank_dualAnnihilator_eq (P.corootSpan R)",
+        "children": []
+      },
+      {
+        "name": "aux1",
+        "type": "",
+        "body": "Submodule.finrank_add_eq_of_isCompl P.isCompl_rootSpan_ker_rootForm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nondegenerate",
+    "name": "rootSpan_eq_top_iff",
+    "statement": "P.rootSpan R = \u22a4 \u2194 P.corootSpan R = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsReflexive R N",
+        "body": ".of_isPerfPair P.flip.toLinearMap",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nondegenerate",
+    "name": "PolarizationEquiv",
+    "statement": "M \u2243\u2097[R] N",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsReflexive R M",
+        "body": "Module.IsReflexive.of_isPerfPair P.toLinearMap",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nondegenerate",
+    "name": "coroot_eq_polarizationEquiv_apply_root",
+    "statement": "\u03b9) : P.coroot i = (2 / P.RootForm (P.root i) (P.root i)) \u2022 P.PolarizationEquiv (P.root i)",
+    "have_tree": [
+      {
+        "name": "h\u2080",
+        "type": "",
+        "body": "IsAnisotropic.rootForm_root_ne_zero (P := P) i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nondegenerate",
+    "name": "eq_zero_of_mem_rootSpan_of_rootForm_self_eq_zero",
+    "statement": "M} (hx : x \u2208 P.rootSpan R) (hx' : P.RootForm x x = 0) : x = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x \u2208 P.rootSpan R \u2293 LinearMap.ker P.RootForm",
+        "body": "\u27e8hx, P.rootForm_self_eq_zero_iff.mp hx'\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

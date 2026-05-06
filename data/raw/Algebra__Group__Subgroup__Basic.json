@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Basic",
+    "name": "map_normalClosure",
+    "statement": "Set G) (f : G \u2192* N) (hf : Surjective f) : (normalClosure s).map f = normalClosure (f '' s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Normal (map f (normalClosure s))",
+        "body": "Normal.map inferInstance f hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "comap_normalClosure",
+    "statement": "Set N) (f : G \u2243* N) : normalClosure (f \u207b\u00b9' s) = (normalClosure s).comap f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "f.toEquiv.image_symm_eq_preimage s",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "SubgroupNormal.mem_comm",
+    "statement": "Subgroup G} (hK : H \u2264 K) [hN : (H.subgroupOf K).Normal] {a b : G} (hb : b \u2208 K) (h : a * b \u2208 H) : b * a \u2208 H",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(normal_subgroupOf_iff hK).mp hN (a * b) b h hb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "normalClosure_eq_top_of",
+    "statement": "Subgroup G} [hn : N.Normal] {g g' : G} {hg : g \u2208 N} {hg' : g' \u2208 N} (hc : IsConj g g') (ht : normalClosure ({\u27e8g, hg\u27e9} : Set N) = \u22a4) : normalClosure ({\u27e8g', hg'\u27e9} : Set N) = \u22a4",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "Function.Surjective (((MulAut.conj c).toMonoidHom.restrict N).codRestrict _ h)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

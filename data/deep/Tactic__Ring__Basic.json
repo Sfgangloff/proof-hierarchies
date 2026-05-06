@@ -1,0 +1,66 @@
+[
+  {
+    "module": "Basic",
+    "name": "mul_pp_pf_overlap",
+    "statement": "\u2115} (x : R) (_ : ea + eb = e) (_ : a\u2082 * b\u2082 = c) : (x ^ ea * a\u2082 : R) * (x ^ eb * b\u2082) = x ^ e * c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "$a =Q Nat.rawCast 1",
+        "body": "\u27e8\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "$b =Q Nat.rawCast 1",
+        "body": "\u27e8\u27e9",
+        "children": []
+      },
+      {
+        "name": "va",
+        "type": "",
+        "body": ".mul vxa vea va\u2082; have vb := .mul vxb veb vb\u2082 -- FIXME: why does `va@(...)` fail?",
+        "children": [
+          {
+            "name": "_",
+            "type": "$xa =Q $xb",
+            "body": "\u27e8\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "pow_bit1",
+    "statement": "\u2115} {d : R} (_ : (a : R) ^ k = b) (_ : b * b = c) (_ : c * a = d) : a ^ (Nat.add (Nat.mul (nat_lit 2) k) (nat_lit 1)) = d",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "$n =Q 1",
+        "body": "\u27e8\u27e9",
+        "children": []
+      },
+      {
+        "name": "m",
+        "type": "Q(\u2115)",
+        "body": "mkRawNatLit nm",
+        "children": [
+          {
+            "name": "_",
+            "type": "$n =Q 2 * $m",
+            "body": "\u27e8\u27e9",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "$n =Q 2 * $m + 1",
+            "body": "\u27e8\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "module": "FiniteMeasure",
+    "name": "apply_union_le",
+    "statement": "FiniteMeasure \u03a9) {s\u2081 s\u2082 : Set \u03a9} : \u03bc (s\u2081 \u222a s\u2082) \u2264 \u03bc s\u2081 + \u03bc s\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "measure_union_le (\u03bc := (\u03bc : Measure \u03a9)) s\u2081 s\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteMeasure",
+    "name": "testAgainstNN_lipschitz_estimate",
+    "statement": "FiniteMeasure \u03a9) (f g : \u03a9 \u2192\u1d47 \u211d\u22650) : \u03bc.testAgainstNN f \u2264 \u03bc.testAgainstNN g + nndist f g * \u03bc.mass",
+    "have_tree": [
+      {
+        "name": "le_dist",
+        "type": "\u2200 \u03c9, dist (f \u03c9) (g \u03c9) \u2264 nndist f g",
+        "body": "BoundedContinuousFunction.dist_coe_le_dist",
+        "children": []
+      },
+      {
+        "name": "le'",
+        "type": "f \u03c9 \u2264 g \u03c9 + nndist f g",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteMeasure",
+    "name": "tendsto_zero_testAgainstNN_of_tendsto_zero_mass",
+    "statement": "Type*} {F : Filter \u03b3} {\u03bcs : \u03b3 \u2192 FiniteMeasure \u03a9} (mass_lim : Tendsto (fun i \u21a6 (\u03bcs i).mass) F (\ud835\udcdd 0)) (f : \u03a9 \u2192\u1d47 \u211d\u22650) : Tendsto (fun i \u21a6 (\u03bcs i).testAgainstNN f) F (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "obs",
+        "type": "",
+        "body": "fun i \u21a6 (\u03bcs i).testAgainstNN_lipschitz_estimate f 0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteMeasure",
+    "name": "injective_toWeakDualBCNN",
+    "statement": "Injective (toWeakDualBCNN : FiniteMeasure \u03a9 \u2192 WeakDual \u211d\u22650 (\u03a9 \u2192\u1d47 \u211d\u22650))",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "congr_fun (congrArg DFunLike.coe h\u03bc\u03bd) f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteMeasure",
+    "name": "tendsto_of_forall_integral_tendsto",
+    "statement": "Type*} {F : Filter \u03b3} {\u03bcs : \u03b3 \u2192 FiniteMeasure \u03a9} {\u03bc : FiniteMeasure \u03a9} (h : \u2200 f : \u03a9 \u2192\u1d47 \u211d, Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i : Measure \u03a9)) F (\ud835\udcdd (\u222b x, f x \u2202(\u03bc : Measure \u03a9)))) : Tendsto \u03bcs F (\ud835\udcdd \u03bc)",
+    "have_tree": [
+      {
+        "name": "f\u2080_nn",
+        "type": "0 \u2264 \u21d1f\u2080",
+        "body": "fun _ \u21a6 by",
+        "children": []
+      },
+      {
+        "name": "aux",
+        "type": "",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "auxs",
+        "type": "",
+        "body": "fun i \u21a6",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteMeasure",
+    "name": "tendsto_iff_forall_integral_tendsto",
+    "statement": "Type*} {F : Filter \u03b3} {\u03bcs : \u03b3 \u2192 FiniteMeasure \u03a9} {\u03bc : FiniteMeasure \u03a9} : Tendsto \u03bcs F (\ud835\udcdd \u03bc) \u2194 \u2200 f : \u03a9 \u2192\u1d47 \u211d, Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i : Measure \u03a9)) F (\ud835\udcdd (\u222b x, f x \u2202(\u03bc : Measure \u03a9)))",
+    "have_tree": [
+      {
+        "name": "tends_pos",
+        "type": "",
+        "body": "(ENNReal.tendsto_toReal (f_pos.lintegral_lt_top_of_nnreal \u03bc).ne).comp (h f_pos)",
+        "children": []
+      },
+      {
+        "name": "tends_neg",
+        "type": "",
+        "body": "(ENNReal.tendsto_toReal (f_neg.lintegral_lt_top_of_nnreal \u03bc).ne).comp (h f_neg)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteMeasure",
+    "name": "map_apply_of_aemeasurable",
+    "statement": "FiniteMeasure \u03a9) {f : \u03a9 \u2192 \u03a9'} (f_aemble : AEMeasurable f \u03bd) {A : Set \u03a9'} (A_mble : MeasurableSet A) : \u03bd.map f A = \u03bd (f \u207b\u00b9' A)",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "\u03bd.map_apply' f_aemble A_mble",
+        "children": []
+      }
+    ]
+  }
+]

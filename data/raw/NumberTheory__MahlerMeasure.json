@@ -1,0 +1,92 @@
+[
+  {
+    "module": "MahlerMeasure",
+    "name": "boxPoly",
+    "statement": "Set \u2124[X]",
+    "have_tree": [
+      {
+        "name": "prop",
+        "type": "",
+        "body": "Finset.mem_Icc.mp p.property",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MahlerMeasure",
+    "name": "card_mahlerMeasure_le_prod",
+    "statement": "\u2115) (B : \u211d\u22650) : Set.ncard {p : \u2124[X] | p.natDegree \u2264 n \u2227 (p.map (castRingHom \u2102)).mahlerMeasure \u2264 B} \u2264 \u220f i : Fin (n + 1), (2 * \u230an.choose i * B\u230b\u208a + 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero n",
+        "body": "\u27e8hn\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MahlerMeasure",
+    "name": "norm_leadingCoeff_eq_one_of_mahlerMeasure_eq_one",
+    "statement": "\u2016(p.map (castRingHom \u2102)).leadingCoeff\u2016 = 1",
+    "have_tree": [
+      {
+        "name": "h_ineq",
+        "type": "",
+        "body": "h \u25b8 (leadingCoeff_le_mahlerMeasure <| p.map (castRingHom \u2102))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MahlerMeasure",
+    "name": "abs_leadingCoeff_eq_one_of_mahlerMeasure_eq_one",
+    "statement": "|p.leadingCoeff| = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "norm_leadingCoeff_eq_one_of_mahlerMeasure_eq_one h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MahlerMeasure",
+    "name": "isIntegral_of_mahlerMeasure_eq_one",
+    "statement": "IsIntegral \u2124 z",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(C (1 / p.leadingCoeff) * p).Monic",
+        "body": "by aesop (add safe (by simp [Monic.def]))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MahlerMeasure",
+    "name": "cyclotomic_dvd_of_mahlerMeasure_eq_one",
+    "statement": "\u00ac X \u2223 p) (hpdeg : p.degree \u2260 0) : \u2203 n, 0 < n \u2227 cyclotomic n \u2124 \u2223 p",
+    "have_tree": [
+      {
+        "name": "hpdegC",
+        "type": "(p.map (castRingHom \u2102)).degree \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hz\u2080",
+        "type": "z \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_z_root",
+        "type": "z \u2208 p.aroots \u2102",
+        "body": "by aesop",
+        "children": []
+      }
+    ]
+  }
+]

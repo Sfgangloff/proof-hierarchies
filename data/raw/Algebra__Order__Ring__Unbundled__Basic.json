@@ -1,0 +1,117 @@
+[
+  {
+    "module": "Basic",
+    "name": "add_le_mul_of_left_le_right",
+    "statement": "R)] [MulPosStrictMono R] [AddLeftMono R] (a2 : 2 \u2264 a) (ab : a \u2264 b) : a + b \u2264 a * b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < b",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "add_le_mul_of_right_le_left",
+    "statement": "R)] [AddLeftMono R] [PosMulStrictMono R] (b2 : 2 \u2264 b) (ba : b \u2264 a) : a + b \u2264 a * b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < a",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "sign_cases_of_C_mul_pow_nonneg",
+    "statement": "\u2200 n, 0 \u2264 a * b ^ n) : a = 0 \u2228 0 < a \u2227 0 \u2264 b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 \u2264 a",
+        "body": "by simpa only [pow_zero, mul_one] using h 0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mul_nonneg_of_three",
+    "statement": "R) : 0 \u2264 a * b \u2228 0 \u2264 b * c \u2228 0 \u2264 c * a",
+    "have_tree": [
+      {
+        "name": "or_a",
+        "type": "",
+        "body": "le_total 0 a",
+        "children": []
+      },
+      {
+        "name": "or_b",
+        "type": "",
+        "body": "le_total 0 b",
+        "children": []
+      },
+      {
+        "name": "or_c",
+        "type": "",
+        "body": "le_total 0 c",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mul_nonneg_iff_pos_imp_nonneg",
+    "statement": "0 \u2264 a * b \u2194 (0 < a \u2192 0 \u2264 b) \u2227 (0 < b \u2192 0 \u2264 a)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "le_total a 0",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "le_total b 0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "sq_nonneg",
+    "statement": "R) : 0 \u2264 a ^ 2",
+    "have_tree": [
+      {
+        "name": "hb",
+        "type": "0 < b",
+        "body": "not_le.1 fun hb \u21a6 (add_neg_of_neg_of_nonpos ha hb).ne' hab",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "max_mul_mul_le_max_mul_max",
+    "statement": "R) (ha : 0 \u2264 a) (hd : 0 \u2264 d) : max (a * b) (d * c) \u2264 max a c * max d b",
+    "have_tree": [
+      {
+        "name": "ba",
+        "type": "b * a \u2264 max d b * max c a",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "cd",
+        "type": "c * d \u2264 max a c * max b d",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

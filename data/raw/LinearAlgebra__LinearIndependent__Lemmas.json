@@ -1,0 +1,157 @@
+[
+  {
+    "module": "Lemmas",
+    "name": "iSupIndep_range_lsingle",
+    "statement": "iSupIndep fun i : \u03b9 \u21a6 LinearMap.range (Finsupp.lsingle (R",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Finsupp.mem_supported ..).mp (this hm); simp_all",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "LinearIndepOn.pair_iff",
+    "statement": "\u03b9} (f : \u03b9 \u2192 M) (hij : i \u2260 j) : LinearIndepOn R f {i,j} \u2194 \u2200 c d : R, c \u2022 f i + d \u2022 f j = 0 \u2192 c = 0 \u2227 d = 0",
+    "have_tree": [
+      {
+        "name": "ht'",
+        "type": "t \u2286 {i, j}",
+        "body": "by simpa [\u2190 Finset.coe_subset]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "exists_maximal_linearIndepOn",
+    "statement": "\u03b9 \u2192 M) : \u2203 s : Set \u03b9, (LinearIndepOn R v s) \u2227 \u2200 i \u2209 s, \u2203 a : R, a \u2260 0 \u2227 a \u2022 v i \u2208 span R (v '' s)",
+    "have_tree": [
+      {
+        "name": "hiJ",
+        "type": "i \u2208 J",
+        "body": "by simp [J]",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hfi",
+        "type": "f i \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hfi'",
+        "type": "i \u2208 f.support",
+        "body": "Finsupp.mem_support_iff.mpr hfi",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "LinearMap.injective_of_linearIndependent",
+    "statement": "Type*} [AddCommGroup N] [Module R N] {f : M \u2192\u2097[R] N} {\u03b9 : Type*} {v : \u03b9 \u2192 M} (hv : Submodule.span R (.range v) = \u22a4) (hli : LinearIndependent R (f \u2218 v)) : Function.Injective f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x \u2208 Submodule.span R (.range v)",
+        "body": "by rw [hv]; exact mem_top",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "mem_span_insert_exchange",
+    "statement": "x \u2208 span K (insert y s) \u2192 x \u2209 span K s \u2192 y \u2208 span K (insert x s)",
+    "have_tree": [
+      {
+        "name": "a0",
+        "type": "a \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "LinearIndepOn.insert",
+    "statement": "Set \u03b9} {x : \u03b9} (hs : LinearIndepOn K v s) (hx : v x \u2209 span K (v '' s)) : LinearIndepOn K v (insert x s)",
+    "have_tree": [
+      {
+        "name": "x0",
+        "type": "v x \u2260 0",
+        "body": "fun h => hx (h \u25b8 zero_mem _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "exists_of_linearIndepOn_of_finite_span",
+    "statement": "Set V} {t : Finset V} (hs : LinearIndepOn K id s) (hst : s \u2286 (span K \u2191t : Submodule K V)) : \u2203 t' : Finset V, \u2191t' \u2286 s \u222a \u2191t \u2227 s \u2286 \u2191t' \u2227 t'.card = t.card",
+    "have_tree": [
+      {
+        "name": "hb\u2081s",
+        "type": "b\u2081 \u2209 s",
+        "body": "fun h => by",
+        "children": [
+          {
+            "name": "_",
+            "type": "b\u2081 \u2208 s \u2229 \u2191(insert b\u2081 t)",
+            "body": "\u27e8h, Finset.mem_insert_self _ _\u27e9",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hb\u2081s'",
+        "type": "b\u2081 \u2209 s'",
+        "body": "fun h => hb\u2081s <| hs' h",
+        "children": [
+          {
+            "name": "hb\u2081u",
+            "type": "b\u2081 \u2209 u",
+            "body": "fun h => (hust h).elim hb\u2081s hb\u2081t",
+            "children": []
+          },
+          {
+            "name": "hb\u2082t'",
+            "type": "b\u2082 \u2209 s' \u222a t",
+            "body": "fun h => hb\u2082t <| subset_span h",
+            "children": [
+              {
+                "name": "hb\u2081",
+                "type": "b\u2081 \u2208 span K (insert b\u2082 \u2191(s' \u222a t))",
+                "body": "",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "exists_finite_card_le_of_finite_of_linearIndependent_of_span",
+    "statement": "Set V} (ht : t.Finite) (hs : LinearIndepOn K id s) (hst : s \u2286 span K t) : \u2203 h : s.Finite, h.toFinset.card \u2264 ht.toFinset.card",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "s.Finite",
+        "body": "u.finite_toSet.subset hsu",
+        "children": []
+      }
+    ]
+  }
+]

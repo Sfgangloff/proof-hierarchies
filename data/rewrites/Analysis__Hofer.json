@@ -1,0 +1,766 @@
+[
+  {
+    "original": {
+      "module": "Hofer",
+      "name": "of",
+      "statement": "* H. Hofer and C. Viterbo, *The Weinstein conjecture in the presence of holomorphic spheres* -/  public section  open Topology Filter Finset  local notation \"d\" => dist  theorem hofer {X : Type*} [MetricSpace X] [CompleteSpace X] (x : X) (\u03b5 : \u211d) (\u03b5_pos : 0 < \u03b5) {\u03d5 : X \u2192 \u211d} (cont : Continuous \u03d5) (nonneg : \u2200 y, 0 \u2264 \u03d5 y) : \u2203 \u03b5' > 0, \u2203 x' : X, \u03b5' \u2264 \u03b5 \u2227 d x' x \u2264 2 * \u03b5 \u2227 \u03b5 * \u03d5 x \u2264 \u03b5' * \u03d5 x' \u2227 \u2200 y, d x' y \u2264 \u03b5' \u2192 \u03d5 y \u2264 2 * \u03d5 x'",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "H (\u03b5 / 2 ^ k) (by positivity) x' (div_le_self \u03b5_pos.le <| one_le_pow\u2080 one_le_two)",
+          "children": []
+        },
+        {
+          "name": "key",
+          "type": "\u2200 n, d (u n) (u (n + 1)) \u2264 \u03b5 / 2 ^ n \u2227 2 * \u03d5 (u n) < \u03d5 (u (n + 1))",
+          "body": "by",
+          "children": [
+            {
+              "name": "A",
+              "type": "d (u (n + 1)) x \u2264 2 * \u03b5",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "2 ^ (n + 1) * \u03d5 x \u2264 \u03d5 (u (n + 1))",
+              "body": "by",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "cauchy_u",
+          "type": "CauchySeq u",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "lim_top",
+          "type": "Tendsto (\u03d5 \u2218 u) atTop atTop",
+          "body": "by",
+          "children": [
+            {
+              "name": "hv\u2080",
+              "type": "0 < v 0",
+              "body": "by",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "lim",
+          "type": "Tendsto (\u03d5 \u2218 u) atTop (\ud835\udcdd (\u03d5 y))",
+          "body": "Tendsto.comp cont.continuousAt limy",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Hofer",
+          "name": "of",
+          "statement": "* H. Hofer and C. Viterbo, *The Weinstein conjecture in the presence of holomorphic spheres* -/  public section  open Topology Filter Finset  local notation \"d\" => dist  theorem hofer {X : Type*} [MetricSpace X] [CompleteSpace X] (x : X) (\u03b5 : \u211d) (\u03b5_pos : 0 < \u03b5) {\u03d5 : X \u2192 \u211d} (cont : Continuous \u03d5) (nonneg : \u2200 y, 0 \u2264 \u03d5 y) : \u2203 \u03b5' > 0, \u2203 x' : X, \u03b5' \u2264 \u03b5 \u2227 d x' x \u2264 2 * \u03b5 \u2227 \u03b5 * \u03d5 x \u2264 \u03b5' * \u03d5 x' \u2227 \u2200 y, d x' y \u2264 \u03b5' \u2192 \u03d5 y \u2264 2 * \u03d5 x'",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H (\u03b5 / 2 ^ k) (by positivity) x' (div_le_self \u03b5_pos.le <| one_le_pow\u2080 one_le_two)",
+              "children": []
+            },
+            {
+              "name": "key",
+              "type": "\u2200 n, d (u n) (u (n + 1)) \u2264 \u03b5 / 2 ^ n \u2227 2 * \u03d5 (u n) < \u03d5 (u (n + 1))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "B",
+                  "type": "2 ^ (n + 1) * \u03d5 x \u2264 \u03d5 (u (n + 1))",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "cauchy_u",
+              "type": "CauchySeq u",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "lim_top",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop atTop",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hv\u2080",
+                  "type": "0 < v 0",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "lim",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop (\ud835\udcdd (\u03d5 y))",
+              "body": "Tendsto.comp cont.continuousAt limy",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          1
+        ],
+        "result": {
+          "module": "Hofer",
+          "name": "of",
+          "statement": "* H. Hofer and C. Viterbo, *The Weinstein conjecture in the presence of holomorphic spheres* -/  public section  open Topology Filter Finset  local notation \"d\" => dist  theorem hofer {X : Type*} [MetricSpace X] [CompleteSpace X] (x : X) (\u03b5 : \u211d) (\u03b5_pos : 0 < \u03b5) {\u03d5 : X \u2192 \u211d} (cont : Continuous \u03d5) (nonneg : \u2200 y, 0 \u2264 \u03d5 y) : \u2203 \u03b5' > 0, \u2203 x' : X, \u03b5' \u2264 \u03b5 \u2227 d x' x \u2264 2 * \u03b5 \u2227 \u03b5 * \u03d5 x \u2264 \u03b5' * \u03d5 x' \u2227 \u2200 y, d x' y \u2264 \u03b5' \u2192 \u03d5 y \u2264 2 * \u03d5 x'",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H (\u03b5 / 2 ^ k) (by positivity) x' (div_le_self \u03b5_pos.le <| one_le_pow\u2080 one_le_two)",
+              "children": []
+            },
+            {
+              "name": "key",
+              "type": "\u2200 n, d (u n) (u (n + 1)) \u2264 \u03b5 / 2 ^ n \u2227 2 * \u03d5 (u n) < \u03d5 (u (n + 1))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "d (u (n + 1)) x \u2264 2 * \u03b5",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "cauchy_u",
+              "type": "CauchySeq u",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "lim_top",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop atTop",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hv\u2080",
+                  "type": "0 < v 0",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "lim",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop (\ud835\udcdd (\u03d5 y))",
+              "body": "Tendsto.comp cont.continuousAt limy",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          3,
+          0
+        ],
+        "result": {
+          "module": "Hofer",
+          "name": "of",
+          "statement": "* H. Hofer and C. Viterbo, *The Weinstein conjecture in the presence of holomorphic spheres* -/  public section  open Topology Filter Finset  local notation \"d\" => dist  theorem hofer {X : Type*} [MetricSpace X] [CompleteSpace X] (x : X) (\u03b5 : \u211d) (\u03b5_pos : 0 < \u03b5) {\u03d5 : X \u2192 \u211d} (cont : Continuous \u03d5) (nonneg : \u2200 y, 0 \u2264 \u03d5 y) : \u2203 \u03b5' > 0, \u2203 x' : X, \u03b5' \u2264 \u03b5 \u2227 d x' x \u2264 2 * \u03b5 \u2227 \u03b5 * \u03d5 x \u2264 \u03b5' * \u03d5 x' \u2227 \u2200 y, d x' y \u2264 \u03b5' \u2192 \u03d5 y \u2264 2 * \u03d5 x'",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H (\u03b5 / 2 ^ k) (by positivity) x' (div_le_self \u03b5_pos.le <| one_le_pow\u2080 one_le_two)",
+              "children": []
+            },
+            {
+              "name": "key",
+              "type": "\u2200 n, d (u n) (u (n + 1)) \u2264 \u03b5 / 2 ^ n \u2227 2 * \u03d5 (u n) < \u03d5 (u (n + 1))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "d (u (n + 1)) x \u2264 2 * \u03b5",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "B",
+                  "type": "2 ^ (n + 1) * \u03d5 x \u2264 \u03d5 (u (n + 1))",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "cauchy_u",
+              "type": "CauchySeq u",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "lim_top",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop atTop",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "lim",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop (\ud835\udcdd (\u03d5 y))",
+              "body": "Tendsto.comp cont.continuousAt limy",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Hofer",
+          "name": "of",
+          "statement": "* H. Hofer and C. Viterbo, *The Weinstein conjecture in the presence of holomorphic spheres* -/  public section  open Topology Filter Finset  local notation \"d\" => dist  theorem hofer {X : Type*} [MetricSpace X] [CompleteSpace X] (x : X) (\u03b5 : \u211d) (\u03b5_pos : 0 < \u03b5) {\u03d5 : X \u2192 \u211d} (cont : Continuous \u03d5) (nonneg : \u2200 y, 0 \u2264 \u03d5 y) : \u2203 \u03b5' > 0, \u2203 x' : X, \u03b5' \u2264 \u03b5 \u2227 d x' x \u2264 2 * \u03b5 \u2227 \u03b5 * \u03d5 x \u2264 \u03b5' * \u03d5 x' \u2227 \u2200 y, d x' y \u2264 \u03b5' \u2192 \u03d5 y \u2264 2 * \u03d5 x'",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H (\u03b5 / 2 ^ k) (by positivity) x' (div_le_self \u03b5_pos.le <| one_le_pow\u2080 one_le_two)",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "d (u (n + 1)) x \u2264 2 * \u03b5",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "key",
+              "type": "\u2200 n, d (u n) (u (n + 1)) \u2264 \u03b5 / 2 ^ n \u2227 2 * \u03d5 (u n) < \u03d5 (u (n + 1))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "B",
+                  "type": "2 ^ (n + 1) * \u03d5 x \u2264 \u03d5 (u (n + 1))",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "cauchy_u",
+              "type": "CauchySeq u",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "lim_top",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop atTop",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hv\u2080",
+                  "type": "0 < v 0",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "lim",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop (\ud835\udcdd (\u03d5 y))",
+              "body": "Tendsto.comp cont.continuousAt limy",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Hofer",
+          "name": "of",
+          "statement": "* H. Hofer and C. Viterbo, *The Weinstein conjecture in the presence of holomorphic spheres* -/  public section  open Topology Filter Finset  local notation \"d\" => dist  theorem hofer {X : Type*} [MetricSpace X] [CompleteSpace X] (x : X) (\u03b5 : \u211d) (\u03b5_pos : 0 < \u03b5) {\u03d5 : X \u2192 \u211d} (cont : Continuous \u03d5) (nonneg : \u2200 y, 0 \u2264 \u03d5 y) : \u2203 \u03b5' > 0, \u2203 x' : X, \u03b5' \u2264 \u03b5 \u2227 d x' x \u2264 2 * \u03b5 \u2227 \u03b5 * \u03d5 x \u2264 \u03b5' * \u03d5 x' \u2227 \u2200 y, d x' y \u2264 \u03b5' \u2192 \u03d5 y \u2264 2 * \u03d5 x'",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H (\u03b5 / 2 ^ k) (by positivity) x' (div_le_self \u03b5_pos.le <| one_le_pow\u2080 one_le_two)",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "2 ^ (n + 1) * \u03d5 x \u2264 \u03d5 (u (n + 1))",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "key",
+              "type": "\u2200 n, d (u n) (u (n + 1)) \u2264 \u03b5 / 2 ^ n \u2227 2 * \u03d5 (u n) < \u03d5 (u (n + 1))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "d (u (n + 1)) x \u2264 2 * \u03b5",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "cauchy_u",
+              "type": "CauchySeq u",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "lim_top",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop atTop",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hv\u2080",
+                  "type": "0 < v 0",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "lim",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop (\ud835\udcdd (\u03d5 y))",
+              "body": "Tendsto.comp cont.continuousAt limy",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          3
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Hofer",
+          "name": "of",
+          "statement": "* H. Hofer and C. Viterbo, *The Weinstein conjecture in the presence of holomorphic spheres* -/  public section  open Topology Filter Finset  local notation \"d\" => dist  theorem hofer {X : Type*} [MetricSpace X] [CompleteSpace X] (x : X) (\u03b5 : \u211d) (\u03b5_pos : 0 < \u03b5) {\u03d5 : X \u2192 \u211d} (cont : Continuous \u03d5) (nonneg : \u2200 y, 0 \u2264 \u03d5 y) : \u2203 \u03b5' > 0, \u2203 x' : X, \u03b5' \u2264 \u03b5 \u2227 d x' x \u2264 2 * \u03b5 \u2227 \u03b5 * \u03d5 x \u2264 \u03b5' * \u03d5 x' \u2227 \u2200 y, d x' y \u2264 \u03b5' \u2192 \u03d5 y \u2264 2 * \u03d5 x'",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H (\u03b5 / 2 ^ k) (by positivity) x' (div_le_self \u03b5_pos.le <| one_le_pow\u2080 one_le_two)",
+              "children": []
+            },
+            {
+              "name": "key",
+              "type": "\u2200 n, d (u n) (u (n + 1)) \u2264 \u03b5 / 2 ^ n \u2227 2 * \u03d5 (u n) < \u03d5 (u (n + 1))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "d (u (n + 1)) x \u2264 2 * \u03b5",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "B",
+                  "type": "2 ^ (n + 1) * \u03d5 x \u2264 \u03d5 (u (n + 1))",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "cauchy_u",
+              "type": "CauchySeq u",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hv\u2080",
+              "type": "0 < v 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "lim_top",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop atTop",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "lim",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop (\ud835\udcdd (\u03d5 y))",
+              "body": "Tendsto.comp cont.continuousAt limy",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "Hofer",
+          "name": "of",
+          "statement": "* H. Hofer and C. Viterbo, *The Weinstein conjecture in the presence of holomorphic spheres* -/  public section  open Topology Filter Finset  local notation \"d\" => dist  theorem hofer {X : Type*} [MetricSpace X] [CompleteSpace X] (x : X) (\u03b5 : \u211d) (\u03b5_pos : 0 < \u03b5) {\u03d5 : X \u2192 \u211d} (cont : Continuous \u03d5) (nonneg : \u2200 y, 0 \u2264 \u03d5 y) : \u2203 \u03b5' > 0, \u2203 x' : X, \u03b5' \u2264 \u03b5 \u2227 d x' x \u2264 2 * \u03b5 \u2227 \u03b5 * \u03d5 x \u2264 \u03b5' * \u03d5 x' \u2227 \u2200 y, d x' y \u2264 \u03b5' \u2192 \u03d5 y \u2264 2 * \u03d5 x'",
+          "have_tree": [
+            {
+              "name": "key",
+              "type": "\u2200 n, d (u n) (u (n + 1)) \u2264 \u03b5 / 2 ^ n \u2227 2 * \u03d5 (u n) < \u03d5 (u (n + 1))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "d (u (n + 1)) x \u2264 2 * \u03b5",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "B",
+                  "type": "2 ^ (n + 1) * \u03d5 x \u2264 \u03d5 (u (n + 1))",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "H (\u03b5 / 2 ^ k) (by positivity) x' (div_le_self \u03b5_pos.le <| one_le_pow\u2080 one_le_two)",
+              "children": []
+            },
+            {
+              "name": "cauchy_u",
+              "type": "CauchySeq u",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "lim_top",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop atTop",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hv\u2080",
+                  "type": "0 < v 0",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "lim",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop (\ud835\udcdd (\u03d5 y))",
+              "body": "Tendsto.comp cont.continuousAt limy",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "Hofer",
+          "name": "of",
+          "statement": "* H. Hofer and C. Viterbo, *The Weinstein conjecture in the presence of holomorphic spheres* -/  public section  open Topology Filter Finset  local notation \"d\" => dist  theorem hofer {X : Type*} [MetricSpace X] [CompleteSpace X] (x : X) (\u03b5 : \u211d) (\u03b5_pos : 0 < \u03b5) {\u03d5 : X \u2192 \u211d} (cont : Continuous \u03d5) (nonneg : \u2200 y, 0 \u2264 \u03d5 y) : \u2203 \u03b5' > 0, \u2203 x' : X, \u03b5' \u2264 \u03b5 \u2227 d x' x \u2264 2 * \u03b5 \u2227 \u03b5 * \u03d5 x \u2264 \u03b5' * \u03d5 x' \u2227 \u2200 y, d x' y \u2264 \u03b5' \u2192 \u03d5 y \u2264 2 * \u03d5 x'",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H (\u03b5 / 2 ^ k) (by positivity) x' (div_le_self \u03b5_pos.le <| one_le_pow\u2080 one_le_two)",
+              "children": []
+            },
+            {
+              "name": "cauchy_u",
+              "type": "CauchySeq u",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "key",
+              "type": "\u2200 n, d (u n) (u (n + 1)) \u2264 \u03b5 / 2 ^ n \u2227 2 * \u03d5 (u n) < \u03d5 (u (n + 1))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "d (u (n + 1)) x \u2264 2 * \u03b5",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "B",
+                  "type": "2 ^ (n + 1) * \u03d5 x \u2264 \u03d5 (u (n + 1))",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "lim_top",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop atTop",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hv\u2080",
+                  "type": "0 < v 0",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "lim",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop (\ud835\udcdd (\u03d5 y))",
+              "body": "Tendsto.comp cont.continuousAt limy",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "Hofer",
+          "name": "of",
+          "statement": "* H. Hofer and C. Viterbo, *The Weinstein conjecture in the presence of holomorphic spheres* -/  public section  open Topology Filter Finset  local notation \"d\" => dist  theorem hofer {X : Type*} [MetricSpace X] [CompleteSpace X] (x : X) (\u03b5 : \u211d) (\u03b5_pos : 0 < \u03b5) {\u03d5 : X \u2192 \u211d} (cont : Continuous \u03d5) (nonneg : \u2200 y, 0 \u2264 \u03d5 y) : \u2203 \u03b5' > 0, \u2203 x' : X, \u03b5' \u2264 \u03b5 \u2227 d x' x \u2264 2 * \u03b5 \u2227 \u03b5 * \u03d5 x \u2264 \u03b5' * \u03d5 x' \u2227 \u2200 y, d x' y \u2264 \u03b5' \u2192 \u03d5 y \u2264 2 * \u03d5 x'",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H (\u03b5 / 2 ^ k) (by positivity) x' (div_le_self \u03b5_pos.le <| one_le_pow\u2080 one_le_two)",
+              "children": []
+            },
+            {
+              "name": "key",
+              "type": "\u2200 n, d (u n) (u (n + 1)) \u2264 \u03b5 / 2 ^ n \u2227 2 * \u03d5 (u n) < \u03d5 (u (n + 1))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "d (u (n + 1)) x \u2264 2 * \u03b5",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "B",
+                  "type": "2 ^ (n + 1) * \u03d5 x \u2264 \u03d5 (u (n + 1))",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "lim_top",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop atTop",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hv\u2080",
+                  "type": "0 < v 0",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "cauchy_u",
+              "type": "CauchySeq u",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "lim",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop (\ud835\udcdd (\u03d5 y))",
+              "body": "Tendsto.comp cont.continuousAt limy",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "Hofer",
+          "name": "of",
+          "statement": "* H. Hofer and C. Viterbo, *The Weinstein conjecture in the presence of holomorphic spheres* -/  public section  open Topology Filter Finset  local notation \"d\" => dist  theorem hofer {X : Type*} [MetricSpace X] [CompleteSpace X] (x : X) (\u03b5 : \u211d) (\u03b5_pos : 0 < \u03b5) {\u03d5 : X \u2192 \u211d} (cont : Continuous \u03d5) (nonneg : \u2200 y, 0 \u2264 \u03d5 y) : \u2203 \u03b5' > 0, \u2203 x' : X, \u03b5' \u2264 \u03b5 \u2227 d x' x \u2264 2 * \u03b5 \u2227 \u03b5 * \u03d5 x \u2264 \u03b5' * \u03d5 x' \u2227 \u2200 y, d x' y \u2264 \u03b5' \u2192 \u03d5 y \u2264 2 * \u03d5 x'",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H (\u03b5 / 2 ^ k) (by positivity) x' (div_le_self \u03b5_pos.le <| one_le_pow\u2080 one_le_two)",
+              "children": []
+            },
+            {
+              "name": "key",
+              "type": "\u2200 n, d (u n) (u (n + 1)) \u2264 \u03b5 / 2 ^ n \u2227 2 * \u03d5 (u n) < \u03d5 (u (n + 1))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "d (u (n + 1)) x \u2264 2 * \u03b5",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "B",
+                  "type": "2 ^ (n + 1) * \u03d5 x \u2264 \u03d5 (u (n + 1))",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "cauchy_u",
+              "type": "CauchySeq u",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "lim",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop (\ud835\udcdd (\u03d5 y))",
+              "body": "Tendsto.comp cont.continuousAt limy",
+              "children": []
+            },
+            {
+              "name": "lim_top",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop atTop",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hv\u2080",
+                  "type": "0 < v 0",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          1
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Hofer",
+          "name": "of",
+          "statement": "* H. Hofer and C. Viterbo, *The Weinstein conjecture in the presence of holomorphic spheres* -/  public section  open Topology Filter Finset  local notation \"d\" => dist  theorem hofer {X : Type*} [MetricSpace X] [CompleteSpace X] (x : X) (\u03b5 : \u211d) (\u03b5_pos : 0 < \u03b5) {\u03d5 : X \u2192 \u211d} (cont : Continuous \u03d5) (nonneg : \u2200 y, 0 \u2264 \u03d5 y) : \u2203 \u03b5' > 0, \u2203 x' : X, \u03b5' \u2264 \u03b5 \u2227 d x' x \u2264 2 * \u03b5 \u2227 \u03b5 * \u03d5 x \u2264 \u03b5' * \u03d5 x' \u2227 \u2200 y, d x' y \u2264 \u03b5' \u2192 \u03d5 y \u2264 2 * \u03d5 x'",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H (\u03b5 / 2 ^ k) (by positivity) x' (div_le_self \u03b5_pos.le <| one_le_pow\u2080 one_le_two)",
+              "children": []
+            },
+            {
+              "name": "key",
+              "type": "\u2200 n, d (u n) (u (n + 1)) \u2264 \u03b5 / 2 ^ n \u2227 2 * \u03d5 (u n) < \u03d5 (u (n + 1))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "B",
+                  "type": "2 ^ (n + 1) * \u03d5 x \u2264 \u03d5 (u (n + 1))",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "A",
+                  "type": "d (u (n + 1)) x \u2264 2 * \u03b5",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "cauchy_u",
+              "type": "CauchySeq u",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "lim_top",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop atTop",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hv\u2080",
+                  "type": "0 < v 0",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "lim",
+              "type": "Tendsto (\u03d5 \u2218 u) atTop (\ud835\udcdd (\u03d5 y))",
+              "body": "Tendsto.comp cont.continuousAt limy",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "module": "SeminormFromConst",
+    "name": "seminormFromConst_seq_antitone",
+    "statement": "R) : Antitone (seminormFromConst_seq c f x)",
+    "have_tree": [
+      {
+        "name": "hc_pos",
+        "type": "0 < f c",
+        "body": "lt_of_le_of_ne (apply_nonneg f _) hc.symm",
+        "children": [
+          {
+            "name": "hnm",
+            "type": "n - m = 0",
+            "body": "by rw [heq, Nat.sub_self n]",
+            "children": []
+          },
+          {
+            "name": "h1",
+            "type": "1 \u2264 n - m",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "SeminormFromConst",
+    "name": "seminormFromConst_apply_of_isMul",
+    "statement": "R} (hx : \u2200 y : R, f (x * y) = f x * f y) : seminormFromConst' hf1 hc hpm x = f x",
+    "have_tree": [
+      {
+        "name": "hlim",
+        "type": "Tendsto (seminormFromConst_seq c f x) atTop (\ud835\udcdd (f x))",
+        "body": "by",
+        "children": [
+          {
+            "name": "hseq",
+            "type": "seminormFromConst_seq c f x = fun _n \u21a6 f x",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "SeminormFromConst",
+    "name": "seminormFromConst_apply_c",
+    "statement": "seminormFromConst' hf1 hc hpm c = f c",
+    "have_tree": [
+      {
+        "name": "hlim",
+        "type": "Tendsto (seminormFromConst_seq c f c) atTop (\ud835\udcdd (f c))",
+        "body": "by",
+        "children": [
+          {
+            "name": "hseq",
+            "type": "seminormFromConst_seq c f c = fun _n \u21a6 f c",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

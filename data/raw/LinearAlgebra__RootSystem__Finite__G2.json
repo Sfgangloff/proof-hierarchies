@@ -1,0 +1,376 @@
+[
+  {
+    "module": "G2",
+    "name": "not_isG2_iff_isNotG2",
+    "statement": "\u00ac P.IsG2 \u2194 P.IsNotG2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystal_of_isRed i j",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "IsG2.pairingIn_mem_zero_one_three",
+    "statement": "\u03b9) (h : P.root i \u2260 P.root j) (h' : P.root i \u2260 -P.root j) : P.pairingIn \u2124 i j \u2208 ({-3, -1, 0, 1, 3} : Set \u2124)",
+    "have_tree": [
+      {
+        "name": "aux\u2081",
+        "type": "",
+        "body": "P.forall_pairingIn_eq_swap_or.resolve_left this i j",
+        "children": []
+      },
+      {
+        "name": "aux\u2082",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystal_of_isRed' i j h h'",
+        "children": []
+      },
+      {
+        "name": "aux",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystal_of_isRed k l",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "chainBotCoeff_add_chainTopCoeff_le_two",
+    "statement": "P.chainBotCoeff i j + P.chainTopCoeff i j \u2264 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsNotG2.pairingIn_mem_zero_one_two (P := P) (P.chainTopIdx i j) i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "pairingIn_le_zero_of_root_add_mem",
+    "statement": "P.root i + P.root j \u2208 range P.root) : P.pairingIn \u2124 i j \u2264 0",
+    "have_tree": [
+      {
+        "name": "aux\u2081",
+        "type": "",
+        "body": "P.linearIndependent_of_add_mem_range_root' <| add_comm (P.root i) (P.root j) \u25b8 h",
+        "children": []
+      },
+      {
+        "name": "aux\u2082",
+        "type": "",
+        "body": "P.chainBotCoeff_add_chainTopCoeff_le_two j i",
+        "children": []
+      },
+      {
+        "name": "aux\u2083",
+        "type": "1 \u2264 P.chainTopCoeff j i",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "chainBotCoeff_if_one_zero",
+    "statement": "P.root i + P.root j \u2208 range P.root) : P.chainBotCoeff i j = if P.pairingIn \u2124 i j = 0 then 1 else 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "aux\u2081",
+        "type": "",
+        "body": "P.linearIndependent_of_add_mem_range_root' h",
+        "children": []
+      },
+      {
+        "name": "aux\u2082",
+        "type": "",
+        "body": "P.chainBotCoeff_add_chainTopCoeff_le_two i j",
+        "children": []
+      },
+      {
+        "name": "aux\u2083",
+        "type": "1 \u2264 P.chainTopCoeff i j",
+        "body": "P.one_le_chainTopCoeff_of_root_add_mem h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "pairingIn_short_long",
+    "statement": "P.pairingIn \u2124 (short P) (long P) = -1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystal_of_isRed (long P) (short P)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "linearIndependent_short_long",
+    "statement": "LinearIndependent R ![shortRoot P, longRoot P]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "allRoots_nodup",
+    "statement": "(allRoots P).Nodup",
+    "have_tree": [
+      {
+        "name": "hli",
+        "type": "Injective (Fintype.linearCombination \u2124 ![shortRoot P, longRoot P])",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "pairingIn_shortAddLong_right",
+    "statement": "P.pairingIn \u2124 i (shortAddLong P) = P.pairingIn \u2124 i (short P) + 3 * P.pairingIn \u2124 i (long P)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "",
+        "body": "(P.posRootForm \u2124).toInvariantForm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "pairingIn_twoShortAddLong_right",
+    "statement": "P.pairingIn \u2124 i (twoShortAddLong P) = 2 * P.pairingIn \u2124 i (short P) + 3 * P.pairingIn \u2124 i (long P)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "",
+        "body": "(P.posRootForm \u2124).toInvariantForm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "pairingIn_threeShortAddLong_right",
+    "statement": "P.pairingIn \u2124 i (threeShortAddLong P) = P.pairingIn \u2124 i (short P) + P.pairingIn \u2124 i (long P)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "",
+        "body": "(P.posRootForm \u2124).toInvariantForm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "pairingIn_threeShortAddTwoLong_right",
+    "statement": "P.pairingIn \u2124 i (threeShortAddTwoLong P) = P.pairingIn \u2124 i (short P) + 2 * P.pairingIn \u2124 i (long P)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "",
+        "body": "(P.posRootForm \u2124).toInvariantForm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "isOrthogonal_short_and_long",
+    "statement": "\u03b9} (hi : P.root i \u2209 allRoots P) : P.IsOrthogonal i (short P) \u2227 P.IsOrthogonal i (long P)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "ha",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystal_of_isRed' i (short P) \u2039_\u203a \u2039_\u203a",
+        "children": []
+      },
+      {
+        "name": "hb",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystal_of_isRed' i (long P) \u2039_\u203a \u2039_\u203a",
+        "children": []
+      },
+      {
+        "name": "hc",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystal_of_isRed' i (shortAddLong P) \u2039_\u203a \u2039_\u203a",
+        "children": []
+      },
+      {
+        "name": "hd",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystal_of_isRed' i (twoShortAddLong P) \u2039_\u203a \u2039_\u203a",
+        "children": []
+      },
+      {
+        "name": "he",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystal_of_isRed' i (threeShortAddLong P) \u2039_\u203a \u2039_\u203a",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystal_of_isRed' i (threeShortAddTwoLong P) \u2039_\u203a \u2039_\u203a",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "span_eq_top",
+    "statement": "span R {longRoot P, shortRoot P} = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "P.span_root_image_eq_top_of_forall_orthogonal {long P, short P} (by simp)",
+        "children": []
+      },
+      {
+        "name": "aux",
+        "type": "",
+        "body": "isOrthogonal_short_and_long P hk",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "basis",
+    "statement": "Module.Basis (Fin 2) R M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "LinearIndependent R ![EmbeddedG2.shortRoot P, EmbeddedG2.longRoot P]",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "pairing_long_short P",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "mem_allRoots",
+    "statement": "\u03b9) : P.root i \u2208 allRoots P",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "",
+        "body": "(P.posRootForm \u2124).toInvariantForm",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": [
+          {
+            "name": "hx",
+            "type": "x \u2208 span R {longRoot P, shortRoot P}",
+            "body": "by simp",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "card_base_support_eq_two",
+    "statement": "b.support.card = 2",
+    "have_tree": [
+      {
+        "name": "_i",
+        "type": "P.EmbeddedG2",
+        "body": "toEmbeddedG2 P",
+        "children": []
+      },
+      {
+        "name": "_i",
+        "type": "Nonempty \u03b9",
+        "body": "IsG2.nonempty P",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "G2",
+    "name": "span_eq_rootSpan_int",
+    "statement": "\u03b9} (hi : i \u2208 b.support) (hj : j \u2208 b.support) (h_ne : i \u2260 j) : Submodule.span \u2124 {P.root i, P.root j} = P.rootSpan \u2124",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "{i, j} \u2286 b.support",
+        "body": "by grind",
+        "children": []
+      }
+    ]
+  }
+]

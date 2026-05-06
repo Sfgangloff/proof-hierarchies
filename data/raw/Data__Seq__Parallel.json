@@ -1,0 +1,91 @@
+[
+  {
+    "module": "Parallel",
+    "name": "terminates_parallel.aux",
+    "statement": "\u2200 {l : List (Computation \u03b1)} {S c}, c \u2208 l \u2192 Terminates c \u2192 Terminates (corec parallel.aux1 (l, S))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IH' m _ e",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "H1 _ h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Parallel",
+    "name": "terminates_parallel",
+    "statement": "WSeq (Computation \u03b1)} {c} (h : c \u2208 S) [T : Terminates c] : Terminates (parallel S)",
+    "have_tree": [
+      {
+        "name": "TT",
+        "type": "\u2200 l', Terminates (corec parallel.aux1 (l', S.tail))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Parallel",
+    "name": "exists_of_mem_parallel",
+    "statement": "WSeq (Computation \u03b1)} {a} (h : a \u2208 parallel S) : \u2203 c \u2208 S, a \u2208 c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "lem1 l <;> simp only [parallel.aux1, corec_eq, destruct_pure, destruct_think] at e' <;>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Parallel",
+    "name": "parallelRec",
+    "statement": "WSeq (Computation \u03b1)} (C : \u03b1 \u2192 Sort v) (H : \u2200 s \u2208 S, \u2200 a \u2208 s, C a) {a} (h : a \u2208 parallel S) : C a",
+    "have_tree": [
+      {
+        "name": "pe",
+        "type": "",
+        "body": "congr_arg parallel this",
+        "children": []
+      },
+      {
+        "name": "h'",
+        "type": "",
+        "body": "h",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "a \u2208 c \u2227 c \u2208 S",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Parallel",
+    "name": "parallel_congr_left",
+    "statement": "WSeq (Computation \u03b1)} {a} (h1 : \u2200 s \u2208 S, s ~> a) (H : S.LiftRel Equiv T) : parallel S ~ parallel T",
+    "have_tree": [
+      {
+        "name": "aa",
+        "type": "",
+        "body": "parallel_promises h1 h",
+        "children": []
+      },
+      {
+        "name": "aa",
+        "type": "",
+        "body": "parallel_promises h2 h",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "module": "RadonNikodym",
+    "name": "rnDeriv_eq_zero_of_mutuallySingular",
+    "statement": "Measure \u03b1} [HaveLebesgueDecomposition \u03bc \u03bd'] [SigmaFinite \u03bd'] (h : \u03bc \u27c2\u2098 \u03bd) (h\u03bd\u03bd' : \u03bd \u226a \u03bd') : \u03bc.rnDeriv \u03bd' =\u1d50[\u03bd] 0",
+    "have_tree": [
+      {
+        "name": "ht",
+        "type": "MeasurableSet t",
+        "body": "h.measurableSet_nullSet",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u03bc.rnDeriv \u03bd' =\u1d50[\u03bd.restrict t] (\u03bc.restrict t).rnDeriv \u03bd'",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "(\u03bc.restrict t).rnDeriv \u03bd' =\u1d50[\u03bd] t.indicator (\u03bc.rnDeriv \u03bd')",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "h_ac'",
+            "type": "\u03bd.restrict t \u226a \u03bd'",
+            "body": "restrict_le_self.absolutelyContinuous.trans h\u03bd\u03bd'",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "RadonNikodym",
+    "name": "rnDeriv_add_right_of_mutuallySingular",
+    "statement": "Measure \u03b1} [SigmaFinite \u03bc] [SigmaFinite \u03bd] [SigmaFinite \u03bd'] (h\u03bd\u03bd' : \u03bd \u27c2\u2098 \u03bd') : \u03bc.rnDeriv (\u03bd + \u03bd') =\u1d50[\u03bd] \u03bc.rnDeriv \u03bd",
+    "have_tree": [
+      {
+        "name": "h_ac",
+        "type": "\u03bd \u226a \u03bd + \u03bd'",
+        "body": "Measure.AbsolutelyContinuous.rfl.add_right _",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "rnDeriv_add' (\u03bc.singularPart \u03bd') (\u03bd'.withDensity (\u03bc.rnDeriv \u03bd')) (\u03bd + \u03bd')",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "rnDeriv_add' (\u03bc.singularPart \u03bd') (\u03bd'.withDensity (\u03bc.rnDeriv \u03bd')) \u03bd",
+        "children": []
+      },
+      {
+        "name": "h\u2083",
+        "type": "",
+        "body": "rnDeriv_add_right_of_mutuallySingular' (?_ : \u03bc.singularPart \u03bd' \u27c2\u2098 \u03bd') h\u03bd\u03bd'",
+        "children": [
+          {
+            "name": "h\u2085",
+            "type": "(\u03bd'.withDensity (rnDeriv \u03bc \u03bd')).rnDeriv \u03bd =\u1d50[\u03bd] 0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

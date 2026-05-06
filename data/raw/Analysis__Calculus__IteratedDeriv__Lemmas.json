@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Lemmas",
+    "name": "iteratedDerivWithin_comp_const_smul",
+    "statement": "ContDiffOn \ud835\udd5c n f s) (c : \ud835\udd5c) (hs : Set.MapsTo (c * \u00b7) s s) : iteratedDerivWithin n (fun x => f (c * x)) s x = c ^ n \u2022 iteratedDerivWithin n f s (c * x)",
+    "have_tree": [
+      {
+        "name": "hcx",
+        "type": "c * x \u2208 s",
+        "body": "hs hx",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "DifferentiableWithinAt \ud835\udd5c (iteratedDerivWithin n f s) s (c * x)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "iteratedDerivWithin_smul",
+    "statement": "\ud835\udd5c \u2192 \ud835\udd38} {g : \ud835\udd5c \u2192 F} (hf : ContDiffWithinAt \ud835\udd5c (\u2191n) f s x) (hg : ContDiffWithinAt \ud835\udd5c (\u2191n) g s x) : iteratedDerivWithin n (f \u2022 g) s x = \u2211 i \u2208 .range (n + 1), n.choose i \u2022 iteratedDerivWithin i f s x \u2022 iteratedDerivWithin (n - i) g s x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 i \u2208 Finset.range n, 1 \u2264 n - i",
+        "body": "by simp; lia",
+        "children": []
+      }
+    ]
+  }
+]

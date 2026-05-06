@@ -1,0 +1,66 @@
+[
+  {
+    "module": "FiniteDimension",
+    "name": "continuous_equivFun_basis_aux",
+    "statement": "Type v} [Fintype \u03b9] (\u03be : Basis \u03b9 \ud835\udd5c E) : Continuous \u03be.equivFun",
+    "have_tree": [
+      {
+        "name": "H\u2081",
+        "type": "\u2200 s : Submodule \ud835\udd5c E, finrank \ud835\udd5c s = n \u2192 IsClosed (s : Set E)",
+        "body": "by",
+        "children": [
+          {
+            "name": "U",
+            "type": "IsUniformEmbedding b.equivFun.symm.toEquiv",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "Fintype.card (Basis.ofVectorSpaceIndex \ud835\udd5c s) = n",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "Continuous b.equivFun",
+                "body": "IH b this",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "IsComplete (s : Set E)",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "H\u2082",
+        "type": "\u2200 f : E \u2192\u2097[\ud835\udd5c] \ud835\udd5c, Continuous f",
+        "body": "by",
+        "children": [
+          {
+            "name": "Z",
+            "type": "",
+            "body": "f.finrank_range_add_finrank_ker",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "finrank \ud835\udd5c (LinearMap.range f) = 1",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "IsClosed (LinearMap.ker f : Set E)",
+            "body": "H\u2081 _ this",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

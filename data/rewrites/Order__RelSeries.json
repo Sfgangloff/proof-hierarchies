@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "RelSeries",
+      "name": "head_le_last",
+      "statement": "LTSeries \u03b1) : x.head \u2264 x.last",
+      "have_tree": [
+        {
+          "name": "leq",
+          "type": "",
+          "body": "congr($(e).length)",
+          "children": []
+        },
+        {
+          "name": "feq",
+          "type": "",
+          "body": "fun i \u21a6 congr($(e).toFun i)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "RelSeries",
+          "name": "head_le_last",
+          "statement": "LTSeries \u03b1) : x.head \u2264 x.last",
+          "have_tree": [
+            {
+              "name": "feq",
+              "type": "",
+              "body": "fun i \u21a6 congr($(e).toFun i)",
+              "children": []
+            },
+            {
+              "name": "leq",
+              "type": "",
+              "body": "congr($(e).length)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

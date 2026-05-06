@@ -1,0 +1,169 @@
+[
+  {
+    "original": {
+      "module": "BinaryEntropy",
+      "name": "binEntropy_pos",
+      "statement": "0 < p) (hp\u2081 : p < 1) : 0 < binEntropy p",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "0 < 1 - p",
+          "body": "sub_pos.2 hp\u2081",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "0 < log p\u207b\u00b9",
+          "body": "log_pos <| (one_lt_inv\u2080 hp\u2080).2 hp\u2081",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "0 < log (1 - p)\u207b\u00b9",
+          "body": "log_pos <| (one_lt_inv\u2080 \u2039_\u203a).2 (sub_lt_self _ hp\u2080)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "BinaryEntropy",
+          "name": "binEntropy_pos",
+          "statement": "0 < p) (hp\u2081 : p < 1) : 0 < binEntropy p",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "0 < log p\u207b\u00b9",
+              "body": "log_pos <| (one_lt_inv\u2080 hp\u2080).2 hp\u2081",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "0 < 1 - p",
+              "body": "sub_pos.2 hp\u2081",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "0 < log (1 - p)\u207b\u00b9",
+              "body": "log_pos <| (one_lt_inv\u2080 \u2039_\u203a).2 (sub_lt_self _ hp\u2080)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "BinaryEntropy",
+          "name": "binEntropy_pos",
+          "statement": "0 < p) (hp\u2081 : p < 1) : 0 < binEntropy p",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "0 < 1 - p",
+              "body": "sub_pos.2 hp\u2081",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "0 < log (1 - p)\u207b\u00b9",
+              "body": "log_pos <| (one_lt_inv\u2080 \u2039_\u203a).2 (sub_lt_self _ hp\u2080)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "0 < log p\u207b\u00b9",
+              "body": "log_pos <| (one_lt_inv\u2080 hp\u2080).2 hp\u2081",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "BinaryEntropy",
+      "name": "qaryEntropy_strictAntiOn",
+      "statement": "2 \u2264 q) : StrictAntiOn (qaryEntropy q) (Icc (1 - 1 / q) 1)",
+      "have_tree": [
+        {
+          "name": "zero_lt_1_sub_p",
+          "type": "0 < 1 - p",
+          "body": "by simp_all only [sub_pos, interior_Icc, mem_Ioo]",
+          "children": [
+            {
+              "name": "h1",
+              "type": "",
+              "body": "mul_lt_mul_of_pos_right hp.1 qpos",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "BinaryEntropy",
+          "name": "qaryEntropy_strictAntiOn",
+          "statement": "2 \u2264 q) : StrictAntiOn (qaryEntropy q) (Icc (1 - 1 / q) 1)",
+          "have_tree": [
+            {
+              "name": "zero_lt_1_sub_p",
+              "type": "0 < 1 - p",
+              "body": "by simp_all only [sub_pos, interior_Icc, mem_Ioo]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "BinaryEntropy",
+          "name": "qaryEntropy_strictAntiOn",
+          "statement": "2 \u2264 q) : StrictAntiOn (qaryEntropy q) (Icc (1 - 1 / q) 1)",
+          "have_tree": [
+            {
+              "name": "h1",
+              "type": "",
+              "body": "mul_lt_mul_of_pos_right hp.1 qpos",
+              "children": []
+            },
+            {
+              "name": "zero_lt_1_sub_p",
+              "type": "0 < 1 - p",
+              "body": "by simp_all only [sub_pos, interior_Icc, mem_Ioo]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

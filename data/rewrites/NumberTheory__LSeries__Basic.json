@@ -1,0 +1,122 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "LSeriesSummable_of_le_const_mul_rpow",
+      "statement": "\u2115 \u2192 \u2102} {x : \u211d} {s : \u2102} (hs : x < s.re) (h : \u2203 C, \u2200 n \u2260 0, \u2016f n\u2016 \u2264 C * n ^ (x - 1)) : LSeriesSummable f s",
+      "have_tree": [
+        {
+          "name": "hC\u2080",
+          "type": "0 \u2264 C",
+          "body": "(norm_nonneg <| f 1).trans <| by simpa using hC 1 one_ne_zero",
+          "children": [
+            {
+              "name": "hsx",
+              "type": "-s.re + x - 1 < -1",
+              "body": "by linarith only [hs]",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "LSeriesSummable_of_le_const_mul_rpow",
+          "statement": "\u2115 \u2192 \u2102} {x : \u211d} {s : \u2102} (hs : x < s.re) (h : \u2203 C, \u2200 n \u2260 0, \u2016f n\u2016 \u2264 C * n ^ (x - 1)) : LSeriesSummable f s",
+          "have_tree": [
+            {
+              "name": "hC\u2080",
+              "type": "0 \u2264 C",
+              "body": "(norm_nonneg <| f 1).trans <| by simpa using hC 1 one_ne_zero",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Basic",
+          "name": "LSeriesSummable_of_le_const_mul_rpow",
+          "statement": "\u2115 \u2192 \u2102} {x : \u211d} {s : \u2102} (hs : x < s.re) (h : \u2203 C, \u2200 n \u2260 0, \u2016f n\u2016 \u2264 C * n ^ (x - 1)) : LSeriesSummable f s",
+          "have_tree": [
+            {
+              "name": "hsx",
+              "type": "-s.re + x - 1 < -1",
+              "body": "by linarith only [hs]",
+              "children": []
+            },
+            {
+              "name": "hC\u2080",
+              "type": "0 \u2264 C",
+              "body": "(norm_nonneg <| f 1).trans <| by simpa using hC 1 one_ne_zero",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "LSeriesSummable_of_isBigO_rpow",
+      "statement": "\u2115 \u2192 \u2102} {x : \u211d} {s : \u2102} (hs : x < s.re) (h : f =O[atTop] fun n \u21a6 (n : \u211d) ^ (x - 1)) : LSeriesSummable f s",
+      "have_tree": [
+        {
+          "name": "hC'\u2080",
+          "type": "0 \u2264 C'",
+          "body": "(le_max' _ _ (mem_insert.mpr (Or.inl rfl))).trans <| le_max_right ..",
+          "children": []
+        },
+        {
+          "name": "hCC'",
+          "type": "C \u2264 C'",
+          "body": "le_max_left ..",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "LSeriesSummable_of_isBigO_rpow",
+          "statement": "\u2115 \u2192 \u2102} {x : \u211d} {s : \u2102} (hs : x < s.re) (h : f =O[atTop] fun n \u21a6 (n : \u211d) ^ (x - 1)) : LSeriesSummable f s",
+          "have_tree": [
+            {
+              "name": "hCC'",
+              "type": "C \u2264 C'",
+              "body": "le_max_left ..",
+              "children": []
+            },
+            {
+              "name": "hC'\u2080",
+              "type": "0 \u2264 C'",
+              "body": "(le_max' _ _ (mem_insert.mpr (Or.inl rfl))).trans <| le_max_right ..",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "module": "HasPrimitives",
+    "name": "IsConservativeOn.eventually_nhds_wedgeIntegral_sub_wedgeIntegral",
+    "statement": "IsConservativeOn f (ball c r)) : \u2200\u1da0 w in \ud835\udcdd z, wedgeIntegral c w f - wedgeIntegral c z f = wedgeIntegral z w f",
+    "have_tree": [
+      {
+        "name": "z_ball",
+        "type": "ball z (r - dist z c) \u2286 ball c r",
+        "body": "ball_subset_ball' (by simp)",
+        "children": []
+      },
+      {
+        "name": "w_mem",
+        "type": "w \u2208 ball c r",
+        "body": "mem_of_subset_of_mem z_ball w_in_z_ball",
+        "children": []
+      },
+      {
+        "name": "hI\u2081",
+        "type": "I\u2081 = I\u2083 + I\u2087",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hI\u2082",
+        "type": "I\u2082 = I\u2088 + I\u2086",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hI\u2080",
+        "type": "I\u2087 - I\u2085 + I\u2088 - I\u2084 = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "wzInBall",
+            "type": "w.re + z.im * I \u2208 ball c r",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "wcInBall",
+            "type": "w.re + c.im * I \u2208 ball c r",
+            "body": "re_add_im_mul_mem_ball w_mem",
+            "children": []
+          },
+          {
+            "name": "hU",
+            "type": "Rectangle (z.re + c.im * I) (w.re + z.im * I) \u2286 ball c r",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

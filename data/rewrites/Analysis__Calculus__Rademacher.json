@@ -1,0 +1,219 @@
+[
+  {
+    "original": {
+      "module": "Rademacher",
+      "name": "ae_lineDifferentiableAt",
+      "statement": "LipschitzWith C f) (v : E) : \u2200\u1d50 p \u2202\u03bc, LineDifferentiableAt \u211d f p v",
+      "have_tree": [
+        {
+          "name": "h's",
+          "type": "DifferentiableAt \u211d (fun t \u21a6 f (p + t \u2022 v)) (s + 0)",
+          "body": "by simpa using hs",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "DifferentiableAt \u211d (fun t \u21a6 s + t) 0",
+          "body": "differentiableAt_id.const_add _",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Rademacher",
+          "name": "ae_lineDifferentiableAt",
+          "statement": "LipschitzWith C f) (v : E) : \u2200\u1d50 p \u2202\u03bc, LineDifferentiableAt \u211d f p v",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "DifferentiableAt \u211d (fun t \u21a6 s + t) 0",
+              "body": "differentiableAt_id.const_add _",
+              "children": []
+            },
+            {
+              "name": "h's",
+              "type": "DifferentiableAt \u211d (fun t \u21a6 f (p + t \u2022 v)) (s + 0)",
+              "body": "by simpa using hs",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Rademacher",
+      "name": "integral_inv_smul_sub_mul_tendsto_integral_lineDeriv_mul'",
+      "statement": "LipschitzWith C f) (h'f : HasCompactSupport f) (hg : Continuous g) (v : E) : Tendsto (fun (t : \u211d) \u21a6 \u222b x, (t\u207b\u00b9 \u2022 (f (x + t \u2022 v) - f x)) * g x \u2202\u03bc) (\ud835\udcdd[>] 0) (\ud835\udcdd (\u222b x, lineDeriv \u211d f x v * g x \u2202\u03bc))",
+      "have_tree": [
+        {
+          "name": "K_compact",
+          "type": "IsCompact K",
+          "body": "IsCompact.cthickening h'f",
+          "children": [
+            {
+              "name": "t_pos",
+              "type": "0 < t",
+              "body": "ht.1",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Rademacher",
+          "name": "integral_inv_smul_sub_mul_tendsto_integral_lineDeriv_mul'",
+          "statement": "LipschitzWith C f) (h'f : HasCompactSupport f) (hg : Continuous g) (v : E) : Tendsto (fun (t : \u211d) \u21a6 \u222b x, (t\u207b\u00b9 \u2022 (f (x + t \u2022 v) - f x)) * g x \u2202\u03bc) (\ud835\udcdd[>] 0) (\ud835\udcdd (\u222b x, lineDeriv \u211d f x v * g x \u2202\u03bc))",
+          "have_tree": [
+            {
+              "name": "K_compact",
+              "type": "IsCompact K",
+              "body": "IsCompact.cthickening h'f",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Rademacher",
+          "name": "integral_inv_smul_sub_mul_tendsto_integral_lineDeriv_mul'",
+          "statement": "LipschitzWith C f) (h'f : HasCompactSupport f) (hg : Continuous g) (v : E) : Tendsto (fun (t : \u211d) \u21a6 \u222b x, (t\u207b\u00b9 \u2022 (f (x + t \u2022 v) - f x)) * g x \u2202\u03bc) (\ud835\udcdd[>] 0) (\ud835\udcdd (\u222b x, lineDeriv \u211d f x v * g x \u2202\u03bc))",
+          "have_tree": [
+            {
+              "name": "t_pos",
+              "type": "0 < t",
+              "body": "ht.1",
+              "children": []
+            },
+            {
+              "name": "K_compact",
+              "type": "IsCompact K",
+              "body": "IsCompact.cthickening h'f",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Rademacher",
+      "name": "hasFDerivAt_of_hasLineDerivAt_of_closure",
+      "statement": "E \u2192 F} (hf : LipschitzWith C f) {s : Set E} (hs : sphere 0 1 \u2286 closure s) {L : E \u2192L[\u211d] F} {x : E} (hL : \u2200 v \u2208 s, HasLineDerivAt \u211d f (L v) x v) : HasFDerivAt f L x",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "sphere 0 1 \u2286 \u22c3 y \u2208 s, ball y \u03b4",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "rho_pos",
+          "type": "0 \u2264 \u03c1",
+          "body": "by simp [h\u03c1]",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "\u2016y - w\u2016 < \u03b4",
+          "body": "by rwa [norm_sub_rev]",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Rademacher",
+          "name": "hasFDerivAt_of_hasLineDerivAt_of_closure",
+          "statement": "E \u2192 F} (hf : LipschitzWith C f) {s : Set E} (hs : sphere 0 1 \u2286 closure s) {L : E \u2192L[\u211d] F} {x : E} (hL : \u2200 v \u2208 s, HasLineDerivAt \u211d f (L v) x v) : HasFDerivAt f L x",
+          "have_tree": [
+            {
+              "name": "rho_pos",
+              "type": "0 \u2264 \u03c1",
+              "body": "by simp [h\u03c1]",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "sphere 0 1 \u2286 \u22c3 y \u2208 s, ball y \u03b4",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2016y - w\u2016 < \u03b4",
+              "body": "by rwa [norm_sub_rev]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Rademacher",
+          "name": "hasFDerivAt_of_hasLineDerivAt_of_closure",
+          "statement": "E \u2192 F} (hf : LipschitzWith C f) {s : Set E} (hs : sphere 0 1 \u2286 closure s) {L : E \u2192L[\u211d] F} {x : E} (hL : \u2200 v \u2208 s, HasLineDerivAt \u211d f (L v) x v) : HasFDerivAt f L x",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "sphere 0 1 \u2286 \u22c3 y \u2208 s, ball y \u03b4",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2016y - w\u2016 < \u03b4",
+              "body": "by rwa [norm_sub_rev]",
+              "children": []
+            },
+            {
+              "name": "rho_pos",
+              "type": "0 \u2264 \u03c1",
+              "body": "by simp [h\u03c1]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

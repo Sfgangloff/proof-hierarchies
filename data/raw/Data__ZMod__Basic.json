@@ -1,0 +1,138 @@
+[
+  {
+    "module": "Basic",
+    "name": "ringEquivOfPrime",
+    "statement": "\u2115} (hp : p.Prime) (hR : Fintype.card R = p) : ZMod p \u2243+* R",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial R",
+        "body": "Fintype.one_lt_card_iff_nontrivial.1 (hR \u25b8 hp.one_lt)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "CharP R p",
+        "body": "(CharP.charP_iff_prime_eq_zero hp).2 (hR \u25b8 Nat.cast_card_eq_zero R)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "val_add_of_lt",
+    "statement": "\u2115} {a b : ZMod n} (h : a.val + b.val < n) : (a + b).val = a.val + b.val",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero n",
+        "body": "by constructor; rintro rfl; simp at h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "val_coe_unit_coprime",
+    "statement": "\u2115} (u : (ZMod n)\u02e3) : Nat.Coprime (u : ZMod n).val n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Units.ext_iff.1 (mul_inv_cancel u)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isUnit_iff_coprime",
+    "statement": "\u2115) : IsUnit (m : ZMod n) \u2194 m.Coprime n",
+    "have_tree": [
+      {
+        "name": "H'",
+        "type": "",
+        "body": "val_coe_unit_coprime H.unit",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "inv_coe_unit",
+    "statement": "\u2115} (u : (ZMod n)\u02e3) : (u : ZMod n)\u207b\u00b9 = (u\u207b\u00b9 : (ZMod n)\u02e3)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_arg ((\u2191) : \u2115 \u2192 ZMod n) (val_coe_unit_coprime u)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "unitsEquivCoprime",
+    "statement": "\u2115} [NeZero n] : (ZMod n)\u02e3 \u2243 { x : ZMod n // Nat.Coprime x.val n } where toFun x",
+    "have_tree": [
+      {
+        "name": "inv",
+        "type": "Function.LeftInverse inv_fun to_fun \u2227 Function.RightInverse inv_fun to_fun",
+        "body": "",
+        "children": [
+          {
+            "name": "left_inv",
+            "type": "Function.LeftInverse inv_fun to_fun",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "cast_cast_zmod_of_le",
+    "statement": "\u2115} [hm : NeZero m] (h : m \u2264 n) (a : ZMod m) : (cast (cast a : ZMod n) : ZMod m) = a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero n",
+        "body": "\u27e8((Nat.zero_lt_of_ne_zero hm.out).trans_le h).ne'\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "val_pow",
+    "statement": "\u2115} {a : ZMod n} [ilt : Fact (1 < n)] (h : a.val ^ m < n) : (a ^ m).val = a.val ^ m",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "a.val ^ m < n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "ZModModule.two_le_char",
+    "statement": "2 \u2264 n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "NeZero.ne n",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "char_ne_one n G",
+        "children": []
+      }
+    ]
+  }
+]

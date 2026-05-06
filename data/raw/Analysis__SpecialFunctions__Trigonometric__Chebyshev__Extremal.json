@@ -1,0 +1,92 @@
+[
+  {
+    "module": "Extremal",
+    "name": "zero_lt_prod_node_sub_node",
+    "statement": "\u2115} (hi : i \u2264 n) : 0 < (-1) ^ i * \u220f j \u2208 (Finset.range (n + 1)).erase i, (node n i - node n j)",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "0 < \u220f j \u2208 Finset.range i, ((-1) * (node n i - node n j))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "0 < \u220f j \u2208 Finset.Ioc i n, (node n i - node n j)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "disjoint",
+        "type": "Disjoint (Finset.range i) (Finset.Ioc i n)",
+        "body": "by grind [Finset.disjoint_iff_ne]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extremal",
+    "name": "sumNodes_eq_sumNodes_T_iff",
+    "statement": "\u2115} {c : \u2115 \u2192 \u211d} (hcpos : \u2200 i \u2264 n, 0 < (-1) ^ i * (c i)) {P : \u211d[X]} (hPdeg : P.degree \u2264 n) (hPbnd : \u2200 x \u2208 Set.Icc (-1) 1, |P.eval x| \u2264 1) : (sumNodes n c P = sumNodes n c (T \u211d n)) \u2194 P = T \u211d n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ne_of_lt (hcpos i (Finset.mem_Iic.mp hi))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extremal",
+    "name": "sumNodes_eq_coeff",
+    "statement": "\u2115} {P : \u211d[X]} (hP : P.degree \u2264 n) : sumNodes n (leadingCoeffC n) P = P.coeff n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "P.degree < (Finset.range (n + 1)).card",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extremal",
+    "name": "negOnePow_mul_leadingCoeffC_pos",
+    "statement": "\u2115} (hi : i \u2264 n) : 0 < (-1) ^ i * leadingCoeffC n i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "inv_pos_of_pos <| zero_lt_prod_node_sub_node hi",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extremal",
+    "name": "leadingCoeff_eq_iff_of_forall_abs_le_one",
+    "statement": "\u2115} {P : \u211d[X]} (hn : 2 \u2264 n) (hPdeg : P.degree \u2264 n) (hPbnd : \u2200 x \u2208 Set.Icc (-1) 1, |P.eval x| \u2264 1) : P.leadingCoeff = 2 ^ (n - 1) \u2194 P = T \u211d n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "d - 1 < n - 1",
+        "body": "by grind [Nat.cast_withBot, WithBot.coe_le_coe, WithBot.coe_lt_coe]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extremal",
+    "name": "sumNodes_eq_eval_iterate_derivative",
+    "statement": "\u2115} (hk : k \u2264 n) (x : \u211d) {P : \u211d[X]} (hP : P.degree \u2264 n) : sumNodes n (iterateDerivativeC n k x) P = (derivative^[k] P).eval x",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "P.degree < (Finset.range (n + 1)).card",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

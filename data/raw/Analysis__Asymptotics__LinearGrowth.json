@@ -1,0 +1,219 @@
+[
+  {
+    "module": "LinearGrowth",
+    "name": "linearGrowthInfTopHom",
+    "statement": "InfTopHom (\u2115 \u2192 EReal) EReal where toFun",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "map_finset_inf linearGrowthInfTopHom hs.toFinset u",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearGrowth",
+    "name": "linearGrowthSupBotHom",
+    "statement": "SupBotHom (\u2115 \u2192 EReal) EReal where toFun",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "map_finset_sup linearGrowthSupBotHom hs.toFinset u",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearGrowth",
+    "name": "tendsto_atTop_of_linearGrowthInf_natCast_pos",
+    "statement": "(linearGrowthInf fun n \u21a6 v n : EReal) \u2260 0) : Tendsto v atTop atTop",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "tendsto_atTop_of_linearGrowthInf_pos (h.lt_of_le' (linearGrowthInf_natCast_nonneg v))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearGrowth",
+    "name": "le_linearGrowthInf_comp",
+    "statement": "0 \u2264\u1da0[atTop] u) (hv : Tendsto v atTop atTop) : (linearGrowthInf fun n \u21a6 v n : EReal) * linearGrowthInf u \u2264 linearGrowthInf (u \u2218 v)",
+    "have_tree": [
+      {
+        "name": "uv_0",
+        "type": "0 \u2264 linearGrowthInf (u \u2218 v)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "b_uv",
+        "type": "",
+        "body": "eventually_map.1 ((eventually_mul_le b_u).filter_mono hv)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearGrowth",
+    "name": "linearGrowthSup_comp_le",
+    "statement": "\u2203\u1da0 n in atTop, 0 \u2264 u n) (hv\u2080 : (linearGrowthSup fun n \u21a6 v n : EReal) \u2260 0) (hv\u2081 : (linearGrowthSup fun n \u21a6 v n : EReal) \u2260 \u22a4) (hv\u2082 : Tendsto v atTop atTop) : linearGrowthSup (u \u2218 v) \u2264 (linearGrowthSup fun n \u21a6 v n : EReal) * linearGrowthSup u",
+    "have_tree": [
+      {
+        "name": "v_0",
+        "type": "",
+        "body": "hv\u2080.symm.lt_of_le <| (linearGrowthInf_natCast_nonneg v).trans (liminf_le_limsup)",
+        "children": []
+      },
+      {
+        "name": "b_0",
+        "type": "0 \u2264 b",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "uv_b",
+        "type": "\u2200\u1da0 n in atTop, u (v n) \u2264 b * v n",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearGrowth",
+    "name": "_root_.Monotone.linearGrowthInf_nonneg",
+    "statement": "Monotone u) (h' : u \u2260 \u22a5) : 0 \u2264 linearGrowthInf u",
+    "have_tree": [
+      {
+        "name": "m_n",
+        "type": "\u2200\u1da0 n in atTop, u m \u2264 u n",
+        "body": "eventually_atTop.2 \u27e8m, fun _ hb \u21a6 h hb\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearGrowth",
+    "name": "linearGrowthInf_comp_nonneg",
+    "statement": "Monotone u) (h' : u \u2260 \u22a5) (hv : Tendsto v atTop atTop) : 0 \u2264 linearGrowthInf (u \u2218 v)",
+    "have_tree": [
+      {
+        "name": "um_uvn",
+        "type": "\u2200\u1da0 n in atTop, u m \u2264 (u \u2218 v) n",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearGrowth",
+    "name": "_root_.Monotone.linearGrowthInf_comp_le",
+    "statement": "Monotone u) (hv\u2080 : (linearGrowthSup fun n \u21a6 v n : EReal) \u2260 0) (hv\u2081 : (linearGrowthSup fun n \u21a6 v n : EReal) \u2260 \u22a4) : linearGrowthInf (u \u2218 v) \u2264 (linearGrowthSup fun n \u21a6 v n : EReal) * linearGrowthInf u",
+    "have_tree": [
+      {
+        "name": "v_0",
+        "type": "",
+        "body": "hv\u2080.symm.lt_of_le <| (linearGrowthInf_natCast_nonneg v).trans (liminf_le_limsup)",
+        "children": []
+      },
+      {
+        "name": "a_0",
+        "type": "",
+        "body": "v_0.trans v_a",
+        "children": []
+      },
+      {
+        "name": "b_0",
+        "type": "",
+        "body": "(h.linearGrowthInf_nonneg u_0).trans_lt u_b",
+        "children": []
+      },
+      {
+        "name": "a_0'",
+        "type": "",
+        "body": "v_0.trans v_a'",
+        "children": []
+      },
+      {
+        "name": "a_a_inv'",
+        "type": "a\u207b\u00b9 < a'\u207b\u00b9",
+        "body": "inv_strictAntiOn (Set.mem_Ioi.2 a_0') (Set.mem_Ioi.2 a_0) a_a'",
+        "children": [
+          {
+            "name": "vk_n",
+            "type": "",
+            "body": "Nat.cast_le.1 (vk_ak'.trans k_an')",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LinearGrowth",
+    "name": "_root_.Monotone.le_linearGrowthSup_comp",
+    "statement": "Monotone u) (hv : (linearGrowthInf fun n \u21a6 v n : EReal) \u2260 0) : (linearGrowthInf fun n \u21a6 v n : EReal) * linearGrowthSup u \u2264 linearGrowthSup (u \u2218 v)",
+    "have_tree": [
+      {
+        "name": "v_0",
+        "type": "",
+        "body": "hv.symm.lt_of_le (linearGrowthInf_natCast_nonneg v)",
+        "children": []
+      },
+      {
+        "name": "a_top'",
+        "type": "",
+        "body": "ne_top_of_lt a_v'",
+        "children": []
+      },
+      {
+        "name": "a_0'",
+        "type": "",
+        "body": "a_0.trans a_a'",
+        "children": []
+      },
+      {
+        "name": "a_a_inv'",
+        "type": "a'\u207b\u00b9 < a\u207b\u00b9",
+        "body": "inv_strictAntiOn (Set.mem_Ioi.2 a_0) (Set.mem_Ioi.2 a_0') a_a'",
+        "children": [
+          {
+            "name": "n_vk",
+            "type": "",
+            "body": "Nat.cast_le.1 (an_k'.trans ak_vk')",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LinearGrowth",
+    "name": "_root_.Monotone.linearGrowthInf_comp",
+    "statement": "EReal} (h : Monotone u) (hv : Tendsto (fun n \u21a6 (v n : EReal) / n) atTop (\ud835\udcdd a)) (ha : a \u2260 0) (ha' : a \u2260 \u22a4) : linearGrowthInf (u \u2218 v) = a * linearGrowthInf u",
+    "have_tree": [
+      {
+        "name": "v_top",
+        "type": "",
+        "body": "tendsto_atTop_of_linearGrowthInf_natCast_pos hv\u2081.ne.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearGrowth",
+    "name": "_root_.Monotone.linearGrowthSup_comp",
+    "statement": "EReal} (h : Monotone u) (hv : Tendsto (fun n \u21a6 (v n : EReal) / n) atTop (\ud835\udcdd a)) (ha : a \u2260 0) (ha' : a \u2260 \u22a4) : linearGrowthSup (u \u2218 v) = a * linearGrowthSup u",
+    "have_tree": [
+      {
+        "name": "v_top",
+        "type": "",
+        "body": "tendsto_atTop_of_linearGrowthInf_natCast_pos hv\u2081.ne.symm",
+        "children": []
+      }
+    ]
+  }
+]

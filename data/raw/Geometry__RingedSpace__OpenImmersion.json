@@ -1,0 +1,119 @@
+[
+  {
+    "module": "OpenImmersion",
+    "name": "to_iso",
+    "statement": "Epi f.base] : IsIso f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso f.c",
+        "body": "NatIso.isIso_of_isIso_app _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OpenImmersion",
+    "name": "pullbackConeOfLeftLift_fst",
+    "statement": "pullbackConeOfLeftLift f g s \u226b (pullbackConeOfLeft f g).fst = s.fst",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_app s.condition (op (opensFunctor f |>.obj x))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OpenImmersion",
+    "name": "pullback_snd_isIso_of_range_subset",
+    "statement": "Set.range g.base \u2286 Set.range f.base) : IsIso (pullback.snd f g)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso (pullback.snd f g).base",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OpenImmersion",
+    "name": "of_stalk_iso",
+    "statement": "SheafedSpace C} (f : X \u27f6 Y) (hf : IsOpenEmbedding f.hom.base) [H : \u2200 x : X.1, IsIso (f.hom.stalkMap x)] : SheafedSpace.IsOpenImmersion f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsIso.comp_isIso' H (@IsIso.inv_isIso _ _ _ _ _ H')",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OpenImmersion",
+    "name": "pullbackConeOfLeft",
+    "statement": "PullbackCone f g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "PresheafedSpace.stalkMap.congr_hom _ _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OpenImmersion",
+    "name": "pullbackConeOfLeftIsLimit",
+    "statement": "IsLimit (pullbackConeOfLeft f g)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OpenImmersion",
+    "name": "lift",
+    "statement": "Set.range g.base \u2286 Set.range f.base) : Y \u27f6 X",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "pullback_snd_isIso_of_range_subset f g H'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OpenImmersion",
+    "name": "lift_uniq",
+    "statement": "Set.range g.base \u2286 Set.range f.base) (l : Y \u27f6 X) (hl : l \u226b f = g) : l = lift f g H'",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "pullback_snd_isIso_of_range_subset f g H'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OpenImmersion",
+    "name": "to_iso",
+    "statement": "IsIso f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Epi (forgetToSheafedSpace.map f).hom.base",
+        "body": "by assumption",
+        "children": []
+      }
+    ]
+  }
+]

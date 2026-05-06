@@ -1,0 +1,357 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "eq_of_tendsto_nhds",
+      "statement": "X \u2192 Y} {x : X} {y : Y} (h : Tendsto f (\ud835\udcdd x) (\ud835\udcdd y)) : f x = y",
+      "have_tree": [
+        {
+          "name": "fact\u2081",
+          "type": "{f x}\u1d9c \u2208 \ud835\udcdd y",
+          "body": "compl_singleton_mem_nhds hfa.symm",
+          "children": []
+        },
+        {
+          "name": "fact\u2082",
+          "type": "Tendsto f (pure x) (\ud835\udcdd y)",
+          "body": "h.comp (tendsto_id'.2 <| pure_le_nhds x)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "eq_of_tendsto_nhds",
+          "statement": "X \u2192 Y} {x : X} {y : Y} (h : Tendsto f (\ud835\udcdd x) (\ud835\udcdd y)) : f x = y",
+          "have_tree": [
+            {
+              "name": "fact\u2082",
+              "type": "Tendsto f (pure x) (\ud835\udcdd y)",
+              "body": "h.comp (tendsto_id'.2 <| pure_le_nhds x)",
+              "children": []
+            },
+            {
+              "name": "fact\u2081",
+              "type": "{f x}\u1d9c \u2208 \ud835\udcdd y",
+              "body": "compl_singleton_mem_nhds hfa.symm",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "tendsto_const_nhds_iff",
+      "statement": "Filter Y} [NeBot l] {c d : X} : Tendsto (fun _ => c) l (\ud835\udcdd d) \u2194 c = d",
+      "have_tree": [
+        {
+          "name": "A",
+          "type": "{x} \u2286 s",
+          "body": "by simp only [singleton_subset_iff, mem_of_mem_nhds hs]",
+          "children": []
+        },
+        {
+          "name": "B",
+          "type": "IsClosed (s \\ {x})",
+          "body": "(hsf.subset diff_subset).isClosed",
+          "children": []
+        },
+        {
+          "name": "C",
+          "type": "(s \\ {x})\u1d9c \u2208 \ud835\udcdd x",
+          "body": "B.isOpen_compl.mem_nhds fun h => h.2 rfl",
+          "children": []
+        },
+        {
+          "name": "D",
+          "type": "{x} \u2208 \ud835\udcdd x",
+          "body": "by simpa only [\u2190 diff_eq, diff_diff_cancel_left A] using inter_mem hs C",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "tendsto_const_nhds_iff",
+          "statement": "Filter Y} [NeBot l] {c d : X} : Tendsto (fun _ => c) l (\ud835\udcdd d) \u2194 c = d",
+          "have_tree": [
+            {
+              "name": "B",
+              "type": "IsClosed (s \\ {x})",
+              "body": "(hsf.subset diff_subset).isClosed",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "{x} \u2286 s",
+              "body": "by simp only [singleton_subset_iff, mem_of_mem_nhds hs]",
+              "children": []
+            },
+            {
+              "name": "C",
+              "type": "(s \\ {x})\u1d9c \u2208 \ud835\udcdd x",
+              "body": "B.isOpen_compl.mem_nhds fun h => h.2 rfl",
+              "children": []
+            },
+            {
+              "name": "D",
+              "type": "{x} \u2208 \ud835\udcdd x",
+              "body": "by simpa only [\u2190 diff_eq, diff_diff_cancel_left A] using inter_mem hs C",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "tendsto_const_nhds_iff",
+          "statement": "Filter Y} [NeBot l] {c d : X} : Tendsto (fun _ => c) l (\ud835\udcdd d) \u2194 c = d",
+          "have_tree": [
+            {
+              "name": "A",
+              "type": "{x} \u2286 s",
+              "body": "by simp only [singleton_subset_iff, mem_of_mem_nhds hs]",
+              "children": []
+            },
+            {
+              "name": "C",
+              "type": "(s \\ {x})\u1d9c \u2208 \ud835\udcdd x",
+              "body": "B.isOpen_compl.mem_nhds fun h => h.2 rfl",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "IsClosed (s \\ {x})",
+              "body": "(hsf.subset diff_subset).isClosed",
+              "children": []
+            },
+            {
+              "name": "D",
+              "type": "{x} \u2208 \ud835\udcdd x",
+              "body": "by simpa only [\u2190 diff_eq, diff_diff_cancel_left A] using inter_mem hs C",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "tendsto_const_nhds_iff",
+          "statement": "Filter Y} [NeBot l] {c d : X} : Tendsto (fun _ => c) l (\ud835\udcdd d) \u2194 c = d",
+          "have_tree": [
+            {
+              "name": "A",
+              "type": "{x} \u2286 s",
+              "body": "by simp only [singleton_subset_iff, mem_of_mem_nhds hs]",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "IsClosed (s \\ {x})",
+              "body": "(hsf.subset diff_subset).isClosed",
+              "children": []
+            },
+            {
+              "name": "D",
+              "type": "{x} \u2208 \ud835\udcdd x",
+              "body": "by simpa only [\u2190 diff_eq, diff_diff_cancel_left A] using inter_mem hs C",
+              "children": []
+            },
+            {
+              "name": "C",
+              "type": "(s \\ {x})\u1d9c \u2208 \ud835\udcdd x",
+              "body": "B.isOpen_compl.mem_nhds fun h => h.2 rfl",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "SeparationQuotient.t1Space_iff",
+      "statement": "T1Space (SeparationQuotient X) \u2194 R0Space X",
+      "have_tree": [
+        {
+          "name": "xspecy",
+          "type": "x \u2933 y",
+          "body": "isInducing_mk.specializes_iff.mp sxspecsy",
+          "children": []
+        },
+        {
+          "name": "yspecx",
+          "type": "y \u2933 x",
+          "body": "h xspecy",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "SeparationQuotient.t1Space_iff",
+          "statement": "T1Space (SeparationQuotient X) \u2194 R0Space X",
+          "have_tree": [
+            {
+              "name": "yspecx",
+              "type": "y \u2933 x",
+              "body": "h xspecy",
+              "children": []
+            },
+            {
+              "name": "xspecy",
+              "type": "x \u2933 y",
+              "body": "isInducing_mk.specializes_iff.mp sxspecsy",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "IsCompact.binary_compact_cover",
+      "statement": "Set X} (hK : IsCompact K) (hU : IsOpen U) (hV : IsOpen V) (h2K : K \u2286 U \u222a V) : \u2203 K\u2081 K\u2082 : Set X, IsCompact K\u2081 \u2227 IsCompact K\u2082 \u2227 K\u2081 \u2286 U \u2227 K\u2082 \u2286 V \u2227 K = K\u2081 \u222a K\u2082",
+      "have_tree": [
+        {
+          "name": "hK'",
+          "type": "IsCompact (closure K)",
+          "body": "hK.closure",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "SeparatedNhds (closure K \\ U) (closure K \\ V)",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "SeparatedNhds (K \\ U) (K \\ V)",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "IsCompact.binary_compact_cover",
+          "statement": "Set X} (hK : IsCompact K) (hU : IsOpen U) (hV : IsOpen V) (h2K : K \u2286 U \u222a V) : \u2203 K\u2081 K\u2082 : Set X, IsCompact K\u2081 \u2227 IsCompact K\u2082 \u2227 K\u2081 \u2286 U \u2227 K\u2082 \u2286 V \u2227 K = K\u2081 \u222a K\u2082",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "SeparatedNhds (closure K \\ U) (closure K \\ V)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hK'",
+              "type": "IsCompact (closure K)",
+              "body": "hK.closure",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "SeparatedNhds (K \\ U) (K \\ V)",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "IsCompact.binary_compact_cover",
+          "statement": "Set X} (hK : IsCompact K) (hU : IsOpen U) (hV : IsOpen V) (h2K : K \u2286 U \u222a V) : \u2203 K\u2081 K\u2082 : Set X, IsCompact K\u2081 \u2227 IsCompact K\u2082 \u2227 K\u2081 \u2286 U \u2227 K\u2082 \u2286 V \u2227 K = K\u2081 \u222a K\u2082",
+          "have_tree": [
+            {
+              "name": "hK'",
+              "type": "IsCompact (closure K)",
+              "body": "hK.closure",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "SeparatedNhds (K \\ U) (K \\ V)",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "SeparatedNhds (closure K \\ U) (closure K \\ V)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

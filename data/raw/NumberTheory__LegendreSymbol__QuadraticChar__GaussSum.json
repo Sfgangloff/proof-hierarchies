@@ -1,0 +1,34 @@
+[
+  {
+    "module": "GaussSum",
+    "name": "quadraticChar_card_card",
+    "statement": "ringChar F \u2260 2) {F' : Type*} [Field F'] [Fintype F'] [DecidableEq F'] (hF' : ringChar F' \u2260 2) (h : ringChar F' \u2260 ringChar F) : quadraticChar F (Fintype.card F') = quadraticChar F' (quadraticChar F (-1) * Fintype.card F)",
+    "have_tree": [
+      {
+        "name": "h\u03c7\u2081",
+        "type": "\u03c7 \u2260 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "Char.card_pow_card h\u03c7\u2081 ((quadraticChar_isQuadratic F).comp _) h hF'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GaussSum",
+    "name": "quadraticChar_odd_prime",
+    "statement": "ringChar F \u2260 2) {p : \u2115} [Fact p.Prime] (hp\u2081 : p \u2260 2) (hp\u2082 : ringChar F \u2260 p) : quadraticChar F p = quadraticChar (ZMod p) (\u03c7\u2084 (Fintype.card F) * Fintype.card F)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "quadraticChar_card_card hF (ne_of_eq_of_ne (ringChar_zmod_n p) hp\u2081)",
+        "children": []
+      }
+    ]
+  }
+]

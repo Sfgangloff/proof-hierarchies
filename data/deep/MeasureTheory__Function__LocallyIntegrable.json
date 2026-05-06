@@ -1,0 +1,40 @@
+[
+  {
+    "module": "LocallyIntegrable",
+    "name": "LocallyIntegrableOn.exists_nat_integrableOn",
+    "statement": "LocallyIntegrableOn f s \u03bc) : \u2203 u : \u2115 \u2192 Set X, (\u2200 n, IsOpen (u n)) \u2227 (s \u2286 \u22c3 n, u n) \u2227 (\u2200 n, IntegrableOn f (u n \u2229 s) \u03bc)",
+    "have_tree": [
+      {
+        "name": "T'_count",
+        "type": "T'.Countable",
+        "body": "Countable.insert \u2205 T_count",
+        "children": []
+      },
+      {
+        "name": "T'_ne",
+        "type": "T'.Nonempty",
+        "body": "by simp only [T', insert_nonempty]",
+        "children": [
+          {
+            "name": "_",
+            "type": "u n \u2208 T'",
+            "body": "by rw [hu]; exact mem_range_self n",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "v \u2208 range u",
+            "body": "by rw [\u2190 hu]; exact subset_insert \u2205 T hv",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "u n \u2208 T'",
+            "body": "by rw [hu]; exact mem_range_self n",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

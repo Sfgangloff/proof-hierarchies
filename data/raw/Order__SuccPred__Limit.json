@@ -1,0 +1,79 @@
+[
+  {
+    "module": "Limit",
+    "name": "IsSuccPrelimit.subtypeVal",
+    "statement": "Set \u03b1} (hs : IsLowerSet s) {a : s} (ha : IsSuccPrelimit a) : IsSuccPrelimit a.1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ha \u27e8b, hs hb.le a.2\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Limit",
+    "name": "IsSuccLimit.subtypeVal",
+    "statement": "Set \u03b1} (hs : IsLowerSet s) {a : s} (ha : IsSuccLimit a) : IsSuccLimit a.1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ha.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Limit",
+    "name": "isMin_or_mem_range_succ_or_isSuccLimit",
+    "statement": "IsMin a \u2228 a \u2208 range (succ : \u03b1 \u2192 \u03b1) \u2228 IsSuccLimit a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mem_range_succ_or_isSuccPrelimit a",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Limit",
+    "name": "isSuccPrelimitRecOn_succ_of_not_isMax",
+    "statement": "\u00acIsMax b) : isSuccPrelimitRecOn (Order.succ b) succ isSuccPrelimit = succ b hb",
+    "have_tree": [
+      {
+        "name": "hb'",
+        "type": "",
+        "body": "mt IsSuccPrelimit.isMax hb",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "Classical.choose_spec (not_isSuccPrelimit_iff.1 hb')",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Limit",
+    "name": "prelimitRecOn_succ_of_not_isMax",
+    "statement": "\u00acIsMax b) : prelimitRecOn (Order.succ b) succ isSuccPrelimit = succ b hb (prelimitRecOn b succ isSuccPrelimit)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "mt IsSuccPrelimit.isMax hb",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "Classical.choose_spec (not_isSuccPrelimit_iff.1 h)",
+        "children": []
+      }
+    ]
+  }
+]

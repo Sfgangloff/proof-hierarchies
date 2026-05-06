@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Diam",
+    "name": "exists_edist_eq_eccent_of_finite",
+    "statement": "\u03b1) : \u2203 v, G.edist u v = G.eccent u",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b1",
+        "body": "Nonempty.intro u",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Diam",
+    "name": "eccent_le_one_iff",
+    "statement": "\u03b1) : G.eccent u \u2264 1 \u2194 \u2200 v, u \u2260 v \u2192 G.Adj u v",
+    "have_tree": [
+      {
+        "name": "hd",
+        "type": "G.edist u v \u2264 1",
+        "body": "edist_le_eccent.trans h",
+        "children": []
+      },
+      {
+        "name": "hd'",
+        "type": "1 \u2264 G.edist u v",
+        "body": "Order.one_le_iff_pos.mpr (G.edist_pos_of_ne huv)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Diam",
+    "name": "eccent_eq_one_iff",
+    "statement": "\u03b1) : G.eccent u = 1 \u2194 \u2200 v, u \u2260 v \u2192 G.Adj u v",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "1 \u2264 G.eccent u",
+        "body": "ENat.one_le_iff_ne_zero.mpr (eccent_ne_zero u)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Diam",
+    "name": "ediam_eq_top_iff_radius_eq_top",
+    "statement": "G.ediam = \u22a4 \u2194 G.radius = \u22a4",
+    "have_tree": [
+      {
+        "name": "hdiam",
+        "type": "G.ediam \u2264 2 * G.eccent w",
+        "body": "ediam_le_two_mul_eccent w",
+        "children": []
+      }
+    ]
+  }
+]

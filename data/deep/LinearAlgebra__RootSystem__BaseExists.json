@@ -1,0 +1,103 @@
+[
+  {
+    "module": "BaseExists",
+    "name": "eq_baseOf_of_linearIndepOn_of_mem_or_neg_mem_closure",
+    "statement": "Set \u03b9) (hli : LinearIndepOn R P.root s) (hsp : \u2200 i, P.root i \u2208 AddSubmonoid.closure (P.root '' s) \u2228 -P.root i \u2208 AddSubmonoid.closure (P.root '' s)) (f : M \u2192+ \u211a) (hf : \u2200 i \u2208 s, f (P.root i) = 1) : s = baseOf P.root f",
+    "have_tree": [
+      {
+        "name": "h_card",
+        "type": "(baseOf P.root f).ncard = s.ncard",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u03b9) : f (P.root i) \u2260 0",
+            "body": "AddSubmonoid.apply_ne_zero_of_mem_or_neg_mem_closure",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u03b9)",
+            "body": "mem_or_neg_mem_closure_baseOf P.root f i (hf' i) (by simp)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "BaseExists",
+    "name": "baseOf_root_eq_baseOf_coroot_aux",
+    "statement": "M \u2192+ \u211a) (g : N \u2192+ \u211a) (hf : \u2200 i, f (P.root i) \u2260 0) (hfg : \u2200 i, 0 < f (P.root i) \u2194 0 < g (P.coroot i)) : baseOf P.root f \u2286 baseOf P.coroot (g : N \u2192+ \u211a)",
+    "have_tree": [
+      {
+        "name": "_i",
+        "type": "Fintype \u03b9",
+        "body": "Fintype.ofFinite _",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u03b9) : 0 < l i",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u03b9) : l i = l' i",
+            "body": "P.algebraMap_rootFormIn \u211a _ _",
+            "children": []
+          },
+          {
+            "name": "aux\u2081",
+            "type": "2 / l' i \u2260 0",
+            "body": "by simpa using IsAnisotropic.rootForm_root_ne_zero i",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u03b9) : (2 / l' i)\u207b\u00b9 * (2 / l' j) = l i / l j",
+            "body": "by ring_nf; simp [hll']",
+            "children": []
+          },
+          {
+            "name": "aux",
+            "type": "P.root i = \u2211 x, Pi.single (M",
+            "body": "fun x : P.root '' s \u21a6 \u211a) ri 1 x \u2022 (x : M) := by",
+            "children": []
+          },
+          {
+            "name": "hli",
+            "type": "LinearIndepOn \u211a id (P.root '' s)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "P.root '' s) (hx : x \u2260 ri) : a x = 0",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "0 \u2264 u * (a x)",
+                "body": "by positivity",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "0 \u2264 v * (b x)",
+                "body": "by positivity",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "hij",
+        "type": "\u00ac LinearIndependent R ![P.root i, P.root j]",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

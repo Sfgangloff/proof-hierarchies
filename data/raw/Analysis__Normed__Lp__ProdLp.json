@@ -1,0 +1,54 @@
+[
+  {
+    "module": "ProdLp",
+    "name": "prodPseudoEMetricAux",
+    "statement": "PseudoEMetricSpace (WithLp p (\u03b1 \u00d7 \u03b2)) where edist_self",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ENNReal.Lp_add_le {0, 1}",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ProdLp",
+    "name": "prod_antilipschitzWith_ofLp_aux",
+    "statement": "AntilipschitzWith ((2 : \u211d\u22650) ^ (1 / p).toReal) (@ofLp p (\u03b1 \u00d7 \u03b2))",
+    "have_tree": [
+      {
+        "name": "nonneg",
+        "type": "0 \u2264 1 / p.toReal",
+        "body": "by positivity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ProdLp",
+    "name": "prod_norm_eq_of_nat",
+    "statement": "\u2115) (h : p = n) (f : WithLp p (\u03b1 \u00d7 \u03b2)) : \u2016f\u2016 = (\u2016f.fst\u2016 ^ n + \u2016f.snd\u2016 ^ n) ^ (1 / (n : \u211d))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "p.toReal_pos_iff_ne_top.mpr (ne_of_eq_of_ne h <| ENNReal.natCast_ne_top n)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ProdLp",
+    "name": "prodEquiv\u2097\u1d62",
+    "statement": "WithLp \u221e (\u03b1 \u00d7 \u03b2) \u2243\u2097\u1d62[\ud835\udd5c] \u03b1 \u00d7 \u03b2 where __",
+    "have_tree": [
+      {
+        "name": "hpt",
+        "type": "p \u2260 \u22a4",
+        "body": "p.toReal_pos_iff_ne_top.mp hp0",
+        "children": []
+      }
+    ]
+  }
+]

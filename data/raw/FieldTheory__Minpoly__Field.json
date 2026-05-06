@@ -1,0 +1,93 @@
+[
+  {
+    "module": "Field",
+    "name": "unique",
+    "statement": "A[X]} (pmonic : p.Monic) (hp : Polynomial.aeval x p = 0) (pmin : \u2200 q : A[X], q.Monic \u2192 Polynomial.aeval x q = 0 \u2192 degree p \u2264 degree q) : p = minpoly A x",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "IsIntegral A x",
+        "body": "\u27e8p, pmonic, hp\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "dvd",
+    "statement": "A[X]} (hp : Polynomial.aeval x p = 0) : minpoly A x \u2223 p",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "IsIntegral A x",
+        "body": "IsAlgebraic.isIntegral \u27e8p, hp0, hp\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "eq_of_irreducible",
+    "statement": "A[X]} (hp1 : Irreducible p) (hp2 : Polynomial.aeval x p = 0) : p * C p.leadingCoeff\u207b\u00b9 = minpoly A x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "p.leadingCoeff \u2260 0",
+        "body": "leadingCoeff_ne_zero.mpr hp1.ne_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "add_algebraMap",
+    "statement": "Type*} [CommRing B] [Algebra A B] (x : B) (a : A) : minpoly A (x + algebraMap A B a) = (minpoly A x).comp (X - C a)",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "minpoly.min A x (qmo.comp_X_add_C _) this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "neg",
+    "statement": "Type*} [Ring B] [Algebra A B] (x : B) : minpoly A (-x) = (-1) ^ (natDegree (minpoly A x)) * (minpoly A x).comp (-X)",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "minpoly.min A x qmo.neg_one_pow_natDegree_mul_comp_neg_X this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "root",
+    "statement": "B} (hx : IsIntegral A x) {y : A} (h : IsRoot (minpoly A x) y) : algebraMap A B y = x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "aeval A x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "coeff_zero_eq_zero",
+    "statement": "IsIntegral A x) : coeff (minpoly A x) 0 = 0 \u2194 x = 0",
+    "have_tree": [
+      {
+        "name": "zero_root",
+        "type": "",
+        "body": "zero_isRoot_of_coeff_zero_eq_zero h",
+        "children": []
+      }
+    ]
+  }
+]

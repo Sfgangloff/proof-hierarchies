@@ -1,0 +1,196 @@
+[
+  {
+    "original": {
+      "module": "Decomposition",
+      "name": "has_decomp_connected_components_aux",
+      "statement": "C \u2964 FintypeCat.{w}) [FiberFunctor F] (n : \u2115) : \u2200 (X : C), n = Nat.card (F.obj X) \u2192 \u2203 (\u03b9 : Type) (f : \u03b9 \u2192 C) (g : (i : \u03b9) \u2192 (f i) \u27f6 X) (_ : IsColimit (Cofan.mk X g)), (\u2200 i, IsConnected (f i)) \u2227 Finite \u03b9",
+      "have_tree": [
+        {
+          "name": "hn1",
+          "type": "Nat.card (F.obj Y) < n",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "i",
+          "type": "X \u2245 Y \u2a3f Z",
+          "body": "(colimit.isoColimitCocone t).symm",
+          "children": []
+        },
+        {
+          "name": "hn2",
+          "type": "Nat.card (F.obj Z) < n",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Decomposition",
+          "name": "has_decomp_connected_components_aux",
+          "statement": "C \u2964 FintypeCat.{w}) [FiberFunctor F] (n : \u2115) : \u2200 (X : C), n = Nat.card (F.obj X) \u2192 \u2203 (\u03b9 : Type) (f : \u03b9 \u2192 C) (g : (i : \u03b9) \u2192 (f i) \u27f6 X) (_ : IsColimit (Cofan.mk X g)), (\u2200 i, IsConnected (f i)) \u2227 Finite \u03b9",
+          "have_tree": [
+            {
+              "name": "i",
+              "type": "X \u2245 Y \u2a3f Z",
+              "body": "(colimit.isoColimitCocone t).symm",
+              "children": []
+            },
+            {
+              "name": "hn1",
+              "type": "Nat.card (F.obj Y) < n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hn2",
+              "type": "Nat.card (F.obj Z) < n",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Decomposition",
+          "name": "has_decomp_connected_components_aux",
+          "statement": "C \u2964 FintypeCat.{w}) [FiberFunctor F] (n : \u2115) : \u2200 (X : C), n = Nat.card (F.obj X) \u2192 \u2203 (\u03b9 : Type) (f : \u03b9 \u2192 C) (g : (i : \u03b9) \u2192 (f i) \u27f6 X) (_ : IsColimit (Cofan.mk X g)), (\u2200 i, IsConnected (f i)) \u2227 Finite \u03b9",
+          "have_tree": [
+            {
+              "name": "hn1",
+              "type": "Nat.card (F.obj Y) < n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hn2",
+              "type": "Nat.card (F.obj Z) < n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "i",
+              "type": "X \u2245 Y \u2a3f Z",
+              "body": "(colimit.isoColimitCocone t).symm",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Decomposition",
+      "name": "connected_component_unique",
+      "statement": "C} [IsConnected A] [IsConnected B] (a : F.obj A) (b : F.obj B) (i : A \u27f6 X) (j : B \u27f6 X) (h : F.map i a = F.map j b) [Mono i] [Mono j] : \u2203 (f : A \u2245 B), F.map f.hom a = b",
+      "have_tree": [
+        {
+          "name": "hn",
+          "type": "IsInitial Y \u2192 False",
+          "body": "not_initial_of_inhabited F y",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "IsIso u",
+          "body": "IsConnected.noTrivialComponent Y u hn",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "IsIso v",
+          "body": "IsConnected.noTrivialComponent Y v hn",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Decomposition",
+          "name": "connected_component_unique",
+          "statement": "C} [IsConnected A] [IsConnected B] (a : F.obj A) (b : F.obj B) (i : A \u27f6 X) (j : B \u27f6 X) (h : F.map i a = F.map j b) [Mono i] [Mono j] : \u2203 (f : A \u2245 B), F.map f.hom a = b",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsIso u",
+              "body": "IsConnected.noTrivialComponent Y u hn",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "IsInitial Y \u2192 False",
+              "body": "not_initial_of_inhabited F y",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsIso v",
+              "body": "IsConnected.noTrivialComponent Y v hn",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Decomposition",
+          "name": "connected_component_unique",
+          "statement": "C} [IsConnected A] [IsConnected B] (a : F.obj A) (b : F.obj B) (i : A \u27f6 X) (j : B \u27f6 X) (h : F.map i a = F.map j b) [Mono i] [Mono j] : \u2203 (f : A \u2245 B), F.map f.hom a = b",
+          "have_tree": [
+            {
+              "name": "hn",
+              "type": "IsInitial Y \u2192 False",
+              "body": "not_initial_of_inhabited F y",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsIso v",
+              "body": "IsConnected.noTrivialComponent Y v hn",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsIso u",
+              "body": "IsConnected.noTrivialComponent Y u hn",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

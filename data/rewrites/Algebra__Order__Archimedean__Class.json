@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Class",
+      "name": "min_le_mk_mul",
+      "statement": "M) : min (mk a) (mk b) \u2264 mk (a * b)",
+      "have_tree": [
+        {
+          "name": "h1",
+          "type": "",
+          "body": "(mk_lt_mk.mp h.1 2).trans_le (mabs_mul_le _ _)",
+          "children": []
+        },
+        {
+          "name": "h2",
+          "type": "",
+          "body": "(mk_lt_mk.mp h.2 2).trans_le (mabs_mul_le _ _)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Class",
+          "name": "min_le_mk_mul",
+          "statement": "M) : min (mk a) (mk b) \u2264 mk (a * b)",
+          "have_tree": [
+            {
+              "name": "h2",
+              "type": "",
+              "body": "(mk_lt_mk.mp h.2 2).trans_le (mabs_mul_le _ _)",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "",
+              "body": "(mk_lt_mk.mp h.1 2).trans_le (mabs_mul_le _ _)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Class",
+      "name": "mk_prod",
+      "statement": "Type*} [LinearOrder \u03b9] {s : Finset \u03b9} (hnonempty : s.Nonempty) {a : \u03b9 \u2192 M} : StrictMonoOn (mk \u2218 a) s \u2192 mk (\u220f i \u2208 s, (a i)) = mk (a (s.min' hnonempty))",
+      "have_tree": [
+        {
+          "name": "hminmem",
+          "type": "s.min' hs \u2208 (Finset.cons i s hi)",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "hne",
+          "type": "mk (a i) \u2260 mk (a (s.min' hs))",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Class",
+          "name": "mk_prod",
+          "statement": "Type*} [LinearOrder \u03b9] {s : Finset \u03b9} (hnonempty : s.Nonempty) {a : \u03b9 \u2192 M} : StrictMonoOn (mk \u2218 a) s \u2192 mk (\u220f i \u2208 s, (a i)) = mk (a (s.min' hnonempty))",
+          "have_tree": [
+            {
+              "name": "hne",
+              "type": "mk (a i) \u2260 mk (a (s.min' hs))",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hminmem",
+              "type": "s.min' hs \u2208 (Finset.cons i s hi)",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

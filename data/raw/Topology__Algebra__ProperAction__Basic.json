@@ -1,0 +1,66 @@
+[
+  {
+    "module": "Basic",
+    "name": "t2Space_of_properSMul_of_t1Group",
+    "statement": "ProperSMul G X] [T1Space G] : T2Space X",
+    "have_tree": [
+      {
+        "name": "proper_f",
+        "type": "IsProperMap f",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "proper_g",
+        "type": "IsProperMap g",
+        "body": "(properSMul_iff G X).1 h_proper",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "ProperSMul.isProperMap_smul_pair_set",
+    "statement": "Set X} : IsProperMap (fun (gx : G \u00d7 t) \u21a6 ((gx.1 \u2022 gx.2, gx.2) : X \u00d7 t))",
+    "have_tree": [
+      {
+        "name": "\u03a6_proper",
+        "type": "IsProperMap \u03a6",
+        "body": "ProperSMul.isProperMap_smul_pair",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsClosed.smul_right_of_isCompact",
+    "statement": "Set G} {t : Set X} (hs : IsClosed s) (ht : IsCompact t) : IsClosed (s \u2022 t)",
+    "have_tree": [
+      {
+        "name": "\u03a8_proper",
+        "type": "IsProperMap \u03a8",
+        "body": "ProperSMul.isProperMap_smul_pair_set",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "CompactSpace t",
+        "body": "isCompact_iff_compactSpace.mp ht",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "MulAction.properSMul_of_proper_orbitMap",
+    "statement": "X} (hx : IsProperMap fun g : G \u21a6 g \u2022 x) : ProperSMul G X",
+    "have_tree": [
+      {
+        "name": "hfsurj",
+        "type": "f.Surjective",
+        "body": "Function.surjective_id.prodMap (surjective_smul G x)",
+        "children": []
+      }
+    ]
+  }
+]

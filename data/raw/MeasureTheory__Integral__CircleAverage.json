@@ -1,0 +1,60 @@
+[
+  {
+    "module": "CircleAverage",
+    "name": "circleAverage_eq_integral_add",
+    "statement": "\u211d) : circleAverage f c R = (2 * \u03c0)\u207b\u00b9 \u2022 \u222b \u03b8 in 0..2 * \u03c0, f (circleMap c R (\u03b8 + \u03b7))",
+    "have_tree": [
+      {
+        "name": "t\u2080",
+        "type": "(fun \u03b8 \u21a6 f (circleMap c R \u03b8)).Periodic (2 * \u03c0)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "t\u2080.intervalIntegral_add_eq 0 \u03b7",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CircleAverage",
+    "name": "circleAverage_zero_one_congr_inv",
+    "statement": "\u2102 \u2192 E} : circleAverage (f \u00b7\u207b\u00b9) 0 1 = circleAverage f 0 1",
+    "have_tree": [
+      {
+        "name": "t\u2080",
+        "type": "Function.Periodic (fun w \u21a6 f (circleMap 0 1 w)) (2 * \u03c0)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CircleAverage",
+    "name": "ContinuousOn.eq_of_eqOn_Ioo",
+    "statement": "\u211d \u2192 \u211d} {c r R : \u211d} (h\u2081f : ContinuousOn f (Ioc r R)) (hR : r < R) (h\u2082f : EqOn f (fun _ \u21a6 c) (Ioo r R)) : f R = c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Filter.Tendsto f (\ud835\udcdd[Iio R] R) (\ud835\udcdd (f R))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CircleAverage",
+    "name": "circleAverage_smul",
+    "statement": "circleAverage (a \u2022 f) c R = a \u2022 circleAverage f c R",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "SMulCommClass.symm \u211d \ud835\udd5c E",
+        "children": []
+      }
+    ]
+  }
+]

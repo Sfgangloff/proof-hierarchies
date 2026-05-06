@@ -1,0 +1,144 @@
+[
+  {
+    "module": "Defs",
+    "name": "Prime.eq_one_or_self_of_dvd",
+    "statement": "\u2115} (pp : p.Prime) (m : \u2115) (hm : m \u2223 p) : m = 1 \u2228 m = p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "pp.isUnit_or_isUnit hn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "prime_def",
+    "statement": "\u2115} : Prime p \u2194 2 \u2264 p \u2227 \u2200 m, m \u2223 p \u2192 m = 1 \u2228 m = p",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "Nat.one_lt_two.trans_le h.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "prime_iff_not_exists_mul_eq",
+    "statement": "\u2115} : p.Prime \u2194 2 \u2264 p \u2227 \u00ac \u2203 m n, m < p \u2227 n < p \u2227 m * n = p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mul_ne_zero_iff.mp (hp \u25b8 show p \u2260 0 by lia)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "prime_of_coprime",
+    "statement": "\u2115) (h1 : 1 < n) (h : \u2200 m < n, m \u2260 0 \u2192 n.Coprime m) : Prime n",
+    "have_tree": [
+      {
+        "name": "hm",
+        "type": "m \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "minFacAux_has_prop",
+    "statement": "\u2115} (n2 : 2 \u2264 n) : \u2200 k i, k = 2 * i + 3 \u2192 (\u2200 m, 2 \u2264 m \u2192 m \u2223 n \u2192 k \u2264 m) \u2192 minFacProp n (minFacAux n k) | k => fun i e a => by rw [minFacAux] by_cases h : n < k * k \u00b7 have pp : Prime n",
+    "have_tree": [
+      {
+        "name": "k2",
+        "type": "2 \u2264 k",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "minFac_lemma n k h",
+            "children": []
+          },
+          {
+            "name": "d'",
+            "type": "2 * (i + 2) \u2223 n",
+            "body": "d",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "a _ le_rfl (dvd_of_mul_right_dvd d')",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "minFac_has_prop",
+    "statement": "\u2115} (n1 : n \u2260 1) : minFacProp n (minFac n)",
+    "have_tree": [
+      {
+        "name": "n2",
+        "type": "2 \u2264 n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "minFac_sq_le_self",
+    "statement": "\u2115} (w : 0 < n) (h : \u00acPrime n) : minFac n ^ 2 \u2264 n",
+    "have_tree": [
+      {
+        "name": "t",
+        "type": "minFac n \u2264 n / minFac n",
+        "body": "minFac_le_div w h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "minFac_eq_one_iff",
+    "statement": "\u2115} : minFac n = 1 \u2194 n = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "minFac_prime hn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "minFac_eq_two_iff",
+    "statement": "\u2115) : minFac n = 2 \u2194 2 \u2223 n",
+    "have_tree": [
+      {
+        "name": "ub",
+        "type": "",
+        "body": "minFac_le_of_dvd (le_refl 2) h",
+        "children": []
+      },
+      {
+        "name": "lb",
+        "type": "",
+        "body": "minFac_pos n",
+        "children": []
+      }
+    ]
+  }
+]

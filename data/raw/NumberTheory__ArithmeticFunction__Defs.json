@@ -1,0 +1,53 @@
+[
+  {
+    "module": "Defs",
+    "name": "one_smul'",
+    "statement": "ArithmeticFunction M) : (1 : ArithmeticFunction R) \u2022 b = b",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "{(1, x)} \u2286 divisorsAntidiagonal x",
+        "body": "by simp [x0]",
+        "children": []
+      },
+      {
+        "name": "y1ne",
+        "type": "y.fst \u2260 1",
+        "body": "fun con => by simp_all [Prod.ext_iff]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "dirichletInverseFun",
+    "statement": "\u2115) : R",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "d < n",
+        "body": "(Nat.mem_properDivisors.mp d.2).2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "lcm_apply_mul_gcd_apply",
+    "statement": "ArithmeticFunction R} (hf : f.IsMultiplicative) {x y : \u2115} : f (x.lcm y) * f (x.gcd y) = f x * f y",
+    "have_tree": [
+      {
+        "name": "hgcd_ne_zero",
+        "type": "x.gcd y \u2260 0",
+        "body": "gcd_ne_zero_left hx",
+        "children": []
+      },
+      {
+        "name": "hlcm_ne_zero",
+        "type": "x.lcm y \u2260 0",
+        "body": "lcm_ne_zero hx hy",
+        "children": []
+      }
+    ]
+  }
+]

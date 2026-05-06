@@ -1,0 +1,104 @@
+[
+  {
+    "module": "Mates",
+    "name": "mateEquiv_square",
+    "statement": "TwoSquare G\u2081 L\u2081 L\u2083 H\u2081) (\u03b2 : TwoSquare H\u2081 L\u2082 L\u2084 K\u2081) (\u03b3 : TwoSquare G\u2082 L\u2083 L\u2085 H\u2082) (\u03b4 : TwoSquare H\u2082 L\u2084 L\u2086 K\u2082) : (mateEquiv (adj\u2081.comp adj\u2082) (adj\u2085.comp adj\u2086)) ((\u03b1 \u226b\u1d65 \u03b2) \u226b\u2095 (\u03b3 \u226b\u1d65 \u03b4)) = ((mateEquiv adj\u2082 adj\u2084 \u03b2) \u226b\u2095 (mateEquiv adj\u2081 adj\u2083 \u03b1)) \u226b\u1d65 ((mateEquiv adj\u2084 adj\u2086 \u03b4) \u226b\u2095 (mateEquiv adj\u2083 adj\u2085 \u03b3))",
+    "have_tree": [
+      {
+        "name": "vcomp",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Mates",
+    "name": "unit_conjugateEquiv",
+    "statement": "L\u2082 \u27f6 L\u2081) (c : C) : adj\u2081.unit.app _ \u226b (conjugateEquiv adj\u2081 adj\u2082 \u03b1).app _ = adj\u2082.unit.app c \u226b R\u2082.map (\u03b1.app _)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "unit_mateEquiv adj\u2081 adj\u2082 (L\u2082.leftUnitor.hom \u226b \u03b1 \u226b L\u2081.rightUnitor.inv) c",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Mates",
+    "name": "conjugateEquiv_comp",
+    "statement": "L\u2082 \u27f6 L\u2081) (\u03b2 : L\u2083 \u27f6 L\u2082) : conjugateEquiv adj\u2081 adj\u2082 \u03b1 \u226b conjugateEquiv adj\u2082 adj\u2083 \u03b2 = conjugateEquiv adj\u2081 adj\u2083 (\u03b2 \u226b \u03b1)",
+    "have_tree": [
+      {
+        "name": "vcomp",
+        "type": "",
+        "body": "mateEquiv_vcomp adj\u2081 adj\u2082 adj\u2083",
+        "children": []
+      },
+      {
+        "name": "vcompd",
+        "type": "",
+        "body": "congr_app vcomp d",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Mates",
+    "name": "mateEquiv_conjugateEquiv_vcomp",
+    "statement": "A \u2964 B} {R\u2081 : B \u2964 A} {L\u2082 : C \u2964 D} {R\u2082 : D \u2964 C} {L\u2083 : C \u2964 D} {R\u2083 : D \u2964 C} (adj\u2081 : L\u2081 \u22a3 R\u2081) (adj\u2082 : L\u2082 \u22a3 R\u2082) (adj\u2083 : L\u2083 \u22a3 R\u2083) (\u03b1 : TwoSquare G L\u2081 L\u2082 H) (\u03b2 : L\u2083 \u27f6 L\u2082) : (mateEquiv adj\u2081 adj\u2083) (\u03b1.whiskerRight \u03b2) = (mateEquiv adj\u2081 adj\u2082 \u03b1).whiskerBottom (conjugateEquiv adj\u2082 adj\u2083 \u03b2)",
+    "have_tree": [
+      {
+        "name": "vcomp",
+        "type": "",
+        "body": "mateEquiv_vcomp adj\u2081 adj\u2082 adj\u2083 \u03b1 (L\u2083.leftUnitor.hom \u226b \u03b2 \u226b L\u2082.rightUnitor.inv)",
+        "children": []
+      },
+      {
+        "name": "vcompb",
+        "type": "",
+        "body": "congr_app vcomp b",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Mates",
+    "name": "conjugateEquiv_mateEquiv_vcomp",
+    "statement": "A \u2964 B} {R\u2081 : B \u2964 A} {L\u2082 : A \u2964 B} {R\u2082 : B \u2964 A} {L\u2083 : C \u2964 D} {R\u2083 : D \u2964 C} (adj\u2081 : L\u2081 \u22a3 R\u2081) (adj\u2082 : L\u2082 \u22a3 R\u2082) (adj\u2083 : L\u2083 \u22a3 R\u2083) (\u03b1 : L\u2082 \u27f6 L\u2081) (\u03b2 : TwoSquare G L\u2082 L\u2083 H) : (mateEquiv adj\u2081 adj\u2083) (\u03b2.whiskerLeft \u03b1) = (mateEquiv adj\u2082 adj\u2083 \u03b2).whiskerTop (conjugateEquiv adj\u2081 adj\u2082 \u03b1)",
+    "have_tree": [
+      {
+        "name": "vcomp",
+        "type": "",
+        "body": "mateEquiv_vcomp adj\u2081 adj\u2082 adj\u2083 (L\u2082.leftUnitor.hom \u226b \u03b1 \u226b L\u2081.rightUnitor.inv) \u03b2",
+        "children": []
+      },
+      {
+        "name": "vcompb",
+        "type": "",
+        "body": "congr_app vcomp b",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Mates",
+    "name": "conjugateEquiv_whiskerLeft",
+    "statement": "B \u2964 C} {R\u2081 R\u2082 : C \u2964 B} {L : A \u2964 B} {R : B \u2964 A} (adj\u2081 : L\u2081 \u22a3 R\u2081) (adj\u2082 : L\u2082 \u22a3 R\u2082) (adj : L \u22a3 R) (\u03c4 : L\u2082 \u27f6 L\u2081) : conjugateEquiv (adj.comp adj\u2081) (adj.comp adj\u2082) (whiskerLeft L \u03c4) = whiskerRight (conjugateEquiv adj\u2081 adj\u2082 \u03c4) R",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "congr_map (R\u2082 \u22d9 R) (\u03c4.naturality (adj.counit.app (R\u2081.obj X)))",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "congr_map R (adj\u2082.unit_naturality (adj.counit.app (R\u2081.obj X)))",
+        "children": []
+      }
+    ]
+  }
+]

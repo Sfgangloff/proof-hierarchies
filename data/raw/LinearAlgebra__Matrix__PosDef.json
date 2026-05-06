@@ -1,0 +1,100 @@
+[
+  {
+    "module": "PosDef",
+    "name": "conjTranspose_mul_mul_same",
+    "statement": "Matrix n n R} (hA : PosSemidef A) (B : Matrix n m R) : PosSemidef (B\u1d34 * A * B)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite m",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PosDef",
+    "name": "posSemidef_conjTranspose_mul_self",
+    "statement": "Matrix m n R) : PosSemidef (A\u1d34 * A)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PosDef",
+    "name": "IsUnit.posSemidef_star_left_conjugate_iff",
+    "statement": "IsUnit U) : PosSemidef (star U * x * U) \u2194 x.PosSemidef",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.conjTranspose_mul_mul_same ((U\u207b\u00b9 : (Matrix n n R)\u02e3) : Matrix n n R)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PosDef",
+    "name": "conjTranspose_mul_mul_same",
+    "statement": "Matrix n n R} {B : Matrix n m R} (hA : A.PosDef) (hB : Function.Injective B.mulVec) : (B\u1d34 * A * B).PosDef",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "B *\u1d65 x \u2260 0",
+        "body": "fun h => hx <| hB.eq_iff' (mulVec_zero _) |>.1 h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PosDef",
+    "name": "inv",
+    "statement": "Matrix n n K} (hM : M.PosDef) : M\u207b\u00b9.PosDef",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hM.mul_mul_conjTranspose_same (B := M\u207b\u00b9) ?_",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PosDef",
+    "name": "_root_.Matrix.IsUnit.posDef_star_left_conjugate_iff",
+    "statement": "IsUnit U) : PosDef (star U * x * U) \u2194 x.PosDef",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.conjTranspose_mul_mul_same (mulVec_injective_of_isUnit (Units.isUnit U\u207b\u00b9))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PosDef",
+    "name": "fromBlocks\u2081\u2081",
+    "statement": "Matrix m m R'} (B : Matrix m n R') (D : Matrix n n R') (hA : A.PosDef) [Invertible A] : (fromBlocks A B B\u1d34 D).PosSemidef \u2194 (D - B\u1d34 * A\u207b\u00b9 * B).PosSemidef",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite n",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "h.2 (-((A\u207b\u00b9 * B) *\u1d65 x) \u2295\u1d65 x)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,183 @@
+[
+  {
+    "module": "FiniteDimension",
+    "name": "unique_topology_of_t2",
+    "statement": "TopologicalSpace \ud835\udd5c} (h\u2081 : @IsTopologicalAddGroup \ud835\udd5c t _) (h\u2082 : @ContinuousSMul \ud835\udd5c \ud835\udd5c _ hnorm.toUniformSpace.toTopologicalSpace t) (h\u2083 : @T2Space \ud835\udd5c t) : t = hnorm.toUniformSpace.toTopologicalSpace",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "{\u03be\u2080}\u1d9c \u2208 @nhds \ud835\udd5c t 0",
+        "body": "IsOpen.mem_nhds isOpen_compl_singleton <|",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "balancedCore \ud835\udd5c {\u03be\u2080}\u1d9c \u2208 @nhds \ud835\udd5c t 0",
+        "body": "balancedCore_mem_nhds_zero this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "LinearMap.continuous_of_isClosed_ker",
+    "statement": "E \u2192\u2097[\ud835\udd5c] \ud835\udd5c) (hl : IsClosed (LinearMap.ker l : Set E)) : Continuous l",
+    "have_tree": [
+      {
+        "name": "hi",
+        "type": "Function.Injective ((LinearMap.ker l).liftQ l (le_refl _))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hs",
+        "type": "Function.Surjective ((LinearMap.ker l).liftQ l (le_refl _))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "continuous_equivFun_basis_aux",
+    "statement": "Type v} [Finite \u03b9] (\u03be : Basis \u03b9 \ud835\udd5c E) : Continuous \u03be.equivFun",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": [
+          {
+            "name": "U",
+            "type": "IsUniformEmbedding b.equivFun.symm.toEquiv",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "Continuous b.equivFun",
+                "body": "IH b inferInstance this",
+                "children": [
+                  {
+                    "name": "Z",
+                    "type": "",
+                    "body": "f.finrank_range_add_finrank_ker",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "isModuleTopologyOfFiniteDimensional",
+    "statement": "IsModuleTopology \ud835\udd5c E",
+    "have_tree": [
+      {
+        "name": "continuousEquiv",
+        "type": "E \u2243L[\ud835\udd5c] (Basis.ofVectorSpaceIndex \ud835\udd5c E) \u2192 \ud835\udd5c",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "FiniteDimensional.complete",
+    "statement": "CompleteSpace E",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsUniformEmbedding e.toEquiv.symm",
+        "body": "e.symm.isUniformEmbedding",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "LocallyCompactSpace.of_finiteDimensional_of_complete",
+    "statement": "Type*) [NontriviallyNormedField K] [CompleteSpace K] [LocallyCompactSpace K] [AddCommGroup V] [TopologicalSpace V] [IsTopologicalAddGroup V] [Module K V] [ContinuousSMul K V] [FiniteDimensional K V] : LocallyCompactSpace V",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "FiniteDimensional.fintypeBasisIndex b",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "FiniteDimensional.of_totallyBounded_nhds_zero",
+    "statement": "Set E} (hU_nhds : U \u2208 \ud835\udcdd (0 : E)) (hU_tb : TotallyBounded U) : FiniteDimensional \ud835\udd5c E",
+    "have_tree": [
+      {
+        "name": "hc_ne",
+        "type": "c \u2260 0",
+        "body": "norm_pos_iff.mp hc0",
+        "children": []
+      },
+      {
+        "name": "h_cover",
+        "type": "U \u2286 M + c \u2022 U",
+        "body": "fun x hx \u21a6 by",
+        "children": []
+      },
+      {
+        "name": "h_small",
+        "type": "Tendsto (fun n \u21a6 c ^ n \u2022 U) atTop (\ud835\udcdd 0).smallSets",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hU_sub_M",
+        "type": "U \u2286 M",
+        "body": "by",
+        "children": [
+          {
+            "name": "hu_tendsto",
+            "type": "Tendsto u atTop (\ud835\udcdd 0)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hm_tendsto",
+            "type": "Tendsto m atTop (\ud835\udcdd x)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "HasCompactSupport.eq_zero_or_finiteDimensional",
+    "statement": "Type*} [TopologicalSpace X] [Zero X] [T1Space X] {f : E \u2192 X} (hf : HasCompactSupport f) (h'f : Continuous f) : f = 0 \u2228 FiniteDimensional \ud835\udd5c E",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "LocallyCompactSpace E",
+        "body": "h; .of_locallyCompactSpace \ud835\udd5c",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "HasCompactMulSupport.eq_one_or_finiteDimensional",
+    "statement": "Type*} [TopologicalSpace X] [One X] [T1Space X] {f : E \u2192 X} (hf : HasCompactMulSupport f) (h'f : Continuous f) : f = 1 \u2228 FiniteDimensional \ud835\udd5c E",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "T1Space (Additive X)",
+        "body": "\u2039_\u203a",
+        "children": []
+      }
+    ]
+  }
+]

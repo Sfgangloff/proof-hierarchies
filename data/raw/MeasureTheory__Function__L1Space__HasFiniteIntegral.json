@@ -1,0 +1,47 @@
+[
+  {
+    "module": "HasFiniteIntegral",
+    "name": "HasFiniteIntegral.of_mem_Icc_of_ne_top",
+    "statement": "\u211d\u22650\u221e} (ha : a \u2260 \u22a4) (hb : b \u2260 \u22a4) {X : \u03b1 \u2192 \u211d\u22650\u221e} (h : \u2200\u1d50 \u03c9 \u2202\u03bc, X \u03c9 \u2208 Set.Icc a b) : HasFiniteIntegral X \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2016max \u2016a\u2016\u2091 \u2016b\u2016\u2091\u2016\u2091 \u2260 \u22a4",
+        "body": "by simp [ha, hb]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HasFiniteIntegral",
+    "name": "ae_norm_ofReal_f_le_bound",
+    "statement": "\u2200 n, \u2200\u1d50 a \u2202\u03bc, \u2016F n a\u2016 \u2264 bound a) (h_lim : \u2200\u1d50 a \u2202\u03bc, Tendsto (fun n => F n a) atTop (\ud835\udcdd (f a))) : \u2200\u1d50 a \u2202\u03bc, ENNReal.ofReal \u2016f a\u2016 \u2264 ENNReal.ofReal (bound a)",
+    "have_tree": [
+      {
+        "name": "F_le_bound",
+        "type": "",
+        "body": "all_ae_norm_ofReal_F_le_bound h_bound",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HasFiniteIntegral",
+    "name": "tendsto_lintegral_norm_of_dominated_convergence",
+    "statement": "\u2200 n, AEStronglyMeasurable (F n) \u03bc) (bound_hasFiniteIntegral : HasFiniteIntegral bound \u03bc) (h_bound : \u2200 n, \u2200\u1d50 a \u2202\u03bc, \u2016F n a\u2016 \u2264 bound a) (h_lim : \u2200\u1d50 a \u2202\u03bc, Tendsto (fun n => F n a) atTop (\ud835\udcdd (f a))) : Tendsto (fun n => \u222b\u207b a, ENNReal.ofReal \u2016F n a - f a\u2016 \u2202\u03bc) atTop (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "f_measurable",
+        "type": "AEStronglyMeasurable f \u03bc",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hb",
+        "type": "\u2200 n, \u2200\u1d50 a \u2202\u03bc, ENNReal.ofReal \u2016F n a - f a\u2016 \u2264 b a",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

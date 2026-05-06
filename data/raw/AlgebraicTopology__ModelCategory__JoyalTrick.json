@@ -1,0 +1,64 @@
+[
+  {
+    "module": "JoyalTrick",
+    "name": "hasLiftingProperty_of_joyalTrick",
+    "statement": "\u2200 {A B X Y : C} (i : A \u27f6 B) (p : X \u27f6 Y) [Cofibration i] [WeakEquivalence i] [Fibration p], HasLiftingProperty i p) {A B X Y : C} (i : A \u27f6 B) (p : X \u27f6 Y) [Cofibration i] [Fibration p] [WeakEquivalence p] : HasLiftingProperty i p where sq_hasLift {f g} sq",
+    "have_tree": [
+      {
+        "name": "sq'",
+        "type": "CommSq (\ud835\udfd9 X) (pushout.inl _ _ \u226b h.i) p h.p",
+        "body": ".mk",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "WeakEquivalence ((pushout.inl f i \u226b h.i) \u226b h.p)",
+        "body": "by simpa",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "comp_mem _ _ _ ((cofibrations C).of_isPushout",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "WeakEquivalence (pushout.inl f i \u226b h.i)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "JoyalTrick",
+    "name": "hasLiftingProperty_of_joyalTrickDual",
+    "statement": "\u2200 {A B X Y : C} (i : A \u27f6 B) (p : X \u27f6 Y) [Cofibration i] [WeakEquivalence p] [Fibration p], HasLiftingProperty i p) {A B X Y : C} (i : A \u27f6 B) (p : X \u27f6 Y) [Cofibration i] [Fibration p] [WeakEquivalence i] : HasLiftingProperty i p where sq_hasLift {f g} sq",
+    "have_tree": [
+      {
+        "name": "sq'",
+        "type": "CommSq h.i i (h.p \u226b pullback.snd _ _) (\ud835\udfd9 B)",
+        "body": ".mk",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "WeakEquivalence (h.i \u226b h.p \u226b pullback.snd p g)",
+        "body": "by simpa",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "comp_mem _ _ _ h.hp ((fibrations C).of_isPullback",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "WeakEquivalence (h.p \u226b pullback.snd p g)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

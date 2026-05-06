@@ -1,0 +1,54 @@
+[
+  {
+    "module": "PoissonSummation",
+    "name": "Real.fourierCoeff_tsum_comp_add",
+    "statement": "C(\u211d, \u2102)} (hf : \u2200 K : Compacts \u211d, Summable fun n : \u2124 => \u2016(f.comp (ContinuousMap.addRight n)).restrict K\u2016) (m : \u2124) : fourierCoeff (Periodic.lift <| f.periodic_tsum_comp_add_zsmul 1) m = \ud835\udcd5 (f : \u211d \u2192 \u2102) m",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Periodic e 1",
+        "body": "Periodic.comp (fun x => AddCircle.coe_add_period 1 x) (fourier (-m))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PoissonSummation",
+    "name": "Real.tsum_eq_tsum_fourier",
+    "statement": "C(\u211d, \u2102)} (h_norm : \u2200 K : Compacts \u211d, Summable fun n : \u2124 => \u2016(f.comp <| ContinuousMap.addRight n).restrict K\u2016) (h_sum : Summable fun n : \u2124 => \ud835\udcd5 (f : \u211d \u2192 \u2102) n) (x : \u211d) : \u2211' n : \u2124, f (x + n) = \u2211' n : \u2124, \ud835\udcd5 (f : \u211d \u2192 \u2102) n * fourier n (x : UnitAddCircle)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Summable (fourierCoeff F)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PoissonSummation",
+    "name": "isBigO_norm_Icc_restrict_atTop",
+    "statement": "C(\u211d, E)} {b : \u211d} (hb : 0 < b) (hf : f =O[atTop] fun x : \u211d => |x| ^ (-b)) (R S : \u211d) : (fun x : \u211d => \u2016f.restrict (Icc (x + R) (x + S))\u2016) =O[atTop] fun x : \u211d => |x| ^ (-b)",
+    "have_tree": [
+      {
+        "name": "hx'",
+        "type": "max 0 (-2 * R) < x",
+        "body": "by linarith",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PoissonSummation",
+    "name": "isBigO_norm_Icc_restrict_atBot",
+    "statement": "C(\u211d, E)} {b : \u211d} (hb : 0 < b) (hf : f =O[atBot] fun x : \u211d => |x| ^ (-b)) (R S : \u211d) : (fun x : \u211d => \u2016f.restrict (Icc (x + R) (x + S))\u2016) =O[atBot] fun x : \u211d => |x| ^ (-b)",
+    "have_tree": [
+      {
+        "name": "h2",
+        "type": "",
+        "body": "(isBigO_norm_Icc_restrict_atTop hb h1 (-S) (-R)).comp_tendsto tendsto_neg_atBot_atTop",
+        "children": []
+      }
+    ]
+  }
+]

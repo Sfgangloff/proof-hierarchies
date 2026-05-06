@@ -1,0 +1,46 @@
+[
+  {
+    "module": "Integral",
+    "name": "IsAlgebraic.adjoin_of_forall_isAlgebraic",
+    "statement": "Set S} (alg : \u2200 x \u2208 s \\ t, IsAlgebraic (adjoin R t) x) {a : A} (ha : IsAlgebraic (adjoin R s) a) : IsAlgebraic (adjoin R t) a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsScalarTower Rs Rts A",
+        "body": ".of_algebraMap_eq fun \u27e8a, _\u27e9 \u21a6 rfl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.IsAlgebraic Rt Rts",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "ha.nontrivial",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "Subtype.val_injective (p := (\u00b7 \u2208 Rs)).nontrivial",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "(isDomain_iff_noZeroDivisors_and_nontrivial Rt).mpr \u27e8inferInstance, inferInstance\u27e9",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "IsAlgebraic Rts a",
+        "body": "ha.extendScalars (by apply Subalgebra.inclusion_injective)",
+        "children": []
+      }
+    ]
+  }
+]

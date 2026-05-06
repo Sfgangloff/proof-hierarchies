@@ -1,0 +1,149 @@
+[
+  {
+    "original": {
+      "module": "Lemmas",
+      "name": "le_limsup_mul",
+      "statement": "\u2203\u1da0 x in f, 0 \u2264 u x) (hv : 0 \u2264\u1da0[f] v) : limsup u f * liminf v f \u2264 limsup (u * v) f",
+      "have_tree": [
+        {
+          "name": "u0",
+          "type": "0 \u2264 limsup u f",
+          "body": "le_limsup_of_frequently_le hu",
+          "children": []
+        },
+        {
+          "name": "uv0",
+          "type": "0 \u2264 limsup (u * v) f",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Lemmas",
+          "name": "le_limsup_mul",
+          "statement": "\u2203\u1da0 x in f, 0 \u2264 u x) (hv : 0 \u2264\u1da0[f] v) : limsup u f * liminf v f \u2264 limsup (u * v) f",
+          "have_tree": [
+            {
+              "name": "uv0",
+              "type": "0 \u2264 limsup (u * v) f",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "u0",
+              "type": "0 \u2264 limsup u f",
+              "body": "le_limsup_of_frequently_le hu",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Lemmas",
+      "name": "continuousAt_mul_top_pos",
+      "statement": "\u211d} (h : 0 < a) : ContinuousAt (fun p : EReal \u00d7 EReal \u21a6 p.1 * p.2) (\u22a4, a)",
+      "have_tree": [
+        {
+          "name": "p1_pos",
+          "type": "0 < p.1",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "lock",
+          "type": "",
+          "body": "mul_le_mul_of_nonneg_right (le_of_lt p1_gt) (le_of_lt a2_pos)",
+          "children": []
+        },
+        {
+          "name": "key",
+          "type": "",
+          "body": "mul_le_mul_of_nonneg_left (le_of_lt p2_gt) (le_of_lt p1_pos)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Lemmas",
+          "name": "continuousAt_mul_top_pos",
+          "statement": "\u211d} (h : 0 < a) : ContinuousAt (fun p : EReal \u00d7 EReal \u21a6 p.1 * p.2) (\u22a4, a)",
+          "have_tree": [
+            {
+              "name": "lock",
+              "type": "",
+              "body": "mul_le_mul_of_nonneg_right (le_of_lt p1_gt) (le_of_lt a2_pos)",
+              "children": []
+            },
+            {
+              "name": "p1_pos",
+              "type": "0 < p.1",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "key",
+              "type": "",
+              "body": "mul_le_mul_of_nonneg_left (le_of_lt p2_gt) (le_of_lt p1_pos)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Lemmas",
+          "name": "continuousAt_mul_top_pos",
+          "statement": "\u211d} (h : 0 < a) : ContinuousAt (fun p : EReal \u00d7 EReal \u21a6 p.1 * p.2) (\u22a4, a)",
+          "have_tree": [
+            {
+              "name": "p1_pos",
+              "type": "0 < p.1",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "key",
+              "type": "",
+              "body": "mul_le_mul_of_nonneg_left (le_of_lt p2_gt) (le_of_lt p1_pos)",
+              "children": []
+            },
+            {
+              "name": "lock",
+              "type": "",
+              "body": "mul_le_mul_of_nonneg_right (le_of_lt p1_gt) (le_of_lt a2_pos)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "module": "AbsNorm",
+    "name": "Ideal.mul_add_mem_pow_succ_inj",
+    "statement": "Ideal S) {i : \u2115} (a d d' e e' : S) (a_mem : a \u2208 P ^ i) (e_mem : e \u2208 P ^ (i + 1)) (e'_mem : e' \u2208 P ^ (i + 1)) (h : d - d' \u2208 P) : a * d + e - (a * d' + e') \u2208 P ^ (i + 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "a * d - a * d' \u2208 P ^ (i + 1)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AbsNorm",
+    "name": "Ideal.mul_add_mem_pow_succ_unique",
+    "statement": "P \u2260 \u22a5) {i : \u2115} (a d d' e e' : S) (a_notMem : a \u2209 P ^ (i + 1)) (e_mem : e \u2208 P ^ (i + 1)) (e'_mem : e' \u2208 P ^ (i + 1)) (h : a * d + e - (a * d' + e') \u2208 P ^ (i + 1)) : d - d' \u2208 P",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "a * (d - d') \u2208 P ^ (i + 1)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AbsNorm",
+    "name": "cardQuot_pow_of_prime",
+    "statement": "P \u2260 \u22a5) {i : \u2115} : cardQuot (P ^ i) = cardQuot P ^ i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "P ^ (i + 1) < P ^ i",
+        "body": "Ideal.pow_succ_lt_pow hP i",
+        "children": [
+          {
+            "name": "hd'",
+            "type": "",
+            "body": "(mem_map (f := mkQ (P ^ i.succ))).mpr \u27e8a * d, Ideal.mul_mem_right d _ a_mem, rfl\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "AbsNorm",
+    "name": "cardQuot_mul",
+    "statement": "Ideal S) : cardQuot (I * J) = cardQuot I * cardQuot J",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Ideal.IsPrime I",
+        "body": "Ideal.isPrime_of_prime hI",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AbsNorm",
+    "name": "Ideal.absNorm",
+    "statement": "Ideal S \u2192*\u2080 \u2115 where toFun",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Infinite S",
+        "body": "Module.Free.infinite \u2124 S",
+        "children": []
+      }
+    ]
+  }
+]

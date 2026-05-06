@@ -1,0 +1,299 @@
+[
+  {
+    "module": "Unique",
+    "name": "integral_isMulLeftInvariant_isMulRightInvariant_combo",
+    "statement": "Measure G} [IsFiniteMeasureOnCompacts \u03bc] [IsFiniteMeasureOnCompacts \u03bd] [IsMulLeftInvariant \u03bc] [IsMulRightInvariant \u03bd] [IsOpenPosMeasure \u03bd] {f g : G \u2192 \u211d} (hf : Continuous f) (h'f : HasCompactSupport f) (hg : Continuous g) (h'g : HasCompactSupport g) (g_nonneg : 0 \u2264 g) {x\u2080 : G} (g_pos : g x\u2080 \u2260 0) : \u222b x, f x \u2202\u03bc = (\u222b y, f y * (\u222b z, g (z\u207b\u00b9 * y) \u2202\u03bd)\u207b\u00b9 \u2202\u03bd) * \u222b x, g x \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "D_cont",
+        "type": "Continuous D",
+        "body": "continuous_integral_apply_inv_mul hg h'g",
+        "children": []
+      },
+      {
+        "name": "D_pos",
+        "type": "\u2200 x, 0 < D x",
+        "body": "by",
+        "children": [
+          {
+            "name": "C",
+            "type": "Continuous (fun y \u21a6 g (y\u207b\u00b9 * x))",
+            "body": "hg.comp (continuous_inv.mul continuous_const)",
+            "children": [
+              {
+                "name": "K_comp",
+                "type": "IsCompact K",
+                "body": "h'f",
+                "children": []
+              },
+              {
+                "name": "L_comp",
+                "type": "IsCompact L",
+                "body": "h'g",
+                "children": []
+              },
+              {
+                "name": "M_comp",
+                "type": "IsCompact M",
+                "body": "",
+                "children": []
+              },
+              {
+                "name": "M'_comp",
+                "type": "IsCompact (closure M)",
+                "body": "M_comp.closure",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "\u2200 (p : G \u00d7 G), p \u2209 K \u00d7\u02e2 closure M \u2192 f p.1 * (D p.1)\u207b\u00b9 * g (p.2\u207b\u00b9 * p.1) = 0",
+                "body": "by",
+                "children": [
+                  {
+                    "name": "_",
+                    "type": "g (y\u207b\u00b9 * x) = 0",
+                    "body": "by",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "K_comp",
+                "type": "IsCompact K",
+                "body": "h'f",
+                "children": []
+              },
+              {
+                "name": "L_comp",
+                "type": "IsCompact L",
+                "body": "h'g",
+                "children": []
+              },
+              {
+                "name": "M_comp",
+                "type": "IsCompact M",
+                "body": "",
+                "children": []
+              },
+              {
+                "name": "M'_comp",
+                "type": "IsCompact (closure M)",
+                "body": "M_comp.closure",
+                "children": [
+                  {
+                    "name": "_",
+                    "type": "f (y * x) = 0",
+                    "body": "by",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "measure_preimage_isMulLeftInvariant_eq_smul_of_hasCompactSupport",
+    "statement": "Measure G) [IsHaarMeasure \u03bc] [IsFiniteMeasureOnCompacts \u03bc'] [IsMulLeftInvariant \u03bc'] {f : G \u2192 \u211d} (hf : Continuous f) (h'f : HasCompactSupport f) : \u03bc' (f \u207b\u00b9' {1}) = haarScalarFactor \u03bc' \u03bc \u2022 \u03bc (f \u207b\u00b9' {1})",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Continuous ((v n) \u2218 f)",
+        "body": "by",
+        "children": [
+          {
+            "name": "T",
+            "type": "",
+            "body": "tendsto_pi_nhds.1 (thickenedIndicator_tendsto_indicator_closure",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u222b (x : G), v n (f x) \u2202\u03bc' = \u222b (x : G), v n (f x) \u2202(haarScalarFactor \u03bc' \u03bc \u2022 \u03bc)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "I1",
+        "type": "",
+        "body": "I \u03bc' (by infer_instance)",
+        "children": [
+          {
+            "name": "mf",
+            "type": "MeasurableSet (f \u207b\u00b9' {1})",
+            "body": "(isClosed_singleton.preimage hf).measurableSet",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "C",
+        "type": "IsCompact (f \u207b\u00b9' {1})",
+        "body": "h'f.isCompact_preimage hf isClosed_singleton (by simp)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "measure_isHaarMeasure_eq_smul_of_isEverywherePos",
+    "statement": "Measure G) [IsHaarMeasure \u03bc] [IsHaarMeasure \u03bc'] {s : Set G} (hs : MeasurableSet s) (h's : IsEverywherePos \u03bc s) : \u03bc' s = haarScalarFactor \u03bc' \u03bc \u2022 \u03bc s",
+    "have_tree": [
+      {
+        "name": "one_k",
+        "type": "1 \u2208 k",
+        "body": "mem_of_mem_nhds k_mem",
+        "children": []
+      },
+      {
+        "name": "sm",
+        "type": "s \u2286 \u22c3 x \u2208 m, x \u2022 (k * k\u207b\u00b9)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "y \u2208 y \u2022 (k * k\u207b\u00b9)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "y \u2208 x \u2022 (k * k\u207b\u00b9)",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "(x\u207b\u00b9 * z) * (y\u207b\u00b9 * z)\u207b\u00b9 \u2208 k * k\u207b\u00b9",
+                "body": "Set.mul_mem_mul ((mem_leftCoset_iff x).mp zx)",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "MeasurableSet (disjointed (fun n \u21a6 s \u2229 f n \u2022 (k * k\u207b\u00b9)) i)",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "IsClosed (k \u2022 k\u207b\u00b9)",
+                "body": "IsClosed.smul_left_of_isCompact k_closed.inv k_comp",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "s_eq",
+            "type": "s = \u22c3 n, s \u2229 (f n \u2022 (k * k\u207b\u00b9))",
+            "body": "by rwa [\u2190 inter_iUnion, eq_comm, inter_eq_left]",
+            "children": []
+          },
+          {
+            "name": "I",
+            "type": "\u03bc' s = \u2211' n, \u03bc' (disjointed (fun n \u21a6 s \u2229 f n \u2022 (k * k\u207b\u00b9)) n)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "J",
+            "type": "\u03bd s = \u2211' n, \u03bd (disjointed (fun n \u21a6 s \u2229 f n \u2022 (k * k\u207b\u00b9)) n)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "IsCompact (f n \u2022 (k * k\u207b\u00b9))",
+            "body": "IsCompact.smul (f n) (k_comp.mul k_comp.inv)",
+            "children": [
+              {
+                "name": "M",
+                "type": "\u2200 (i : \u2191m), MeasurableSet (s \u2229 (i : G) \u2022 k)",
+                "body": "",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "\u2211' (x : m), \u03c1 (s \u2229 ((x : G) \u2022 k)) < \u221e",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "C",
+                "type": "Set.Countable (support fun (i : m) \u21a6 \u03c1 (s \u2229 (i : G) \u2022 k))",
+                "body": "",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "support (fun (i : m) \u21a6 \u03c1 (s \u2229 (i : G) \u2022 k)) = univ",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "Countable m",
+                "body": "countable_univ_iff.mp C",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "H\u03bd",
+            "type": "IsEverywherePos \u03bd s",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "H\u03bc'",
+            "type": "IsEverywherePos \u03bc' s",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "measure_isMulLeftInvariant_eq_smul_of_ne_top",
+    "statement": "Measure G) [IsHaarMeasure \u03bc] [IsFiniteMeasureOnCompacts \u03bc'] [IsMulLeftInvariant \u03bc'] [InnerRegularCompactLTTop \u03bc] [InnerRegularCompactLTTop \u03bc'] {s : Set G} (hs : \u03bc s \u2260 \u221e) (h's : \u03bc' s \u2260 \u221e) : \u03bc' s = haarScalarFactor \u03bc' \u03bc \u2022 \u03bc s",
+    "have_tree": [
+      {
+        "name": "B",
+        "type": "\u2200 s, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 \u03bc' s < \u221e \u2192 \u03bc' s = (c \u2022 \u03bc) s",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(c \u2022 \u03bc) s \u2260 \u221e",
+            "body": "by simp [ENNReal.mul_eq_top, hs.ne]",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "st",
+        "type": "s \u2286 t",
+        "body": "subset_inter (subset_toMeasurable \u03bc' s) (subset_toMeasurable \u03bc s)",
+        "children": []
+      },
+      {
+        "name": "mu'_t",
+        "type": "\u03bc' t = \u03bc' s",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "mu_t",
+        "type": "\u03bc t = \u03bc s",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

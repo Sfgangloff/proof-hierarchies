@@ -1,0 +1,59 @@
+[
+  {
+    "module": "SmallTripling",
+    "name": "inductive_claim_mul",
+    "statement": "3 \u2264 m) (h : \u2200 \u03b5 : Fin 3 \u2192 \u2124, (\u2200 i, |\u03b5 i| = 1) \u2192 #((finRange 3).map fun i \u21a6 A ^ \u03b5 i).prod \u2264 k * #A) (\u03b5 : Fin m \u2192 \u2124) (h\u03b5 : \u2200 i, |\u03b5 i| = 1) : #((finRange m).map fun i \u21a6 A ^ \u03b5 i).prod \u2264 k ^ (m - 2) * #A",
+    "have_tree": [
+      {
+        "name": "hm\u2080",
+        "type": "m \u2260 0",
+        "body": "by simp at hm; positivity",
+        "children": []
+      },
+      {
+        "name": "hk",
+        "type": "0 \u2264 k",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SmallTripling",
+    "name": "small_neg_pos_pos_mul",
+    "statement": "#(A ^ 3) \u2264 K * #A) : #(A\u207b\u00b9 * A * A) \u2264 K ^ 2 * #A",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 \u2264 K",
+        "body": "nonneg_of_mul_nonneg_left (hA.trans' <| by positivity) (by positivity)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SmallTripling",
+    "name": "small_alternating_pow_of_small_tripling",
+    "statement": "3 \u2264 m) (hA : #(A ^ 3) \u2264 K * #A) (\u03b5 : Fin m \u2192 \u2124) (h\u03b5 : \u2200 i, |\u03b5 i| = 1) : #((finRange m).map fun i \u21a6 A ^ \u03b5 i).prod \u2264 K ^ (3 * (m - 2)) * #A",
+    "have_tree": [
+      {
+        "name": "hm\u2080",
+        "type": "m \u2260 0",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "hK\u2081",
+        "type": "1 \u2264 K",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "K ^ 2 \u2264 K ^ 3",
+        "body": "by gcongr; simp",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,164 @@
+[
+  {
+    "module": "Defs",
+    "name": "HasFTaylorSeriesUpToOn.analyticOn",
+    "statement": "HasFTaylorSeriesUpToOn \u03c9 f p s) (h : AnalyticOn \ud835\udd5c (fun x \u21a6 p x 0) s) : AnalyticOn \ud835\udd5c f s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "AnalyticOn \ud835\udd5c (fun x \u21a6 (continuousMultilinearCurryFin0 \ud835\udd5c E F) (p x 0)) s",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "ContDiffWithinAt.analyticWithinAt",
+    "statement": "ContDiffWithinAt \ud835\udd5c \u03c9 f s x) : AnalyticWithinAt \ud835\udd5c f s x",
+    "have_tree": [
+      {
+        "name": "xu",
+        "type": "x \u2208 u",
+        "body": "mem_of_mem_nhdsWithin (by simp) hu",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "ContDiffWithinAt.continuousWithinAt",
+    "statement": "ContDiffWithinAt \ud835\udd5c n f s x) : ContinuousWithinAt f s x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.of_le (zero_le _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "contDiffWithinAt_succ_iff_hasFDerivWithinAt",
+    "statement": "n \u2260 \u221e) : ContDiffWithinAt \ud835\udd5c (n + 1) f s x \u2194 \u2203 u \u2208 \ud835\udcdd[insert x s] x, (n = \u03c9 \u2192 AnalyticOn \ud835\udd5c f u) \u2227 \u2203 f' : E \u2192 E \u2192L[\ud835\udd5c] F, (\u2200 x \u2208 u, HasFDerivWithinAt f (f' x) u x) \u2227 ContDiffWithinAt \ud835\udd5c n f' u x",
+    "have_tree": [
+      {
+        "name": "h'n",
+        "type": "n + 1 \u2260 \u221e",
+        "body": "by simpa using hn",
+        "children": [
+          {
+            "name": "_",
+            "type": "x \u2208 insert x s",
+            "body": "by simp",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "contDiffWithinAt_iff_contDiffOn_nhds",
+    "statement": "n \u2260 \u221e) : ContDiffWithinAt \ud835\udd5c n f s x \u2194 \u2203 u \u2208 \ud835\udcdd[insert x s] x, ContDiffOn \ud835\udd5c n f u",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x \u2208 u",
+        "body": "mem_of_mem_nhdsWithin (mem_insert x s) u_mem",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "contDiffOn_succ_iff_hasFDerivWithinAt",
+    "statement": "n \u2260 \u221e) : ContDiffOn \ud835\udd5c (n + 1) f s \u2194 \u2200 x \u2208 s, \u2203 u \u2208 \ud835\udcdd[insert x s] x, (n = \u03c9 \u2192 AnalyticOn \ud835\udd5c f u) \u2227 \u2203 f' : E \u2192 E \u2192L[\ud835\udd5c] F, (\u2200 x \u2208 u, HasFDerivWithinAt f (f' x) u x) \u2227 ContDiffOn \ud835\udd5c n f' u",
+    "have_tree": [
+      {
+        "name": "xu",
+        "type": "x \u2208 u",
+        "body": "mem_of_mem_nhdsWithin hx hu",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "x \u2208 u",
+        "body": "mem_of_mem_nhdsWithin (mem_insert _ _) u_nhbd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "contDiffWithinAt_zero",
+    "statement": "x \u2208 s) : ContDiffWithinAt \ud835\udd5c 0 f s x \u2194 \u2203 u \u2208 \ud835\udcdd[s] x, ContinuousOn f (s \u2229 u)",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "x \u2208 s \u2229 u",
+        "body": "\u27e8hx, mem_of_mem_nhdsWithin hx H\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "ContDiffWithinAt.eventually_hasFTaylorSeriesUpToOn",
+    "statement": "E \u2192 F} {s : Set E} {a : E} (h : ContDiffWithinAt \ud835\udd5c n f s a) (hs : UniqueDiffOn \ud835\udd5c s) (ha : a \u2208 s) {m : \u2115} (hm : m \u2264 n) : \u2200\u1da0 t in (\ud835\udcdd[s] a).smallSets, HasFTaylorSeriesUpToOn m f (ftaylorSeriesWithin \ud835\udd5c f s) t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200\u1da0 t in (\ud835\udcdd[s] a).smallSets, t \u2286 s \u2229 U",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "ContDiffWithinAt.differentiableWithinAt_iteratedFDerivWithin",
+    "statement": "\u2115} (h : ContDiffWithinAt \ud835\udd5c n f s x) (hmn : m < n) (hs : UniqueDiffOn \ud835\udd5c (insert x s)) : DifferentiableWithinAt \ud835\udd5c (iteratedFDerivWithin \ud835\udd5c m f s) s x",
+    "have_tree": [
+      {
+        "name": "C",
+        "type": "DifferentiableWithinAt \ud835\udd5c (iteratedFDerivWithin \ud835\udd5c m f t) t x",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "contDiffOn_succ_iff_fderivWithin",
+    "statement": "UniqueDiffOn \ud835\udd5c s) : ContDiffOn \ud835\udd5c (n + 1) f s \u2194 DifferentiableOn \ud835\udd5c f s \u2227 (n = \u03c9 \u2192 AnalyticOn \ud835\udd5c f s) \u2227 ContDiffOn \ud835\udd5c n (fderivWithin \ud835\udd5c f s) s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf'.mono ho",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "o \u2229 s \u2208 \ud835\udcdd[s] x",
+        "body": "mem_nhdsWithin.2 \u27e8o, o_open, xo, Subset.refl _\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "ContDiff.analyticOnNhd",
+    "statement": "ContDiff \ud835\udd5c \u03c9 f) : AnalyticOnNhd \ud835\udd5c f s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.analyticOn",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,144 @@
+[
+  {
+    "module": "AEEqOfIntegral",
+    "name": "ae_eq_zero_of_forall_inner",
+    "statement": "\u03b1 \u2192 E} (hf : \u2200 c : E, (fun x => \u27eac, f x\u27eb_\ud835\udd5c) =\u1d50[\u03bc] 0) : f =\u1d50[\u03bc] 0",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "DenseRange s",
+        "body": "denseRange_denseSeq E",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AEEqOfIntegral",
+    "name": "ae_eq_zero_of_forall_dual_of_isSeparable",
+    "statement": "Set E} (ht : TopologicalSpace.IsSeparable t) {f : \u03b1 \u2192 E} (hf : \u2200 c : StrongDual \ud835\udd5c E, (fun x => \u27eaf x, c\u27eb) =\u1d50[\u03bc] 0) (h't : \u2200\u1d50 x \u2202\u03bc, f x \u2208 t) : f =\u1d50[\u03bc] 0",
+    "have_tree": [
+      {
+        "name": "a_pos",
+        "type": "0 < \u2016a\u2016",
+        "body": "by simp only [ha, norm_pos_iff, Ne, not_false_iff]",
+        "children": []
+      },
+      {
+        "name": "a_mem",
+        "type": "a \u2208 closure d",
+        "body": "hd hat",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2016a - x\u2016 < \u2016a\u2016 / 2",
+            "body": "by rwa [dist_eq_norm] at hx",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "AEEqOfIntegral",
+    "name": "ae_nonneg_of_forall_setIntegral_nonneg",
+    "statement": "Integrable f \u03bc) (hf_zero : \u2200 s, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 0 \u2264 \u222b x in s, f x \u2202\u03bc) : 0 \u2264\u1d50[\u03bc] f",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "NullMeasurableSet s \u03bc",
+        "body": "nullMeasurableSet_le hf.1.aemeasurable aemeasurable_const",
+        "children": []
+      },
+      {
+        "name": "mus",
+        "type": "\u03bc s < \u221e",
+        "body": "Integrable.measure_le_lt_top hf hb_neg",
+        "children": []
+      },
+      {
+        "name": "h_int_gt",
+        "type": "(\u222b x in s, f x \u2202\u03bc) \u2264 b * \u03bc.real s",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_const_le",
+            "type": "(\u222b x in s, f x \u2202\u03bc) \u2264 \u222b _ in s, b \u2202\u03bc",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "AEEqOfIntegral",
+    "name": "ae_eq_restrict_of_forall_setIntegral_eq",
+    "statement": "\u03b1 \u2192 E} (hf_int_finite : \u2200 s, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 IntegrableOn f s \u03bc) (hg_int_finite : \u2200 s, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 IntegrableOn g s \u03bc) (hfg_zero : \u2200 s : Set \u03b1, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 \u222b x in s, f x \u2202\u03bc = \u222b x in s, g x \u2202\u03bc) {t : Set \u03b1} (ht : MeasurableSet t) (h\u03bct : \u03bc t \u2260 \u221e) : f =\u1d50[\u03bc.restrict t] g",
+    "have_tree": [
+      {
+        "name": "hfg_int",
+        "type": "\u2200 s, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 IntegrableOn (f - g) s \u03bc",
+        "body": "fun s hs h\u03bcs =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AEEqOfIntegral",
+    "name": "ae_eq_zero_of_forall_setIntegral_eq_of_sigmaFinite",
+    "statement": "\u03b1 \u2192 E} (hf_int_finite : \u2200 s, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 IntegrableOn f s \u03bc) (hf_zero : \u2200 s : Set \u03b1, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 \u222b x in s, f x \u2202\u03bc = 0) : f =\u1d50[\u03bc] 0",
+    "have_tree": [
+      {
+        "name": "h_meas_n",
+        "type": "MeasurableSet (S n)",
+        "body": "measurableSet_spanningSets \u03bc n",
+        "children": []
+      },
+      {
+        "name": "h\u03bcn",
+        "type": "\u03bc (S n) < \u221e",
+        "body": "measure_spanningSets_lt_top \u03bc n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AEEqOfIntegral",
+    "name": "ae_eq_of_forall_setIntegral_eq_of_sigmaFinite",
+    "statement": "\u03b1 \u2192 E} (hf_int_finite : \u2200 s, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 IntegrableOn f s \u03bc) (hg_int_finite : \u2200 s, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 IntegrableOn g s \u03bc) (hfg_eq : \u2200 s : Set \u03b1, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 \u222b x in s, f x \u2202\u03bc = \u222b x in s, g x \u2202\u03bc) : f =\u1d50[\u03bc] g",
+    "have_tree": [
+      {
+        "name": "hfg_int",
+        "type": "\u2200 s, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 IntegrableOn (f - g) s \u03bc",
+        "body": "fun s hs h\u03bcs =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AEEqOfIntegral",
+    "name": "AEFinStronglyMeasurable.ae_eq_of_forall_setIntegral_eq",
+    "statement": "\u03b1 \u2192 E} (hf_int_finite : \u2200 s, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 IntegrableOn f s \u03bc) (hg_int_finite : \u2200 s, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 IntegrableOn g s \u03bc) (hfg_eq : \u2200 s : Set \u03b1, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 \u222b x in s, f x \u2202\u03bc = \u222b x in s, g x \u2202\u03bc) (hf : AEFinStronglyMeasurable f \u03bc) (hg : AEFinStronglyMeasurable g \u03bc) : f =\u1d50[\u03bc] g",
+    "have_tree": [
+      {
+        "name": "hfg_int",
+        "type": "\u2200 s, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 IntegrableOn (f - g) s \u03bc",
+        "body": "fun s hs h\u03bcs =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AEEqOfIntegral",
+    "name": "ae_eq_zero_of_forall_setIntegral_eq_of_finStronglyMeasurable_trim",
+    "statement": "m \u2264 m0) {f : \u03b1 \u2192 E} (hf_int_finite : \u2200 s, MeasurableSet[m] s \u2192 \u03bc s < \u221e \u2192 IntegrableOn f s \u03bc) (hf_zero : \u2200 s : Set \u03b1, MeasurableSet[m] s \u2192 \u03bc s < \u221e \u2192 \u222b x in s, f x \u2202\u03bc = 0) (hf : FinStronglyMeasurable f (\u03bc.trim hm)) : f =\u1d50[\u03bc] 0",
+    "have_tree": [
+      {
+        "name": "hf_meas_m",
+        "type": "StronglyMeasurable[m] f",
+        "body": "hf.stronglyMeasurable",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,201 @@
+[
+  {
+    "module": "PrimitiveRoots",
+    "name": "zpow_of_gcd_eq_one",
+    "statement": "IsPrimitiveRoot \u03b6 k) (i : \u2124) (hi : i.gcd k = 1) : IsPrimitiveRoot (\u03b6 ^ i) k",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 \u2264 -i",
+        "body": "(Int.neg_pos_of_neg <| Int.lt_of_not_ge h0).le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "neZero'",
+    "statement": "\u2115} [NeZero n] (h\u03b6 : IsPrimitiveRoot \u03b6 n) : NeZero ((n : \u2115) : R)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "p \u2260 0 \u2227 n \u2260 0",
+        "body": "by aesop",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero p",
+        "body": ".mk h.1",
+        "children": []
+      },
+      {
+        "name": "hp",
+        "type": "Fact p.Prime",
+        "body": "CharP.char_is_prime_of_pos R p",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "zmodEquivZPowers",
+    "statement": "IsPrimitiveRoot \u03b6 k) : ZMod k \u2243+ Additive (Subgroup.zpowers \u03b6)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(h.zpow_eq_one_iff_dvd _).mp hi",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "zpowers_eq",
+    "statement": "\u2115} [NeZero k] {\u03b6 : R\u02e3} (h : IsPrimitiveRoot \u03b6 k) : Subgroup.zpowers \u03b6 = rootsOfUnity k R",
+    "have_tree": [
+      {
+        "name": "F",
+        "type": "Fintype (Subgroup.zpowers \u03b6)",
+        "body": "Fintype.ofEquiv _ h.zmodEquivZPowers.toEquiv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "eq_pow_of_mem_rootsOfUnity",
+    "statement": "\u2115} [NeZero k] {\u03b6 \u03be : R\u02e3} (h : IsPrimitiveRoot \u03b6 k) (h\u03be : \u03be \u2208 rootsOfUnity k R) : \u2203 i < k, \u03b6 ^ i = \u03be",
+    "have_tree": [
+      {
+        "name": "hi0",
+        "type": "0 \u2264 i",
+        "body": "Int.emod_nonneg _ (ne_of_gt hk0)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "adjoin_pair_eq",
+    "statement": "Type*) [CommSemiring S] [Algebra S R] {\u03b6\u2081 \u03b6\u2082 : R} {k\u2081 : \u2115} {k\u2082 : \u2115} (h\u03b6\u2081 : IsPrimitiveRoot \u03b6\u2081 k\u2081) (h\u03b6\u2082 : IsPrimitiveRoot \u03b6\u2082 k\u2082) (hk\u2081 : k\u2081 \u2260 0) (hk\u2082 : k\u2082 \u2260 0) {\u03b6 : R} (h\u03b6 : IsPrimitiveRoot \u03b6 (k\u2081.lcm k\u2082)) : Algebra.adjoin S {\u03b6\u2081, \u03b6\u2082} = Algebra.adjoin S {\u03b6}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero (k\u2081.lcm k\u2082)",
+        "body": "\u27e8Nat.lcm_ne_zero hk\u2081 hk\u2082\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "card_rootsOfUnity'",
+    "statement": "\u2115} [NeZero n] (h : IsPrimitiveRoot \u03b6 n) : Fintype.card (rootsOfUnity n R) = n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype (Subgroup.zpowers \u03b6)",
+        "body": "Fintype.ofEquiv _ e.toEquiv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "card_primitiveRoots",
+    "statement": "R} {k : \u2115} (h : IsPrimitiveRoot \u03b6 k) : #(primitiveRoots k R) = \u03c6 k",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero k",
+        "body": "\u27e8h0\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "primitiveRootsPowEquiv",
+    "statement": "\u2115} (h : a * b \u2261 1 [MOD n]) : primitiveRoots n R \u2243 primitiveRoots n R where toFun x",
+    "have_tree": [
+      {
+        "name": "hr",
+        "type": "0 < n",
+        "body": "by by_contra! h; cases x; simp_all",
+        "children": []
+      },
+      {
+        "name": "hr'",
+        "type": "b.Coprime n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "nthRoots_one_eq_biUnion_primitiveRoots'",
+    "statement": "\u2115} [NeZero n] : nthRootsFinset n (1 : R) = (Nat.divisors n).biUnion fun i \u21a6 primitiveRoots i R",
+    "have_tree": [
+      {
+        "name": "hazero",
+        "type": "0 < a",
+        "body": "Nat.pos_of_ne_zero fun ha\u2080 \u21a6 by simp_all",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "nthRoots_one_eq_biUnion_primitiveRoots",
+    "statement": "\u2115} : nthRootsFinset n (1 : R) = (Nat.divisors n).biUnion fun i \u21a6 primitiveRoots i R",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero n",
+        "body": "\u27e8hn\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "autToPow",
+    "statement": "(S \u2243\u2090[R] S) \u2192* (ZMod n)\u02e3",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "h1.choose_spec",
+        "children": []
+      },
+      {
+        "name": "hxy",
+        "type": "",
+        "body": "hxy'.choose_spec",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "IsCyclic.exists_apply_ne_one",
+    "statement": "Type*} [Group G] [IsCyclic G] [Finite G] [CommGroup G'] (hG' : \u2203 \u03b6 : G', IsPrimitiveRoot \u03b6 (Nat.card G)) \u2983a : G\u2984 (ha : a \u2260 1) : \u2203 \u03c6 : G \u2192* G', \u03c6 a \u2260 1",
+    "have_tree": [
+      {
+        "name": "h\u03b6g",
+        "type": "orderOf \u03b6 \u2223 orderOf g",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u03c6g",
+        "type": "IsPrimitiveRoot (\u03c6 g) (Nat.card G)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

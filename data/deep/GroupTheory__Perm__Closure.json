@@ -1,0 +1,58 @@
+[
+  {
+    "module": "Closure",
+    "name": "closure_cycle_adjacent_swap",
+    "statement": "Perm \u03b1} (h1 : IsCycle \u03c3) (h2 : \u03c3.support = univ) (x : \u03b1) : closure ({\u03c3, swap x (\u03c3 x)} : Set (Perm \u03b1)) = \u22a4",
+    "have_tree": [
+      {
+        "name": "h3",
+        "type": "\u03c3 \u2208 H",
+        "body": "subset_closure (Set.mem_insert \u03c3 _)",
+        "children": []
+      },
+      {
+        "name": "h4",
+        "type": "swap x (\u03c3 x) \u2208 H",
+        "body": "subset_closure (Set.mem_insert_of_mem _ (Set.mem_singleton _))",
+        "children": []
+      },
+      {
+        "name": "step1",
+        "type": "\u2200 n : \u2115, swap ((\u03c3 ^ n) x) ((\u03c3 ^ (n + 1) : Perm \u03b1) x) \u2208 H",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "step2",
+        "type": "\u2200 n : \u2115, swap x ((\u03c3 ^ n) x) \u2208 H",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "step3",
+        "type": "\u2200 y : \u03b1, swap x y \u2208 H",
+        "body": "by",
+        "children": [
+          {
+            "name": "hx",
+            "type": "x \u2208 univ",
+            "body": "Finset.mem_univ x",
+            "children": []
+          },
+          {
+            "name": "hy",
+            "type": "y \u2208 univ",
+            "body": "Finset.mem_univ y",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "step4",
+        "type": "\u2200 y z : \u03b1, swap y z \u2208 H",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

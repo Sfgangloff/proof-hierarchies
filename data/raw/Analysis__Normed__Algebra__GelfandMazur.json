@@ -1,0 +1,92 @@
+[
+  {
+    "module": "GelfandMazur",
+    "name": "exists_isMinOn_norm_sub_smul",
+    "statement": "Type*) {F : Type*} [NormedField \ud835\udd5c] [ProperSpace \ud835\udd5c] [SeminormedRing F] [NormedAlgebra \ud835\udd5c F] [NormOneClass F] (x : F) : \u2203 z : \ud835\udd5c, IsMinOn (\u2016x - algebraMap \ud835\udd5c F \u00b7\u2016) univ z",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Tendsto (\u2016x - algebraMap \ud835\udd5c F \u00b7\u2016) (cobounded \ud835\udd5c) atTop",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GelfandMazur",
+    "name": "norm_sub_eq_norm_sub_of_isMinOn",
+    "statement": "F} {z : \u2102} (hz : IsMinOn (\u2016x - algebraMap \u2102 F \u00b7\u2016) univ z) (H : \u2200 z' : \u2102, \u2016x - algebraMap \u2102 F z'\u2016 \u2260 0) (c : \u2102) : \u2016x - algebraMap \u2102 F c\u2016 = \u2016x - algebraMap \u2102 F z\u2016",
+    "have_tree": [
+      {
+        "name": "hM\u2080",
+        "type": "0 < M",
+        "body": "by have := H z; positivity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GelfandMazur",
+    "name": "exists_norm_sub_smul_one_eq_zero",
+    "statement": "F) : \u2203 z : \u2102, \u2016x - algebraMap \u2102 F z\u2016 = 0",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "norm_sub_eq_norm_sub_of_isMinOn hz H (\u2016x\u2016 + M + 1)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GelfandMazur",
+    "name": "norm_\u03c6_eq_norm_\u03c6_of_isMinOn",
+    "statement": "F} {z : \u211d \u00d7 \u211d} (h : IsMinOn (\u2016\u03c6 x \u00b7\u2016) Set.univ z) (H : \u2016\u03c6 x z\u2016 \u2260 0) (w : \u211d \u00d7 \u211d) : \u2016\u03c6 x w\u2016 = \u2016\u03c6 x z\u2016",
+    "have_tree": [
+      {
+        "name": "hM\u2080",
+        "type": "0 < M",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "hdvd",
+        "type": "q u \u2223 q w ^ n - (q w - q u) ^ n",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "H'",
+        "type": "((q w - q u) ^ n).natDegree < 2 * n",
+        "body": "by rw [hsub]; compute_degree; grind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GelfandMazur",
+    "name": "exists_isMonicOfDegree_two_and_aeval_eq_zero",
+    "statement": "F) : \u2203 p : \u211d[X], IsMonicOfDegree p 2 \u2227 aeval x p = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "tendsto_norm_atTop_iff_cobounded.mpr <| tendsto_\u03c6_cobounded (by positivity) h'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GelfandMazur",
+    "name": "nonempty_algEquiv_or",
+    "statement": "Type*) [NormedField F] [NormedAlgebra \u211d F] : Nonempty (F \u2243\u2090[\u211d] \u211d) \u2228 Nonempty (F \u2243\u2090[\u211d] \u2102)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Algebra.IsAlgebraic \u211d F",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

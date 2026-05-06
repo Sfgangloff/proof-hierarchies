@@ -1,0 +1,54 @@
+[
+  {
+    "module": "GaussianIntegral",
+    "name": "integral_gaussian_complex",
+    "statement": "\u2102} (hb : 0 < re b) : \u222b x : \u211d, cexp (-b * (x : \u2102) ^ 2) = (\u03c0 / b) ^ (1 / 2 : \u2102)",
+    "have_tree": [
+      {
+        "name": "nv",
+        "type": "\u2200 {b : \u2102}, 0 < re b \u2192 b \u2260 0",
+        "body": "by intro b hb; contrapose! hb; rw [hb]; simp",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200 x : \u211d, cexp (-(1 : \u2102) * (x : \u2102) ^ 2) = exp (-(1 : \u211d) * x ^ 2)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "GaussianIntegral",
+    "name": "integral_gaussian_complex_Ioi",
+    "statement": "\u2102} (hb : 0 < re b) : \u222b x : \u211d in Ioi 0, cexp (-b * (x : \u2102) ^ 2) = (\u03c0 / b) ^ (1 / 2 : \u2102) / 2",
+    "have_tree": [
+      {
+        "name": "full_integral",
+        "type": "",
+        "body": "integral_gaussian_complex hb",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "MeasurableSet (Ioi (0 : \u211d))",
+        "body": "measurableSet_Ioi",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "intervalIntegral.integral_comp_sub_left (a := 0) (b := c)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "t1",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

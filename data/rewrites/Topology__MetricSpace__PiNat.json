@@ -1,0 +1,621 @@
+[
+  {
+    "original": {
+      "module": "PiNat",
+      "name": "firstDiff_lt_shortestPrefixDiff",
+      "statement": "Set (\u2200 n, E n)} (hs : IsClosed s) {x y : \u2200 n, E n} (hx : x \u2209 s) (hy : y \u2208 s) : firstDiff x y < shortestPrefixDiff x s",
+      "have_tree": [
+        {
+          "name": "A",
+          "type": "",
+          "body": "exists_disjoint_cylinder hs hx",
+          "children": []
+        },
+        {
+          "name": "B",
+          "type": "",
+          "body": "Nat.find_spec A",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "PiNat",
+          "name": "firstDiff_lt_shortestPrefixDiff",
+          "statement": "Set (\u2200 n, E n)} (hs : IsClosed s) {x y : \u2200 n, E n} (hx : x \u2209 s) (hy : y \u2208 s) : firstDiff x y < shortestPrefixDiff x s",
+          "have_tree": [
+            {
+              "name": "B",
+              "type": "",
+              "body": "Nat.find_spec A",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "",
+              "body": "exists_disjoint_cylinder hs hx",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "PiNat",
+      "name": "inter_cylinder_longestPrefix_nonempty",
+      "statement": "Set (\u2200 n, E n)} (hs : IsClosed s) (hne : s.Nonempty) (x : \u2200 n, E n) : (s \u2229 cylinder x (longestPrefix x s)).Nonempty",
+      "have_tree": [
+        {
+          "name": "A",
+          "type": "",
+          "body": "exists_disjoint_cylinder hs hx",
+          "children": []
+        },
+        {
+          "name": "B",
+          "type": "longestPrefix x s < shortestPrefixDiff x s",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "PiNat",
+          "name": "inter_cylinder_longestPrefix_nonempty",
+          "statement": "Set (\u2200 n, E n)} (hs : IsClosed s) (hne : s.Nonempty) (x : \u2200 n, E n) : (s \u2229 cylinder x (longestPrefix x s)).Nonempty",
+          "have_tree": [
+            {
+              "name": "B",
+              "type": "longestPrefix x s < shortestPrefixDiff x s",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "",
+              "body": "exists_disjoint_cylinder hs hx",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "PiNat",
+      "name": "cylinder_longestPrefix_eq_of_longestPrefix_lt_firstDiff",
+      "statement": "\u2200 n, E n} {s : Set (\u2200 n, E n)} (hs : IsClosed s) (hne : s.Nonempty) (H : longestPrefix x s < firstDiff x y) (xs : x \u2209 s) (ys : y \u2209 s) : cylinder x (longestPrefix x s) = cylinder y (longestPrefix y s)",
+      "have_tree": [
+        {
+          "name": "Z",
+          "type": "",
+          "body": "disjoint_cylinder_of_longestPrefix_lt hs ys L",
+          "children": []
+        },
+        {
+          "name": "A'y",
+          "type": "(s \u2229 cylinder y (longestPrefix x s).succ).Nonempty",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "Z",
+          "type": "",
+          "body": "disjoint_cylinder_of_longestPrefix_lt hs xs (Nat.lt_succ_self _)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "PiNat",
+          "name": "cylinder_longestPrefix_eq_of_longestPrefix_lt_firstDiff",
+          "statement": "\u2200 n, E n} {s : Set (\u2200 n, E n)} (hs : IsClosed s) (hne : s.Nonempty) (H : longestPrefix x s < firstDiff x y) (xs : x \u2209 s) (ys : y \u2209 s) : cylinder x (longestPrefix x s) = cylinder y (longestPrefix y s)",
+          "have_tree": [
+            {
+              "name": "A'y",
+              "type": "(s \u2229 cylinder y (longestPrefix x s).succ).Nonempty",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "Z",
+              "type": "",
+              "body": "disjoint_cylinder_of_longestPrefix_lt hs ys L",
+              "children": []
+            },
+            {
+              "name": "Z",
+              "type": "",
+              "body": "disjoint_cylinder_of_longestPrefix_lt hs xs (Nat.lt_succ_self _)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "PiNat",
+          "name": "cylinder_longestPrefix_eq_of_longestPrefix_lt_firstDiff",
+          "statement": "\u2200 n, E n} {s : Set (\u2200 n, E n)} (hs : IsClosed s) (hne : s.Nonempty) (H : longestPrefix x s < firstDiff x y) (xs : x \u2209 s) (ys : y \u2209 s) : cylinder x (longestPrefix x s) = cylinder y (longestPrefix y s)",
+          "have_tree": [
+            {
+              "name": "Z",
+              "type": "",
+              "body": "disjoint_cylinder_of_longestPrefix_lt hs ys L",
+              "children": []
+            },
+            {
+              "name": "Z",
+              "type": "",
+              "body": "disjoint_cylinder_of_longestPrefix_lt hs xs (Nat.lt_succ_self _)",
+              "children": []
+            },
+            {
+              "name": "A'y",
+              "type": "(s \u2229 cylinder y (longestPrefix x s).succ).Nonempty",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "PiNat",
+      "name": "exists_lipschitz_retraction_of_isClosed",
+      "statement": "Set (\u2200 n, E n)} (hs : IsClosed s) (hne : s.Nonempty) : \u2203 f : (\u2200 n, E n) \u2192 \u2200 n, E n, (\u2200 x \u2208 s, f x = x) \u2227 range f = s \u2227 LipschitzWith 1 f",
+      "have_tree": [
+        {
+          "name": "A",
+          "type": "(s \u2229 cylinder y (longestPrefix y s)).Nonempty",
+          "body": "",
+          "children": [
+            {
+              "name": "Ay",
+              "type": "(s \u2229 cylinder y (longestPrefix y s)).Nonempty",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "PiNat",
+          "name": "exists_lipschitz_retraction_of_isClosed",
+          "statement": "Set (\u2200 n, E n)} (hs : IsClosed s) (hne : s.Nonempty) : \u2203 f : (\u2200 n, E n) \u2192 \u2200 n, E n, (\u2200 x \u2208 s, f x = x) \u2227 range f = s \u2227 LipschitzWith 1 f",
+          "have_tree": [
+            {
+              "name": "A",
+              "type": "(s \u2229 cylinder y (longestPrefix y s)).Nonempty",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "PiNat",
+          "name": "exists_lipschitz_retraction_of_isClosed",
+          "statement": "Set (\u2200 n, E n)} (hs : IsClosed s) (hne : s.Nonempty) : \u2203 f : (\u2200 n, E n) \u2192 \u2200 n, E n, (\u2200 x \u2208 s, f x = x) \u2227 range f = s \u2227 LipschitzWith 1 f",
+          "have_tree": [
+            {
+              "name": "Ay",
+              "type": "(s \u2229 cylinder y (longestPrefix y s)).Nonempty",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "(s \u2229 cylinder y (longestPrefix y s)).Nonempty",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "PiNat",
+      "name": "exists_nat_nat_continuous_surjective_of_completeSpace",
+      "statement": "Type*) [MetricSpace \u03b1] [CompleteSpace \u03b1] [SecondCountableTopology \u03b1] [Nonempty \u03b1] : \u2203 f : (\u2115 \u2192 \u2115) \u2192 \u03b1, Continuous f \u2227 Surjective f",
+      "have_tree": [
+        {
+          "name": "g_cont",
+          "type": "Continuous g",
+          "body": "by",
+          "children": [
+            {
+              "name": "hne'",
+              "type": "x.1 \u2260 y.1",
+              "body": "Subtype.coe_injective.ne hne",
+              "children": []
+            },
+            {
+              "name": "diff_pos",
+              "type": "0 < firstDiff x.1 y.1",
+              "body": "by",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "g_surj",
+          "type": "Surjective g",
+          "body": "fun y \u21a6 by",
+          "children": []
+        },
+        {
+          "name": "s_closed",
+          "type": "IsClosed s",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "PiNat",
+          "name": "exists_nat_nat_continuous_surjective_of_completeSpace",
+          "statement": "Type*) [MetricSpace \u03b1] [CompleteSpace \u03b1] [SecondCountableTopology \u03b1] [Nonempty \u03b1] : \u2203 f : (\u2115 \u2192 \u2115) \u2192 \u03b1, Continuous f \u2227 Surjective f",
+          "have_tree": [
+            {
+              "name": "g_cont",
+              "type": "Continuous g",
+              "body": "by",
+              "children": [
+                {
+                  "name": "diff_pos",
+                  "type": "0 < firstDiff x.1 y.1",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "g_surj",
+              "type": "Surjective g",
+              "body": "fun y \u21a6 by",
+              "children": []
+            },
+            {
+              "name": "s_closed",
+              "type": "IsClosed s",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          1
+        ],
+        "result": {
+          "module": "PiNat",
+          "name": "exists_nat_nat_continuous_surjective_of_completeSpace",
+          "statement": "Type*) [MetricSpace \u03b1] [CompleteSpace \u03b1] [SecondCountableTopology \u03b1] [Nonempty \u03b1] : \u2203 f : (\u2115 \u2192 \u2115) \u2192 \u03b1, Continuous f \u2227 Surjective f",
+          "have_tree": [
+            {
+              "name": "g_cont",
+              "type": "Continuous g",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hne'",
+                  "type": "x.1 \u2260 y.1",
+                  "body": "Subtype.coe_injective.ne hne",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "g_surj",
+              "type": "Surjective g",
+              "body": "fun y \u21a6 by",
+              "children": []
+            },
+            {
+              "name": "s_closed",
+              "type": "IsClosed s",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "PiNat",
+          "name": "exists_nat_nat_continuous_surjective_of_completeSpace",
+          "statement": "Type*) [MetricSpace \u03b1] [CompleteSpace \u03b1] [SecondCountableTopology \u03b1] [Nonempty \u03b1] : \u2203 f : (\u2115 \u2192 \u2115) \u2192 \u03b1, Continuous f \u2227 Surjective f",
+          "have_tree": [
+            {
+              "name": "hne'",
+              "type": "x.1 \u2260 y.1",
+              "body": "Subtype.coe_injective.ne hne",
+              "children": []
+            },
+            {
+              "name": "g_cont",
+              "type": "Continuous g",
+              "body": "by",
+              "children": [
+                {
+                  "name": "diff_pos",
+                  "type": "0 < firstDiff x.1 y.1",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "g_surj",
+              "type": "Surjective g",
+              "body": "fun y \u21a6 by",
+              "children": []
+            },
+            {
+              "name": "s_closed",
+              "type": "IsClosed s",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "PiNat",
+          "name": "exists_nat_nat_continuous_surjective_of_completeSpace",
+          "statement": "Type*) [MetricSpace \u03b1] [CompleteSpace \u03b1] [SecondCountableTopology \u03b1] [Nonempty \u03b1] : \u2203 f : (\u2115 \u2192 \u2115) \u2192 \u03b1, Continuous f \u2227 Surjective f",
+          "have_tree": [
+            {
+              "name": "diff_pos",
+              "type": "0 < firstDiff x.1 y.1",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "g_cont",
+              "type": "Continuous g",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hne'",
+                  "type": "x.1 \u2260 y.1",
+                  "body": "Subtype.coe_injective.ne hne",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "g_surj",
+              "type": "Surjective g",
+              "body": "fun y \u21a6 by",
+              "children": []
+            },
+            {
+              "name": "s_closed",
+              "type": "IsClosed s",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "PiNat",
+          "name": "exists_nat_nat_continuous_surjective_of_completeSpace",
+          "statement": "Type*) [MetricSpace \u03b1] [CompleteSpace \u03b1] [SecondCountableTopology \u03b1] [Nonempty \u03b1] : \u2203 f : (\u2115 \u2192 \u2115) \u2192 \u03b1, Continuous f \u2227 Surjective f",
+          "have_tree": [
+            {
+              "name": "g_surj",
+              "type": "Surjective g",
+              "body": "fun y \u21a6 by",
+              "children": []
+            },
+            {
+              "name": "g_cont",
+              "type": "Continuous g",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hne'",
+                  "type": "x.1 \u2260 y.1",
+                  "body": "Subtype.coe_injective.ne hne",
+                  "children": []
+                },
+                {
+                  "name": "diff_pos",
+                  "type": "0 < firstDiff x.1 y.1",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "s_closed",
+              "type": "IsClosed s",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "PiNat",
+          "name": "exists_nat_nat_continuous_surjective_of_completeSpace",
+          "statement": "Type*) [MetricSpace \u03b1] [CompleteSpace \u03b1] [SecondCountableTopology \u03b1] [Nonempty \u03b1] : \u2203 f : (\u2115 \u2192 \u2115) \u2192 \u03b1, Continuous f \u2227 Surjective f",
+          "have_tree": [
+            {
+              "name": "g_cont",
+              "type": "Continuous g",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hne'",
+                  "type": "x.1 \u2260 y.1",
+                  "body": "Subtype.coe_injective.ne hne",
+                  "children": []
+                },
+                {
+                  "name": "diff_pos",
+                  "type": "0 < firstDiff x.1 y.1",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "s_closed",
+              "type": "IsClosed s",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "g_surj",
+              "type": "Surjective g",
+              "body": "fun y \u21a6 by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "PiNat",
+          "name": "exists_nat_nat_continuous_surjective_of_completeSpace",
+          "statement": "Type*) [MetricSpace \u03b1] [CompleteSpace \u03b1] [SecondCountableTopology \u03b1] [Nonempty \u03b1] : \u2203 f : (\u2115 \u2192 \u2115) \u2192 \u03b1, Continuous f \u2227 Surjective f",
+          "have_tree": [
+            {
+              "name": "g_cont",
+              "type": "Continuous g",
+              "body": "by",
+              "children": [
+                {
+                  "name": "diff_pos",
+                  "type": "0 < firstDiff x.1 y.1",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "hne'",
+                  "type": "x.1 \u2260 y.1",
+                  "body": "Subtype.coe_injective.ne hne",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "g_surj",
+              "type": "Surjective g",
+              "body": "fun y \u21a6 by",
+              "children": []
+            },
+            {
+              "name": "s_closed",
+              "type": "IsClosed s",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Order",
+    "name": "hasProd_lt",
+    "statement": "f \u2264 g) (hi : f i < g i) (hf : HasProd f a\u2081 L) (hg : HasProd g a\u2082 L) : a\u2081 < a\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "update f i 1 \u2264 update g i 1",
+        "body": "update_le_update_iff.mpr \u27e8rfl.le, fun i _ \u21a6 h i\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "1 / f i * a\u2081 \u2264 1 / g i * a\u2082",
+        "body": "hasProd_le this (hf.update i 1) (hg.update i 1)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Order",
+    "name": "Finite.of_summable_const",
+    "statement": "\u03b1} (hb : 0 < b) (hf : Summable fun _ : \u03b9 \u21a6 b) : Finite \u03b9",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "fintypeOfFinsetCardLe n this",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,112 @@
+[
+  {
+    "module": "Satisfiability",
+    "name": "isSatisfiable_iff_isFinitelySatisfiable",
+    "statement": "L.Theory} : T.IsSatisfiable \u2194 T.IsFinitelySatisfiable",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "M' \u22a8 T",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Satisfiability",
+    "name": "isSatisfiable_union_distinctConstantsTheory_of_card_le",
+    "statement": "L.Theory) (s : Set \u03b1) (M : Type w') [Nonempty M] [L.Structure M] [M \u22a8 T] (h : Cardinal.lift.{w'} #s \u2264 Cardinal.lift.{w} #M) : ((L.lhomWithConstants \u03b1).onTheory T \u222a L.distinctConstantsTheory s).IsSatisfiable",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "M \u22a8 (L.lhomWithConstants \u03b1).onTheory T \u222a L.distinctConstantsTheory s",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Satisfiability",
+    "name": "exists_elementaryEmbedding_card_eq_of_le",
+    "statement": "Type w') [L.Structure M] [Nonempty M] (\u03ba : Cardinal.{w}) (h1 : \u2135\u2080 \u2264 \u03ba) (h2 : lift.{w} L.card \u2264 Cardinal.lift.{max u v} \u03ba) (h3 : lift.{w'} \u03ba \u2264 Cardinal.lift.{w} #M) : \u2203 N : Bundled L.Structure, Nonempty (N \u21aa\u2091[L] M) \u2227 #N = \u03ba",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Small.{w} S",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Satisfiability",
+    "name": "ModelsBoundedFormula.realize_sentence",
+    "statement": "L.Sentence} (h : T \u22a8\u1d47 \u03c6) (M : Type*) [L.Structure M] [M \u22a8 T] [Nonempty M] : M \u22a8 \u03c6",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "M \u22a8 T \u222a {Formula.not \u03c6}",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Satisfiability",
+    "name": "models_formula_iff_onTheory_models_equivSentence",
+    "statement": "L.Formula \u03b1} : T \u22a8\u1d47 \u03c6 \u2194 (L.lhomWithConstants \u03b1).onTheory T \u22a8\u1d47 Formula.equivSentence \u03c6",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "M \u22a8 T",
+        "body": "(LHom.onTheory_model _ _).1 M.is_model -- why isn't M.is_model inferInstance?",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "M \u22a8 (L.lhomWithConstants \u03b1).onTheory T",
+        "body": "(LHom.onTheory_model _ _).2 inferInstance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Satisfiability",
+    "name": "ModelsBoundedFormula.realize_formula",
+    "statement": "L.Formula \u03b1} (h : T \u22a8\u1d47 \u03c6) (M : Type*) [L.Structure M] [M \u22a8 T] [Nonempty M] {v : \u03b1 \u2192 M} : \u03c6.Realize v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "M \u22a8 (L.lhomWithConstants \u03b1).onTheory T",
+        "body": "(LHom.onTheory_model _ _).2 inferInstance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Satisfiability",
+    "name": "ModelsBoundedFormula.realize_boundedFormula",
+    "statement": "L.BoundedFormula \u03b1 n} (h : T \u22a8\u1d47 \u03c6) (M : Type*) [L.Structure M] [M \u22a8 T] [Nonempty M] {v : \u03b1 \u2192 M} {xs : Fin n \u2192 M} : \u03c6.Realize v xs",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "\u03c6.toFormula.Realize (Sum.elim v xs)",
+        "body": "(models_toFormula_iff.2 h).realize_formula M",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Satisfiability",
+    "name": "eq_complete_theory",
+    "statement": "T.IsComplete) (M : Type*) [L.Structure M] [M \u22a8 T] [Nonempty M] : {\u03c6 | T \u22a8\u1d47 \u03c6} = L.completeTheory M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "M \u22a8 \u03c6.not",
+        "body": "hT.realize_sentence M",
+        "children": []
+      }
+    ]
+  }
+]

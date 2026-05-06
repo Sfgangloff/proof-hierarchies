@@ -1,0 +1,587 @@
+[
+  {
+    "original": {
+      "module": "Counting",
+      "name": "good_vertices_triangle_card",
+      "statement": "2 * \u03b5 \u2264 G.edgeDensity s t) (dsu : 2 * \u03b5 \u2264 G.edgeDensity s u) (dtu : 2 * \u03b5 \u2264 G.edgeDensity t u) (utu : G.IsUniform \u03b5 t u) (x : \u03b1) (hx : x \u2208 s \\ (badVertices G \u03b5 s t \u222a badVertices G \u03b5 s u)) : \u03b5 ^ 3 * #t * #u \u2264 #((({y \u2208 t | G.Adj x y} \u00d7\u02e2 {y \u2208 u | G.Adj x y}).filter fun (y, z) \u21a6 G.Adj y z).image (x, \u00b7))",
+      "have_tree": [
+        {
+          "name": "hY",
+          "type": "#t * \u03b5 \u2264 #{y \u2208 t | G.Adj x y}",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hZ",
+          "type": "#u * \u03b5 \u2264 #{y \u2208 u | G.Adj x y}",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "utu (filter_subset (G.Adj x) _) (filter_subset (G.Adj x) _) hY hZ",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "\u03b5 \u2264 G.edgeDensity {y \u2208 t | G.Adj x y} {y \u2208 u | G.Adj x y}",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "h\u03b5",
+          "type": "",
+          "body": "utu.pos.le",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "Counting",
+          "name": "good_vertices_triangle_card",
+          "statement": "2 * \u03b5 \u2264 G.edgeDensity s t) (dsu : 2 * \u03b5 \u2264 G.edgeDensity s u) (dtu : 2 * \u03b5 \u2264 G.edgeDensity t u) (utu : G.IsUniform \u03b5 t u) (x : \u03b1) (hx : x \u2208 s \\ (badVertices G \u03b5 s t \u222a badVertices G \u03b5 s u)) : \u03b5 ^ 3 * #t * #u \u2264 #((({y \u2208 t | G.Adj x y} \u00d7\u02e2 {y \u2208 u | G.Adj x y}).filter fun (y, z) \u21a6 G.Adj y z).image (x, \u00b7))",
+          "have_tree": [
+            {
+              "name": "hZ",
+              "type": "#u * \u03b5 \u2264 #{y \u2208 u | G.Adj x y}",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hY",
+              "type": "#t * \u03b5 \u2264 #{y \u2208 t | G.Adj x y}",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "utu (filter_subset (G.Adj x) _) (filter_subset (G.Adj x) _) hY hZ",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03b5 \u2264 G.edgeDensity {y \u2208 t | G.Adj x y} {y \u2208 u | G.Adj x y}",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h\u03b5",
+              "type": "",
+              "body": "utu.pos.le",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "Counting",
+          "name": "good_vertices_triangle_card",
+          "statement": "2 * \u03b5 \u2264 G.edgeDensity s t) (dsu : 2 * \u03b5 \u2264 G.edgeDensity s u) (dtu : 2 * \u03b5 \u2264 G.edgeDensity t u) (utu : G.IsUniform \u03b5 t u) (x : \u03b1) (hx : x \u2208 s \\ (badVertices G \u03b5 s t \u222a badVertices G \u03b5 s u)) : \u03b5 ^ 3 * #t * #u \u2264 #((({y \u2208 t | G.Adj x y} \u00d7\u02e2 {y \u2208 u | G.Adj x y}).filter fun (y, z) \u21a6 G.Adj y z).image (x, \u00b7))",
+          "have_tree": [
+            {
+              "name": "hY",
+              "type": "#t * \u03b5 \u2264 #{y \u2208 t | G.Adj x y}",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "utu (filter_subset (G.Adj x) _) (filter_subset (G.Adj x) _) hY hZ",
+              "children": []
+            },
+            {
+              "name": "hZ",
+              "type": "#u * \u03b5 \u2264 #{y \u2208 u | G.Adj x y}",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03b5 \u2264 G.edgeDensity {y \u2208 t | G.Adj x y} {y \u2208 u | G.Adj x y}",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h\u03b5",
+              "type": "",
+              "body": "utu.pos.le",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "Counting",
+          "name": "good_vertices_triangle_card",
+          "statement": "2 * \u03b5 \u2264 G.edgeDensity s t) (dsu : 2 * \u03b5 \u2264 G.edgeDensity s u) (dtu : 2 * \u03b5 \u2264 G.edgeDensity t u) (utu : G.IsUniform \u03b5 t u) (x : \u03b1) (hx : x \u2208 s \\ (badVertices G \u03b5 s t \u222a badVertices G \u03b5 s u)) : \u03b5 ^ 3 * #t * #u \u2264 #((({y \u2208 t | G.Adj x y} \u00d7\u02e2 {y \u2208 u | G.Adj x y}).filter fun (y, z) \u21a6 G.Adj y z).image (x, \u00b7))",
+          "have_tree": [
+            {
+              "name": "hY",
+              "type": "#t * \u03b5 \u2264 #{y \u2208 t | G.Adj x y}",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hZ",
+              "type": "#u * \u03b5 \u2264 #{y \u2208 u | G.Adj x y}",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03b5 \u2264 G.edgeDensity {y \u2208 t | G.Adj x y} {y \u2208 u | G.Adj x y}",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "utu (filter_subset (G.Adj x) _) (filter_subset (G.Adj x) _) hY hZ",
+              "children": []
+            },
+            {
+              "name": "h\u03b5",
+              "type": "",
+              "body": "utu.pos.le",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "Counting",
+          "name": "good_vertices_triangle_card",
+          "statement": "2 * \u03b5 \u2264 G.edgeDensity s t) (dsu : 2 * \u03b5 \u2264 G.edgeDensity s u) (dtu : 2 * \u03b5 \u2264 G.edgeDensity t u) (utu : G.IsUniform \u03b5 t u) (x : \u03b1) (hx : x \u2208 s \\ (badVertices G \u03b5 s t \u222a badVertices G \u03b5 s u)) : \u03b5 ^ 3 * #t * #u \u2264 #((({y \u2208 t | G.Adj x y} \u00d7\u02e2 {y \u2208 u | G.Adj x y}).filter fun (y, z) \u21a6 G.Adj y z).image (x, \u00b7))",
+          "have_tree": [
+            {
+              "name": "hY",
+              "type": "#t * \u03b5 \u2264 #{y \u2208 t | G.Adj x y}",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hZ",
+              "type": "#u * \u03b5 \u2264 #{y \u2208 u | G.Adj x y}",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "utu (filter_subset (G.Adj x) _) (filter_subset (G.Adj x) _) hY hZ",
+              "children": []
+            },
+            {
+              "name": "h\u03b5",
+              "type": "",
+              "body": "utu.pos.le",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03b5 \u2264 G.edgeDensity {y \u2208 t | G.Adj x y} {y \u2208 u | G.Adj x y}",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Counting",
+      "name": "triangle_counting'",
+      "statement": "2 * \u03b5 \u2264 G.edgeDensity s t) (hst : G.IsUniform \u03b5 s t) (dsu : 2 * \u03b5 \u2264 G.edgeDensity s u) (usu : G.IsUniform \u03b5 s u) (dtu : 2 * \u03b5 \u2264 G.edgeDensity t u) (utu : G.IsUniform \u03b5 t u) : (1 - 2 * \u03b5) * \u03b5 ^ 3 * #s * #t * #u \u2264 #((s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c)",
+      "have_tree": [
+        {
+          "name": "h\u2081",
+          "type": "#(badVertices G \u03b5 s t) \u2264 #s * \u03b5",
+          "body": "G.card_badVertices_le dst hst",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "#(badVertices G \u03b5 s u) \u2264 #s * \u03b5",
+          "body": "G.card_badVertices_le dsu usu",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "X'.biUnion _ \u2286 (s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c",
+          "body": "",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hst.pos.le",
+              "children": []
+            },
+            {
+              "name": "i",
+              "type": "badVertices G \u03b5 s t \u222a badVertices G \u03b5 s u \u2286 s",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          2,
+          0
+        ],
+        "result": {
+          "module": "Counting",
+          "name": "triangle_counting'",
+          "statement": "2 * \u03b5 \u2264 G.edgeDensity s t) (hst : G.IsUniform \u03b5 s t) (dsu : 2 * \u03b5 \u2264 G.edgeDensity s u) (usu : G.IsUniform \u03b5 s u) (dtu : 2 * \u03b5 \u2264 G.edgeDensity t u) (utu : G.IsUniform \u03b5 t u) : (1 - 2 * \u03b5) * \u03b5 ^ 3 * #s * #t * #u \u2264 #((s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "#(badVertices G \u03b5 s t) \u2264 #s * \u03b5",
+              "body": "G.card_badVertices_le dst hst",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "#(badVertices G \u03b5 s u) \u2264 #s * \u03b5",
+              "body": "G.card_badVertices_le dsu usu",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "X'.biUnion _ \u2286 (s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c",
+              "body": "",
+              "children": [
+                {
+                  "name": "i",
+                  "type": "badVertices G \u03b5 s t \u222a badVertices G \u03b5 s u \u2286 s",
+                  "body": "",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          2,
+          1
+        ],
+        "result": {
+          "module": "Counting",
+          "name": "triangle_counting'",
+          "statement": "2 * \u03b5 \u2264 G.edgeDensity s t) (hst : G.IsUniform \u03b5 s t) (dsu : 2 * \u03b5 \u2264 G.edgeDensity s u) (usu : G.IsUniform \u03b5 s u) (dtu : 2 * \u03b5 \u2264 G.edgeDensity t u) (utu : G.IsUniform \u03b5 t u) : (1 - 2 * \u03b5) * \u03b5 ^ 3 * #s * #t * #u \u2264 #((s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "#(badVertices G \u03b5 s t) \u2264 #s * \u03b5",
+              "body": "G.card_badVertices_le dst hst",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "#(badVertices G \u03b5 s u) \u2264 #s * \u03b5",
+              "body": "G.card_badVertices_le dsu usu",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "X'.biUnion _ \u2286 (s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hst.pos.le",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Counting",
+          "name": "triangle_counting'",
+          "statement": "2 * \u03b5 \u2264 G.edgeDensity s t) (hst : G.IsUniform \u03b5 s t) (dsu : 2 * \u03b5 \u2264 G.edgeDensity s u) (usu : G.IsUniform \u03b5 s u) (dtu : 2 * \u03b5 \u2264 G.edgeDensity t u) (utu : G.IsUniform \u03b5 t u) : (1 - 2 * \u03b5) * \u03b5 ^ 3 * #s * #t * #u \u2264 #((s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "#(badVertices G \u03b5 s t) \u2264 #s * \u03b5",
+              "body": "G.card_badVertices_le dst hst",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "#(badVertices G \u03b5 s u) \u2264 #s * \u03b5",
+              "body": "G.card_badVertices_le dsu usu",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hst.pos.le",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "X'.biUnion _ \u2286 (s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c",
+              "body": "",
+              "children": [
+                {
+                  "name": "i",
+                  "type": "badVertices G \u03b5 s t \u222a badVertices G \u03b5 s u \u2286 s",
+                  "body": "",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Counting",
+          "name": "triangle_counting'",
+          "statement": "2 * \u03b5 \u2264 G.edgeDensity s t) (hst : G.IsUniform \u03b5 s t) (dsu : 2 * \u03b5 \u2264 G.edgeDensity s u) (usu : G.IsUniform \u03b5 s u) (dtu : 2 * \u03b5 \u2264 G.edgeDensity t u) (utu : G.IsUniform \u03b5 t u) : (1 - 2 * \u03b5) * \u03b5 ^ 3 * #s * #t * #u \u2264 #((s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "#(badVertices G \u03b5 s t) \u2264 #s * \u03b5",
+              "body": "G.card_badVertices_le dst hst",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "#(badVertices G \u03b5 s u) \u2264 #s * \u03b5",
+              "body": "G.card_badVertices_le dsu usu",
+              "children": []
+            },
+            {
+              "name": "i",
+              "type": "badVertices G \u03b5 s t \u222a badVertices G \u03b5 s u \u2286 s",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "X'.biUnion _ \u2286 (s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hst.pos.le",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Counting",
+          "name": "triangle_counting'",
+          "statement": "2 * \u03b5 \u2264 G.edgeDensity s t) (hst : G.IsUniform \u03b5 s t) (dsu : 2 * \u03b5 \u2264 G.edgeDensity s u) (usu : G.IsUniform \u03b5 s u) (dtu : 2 * \u03b5 \u2264 G.edgeDensity t u) (utu : G.IsUniform \u03b5 t u) : (1 - 2 * \u03b5) * \u03b5 ^ 3 * #s * #t * #u \u2264 #((s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c)",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "#(badVertices G \u03b5 s u) \u2264 #s * \u03b5",
+              "body": "G.card_badVertices_le dsu usu",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "#(badVertices G \u03b5 s t) \u2264 #s * \u03b5",
+              "body": "G.card_badVertices_le dst hst",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "X'.biUnion _ \u2286 (s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hst.pos.le",
+                  "children": []
+                },
+                {
+                  "name": "i",
+                  "type": "badVertices G \u03b5 s t \u222a badVertices G \u03b5 s u \u2286 s",
+                  "body": "",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Counting",
+          "name": "triangle_counting'",
+          "statement": "2 * \u03b5 \u2264 G.edgeDensity s t) (hst : G.IsUniform \u03b5 s t) (dsu : 2 * \u03b5 \u2264 G.edgeDensity s u) (usu : G.IsUniform \u03b5 s u) (dtu : 2 * \u03b5 \u2264 G.edgeDensity t u) (utu : G.IsUniform \u03b5 t u) : (1 - 2 * \u03b5) * \u03b5 ^ 3 * #s * #t * #u \u2264 #((s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "#(badVertices G \u03b5 s t) \u2264 #s * \u03b5",
+              "body": "G.card_badVertices_le dst hst",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "X'.biUnion _ \u2286 (s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hst.pos.le",
+                  "children": []
+                },
+                {
+                  "name": "i",
+                  "type": "badVertices G \u03b5 s t \u222a badVertices G \u03b5 s u \u2286 s",
+                  "body": "",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h\u2082",
+              "type": "#(badVertices G \u03b5 s u) \u2264 #s * \u03b5",
+              "body": "G.card_badVertices_le dsu usu",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          2
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Counting",
+          "name": "triangle_counting'",
+          "statement": "2 * \u03b5 \u2264 G.edgeDensity s t) (hst : G.IsUniform \u03b5 s t) (dsu : 2 * \u03b5 \u2264 G.edgeDensity s u) (usu : G.IsUniform \u03b5 s u) (dtu : 2 * \u03b5 \u2264 G.edgeDensity t u) (utu : G.IsUniform \u03b5 t u) : (1 - 2 * \u03b5) * \u03b5 ^ 3 * #s * #t * #u \u2264 #((s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "#(badVertices G \u03b5 s t) \u2264 #s * \u03b5",
+              "body": "G.card_badVertices_le dst hst",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "#(badVertices G \u03b5 s u) \u2264 #s * \u03b5",
+              "body": "G.card_badVertices_le dsu usu",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "X'.biUnion _ \u2286 (s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c",
+              "body": "",
+              "children": [
+                {
+                  "name": "i",
+                  "type": "badVertices G \u03b5 s t \u222a badVertices G \u03b5 s u \u2286 s",
+                  "body": "",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hst.pos.le",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

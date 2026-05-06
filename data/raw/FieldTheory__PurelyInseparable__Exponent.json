@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Exponent",
+    "name": "algebraMap_elemReduct_eq",
+    "statement": "L) : algebraMap K L (elemReduct K a) = a ^ ringExpChar K ^ elemExponent K a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "minpoly_eq K a \u25b8 minpoly.aeval K a",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exponent",
+    "name": "elemExponent_le_of_pow_mem",
+    "statement": "L} {n : \u2115} (h : a ^ ringExpChar K ^ n \u2208 (algebraMap K L).range) : elemExponent K a \u2264 n",
+    "have_tree": [
+      {
+        "name": "hf\u2082",
+        "type": "f.Monic",
+        "body": "monic_X_pow_sub_C y <| Nat.pos_iff_ne_zero.mp <| expChar_pow_pos K _ _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exponent",
+    "name": "iterateFrobenius",
+    "statement": "\u2115} (hn : exponent K L \u2264 n) : L \u2192+* K where toFun",
+    "have_tree": [
+      {
+        "name": "inj",
+        "type": "",
+        "body": "(algebraMap K L).injective",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "ExpChar L p",
+        "body": "expChar_of_injective_ringHom inj p",
+        "children": []
+      }
+    ]
+  }
+]

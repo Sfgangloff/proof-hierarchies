@@ -1,0 +1,78 @@
+[
+  {
+    "module": "FaaDiBruno",
+    "name": "eraseLeft",
+    "statement": "OrderedFinpartition (n + 1)) (hc : range (c.emb 0) = {0}) : OrderedFinpartition n where length",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "c.length - 1 + 1 = c.length",
+        "body": "Nat.sub_add_cancel (c.length_pos (Nat.zero_lt_succ n))",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "c.length - 1 + 1 = c.length",
+        "body": "Nat.sub_add_cancel (c.length_pos (Nat.zero_lt_succ n))",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "c.disjoint (mem_univ (Fin.cast this (succ i))) (mem_univ 0) (ne_of_beq_false rfl)",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "c.length = c.length - 1 + 1",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "i_ne",
+        "type": "i \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "succ x \u2208 range (c.emb i)",
+            "body": "by rw [\u2190 hij]; apply mem_range_self",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "x = pred (succ x) (succ_ne_zero x)",
+        "body": "rfl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FaaDiBruno",
+    "name": "extendEquiv",
+    "statement": "\u2115) : ((c : OrderedFinpartition n) \u00d7 Option (Fin c.length)) \u2243 OrderedFinpartition (n + 1) where toFun c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "i' = Fin.cast A i",
+        "body": "eq_of_val_eq (by apply val_eq_val_of_heq h'.symm)",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "c.partSize (c.index 0) - 1 + 1 = c.partSize (c.index 0)",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "j = (succ j').cast B",
+            "body": "by simp [j']",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

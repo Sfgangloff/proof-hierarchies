@@ -1,0 +1,174 @@
+[
+  {
+    "original": {
+      "module": "Base",
+      "name": "pos_or_neg_of_sum_smul_root_mem",
+      "statement": "\u03b9 \u2192 \u2124) (hf : \u2211 j \u2208 b.support, f j \u2022 P.root j \u2208 range P.root) (hf\u2080 : f.support \u2286 b.support) : 0 < f \u2228 f < 0",
+      "have_tree": [
+        {
+          "name": "hf'",
+          "type": "f \u2260 0",
+          "body": "by rintro rfl; exact P.ne_zero k <| by simp [hk]",
+          "children": []
+        },
+        {
+          "name": "aux",
+          "type": "0 \u2264 f",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Base",
+          "name": "pos_or_neg_of_sum_smul_root_mem",
+          "statement": "\u03b9 \u2192 \u2124) (hf : \u2211 j \u2208 b.support, f j \u2022 P.root j \u2208 range P.root) (hf\u2080 : f.support \u2286 b.support) : 0 < f \u2228 f < 0",
+          "have_tree": [
+            {
+              "name": "aux",
+              "type": "0 \u2264 f",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hf'",
+              "type": "f \u2260 0",
+              "body": "by rintro rfl; exact P.ne_zero k <| by simp [hk]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Base",
+      "name": "IsPos.induction_on_reflect",
+      "statement": "\u03b9} (h\u2080 : b.IsPos i) {p : \u03b9 \u2192 Prop} (h\u2081 : \u2200 i \u2208 b.support, p i) (h\u2082 : \u2200 i j, p i \u2192 j \u2208 b.support \u2192 p (P.reflectionPerm j i)) : p i",
+      "have_tree": [
+        {
+          "name": "hk",
+          "type": "",
+          "body": "h\u2080.reflectionPerm hj hij",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "(b.height (P.reflectionPerm j i)).natAbs < n",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "P.reflection_apply_root' \u2124 (i := j) (j := i)",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Base",
+          "name": "IsPos.induction_on_reflect",
+          "statement": "\u03b9} (h\u2080 : b.IsPos i) {p : \u03b9 \u2192 Prop} (h\u2081 : \u2200 i \u2208 b.support, p i) (h\u2082 : \u2200 i j, p i \u2192 j \u2208 b.support \u2192 p (P.reflectionPerm j i)) : p i",
+          "have_tree": [
+            {
+              "name": "hk",
+              "type": "",
+              "body": "h\u2080.reflectionPerm hj hij",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(b.height (P.reflectionPerm j i)).natAbs < n",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Base",
+          "name": "IsPos.induction_on_reflect",
+          "statement": "\u03b9} (h\u2080 : b.IsPos i) {p : \u03b9 \u2192 Prop} (h\u2081 : \u2200 i \u2208 b.support, p i) (h\u2082 : \u2200 i j, p i \u2192 j \u2208 b.support \u2192 p (P.reflectionPerm j i)) : p i",
+          "have_tree": [
+            {
+              "name": "hk",
+              "type": "",
+              "body": "h\u2080.reflectionPerm hj hij",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "P.reflection_apply_root' \u2124 (i := j) (j := i)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(b.height (P.reflectionPerm j i)).natAbs < n",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Base",
+          "name": "IsPos.induction_on_reflect",
+          "statement": "\u03b9} (h\u2080 : b.IsPos i) {p : \u03b9 \u2192 Prop} (h\u2081 : \u2200 i \u2208 b.support, p i) (h\u2082 : \u2200 i j, p i \u2192 j \u2208 b.support \u2192 p (P.reflectionPerm j i)) : p i",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "(b.height (P.reflectionPerm j i)).natAbs < n",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "P.reflection_apply_root' \u2124 (i := j) (j := i)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hk",
+              "type": "",
+              "body": "h\u2080.reflectionPerm hj hij",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

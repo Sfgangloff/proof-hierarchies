@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Contracting",
+    "name": "exists_fixedPoint",
+    "statement": "ContractingWith K f) (x : \u03b1) (hx : edist x (f x) \u2260 \u221e) : \u2203 y, IsFixedPt f y \u2227 Tendsto (fun n \u21a6 f^[n] x) atTop (\ud835\udcdd y) \u2227 \u2200 n : \u2115, edist (f^[n] x) y \u2264 edist x (f x) * (K : \u211d\u22650\u221e) ^ n / (1 - K)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "CauchySeq fun n \u21a6 f^[n] x",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Contracting",
+    "name": "isFixedPt_fixedPoint_iterate",
+    "statement": "\u2115} (hf : ContractingWith K f^[n]) : IsFixedPt f (hf.fixedPoint f^[n])",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.toLipschitzWith.dist_le_mul x (f x)",
+        "children": []
+      }
+    ]
+  }
+]

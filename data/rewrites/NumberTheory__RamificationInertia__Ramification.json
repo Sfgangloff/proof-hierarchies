@@ -1,0 +1,404 @@
+[
+  {
+    "original": {
+      "module": "Ramification",
+      "name": "ramificationIdx_ne_one_iff",
+      "statement": "map f p \u2264 P) : ramificationIdx p P \u2260 1 \u2194 p.map f \u2264 P ^ 2",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "1 \u2264 Nat.find H",
+          "body": "Nat.find_spec H 1 (by simpa)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "Nat.find_min H (m := 1) (by lia)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "Nat.find_spec H 2 he",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Ramification",
+          "name": "ramificationIdx_ne_one_iff",
+          "statement": "map f p \u2264 P) : ramificationIdx p P \u2260 1 \u2194 p.map f \u2264 P ^ 2",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.find_min H (m := 1) (by lia)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "1 \u2264 Nat.find H",
+              "body": "Nat.find_spec H 1 (by simpa)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.find_spec H 2 he",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Ramification",
+          "name": "ramificationIdx_ne_one_iff",
+          "statement": "map f p \u2264 P) : ramificationIdx p P \u2260 1 \u2194 p.map f \u2264 P ^ 2",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "1 \u2264 Nat.find H",
+              "body": "Nat.find_spec H 1 (by simpa)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.find_spec H 2 he",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.find_min H (m := 1) (by lia)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Ramification",
+      "name": "ramificationIdx_ne_zero",
+      "statement": "map f p \u2260 \u22a5) (hP : P.IsPrime) (le : map f p \u2264 P) : ramificationIdx p P \u2260 0",
+      "have_tree": [
+        {
+          "name": "hP0",
+          "type": "P \u2260 \u22a5",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hPirr",
+          "type": "",
+          "body": "(Ideal.prime_of_isPrime hP0 hP).irreducible",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Ramification",
+          "name": "ramificationIdx_ne_zero",
+          "statement": "map f p \u2260 \u22a5) (hP : P.IsPrime) (le : map f p \u2264 P) : ramificationIdx p P \u2260 0",
+          "have_tree": [
+            {
+              "name": "hPirr",
+              "type": "",
+              "body": "(Ideal.prime_of_isPrime hP0 hP).irreducible",
+              "children": []
+            },
+            {
+              "name": "hP0",
+              "type": "P \u2260 \u22a5",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Ramification",
+      "name": "ramificationIdx_algebra_tower",
+      "statement": "Ideal R} {P : Ideal S} {Q : Ideal T} [hpm : P.IsPrime] [hqm : Q.IsPrime] (hg0 : map (algebraMap S T) P \u2260 \u22a5) (hfg : map (algebraMap R T) p \u2260 \u22a5) (hg : map (algebraMap S T) P \u2264 Q) : ramificationIdx p Q = ramificationIdx p P * ramificationIdx P Q",
+      "have_tree": [
+        {
+          "name": "hf0",
+          "type": "map (algebraMap R S) p \u2260 \u22a5",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hp0",
+          "type": "P \u2260 \u22a5",
+          "body": "ne_bot_of_map_ne_bot hg0",
+          "children": []
+        },
+        {
+          "name": "hq0",
+          "type": "Q \u2260 \u22a5",
+          "body": "ne_bot_of_le_ne_bot hg0 hg",
+          "children": []
+        },
+        {
+          "name": "hntq",
+          "type": "\u00ac \u22a4 \u2264 Q",
+          "body": "fun ht \u21a6 IsPrime.ne_top hqm (Iff.mpr (eq_top_iff_one Q) (ht trivial))",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Ramification",
+          "name": "ramificationIdx_algebra_tower",
+          "statement": "Ideal R} {P : Ideal S} {Q : Ideal T} [hpm : P.IsPrime] [hqm : Q.IsPrime] (hg0 : map (algebraMap S T) P \u2260 \u22a5) (hfg : map (algebraMap R T) p \u2260 \u22a5) (hg : map (algebraMap S T) P \u2264 Q) : ramificationIdx p Q = ramificationIdx p P * ramificationIdx P Q",
+          "have_tree": [
+            {
+              "name": "hp0",
+              "type": "P \u2260 \u22a5",
+              "body": "ne_bot_of_map_ne_bot hg0",
+              "children": []
+            },
+            {
+              "name": "hf0",
+              "type": "map (algebraMap R S) p \u2260 \u22a5",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hq0",
+              "type": "Q \u2260 \u22a5",
+              "body": "ne_bot_of_le_ne_bot hg0 hg",
+              "children": []
+            },
+            {
+              "name": "hntq",
+              "type": "\u00ac \u22a4 \u2264 Q",
+              "body": "fun ht \u21a6 IsPrime.ne_top hqm (Iff.mpr (eq_top_iff_one Q) (ht trivial))",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Ramification",
+          "name": "ramificationIdx_algebra_tower",
+          "statement": "Ideal R} {P : Ideal S} {Q : Ideal T} [hpm : P.IsPrime] [hqm : Q.IsPrime] (hg0 : map (algebraMap S T) P \u2260 \u22a5) (hfg : map (algebraMap R T) p \u2260 \u22a5) (hg : map (algebraMap S T) P \u2264 Q) : ramificationIdx p Q = ramificationIdx p P * ramificationIdx P Q",
+          "have_tree": [
+            {
+              "name": "hf0",
+              "type": "map (algebraMap R S) p \u2260 \u22a5",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hq0",
+              "type": "Q \u2260 \u22a5",
+              "body": "ne_bot_of_le_ne_bot hg0 hg",
+              "children": []
+            },
+            {
+              "name": "hp0",
+              "type": "P \u2260 \u22a5",
+              "body": "ne_bot_of_map_ne_bot hg0",
+              "children": []
+            },
+            {
+              "name": "hntq",
+              "type": "\u00ac \u22a4 \u2264 Q",
+              "body": "fun ht \u21a6 IsPrime.ne_top hqm (Iff.mpr (eq_top_iff_one Q) (ht trivial))",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Ramification",
+          "name": "ramificationIdx_algebra_tower",
+          "statement": "Ideal R} {P : Ideal S} {Q : Ideal T} [hpm : P.IsPrime] [hqm : Q.IsPrime] (hg0 : map (algebraMap S T) P \u2260 \u22a5) (hfg : map (algebraMap R T) p \u2260 \u22a5) (hg : map (algebraMap S T) P \u2264 Q) : ramificationIdx p Q = ramificationIdx p P * ramificationIdx P Q",
+          "have_tree": [
+            {
+              "name": "hf0",
+              "type": "map (algebraMap R S) p \u2260 \u22a5",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hp0",
+              "type": "P \u2260 \u22a5",
+              "body": "ne_bot_of_map_ne_bot hg0",
+              "children": []
+            },
+            {
+              "name": "hntq",
+              "type": "\u00ac \u22a4 \u2264 Q",
+              "body": "fun ht \u21a6 IsPrime.ne_top hqm (Iff.mpr (eq_top_iff_one Q) (ht trivial))",
+              "children": []
+            },
+            {
+              "name": "hq0",
+              "type": "Q \u2260 \u22a5",
+              "body": "ne_bot_of_le_ne_bot hg0 hg",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Ramification",
+      "name": "ramificationIdx_algebra_tower'",
+      "statement": "Ideal R) (P : Ideal S) (Q : Ideal T) [Q.IsPrime] [Q.LiesOver P] [P.LiesOver p] : ramificationIdx p Q = ramificationIdx p P * ramificationIdx P Q",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "P.IsPrime",
+          "body": "isPrime_of_liesOver Q P",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Module.IsTorsionFree R T",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hP",
+          "type": "P \u2260 \u22a5",
+          "body": "ne_bot_of_liesOver_of_ne_bot hp _",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Ramification",
+          "name": "ramificationIdx_algebra_tower'",
+          "statement": "Ideal R) (P : Ideal S) (Q : Ideal T) [Q.IsPrime] [Q.LiesOver P] [P.LiesOver p] : ramificationIdx p Q = ramificationIdx p P * ramificationIdx P Q",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Module.IsTorsionFree R T",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "P.IsPrime",
+              "body": "isPrime_of_liesOver Q P",
+              "children": []
+            },
+            {
+              "name": "hP",
+              "type": "P \u2260 \u22a5",
+              "body": "ne_bot_of_liesOver_of_ne_bot hp _",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Ramification",
+          "name": "ramificationIdx_algebra_tower'",
+          "statement": "Ideal R) (P : Ideal S) (Q : Ideal T) [Q.IsPrime] [Q.LiesOver P] [P.LiesOver p] : ramificationIdx p Q = ramificationIdx p P * ramificationIdx P Q",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "P.IsPrime",
+              "body": "isPrime_of_liesOver Q P",
+              "children": []
+            },
+            {
+              "name": "hP",
+              "type": "P \u2260 \u22a5",
+              "body": "ne_bot_of_liesOver_of_ne_bot hp _",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Module.IsTorsionFree R T",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

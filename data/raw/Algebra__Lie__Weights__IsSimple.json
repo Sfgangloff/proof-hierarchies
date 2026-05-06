@@ -1,0 +1,218 @@
+[
+  {
+    "module": "IsSimple",
+    "name": "rootSpace_le_of_apply_coroot_ne_zero",
+    "statement": "LieIdeal K L) {\u03b1 : Weight K H L} (h\u03b1 : rootSpace H \u03b1 \u2264 I.restr H) {\u03b3 : H \u2192 K} (h\u03b3_ne : \u03b3 (coroot \u03b1) \u2260 0) : rootSpace H \u03b3 \u2264 I.restr H",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u03b3 (coroot \u03b1) \u2022 y \u2208 I.toSubmodule",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsSimple",
+    "name": "reflectionPerm_mem_rootSet_iff",
+    "statement": "LieIdeal K L) (\u03b1 \u03b2 : H.root) : (rootSystem H).reflectionPerm \u03b2 \u03b1 \u2208 I.rootSet \u2194 \u03b1 \u2208 I.rootSet",
+    "have_tree": [
+      {
+        "name": "h_neg",
+        "type": "S.pairing (S.reflectionPerm \u03b3 \u03b4) \u03b3 \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsSimple",
+    "name": "mem_rootSet_of_mem_rootSpan",
+    "statement": "LieIdeal K L) {\u03b1 : H.root} (h\u03b1_span : (\u03b1 : Dual K H) \u2208 I.rootSpan) : \u03b1 \u2208 I.rootSet",
+    "have_tree": [
+      {
+        "name": "h\u03b1_nz",
+        "type": "",
+        "body": "H.isNonZero_coe_root \u03b1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "LinearMap.mem_ker.mp (this h\u03b1_span)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsSimple",
+    "name": "chi_in_q_aux",
+    "statement": "\u2191\u03c7 \u2208 q) : \u2045x_\u03c7, m_\u03b1\u2046 \u2208 \u2a06 \u03b1 : {\u03b1 : Weight K H L // \u2191\u03b1 \u2208 q \u2227 \u03b1.IsNonZero}, sl2SubmoduleOfRoot \u03b1.2.2",
+    "have_tree": [
+      {
+        "name": "h\u03b2_nonzero",
+        "type": "\u03b2.IsNonZero",
+        "body": "Weight.coe_toLinear_ne_zero_iff.mp h\u03b2_ne_zero",
+        "children": []
+      },
+      {
+        "name": "h_plus_contain",
+        "type": "genWeightSpace L (\u03c7.toLinear + \u03b1.toLinear) \u2264 I",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h_minus_contain",
+        "type": "genWeightSpace L (\u03c7.toLinear - \u03b1.toLinear) \u2264 I",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h_chi_contain",
+        "type": "genWeightSpace L \u03c7.toLinear \u2264 I",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsSimple",
+    "name": "chi_not_in_q_aux",
+    "statement": "\u2191\u03c7 \u2209 q) : \u2045x_\u03c7, m_\u03b1\u2046 \u2208 \u2a06 \u03b1 : {\u03b1 : Weight K H L // \u2191\u03b1 \u2208 q \u2227 \u03b1.IsNonZero}, sl2SubmoduleOfRoot \u03b1.2.2",
+    "have_tree": [
+      {
+        "name": "h\u03b3_nonzero",
+        "type": "\u03b3.IsNonZero",
+        "body": "Weight.coe_toLinear_ne_zero_iff.mp w_plus",
+        "children": []
+      },
+      {
+        "name": "h_sum_in_range",
+        "type": "S.root i + S.root j \u2208 Set.range S.root",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_equiv",
+        "type": "",
+        "body": "RootPairing.root_mem_submodule_iff_of_add_mem_invtSubmodule",
+        "children": []
+      },
+      {
+        "name": "h\u03b3_nonzero",
+        "type": "\u03b3.IsNonZero",
+        "body": "Weight.coe_toLinear_ne_zero_iff.mp w_minus",
+        "children": []
+      },
+      {
+        "name": "h_sum_in_range",
+        "type": "S.root i + S.root j \u2208 Set.range S.root",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_equiv",
+        "type": "",
+        "body": "RootPairing.root_mem_submodule_iff_of_add_mem_invtSubmodule",
+        "children": [
+          {
+            "name": "_",
+            "type": "genWeightSpace L (S.root idx) \u2260 \u22a5",
+            "body": "idx.val.genWeightSpace_ne_bot",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "genWeightSpace L (S.root idx) \u2260 \u22a5",
+            "body": "idx.val.genWeightSpace_ne_bot",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "IsSimple",
+    "name": "invtSubmoduleToLieIdeal_aux",
+    "statement": "m_\u03b1 \u2208 sl2SubmoduleOfRoot h\u03b1\u2080) : \u2045x_\u03c7, m_\u03b1\u2046 \u2208 \u2a06 \u03b1 : {\u03b1 : Weight K H L // \u2191\u03b1 \u2208 q \u2227 \u03b1.IsNonZero}, sl2SubmoduleOfRoot \u03b1.2.2",
+    "have_tree": [
+      {
+        "name": "hm_\u03b1_original",
+        "type": "m_\u03b1 \u2208 sl2SubmoduleOfRoot h\u03b1\u2080",
+        "body": "hm_\u03b1",
+        "children": [
+          {
+            "name": "hx_\u03c7_in_sl2",
+            "type": "x_\u03c7 \u2208 sl2SubalgebraOfRoot h\u03b1\u2080",
+            "body": "by",
+            "children": [
+              {
+                "name": "hx_\u03c7_neg",
+                "type": "x_\u03c7 \u2208 genWeightSpace L (-\u03b1.toLinear)",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "hx_\u03c7_in_sl2",
+            "type": "x_\u03c7 \u2208 sl2SubalgebraOfRoot h\u03b1\u2080",
+            "body": "by",
+            "children": [
+              {
+                "name": "hx_\u03c7_pos",
+                "type": "x_\u03c7 \u2208 genWeightSpace L \u03b1.toLinear",
+                "body": "by",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "h_pos_containment",
+        "type": "\u2045x_\u03c7, m_pos\u2046 \u2208 genWeightSpace L (\u03c7.toLinear + \u03b1.toLinear)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h_neg_containment",
+        "type": "\u2045x_\u03c7, m_neg\u2046 \u2208 genWeightSpace L (\u03c7.toLinear - \u03b1.toLinear)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsSimple",
+    "name": "mem_rootSet_invtSubmoduleToLieIdeal",
+    "statement": "Submodule K (Dual K H)) (hq : \u2200 i, q \u2208 End.invtSubmodule ((rootSystem H).reflection i).toLinearMap) {\u03b1 : H.root} : \u03b1 \u2208 (invtSubmoduleToLieIdeal q hq).rootSet \u2194 (rootSystem H).root \u03b1 \u2208 q",
+    "have_tree": [
+      {
+        "name": "h\u03b1_nz",
+        "type": "",
+        "body": "H.isNonZero_coe_root \u03b1",
+        "children": []
+      },
+      {
+        "name": "h_disj",
+        "type": "",
+        "body": "((iSupIndep_genWeightSpace K H L _).mono_right h_le).mono_right h\u03b1_mem",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsSimple",
+    "name": "isSimple_iff_isIrreducible",
+    "statement": "(rootSystem H).IsIrreducible \u2194 IsSimple K L",
+    "have_tree": [
+      {
+        "name": "hL",
+        "type": "\u00ac IsLieAbelian L",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

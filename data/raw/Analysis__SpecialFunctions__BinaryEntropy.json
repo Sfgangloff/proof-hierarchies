@@ -1,0 +1,119 @@
+[
+  {
+    "module": "BinaryEntropy",
+    "name": "binEntropy_pos",
+    "statement": "0 < p) (hp\u2081 : p < 1) : 0 < binEntropy p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < 1 - p",
+        "body": "sub_pos.2 hp\u2081",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 < log p\u207b\u00b9",
+        "body": "log_pos <| (one_lt_inv\u2080 hp\u2080).2 hp\u2081",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 < log (1 - p)\u207b\u00b9",
+        "body": "log_pos <| (one_lt_inv\u2080 \u2039_\u203a).2 (sub_lt_self _ hp\u2080)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BinaryEntropy",
+    "name": "binEntropy_lt_log_two",
+    "statement": "binEntropy p < log 2 \u2194 p \u2260 2\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "hp\u2081",
+        "type": "0 < 1 - p",
+        "body": "sub_pos.2 <| hp.trans <| by norm_num",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BinaryEntropy",
+    "name": "not_continuousAt_deriv_qaryEntropy_one",
+    "statement": "\u00acContinuousAt (deriv (qaryEntropy q)) 1",
+    "have_tree": [
+      {
+        "name": "tendstoBot",
+        "type": "Tendsto (fun p \u21a6 log (q - 1) + log (1 - p) - log p) (\ud835\udcdd[<] 1) atBot",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BinaryEntropy",
+    "name": "not_continuousAt_deriv_qaryEntropy_zero",
+    "statement": "\u00acContinuousAt (deriv (qaryEntropy q)) 0",
+    "have_tree": [
+      {
+        "name": "tendstoTop",
+        "type": "Tendsto (fun p \u21a6 log (q - 1) + log (1 - p) - log p) (\ud835\udcdd[>] 0) atTop",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BinaryEntropy",
+    "name": "deriv2_qaryEntropy",
+    "statement": "deriv^[2] (qaryEntropy q) p = -1 / (p * (1 - p))",
+    "have_tree": [
+      {
+        "name": "contAt",
+        "type": "",
+        "body": "h.continuousAt",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BinaryEntropy",
+    "name": "qaryEntropy_strictMonoOn",
+    "statement": "2 \u2264 q) : StrictMonoOn (qaryEntropy q) (Icc 0 (1 - 1 / q))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < 1 - p",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "q * p < q - 1",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "BinaryEntropy",
+    "name": "qaryEntropy_strictAntiOn",
+    "statement": "2 \u2264 q) : StrictAntiOn (qaryEntropy q) (Icc (1 - 1 / q) 1)",
+    "have_tree": [
+      {
+        "name": "zero_lt_1_sub_p",
+        "type": "0 < 1 - p",
+        "body": "by simp_all only [sub_pos, interior_Icc, mem_Ioo]",
+        "children": [
+          {
+            "name": "h1",
+            "type": "",
+            "body": "mul_lt_mul_of_pos_right hp.1 qpos",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

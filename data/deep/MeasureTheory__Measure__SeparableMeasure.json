@@ -1,0 +1,66 @@
+[
+  {
+    "module": "SeparableMeasure",
+    "name": "Measure.MeasureDense.indicatorConstLp_subset_closure",
+    "statement": "\u03bc.MeasureDense \ud835\udc9c) (c : E) : {indicatorConstLp p hs h\u03bcs c | (s : Set X) (hs : MeasurableSet s) (h\u03bcs : \u03bc s \u2260 \u221e)} \u2286 closure {indicatorConstLp p (h\ud835\udc9c.measurable s hs) h\u03bcs c | (s : Set X) (hs : s \u2208 \ud835\udc9c) (h\u03bcs : \u03bc s \u2260 \u221e)}",
+    "have_tree": [
+      {
+        "name": "aux",
+        "type": "0 < (\u03b5 / \u2016c\u2016) ^ p.toReal",
+        "body": "rpow_pos_of_pos (div_pos h\u03b5 (norm_pos_iff.2 hc)) _",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "toReal_pos p_pos.ne.symm p_ne_top.elim",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "SeparableMeasure",
+    "name": "Measure.MeasureDense.of_generateFrom_isSetAlgebra_sigmaFinite",
+    "statement": "IsSetAlgebra \ud835\udc9c) (S : \u03bc.FiniteSpanningSetsIn \ud835\udc9c) (hgen : m = MeasurableSpace.generateFrom \ud835\udc9c) : \u03bc.MeasureDense \ud835\udc9c where measurable s hs",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "T n \u2208 \ud835\udc9c",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u03bc (T n) < \u221e",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "T_spanning",
+        "type": "\u22c3 n, T n = univ",
+        "body": "S.spanning \u25b8 iUnion_accumulate",
+        "children": []
+      },
+      {
+        "name": "mono",
+        "type": "Monotone (fun n \u21a6 (T n) \u2229 s)",
+        "body": "fun m n hmn \u21a6 inter_subset_inter_left s",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "tendsto_measure_iUnion_atTop (\u03bc := \u03bc) mono",
+        "children": [
+          {
+            "name": "_",
+            "type": "Fact (\u03bc (T N) < \u221e)",
+            "body": "Fact.mk <| T_finite N",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "module": "InjectiveDimension",
+    "name": "localizedModule_hasInjectiveDimensionLE",
+    "statement": "\u2115) (S : Submonoid R) (M : ModuleCat.{v} R) [HasInjectiveDimensionLE M n] : HasInjectiveDimensionLE (M.localizedModule S) n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Small.{v} (Localization S)",
+        "body": "small_of_surjective Localization.mkHom_surjective",
+        "children": [
+          {
+            "name": "injle",
+            "type": "HasInjectiveDimensionLE M 0",
+            "body": "\u2039_\u203a",
+            "children": []
+          },
+          {
+            "name": "ei",
+            "type": "EnoughInjectives (ModuleCat.{v} R)",
+            "body": "inferInstance",
+            "children": []
+          },
+          {
+            "name": "T_exact",
+            "type": "T.ShortExact",
+            "body": "{ exact := ShortComplex.exact_cokernel f }",
+            "children": []
+          },
+          {
+            "name": "T_exact'",
+            "type": "Function.Exact (ConcreteCategory.hom T.f) (ConcreteCategory.hom T.g)",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "TS_exact'",
+            "type": "",
+            "body": "IsLocalizedModule.map_exact S (T.X\u2081.localizedModuleMkLinearMap S)",
+            "children": []
+          },
+          {
+            "name": "TS_exact",
+            "type": "TS.ShortExact",
+            "body": "T_exact.map_of_exact (ModuleCat.localizedModuleFunctor S)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "InjectiveDimension",
+    "name": "hasInjectiveDimensionLE_iff_forall_maximalSpectrum",
+    "statement": "\u2115) (M : ModuleCat.{v} R) : HasInjectiveDimensionLE M n \u2194 \u2200 (m : MaximalSpectrum R), HasInjectiveDimensionLE (M.localizedModule m.1.primeCompl) n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.Injective (Localization.AtPrime p) (M.localizedModule p.primeCompl)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "ei",
+        "type": "EnoughInjectives (ModuleCat.{v} R)",
+        "body": "inferInstance",
+        "children": []
+      },
+      {
+        "name": "S_exact",
+        "type": "S.ShortExact",
+        "body": "{ exact := ShortComplex.exact_cokernel f }",
+        "children": []
+      },
+      {
+        "name": "ih'",
+        "type": "",
+        "body": "ih S.X\u2083",
+        "children": []
+      }
+    ]
+  }
+]

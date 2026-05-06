@@ -1,0 +1,556 @@
+[
+  {
+    "original": {
+      "module": "Average",
+      "name": "tendsto_integral_smul_of_tendsto_average_norm_sub",
+      "statement": "Type*} {a : \u03b9 \u2192 Set \u03b1} {l : Filter \u03b9} {f : \u03b1 \u2192 E} {c : E} {g : \u03b9 \u2192 \u03b1 \u2192 \u211d} (K : \u211d) (hf : Tendsto (fun i \u21a6 \u2a0d y in a i, \u2016f y - c\u2016 \u2202\u03bc) l (\ud835\udcdd 0)) (f_int : \u2200\u1da0 i in l, IntegrableOn f (a i) \u03bc) (hg : Tendsto (fun i \u21a6 \u222b y, g i y \u2202\u03bc) l (\ud835\udcdd 1)) (g_supp : \u2200\u1da0 i in l, Function.support (g i) \u2286 a i) (g_bound : \u2200\u1da0 i in l, \u2200 x, |g i x| \u2264 K / \u03bc.real (a i)) : Tendsto (fun i \u21a6 \u222b y, g i y \u2022 f y \u2202\u03bc) l (\ud835\udcdd c)",
+      "have_tree": [
+        {
+          "name": "g_int",
+          "type": "\u2200\u1da0 i in l, Integrable (g i) \u03bc",
+          "body": "by",
+          "children": [
+            {
+              "name": "A",
+              "type": "Function.support (fun y \u21a6 g i y \u2022 f y) \u2286 a i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "L0",
+          "type": "Tendsto (fun i \u21a6 \u222b y, g i y \u2022 (f y - c) \u2202\u03bc) l (\ud835\udcdd 0)",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hf.const_mul K",
+              "children": []
+            },
+            {
+              "name": "mu_ai",
+              "type": "\u03bc (a i) < \u221e",
+              "body": "by",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "L0.add (hg.smul_const c)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Average",
+          "name": "tendsto_integral_smul_of_tendsto_average_norm_sub",
+          "statement": "Type*} {a : \u03b9 \u2192 Set \u03b1} {l : Filter \u03b9} {f : \u03b1 \u2192 E} {c : E} {g : \u03b9 \u2192 \u03b1 \u2192 \u211d} (K : \u211d) (hf : Tendsto (fun i \u21a6 \u2a0d y in a i, \u2016f y - c\u2016 \u2202\u03bc) l (\ud835\udcdd 0)) (f_int : \u2200\u1da0 i in l, IntegrableOn f (a i) \u03bc) (hg : Tendsto (fun i \u21a6 \u222b y, g i y \u2202\u03bc) l (\ud835\udcdd 1)) (g_supp : \u2200\u1da0 i in l, Function.support (g i) \u2286 a i) (g_bound : \u2200\u1da0 i in l, \u2200 x, |g i x| \u2264 K / \u03bc.real (a i)) : Tendsto (fun i \u21a6 \u222b y, g i y \u2022 f y \u2202\u03bc) l (\ud835\udcdd c)",
+          "have_tree": [
+            {
+              "name": "g_int",
+              "type": "\u2200\u1da0 i in l, Integrable (g i) \u03bc",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "L0",
+              "type": "Tendsto (fun i \u21a6 \u222b y, g i y \u2022 (f y - c) \u2202\u03bc) l (\ud835\udcdd 0)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hf.const_mul K",
+                  "children": []
+                },
+                {
+                  "name": "mu_ai",
+                  "type": "\u03bc (a i) < \u221e",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "L0.add (hg.smul_const c)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Average",
+          "name": "tendsto_integral_smul_of_tendsto_average_norm_sub",
+          "statement": "Type*} {a : \u03b9 \u2192 Set \u03b1} {l : Filter \u03b9} {f : \u03b1 \u2192 E} {c : E} {g : \u03b9 \u2192 \u03b1 \u2192 \u211d} (K : \u211d) (hf : Tendsto (fun i \u21a6 \u2a0d y in a i, \u2016f y - c\u2016 \u2202\u03bc) l (\ud835\udcdd 0)) (f_int : \u2200\u1da0 i in l, IntegrableOn f (a i) \u03bc) (hg : Tendsto (fun i \u21a6 \u222b y, g i y \u2202\u03bc) l (\ud835\udcdd 1)) (g_supp : \u2200\u1da0 i in l, Function.support (g i) \u2286 a i) (g_bound : \u2200\u1da0 i in l, \u2200 x, |g i x| \u2264 K / \u03bc.real (a i)) : Tendsto (fun i \u21a6 \u222b y, g i y \u2022 f y \u2202\u03bc) l (\ud835\udcdd c)",
+          "have_tree": [
+            {
+              "name": "g_int",
+              "type": "\u2200\u1da0 i in l, Integrable (g i) \u03bc",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "Function.support (fun y \u21a6 g i y \u2022 f y) \u2286 a i",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "L0",
+              "type": "Tendsto (fun i \u21a6 \u222b y, g i y \u2022 (f y - c) \u2202\u03bc) l (\ud835\udcdd 0)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "mu_ai",
+                  "type": "\u03bc (a i) < \u221e",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "L0.add (hg.smul_const c)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          1
+        ],
+        "result": {
+          "module": "Average",
+          "name": "tendsto_integral_smul_of_tendsto_average_norm_sub",
+          "statement": "Type*} {a : \u03b9 \u2192 Set \u03b1} {l : Filter \u03b9} {f : \u03b1 \u2192 E} {c : E} {g : \u03b9 \u2192 \u03b1 \u2192 \u211d} (K : \u211d) (hf : Tendsto (fun i \u21a6 \u2a0d y in a i, \u2016f y - c\u2016 \u2202\u03bc) l (\ud835\udcdd 0)) (f_int : \u2200\u1da0 i in l, IntegrableOn f (a i) \u03bc) (hg : Tendsto (fun i \u21a6 \u222b y, g i y \u2202\u03bc) l (\ud835\udcdd 1)) (g_supp : \u2200\u1da0 i in l, Function.support (g i) \u2286 a i) (g_bound : \u2200\u1da0 i in l, \u2200 x, |g i x| \u2264 K / \u03bc.real (a i)) : Tendsto (fun i \u21a6 \u222b y, g i y \u2022 f y \u2202\u03bc) l (\ud835\udcdd c)",
+          "have_tree": [
+            {
+              "name": "g_int",
+              "type": "\u2200\u1da0 i in l, Integrable (g i) \u03bc",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "Function.support (fun y \u21a6 g i y \u2022 f y) \u2286 a i",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "L0",
+              "type": "Tendsto (fun i \u21a6 \u222b y, g i y \u2022 (f y - c) \u2202\u03bc) l (\ud835\udcdd 0)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hf.const_mul K",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "L0.add (hg.smul_const c)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Average",
+          "name": "tendsto_integral_smul_of_tendsto_average_norm_sub",
+          "statement": "Type*} {a : \u03b9 \u2192 Set \u03b1} {l : Filter \u03b9} {f : \u03b1 \u2192 E} {c : E} {g : \u03b9 \u2192 \u03b1 \u2192 \u211d} (K : \u211d) (hf : Tendsto (fun i \u21a6 \u2a0d y in a i, \u2016f y - c\u2016 \u2202\u03bc) l (\ud835\udcdd 0)) (f_int : \u2200\u1da0 i in l, IntegrableOn f (a i) \u03bc) (hg : Tendsto (fun i \u21a6 \u222b y, g i y \u2202\u03bc) l (\ud835\udcdd 1)) (g_supp : \u2200\u1da0 i in l, Function.support (g i) \u2286 a i) (g_bound : \u2200\u1da0 i in l, \u2200 x, |g i x| \u2264 K / \u03bc.real (a i)) : Tendsto (fun i \u21a6 \u222b y, g i y \u2022 f y \u2202\u03bc) l (\ud835\udcdd c)",
+          "have_tree": [
+            {
+              "name": "A",
+              "type": "Function.support (fun y \u21a6 g i y \u2022 f y) \u2286 a i",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "g_int",
+              "type": "\u2200\u1da0 i in l, Integrable (g i) \u03bc",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "L0",
+              "type": "Tendsto (fun i \u21a6 \u222b y, g i y \u2022 (f y - c) \u2202\u03bc) l (\ud835\udcdd 0)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hf.const_mul K",
+                  "children": []
+                },
+                {
+                  "name": "mu_ai",
+                  "type": "\u03bc (a i) < \u221e",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "L0.add (hg.smul_const c)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Average",
+          "name": "tendsto_integral_smul_of_tendsto_average_norm_sub",
+          "statement": "Type*} {a : \u03b9 \u2192 Set \u03b1} {l : Filter \u03b9} {f : \u03b1 \u2192 E} {c : E} {g : \u03b9 \u2192 \u03b1 \u2192 \u211d} (K : \u211d) (hf : Tendsto (fun i \u21a6 \u2a0d y in a i, \u2016f y - c\u2016 \u2202\u03bc) l (\ud835\udcdd 0)) (f_int : \u2200\u1da0 i in l, IntegrableOn f (a i) \u03bc) (hg : Tendsto (fun i \u21a6 \u222b y, g i y \u2202\u03bc) l (\ud835\udcdd 1)) (g_supp : \u2200\u1da0 i in l, Function.support (g i) \u2286 a i) (g_bound : \u2200\u1da0 i in l, \u2200 x, |g i x| \u2264 K / \u03bc.real (a i)) : Tendsto (fun i \u21a6 \u222b y, g i y \u2022 f y \u2202\u03bc) l (\ud835\udcdd c)",
+          "have_tree": [
+            {
+              "name": "g_int",
+              "type": "\u2200\u1da0 i in l, Integrable (g i) \u03bc",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "Function.support (fun y \u21a6 g i y \u2022 f y) \u2286 a i",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hf.const_mul K",
+              "children": []
+            },
+            {
+              "name": "L0",
+              "type": "Tendsto (fun i \u21a6 \u222b y, g i y \u2022 (f y - c) \u2202\u03bc) l (\ud835\udcdd 0)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "mu_ai",
+                  "type": "\u03bc (a i) < \u221e",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "L0.add (hg.smul_const c)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Average",
+          "name": "tendsto_integral_smul_of_tendsto_average_norm_sub",
+          "statement": "Type*} {a : \u03b9 \u2192 Set \u03b1} {l : Filter \u03b9} {f : \u03b1 \u2192 E} {c : E} {g : \u03b9 \u2192 \u03b1 \u2192 \u211d} (K : \u211d) (hf : Tendsto (fun i \u21a6 \u2a0d y in a i, \u2016f y - c\u2016 \u2202\u03bc) l (\ud835\udcdd 0)) (f_int : \u2200\u1da0 i in l, IntegrableOn f (a i) \u03bc) (hg : Tendsto (fun i \u21a6 \u222b y, g i y \u2202\u03bc) l (\ud835\udcdd 1)) (g_supp : \u2200\u1da0 i in l, Function.support (g i) \u2286 a i) (g_bound : \u2200\u1da0 i in l, \u2200 x, |g i x| \u2264 K / \u03bc.real (a i)) : Tendsto (fun i \u21a6 \u222b y, g i y \u2022 f y \u2202\u03bc) l (\ud835\udcdd c)",
+          "have_tree": [
+            {
+              "name": "g_int",
+              "type": "\u2200\u1da0 i in l, Integrable (g i) \u03bc",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "Function.support (fun y \u21a6 g i y \u2022 f y) \u2286 a i",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "mu_ai",
+              "type": "\u03bc (a i) < \u221e",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "L0",
+              "type": "Tendsto (fun i \u21a6 \u222b y, g i y \u2022 (f y - c) \u2202\u03bc) l (\ud835\udcdd 0)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hf.const_mul K",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "L0.add (hg.smul_const c)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Average",
+          "name": "tendsto_integral_smul_of_tendsto_average_norm_sub",
+          "statement": "Type*} {a : \u03b9 \u2192 Set \u03b1} {l : Filter \u03b9} {f : \u03b1 \u2192 E} {c : E} {g : \u03b9 \u2192 \u03b1 \u2192 \u211d} (K : \u211d) (hf : Tendsto (fun i \u21a6 \u2a0d y in a i, \u2016f y - c\u2016 \u2202\u03bc) l (\ud835\udcdd 0)) (f_int : \u2200\u1da0 i in l, IntegrableOn f (a i) \u03bc) (hg : Tendsto (fun i \u21a6 \u222b y, g i y \u2202\u03bc) l (\ud835\udcdd 1)) (g_supp : \u2200\u1da0 i in l, Function.support (g i) \u2286 a i) (g_bound : \u2200\u1da0 i in l, \u2200 x, |g i x| \u2264 K / \u03bc.real (a i)) : Tendsto (fun i \u21a6 \u222b y, g i y \u2022 f y \u2202\u03bc) l (\ud835\udcdd c)",
+          "have_tree": [
+            {
+              "name": "L0",
+              "type": "Tendsto (fun i \u21a6 \u222b y, g i y \u2022 (f y - c) \u2202\u03bc) l (\ud835\udcdd 0)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hf.const_mul K",
+                  "children": []
+                },
+                {
+                  "name": "mu_ai",
+                  "type": "\u03bc (a i) < \u221e",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "g_int",
+              "type": "\u2200\u1da0 i in l, Integrable (g i) \u03bc",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "Function.support (fun y \u21a6 g i y \u2022 f y) \u2286 a i",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "L0.add (hg.smul_const c)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Average",
+          "name": "tendsto_integral_smul_of_tendsto_average_norm_sub",
+          "statement": "Type*} {a : \u03b9 \u2192 Set \u03b1} {l : Filter \u03b9} {f : \u03b1 \u2192 E} {c : E} {g : \u03b9 \u2192 \u03b1 \u2192 \u211d} (K : \u211d) (hf : Tendsto (fun i \u21a6 \u2a0d y in a i, \u2016f y - c\u2016 \u2202\u03bc) l (\ud835\udcdd 0)) (f_int : \u2200\u1da0 i in l, IntegrableOn f (a i) \u03bc) (hg : Tendsto (fun i \u21a6 \u222b y, g i y \u2202\u03bc) l (\ud835\udcdd 1)) (g_supp : \u2200\u1da0 i in l, Function.support (g i) \u2286 a i) (g_bound : \u2200\u1da0 i in l, \u2200 x, |g i x| \u2264 K / \u03bc.real (a i)) : Tendsto (fun i \u21a6 \u222b y, g i y \u2022 f y \u2202\u03bc) l (\ud835\udcdd c)",
+          "have_tree": [
+            {
+              "name": "g_int",
+              "type": "\u2200\u1da0 i in l, Integrable (g i) \u03bc",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "Function.support (fun y \u21a6 g i y \u2022 f y) \u2286 a i",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "L0.add (hg.smul_const c)",
+              "children": []
+            },
+            {
+              "name": "L0",
+              "type": "Tendsto (fun i \u21a6 \u222b y, g i y \u2022 (f y - c) \u2202\u03bc) l (\ud835\udcdd 0)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hf.const_mul K",
+                  "children": []
+                },
+                {
+                  "name": "mu_ai",
+                  "type": "\u03bc (a i) < \u221e",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          1
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Average",
+          "name": "tendsto_integral_smul_of_tendsto_average_norm_sub",
+          "statement": "Type*} {a : \u03b9 \u2192 Set \u03b1} {l : Filter \u03b9} {f : \u03b1 \u2192 E} {c : E} {g : \u03b9 \u2192 \u03b1 \u2192 \u211d} (K : \u211d) (hf : Tendsto (fun i \u21a6 \u2a0d y in a i, \u2016f y - c\u2016 \u2202\u03bc) l (\ud835\udcdd 0)) (f_int : \u2200\u1da0 i in l, IntegrableOn f (a i) \u03bc) (hg : Tendsto (fun i \u21a6 \u222b y, g i y \u2202\u03bc) l (\ud835\udcdd 1)) (g_supp : \u2200\u1da0 i in l, Function.support (g i) \u2286 a i) (g_bound : \u2200\u1da0 i in l, \u2200 x, |g i x| \u2264 K / \u03bc.real (a i)) : Tendsto (fun i \u21a6 \u222b y, g i y \u2022 f y \u2202\u03bc) l (\ud835\udcdd c)",
+          "have_tree": [
+            {
+              "name": "g_int",
+              "type": "\u2200\u1da0 i in l, Integrable (g i) \u03bc",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "Function.support (fun y \u21a6 g i y \u2022 f y) \u2286 a i",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "L0",
+              "type": "Tendsto (fun i \u21a6 \u222b y, g i y \u2022 (f y - c) \u2202\u03bc) l (\ud835\udcdd 0)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "mu_ai",
+                  "type": "\u03bc (a i) < \u221e",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hf.const_mul K",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "L0.add (hg.smul_const c)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Average",
+      "name": "exists_eq_setAverage",
+      "statement": "\u03b1 \u2192 \u211d} (hs : IsConnected s) (hf : ContinuousOn f s) (hint : IntegrableOn f s \u03bc) (h\u03bcfin : \u03bc s \u2260 \u22a4) (h\u03bc0 : \u03bc s \u2260 0) : \u2203 c \u2208 s, f c = \u2a0d x in s, f x \u2202\u03bc",
+      "have_tree": [
+        {
+          "name": "hS\u2081",
+          "type": "0 < \u03bc S\u2081",
+          "body": "measure_le_setAverage_pos h\u03bc0 h\u03bcfin hint",
+          "children": []
+        },
+        {
+          "name": "hS\u2082",
+          "type": "0 < \u03bc S\u2082",
+          "body": "measure_setAverage_le_pos h\u03bc0 h\u03bcfin hint",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Average",
+          "name": "exists_eq_setAverage",
+          "statement": "\u03b1 \u2192 \u211d} (hs : IsConnected s) (hf : ContinuousOn f s) (hint : IntegrableOn f s \u03bc) (h\u03bcfin : \u03bc s \u2260 \u22a4) (h\u03bc0 : \u03bc s \u2260 0) : \u2203 c \u2208 s, f c = \u2a0d x in s, f x \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "hS\u2082",
+              "type": "0 < \u03bc S\u2082",
+              "body": "measure_setAverage_le_pos h\u03bc0 h\u03bcfin hint",
+              "children": []
+            },
+            {
+              "name": "hS\u2081",
+              "type": "0 < \u03bc S\u2081",
+              "body": "measure_le_setAverage_pos h\u03bc0 h\u03bcfin hint",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

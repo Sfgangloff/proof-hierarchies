@@ -1,0 +1,35 @@
+[
+  {
+    "module": "EdgeConnectivity",
+    "name": "exists_adj_isEdgeReachable_two",
+    "statement": "u \u2260 v) (h : G.IsEdgeReachable 2 u v) : \u2203 w : V, G.Adj u w \u2227 G.IsEdgeReachable 2 u w",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "G.Adj u w.snd",
+        "body": "Walk.adj_snd (by grind [Walk.not_nil_of_ne])",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hw.tail.eq_snd_of_mem_edges (Sym2.eq_swap \u25b8 hh)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "EdgeConnectivity",
+    "name": "IsTrail.isEdgeReachable_two_of_isEdgeReachable_two_aux",
+    "statement": "w.IsTrail) (huv : G.IsEdgeReachable 2 u v) (huy : x \u2208 w.support) : G.IsEdgeReachable 2 u x",
+    "have_tree": [
+      {
+        "name": "he'",
+        "type": "\u00ac (G.deleteEdges {e}).Reachable v x",
+        "body": "fun hvy \u21a6",
+        "children": []
+      }
+    ]
+  }
+]

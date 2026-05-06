@@ -1,0 +1,90 @@
+[
+  {
+    "module": "Arctan",
+    "name": "arctan",
+    "statement": "\u2102) : \u2102",
+    "have_tree": [
+      {
+        "name": "z\u2081",
+        "type": "1 + z * I \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "z\u2082",
+        "type": "1 - z * I \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arctan",
+    "name": "arctan_tan",
+    "statement": "\u2102} (h\u2080 : z \u2260 \u03c0 / 2) (h\u2081 : -(\u03c0 / 2) < z.re) (h\u2082 : z.re \u2264 \u03c0 / 2) : arctan (tan z) = z",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "cos_ne_zero_of_arctan_bounds h\u2080 h\u2081 h\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arctan",
+    "name": "hasSum_arctan_aux",
+    "statement": "\u2102} (hz : \u2016z\u2016 < 1) : log (1 + z * I) + -log (1 - z * I) = log ((1 + z * I) / (1 - z * I))",
+    "have_tree": [
+      {
+        "name": "z\u2081",
+        "type": "",
+        "body": "mem_slitPlane_iff_arg.mp (mem_slitPlane_of_norm_lt_one (z := z * I) (by simpa))",
+        "children": []
+      },
+      {
+        "name": "z\u2082",
+        "type": "",
+        "body": "mem_slitPlane_iff_arg.mp (mem_slitPlane_of_norm_lt_one (z := -(z * I)) (by simpa))",
+        "children": []
+      },
+      {
+        "name": "b\u2081",
+        "type": "",
+        "body": "arg_one_add_mem_Ioo (z := z * I) (by simpa)",
+        "children": []
+      },
+      {
+        "name": "b\u2082",
+        "type": "arg (1 - z * I)\u207b\u00b9 \u2208 Set.Ioo (-(\u03c0 / 2)) (\u03c0 / 2)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "c\u2081",
+        "type": "",
+        "body": "add_lt_add b\u2081.1 b\u2082.1",
+        "children": []
+      },
+      {
+        "name": "c\u2082",
+        "type": "",
+        "body": "add_lt_add b\u2081.2 b\u2082.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arctan",
+    "name": "hasSum_arctan",
+    "statement": "\u2102} (hz : \u2016z\u2016 < 1) : HasSum (fun n : \u2115 \u21a6 (-1) ^ n * z ^ (2 * n + 1) / \u2191(2 * n + 1)) (arctan z)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "((hasSum_taylorSeries_log (z := z * I) (by simpa)).add",
+        "children": []
+      }
+    ]
+  }
+]

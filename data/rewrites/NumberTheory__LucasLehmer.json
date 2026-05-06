@@ -1,0 +1,260 @@
+[
+  {
+    "original": {
+      "module": "LucasLehmer",
+      "name": "pow_\u03c9",
+      "statement": "Odd q) (leg3 : legendreSym q 3 = -1) (leg2 : legendreSym q 2 = 1) : (\u03c9 : X q) ^ ((q + 1) / 2) = -1",
+      "have_tree": [
+        {
+          "name": "leg",
+          "type": "",
+          "body": "legendreSym.eq_pow q 2",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "two_mul_\u03c9_pow odd leg3",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "LucasLehmer",
+          "name": "pow_\u03c9",
+          "statement": "Odd q) (leg3 : legendreSym q 3 = -1) (leg2 : legendreSym q 2 = 1) : (\u03c9 : X q) ^ ((q + 1) / 2) = -1",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "two_mul_\u03c9_pow odd leg3",
+              "children": []
+            },
+            {
+              "name": "leg",
+              "type": "",
+              "body": "legendreSym.eq_pow q 2",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "LucasLehmer",
+      "name": "lucas_lehmer_sufficiency",
+      "statement": "\u2115) (w : 1 < p) : LucasLehmerTest p \u2192 (mersenne p).Prime",
+      "have_tree": [
+        {
+          "name": "w",
+          "type": "1 < p' + 2",
+          "body": "Nat.lt_of_sub_eq_succ rfl",
+          "children": []
+        },
+        {
+          "name": "h\u2081",
+          "type": "",
+          "body": "order_ineq p' t",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "",
+          "body": "Nat.minFac_sq_le_self (mersenne_pos.2 (Nat.lt_of_succ_lt w)) a",
+          "children": []
+        },
+        {
+          "name": "h",
+          "type": "",
+          "body": "lt_of_lt_of_le h\u2081 h\u2082",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "LucasLehmer",
+          "name": "lucas_lehmer_sufficiency",
+          "statement": "\u2115) (w : 1 < p) : LucasLehmerTest p \u2192 (mersenne p).Prime",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "order_ineq p' t",
+              "children": []
+            },
+            {
+              "name": "w",
+              "type": "1 < p' + 2",
+              "body": "Nat.lt_of_sub_eq_succ rfl",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "Nat.minFac_sq_le_self (mersenne_pos.2 (Nat.lt_of_succ_lt w)) a",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "",
+              "body": "lt_of_lt_of_le h\u2081 h\u2082",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "LucasLehmer",
+          "name": "lucas_lehmer_sufficiency",
+          "statement": "\u2115) (w : 1 < p) : LucasLehmerTest p \u2192 (mersenne p).Prime",
+          "have_tree": [
+            {
+              "name": "w",
+              "type": "1 < p' + 2",
+              "body": "Nat.lt_of_sub_eq_succ rfl",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "Nat.minFac_sq_le_self (mersenne_pos.2 (Nat.lt_of_succ_lt w)) a",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "order_ineq p' t",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "",
+              "body": "lt_of_lt_of_le h\u2081 h\u2082",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "LucasLehmer",
+          "name": "lucas_lehmer_sufficiency",
+          "statement": "\u2115) (w : 1 < p) : LucasLehmerTest p \u2192 (mersenne p).Prime",
+          "have_tree": [
+            {
+              "name": "w",
+              "type": "1 < p' + 2",
+              "body": "Nat.lt_of_sub_eq_succ rfl",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "order_ineq p' t",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "",
+              "body": "lt_of_lt_of_le h\u2081 h\u2082",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "Nat.minFac_sq_le_self (mersenne_pos.2 (Nat.lt_of_succ_lt w)) a",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "LucasLehmer",
+      "name": "lucas_lehmer_necessity",
+      "statement": "\u2115) (w : 3 \u2264 p) (hp : (mersenne p).Prime) : LucasLehmerTest p",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Fact (mersenne p).Prime",
+          "body": "\u27e8\u2039_\u203a\u27e9",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "X.\u03c9_pow_trace (q := mersenne (p' + 2)) (by simp)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "LucasLehmer",
+          "name": "lucas_lehmer_necessity",
+          "statement": "\u2115) (w : 3 \u2264 p) (hp : (mersenne p).Prime) : LucasLehmerTest p",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "X.\u03c9_pow_trace (q := mersenne (p' + 2)) (by simp)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Fact (mersenne p).Prime",
+              "body": "\u27e8\u2039_\u203a\u27e9",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

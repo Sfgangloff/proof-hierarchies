@@ -1,0 +1,72 @@
+[
+  {
+    "module": "Monotone",
+    "name": "MonotoneOn.insert_of_continuousWithinAt",
+    "statement": "MonotoneOn f s) (hx : ClusterPt x (\ud835\udcdf s)) (h'x : ContinuousWithinAt f s x) : MonotoneOn f (insert x s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(\ud835\udcdd[s] x).NeBot",
+        "body": "hx",
+        "children": [
+          {
+            "name": "_",
+            "type": "s \u2229 Ioi b \u2208 \ud835\udcdd[s] x",
+            "body": "inter_mem_nhdsWithin _ (Ioi_mem_nhds hbx)",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "s \u2229 Iio b \u2208 \ud835\udcdd[s] x",
+            "body": "inter_mem_nhdsWithin _ (Iio_mem_nhds hxb)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Monotone",
+    "name": "MonotoneOn.countable_setOf_two_preimages",
+    "statement": "MonotoneOn f s) : Set.Countable {c | \u2203 x y, x \u2208 s \u2227 y \u2208 s \u2227 x < y \u2227 f x = c \u2227 f y = c}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Set.InjOn x t",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "c \u2260 d",
+        "body": "fun h \u21a6 hcd (congrArg x h)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "x d \u2264 y c",
+        "body": "(xda.trans ayc).le",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "f (x d) \u2264 f (y c)",
+        "body": "hf (hxs _ hd) (hys _ hc) this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Monotone",
+    "name": "MonotoneOn.countable_not_continuousWithinAt_Ioi",
+    "statement": "MonotoneOn f s) : Set.Countable {x \u2208 s | \u00acContinuousWithinAt f (s \u2229 Ioi x) x}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "s \u2229 Ioo x v \u2208 \ud835\udcdd[s \u2229 Ioi x] x",
+        "body": "by simp [nhdsWithin_inter, mem_inf_of_left,",
+        "children": []
+      }
+    ]
+  }
+]

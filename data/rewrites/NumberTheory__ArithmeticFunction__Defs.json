@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Defs",
+      "name": "one_smul'",
+      "statement": "ArithmeticFunction M) : (1 : ArithmeticFunction R) \u2022 b = b",
+      "have_tree": [
+        {
+          "name": "h",
+          "type": "{(1, x)} \u2286 divisorsAntidiagonal x",
+          "body": "by simp [x0]",
+          "children": []
+        },
+        {
+          "name": "y1ne",
+          "type": "y.fst \u2260 1",
+          "body": "fun con => by simp_all [Prod.ext_iff]",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Defs",
+          "name": "one_smul'",
+          "statement": "ArithmeticFunction M) : (1 : ArithmeticFunction R) \u2022 b = b",
+          "have_tree": [
+            {
+              "name": "y1ne",
+              "type": "y.fst \u2260 1",
+              "body": "fun con => by simp_all [Prod.ext_iff]",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "{(1, x)} \u2286 divisorsAntidiagonal x",
+              "body": "by simp [x0]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Defs",
+      "name": "lcm_apply_mul_gcd_apply",
+      "statement": "ArithmeticFunction R} (hf : f.IsMultiplicative) {x y : \u2115} : f (x.lcm y) * f (x.gcd y) = f x * f y",
+      "have_tree": [
+        {
+          "name": "hgcd_ne_zero",
+          "type": "x.gcd y \u2260 0",
+          "body": "gcd_ne_zero_left hx",
+          "children": []
+        },
+        {
+          "name": "hlcm_ne_zero",
+          "type": "x.lcm y \u2260 0",
+          "body": "lcm_ne_zero hx hy",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Defs",
+          "name": "lcm_apply_mul_gcd_apply",
+          "statement": "ArithmeticFunction R} (hf : f.IsMultiplicative) {x y : \u2115} : f (x.lcm y) * f (x.gcd y) = f x * f y",
+          "have_tree": [
+            {
+              "name": "hlcm_ne_zero",
+              "type": "x.lcm y \u2260 0",
+              "body": "lcm_ne_zero hx hy",
+              "children": []
+            },
+            {
+              "name": "hgcd_ne_zero",
+              "type": "x.gcd y \u2260 0",
+              "body": "gcd_ne_zero_left hx",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

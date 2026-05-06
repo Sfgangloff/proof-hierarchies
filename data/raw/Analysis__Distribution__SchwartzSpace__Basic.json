@@ -1,0 +1,200 @@
+[
+  {
+    "module": "Basic",
+    "name": "le_seminorm'",
+    "statement": "\u2115) (f : \ud835\udce2(\u211d, F)) (x : \u211d) : |x| ^ k * \u2016iteratedDeriv n f x\u2016 \u2264 SchwartzMap.seminorm \ud835\udd5c k n f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "le_seminorm \ud835\udd5c k n f x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "norm_iteratedFDeriv_le_seminorm",
+    "statement": "\ud835\udce2(E, F)) (n : \u2115) (x\u2080 : E) : \u2016iteratedFDeriv \u211d n f x\u2080\u2016 \u2264 (SchwartzMap.seminorm \ud835\udd5c 0 n) f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "SchwartzMap.le_seminorm \ud835\udd5c 0 n f x\u2080",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "norm_pow_mul_le_seminorm",
+    "statement": "\ud835\udce2(E, F)) (k : \u2115) (x\u2080 : E) : \u2016x\u2080\u2016 ^ k * \u2016f x\u2080\u2016 \u2264 (SchwartzMap.seminorm \ud835\udd5c k 0) f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "SchwartzMap.le_seminorm \ud835\udd5c k 0 f x\u2080",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "norm_le_seminorm",
+    "statement": "\ud835\udce2(E, F)) (x\u2080 : E) : \u2016f x\u2080\u2016 \u2264 (SchwartzMap.seminorm \ud835\udd5c 0 0) f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "norm_pow_mul_le_seminorm \ud835\udd5c f 0 x\u2080",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "one_add_le_sup_seminorm_apply",
+    "statement": "\u2115 \u00d7 \u2115} {k n : \u2115} (hk : k \u2264 m.1) (hn : n \u2264 m.2) (f : \ud835\udce2(E, F)) (x : E) : (1 + \u2016x\u2016) ^ k * \u2016iteratedFDeriv \u211d n f x\u2016 \u2264 2 ^ m.1 * (Finset.Iic m).sup (fun m => SchwartzMap.seminorm \ud835\udd5c m.1 m.2) f",
+    "have_tree": [
+      {
+        "name": "hk'",
+        "type": "Finset.range (k + 1) \u2286 Finset.range (m.1 + 1)",
+        "body": "by grind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.schwartz_withSeminorms",
+    "statement": "WithSeminorms (schwartzSeminormFamily \ud835\udd5c E F)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "WithSeminorms (schwartzSeminormFamily \u211d E F)",
+        "body": "\u27e8rfl\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.HasCompactSupport.toSchwartzMap",
+    "statement": "E \u2192 F} (h\u2081 : HasCompactSupport f) (h\u2082 : ContDiff \u211d \u221e f) : \ud835\udce2(E, F) where toFun",
+    "have_tree": [
+      {
+        "name": "hg\u2081",
+        "type": "Continuous g",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hg\u2082",
+        "type": "HasCompactSupport g",
+        "body": "(h\u2081.iteratedFDeriv _).norm.mul_left",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "evalCLM_apply_apply",
+    "statement": "\ud835\udce2(E, F \u2192L[\u211d] G)) (m : F) (x : E) : SchwartzMap.evalCLM \ud835\udd5c E G m f x = f x m",
+    "have_tree": [
+      {
+        "name": "hxk",
+        "type": "0 \u2264 \u2016x\u2016 ^ k",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "hnorm_mul",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "smulRightCLM_apply_apply",
+    "statement": "E \u2192L[\u211d] G \u2192L[\u211d] \u211d) (f : \ud835\udce2(E, F)) (x : E) : smulRightCLM \ud835\udd5c F L f x = (L x).smulRight (f x)",
+    "have_tree": [
+      {
+        "name": "hCg",
+        "type": "1 \u2264 1 + Cg",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hg_upper''",
+        "type": "(1 + \u2016x\u2016) ^ (k + l * n) \u2264 (1 + Cg) ^ (k + l * n) * (1 + \u2016g x\u2016) ^ k'",
+        "body": "by",
+        "children": [
+          {
+            "name": "hpos",
+            "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+            "body": "by positivity",
+            "children": []
+          },
+          {
+            "name": "hN\u2081'",
+            "type": "",
+            "body": "(lt_of_lt_of_le zero_lt_one hN\u2081).ne'",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "norm_iteratedFDeriv_comp_le (f.smooth \u22a4) hg.1 (mod_cast le_top) x hbound hgrowth'",
+        "children": []
+      },
+      {
+        "name": "hxk",
+        "type": "\u2016x\u2016 ^ k \u2264 (1 + \u2016x\u2016) ^ k",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hgxk'",
+        "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+        "body": "by positivity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "compCLMOfContinuousLinearEquiv_apply",
+    "statement": "D \u2243L[\u211d] E) (f : \ud835\udce2(E, F)) : compCLMOfContinuousLinearEquiv \ud835\udd5c g f = f \u2218 g",
+    "have_tree": [
+      {
+        "name": "hu'",
+        "type": "(u \u2218 g.symm).HasTemperateGrowth",
+        "body": "by fun_prop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "inner_toL2_toL2_eq",
+    "statement": "\ud835\udce2(H, V)) (\u03bc : Measure H",
+    "have_tree": [
+      {
+        "name": "hf_ae",
+        "type": "",
+        "body": "f.coeFn_toLp 2 \u03bc",
+        "children": []
+      },
+      {
+        "name": "hg_ae",
+        "type": "",
+        "body": "g.coeFn_toLp 2 \u03bc",
+        "children": []
+      }
+    ]
+  }
+]

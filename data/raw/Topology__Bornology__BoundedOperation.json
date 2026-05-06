@@ -1,0 +1,28 @@
+[
+  {
+    "module": "BoundedOperation",
+    "name": "boundedSub_of_lipschitzWith_sub",
+    "statement": "NNReal} (lip : LipschitzWith K (fun (p : R \u00d7 R) \u21a6 p.1 - p.2)) : BoundedSub R where isBounded_sub {s t} s_bdd t_bdd",
+    "have_tree": [
+      {
+        "name": "bdd",
+        "type": "Bornology.IsBounded (s \u00d7\u02e2 t)",
+        "body": "Bornology.IsBounded.prod s_bdd t_bdd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BoundedOperation",
+    "name": "isBounded_mul",
+    "statement": "Set R} (hs : Bornology.IsBounded s) (ht : Bornology.IsBounded t) : Bornology.IsBounded (s * t)",
+    "have_tree": [
+      {
+        "name": "obs",
+        "type": "((fun x \u21a6 x ^ (n + 1)) '' s) \u2286 ((fun x \u21a6 x ^ n) '' s) * s",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

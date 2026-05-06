@@ -1,0 +1,94 @@
+[
+  {
+    "module": "Basic",
+    "name": "mk'.cm3a_aux",
+    "statement": "C} {f : A \u27f6 B} {w : X \u27f6 Y} [Fibration f] [WeakEquivalence w] (h : RetractArrow f w) : WeakEquivalence f",
+    "have_tree": [
+      {
+        "name": "hw",
+        "type": "",
+        "body": "factorizationData (trivialCofibrations C) (fibrations C) w",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(trivialFibrations C).IsStableUnderRetracts",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "sq",
+        "type": "CommSq h.r.left hw.i f (hw.p \u226b h.r.right)",
+        "body": "\u27e8by simp\u27e9",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "fibrations C f",
+        "body": "by rwa [\u2190 fibration_iff]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasLiftingProperty hw.i f",
+        "body": "hasLiftingProperty_of_wfs _ _ hw.hi hf",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "RetractArrow f hw.p",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h'",
+        "type": "trivialFibrations C hw.p",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mk'",
+    "statement": "ModelCategory C where cm3a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "WeakEquivalence hf.i",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fibration hf.p",
+        "body": "by simpa only [fibration_iff] using hf.hp",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "WeakEquivalence (pushout.inr _ _ \u226b \u03c6)",
+        "body": "by simpa [\u03c6]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "weakEquivalence_of_precomp (pushout.inr _ _) \u03c6",
+        "children": []
+      },
+      {
+        "name": "hp",
+        "type": "RetractArrow hf.p \u03c6",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "mk'.cm3a_aux hp",
+        "children": []
+      }
+    ]
+  }
+]

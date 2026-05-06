@@ -1,0 +1,124 @@
+[
+  {
+    "module": "Contract",
+    "name": "IsBasis.contract_eq_contract_delete",
+    "statement": "M.IsBasis I X) : M \uff0f X = M \uff0f I \uff3c (X \\ I)",
+    "have_tree": [
+      {
+        "name": "hss",
+        "type": "X \\ I \u2286 (M\u2736 \uff3c I).coloops",
+        "body": "fun e he \u21a6 by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Contract",
+    "name": "IsBasis.contract_isBasis_diff_diff_of_subset",
+    "statement": "M.IsBasis I X) (hJI : J \u2286 I) : (M \uff0f J).IsBasis (I \\ J) (X \\ J)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "(hIX.isBasis'.contract_isBasis'_diff_of_subset hJI).isBasis_inter_ground",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Contract",
+    "name": "IsBasis.contract_isBasis_of_isBasis'",
+    "statement": "M.IsBasis I X) (hJC : M.IsBasis' J C) (h_ind : M.Indep (I \\ C \u222a J)) : (M \uff0f C).IsBasis (I \\ C) (X \\ C)",
+    "have_tree": [
+      {
+        "name": "hIX",
+        "type": "",
+        "body": "h.subset",
+        "children": []
+      },
+      {
+        "name": "hJCss",
+        "type": "",
+        "body": "hJC.subset",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Contract",
+    "name": "IsBasis.contract_isBasis_of_disjoint",
+    "statement": "M.IsBasis I X) (hJC : M.IsBasis J C) (hdj : Disjoint C X) (h_ind : M.Indep (I \u222a J)) : (M \uff0f C).IsBasis I X",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "h.contract_isBasis hJC",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Contract",
+    "name": "Spanning.contract",
+    "statement": "M.Spanning X) (C : Set \u03b1) : (M \uff0f C).Spanning (X \\ C)",
+    "have_tree": [
+      {
+        "name": "hXE",
+        "type": "",
+        "body": "hX.subset_ground",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Contract",
+    "name": "IsCircuit.contract_dep_of_not_subset",
+    "statement": "M.IsCircuit K) {C : Set \u03b1} (hKC : \u00ac K \u2286 C) : (M \uff0f C).Dep (K \\ C)",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "hK.contract_isCircuit (C := C \u2229 K) (inter_subset_right.ssubset_of_ne (by simpa))",
+        "children": []
+      },
+      {
+        "name": "hwin",
+        "type": "",
+        "body": "h'.contract_dep (C := C \\ K) disjoint_sdiff_sdiff",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Contract",
+    "name": "IsCircuit.exists_subset_isCircuit_of_contract",
+    "statement": "(M \uff0f K).IsCircuit C) : \u2203 C', M.IsCircuit C' \u2227 C \u2286 C' \u2227 C' \u2286 C \u222a K",
+    "have_tree": [
+      {
+        "name": "hdep2",
+        "type": "(M \uff0f K).Dep (C' \\ K)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Contract",
+    "name": "contract_restrict_eq_restrict_contract",
+    "statement": "Matroid \u03b1) (h : Disjoint C R) : (M \uff0f C) \u21be R = (M \u21be (R \u222a C)) \uff0f C",
+    "have_tree": [
+      {
+        "name": "hJ'",
+        "type": "M.IsBasis' J C",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hJC",
+        "type": "",
+        "body": "hJ'.subset",
+        "children": []
+      }
+    ]
+  }
+]

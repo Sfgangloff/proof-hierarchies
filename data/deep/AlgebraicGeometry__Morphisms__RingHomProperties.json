@@ -1,0 +1,42 @@
+[
+  {
+    "module": "RingHomProperties",
+    "name": "isLocal_ringHomProperty_of_isZariskiLocalAtSource_of_isZariskiLocalAtTarget",
+    "statement": "RingHom.PropertyIsLocal fun f \u21a6 P (Spec.map (CommRingCat.ofHom f))",
+    "have_tree": [
+      {
+        "name": "hP",
+        "type": "RingHom.RespectsIso (fun f \u21a6 P (Spec.map (CommRingCat.ofHom f)))",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "AlgebraicGeometry.IsOpenImmersion.of_isLocalization (S := T) r",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "RingHomProperties",
+    "name": "stalkMap",
+    "statement": "\u2200 {R S : Type u} [CommRing R] [CommRing S] (f : R \u2192+* S) (_ : Q f) (J : Ideal S) (_ : J.IsPrime), Q (Localization.localRingHom _ J f rfl)) (hf : P f) (x : X) : Q (f.stalkMap x).hom",
+    "have_tree": [
+      {
+        "name": "hQi",
+        "type": "",
+        "body": "(HasRingHomProperty.isLocal_ringHomProperty P).respectsIso",
+        "children": [
+          {
+            "name": "heq",
+            "type": "(X.isoSpec.inv (X.isoSpec.hom x)) = x",
+            "body": "by simp",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

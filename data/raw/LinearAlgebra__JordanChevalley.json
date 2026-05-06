@@ -1,0 +1,52 @@
+[
+  {
+    "module": "JordanChevalley",
+    "name": "exists_isNilpotent_isSemisimple_of_separable_of_dvd_pow",
+    "statement": "K[X]} {k : \u2115} (sep : P.Separable) (nil : minpoly K f \u2223 P ^ k) : \u2203\u1d49 (n \u2208 adjoin K {f}) (s \u2208 adjoin K {f}), IsNilpotent n \u2227 IsSemisimple s \u2227 f = n + s",
+    "have_tree": [
+      {
+        "name": "nil'",
+        "type": "IsNilpotent (aeval ff P)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "sep'",
+        "type": "IsUnit (aeval ff P')",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "JordanChevalley",
+    "name": "isNilpotent_isSemisimple_unique",
+    "statement": "End K V} (hn\u2081 : IsNilpotent n\u2081) (hs\u2081 : s\u2081.IsSemisimple) (hn\u2082 : IsNilpotent n\u2082) (hs\u2082 : s\u2082.IsSemisimple) (hc\u2081 : Commute n\u2081 s\u2081) (hc\u2082 : Commute n\u2082 s\u2082) (h : n\u2081 + s\u2081 = n\u2082 + s\u2082) : n\u2081 = n\u2082 \u2227 s\u2081 = s\u2082",
+    "have_tree": [
+      {
+        "name": "hsf",
+        "type": "Commute s (n\u2081 + s\u2081)",
+        "body": "heq \u25b8 hc.symm.add_right (Commute.refl s)",
+        "children": []
+      },
+      {
+        "name": "hnf",
+        "type": "Commute n (n\u2081 + s\u2081)",
+        "body": "heq \u25b8 (Commute.refl n).add_right hc",
+        "children": []
+      },
+      {
+        "name": "hnil",
+        "type": "IsNilpotent (s - s\u2080)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hss",
+        "type": "(s - s\u2080).IsSemisimple",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

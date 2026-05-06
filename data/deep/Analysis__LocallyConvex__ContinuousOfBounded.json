@@ -1,0 +1,52 @@
+[
+  {
+    "module": "ContinuousOfBounded",
+    "name": "LinearMap.continuousAt_zero_of_locally_bounded",
+    "statement": "E \u2192\u209b\u2097[\u03c3] F) (hf : \u2200 s, IsVonNBounded \ud835\udd5c s \u2192 IsVonNBounded \ud835\udd5c' (f '' s)) : ContinuousAt f 0",
+    "have_tree": [
+      {
+        "name": "c_ne",
+        "type": "",
+        "body": "norm_pos_iff.mp hc0",
+        "children": []
+      },
+      {
+        "name": "bE'",
+        "type": "(\ud835\udcdd (0 : E)).HasBasis (fun _ \u21a6 True) (fun n : \u2115 \u21a6 (c ^ n) \u2022 b n)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_tendsto",
+        "type": "Tendsto (fun n : \u2115 => (c ^ n)\u207b\u00b9 \u2022 u n) atTop (\ud835\udcdd (0 : E))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_bounded",
+        "type": "IsVonNBounded \ud835\udd5c (Set.range fun n : \u2115 => (c ^ n)\u207b\u00b9 \u2022 u n)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Tendsto (f \u2218 u) atTop (\ud835\udcdd 0)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Tendsto (fun n \u21a6 \u03c3 c ^ n) atTop (\ud835\udcdd 0)",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "hf.smul_tendsto_zero (.of_forall fun n \u21a6 Set.mem_range_self n) this",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

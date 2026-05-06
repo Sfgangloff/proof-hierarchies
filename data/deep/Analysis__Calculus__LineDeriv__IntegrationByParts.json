@@ -1,0 +1,65 @@
+[
+  {
+    "module": "IntegrationByParts",
+    "name": "integral_bilinear_hasLineDerivAt_right_eq_neg_left_of_integrable",
+    "statement": "E \u2192 F} {g g' : E \u2192 G} {v : E} {B : F \u2192L[\u211d] G \u2192L[\u211d] W} (hf'g : Integrable (fun x \u21a6 B (f' x) (g x)) \u03bc) (hfg' : Integrable (fun x \u21a6 B (f x) (g' x)) \u03bc) (hfg : Integrable (fun x \u21a6 B (f x) (g x)) \u03bc) (hf : \u2200 x, HasLineDerivAt \u211d f (f' x) x v) (hg : \u2200 x, HasLineDerivAt \u211d g (g' x) x v) : \u222b x, B (f x) (g' x) \u2202\u03bc = - \u222b x, B (f' x) (g x) \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "g' x = 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nontrivial E",
+        "body": "nontrivial_iff.2 \u27e8v, 0, hv\u27e9",
+        "children": [
+          {
+            "name": "_",
+            "type": "finrank \u211d (E' \u00d7 \u211d) = n",
+            "body": "by simpa [this, E'] using Nat.sub_add_cancel finrank_pos",
+            "children": []
+          },
+          {
+            "name": "L\u2080",
+            "type": "E \u2243L[\u211d] (E' \u00d7 \u211d)",
+            "body": "(ContinuousLinearEquiv.ofFinrankEq this).symm",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u03bc = Measure.map L.symm \u03bd",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hL",
+            "type": "IsClosedEmbedding L.symm",
+            "body": "L.symm.toHomeomorph.isClosedEmbedding",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "L_emb",
+        "type": "MeasurableEmbedding L",
+        "body": "L.toHomeomorph.measurableEmbedding",
+        "children": [
+          {
+            "name": "_",
+            "type": "f = (f \u2218 L.symm) \u2218 (L : E \u2192\u2097[\u211d] (E' \u00d7 \u211d))",
+            "body": "by ext y; simp",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "g = (g \u2218 L.symm) \u2218 (L : E \u2192\u2097[\u211d] (E' \u00d7 \u211d))",
+            "body": "by ext y; simp",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

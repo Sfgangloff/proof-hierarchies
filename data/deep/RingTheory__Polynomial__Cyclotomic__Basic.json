@@ -1,0 +1,78 @@
+[
+  {
+    "module": "Basic",
+    "name": "int_coeff_of_cyclotomic'",
+    "statement": "Type*} [CommRing K] [IsDomain K] {\u03b6 : K} {n : \u2115} (h : IsPrimitiveRoot \u03b6 n) : \u2203 P : \u2124[X], map (Int.castRingHom K) P = cyclotomic' n K \u2227 P.degree = (cyclotomic' n K).degree \u2227 P.Monic",
+    "have_tree": [
+      {
+        "name": "Bmo",
+        "type": "B.Monic",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "Bint",
+        "type": "B \u2208 lifts (Int.castRingHom K)",
+        "body": "by",
+        "children": [
+          {
+            "name": "xsmall",
+            "type": "",
+            "body": "(Nat.mem_properDivisors.1 hx).2",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "huniq",
+        "type": "0 + B * cyclotomic' k K = X ^ k - 1 \u2227 (0 : K[X]).degree < B.degree",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "cyclotomic_coeff_zero",
+    "statement": "Type*) [CommRing R] {n : \u2115} (hn : 1 < n) : (cyclotomic n R).coeff 0 = 1",
+    "have_tree": [
+      {
+        "name": "hprod",
+        "type": "(\u220f i \u2208 Nat.properDivisors n, (Polynomial.cyclotomic i R).coeff 0) = -1",
+        "body": "by",
+        "children": [
+          {
+            "name": "hleq",
+            "type": "\u2200 j \u2208 n.properDivisors.erase 1, 2 \u2264 j",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hcongr",
+            "type": "\u2200 j \u2208 n.properDivisors.erase 1, (cyclotomic j R).coeff 0 = 1",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hrw",
+            "type": "(\u220f x \u2208 n.properDivisors.erase 1, (cyclotomic x R).coeff 0) = 1",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "heq",
+        "type": "(X ^ n - 1 : R[X]).coeff 0 = -(cyclotomic n R).coeff 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hzero",
+        "type": "(X ^ n - 1 : R[X]).coeff 0 = (-1 : R)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

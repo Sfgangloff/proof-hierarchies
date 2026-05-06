@@ -1,0 +1,263 @@
+[
+  {
+    "module": "FiniteDimensional",
+    "name": "AffineIndependent.finrank_vectorSpan_image_finset",
+    "statement": "\u03b9 \u2192 P} (hi : AffineIndependent k p) {s : Finset \u03b9} {n : \u2115} (hc : #s = n + 1) : finrank k (vectorSpan k (s.image p : Set P)) = n",
+    "have_tree": [
+      {
+        "name": "hi'",
+        "type": "",
+        "body": "hi.range.mono (Set.image_subset_range p \u2191s)",
+        "children": []
+      },
+      {
+        "name": "hn",
+        "type": "(s.image p).Nonempty",
+        "body": "by simp [hc', \u2190 Finset.card_pos]",
+        "children": []
+      },
+      {
+        "name": "hp\u2081'",
+        "type": "p\u2081 \u2208 p '' s",
+        "body": "by simpa using hp\u2081",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimensional",
+    "name": "finrank_vectorSpan_image_finset_le",
+    "statement": "\u03b9 \u2192 P) (s : Finset \u03b9) {n : \u2115} (hc : #s = n + 1) : finrank k (vectorSpan k (s.image p : Set P)) \u2264 n",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "(s.image p).Nonempty",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimensional",
+    "name": "affineIndependent_iff_finrank_vectorSpan_eq",
+    "statement": "\u03b9 \u2192 P) {n : \u2115} (hc : Fintype.card \u03b9 = n + 1) : AffineIndependent k p \u2194 finrank k (vectorSpan k (Set.range p)) = n",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "Nonempty \u03b9",
+        "body": "by simp [\u2190 Fintype.card_pos_iff, hc]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimensional",
+    "name": "AffineIndependent.card_le_card_of_subset_affineSpan",
+    "statement": "Finset V} (hs : AffineIndependent k ((\u2191) : s \u2192 V)) (hst : (s : Set V) \u2286 affineSpan k (t : Set V)) : #s \u2264 #t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs'.to_subtype",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "ht'.to_set.to_subtype",
+        "children": []
+      },
+      {
+        "name": "direction_le",
+        "type": "",
+        "body": "AffineSubspace.direction_le (affineSpan_mono k hst)",
+        "children": []
+      },
+      {
+        "name": "finrank_le",
+        "type": "",
+        "body": "add_le_add_left (Submodule.finrank_mono direction_le) 1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimensional",
+    "name": "AffineIndependent.card_lt_card_of_affineSpan_lt_affineSpan",
+    "statement": "Finset V} (hs : AffineIndependent k ((\u2191) : s \u2192 V)) (hst : affineSpan k (s : Set V) < affineSpan k (t : Set V)) : #s < #t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs'.to_subtype",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "ht'.to_set.to_subtype",
+        "children": []
+      },
+      {
+        "name": "dir_lt",
+        "type": "",
+        "body": "AffineSubspace.direction_lt_of_nonempty (k := k) hst <| hs'.to_set.affineSpan k",
+        "children": []
+      },
+      {
+        "name": "finrank_lt",
+        "type": "",
+        "body": "add_lt_add_left (Submodule.finrank_lt_finrank_of_lt dir_lt) 1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimensional",
+    "name": "AffineIndependent.affineSpan_image_finset_eq_of_le_of_card_eq_finrank_add_one",
+    "statement": "\u03b9 \u2192 P} (hi : AffineIndependent k p) {s : Finset \u03b9} {sp : AffineSubspace k P} [FiniteDimensional k sp.direction] (hle : affineSpan k (s.image p : Set P) \u2264 sp) (hc : #s = finrank k sp.direction + 1) : affineSpan k (s.image p : Set P) = sp",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "s.Nonempty",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hd",
+        "type": "",
+        "body": "direction_le hle",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimensional",
+    "name": "collinear_iff_rank_le_one",
+    "statement": "Set P) : Collinear k s \u2194 Module.rank k (vectorSpan k s) \u2264 1",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "collinear_iff_rank_le_one k s",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimensional",
+    "name": "collinear_iff_of_mem",
+    "statement": "Set P} {p\u2080 : P} (h : p\u2080 \u2208 s) : Collinear k s \u2194 \u2203 v : V, \u2200 p \u2208 s, \u2203 r : k, p = r \u2022 v +\u1d65 p\u2080",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "vectorSpan k s \u2264 k \u2219 v",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hw'",
+        "type": "",
+        "body": "SetLike.le_def.1 hs hw",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimensional",
+    "name": "Collinear.mem_affineSpan_of_mem_of_ne",
+    "statement": "Set P} (h : Collinear k s) {p\u2081 p\u2082 p\u2083 : P} (hp\u2081 : p\u2081 \u2208 s) (hp\u2082 : p\u2082 \u2208 s) (hp\u2083 : p\u2083 \u2208 s) (hp\u2081p\u2082 : p\u2081 \u2260 p\u2082) : p\u2083 \u2208 line[k, p\u2081, p\u2082]",
+    "have_tree": [
+      {
+        "name": "h\u2082",
+        "type": "r\u2082 \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimensional",
+    "name": "affineIndependent_of_affineIndependent_collinear_ne",
+    "statement": "P} (ha : AffineIndependent k ![p\u2081, p\u2082, p\u2083]) (hcol : Collinear k {p\u2082, p\u2083, p}) (hne : p\u2082 \u2260 p) : AffineIndependent k ![p\u2081, p\u2082, p]",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "Collinear k {p\u2081, p\u2083, p\u2082, p}",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "Collinear k {p\u2081, p\u2082, p\u2083}",
+        "body": "h1.subset (by grind)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimensional",
+    "name": "coplanar_iff_finrank_le_two",
+    "statement": "Set P} [FiniteDimensional k (vectorSpan k s)] : Coplanar k s \u2194 finrank k (vectorSpan k s) \u2264 2",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "Coplanar k s \u2194 Module.rank k (vectorSpan k s) \u2264 2",
+        "body": "Iff.rfl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimensional",
+    "name": "finrank_vectorSpan_insert_le",
+    "statement": "AffineSubspace k P) (p : P) : finrank k (vectorSpan k (insert p (s : Set P))) \u2264 finrank k s.direction + 1",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "v.property",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimensional",
+    "name": "Collinear.coplanar_insert",
+    "statement": "Set P} (h : Collinear k s) (p : P) : Coplanar k (insert p s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional k { x // x \u2208 vectorSpan k s }",
+        "body": "h.finiteDimensional_vectorSpan",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimensional",
+    "name": "coplanar_of_finrank_eq_two",
+    "statement": "Set P) (h : finrank k V = 2) : Coplanar k s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional k V",
+        "body": ".of_finrank_eq_succ h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimensional",
+    "name": "card_eq_finrank_add_one",
+    "statement": "AffineBasis \u03b9 k P) : Fintype.card \u03b9 = Module.finrank k V + 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional k V",
+        "body": "b.finiteDimensional",
+        "children": []
+      }
+    ]
+  }
+]

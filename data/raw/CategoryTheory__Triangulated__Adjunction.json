@@ -1,0 +1,53 @@
+[
+  {
+    "module": "Adjunction",
+    "name": "isTriangulated_rightAdjoint",
+    "statement": "G.IsTriangulated where map_distinguished T hT",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "G.Additive",
+        "body": "adj.right_adjoint_additive",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Mono (adj.homEquiv _ _ h)",
+        "body": "by",
+        "children": [
+          {
+            "name": "eq",
+            "type": "",
+            "body": "DFunLike.congr_arg (adj.homEquiv _ _) h\u03b1",
+            "children": []
+          },
+          {
+            "name": "eq'",
+            "type": "",
+            "body": "comp_distTriang_mor_zero\u2081\u2082 _ mem",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isIso_of_yoneda_map_bijective (adj.homEquiv _ _ h) (fun Y => by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Adjunction",
+    "name": "isTriangulated_leftAdjoint",
+    "statement": "F.IsTriangulated",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isTriangulated_rightAdjoint adj.op",
+        "children": []
+      }
+    ]
+  }
+]

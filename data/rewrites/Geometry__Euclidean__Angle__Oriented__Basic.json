@@ -1,0 +1,385 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "oangle_sub_eq_oangle_sub_rev_of_norm_eq",
+      "statement": "V} (h : \u2016x\u2016 = \u2016y\u2016) : o.oangle x (x - y) = o.oangle (y - x) y",
+      "have_tree": [
+        {
+          "name": "hy",
+          "type": "y \u2260 0",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hx",
+          "type": "x \u2260 0",
+          "body": "norm_ne_zero_iff.1 (h.symm \u25b8 norm_ne_zero_iff.2 hy)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "oangle_sub_eq_oangle_sub_rev_of_norm_eq",
+          "statement": "V} (h : \u2016x\u2016 = \u2016y\u2016) : o.oangle x (x - y) = o.oangle (y - x) y",
+          "have_tree": [
+            {
+              "name": "hx",
+              "type": "x \u2260 0",
+              "body": "norm_ne_zero_iff.1 (h.symm \u25b8 norm_ne_zero_iff.2 hy)",
+              "children": []
+            },
+            {
+              "name": "hy",
+              "type": "y \u2260 0",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "angle_eq_abs_oangle_toReal",
+      "statement": "V} (hx : x \u2260 0) (hy : y \u2260 0) : InnerProductGeometry.angle x y = |(o.oangle x y).toReal|",
+      "have_tree": [
+        {
+          "name": "h0",
+          "type": "",
+          "body": "InnerProductGeometry.angle_nonneg x y",
+          "children": []
+        },
+        {
+          "name": "hpi",
+          "type": "",
+          "body": "InnerProductGeometry.angle_le_pi x y",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "angle_eq_abs_oangle_toReal",
+          "statement": "V} (hx : x \u2260 0) (hy : y \u2260 0) : InnerProductGeometry.angle x y = |(o.oangle x y).toReal|",
+          "have_tree": [
+            {
+              "name": "hpi",
+              "type": "",
+              "body": "InnerProductGeometry.angle_le_pi x y",
+              "children": []
+            },
+            {
+              "name": "h0",
+              "type": "",
+              "body": "InnerProductGeometry.angle_nonneg x y",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "oangle_eq_of_angle_eq_of_sign_eq",
+      "statement": "V} (h : InnerProductGeometry.angle w x = InnerProductGeometry.angle y z) (hs : (o.oangle w x).sign = (o.oangle y z).sign) : o.oangle w x = o.oangle y z",
+      "have_tree": [
+        {
+          "name": "hpi",
+          "type": "\u03c0 / 2 \u2260 \u03c0",
+          "body": "by",
+          "children": [
+            {
+              "name": "h0'",
+              "type": "",
+              "body": "o.eq_zero_or_angle_eq_zero_or_pi_of_sign_oangle_eq_zero hswx",
+              "children": []
+            },
+            {
+              "name": "h0'",
+              "type": "",
+              "body": "o.eq_zero_or_angle_eq_zero_or_pi_of_sign_oangle_eq_zero hsyz",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "oangle_eq_of_angle_eq_of_sign_eq",
+          "statement": "V} (h : InnerProductGeometry.angle w x = InnerProductGeometry.angle y z) (hs : (o.oangle w x).sign = (o.oangle y z).sign) : o.oangle w x = o.oangle y z",
+          "have_tree": [
+            {
+              "name": "hpi",
+              "type": "\u03c0 / 2 \u2260 \u03c0",
+              "body": "by",
+              "children": [
+                {
+                  "name": "h0'",
+                  "type": "",
+                  "body": "o.eq_zero_or_angle_eq_zero_or_pi_of_sign_oangle_eq_zero hsyz",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          1
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "oangle_eq_of_angle_eq_of_sign_eq",
+          "statement": "V} (h : InnerProductGeometry.angle w x = InnerProductGeometry.angle y z) (hs : (o.oangle w x).sign = (o.oangle y z).sign) : o.oangle w x = o.oangle y z",
+          "have_tree": [
+            {
+              "name": "hpi",
+              "type": "\u03c0 / 2 \u2260 \u03c0",
+              "body": "by",
+              "children": [
+                {
+                  "name": "h0'",
+                  "type": "",
+                  "body": "o.eq_zero_or_angle_eq_zero_or_pi_of_sign_oangle_eq_zero hswx",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Basic",
+          "name": "oangle_eq_of_angle_eq_of_sign_eq",
+          "statement": "V} (h : InnerProductGeometry.angle w x = InnerProductGeometry.angle y z) (hs : (o.oangle w x).sign = (o.oangle y z).sign) : o.oangle w x = o.oangle y z",
+          "have_tree": [
+            {
+              "name": "h0'",
+              "type": "",
+              "body": "o.eq_zero_or_angle_eq_zero_or_pi_of_sign_oangle_eq_zero hswx",
+              "children": []
+            },
+            {
+              "name": "hpi",
+              "type": "\u03c0 / 2 \u2260 \u03c0",
+              "body": "by",
+              "children": [
+                {
+                  "name": "h0'",
+                  "type": "",
+                  "body": "o.eq_zero_or_angle_eq_zero_or_pi_of_sign_oangle_eq_zero hsyz",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Basic",
+          "name": "oangle_eq_of_angle_eq_of_sign_eq",
+          "statement": "V} (h : InnerProductGeometry.angle w x = InnerProductGeometry.angle y z) (hs : (o.oangle w x).sign = (o.oangle y z).sign) : o.oangle w x = o.oangle y z",
+          "have_tree": [
+            {
+              "name": "h0'",
+              "type": "",
+              "body": "o.eq_zero_or_angle_eq_zero_or_pi_of_sign_oangle_eq_zero hsyz",
+              "children": []
+            },
+            {
+              "name": "hpi",
+              "type": "\u03c0 / 2 \u2260 \u03c0",
+              "body": "by",
+              "children": [
+                {
+                  "name": "h0'",
+                  "type": "",
+                  "body": "o.eq_zero_or_angle_eq_zero_or_pi_of_sign_oangle_eq_zero hswx",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "oangle_eq_of_angle_eq_of_sign_eq",
+          "statement": "V} (h : InnerProductGeometry.angle w x = InnerProductGeometry.angle y z) (hs : (o.oangle w x).sign = (o.oangle y z).sign) : o.oangle w x = o.oangle y z",
+          "have_tree": [
+            {
+              "name": "hpi",
+              "type": "\u03c0 / 2 \u2260 \u03c0",
+              "body": "by",
+              "children": [
+                {
+                  "name": "h0'",
+                  "type": "",
+                  "body": "o.eq_zero_or_angle_eq_zero_or_pi_of_sign_oangle_eq_zero hsyz",
+                  "children": []
+                },
+                {
+                  "name": "h0'",
+                  "type": "",
+                  "body": "o.eq_zero_or_angle_eq_zero_or_pi_of_sign_oangle_eq_zero hswx",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "oangle_sign_smul_add_right",
+      "statement": "V) (r : \u211d) : (o.oangle x (r \u2022 x + y)).sign = (o.oangle x y).sign",
+      "have_tree": [
+        {
+          "name": "hc",
+          "type": "IsConnected s",
+          "body": "isConnected_univ.image _ (by fun_prop)",
+          "children": []
+        },
+        {
+          "name": "hx",
+          "type": "(x, y) \u2208 s",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hy",
+          "type": "(x, r \u2022 x + y) \u2208 s",
+          "body": "Set.mem_image_of_mem _ (Set.mem_univ _)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "oangle_sign_smul_add_right",
+          "statement": "V) (r : \u211d) : (o.oangle x (r \u2022 x + y)).sign = (o.oangle x y).sign",
+          "have_tree": [
+            {
+              "name": "hx",
+              "type": "(x, y) \u2208 s",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hc",
+              "type": "IsConnected s",
+              "body": "isConnected_univ.image _ (by fun_prop)",
+              "children": []
+            },
+            {
+              "name": "hy",
+              "type": "(x, r \u2022 x + y) \u2208 s",
+              "body": "Set.mem_image_of_mem _ (Set.mem_univ _)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "oangle_sign_smul_add_right",
+          "statement": "V) (r : \u211d) : (o.oangle x (r \u2022 x + y)).sign = (o.oangle x y).sign",
+          "have_tree": [
+            {
+              "name": "hc",
+              "type": "IsConnected s",
+              "body": "isConnected_univ.image _ (by fun_prop)",
+              "children": []
+            },
+            {
+              "name": "hy",
+              "type": "(x, r \u2022 x + y) \u2208 s",
+              "body": "Set.mem_image_of_mem _ (Set.mem_univ _)",
+              "children": []
+            },
+            {
+              "name": "hx",
+              "type": "(x, y) \u2208 s",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

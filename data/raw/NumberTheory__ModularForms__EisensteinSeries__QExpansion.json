@@ -1,0 +1,91 @@
+[
+  {
+    "module": "QExpansion",
+    "name": "summableLocallyUniformlyOn_iteratedDerivWithin_smul_cexp",
+    "statement": "\u2115) {f : \u2115 \u2192 \u2102} {p : \u211d} (hp : 0 < p) (hf : f =O[atTop] (fun n \u21a6 ((n ^ l) : \u211d))) : SummableLocallyUniformlyOn (fun n \u21a6 (f n) \u2022 iteratedDerivWithin k (fun z \u21a6 cexp (2 * \u03c0 * I * z / p) ^ n) \u210d\u2092) \u210d\u2092",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "CompactSpace K",
+        "body": "isCompact_univ_iff.mp (isCompact_iff_isCompact_univ.mp hKc)",
+        "children": []
+      },
+      {
+        "name": "hr",
+        "type": "\u2016r\u2016 < 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h0",
+        "type": "",
+        "body": "pow_le_pow_left\u2080 (norm_nonneg _) (norm_coe_le_norm (mkOfCompact c) \u27e8z, hz\u27e9) n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "iteratedDerivWithin_tsum_exp_aux_eq",
+    "statement": "\u2115} (hk : 1 \u2264 k) (z : \u210d) : iteratedDerivWithin k (fun z \u21a6 ((\u03c0 * I) - (2 * \u03c0 * I) * \u2211' n : \u2115, cexp (2 * \u03c0 * I * z) ^ n)) \u210d\u2092 z = -(2 * \u03c0 * I) ^ (k + 1) * \u2211' n : \u2115, n ^ k * cexp (2 * \u03c0 * I * z) ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "exp_nsmul' (p := 1) (a := 2 * \u03c0 * I) (n := n)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "tsum_eisSummand_eq_riemannZeta_mul_eisensteinSeries",
+    "statement": "\u2115} (hk : 3 \u2264 k) (z : \u210d) : \u2211' v : Fin 2 \u2192 \u2124, eisSummand k v z = riemannZeta k * eisensteinSeries (N",
+    "have_tree": [
+      {
+        "name": "hk1",
+        "type": "1 < k",
+        "body": "by grind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "EisensteinSeries.q_expansion_riemannZeta",
+    "statement": "\u2115} (hk : 3 \u2264 k) (hk2 : Even k) (z : \u210d) : E hk z = 1 + (riemannZeta k)\u207b\u00b9 * (-2 * \u03c0 * I) ^ k / (k - 1)! * \u2211' n : \u2115+, \u03c3 (k - 1) n * cexp (2 * \u03c0 * I * z) ^ (n : \u2124)",
+    "have_tree": [
+      {
+        "name": "HE1",
+        "type": "",
+        "body": "tsum_eisSummand_eq_tsum_sigma_mul_cexp_pow hk hk2 z",
+        "children": []
+      },
+      {
+        "name": "HE2",
+        "type": "",
+        "body": "tsum_eisSummand_eq_riemannZeta_mul_eisensteinSeries hk z",
+        "children": []
+      },
+      {
+        "name": "z2",
+        "type": "riemannZeta k \u2260 0",
+        "body": "riemannZeta_ne_zero_of_one_lt_re <| by norm_cast; grind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "EisensteinSeries.E_qExpansion_coeff",
+    "statement": "\u2115} (hk : 3 \u2264 k) (hk2 : Even k) (m : \u2115) : (qExpansion 1 (E hk)).coeff m = if m = 0 then 1 else -(2 * k / bernoulli k : \u2102) * (\u03c3 (k - 1) m)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "q_expansion_bernoulli hk hk2 \u03c4",
+        "children": []
+      }
+    ]
+  }
+]

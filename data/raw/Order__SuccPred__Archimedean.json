@@ -1,0 +1,99 @@
+[
+  {
+    "module": "Archimedean",
+    "name": "StrictMono.not_bddAbove_range_of_isSuccArchimedean",
+    "statement": "StrictMono f) : \u00ac BddAbove (Set.range f)",
+    "have_tree": [
+      {
+        "name": "hm'",
+        "type": "\u2200 a, f a \u2264 m",
+        "body": "fun a \u21a6 hm <| Set.mem_range_self _",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "\u2200 a, \u2203 a', f a < f a'",
+        "body": "fun a \u21a6 (exists_gt a).imp (fun a' h \u21a6 hf h)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Archimedean",
+    "name": "SuccOrder.forall_ne_bot_iff",
+    "statement": "\u03b1 \u2192 Prop) : (\u2200 i, i \u2260 \u22a5 \u2192 P i) \u2194 (\u2200 i, P (SuccOrder.succ i))",
+    "have_tree": [
+      {
+        "name": "hj",
+        "type": "0 < j",
+        "body": "by apply Nat.pos_of_ne_zero; contrapose hi; simp [hi]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Archimedean",
+    "name": "BddAbove.exists_isGreatest_of_nonempty",
+    "statement": "Type*} [LinearOrder X] [SuccOrder X] [IsSuccArchimedean X] {S : Set X} (hS : BddAbove S) (hS' : S.Nonempty) : \u2203 x, IsGreatest S x",
+    "have_tree": [
+      {
+        "name": "hn'",
+        "type": "",
+        "body": "hm hn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Archimedean",
+    "name": "monotoneOn_of_le_succ",
+    "statement": "s.OrdConnected) (hf : \u2200 a, \u00ac IsMax a \u2192 a \u2208 s \u2192 succ a \u2208 s \u2192 f a \u2264 f (succ a)) : MonotoneOn f s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "succ^[n] a \u2208 s",
+        "body": "hs.1 ha hb \u27e8le_succ_iterate .., le_succ _\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Archimedean",
+    "name": "strictMonoOn_of_lt_succ",
+    "statement": "s.OrdConnected) (hf : \u2200 a, \u00ac IsMax a \u2192 a \u2208 s \u2192 succ a \u2208 s \u2192 f a < f (succ a)) : StrictMonoOn f s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "succ^[n + 1] a \u2208 s",
+        "body": "hs.1 ha hb \u27e8le_succ_iterate .., le_succ _\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Archimedean",
+    "name": "monotoneOn_of_pred_le",
+    "statement": "s.OrdConnected) (hf : \u2200 a, \u00ac IsMin a \u2192 a \u2208 s \u2192 pred a \u2208 s \u2192 f (pred a) \u2264 f a) : MonotoneOn f s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "pred^[n] b \u2208 s",
+        "body": "hs.1 ha hb \u27e8pred_le _, pred_iterate_le ..\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Archimedean",
+    "name": "strictMonoOn_of_pred_lt",
+    "statement": "s.OrdConnected) (hf : \u2200 a, \u00ac IsMin a \u2192 a \u2208 s \u2192 pred a \u2208 s \u2192 f (pred a) < f a) : StrictMonoOn f s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "pred^[n + 1] b \u2208 s",
+        "body": "hs.1 ha hb \u27e8pred_le _, pred_iterate_le ..\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

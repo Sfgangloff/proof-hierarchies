@@ -1,0 +1,135 @@
+[
+  {
+    "module": "Multiplicity",
+    "name": "FiniteMultiplicity.exists_eq_pow_mul_and_not_dvd",
+    "statement": "FiniteMultiplicity a b) : \u2203 c : \u03b1, b = a ^ multiplicity a b * c \u2227 \u00aca \u2223 c",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "a ^ (multiplicity a b + 1) \u2223 b",
+        "body": "\u27e8k, hc\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplicity",
+    "name": "Nat.finiteMultiplicity_iff",
+    "statement": "\u2115} : FiniteMultiplicity a b \u2194 a \u2260 1 \u2227 0 < b",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "a \u2260 0",
+        "body": "fun ha => hb <| zero_dvd_iff.mp <| by rw [ha] at h; exact h 1",
+        "children": [
+          {
+            "name": "ha_gt_one",
+            "type": "1 < a",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Multiplicity",
+    "name": "emultiplicity_add_of_gt",
+    "statement": "\u03b1} (h : emultiplicity p b < emultiplicity p a) : emultiplicity p (a + b) = emultiplicity p b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteMultiplicity p b",
+        "body": "finiteMultiplicity_iff_emultiplicity_ne_top.2 (by simp [\u00b7] at h)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplicity",
+    "name": "finiteMultiplicity_mul_aux",
+    "statement": "\u03b1} (hp : Prime p) {a b : \u03b1} : \u2200 {n m : \u2115}, \u00acp ^ (n + 1) \u2223 a \u2192 \u00acp ^ (m + 1) \u2223 b \u2192 \u00acp ^ (n + m + 1) \u2223 a * b | n, m => fun ha hb \u27e8s, hs\u27e9 => have : p \u2223 a * b",
+    "have_tree": [
+      {
+        "name": "hpx",
+        "type": "\u00acp ^ (n - 1 + 1) \u2223 x",
+        "body": "fun \u27e8y, hy\u27e9 =>",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "1 \u2264 n + m",
+        "body": "le_trans hn0 (Nat.le_add_right n m)",
+        "children": []
+      },
+      {
+        "name": "hm0",
+        "type": "0 < m",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hpx",
+        "type": "\u00acp ^ (m - 1 + 1) \u2223 x",
+        "body": "fun \u27e8y, hy\u27e9 =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplicity",
+    "name": "multiplicity_mul",
+    "statement": "\u03b1} (hp : Prime p) (hfin : FiniteMultiplicity p (a * b)) : multiplicity p (a * b) = multiplicity p a + multiplicity p b",
+    "have_tree": [
+      {
+        "name": "hdiva",
+        "type": "p ^ multiplicity p a \u2223 a",
+        "body": "pow_multiplicity_dvd ..",
+        "children": []
+      },
+      {
+        "name": "hdivb",
+        "type": "p ^ multiplicity p b \u2223 b",
+        "body": "pow_multiplicity_dvd ..",
+        "children": []
+      },
+      {
+        "name": "hdiv",
+        "type": "p ^ (multiplicity p a + multiplicity p b) \u2223 a * b",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hsucc",
+        "type": "\u00acp ^ (multiplicity p a + multiplicity p b + 1) \u2223 a * b",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplicity",
+    "name": "multiplicity_eq_zero_of_coprime",
+    "statement": "\u2115} (hp : p \u2260 1) (hle : multiplicity p a \u2264 multiplicity p b) (hab : Nat.Coprime a b) : multiplicity p a = 0",
+    "have_tree": [
+      {
+        "name": "da",
+        "type": "p \u2223 a",
+        "body": "by simpa [multiplicity_eq_zero] using nh.ne.symm",
+        "children": []
+      },
+      {
+        "name": "db",
+        "type": "p \u2223 b",
+        "body": "by simpa [multiplicity_eq_zero] using (nh.trans_le hle).ne.symm",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.dvd_gcd da db",
+        "children": []
+      }
+    ]
+  }
+]

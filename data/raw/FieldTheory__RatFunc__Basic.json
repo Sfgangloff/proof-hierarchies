@@ -1,0 +1,122 @@
+[
+  {
+    "module": "Basic",
+    "name": "map",
+    "statement": "F) (h\u03c6 : R[X]\u2070 \u2264 S[X]\u2070.comap \u03c6) : R\u27eeX\u27ef \u2192* S\u27eeX\u27ef where toFun f",
+    "have_tree": [
+      {
+        "name": "hq",
+        "type": "\u03c6 q \u2208 S[X]\u2070",
+        "body": "h\u03c6 q.prop",
+        "children": []
+      },
+      {
+        "name": "hq'",
+        "type": "\u03c6 q' \u2208 S[X]\u2070",
+        "body": "h\u03c6 q'.prop",
+        "children": []
+      },
+      {
+        "name": "hqq'",
+        "type": "\u03c6 \u2191(q * q') \u2208 S[X]\u2070",
+        "body": "by simpa using Submonoid.mul_mem _ hq hq'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "liftMonoidWithZeroHom_injective",
+    "statement": "R[X] \u2192*\u2080 G\u2080) (h\u03c6 : Function.Injective \u03c6) (h\u03c6' : R[X]\u2070 \u2264 G\u2080\u2070.comap \u03c6",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mul_eq_mul_of_div_eq_div _ _ ?_ ?_ h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "map_apply_div_ne_zero",
+    "statement": "Type*} [CommRing R] [IsDomain R] [FunLike F K[X] R[X]] [MonoidHomClass F K[X] R[X]] (\u03c6 : F) (h\u03c6 : K[X]\u2070 \u2264 R[X]\u2070.comap \u03c6) (p q : K[X]) (hq : q \u2260 0) : map \u03c6 h\u03c6 (algebraMap _ _ p / algebraMap _ _ q) = algebraMap _ _ (\u03c6 p) / algebraMap _ _ (\u03c6 q)",
+    "have_tree": [
+      {
+        "name": "hq'",
+        "type": "\u03c6 q \u2260 0",
+        "body": "nonZeroDivisors.ne_zero (h\u03c6 (mem_nonZeroDivisors_iff_ne_zero.mpr hq))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "numDenom",
+    "statement": "K\u27eeX\u27ef) : K[X] \u00d7 K[X]",
+    "have_tree": [
+      {
+        "name": "ha'",
+        "type": "a.leadingCoeff \u2260 0",
+        "body": "Polynomial.leadingCoeff_ne_zero.mpr ha",
+        "children": []
+      },
+      {
+        "name": "hainv",
+        "type": "a.leadingCoeff\u207b\u00b9 \u2260 0",
+        "body": "inv_ne_zero ha'",
+        "children": []
+      },
+      {
+        "name": "hdeg",
+        "type": "(gcd p q).degree \u2264 q.degree",
+        "body": "degree_gcd_le_right _ hq",
+        "children": []
+      },
+      {
+        "name": "hdeg'",
+        "type": "(Polynomial.C a.leadingCoeff\u207b\u00b9 * gcd p q).degree \u2264 q.degree",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hdivp",
+        "type": "Polynomial.C a.leadingCoeff\u207b\u00b9 * gcd p q \u2223 p",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hdivq",
+        "type": "Polynomial.C a.leadingCoeff\u207b\u00b9 * gcd p q \u2223 q",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "num_div_denom",
+    "statement": "K\u27eeX\u27ef) : algebraMap _ _ (num x) / algebraMap _ _ (denom x) = x",
+    "have_tree": [
+      {
+        "name": "q_div_ne_zero",
+        "type": "q / gcd p q \u2260 0",
+        "body": "right_div_gcd_ne_zero hq",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "num_mul_denom_add_denom_mul_num_ne_zero",
+    "statement": "K\u27eeX\u27ef} (hxy : x + y \u2260 0) : x.num * y.denom + x.denom * y.num \u2260 0",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "num_denom_add x y",
+        "children": []
+      }
+    ]
+  }
+]

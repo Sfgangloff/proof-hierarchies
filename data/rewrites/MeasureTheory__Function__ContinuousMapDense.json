@@ -1,0 +1,293 @@
+[
+  {
+    "original": {
+      "module": "ContinuousMapDense",
+      "name": "exists_continuous_eLpNorm_sub_le_of_closed",
+      "statement": "p \u2260 \u221e) {s u : Set \u03b1} (s_closed : IsClosed s) (u_open : IsOpen u) (hsu : s \u2286 u) (hs : \u03bc s \u2260 \u221e) (c : E) {\u03b5 : \u211d\u22650\u221e} (h\u03b5 : \u03b5 \u2260 0) : \u2203 f : \u03b1 \u2192 E, Continuous f \u2227 eLpNorm (fun x => f x - s.indicator (fun _y => c) x) p \u03bc \u2264 \u03b5 \u2227 (\u2200 x, \u2016f x\u2016 \u2264 \u2016c\u2016) \u2227 Function.support f \u2286 u \u2227 MemLp f p \u03bc",
+      "have_tree": [
+        {
+          "name": "hsv",
+          "type": "s \u2286 v",
+          "body": "subset_inter hsu sV",
+          "children": []
+        },
+        {
+          "name": "h\u03bcv",
+          "type": "\u03bc v < \u221e",
+          "body": "(measure_mono inter_subset_right).trans_lt h'V",
+          "children": []
+        },
+        {
+          "name": "gc_bd0",
+          "type": "\u2200 x, \u2016g x \u2022 c\u2016 \u2264 \u2016c\u2016",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "ContinuousMapDense",
+          "name": "exists_continuous_eLpNorm_sub_le_of_closed",
+          "statement": "p \u2260 \u221e) {s u : Set \u03b1} (s_closed : IsClosed s) (u_open : IsOpen u) (hsu : s \u2286 u) (hs : \u03bc s \u2260 \u221e) (c : E) {\u03b5 : \u211d\u22650\u221e} (h\u03b5 : \u03b5 \u2260 0) : \u2203 f : \u03b1 \u2192 E, Continuous f \u2227 eLpNorm (fun x => f x - s.indicator (fun _y => c) x) p \u03bc \u2264 \u03b5 \u2227 (\u2200 x, \u2016f x\u2016 \u2264 \u2016c\u2016) \u2227 Function.support f \u2286 u \u2227 MemLp f p \u03bc",
+          "have_tree": [
+            {
+              "name": "h\u03bcv",
+              "type": "\u03bc v < \u221e",
+              "body": "(measure_mono inter_subset_right).trans_lt h'V",
+              "children": []
+            },
+            {
+              "name": "hsv",
+              "type": "s \u2286 v",
+              "body": "subset_inter hsu sV",
+              "children": []
+            },
+            {
+              "name": "gc_bd0",
+              "type": "\u2200 x, \u2016g x \u2022 c\u2016 \u2264 \u2016c\u2016",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "ContinuousMapDense",
+          "name": "exists_continuous_eLpNorm_sub_le_of_closed",
+          "statement": "p \u2260 \u221e) {s u : Set \u03b1} (s_closed : IsClosed s) (u_open : IsOpen u) (hsu : s \u2286 u) (hs : \u03bc s \u2260 \u221e) (c : E) {\u03b5 : \u211d\u22650\u221e} (h\u03b5 : \u03b5 \u2260 0) : \u2203 f : \u03b1 \u2192 E, Continuous f \u2227 eLpNorm (fun x => f x - s.indicator (fun _y => c) x) p \u03bc \u2264 \u03b5 \u2227 (\u2200 x, \u2016f x\u2016 \u2264 \u2016c\u2016) \u2227 Function.support f \u2286 u \u2227 MemLp f p \u03bc",
+          "have_tree": [
+            {
+              "name": "hsv",
+              "type": "s \u2286 v",
+              "body": "subset_inter hsu sV",
+              "children": []
+            },
+            {
+              "name": "gc_bd0",
+              "type": "\u2200 x, \u2016g x \u2022 c\u2016 \u2264 \u2016c\u2016",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h\u03bcv",
+              "type": "\u03bc v < \u221e",
+              "body": "(measure_mono inter_subset_right).trans_lt h'V",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "ContinuousMapDense",
+      "name": "MemLp.exists_hasCompactSupport_integral_rpow_sub_le",
+      "statement": "\u211d} (hp : 0 < p) {f : \u03b1 \u2192 E} (hf : MemLp f (ENNReal.ofReal p) \u03bc) {\u03b5 : \u211d} (h\u03b5 : 0 < \u03b5) : \u2203 g : \u03b1 \u2192 E, HasCompactSupport g \u2227 (\u222b x, \u2016f x - g x\u2016 ^ p \u2202\u03bc) \u2264 \u03b5 \u2227 Continuous g \u2227 MemLp g (ENNReal.ofReal p) \u03bc",
+      "have_tree": [
+        {
+          "name": "I",
+          "type": "0 < \u03b5 ^ (1 / p)",
+          "body": "Real.rpow_pos_of_pos h\u03b5 _",
+          "children": []
+        },
+        {
+          "name": "A",
+          "type": "ENNReal.ofReal (\u03b5 ^ (1 / p)) \u2260 0",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "B",
+          "type": "ENNReal.ofReal p \u2260 0",
+          "body": "by simpa only [Ne, ENNReal.ofReal_eq_zero, not_le] using hp",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "ContinuousMapDense",
+          "name": "MemLp.exists_hasCompactSupport_integral_rpow_sub_le",
+          "statement": "\u211d} (hp : 0 < p) {f : \u03b1 \u2192 E} (hf : MemLp f (ENNReal.ofReal p) \u03bc) {\u03b5 : \u211d} (h\u03b5 : 0 < \u03b5) : \u2203 g : \u03b1 \u2192 E, HasCompactSupport g \u2227 (\u222b x, \u2016f x - g x\u2016 ^ p \u2202\u03bc) \u2264 \u03b5 \u2227 Continuous g \u2227 MemLp g (ENNReal.ofReal p) \u03bc",
+          "have_tree": [
+            {
+              "name": "A",
+              "type": "ENNReal.ofReal (\u03b5 ^ (1 / p)) \u2260 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "I",
+              "type": "0 < \u03b5 ^ (1 / p)",
+              "body": "Real.rpow_pos_of_pos h\u03b5 _",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "ENNReal.ofReal p \u2260 0",
+              "body": "by simpa only [Ne, ENNReal.ofReal_eq_zero, not_le] using hp",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "ContinuousMapDense",
+          "name": "MemLp.exists_hasCompactSupport_integral_rpow_sub_le",
+          "statement": "\u211d} (hp : 0 < p) {f : \u03b1 \u2192 E} (hf : MemLp f (ENNReal.ofReal p) \u03bc) {\u03b5 : \u211d} (h\u03b5 : 0 < \u03b5) : \u2203 g : \u03b1 \u2192 E, HasCompactSupport g \u2227 (\u222b x, \u2016f x - g x\u2016 ^ p \u2202\u03bc) \u2264 \u03b5 \u2227 Continuous g \u2227 MemLp g (ENNReal.ofReal p) \u03bc",
+          "have_tree": [
+            {
+              "name": "I",
+              "type": "0 < \u03b5 ^ (1 / p)",
+              "body": "Real.rpow_pos_of_pos h\u03b5 _",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "ENNReal.ofReal p \u2260 0",
+              "body": "by simpa only [Ne, ENNReal.ofReal_eq_zero, not_le] using hp",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "ENNReal.ofReal (\u03b5 ^ (1 / p)) \u2260 0",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "ContinuousMapDense",
+      "name": "MemLp.exists_boundedContinuous_integral_rpow_sub_le",
+      "statement": "\u211d} (hp : 0 < p) {f : \u03b1 \u2192 E} (hf : MemLp f (ENNReal.ofReal p) \u03bc) {\u03b5 : \u211d} (h\u03b5 : 0 < \u03b5) : \u2203 g : \u03b1 \u2192\u1d47 E, (\u222b x, \u2016f x - g x\u2016 ^ p \u2202\u03bc) \u2264 \u03b5 \u2227 MemLp g (ENNReal.ofReal p) \u03bc",
+      "have_tree": [
+        {
+          "name": "I",
+          "type": "0 < \u03b5 ^ (1 / p)",
+          "body": "Real.rpow_pos_of_pos h\u03b5 _",
+          "children": []
+        },
+        {
+          "name": "A",
+          "type": "ENNReal.ofReal (\u03b5 ^ (1 / p)) \u2260 0",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "B",
+          "type": "ENNReal.ofReal p \u2260 0",
+          "body": "by simpa only [Ne, ENNReal.ofReal_eq_zero, not_le] using hp",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "ContinuousMapDense",
+          "name": "MemLp.exists_boundedContinuous_integral_rpow_sub_le",
+          "statement": "\u211d} (hp : 0 < p) {f : \u03b1 \u2192 E} (hf : MemLp f (ENNReal.ofReal p) \u03bc) {\u03b5 : \u211d} (h\u03b5 : 0 < \u03b5) : \u2203 g : \u03b1 \u2192\u1d47 E, (\u222b x, \u2016f x - g x\u2016 ^ p \u2202\u03bc) \u2264 \u03b5 \u2227 MemLp g (ENNReal.ofReal p) \u03bc",
+          "have_tree": [
+            {
+              "name": "A",
+              "type": "ENNReal.ofReal (\u03b5 ^ (1 / p)) \u2260 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "I",
+              "type": "0 < \u03b5 ^ (1 / p)",
+              "body": "Real.rpow_pos_of_pos h\u03b5 _",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "ENNReal.ofReal p \u2260 0",
+              "body": "by simpa only [Ne, ENNReal.ofReal_eq_zero, not_le] using hp",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "ContinuousMapDense",
+          "name": "MemLp.exists_boundedContinuous_integral_rpow_sub_le",
+          "statement": "\u211d} (hp : 0 < p) {f : \u03b1 \u2192 E} (hf : MemLp f (ENNReal.ofReal p) \u03bc) {\u03b5 : \u211d} (h\u03b5 : 0 < \u03b5) : \u2203 g : \u03b1 \u2192\u1d47 E, (\u222b x, \u2016f x - g x\u2016 ^ p \u2202\u03bc) \u2264 \u03b5 \u2227 MemLp g (ENNReal.ofReal p) \u03bc",
+          "have_tree": [
+            {
+              "name": "I",
+              "type": "0 < \u03b5 ^ (1 / p)",
+              "body": "Real.rpow_pos_of_pos h\u03b5 _",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "ENNReal.ofReal p \u2260 0",
+              "body": "by simpa only [Ne, ENNReal.ofReal_eq_zero, not_le] using hp",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "ENNReal.ofReal (\u03b5 ^ (1 / p)) \u2260 0",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

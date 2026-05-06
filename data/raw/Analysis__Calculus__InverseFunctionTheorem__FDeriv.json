@@ -1,0 +1,34 @@
+[
+  {
+    "module": "FDeriv",
+    "name": "approximates_deriv_on_nhds",
+    "statement": "E \u2192 F} {f' : E \u2192L[\ud835\udd5c] F} {a : E} (hf : HasStrictFDerivAt f f' a) {c : \u211d\u22650} (hc : Subsingleton E \u2228 0 < c) : \u2203 s \u2208 \ud835\udcdd a, ApproximatesLinearOn f f' s c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.isLittleO.def hc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FDeriv",
+    "name": "map_nhds_eq_of_surj",
+    "statement": "E \u2192 F} {f' : E \u2192L[\ud835\udd5c] F} {a : E} (hf : HasStrictFDerivAt f (f' : E \u2192L[\ud835\udd5c] F) a) (h : f'.range = \u22a4) : map f (\ud835\udcdd a) = \ud835\udcdd (f a)",
+    "have_tree": [
+      {
+        "name": "f'symm_pos",
+        "type": "0 < f'symm.nnnorm",
+        "body": "f'.nonlinearRightInverseOfSurjective_nnnorm_pos h",
+        "children": []
+      },
+      {
+        "name": "cpos",
+        "type": "0 < c",
+        "body": "by simp [hc, inv_pos, f'symm_pos]",
+        "children": []
+      }
+    ]
+  }
+]

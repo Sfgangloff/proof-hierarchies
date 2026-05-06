@@ -1,0 +1,91 @@
+[
+  {
+    "module": "IteratedFDeriv",
+    "name": "ContinuousMultilinearMap.iteratedFDeriv_comp_diagonal",
+    "statement": "\u2115} (f : E [\u00d7n]\u2192L[\ud835\udd5c] F) (x : E) (v : Fin n \u2192 E) : iteratedFDeriv \ud835\udd5c n (fun x \u21a6 f (fun _ \u21a6 x)) x v = \u2211 \u03c3 : Perm (Fin n), f (fun i \u21a6 v (\u03c3 i))",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2203 y, \u03c3 y = i",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Function.Bijective \u03c3",
+            "body": "(Fintype.bijective_iff_injective_and_card _).2 \u27e8\u03c3.injective, rfl\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "IteratedFDeriv",
+    "name": "HasFPowerSeriesWithinOnBall.iteratedFDerivWithin_eq_sum_of_subset",
+    "statement": "HasFPowerSeriesWithinOnBall f p s x r) (h' : AnalyticOn \ud835\udd5c f s) (hs : UniqueDiffOn \ud835\udd5c s) (hx : x \u2208 s) {n : \u2115} (v : Fin n \u2192 E) (h's : s \u2286 EMetric.ball x r) : iteratedFDerivWithin \ud835\udd5c n f s x v = \u2211 \u03c3 : Perm (Fin n), p n (fun i \u21a6 v (\u03c3 i))",
+    "have_tree": [
+      {
+        "name": "I",
+        "type": "insert x s \u2229 EMetric.ball x r = s",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "fcont",
+        "type": "ContDiffOn \ud835\udd5c (\u2191n) f s",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "gcont",
+        "type": "ContDiff \ud835\udd5c \u03c9 g",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "HasFiniteFPowerSeriesOnBall g q x (n + 1) r",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "n \u2260 m",
+            "body": "by lia",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "B",
+        "type": "HasFPowerSeriesWithinOnBall g q s x r",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "f = g + (f - g)",
+            "body": "by abel",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "J2",
+        "type": "iteratedFDerivWithin \ud835\udd5c n (f - g) s x = 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "J3",
+        "type": "iteratedFDerivWithin \ud835\udd5c n g s x = iteratedFDeriv \ud835\udd5c n g x",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "g = fun z \u21a6 g' (z - x)",
+        "body": "rfl",
+        "children": []
+      }
+    ]
+  }
+]

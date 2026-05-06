@@ -1,0 +1,85 @@
+[
+  {
+    "module": "Nilpotent",
+    "name": "Subgroup.nilpotencyClass_le",
+    "statement": "Subgroup G) [hG : IsNilpotent G] : Group.nilpotencyClass H \u2264 Group.nilpotencyClass G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "lowerCentralSeries_map_subtype_le H n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nilpotent",
+    "name": "nilpotencyClass_le_of_ker_le_center",
+    "statement": "Type*} [Group H] (f : G \u2192* H) (hf1 : f.ker \u2264 center G) [IsNilpotent H] : Group.nilpotencyClass G \u2264 Group.nilpotencyClass H + 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsNilpotent G",
+        "body": "isNilpotent_of_ker_le_center f hf1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nilpotent",
+    "name": "nilpotencyClass_le_of_surjective",
+    "statement": "Type*} [Group G'] (f : G \u2192* G') (hf : Function.Surjective f) [h : IsNilpotent G] : Group.nilpotencyClass G' \u2264 Group.nilpotencyClass G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "nilpotent_of_surjective _ hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nilpotent",
+    "name": "normalizerCondition_of_isNilpotent",
+    "statement": "IsNilpotent G] : NormalizerCondition G",
+    "have_tree": [
+      {
+        "name": "hch",
+        "type": "center G \u2264 H",
+        "body": "Subgroup.center_le_normalizer H |>.trans (le_of_eq hH)",
+        "children": []
+      },
+      {
+        "name": "hkh",
+        "type": "(mk' (center G)).ker \u2264 H",
+        "body": "by simpa using hch",
+        "children": []
+      },
+      {
+        "name": "hsur",
+        "type": "Function.Surjective (mk' (center G))",
+        "body": "Quot.mk_surjective",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nilpotent",
+    "name": "IsPGroup.isNilpotent",
+    "statement": "\u2115} [hp : Fact (Nat.Prime p)] (h : IsPGroup p G) : IsNilpotent G",
+    "have_tree": [
+      {
+        "name": "hcq",
+        "type": "Fintype.card (G \u29f8 center G) < Fintype.card G",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hnq",
+        "type": "IsNilpotent (G \u29f8 center G)",
+        "body": "ih _ hcq (h.to_quotient (center G))",
+        "children": []
+      }
+    ]
+  }
+]

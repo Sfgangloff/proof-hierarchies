@@ -1,0 +1,110 @@
+[
+  {
+    "module": "Lemmas",
+    "name": "Basis.linearEquiv_dual_iff_finiteDimensional",
+    "statement": "Nonempty (V \u2243\u2097[K] Dual K V) \u2194 FiniteDimensional K V",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "e.lift_rank_eq",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "Projective.exists_dual_ne_zero",
+    "statement": "Type*) [Semiring R] [Module R V] [Projective R V] {x : V} (hx : x \u2260 0) : \u2203 f : Dual R V, f x \u2260 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "i x \u2260 0",
+        "body": "i.map_eq_zero_iff (injective_of_comp_eq_id i s his) |>.not.mpr hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "_root_.mem_span_of_iInf_ker_le_ker",
+    "statement": "\u03b9 \u2192 E \u2192\u2097[\ud835\udd5c] \ud835\udd5c} {K : E \u2192\u2097[\ud835\udd5c] \ud835\udd5c} (h : \u2a05 i, ker (L i) \u2264 ker K) : K \u2208 span \ud835\udd5c (range L)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "FiniteDimensional \ud835\udd5c (E \u29f8 p)",
+        "body": "of_injective \u03c8 (ker_eq_bot.1 (ker_liftQ_eq_bot' p \u03c6 p_eq))",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2a05 i, ker (L' i) \u2264 ker K'",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "range_dualMap_mkQ_eq",
+    "statement": "Submodule R M) : LinearMap.range W.mkQ.dualMap = W.dualAnnihilator",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "LinearMap.mem_range_self W.mkQ.dualMap \u03c8",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "range_dualMap_eq_dualAnnihilator_ker_of_subtype_range_surjective",
+    "statement": "M \u2192\u2097[R] M') (hf : Function.Surjective (range f).subtype.dualMap) : LinearMap.range f.dualMap = (ker f).dualAnnihilator",
+    "have_tree": [
+      {
+        "name": "rr_surj",
+        "type": "Function.Surjective f.rangeRestrict",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "range_dualMap_eq_dualAnnihilator_ker_of_surjective f.rangeRestrict rr_surj",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "eq_of_ker_eq_of_apply_eq",
+    "statement": "Module.Dual K V\u2081} (x : V\u2081) (h : LinearMap.ker f = LinearMap.ker g) (h' : f x = g x) (hx : f x \u2260 0) : f = g",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "p \u2260 \u22a5",
+        "body": "by aesop",
+        "children": []
+      },
+      {
+        "name": "hpf",
+        "type": "Disjoint (LinearMap.ker f) p",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "f \u2260 0",
+        "body": "by aesop",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,141 @@
+[
+  {
+    "module": "Approximations",
+    "name": "sub_convs_eq",
+    "statement": "IntFractPair K} (stream_nth_eq : IntFractPair.stream v n = some ifp) : let g",
+    "have_tree": [
+      {
+        "name": "n_eq_zero_or_not_terminatedAt_pred_n",
+        "type": "n = 0 \u2228 \u00acg.TerminatedAt (n - 1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u00acg.TerminatedAt n'",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "determinant_eq",
+        "type": "pA * B - pB * A = (-1) ^ n",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "pB_ineq",
+        "type": "(fib n : K) \u2264 pB",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "B_ineq",
+        "type": "(fib (n + 1) : K) \u2264 B",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "zero_lt_B",
+        "type": "0 < B",
+        "body": "B_ineq.trans_lt' <| cast_pos.2 <| fib_pos.2 n.succ_pos",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 \u2264 pB",
+        "body": "(Nat.cast_nonneg _).trans pB_ineq",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 < ifp.fr",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "pB + ifp.fr\u207b\u00b9 * B \u2260 0",
+        "body": "by positivity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Approximations",
+    "name": "abs_sub_convs_le",
+    "statement": "\u00ac(of v).TerminatedAt n) : |v - (of v).convs n| \u2264 1 / ((of v).dens n * ((of v).dens <| n + 1))",
+    "have_tree": [
+      {
+        "name": "gp_a_eq_one",
+        "type": "gp.a = 1",
+        "body": "of_partNum_eq_one (partNum_eq_s_a s_nth_eq)",
+        "children": []
+      },
+      {
+        "name": "nextConts_b_eq",
+        "type": "nextConts.b = pred_conts.b + gp.b * conts.b",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "nextConts_b_ineq",
+        "type": "(fib (n + 2) : K) \u2264 pred_conts.b + gp.b * conts.b",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(fib (n + 2) : K) \u2264 nextConts.b",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "conts_b_ineq",
+        "type": "(fib (n + 1) : K) \u2264 conts.b",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "zero_lt_conts_b",
+        "type": "0 < conts.b",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "|(-1) ^ n / den'| = 1 / den'",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "0 < den'",
+                "body": "by",
+                "children": [
+                  {
+                    "name": "_",
+                    "type": "0 \u2264 pred_conts.b",
+                    "body": "",
+                    "children": []
+                  },
+                  {
+                    "name": "_",
+                    "type": "0 < ifp_n.fr\u207b\u00b9",
+                    "body": "",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "(ifp_succ_n.b : K) \u2264 ifp_n.fr\u207b\u00b9",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

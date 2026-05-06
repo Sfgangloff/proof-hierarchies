@@ -1,0 +1,137 @@
+[
+  {
+    "module": "Luroth",
+    "name": "\u03a6_coeff_\u03c6_natDegree",
+    "statement": "E \u2260 \u22a5) : algebraMap K[X] K\u27eeX\u27ef ((\u03a6 E).coeff (\u03c6 E).natDegree) = c E",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr($(C_c_mul_\u03c6 h).coeff (\u03c6 E).natDegree)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Luroth",
+    "name": "\u03a6_coeff_generatorIndex",
+    "statement": "E \u2260 \u22a5) : algebraMap K[X] K\u27eeX\u27ef ((\u03a6 E).coeff (generatorIndex h)) = algebraMap K[X] K\u27eeX\u27ef (c E).num * generator E",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr($(C_c_mul_\u03c6 h).coeff (generatorIndex h))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Luroth",
+    "name": "\u03a6_ne_zero",
+    "statement": "E \u2260 \u22a5) : \u03a6 E \u2260 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "\u03a6_coeff_\u03c6_natDegree' h \u25b8 congr($(H).coeff (\u03c6 E).natDegree)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Luroth",
+    "name": "le_\u03a6_coeff_generatorIndex_natDegree",
+    "statement": "E \u2260 \u22a5) : (f E).natDegree \u2264 ((\u03a6 E).coeff (generatorIndex h)).natDegree",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr($(\u03a6_coeff_generatorIndex h) * algebraMap K[X] K\u27eeX\u27ef (g E))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Luroth",
+    "name": "swap_Q\u2081_natDegree",
+    "statement": "E \u2260 \u22a5) : (Bivariate.swap (Q\u2081 h)).natDegree = 0",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "(Bivariate.swap (\u03b8 E)).natDegree \u2264 m E",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Luroth",
+    "name": "Q\u2082",
+    "statement": "E \u2260 \u22a5) : K[X]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "eq_C_of_natDegree_eq_zero (swap_Q\u2081_natDegree h)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Luroth",
+    "name": "Q\u2082_natDegree",
+    "statement": "E \u2260 \u22a5) : (Q\u2082 h).natDegree = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr(aeval (Polynomial.C \u03b1) $(Q\u2082_mul_\u03a6 h)).symm",
+        "children": []
+      },
+      {
+        "name": "isCoprime",
+        "type": "",
+        "body": "IsCoprime.map (generator E).isCoprime_num_denom <|",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Associated ((f E).mapRingHom (algebraMap K F)) ((g E).mapRingHom (algebraMap K F))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isCoprime.isUnit_of_associated this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Luroth",
+    "name": "\u03a6_natDegree_eq_\u03b8_natDegree",
+    "statement": "E \u2260 \u22a5) : (\u03a6 E).natDegree = (\u03b8 E).natDegree",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr($(Q\u2082_mul_\u03a6 h).natDegree)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Luroth",
+    "name": "swap_\u03a6_natDegree_eq_\u03b8_natDegree",
+    "statement": "E \u2260 \u22a5) : (Bivariate.swap (\u03a6 E)).natDegree = (\u03b8 E).natDegree",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr((Bivariate.swap $(Q\u2083_mul_\u03a6 h)).natDegree)",
+        "children": []
+      }
+    ]
+  }
+]

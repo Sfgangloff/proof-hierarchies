@@ -1,0 +1,41 @@
+[
+  {
+    "module": "IdentDistribIndep",
+    "name": "IdentDistrib.prodMk",
+    "statement": "\u03a9 \u2192 E} {Y : \u03a9 \u2192 F} {Z : \u03a9' \u2192 E} {W : \u03a9' \u2192 F} (hXZ : IdentDistrib X Z \u03bc \u03bd) (hYW : IdentDistrib Y W \u03bc \u03bd) (hXY : X \u27c2\u1d62[\u03bc] Y) (hZW : Z \u27c2\u1d62[\u03bd] W) : IdentDistrib (fun \u03c9 \u21a6 (X \u03c9, Y \u03c9)) (fun \u03c9' \u21a6 (Z \u03c9', W \u03c9')) \u03bc \u03bd where aemeasurable_fst",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsFiniteMeasure \u03bd",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsFiniteMeasure (\u03bd.map Z)",
+            "body": "by rw [\u2190 hXZ.map_eq]; infer_instance",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "IdentDistribIndep",
+    "name": "IdentDistrib.pi",
+    "statement": "\u03b9 \u2192 Type*} {mE : \u2200 i, MeasurableSpace (E i)} {X : (i : \u03b9) \u2192 \u03a9 \u2192 E i} {Y : (i : \u03b9) \u2192 \u03a9' \u2192 E i} (h : \u2200 i, IdentDistrib (X i) (Y i) \u03bc \u03bd) (hX_ind : iIndepFun X \u03bc) (hY_ind : iIndepFun Y \u03bd) : IdentDistrib (fun \u03c9 \u21a6 (X \u00b7 \u03c9)) (fun \u03c9 \u21a6 (Y \u00b7 \u03c9)) \u03bc \u03bd where aemeasurable_fst",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsProbabilityMeasure \u03bc",
+        "body": "hX_ind.isProbabilityMeasure",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsProbabilityMeasure \u03bd",
+        "body": "hY_ind.isProbabilityMeasure",
+        "children": []
+      }
+    ]
+  }
+]

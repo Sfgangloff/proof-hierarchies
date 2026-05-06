@@ -1,0 +1,96 @@
+[
+  {
+    "module": "CartanMatrix",
+    "name": "cartanMatrix_apply_eq_zero_iff_symm",
+    "statement": "b.support} : b.cartanMatrix i j = 0 \u2194 b.cartanMatrix j i = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CartanMatrix",
+    "name": "cartanMatrix_mem_of_ne",
+    "statement": "b.support} (hij : i \u2260 j) : b.cartanMatrix i j \u2208 ({-3, -2, -1, 0} : Set \u2124)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R N",
+        "body": ".of_isPerfPair P.flip.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystallographic i j",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "P.pairingIn \u2124 i j \u2264 0",
+        "body": "b.cartanMatrix_le_zero_of_ne i j hij",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CartanMatrix",
+    "name": "induction_on_cartanMatrix",
+    "statement": "b.support \u2192 Prop) {i j : b.support} (hi : p i) (hp : \u2200 i j, p i \u2192 b.cartanMatrix j i \u2260 0 \u2192 p j) : p j",
+    "have_tree": [
+      {
+        "name": "hq\u2080",
+        "type": "q \u2260 \u22a5",
+        "body": "q.ne_bot_iff.mpr \u27e8P.root i, subset_span <| by simpa, P.ne_zero i\u27e9",
+        "children": []
+      },
+      {
+        "name": "hq",
+        "type": "\u2200 k, q \u2208 invtSubmodule (P.reflection k)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CartanMatrix",
+    "name": "equivOfCartanMatrixEq",
+    "statement": "\u2200 i j, b\u2082.cartanMatrix (e i) (e j) = b.cartanMatrix i j) : P.Equiv P\u2082",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "\u2200 m, f m \u2208 range P\u2082.root \u2194 m \u2208 range P.root",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "DecidableEq M",
+        "body": "Classical.typeDecidableEq M",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "DecidableEq M\u2082",
+        "body": "Classical.typeDecidableEq M\u2082",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R M\u2082",
+        "body": ".of_isPerfPair P\u2082.toLinearMap",
+        "children": []
+      }
+    ]
+  }
+]

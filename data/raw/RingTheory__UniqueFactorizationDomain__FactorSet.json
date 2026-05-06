@@ -1,0 +1,112 @@
+[
+  {
+    "module": "FactorSet",
+    "name": "factors'_cong",
+    "statement": "\u03b1} (h : a ~\u1d64 b) : factors' a = factors' b",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "a \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorSet",
+    "name": "factors_subsingleton",
+    "statement": "Associates \u03b1} : a.factors = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Subsingleton (Associates \u03b1)",
+        "body": "inferInstance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorSet",
+    "name": "factors_mono",
+    "statement": "\u2200 {a b : Associates \u03b1}, a \u2264 b \u2192 a.factors \u2264 b.factors | s, t, \u27e8d, eq\u27e9 => by rw [eq, factors_mul]; exact le_add_of_nonneg_right bot_le  @[simp] theorem factors_le {a b : Associates \u03b1} : a.factors \u2264 b.factors \u2194 a \u2264 b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "a.factors.prod \u2264 b.factors.prod",
+        "body": "prod_mono h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorSet",
+    "name": "prod_le",
+    "statement": "FactorSet \u03b1} : a.prod \u2264 b.prod \u2194 a \u2264 b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "a.prod.factors \u2264 b.prod.factors",
+        "body": "factors_mono h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorSet",
+    "name": "exists_prime_dvd_of_not_inf_one",
+    "statement": "\u03b1} (ha : a \u2260 0) (hb : b \u2260 0) (h : Associates.mk a \u2293 Associates.mk b \u2260 1) : \u2203 p : \u03b1, Prime p \u2227 p \u2223 a \u2227 p \u2223 b",
+    "have_tree": [
+      {
+        "name": "hz",
+        "type": "factors (Associates.mk a) \u2293 factors (Associates.mk b) \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorSet",
+    "name": "prime_pow_le_iff_le_bcount",
+    "statement": "Associates \u03b1} (h\u2081 : m \u2260 0) (h\u2082 : Irreducible p) {k : \u2115} : p ^ k \u2264 m \u2194 k \u2264 bcount \u27e8p, h\u2082\u27e9 m.factors",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "nontrivial_of_ne _ _ hm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorSet",
+    "name": "is_pow_of_dvd_count",
+    "statement": "Associates \u03b1} (ha : a \u2260 0) {k : \u2115} (hk : \u2200 p : Associates \u03b1, Irreducible p \u2192 k \u2223 count p a.factors) : \u2203 b : Associates \u03b1, a = b ^ k",
+    "have_tree": [
+      {
+        "name": "hk'",
+        "type": "\u2200 p, p \u2208 factors' a0 \u2192 k \u2223 (factors' a0).count p",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorSet",
+    "name": "eq_pow_count_factors_of_dvd_pow",
+    "statement": "Associates \u03b1} (hp : Irreducible p) {n : \u2115} (h : a \u2223 p ^ n) : a = p ^ p.count a.factors",
+    "have_tree": [
+      {
+        "name": "hph",
+        "type": "",
+        "body": "pow_ne_zero n hp.ne_zero",
+        "children": []
+      },
+      {
+        "name": "ha",
+        "type": "",
+        "body": "ne_zero_of_dvd_ne_zero hph h",
+        "children": []
+      }
+    ]
+  }
+]

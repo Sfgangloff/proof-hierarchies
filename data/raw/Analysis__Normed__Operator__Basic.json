@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Basic",
+    "name": "opNorm_le_of_unit_norm",
+    "statement": "E \u2192SL[\u03c3\u2081\u2082] F} {C : \u211d} (hC : 0 \u2264 C) (hf : \u2200 x, \u2016x\u2016 = 1 \u2192 \u2016f x\u2016 \u2264 C) : \u2016f\u2016 \u2264 C",
+    "have_tree": [
+      {
+        "name": "H\u2082",
+        "type": "\u2016x\u2016\u207b\u00b9 * \u2016f x\u2016 \u2264 C",
+        "body": "by simpa [norm_smul] using hf _ H\u2081",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "norm_id",
+    "statement": "\u2016ContinuousLinearMap.id \ud835\udd5c E\u2016 = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(ContinuousLinearMap.id \ud835\udd5c E).ratio_le_opNorm x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "homothety_norm",
+    "statement": "E \u2192SL[\u03c3\u2081\u2082] F) {a : \u211d} (hf : \u2200 x, \u2016f x\u2016 = a * \u2016x\u2016) : \u2016f\u2016 = a",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "0 \u2264 a",
+        "body": "by simpa only [hf, hx, mul_nonneg_iff_of_pos_right] using norm_nonneg (f x)",
+        "children": []
+      }
+    ]
+  }
+]

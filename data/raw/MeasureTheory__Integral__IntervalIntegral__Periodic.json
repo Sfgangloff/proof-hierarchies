@@ -1,0 +1,92 @@
+[
+  {
+    "module": "Periodic",
+    "name": "measurableEquivIoc",
+    "statement": "\u211d) : AddCircle T \u2243\u1d50 Ioc a (a + T) where toEquiv",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "(measurableEquivIoc T a).measurable",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Periodic",
+    "name": "lintegral_preimage",
+    "statement": "\u211d) (f : AddCircle T \u2192 \u211d\u22650\u221e) : (\u222b\u207b a in Ioc t (t + T), f a) = \u222b\u207b b : AddCircle T, f b",
+    "have_tree": [
+      {
+        "name": "m",
+        "type": "MeasurableSet (Ioc t (t + T))",
+        "body": "measurableSet_Ioc",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "lintegral_map_equiv (\u03bc := volume) f (measurableEquivIoc T t).symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Periodic",
+    "name": "integral_preimage",
+    "statement": "\u211d) (f : AddCircle T \u2192 E) : (\u222b a in Ioc t (t + T), f a) = \u222b b : AddCircle T, f b",
+    "have_tree": [
+      {
+        "name": "m",
+        "type": "MeasurableSet (Ioc t (t + T))",
+        "body": "measurableSet_Ioc",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "integral_map_equiv (\u03bc := volume) (measurableEquivIoc T t).symm f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Periodic",
+    "name": "intervalIntegrable",
+    "statement": "\u211d} (h\u2081f : Function.Periodic f T) (hT : T \u2260 0) (h\u2082f : IntervalIntegrable f volume t (t + T)) (a\u2081 a\u2082 : \u211d) : IntervalIntegrable f volume a\u2081 a\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Set.uIcc a\u2081 a\u2082 \u2286 Set.uIcc (t - n\u2081 * T) (t + n\u2082 * T)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Periodic",
+    "name": "tendsto_atTop_intervalIntegral_of_pos",
+    "statement": "0 < \u222b x in 0..T, g x) (hT : 0 < T) : Tendsto (fun t => \u222b x in 0..t, g x) atTop atTop",
+    "have_tree": [
+      {
+        "name": "h_int",
+        "type": "",
+        "body": "intervalIntegrable_of_integral_ne_zero h\u2080.ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Periodic",
+    "name": "tendsto_atBot_intervalIntegral_of_pos",
+    "statement": "0 < \u222b x in 0..T, g x) (hT : 0 < T) : Tendsto (fun t => \u222b x in 0..t, g x) atBot atBot",
+    "have_tree": [
+      {
+        "name": "h_int",
+        "type": "",
+        "body": "intervalIntegrable_of_integral_ne_zero h\u2080.ne'",
+        "children": []
+      }
+    ]
+  }
+]

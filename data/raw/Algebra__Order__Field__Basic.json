@@ -1,0 +1,106 @@
+[
+  {
+    "module": "Basic",
+    "name": "IsGLB.mul_right",
+    "statement": "Set \u03b1} (ha : 0 \u2264 a) (hs : IsGLB s b) : IsGLB ((fun b => b * a) '' s) (b * a)",
+    "have_tree": [
+      {
+        "name": "hb",
+        "type": "",
+        "body": "hs (b + b)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsLUB.mul_right",
+    "statement": "Set \u03b1} (ha : 0 \u2264 a) (hs : IsLUB s b) : IsLUB ((fun b => b * a) '' s) (b * a)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < a / max (b + 1) 1",
+        "body": "div_pos h (lt_max_iff.2 (Or.inr zero_lt_one))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "inv_lt_inv_of_neg",
+    "statement": "a < 0) (hb : b < 0) : a\u207b\u00b9 < b\u207b\u00b9 \u2194 b < a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "div_lt_iff_of_neg ha (b := 1) (a := b\u207b\u00b9)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_lt_mul_left_of_nonneg",
+    "statement": "\u03b1} (ha : 0 \u2264 a) (hc : 0 \u2264 c) (h : c < a * b) : \u2203 a' \u2208 Set.Ico 0 a, c < a' * b",
+    "have_tree": [
+      {
+        "name": "hb",
+        "type": "0 < b",
+        "body": "pos_of_mul_pos_right (hc.trans_lt h) ha",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_lt_mul_right_of_nonneg",
+    "statement": "\u03b1} (ha : 0 \u2264 a) (hc : 0 \u2264 c) (h : c < a * b) : \u2203 b' \u2208 Set.Ico 0 b, c < a * b'",
+    "have_tree": [
+      {
+        "name": "hb",
+        "type": "0 < b",
+        "body": "pos_of_mul_pos_right (hc.trans_lt h) ha",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mul_self_inj_of_nonneg",
+    "statement": "Type*} [CommRing \u03b1] [NoZeroDivisors \u03b1] [PartialOrder \u03b1] [IsStrictOrderedRing \u03b1] {a b : \u03b1} (a0 : 0 \u2264 a) (b0 : 0 \u2264 b) : a * a = b * b \u2194 a = b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "fun h \u21a6 le_antisymm (neg_nonneg.mp h) b0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "abs_one_div",
+    "statement": "\u03b1) : |1 / a| = 1 / |a|",
+    "have_tree": [
+      {
+        "name": "pos",
+        "type": "0 < 1 + \u2191n * (B + 1) ^ (n - 1)",
+        "body": "zero_lt_one.trans_le <| le_add_of_nonneg_right <|",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "two_mul_le_add_mul_sq",
+    "statement": "\u03b1} (h\u03b5 : 0 < \u03b5) : 2 * a * b \u2264 \u03b5 * a ^ 2 + \u03b5\u207b\u00b9 * b ^ 2",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "2 * (\u03b5 * a) * b \u2264 (\u03b5 * a) ^ 2 + b ^ 2",
+        "body": "two_mul_le_add_sq (\u03b5 * a) b",
+        "children": []
+      }
+    ]
+  }
+]

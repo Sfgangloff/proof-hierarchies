@@ -1,0 +1,86 @@
+[
+  {
+    "module": "Floor",
+    "name": "Nat.coprime_sub_mul_floor_rat_div_of_coprime",
+    "statement": "\u2115} (n_coprime_d : n.Coprime d) : ((n : \u2124) - d * \u230a(n : \u211a) / d\u230b).natAbs.Coprime d",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "d.Coprime n",
+        "body": "n_coprime_d.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Floor",
+    "name": "num_lt_succ_floor_mul_den",
+    "statement": "\u211a) : q.num < (\u230aq\u230b + 1) * q.den",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < 1 - fract q",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "fract q < 1",
+            "body": "fract_lt_one q",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "0 + fract q < 1",
+            "body": "by simp [this]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Floor",
+    "name": "fract_inv_num_lt_num_of_pos",
+    "statement": "\u211a} (q_pos : 0 < q) : (fract q\u207b\u00b9).num < q.num",
+    "have_tree": [
+      {
+        "name": "q_num_pos",
+        "type": "0 < q.num",
+        "body": "Rat.num_pos.mpr q_pos",
+        "children": [
+          {
+            "name": "tmp",
+            "type": "",
+            "body": "Nat.coprime_sub_mul_floor_rat_div_of_coprime q.reduced.symm",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "q_inv_num_denom_ineq",
+        "type": "q\u207b\u00b9.num - \u230aq\u207b\u00b9\u230b * q\u207b\u00b9.den < q\u207b\u00b9.den",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "q\u207b\u00b9.num < (\u230aq\u207b\u00b9\u230b + 1) * q\u207b\u00b9.den",
+            "body": "Rat.num_lt_succ_floor_mul_den q\u207b\u00b9",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "q\u207b\u00b9.num < \u230aq\u207b\u00b9\u230b * q\u207b\u00b9.den + q\u207b\u00b9.den",
+            "body": "by rwa [right_distrib, one_mul] at this",
+            "children": []
+          },
+          {
+            "name": "coprime_q_denom_q_num",
+            "type": "q.den.Coprime q.num.natAbs",
+            "body": "q.reduced.symm",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

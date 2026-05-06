@@ -1,0 +1,130 @@
+[
+  {
+    "module": "Basic",
+    "name": "congr",
+    "statement": "\ud835\udd5c \u2192 E} (hf : MeromorphicAt f x) (hfg : f =\u1da0[\ud835\udcdd[\u2260] x] g) : MeromorphicAt g x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "AnalyticAt \ud835\udd5c (fun z \u21a6 z - x) x",
+        "body": "analyticAt_id.sub analyticAt_const",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "inv",
+    "statement": "\ud835\udd5c \u2192 \ud835\udd5c'} (hf : MeromorphicAt f x) : MeromorphicAt f\u207b\u00b9 x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "AnalyticAt \ud835\udd5c (fun z \u21a6 (z - x) ^ (m + 1)) x",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "eventually_continuousAt",
+    "statement": "\ud835\udd5c \u2192 E} (h : MeromorphicAt f x) : \u2200\u1da0 y in \ud835\udcdd[\u2260] x, ContinuousAt f y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200\u1da0 y in \ud835\udcdd[\u2260] x, ContinuousAt (fun z \u21a6 (z - x) ^ n \u2022 f z) y",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "ContinuousAt (fun z \u21a6 ((z - x) ^ n)\u207b\u00b9) y",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "eventually_analyticAt",
+    "statement": "\ud835\udd5c \u2192 E} (h : MeromorphicAt f x) : \u2200\u1da0 y in \ud835\udcdd[\u2260] x, AnalyticAt \ud835\udd5c f y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "((analyticAt_id (\ud835\udd5c := \ud835\udd5c).sub analyticAt_const).pow n).inv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "MeromorphicAt.comp_analyticAt",
+    "statement": "\ud835\udd5c' \u2192 F} {g : \ud835\udd5c \u2192 \ud835\udd5c'} (hf : MeromorphicAt f (g x)) (hg : AnalyticAt \ud835\udd5c g x) : MeromorphicAt (f \u2218 g) x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "AnalyticAt \ud835\udd5c (fun i \u21a6 (h i)\u207b\u00b9 ^ r \u2022 j (g i)) x",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "meromorphicAt_comp_iff_of_deriv_ne_zero",
+    "statement": "\ud835\udd5c \u2192 E} {g : \ud835\udd5c \u2192 \ud835\udd5c} (hg : AnalyticAt \ud835\udd5c g x) (hg' : deriv g x \u2260 0) : MeromorphicAt (f \u2218 g) x \u2194 MeromorphicAt f (g x)",
+    "have_tree": [
+      {
+        "name": "hra",
+        "type": "AnalyticAt \ud835\udd5c r (g x)",
+        "body": "hg.analyticAt_localInverse hg'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "congr_codiscreteWithin",
+    "statement": "MeromorphicOn f U) (h\u2081 : f =\u1da0[codiscreteWithin U] g) (h\u2082 : IsOpen U) : MeromorphicOn g U",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "U \u2208 \ud835\udcdd[\u2260] x",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "measurable",
+    "statement": "Meromorphic f) : Measurable f",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "s\u1d9c.Countable",
+        "body": "by simpa using h.countable_compl_analyticAt",
+        "children": []
+      },
+      {
+        "name": "h\u2081'",
+        "type": "",
+        "body": "h\u2081.to_subtype",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "IsOpen s",
+        "body": "isOpen_analyticAt \ud835\udd5c f",
+        "children": []
+      },
+      {
+        "name": "h\u2083",
+        "type": "ContinuousOn f s",
+        "body": "fun z hz \u21a6 hz.continuousAt.continuousWithinAt",
+        "children": []
+      }
+    ]
+  }
+]

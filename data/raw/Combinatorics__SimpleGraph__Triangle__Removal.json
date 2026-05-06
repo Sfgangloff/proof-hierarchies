@@ -1,0 +1,91 @@
+[
+  {
+    "module": "Removal",
+    "name": "triangleRemovalBound_pos",
+    "statement": "0 < \u03b5) : 0 < triangleRemovalBound \u03b5",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < 1 - min 1 \u03b5 / 4",
+        "body": "by have := min_le_left 1 \u03b5; linarith",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Removal",
+    "name": "card_bound",
+    "statement": "P.IsEquipartition) (hP\u2083 : #P.parts \u2264 bound (\u03b5 / 8) \u23084 / \u03b5\u2309\u208a) (hX : s \u2208 P.parts) : card \u03b1 / (2 * bound (\u03b5 / 8) \u23084 / \u03b5\u2309\u208a : \u211d) \u2264 #s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Finset.Nonempty.card_pos \u27e8_, hX\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Removal",
+    "name": "triangle_removal_aux",
+    "statement": "0 < \u03b5) (h\u03b5\u2081 : \u03b5 \u2264 1) (hP\u2081 : P.IsEquipartition) (hP\u2083 : #P.parts \u2264 bound (\u03b5 / 8) \u23084 / \u03b5\u2309\u208a) (ht : t \u2208 (G.regularityReduced P (\u03b5 / 8) (\u03b5 / 4)).cliqueFinset 3) : triangleRemovalBound \u03b5 * card \u03b1 ^ 3 \u2264 #(G.cliqueFinset 3)",
+    "have_tree": [
+      {
+        "name": "dXY",
+        "type": "",
+        "body": "P.disjoint hX hY nXY",
+        "children": []
+      },
+      {
+        "name": "dXZ",
+        "type": "",
+        "body": "P.disjoint hX hZ nXZ",
+        "children": []
+      },
+      {
+        "name": "dYZ",
+        "type": "",
+        "body": "P.disjoint hY hZ nYZ",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 \u2264 1 - 2 * (\u03b5 / 8)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u03b5 / 4 \u2264 1",
+            "body": "\u2039\u03b5 / 4 \u2264 _\u203a.trans (by exact mod_cast G.edgeDensity_le_one _ _); linarith",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Removal",
+    "name": "FarFromTriangleFree.le_card_cliqueFinset",
+    "statement": "G.FarFromTriangleFree \u03b5) : triangleRemovalBound \u03b5 * card \u03b1 ^ 3 \u2264 #(G.cliqueFinset 3)",
+    "have_tree": [
+      {
+        "name": "hl",
+        "type": "4 / \u03b5 \u2264 l",
+        "body": "le_ceil (4 / \u03b5)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "4 / \u03b5 \u2264 #P.parts",
+        "body": "hl.trans (cast_le.2 hP\u2082)",
+        "children": []
+      },
+      {
+        "name": "k",
+        "type": "",
+        "body": "regularityReduced_edges_card_aux h\u03b5 hP\u2081 hP\u2084 this",
+        "children": []
+      }
+    ]
+  }
+]

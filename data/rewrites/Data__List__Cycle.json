@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Cycle",
+      "name": "prev_reverse_eq_next",
+      "statement": "List \u03b1) (h : Nodup l) (x : \u03b1) (hx : x \u2208 l) : prev l.reverse x (mem_reverse.mpr hx) = next l x hx",
+      "have_tree": [
+        {
+          "name": "lpos",
+          "type": "0 < l.length",
+          "body": "k.zero_le.trans_lt hk",
+          "children": []
+        },
+        {
+          "name": "key",
+          "type": "l.length - 1 - k < l.length",
+          "body": "by lia",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Cycle",
+          "name": "prev_reverse_eq_next",
+          "statement": "List \u03b1) (h : Nodup l) (x : \u03b1) (hx : x \u2208 l) : prev l.reverse x (mem_reverse.mpr hx) = next l x hx",
+          "have_tree": [
+            {
+              "name": "key",
+              "type": "l.length - 1 - k < l.length",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "lpos",
+              "type": "0 < l.length",
+              "body": "k.zero_le.trans_lt hk",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

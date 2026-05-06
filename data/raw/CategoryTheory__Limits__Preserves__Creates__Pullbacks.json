@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Pullbacks",
+    "name": "HasPullback.of_createsLimit",
+    "statement": "C \u2964 D) {X Y S : C} (f : X \u27f6 S) (g : Y \u27f6 S) [CreatesLimit (cospan f g) F] [HasPullback (F.map f) (F.map g)] : HasPullback f g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "HasLimit (cospan f g \u22d9 F)",
+        "body": "hasLimit_of_iso (cospanCompIso F f g).symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pullbacks",
+    "name": "HasPushout.of_createsColimit",
+    "statement": "C \u2964 D) {X Y S : C} (f : S \u27f6 X) (g : S \u27f6 Y) [CreatesColimit (span f g) F] [HasPushout (F.map f) (F.map g)] : HasPushout f g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "HasColimit (span f g \u22d9 F)",
+        "body": "hasColimit_of_iso (spanCompIso F f g)",
+        "children": []
+      }
+    ]
+  }
+]

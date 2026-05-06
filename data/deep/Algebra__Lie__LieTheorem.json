@@ -1,0 +1,105 @@
+[
+  {
+    "module": "LieTheorem",
+    "name": "T",
+    "statement": "A) : Module.End R V",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2115) : Submodule.map (\u03c0 z) (U' n) \u2264 U' (n + 1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "H",
+            "type": "\u2200 w, \u2045w, (\u03c0 z ^ n) v\u2046 = (T \u03c7 w) ((\u03c0 z ^ n) v) + \u03c7 w \u2022 ((\u03c0 z ^ n) v)",
+            "body": "by simp",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "V) (hx : x \u2208 U) : (\u03c0 z) x \u2208 U",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "trace_za_zero",
+        "type": "(LieModule.toEnd R A _ \u2045z, a\u2046).trace R U = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "hres",
+            "type": "LieModule.toEnd R A U \u2045z, a\u2046 = \u2045(\u03c0 z).restrict hzU, LieModule.toEnd R A U a\u2046",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "A) : (T \u03c7 w).trace R U = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2115) (hi : i \u2260 0) : \u2203 j < i, Submodule.map (T \u03c7 w) (U' i) \u2264 U' j",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "trace_za",
+        "type": "(toEnd R A _ \u2045z, a\u2046).trace R U = \u03c7 \u2045z, a\u2046 \u2022 (finrank R U)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hvU",
+        "type": "v \u2208 U",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LieTheorem",
+    "name": "exists_nontrivial_weightSpace_of_lieIdeal",
+    "statement": "LieIdeal k L) (hA : IsCoatom A.toSubmodule) (\u03c7\u2080 : Module.Dual k A) [Nontrivial (weightSpace V \u03c7\u2080)] : \u2203 (\u03c7 : Module.Dual k L), Nontrivial (weightSpace V \u03c7)",
+    "have_tree": [
+      {
+        "name": "he",
+        "type": "\u2200 x, e x \u2022 z = x",
+        "body": "by simp [e]",
+        "children": []
+      },
+      {
+        "name": "hA",
+        "type": "IsCompl A.toSubmodule (k \u2219 z)",
+        "body": "isCompl_span_singleton_of_isCoatom_of_notMem hA hz",
+        "children": [
+          {
+            "name": "_",
+            "type": "Nontrivial W",
+            "body": "inferInstanceAs (Nontrivial (weightSpace V \u03c7\u2080))",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hv'",
+        "type": "\u2200 (x : \u21a5A), \u2045x, v\u2046 = \u03c7\u2080 x \u2022 v",
+        "body": "by",
+        "children": [
+          {
+            "name": "h\u03c0",
+            "type": "(\u03c0\u2081 x : L) + \u03c0\u2082 x = x",
+            "body": "hA.projection_add_projection_eq_self x",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

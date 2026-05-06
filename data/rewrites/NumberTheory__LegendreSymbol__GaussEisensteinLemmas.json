@@ -1,0 +1,169 @@
+[
+  {
+    "original": {
+      "module": "GaussEisensteinLemmas",
+      "name": "Ico_map_valMinAbs_natAbs_eq_Ico_map_id",
+      "statement": "\u2115) [hp : Fact p.Prime] (a : ZMod p) (hap : a \u2260 0) : ((Ico 1 (p / 2).succ).1.map fun (x : \u2115) => (a * x).valMinAbs.natAbs) = (Ico 1 (p / 2).succ).1.map fun a => a",
+      "have_tree": [
+        {
+          "name": "he",
+          "type": "\u2200 {x}, x \u2208 Ico 1 (p / 2).succ \u2192 x \u2260 0 \u2227 x \u2264 p / 2",
+          "body": "by grind",
+          "children": []
+        },
+        {
+          "name": "hep",
+          "type": "\u2200 {x}, x \u2208 Ico 1 (p / 2).succ \u2192 x < p",
+          "body": "fun hx =>",
+          "children": []
+        },
+        {
+          "name": "hpe",
+          "type": "\u2200 {x}, x \u2208 Ico 1 (p / 2).succ \u2192 \u00acp \u2223 x",
+          "body": "fun hx hpx =>",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "GaussEisensteinLemmas",
+          "name": "Ico_map_valMinAbs_natAbs_eq_Ico_map_id",
+          "statement": "\u2115) [hp : Fact p.Prime] (a : ZMod p) (hap : a \u2260 0) : ((Ico 1 (p / 2).succ).1.map fun (x : \u2115) => (a * x).valMinAbs.natAbs) = (Ico 1 (p / 2).succ).1.map fun a => a",
+          "have_tree": [
+            {
+              "name": "hep",
+              "type": "\u2200 {x}, x \u2208 Ico 1 (p / 2).succ \u2192 x < p",
+              "body": "fun hx =>",
+              "children": []
+            },
+            {
+              "name": "he",
+              "type": "\u2200 {x}, x \u2208 Ico 1 (p / 2).succ \u2192 x \u2260 0 \u2227 x \u2264 p / 2",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hpe",
+              "type": "\u2200 {x}, x \u2208 Ico 1 (p / 2).succ \u2192 \u00acp \u2223 x",
+              "body": "fun hx hpx =>",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "GaussEisensteinLemmas",
+          "name": "Ico_map_valMinAbs_natAbs_eq_Ico_map_id",
+          "statement": "\u2115) [hp : Fact p.Prime] (a : ZMod p) (hap : a \u2260 0) : ((Ico 1 (p / 2).succ).1.map fun (x : \u2115) => (a * x).valMinAbs.natAbs) = (Ico 1 (p / 2).succ).1.map fun a => a",
+          "have_tree": [
+            {
+              "name": "he",
+              "type": "\u2200 {x}, x \u2208 Ico 1 (p / 2).succ \u2192 x \u2260 0 \u2227 x \u2264 p / 2",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hpe",
+              "type": "\u2200 {x}, x \u2208 Ico 1 (p / 2).succ \u2192 \u00acp \u2223 x",
+              "body": "fun hx hpx =>",
+              "children": []
+            },
+            {
+              "name": "hep",
+              "type": "\u2200 {x}, x \u2208 Ico 1 (p / 2).succ \u2192 x < p",
+              "body": "fun hx =>",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "GaussEisensteinLemmas",
+      "name": "sum_mul_div_add_sum_mul_div_eq_mul",
+      "statement": "\u2115) [hp : Fact p.Prime] (hq0 : (q : ZMod p) \u2260 0) : \u2211 a \u2208 Ico 1 (p / 2).succ, a * q / p + \u2211 a \u2208 Ico 1 (q / 2).succ, a * p / q = p / 2 * (q / 2)",
+      "have_tree": [
+        {
+          "name": "hxp",
+          "type": "x.1 < p",
+          "body": "lt_of_le_of_lt (b := p / 2)",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "le_total (x.2 * p) (x.1 * q)",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "GaussEisensteinLemmas",
+          "name": "sum_mul_div_add_sum_mul_div_eq_mul",
+          "statement": "\u2115) [hp : Fact p.Prime] (hq0 : (q : ZMod p) \u2260 0) : \u2211 a \u2208 Ico 1 (p / 2).succ, a * q / p + \u2211 a \u2208 Ico 1 (q / 2).succ, a * p / q = p / 2 * (q / 2)",
+          "have_tree": [
+            {
+              "name": "hxp",
+              "type": "x.1 < p",
+              "body": "lt_of_le_of_lt (b := p / 2)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "GaussEisensteinLemmas",
+          "name": "sum_mul_div_add_sum_mul_div_eq_mul",
+          "statement": "\u2115) [hp : Fact p.Prime] (hq0 : (q : ZMod p) \u2260 0) : \u2211 a \u2208 Ico 1 (p / 2).succ, a * q / p + \u2211 a \u2208 Ico 1 (q / 2).succ, a * p / q = p / 2 * (q / 2)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "le_total (x.2 * p) (x.1 * q)",
+              "children": []
+            },
+            {
+              "name": "hxp",
+              "type": "x.1 < p",
+              "body": "lt_of_le_of_lt (b := p / 2)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

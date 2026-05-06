@@ -1,0 +1,78 @@
+[
+  {
+    "module": "FinitePresentation",
+    "name": "of_restrict_scalars_finitePresentation",
+    "statement": "FinitePresentation.{w\u2082, w\u2083} A B",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "fun i : t => hf (algebraMap A B i)",
+        "children": []
+      },
+      {
+        "name": "ht''",
+        "type": "Algebra.adjoin R (algebraMap A AX '' t \u222a Set.range (X : _ \u2192 AX)) = \u22a4",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Ideal.subset_span hx",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "x \u2208 (\u22a4 : Subalgebra R AX)",
+            "body": "trivial",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "FinitePresentation",
+    "name": "ker_fg_of_mvPolynomial",
+    "statement": "\u2115} (f : MvPolynomial (Fin n) R \u2192\u2090[R] A) (hf : Function.Surjective f) [FinitePresentation R A] : (RingHom.ker f.toRingHom).FG",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "fun i : Fin n => hf' (f <| X i)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "fun i : Fin m => hf (f' <| X i)",
+        "children": []
+      },
+      {
+        "name": "hh'",
+        "type": "\u2200 x, f (aeval_h x) = f' x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "leI",
+        "type": "Ideal.span s' \u2264 RingHom.ker f.toRingHom",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "x \u2208 aeval_h.range.toAddSubmonoid \u2294 (Ideal.span s').toAddSubmonoid",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "x \u2208 adjoin R (Set.range X : Set RXn)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

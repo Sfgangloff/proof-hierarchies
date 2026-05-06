@@ -1,0 +1,78 @@
+[
+  {
+    "module": "PhragmenLindelof",
+    "name": "horizontal_strip",
+    "statement": "DiffContOnCl \u2102 f (im \u207b\u00b9' Ioo a b)) (hB : \u2203 c < \u03c0 / (b - a), \u2203 B, f =O[comap (_root_.abs \u2218 re) atTop \u2293 \ud835\udcdf (im \u207b\u00b9' Ioo a b)] fun z \u21a6 expR (B * expR (c * |z.re|))) (hle_a : \u2200 z : \u2102, im z = a \u2192 \u2016f z\u2016 \u2264 C) (hle_b : \u2200 z, im z = b \u2192 \u2016f z\u2016 \u2264 C) (hza : a \u2264 im z) (hzb : im z \u2264 b) : \u2016f z\u2016 \u2264 C",
+    "have_tree": [
+      {
+        "name": "hab",
+        "type": "a - b < a + b",
+        "body": "hza.trans hzb",
+        "children": []
+      },
+      {
+        "name": "hb",
+        "type": "0 < b",
+        "body": "by simpa only [sub_eq_add_neg, add_lt_add_iff_left, neg_lt_self_iff] using hab",
+        "children": []
+      },
+      {
+        "name": "h\u03c0b",
+        "type": "0 < \u03c0 / 2 / b",
+        "body": "div_pos Real.pi_div_two_pos hb",
+        "children": []
+      },
+      {
+        "name": "hb'",
+        "type": "d * b < \u03c0 / 2",
+        "body": "(lt_div_iff\u2080 hb).1 hd",
+        "children": []
+      },
+      {
+        "name": "hg\u2081",
+        "type": "\u2200 w, im w = a - b \u2228 im w = a + b \u2192 \u2016g \u03b5 w\u2016 \u2264 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hR\u2080",
+        "type": "0 < R",
+        "body": "(_root_.abs_nonneg _).trans_lt hzR",
+        "children": []
+      },
+      {
+        "name": "hgd",
+        "type": "Differentiable \u2102 (g \u03b5)",
+        "body": "",
+        "children": [
+          {
+            "name": "hw'",
+            "type": "",
+            "body": "eq_endpoints_or_mem_Ioo_of_mem_Icc hw.2; rw [\u2190 or_assoc] at hw'",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PhragmenLindelof",
+    "name": "right_half_plane_of_bounded_on_real",
+    "statement": "DiffContOnCl \u2102 f {z | 0 < z.re}) (hexp : \u2203 c < (2 : \u211d), \u2203 B, f =O[cobounded \u2102 \u2293 \ud835\udcdf {z | 0 < z.re}] fun z => expR (B * \u2016z\u2016 ^ c)) (hre : IsBoundedUnder (\u00b7 \u2264 \u00b7) atTop fun x : \u211d => \u2016f x\u2016) (him : \u2200 x : \u211d, \u2016f (x * I)\u2016 \u2264 C) (hz : 0 \u2264 z.re) : \u2016f z\u2016 \u2264 C",
+    "have_tree": [
+      {
+        "name": "hgn",
+        "type": "\u2200 z, \u2016g z\u2016 = expR (\u03b5 * z.re) * \u2016f z\u2016",
+        "body": "fun z \u21a6 by",
+        "children": [
+          {
+            "name": "h\u2080",
+            "type": "Tendsto (fun x : \u211d => expR (\u03b5 * x)) atTop (\ud835\udcdd 0)",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

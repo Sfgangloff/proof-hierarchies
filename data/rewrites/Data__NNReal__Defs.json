@@ -1,0 +1,230 @@
+[
+  {
+    "original": {
+      "module": "Defs",
+      "name": "le_of_forall_lt_one_mul_le",
+      "statement": "\u211d\u22650} (h : \u2200 a < 1, a * x \u2264 y) : x \u2264 y",
+      "have_tree": [
+        {
+          "name": "hx",
+          "type": "x \u2260 0",
+          "body": "pos_iff_ne_zero.1 (lt_of_le_of_lt (zero_le _) ha)",
+          "children": []
+        },
+        {
+          "name": "hx'",
+          "type": "x\u207b\u00b9 \u2260 0",
+          "body": "by rwa [Ne, inv_eq_zero]",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "a * x\u207b\u00b9 < 1",
+          "body": "by rwa [\u2190 lt_inv_iff_mul_lt hx', inv_inv]",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "a * x\u207b\u00b9 * x \u2264 y",
+          "body": "h _ this",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Defs",
+          "name": "le_of_forall_lt_one_mul_le",
+          "statement": "\u211d\u22650} (h : \u2200 a < 1, a * x \u2264 y) : x \u2264 y",
+          "have_tree": [
+            {
+              "name": "hx'",
+              "type": "x\u207b\u00b9 \u2260 0",
+              "body": "by rwa [Ne, inv_eq_zero]",
+              "children": []
+            },
+            {
+              "name": "hx",
+              "type": "x \u2260 0",
+              "body": "pos_iff_ne_zero.1 (lt_of_le_of_lt (zero_le _) ha)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "a * x\u207b\u00b9 < 1",
+              "body": "by rwa [\u2190 lt_inv_iff_mul_lt hx', inv_inv]",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "a * x\u207b\u00b9 * x \u2264 y",
+              "body": "h _ this",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Defs",
+          "name": "le_of_forall_lt_one_mul_le",
+          "statement": "\u211d\u22650} (h : \u2200 a < 1, a * x \u2264 y) : x \u2264 y",
+          "have_tree": [
+            {
+              "name": "hx",
+              "type": "x \u2260 0",
+              "body": "pos_iff_ne_zero.1 (lt_of_le_of_lt (zero_le _) ha)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "a * x\u207b\u00b9 < 1",
+              "body": "by rwa [\u2190 lt_inv_iff_mul_lt hx', inv_inv]",
+              "children": []
+            },
+            {
+              "name": "hx'",
+              "type": "x\u207b\u00b9 \u2260 0",
+              "body": "by rwa [Ne, inv_eq_zero]",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "a * x\u207b\u00b9 * x \u2264 y",
+              "body": "h _ this",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Defs",
+          "name": "le_of_forall_lt_one_mul_le",
+          "statement": "\u211d\u22650} (h : \u2200 a < 1, a * x \u2264 y) : x \u2264 y",
+          "have_tree": [
+            {
+              "name": "hx",
+              "type": "x \u2260 0",
+              "body": "pos_iff_ne_zero.1 (lt_of_le_of_lt (zero_le _) ha)",
+              "children": []
+            },
+            {
+              "name": "hx'",
+              "type": "x\u207b\u00b9 \u2260 0",
+              "body": "by rwa [Ne, inv_eq_zero]",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "a * x\u207b\u00b9 * x \u2264 y",
+              "body": "h _ this",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "a * x\u207b\u00b9 < 1",
+              "body": "by rwa [\u2190 lt_inv_iff_mul_lt hx', inv_inv]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Defs",
+      "name": "NNReal.exists_lt_of_strictMono",
+      "statement": "Nontrivial \u0393\u2080\u02e3] {f : \u0393\u2080 \u2192*\u2080 \u211d\u22650} (hf : StrictMono f) {r : \u211d\u22650} (hr : 0 < r) : \u2203 d : \u0393\u2080\u02e3, f d < r",
+      "have_tree": [
+        {
+          "name": "hfu",
+          "type": "f u < 1",
+          "body": "by",
+          "children": [
+            {
+              "name": "hg1'",
+              "type": "1 < g",
+              "body": "lt_of_le_of_ne (not_lt.mp hu1) hg1.symm",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Defs",
+          "name": "NNReal.exists_lt_of_strictMono",
+          "statement": "Nontrivial \u0393\u2080\u02e3] {f : \u0393\u2080 \u2192*\u2080 \u211d\u22650} (hf : StrictMono f) {r : \u211d\u22650} (hr : 0 < r) : \u2203 d : \u0393\u2080\u02e3, f d < r",
+          "have_tree": [
+            {
+              "name": "hfu",
+              "type": "f u < 1",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Defs",
+          "name": "NNReal.exists_lt_of_strictMono",
+          "statement": "Nontrivial \u0393\u2080\u02e3] {f : \u0393\u2080 \u2192*\u2080 \u211d\u22650} (hf : StrictMono f) {r : \u211d\u22650} (hr : 0 < r) : \u2203 d : \u0393\u2080\u02e3, f d < r",
+          "have_tree": [
+            {
+              "name": "hg1'",
+              "type": "1 < g",
+              "body": "lt_of_le_of_ne (not_lt.mp hu1) hg1.symm",
+              "children": []
+            },
+            {
+              "name": "hfu",
+              "type": "f u < 1",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

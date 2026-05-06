@@ -1,0 +1,92 @@
+[
+  {
+    "module": "Integrable",
+    "name": "Integrable.essSup_smul",
+    "statement": "Type*} [NormedRing R] [Module R \u03b2] [IsBoundedSMul R \u03b2] {f : \u03b1 \u2192 \u03b2} (hf : Integrable f \u03bc) {g : \u03b1 \u2192 R} (g_aestronglyMeasurable : AEStronglyMeasurable g \u03bc) (ess_sup_g : essSup (\u2016g \u00b7\u2016\u2091) \u03bc \u2260 \u221e) : Integrable (fun x : \u03b1 => g x \u2022 f x) \u03bc",
+    "have_tree": [
+      {
+        "name": "hg'",
+        "type": "eLpNorm g \u221e \u03bc \u2260 \u221e",
+        "body": "by rwa [eLpNorm_exponent_top]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integrable",
+    "name": "Integrable.smul_essSup",
+    "statement": "Type*} [NormedRing \ud835\udd5c] [MulActionWithZero \ud835\udd5c \u03b2] [IsBoundedSMul \ud835\udd5c \u03b2] {f : \u03b1 \u2192 \ud835\udd5c} (hf : Integrable f \u03bc) {g : \u03b1 \u2192 \u03b2} (g_aestronglyMeasurable : AEStronglyMeasurable g \u03bc) (ess_sup_g : essSup (\u2016g \u00b7\u2016\u2091) \u03bc \u2260 \u221e) : Integrable (fun x : \u03b1 => f x \u2022 g x) \u03bc",
+    "have_tree": [
+      {
+        "name": "hg'",
+        "type": "eLpNorm g \u221e \u03bc \u2260 \u221e",
+        "body": "by rwa [eLpNorm_exponent_top]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integrable",
+    "name": "integrable_of_le_of_le",
+    "statement": "\u03b1 \u2192 \u211d} (hf : AEStronglyMeasurable f \u03bc) (h_le\u2081 : g\u2081 \u2264\u1d50[\u03bc] f) (h_le\u2082 : f \u2264\u1d50[\u03bc] g\u2082) (h_int\u2081 : Integrable g\u2081 \u03bc) (h_int\u2082 : Integrable g\u2082 \u03bc) : Integrable f \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200\u1d50 x \u2202\u03bc, \u2016f x\u2016 \u2264 max \u2016g\u2081 x\u2016 \u2016g\u2082 x\u2016",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_le_add",
+        "type": "\u2200\u1d50 x \u2202\u03bc, \u2016f x\u2016 \u2264 \u2016\u2016g\u2081 x\u2016 + \u2016g\u2082 x\u2016\u2016",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integrable",
+    "name": "Integrable.measure_le_lt_top",
+    "statement": "\u03b1 \u2192 \u03b2} [Lattice \u03b2] [HasSolidNorm \u03b2] [AddLeftMono \u03b2] (hf : Integrable f \u03bc) {c : \u03b2} (c_neg : c < 0) : \u03bc {a : \u03b1 | f a \u2264 c} < \u221e",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < \u2016c\u2016",
+        "body": "by positivity [c_neg.ne]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "-c \u2264 -f x",
+        "body": "by simp; grind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integrable",
+    "name": "integrable_count_iff",
+    "statement": "Integrable f Measure.count \u2194 Summable (\u2016f \u00b7\u2016)",
+    "have_tree": [
+      {
+        "name": "hs'",
+        "type": "(Function.support f).Countable",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integrable",
+    "name": "integrable_of_forall_fin_meas_le",
+    "statement": "\u211d\u22650\u221e) (hC : C < \u221e) {f : \u03b1 \u2192 \u03b5} (hf_meas : AEStronglyMeasurable[m] f \u03bc) (hf : \u2200 s : Set \u03b1, MeasurableSet[m] s \u2192 \u03bc s \u2260 \u221e \u2192 \u222b\u207b x in s, \u2016f x\u2016\u2091 \u2202\u03bc \u2264 C) : Integrable f \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "SigmaFinite (\u03bc.trim le_rfl)",
+        "body": "by rwa [@trim_eq_self _ m]",
+        "children": []
+      }
+    ]
+  }
+]

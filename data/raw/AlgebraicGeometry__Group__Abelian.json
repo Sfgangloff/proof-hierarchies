@@ -1,0 +1,119 @@
+[
+  {
+    "module": "Abelian",
+    "name": "isCommMonObj_of_isProper_of_isIntegral_tensorObj_of_isAlgClosed",
+    "statement": "Over (Spec (.of K))) [IsProper G.hom] [IsIntegral (G \u2297 G).left] [GrpObj G] : IsCommMonObj G",
+    "have_tree": [
+      {
+        "name": "hpoint",
+        "type": "IsClosed {point}",
+        "body": "isClosed_discrete _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nonempty G.left",
+        "body": "\u27e8\u03b7[G].left point\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsProper (G \u2297 G).hom",
+        "body": "by dsimp; infer_instance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "JacobsonSpace (G \u2297 G).left",
+        "body": "LocallyOfFiniteType.jacobsonSpace (Y := Spec _) (G \u2297 G).hom",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Surjective G.hom",
+        "body": "\u27e8Function.surjective_to_subsingleton (\u03b1 := G.left) (\u03b2 := Spec _) _\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsProper (fst G G).left",
+        "body": "by dsimp; infer_instance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Surjective (fst G G).left",
+        "body": "by dsimp; infer_instance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsProper ((GrpObj.commutator G).left \u226b G.hom)",
+        "body": "by rw [Over.w]; infer_instance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsClosedImmersion ((lift \u03b7[G] \u03b7[G]).left \u226b (fst G G).left)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsClosedImmersion (lift \u03b7[G] \u03b7[G]).left",
+        "body": ".of_comp _ (g := (fst G G).left)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsProper (\u03b3.left \u226b (fst G G).left)",
+        "body": "by simpa [\u03b3]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsProper \u03b3.left",
+        "body": ".of_comp _ (fst G G).left",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "\u03b3.left '' ((fst G G).left \u207b\u00b9' {\u03b7[G].left point}) \u2286 {(lift \u03b7[G] \u03b7[G]).left point}",
+        "body": "by",
+        "children": [
+          {
+            "name": "hx",
+            "type": "IsClosed {(fst G G).left y}",
+            "body": "by simpa using (fst G G).left.isClosedMap _ hy",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Abelian",
+    "name": "isCommMonObj_of_isProper_of_geometricallyIntegral",
+    "statement": "Over (Spec (.of K))) [IsProper G.hom] [GeometricallyIntegral G.hom] [GrpObj G] : IsCommMonObj G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsProper G'.hom",
+        "body": "by dsimp [G']; infer_instance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsIntegral (G' \u2297 G').left",
+        "body": "by dsimp [G']; infer_instance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isCommMonObj_of_isProper_of_isIntegral_tensorObj_of_isAlgClosed G'",
+        "children": []
+      }
+    ]
+  }
+]

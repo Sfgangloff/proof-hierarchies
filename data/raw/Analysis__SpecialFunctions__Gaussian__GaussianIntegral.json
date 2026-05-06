@@ -1,0 +1,80 @@
+[
+  {
+    "module": "GaussianIntegral",
+    "name": "integrableOn_rpow_mul_exp_neg_mul_rpow",
+    "statement": "\u211d} (hs : -1 < s) (hp : 1 \u2264 p) (hb : 0 < b) : IntegrableOn (fun x : \u211d => x ^ s * exp (- b * x ^ p)) (Ioi 0)",
+    "have_tree": [
+      {
+        "name": "hib",
+        "type": "0 < b ^ (-p\u207b\u00b9)",
+        "body": "rpow_pos_of_pos hb _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GaussianIntegral",
+    "name": "integrable_rpow_mul_exp_neg_mul_sq",
+    "statement": "\u211d} (hb : 0 < b) {s : \u211d} (hs : -1 < s) : Integrable fun x : \u211d => x ^ s * exp (-b * x ^ 2)",
+    "have_tree": [
+      {
+        "name": "h'x",
+        "type": "0 \u2264 x",
+        "body": "le_of_lt hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GaussianIntegral",
+    "name": "integrable_mul_cexp_neg_mul_sq",
+    "statement": "\u2102} (hb : 0 < b.re) : Integrable fun x : \u211d => \u2191x * cexp (-b * (x : \u2102) ^ 2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(integrable_mul_exp_neg_mul_sq hb).hasFiniteIntegral",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GaussianIntegral",
+    "name": "integral_mul_cexp_neg_mul_sq",
+    "statement": "\u2102} (hb : 0 < b.re) : \u222b r : \u211d in Ioi 0, (r : \u2102) * cexp (-b * (r : \u2102) ^ 2) = (2 * b)\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "hb'",
+        "type": "b \u2260 0",
+        "body": "by contrapose! hb; rw [hb, zero_re]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GaussianIntegral",
+    "name": "integral_gaussian_complex_Ioi",
+    "statement": "\u2102} (hb : 0 < re b) : \u222b x : \u211d in Ioi 0, cexp (-b * (x : \u2102) ^ 2) = (\u03c0 / b) ^ (1 / 2 : \u2102) / 2",
+    "have_tree": [
+      {
+        "name": "full_integral",
+        "type": "",
+        "body": "integral_gaussian_complex hb",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "intervalIntegral.integral_comp_sub_left (a := 0) (b := c)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "t1",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

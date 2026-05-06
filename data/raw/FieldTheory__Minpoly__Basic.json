@@ -1,0 +1,92 @@
+[
+  {
+    "module": "Basic",
+    "name": "mem_range_of_degree_eq_one",
+    "statement": "(minpoly A x).degree = 1) : x \u2208 (algebraMap A B).range",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "IsIntegral A x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "minpoly.aeval A x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "unique'",
+    "statement": "A[X]} (hm : p.Monic) (hp : Polynomial.aeval x p = 0) (hl : \u2200 q : A[X], degree q < degree p \u2192 q = 0 \u2228 Polynomial.aeval x q \u2260 0) : p = minpoly A x",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "IsIntegral A x",
+        "body": "\u27e8p, hm, hp\u27e9",
+        "children": []
+      },
+      {
+        "name": "hlead",
+        "type": "",
+        "body": "congr_arg leadingCoeff hr",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "natDegree r \u2264 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "hr0",
+            "type": "r \u2260 0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "subsingleton",
+    "statement": "minpoly A x = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "minpoly.min A x monic_one (Subsingleton.elim _ _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "aeval_ne_zero_of_dvdNotUnit_minpoly",
+    "statement": "A[X]} (hx : IsIntegral A x) (hamonic : a.Monic) (hdvd : DvdNotUnit a (minpoly A x)) : Polynomial.aeval x a \u2260 0",
+    "have_tree": [
+      {
+        "name": "hcm",
+        "type": "",
+        "body": "hamonic.of_mul_monic_left (he.subst <| monic hx)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "irreducible",
+    "statement": "IsIntegral A x) : Irreducible (minpoly A x)",
+    "have_tree": [
+      {
+        "name": "heval",
+        "type": "",
+        "body": "congr_arg (Polynomial.aeval x) he",
+        "children": []
+      }
+    ]
+  }
+]

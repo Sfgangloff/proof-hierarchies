@@ -1,0 +1,298 @@
+[
+  {
+    "module": "Ideal",
+    "name": "inertiaDeg_span_zeta_sub_one",
+    "statement": "inertiaDeg \ud835\udc91 (span {h\u03b6.toInteger - 1}) = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "liesOver_span_zeta_sub_one p k h\u03b6",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ideal",
+    "name": "map_eq_span_zeta_sub_one_pow",
+    "statement": "(map (algebraMap \u2124 (\ud835\udcde K)) \ud835\udc91) = span {h\u03b6.toInteger - 1} ^ Module.finrank \u211a K",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsGalois \u211a K",
+        "body": "isGalois {p ^ (k + 1)} \u211a K",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsGalois (FractionRing \u2124) (FractionRing (\ud835\udcde K))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ideal",
+    "name": "ramificationIdx_span_zeta_sub_one",
+    "statement": "ramificationIdx \ud835\udc91 (span {h\u03b6.toInteger - 1}) = p ^ k * (p - 1)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "isPrime_span_zeta_sub_one p k h\u03b6",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ideal",
+    "name": "ncard_primesOver_of_prime_pow",
+    "statement": "(primesOver \ud835\udc91 (\ud835\udcde K)).ncard = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsGalois \u211a K",
+        "body": "isGalois {p ^ (k + 1)} \u211a K",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\ud835\udc91 \u2260 \u22a5",
+        "body": "by simpa using hp.out.ne_zero",
+        "children": []
+      },
+      {
+        "name": "h_main",
+        "type": "",
+        "body": "ncard_primesOver_mul_ramificationIdxIn_mul_inertiaDegIn this (\ud835\udcde K) Gal(K/\u211a)",
+        "children": []
+      },
+      {
+        "name": "h\u03b6",
+        "type": "",
+        "body": "hK.zeta_spec",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "liesOver_span_zeta_sub_one p k h\u03b6",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ideal",
+    "name": "eq_span_zeta_sub_one_of_liesOver",
+    "statement": "Ideal (\ud835\udcde K)) [hP\u2081 : P.IsPrime] [hP\u2082 : P.LiesOver \ud835\udc91] : P = span {h\u03b6.toInteger - 1}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "P \u2208 primesOver \ud835\udc91 (\ud835\udcde K)",
+        "body": "\u27e8hP\u2081, hP\u2082\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "span {h\u03b6.toInteger - 1} \u2208 primesOver \ud835\udc91 (\ud835\udcde K)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "ncard_primesOver_of_prime_pow p k K",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ideal",
+    "name": "inertiaDegIn_eq_of_prime_pow",
+    "statement": "\ud835\udc91.inertiaDegIn (\ud835\udcde K) = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsGalois \u211a K",
+        "body": "isGalois {p ^ (k + 1)} \u211a K",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ideal",
+    "name": "ramificationIdxIn_eq_of_prime_pow",
+    "statement": "\ud835\udc91.ramificationIdxIn (\ud835\udcde K) = p ^ k * (p - 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsGalois \u211a K",
+        "body": "isGalois {p ^ (k + 1)} \u211a K",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ideal",
+    "name": "inertiaDeg_eq_of_not_dvd",
+    "statement": "\u00ac p \u2223 m) : inertiaDeg \ud835\udc91 P = orderOf (p : ZMod m)",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "\u00ac p \u2223 exponent \u03b6",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "(primesOverSpanEquivMonicFactorsMod h\u2081 \u27e8P, \u27e8inferInstance, inferInstance\u27e9\u27e9).2",
+        "children": []
+      },
+      {
+        "name": "h\u2083",
+        "type": "",
+        "body": "inertiaDeg_primesOverSpanEquivMonicFactorsMod_symm_apply' h\u2081 h\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ideal",
+    "name": "ramificationIdx_eq_of_not_dvd",
+    "statement": "\u00ac p \u2223 m) : ramificationIdx \ud835\udc91 P = 1",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "\u00ac p \u2223 exponent \u03b6",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "(primesOverSpanEquivMonicFactorsMod h\u2081 \u27e8P, \u27e8inferInstance, inferInstance\u27e9\u27e9).2",
+        "children": []
+      },
+      {
+        "name": "h\u2083",
+        "type": "",
+        "body": "ramificationIdx_primesOverSpanEquivMonicFactorsMod_symm_apply' h\u2081 h\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ideal",
+    "name": "inertiaDegIn_eq_of_not_dvd",
+    "statement": "\u00ac p \u2223 m) : \ud835\udc91.inertiaDegIn (\ud835\udcde K) = orderOf (p : ZMod m)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsGalois \u211a K",
+        "body": "isGalois {m} \u211a K",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ideal",
+    "name": "ramificationIdxIn_eq_of_not_dvd",
+    "statement": "\u00ac p \u2223 m) : \ud835\udc91.ramificationIdxIn (\ud835\udcde K) = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsGalois \u211a K",
+        "body": "isGalois {m} \u211a K",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ideal",
+    "name": "inertiaDegIn_ramificationIdxIn_aux",
+    "statement": "n = p ^ (k + 1) * m) (hm : \u00ac p \u2223 m) : \ud835\udc91.inertiaDegIn (\ud835\udcde K) = orderOf (p : ZMod m) \u2227 \ud835\udc91.ramificationIdxIn (\ud835\udcde K) = p ^ k * (p - 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsAbelianGalois \u211a K",
+        "body": "IsCyclotomicExtension.isAbelianGalois {n} \u211a K",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero m",
+        "body": "\u27e8fun h \u21a6 by simp [h] at hm\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero n",
+        "body": "\u27e8hn \u25b8 NeZero.ne (p ^ (k + 1) * m)\u27e9",
+        "children": []
+      },
+      {
+        "name": "hp'",
+        "type": "\ud835\udc91 \u2260 \u22a5",
+        "body": "by simpa using hp.out.ne_zero",
+        "children": []
+      },
+      {
+        "name": "h\u03b6",
+        "type": "",
+        "body": "zeta_spec n \u211a K",
+        "children": []
+      },
+      {
+        "name": "h\u03b6\u2098",
+        "type": "",
+        "body": "h\u03b6.pow (NeZero.pos _) hn",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsCyclotomicExtension {m} \u211a F\u2098",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u03b6\u209a",
+        "type": "",
+        "body": "h\u03b6.pow (NeZero.pos _) (mul_comm _ m \u25b8 hn)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsCyclotomicExtension {p ^ (k + 1)} \u211a F\u209a",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ideal",
+    "name": "inertiaDeg_eq",
+    "statement": "n = p ^ (k + 1) * m) (hm : \u00ac p \u2223 m) : inertiaDeg \ud835\udc91 P = orderOf (p : ZMod m)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsGalois \u211a K",
+        "body": "isGalois {n} \u211a K",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ideal",
+    "name": "ramificationIdx_eq",
+    "statement": "n = p ^ (k + 1) * m) (hm : \u00ac p \u2223 m) : ramificationIdx \ud835\udc91 P = p ^ k * (p - 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsGalois \u211a K",
+        "body": "isGalois {n} \u211a K",
+        "children": []
+      }
+    ]
+  }
+]

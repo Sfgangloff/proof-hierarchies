@@ -1,0 +1,246 @@
+[
+  {
+    "module": "MeasureSpace",
+    "name": "measure_eq_measure_of_null_diff",
+    "statement": "Set \u03b1} (hst : s \u2286 t) (h_nulldiff : \u03bc (t \\ s) = 0) : \u03bc s = \u03bc t",
+    "have_tree": [
+      {
+        "name": "le12",
+        "type": "\u03bc s\u2081 \u2264 \u03bc s\u2082",
+        "body": "measure_mono h12",
+        "children": []
+      },
+      {
+        "name": "le23",
+        "type": "\u03bc s\u2082 \u2264 \u03bc s\u2083",
+        "body": "measure_mono h23",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "\u03bc s\u2083 \u2264 \u03bc s\u2081",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MeasureSpace",
+    "name": "_root_.Directed.measure_iUnion",
+    "statement": "\u03b9 \u2192 Set \u03b1} (hd : Directed (\u00b7 \u2286 \u00b7) s) : \u03bc (\u22c3 i, s i) = \u2a06 i, \u03bc (s i)",
+    "have_tree": [
+      {
+        "name": "hm",
+        "type": "\u2200 n, MeasurableSet (Td n)",
+        "body": ".disjointed fun n \u21a6 measurableSet_toMeasurable _ _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MeasureSpace",
+    "name": "_root_.Directed.measure_iInter",
+    "statement": "\u03b9 \u2192 Set \u03b1} (h : \u2200 i, NullMeasurableSet (s i) \u03bc) (hd : Directed (\u00b7 \u2287 \u00b7) s) (hfin : \u2203 i, \u03bc (s i) \u2260 \u221e) : \u03bc (\u22c2 i, s i) = \u2a05 i, \u03bc (s i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 t \u2286 s k, \u03bc t \u2260 \u221e",
+        "body": "fun t ht => ne_top_of_le_ne_top hk (measure_mono ht)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MeasureSpace",
+    "name": "_root_.Monotone.measure_iInter",
+    "statement": "Filter \u03b9).IsCountablyGenerated] {s : \u03b9 \u2192 Set \u03b1} (hs : Monotone s) (hsm : \u2200 i, NullMeasurableSet (s i) \u03bc) (hfin : \u2203 i, \u03bc (s i) \u2260 \u221e) : \u03bc (\u22c2 i, s i) = \u2a05 i, \u03bc (s i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hfin.nonempty",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MeasureSpace",
+    "name": "measure_iInter_of_ae_monotone",
+    "statement": "Filter \u03b9).IsCountablyGenerated] {s : \u03b9 \u2192 Set \u03b1} (hs : \u2200\u1d50 \u03c9 \u2202\u03bc, Monotone (\u03c9 \u2208 s \u00b7)) (hsm : \u2200 i, NullMeasurableSet (s i) \u03bc) (hfin : \u2203 i, \u03bc (s i) \u2260 \u221e) : \u03bc (\u22c2 i, s i) = \u2a05 i, \u03bc (s i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b9",
+        "body": "\u27e8i\u27e9",
+        "children": []
+      },
+      {
+        "name": "hMono",
+        "type": "Monotone t",
+        "body": "fun i j hij \u03c9 h\u03c9 \u21a6 \u27e8h\u03c9.2 hij h\u03c9.1, h\u03c9.2\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MeasureSpace",
+    "name": "tendsto_measure_iUnion_atTop",
+    "statement": "Filter \u03b9)] {s : \u03b9 \u2192 Set \u03b1} (hm : Monotone s) : Tendsto (\u03bc \u2218 s) atTop (\ud835\udcdd (\u03bc (\u22c3 n, s n)))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(atTop_neBot_iff.1 h).2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MeasureSpace",
+    "name": "tendsto_measure_iUnion_accumulate",
+    "statement": "Type*} [Preorder \u03b9] [IsCountablyGenerated (atTop : Filter \u03b9)] {_ : MeasurableSpace \u03b1} {\u03bc : Measure \u03b1} {f : \u03b9 \u2192 Set \u03b1} : Tendsto (fun i \u21a6 \u03bc (accumulate f i)) atTop (\ud835\udcdd (\u03bc (\u22c3 i, f i)))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(atTop_neBot_iff.1 h).2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MeasureSpace",
+    "name": "tendsto_measure_iInter_atTop",
+    "statement": "Filter \u03b9)] {s : \u03b9 \u2192 Set \u03b1} (hs : \u2200 i, NullMeasurableSet (s i) \u03bc) (hm : Antitone s) (hf : \u2203 i, \u03bc (s i) \u2260 \u221e) : Tendsto (\u03bc \u2218 s) atTop (\ud835\udcdd (\u03bc (\u22c2 n, s n)))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(atTop_neBot_iff.1 h).2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MeasureSpace",
+    "name": "exists_measure_iInter_lt",
+    "statement": "Type*} {_ : MeasurableSpace \u03b1} {\u03bc : Measure \u03b1} [SemilatticeSup \u03b9] [Countable \u03b9] {f : \u03b9 \u2192 Set \u03b1} (hm : \u2200 i, NullMeasurableSet (f i) \u03bc) {\u03b5 : \u211d\u22650\u221e} (h\u03b5 : 0 < \u03b5) (hfin : \u2203 i, \u03bc (f i) \u2260 \u221e) (hfem : \u22c2 n, f n = \u2205) : \u2203 m, \u03bc (\u22c2 n \u2264 m, f n) < \u03b5",
+    "have_tree": [
+      {
+        "name": "hFAnti",
+        "type": "Antitone F",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MeasureSpace",
+    "name": "measure_if",
+    "statement": "\u03b2} {t : Set \u03b2} {s : Set \u03b1} [Decidable (x \u2208 t)] : \u03bc (if x \u2208 t then s else \u2205) = indicator t (fun _ => \u03bc s) x",
+    "have_tree": [
+      {
+        "name": "h_count",
+        "type": "(measurableAtom '' s).Countable",
+        "body": "s.to_countable.image _",
+        "children": []
+      },
+      {
+        "name": "h_disj",
+        "type": "(measurableAtom '' s).Pairwise Disjoint",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hs'",
+        "type": "",
+        "body": "s'.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MeasureSpace",
+    "name": "measure_inter_eq_of_measure_eq",
+    "statement": "Set \u03b1} (hs : MeasurableSet s) (h : \u03bc t = \u03bc u) (htu : t \u2286 u) (ht_ne_top : \u03bc t \u2260 \u221e) : \u03bc (t \u2229 s) = \u03bc (u \u2229 s)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u03bc (u \u2229 s) + \u03bc (u \\ s) \u2264 \u03bc (t \u2229 s) + \u03bc (u \\ s)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "\u03bc (u \\ s) \u2260 \u221e",
+        "body": "(lt_of_le_of_lt (measure_mono diff_subset) ht_ne_top.lt_top).ne",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MeasureSpace",
+    "name": "ae_ennreal_smul_measure_iff",
+    "statement": "\u211d\u22650\u221e} {p : \u03b1 \u2192 Prop} (hc : c \u2260 0) {\u03bc : Measure \u03b1} : (\u2200\u1d50 x \u2202c \u2022 \u03bc, p x) \u2194 \u2200\u1d50 x \u2202\u03bc, p x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u03bc t + \u03bd t \u2264 \u03bc s + \u03bd t",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MeasureSpace",
+    "name": "le_add_left",
+    "statement": "\u03bc \u2264 \u03bd) : \u03bc \u2264 \u03bd' + \u03bd",
+    "have_tree": [
+      {
+        "name": "hm",
+        "type": "\u2200 {s t}, s \u2286 t \u2192 OuterMeasure.sInfGen (toOuterMeasure '' m) s \u2264 \u03bc t",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MeasureSpace",
+    "name": "measure_sInf_le",
+    "statement": "\u03bc \u2208 m) : sInf m \u2264 \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "sInf (toOuterMeasure '' m) \u2264 \u03bc.toOuterMeasure",
+        "body": "sInf_le (mem_image_of_mem _ h)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MeasureSpace",
+    "name": "measure_le_sInf",
+    "statement": "\u2200 \u03bc' \u2208 m, \u03bc \u2264 \u03bc') : \u03bc \u2264 sInf m",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u03bc.toOuterMeasure \u2264 sInf (toOuterMeasure '' m)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MeasureSpace",
+    "name": "inf_apply",
+    "statement": "Set \u03b1} (hs : MeasurableSet s) : (\u03bc \u2293 \u03bd) s = sInf {m | \u2203 t, m = \u03bc (t \u2229 s) + \u03bd (t\u1d9c \u2229 s)}",
+    "have_tree": [
+      {
+        "name": "hcap",
+        "type": "t\u1d9c \u2229 s \u2286 \u22c3 n \u2208 {k | \u03bd (t' k) < \u03bc (t' k)}, t' n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

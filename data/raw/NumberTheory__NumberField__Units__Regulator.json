@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Regulator",
+    "name": "isMaxRank_iff_closure_finiteIndex",
+    "statement": "Fin (rank K) \u2192 (\ud835\udcde K)\u02e3} : IsMaxRank u \u2194 (closure (Set.range u)).FiniteIndex",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "index_map (closure (Set.range u)) (QuotientGroup.mk' (torsion K))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regulator",
+    "name": "abs_det_eq_abs_det",
+    "statement": "Fin (rank K) \u2192 (\ud835\udcde K)\u02e3) {w\u2081 w\u2082 : InfinitePlace K} (e\u2081 : {w // w \u2260 w\u2081} \u2243 Fin (rank K)) (e\u2082 : {w // w \u2260 w\u2082} \u2243 Fin (rank K)) : |(of fun i w : {w // w \u2260 w\u2081} \u21a6 (mult w.val : \u211d) * (w.val (u (e\u2081 i) : K)).log).det| = |(of fun i w : {w // w \u2260 w\u2082} \u21a6 (mult w.val : \u211d) * (w.val (u (e\u2082 i) : K)).log).det|",
+    "have_tree": [
+      {
+        "name": "h_col",
+        "type": "",
+        "body": "congr_arg abs <| det_permute (g.trans e\u2082.symm)",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "congr_arg abs <| submatrix_succAbove_det_eq_negOnePow_submatrix_succAbove_det'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regulator",
+    "name": "regOfFamily_div_regOfFamily",
+    "statement": "Fin (rank K) \u2192 (\ud835\udcde K)\u02e3} (hv : IsMaxRank v) (h : Subgroup.closure (Set.range u) \u2294 torsion K \u2264 Subgroup.closure (Set.range v) \u2294 torsion K) : regOfFamily u / regOfFamily v = (Subgroup.closure (Set.range u) \u2294 (torsion K)).relIndex (Subgroup.closure (Set.range v) \u2294 (torsion K))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(Subgroup.closure (Set.range v) \u2294 torsion K).index \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

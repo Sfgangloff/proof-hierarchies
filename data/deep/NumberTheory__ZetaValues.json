@@ -1,0 +1,54 @@
+[
+  {
+    "module": "ZetaValues",
+    "name": "bernoulliFun_mul",
+    "statement": "\u2115) {m : \u2115} (m0 : m \u2260 0) (x : \u211d) : bernoulliFun k (m * x) = m ^ k / m * \u2211 i \u2208 Finset.range m, bernoulliFun k (x + i / m)",
+    "have_tree": [
+      {
+        "name": "m0'",
+        "type": "(m : \u211d) \u2260 0",
+        "body": "Nat.cast_ne_zero.mpr m0",
+        "children": [
+          {
+            "name": "_",
+            "type": "HasDerivAt (f (k + 1)) (m * (k + 1) * f k x) x",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "f (k + 1) x = f (k + 1) 0",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "i",
+            "type": "\u222b x in (0 : \u211d)..m\u207b\u00b9, f (k + 1) x = 0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "ZetaValues",
+    "name": "hasSum_one_div_nat_pow_mul_sin",
+    "statement": "\u2115} (hk : k \u2260 0) {x : \u211d} (hx : x \u2208 Icc (0 : \u211d) 1) : HasSum (fun n : \u2115 => 1 / (n : \u211d) ^ (2 * k + 1) * Real.sin (2 * \u03c0 * n * x)) ((-1 : \u211d) ^ (k + 1) * (2 * \u03c0) ^ (2 * k + 1) / 2 / (2 * k + 1)! * (Polynomial.map (algebraMap \u211a \u211d) (Polynomial.bernoulli (2 * k + 1))).eval x)",
+    "have_tree": [
+      {
+        "name": "ofReal_two",
+        "type": "((2 : \u211d) : \u2102) = 2",
+        "body": "by norm_cast",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200 \u03b1 \u03b2 \u03b3 \u03b4 : \u2102, \u03b1 * I * \u03b2 / \u03b3 * \u03b4 * I = I ^ 2 * \u03b1 * \u03b2 / \u03b3 * \u03b4",
+            "body": "by intros; ring",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

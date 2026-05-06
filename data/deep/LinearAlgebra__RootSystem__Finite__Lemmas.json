@@ -1,0 +1,193 @@
+[
+  {
+    "module": "Lemmas",
+    "name": "coxeterWeightIn_mem_set_of_isCrystallographic",
+    "statement": "P.coxeterWeightIn \u2124 i j \u2208 ({0, 1, 2, 3, 4} : Set \u2124)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 \u2264 P.coxeterWeightIn \u2124 i j",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "P.coxeterWeightIn \u2124 i j \u2264 4",
+        "body": "P.coxeterWeightIn_le_four \u2124 i j",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "RootPositiveForm.rootLength_lt_of_pairingIn_notMem",
+    "statement": "P.RootPositiveForm \u2124) {i j : \u03b9} (hne : \u03b1 i \u2260 \u03b1 j) (hne' : \u03b1 i \u2260 -\u03b1 j) (hij : P.pairingIn \u2124 i j \u2209 ({-1, 0, 1} : Set \u2124)) : B.rootLength j < B.rootLength i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystallographic i j",
+        "children": []
+      },
+      {
+        "name": "aux\u2081",
+        "type": "P.pairingIn \u2124 j i = -1 \u2228 P.pairingIn \u2124 j i = 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Module.IsReflexive R M",
+            "body": ".of_isPerfPair P.toLinearMap",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "P.pairingIn_pairingIn_mem_set_of_isCrystallographic i j",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "aux\u2082",
+        "type": "",
+        "body": "B.pairingIn_mul_eq_pairingIn_mul_swap i j",
+        "children": []
+      },
+      {
+        "name": "hi",
+        "type": "",
+        "body": "B.rootLength_pos i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "root_sub_root_mem_of_pairingIn_pos",
+    "statement": "0 < P.pairingIn \u2124 i j) (h' : i \u2260 j) : \u03b1 i - \u03b1 j \u2208 \u03a6",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R N",
+        "body": ".of_isPerfPair P.flip.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAddTorsionFree M",
+        "body": ".of_isTorsionFree R M",
+        "children": [
+          {
+            "name": "_",
+            "type": "P.coxeterWeightIn \u2124 i j \u2208 ({1, 2, 3} : Set _)",
+            "body": "by",
+            "children": [
+              {
+                "name": "aux\u2081",
+                "type": "",
+                "body": "P.coxeterWeightIn_mem_set_of_isCrystallographic i j",
+                "children": []
+              },
+              {
+                "name": "aux\u2082",
+                "type": "",
+                "body": "(linearIndependent_iff_coxeterWeightIn_ne_four P \u2124).mp hli",
+                "children": []
+              },
+              {
+                "name": "aux\u2083",
+                "type": "P.coxeterWeightIn \u2124 i j \u2260 0",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "(P.pairingIn \u2124 i j, P.pairingIn \u2124 j i) \u2208 ({(1, 4), (2, 2), (4, 1)} : Set _)",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "",
+                "body": "P.pairingIn_pairingIn_mem_set_of_isCrystallographic i j",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "forall_pairing_eq_swap_or",
+    "statement": "(\u2200 i j, P.pairing i j = P.pairing j i \u2228 P.pairing i j = 2 * P.pairing j i \u2228 P.pairing j i = 2 * P.pairing i j) \u2228 (\u2200 i j, P.pairing i j = P.pairing j i \u2228 P.pairing i j = 3 * P.pairing j i \u2228 P.pairing j i = 3 * P.pairing i j)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "",
+        "body": "(P.posRootForm \u2124).toInvariantForm",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "B.pairing_mul_eq_pairing_mul_swap j i",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "B.apply_eq_or_of_apply_ne hij",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(li = 2 * lj \u2228 lj = 2 * li) \u2228 (li = 3 * lj \u2228 lj = 3 * li)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "B.apply_eq_or i j; tauto",
+            "children": []
+          },
+          {
+            "name": "hk",
+            "type": "",
+            "body": "B.pairing_mul_eq_pairing_mul_swap k\u2081 k\u2082",
+            "children": []
+          },
+          {
+            "name": "hk",
+            "type": "",
+            "body": "B.pairing_mul_eq_pairing_mul_swap k\u2081 k\u2082",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

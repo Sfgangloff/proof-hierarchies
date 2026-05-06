@@ -1,0 +1,357 @@
+[
+  {
+    "original": {
+      "module": "Multiplicity",
+      "name": "Int.two_pow_two_pow_add_two_pow_two_pow",
+      "statement": "\u2124} (hx : \u00ac2 \u2223 x) (hxy : 4 \u2223 x - y) (i : \u2115) : emultiplicity 2 (x ^ 2 ^ i + y ^ 2 ^ i) = \u2191(1 : \u2115)",
+      "have_tree": [
+        {
+          "name": "hx_odd",
+          "type": "Odd x",
+          "body": "by rwa [\u2190 Int.not_even_iff_odd, even_iff_two_dvd]",
+          "children": []
+        },
+        {
+          "name": "hxy_even",
+          "type": "Even (x - y)",
+          "body": "even_iff_two_dvd.mpr (dvd_trans (by decide) hxy)",
+          "children": []
+        },
+        {
+          "name": "hy_odd",
+          "type": "Odd y",
+          "body": "by simpa using hx_odd.sub_even hxy_even",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Multiplicity",
+          "name": "Int.two_pow_two_pow_add_two_pow_two_pow",
+          "statement": "\u2124} (hx : \u00ac2 \u2223 x) (hxy : 4 \u2223 x - y) (i : \u2115) : emultiplicity 2 (x ^ 2 ^ i + y ^ 2 ^ i) = \u2191(1 : \u2115)",
+          "have_tree": [
+            {
+              "name": "hxy_even",
+              "type": "Even (x - y)",
+              "body": "even_iff_two_dvd.mpr (dvd_trans (by decide) hxy)",
+              "children": []
+            },
+            {
+              "name": "hx_odd",
+              "type": "Odd x",
+              "body": "by rwa [\u2190 Int.not_even_iff_odd, even_iff_two_dvd]",
+              "children": []
+            },
+            {
+              "name": "hy_odd",
+              "type": "Odd y",
+              "body": "by simpa using hx_odd.sub_even hxy_even",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Multiplicity",
+          "name": "Int.two_pow_two_pow_add_two_pow_two_pow",
+          "statement": "\u2124} (hx : \u00ac2 \u2223 x) (hxy : 4 \u2223 x - y) (i : \u2115) : emultiplicity 2 (x ^ 2 ^ i + y ^ 2 ^ i) = \u2191(1 : \u2115)",
+          "have_tree": [
+            {
+              "name": "hx_odd",
+              "type": "Odd x",
+              "body": "by rwa [\u2190 Int.not_even_iff_odd, even_iff_two_dvd]",
+              "children": []
+            },
+            {
+              "name": "hy_odd",
+              "type": "Odd y",
+              "body": "by simpa using hx_odd.sub_even hxy_even",
+              "children": []
+            },
+            {
+              "name": "hxy_even",
+              "type": "Even (x - y)",
+              "body": "even_iff_two_dvd.mpr (dvd_trans (by decide) hxy)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Multiplicity",
+      "name": "Int.two_pow_sub_pow'",
+      "statement": "\u2124} (n : \u2115) (hxy : 4 \u2223 x - y) (hx : \u00ac2 \u2223 x) : emultiplicity 2 (x ^ n - y ^ n) = emultiplicity 2 (x - y) + emultiplicity (2 : \u2124) n",
+      "have_tree": [
+        {
+          "name": "hx_odd",
+          "type": "Odd x",
+          "body": "by rwa [\u2190 Int.not_even_iff_odd, even_iff_two_dvd]",
+          "children": []
+        },
+        {
+          "name": "hxy_even",
+          "type": "Even (x - y)",
+          "body": "even_iff_two_dvd.mpr (dvd_trans (by decide) hxy)",
+          "children": []
+        },
+        {
+          "name": "hy_odd",
+          "type": "Odd y",
+          "body": "by simpa using hx_odd.sub_even hxy_even",
+          "children": []
+        },
+        {
+          "name": "h",
+          "type": "FiniteMultiplicity 2 n.succ",
+          "body": "Nat.finiteMultiplicity_iff.mpr \u27e8by simp, n.succ_pos\u27e9",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Multiplicity",
+          "name": "Int.two_pow_sub_pow'",
+          "statement": "\u2124} (n : \u2115) (hxy : 4 \u2223 x - y) (hx : \u00ac2 \u2223 x) : emultiplicity 2 (x ^ n - y ^ n) = emultiplicity 2 (x - y) + emultiplicity (2 : \u2124) n",
+          "have_tree": [
+            {
+              "name": "hxy_even",
+              "type": "Even (x - y)",
+              "body": "even_iff_two_dvd.mpr (dvd_trans (by decide) hxy)",
+              "children": []
+            },
+            {
+              "name": "hx_odd",
+              "type": "Odd x",
+              "body": "by rwa [\u2190 Int.not_even_iff_odd, even_iff_two_dvd]",
+              "children": []
+            },
+            {
+              "name": "hy_odd",
+              "type": "Odd y",
+              "body": "by simpa using hx_odd.sub_even hxy_even",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "FiniteMultiplicity 2 n.succ",
+              "body": "Nat.finiteMultiplicity_iff.mpr \u27e8by simp, n.succ_pos\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Multiplicity",
+          "name": "Int.two_pow_sub_pow'",
+          "statement": "\u2124} (n : \u2115) (hxy : 4 \u2223 x - y) (hx : \u00ac2 \u2223 x) : emultiplicity 2 (x ^ n - y ^ n) = emultiplicity 2 (x - y) + emultiplicity (2 : \u2124) n",
+          "have_tree": [
+            {
+              "name": "hx_odd",
+              "type": "Odd x",
+              "body": "by rwa [\u2190 Int.not_even_iff_odd, even_iff_two_dvd]",
+              "children": []
+            },
+            {
+              "name": "hy_odd",
+              "type": "Odd y",
+              "body": "by simpa using hx_odd.sub_even hxy_even",
+              "children": []
+            },
+            {
+              "name": "hxy_even",
+              "type": "Even (x - y)",
+              "body": "even_iff_two_dvd.mpr (dvd_trans (by decide) hxy)",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "FiniteMultiplicity 2 n.succ",
+              "body": "Nat.finiteMultiplicity_iff.mpr \u27e8by simp, n.succ_pos\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Multiplicity",
+          "name": "Int.two_pow_sub_pow'",
+          "statement": "\u2124} (n : \u2115) (hxy : 4 \u2223 x - y) (hx : \u00ac2 \u2223 x) : emultiplicity 2 (x ^ n - y ^ n) = emultiplicity 2 (x - y) + emultiplicity (2 : \u2124) n",
+          "have_tree": [
+            {
+              "name": "hx_odd",
+              "type": "Odd x",
+              "body": "by rwa [\u2190 Int.not_even_iff_odd, even_iff_two_dvd]",
+              "children": []
+            },
+            {
+              "name": "hxy_even",
+              "type": "Even (x - y)",
+              "body": "even_iff_two_dvd.mpr (dvd_trans (by decide) hxy)",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "FiniteMultiplicity 2 n.succ",
+              "body": "Nat.finiteMultiplicity_iff.mpr \u27e8by simp, n.succ_pos\u27e9",
+              "children": []
+            },
+            {
+              "name": "hy_odd",
+              "type": "Odd y",
+              "body": "by simpa using hx_odd.sub_even hxy_even",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Multiplicity",
+      "name": "Int.two_pow_sub_pow",
+      "statement": "\u2124} {n : \u2115} (hxy : 2 \u2223 x - y) (hx : \u00ac2 \u2223 x) (hn : Even n) : emultiplicity 2 (x ^ n - y ^ n) + 1 = emultiplicity 2 (x + y) + emultiplicity 2 (x - y) + emultiplicity (2 : \u2124) n",
+      "have_tree": [
+        {
+          "name": "hy",
+          "type": "Odd y",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hxy4",
+          "type": "4 \u2223 x ^ 2 - y ^ 2",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Multiplicity",
+          "name": "Int.two_pow_sub_pow",
+          "statement": "\u2124} {n : \u2115} (hxy : 2 \u2223 x - y) (hx : \u00ac2 \u2223 x) (hn : Even n) : emultiplicity 2 (x ^ n - y ^ n) + 1 = emultiplicity 2 (x + y) + emultiplicity 2 (x - y) + emultiplicity (2 : \u2124) n",
+          "have_tree": [
+            {
+              "name": "hxy4",
+              "type": "4 \u2223 x ^ 2 - y ^ 2",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hy",
+              "type": "Odd y",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Multiplicity",
+      "name": "pow_two_sub_one_ge",
+      "statement": "1 < x) (hx : \u00ac2 \u2223 x) (hn : n \u2260 0) (hneven : Even n) : padicValNat 2 n + 2 \u2264 padicValNat 2 (x ^ n - 1)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "padicValNat 2 ((x + 1) * (x - 1)) \u2265 3",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "pow_two_sub_one h1x hx hn hneven",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Multiplicity",
+          "name": "pow_two_sub_one_ge",
+          "statement": "1 < x) (hx : \u00ac2 \u2223 x) (hn : n \u2260 0) (hneven : Even n) : padicValNat 2 n + 2 \u2264 padicValNat 2 (x ^ n - 1)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "pow_two_sub_one h1x hx hn hneven",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "padicValNat 2 ((x + 1) * (x - 1)) \u2265 3",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

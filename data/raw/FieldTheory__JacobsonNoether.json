@@ -1,0 +1,84 @@
+[
+  {
+    "module": "JacobsonNoether",
+    "name": "exists_pow_mem_center_of_inseparable",
+    "statement": "\u2115) [hchar : ExpChar D p] (a : D) (hinsep : \u2200 x : D, IsSeparable k x \u2192 x \u2208 k) : \u2203 n, a ^ (p ^ n) \u2208 k",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(@isPurelyInseparable_iff_pow_mem k D _ _ _ _ p (ExpChar.expChar_center_iff.2 hchar)).1",
+        "children": []
+      },
+      {
+        "name": "pure",
+        "type": "IsPurelyInseparable k D",
+        "body": "\u27e8Algebra.IsAlgebraic.isIntegral, fun x hx \u21a6 by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Subalgebra.range_subset (R := k) \u27e8(k).toSubsemiring, fun r \u21a6 r.2\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "JacobsonNoether",
+    "name": "exists_pow_mem_center_of_inseparable'",
+    "statement": "\u2115) [ExpChar D p] {a : D} (ha : a \u2209 k) (hinsep : \u2200 x : D, IsSeparable k x \u2192 x \u2208 k) : \u2203 n, 1 \u2264 n \u2227 a ^ (p ^ n) \u2208 k",
+    "have_tree": [
+      {
+        "name": "nzero",
+        "type": "n \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "JacobsonNoether",
+    "name": "exists_separable_and_not_isCentral",
+    "statement": "k \u2260 (\u22a4 : Subring D)) : \u2203 x : D, x \u2209 k \u2227 IsSeparable k x",
+    "have_tree": [
+      {
+        "name": "ha\u2080",
+        "type": "a \u2260 0",
+        "body": "fun nh \u21a6 nh \u25b8 ha <| Subring.zero_mem k",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "JacobsonNoether",
+    "name": "exists_separable_and_not_isCentral'",
+    "statement": "Type*} [Field L] [DivisionRing D] [Algebra L D] [Algebra.IsAlgebraic L D] [Algebra.IsCentral L D] (hneq : (\u22a5 : Subalgebra L D) \u2260 \u22a4) : \u2203 x : D, x \u2209 (\u22a5 : Subalgebra L D) \u2227 IsSeparable L x",
+    "have_tree": [
+      {
+        "name": "ntrivial",
+        "type": "Subring.center D \u2260 \u22a4",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsScalarTower L (center D) D",
+        "body": ".of_algebraMap_eq fun _ \u21a6 rfl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsScalarTower (center D) L D",
+        "body": ".of_algebraMap_eq fun x \u21a6 by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.IsAlgebraic (center D) D",
+        "body": ".tower_top (K := L) _",
+        "children": []
+      }
+    ]
+  }
+]

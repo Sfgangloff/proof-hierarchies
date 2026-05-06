@@ -1,0 +1,70 @@
+[
+  {
+    "module": "LocalRing",
+    "name": "charP_zero_or_prime_power",
+    "statement": "Type*) [CommRing R] [IsLocalRing R] (q : \u2115) [char_R_q : CharP R q] : q = 0 \u2228 IsPrimePow q",
+    "have_tree": [
+      {
+        "name": "q_eq_a_mul_rn",
+        "type": "q = r ^ n * a",
+        "body": "by rw [Nat.mul_div_cancel' (Nat.ordProj_dvd q r)]",
+        "children": []
+      },
+      {
+        "name": "r_ne_dvd_a",
+        "type": "",
+        "body": "Nat.not_dvd_ordCompl r_prime q_pos",
+        "children": []
+      },
+      {
+        "name": "rn_dvd_q",
+        "type": "r ^ n \u2223 q",
+        "body": "\u27e8a, q_eq_a_mul_rn\u27e9",
+        "children": []
+      },
+      {
+        "name": "a_unit",
+        "type": "IsUnit (a : R)",
+        "body": "by",
+        "children": [
+          {
+            "name": "a_cast_zero",
+            "type": "",
+            "body": "Ideal.Quotient.eq_zero_iff_mem.2 g",
+            "children": []
+          },
+          {
+            "name": "r_dvd_a",
+            "type": "",
+            "body": "(ringChar.spec K a).1 a_cast_zero",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "rn_cast_zero",
+        "type": "\u2191(r ^ n) = (0 : R)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "q_eq_rn",
+        "type": "",
+        "body": "Nat.dvd_antisymm ((CharP.cast_eq_zero_iff R q (r ^ n)).mp rn_cast_zero) rn_dvd_q",
+        "children": []
+      },
+      {
+        "name": "n_pos",
+        "type": "n \u2260 0",
+        "body": "fun n_zero =>",
+        "children": []
+      },
+      {
+        "name": "q_zero",
+        "type": "",
+        "body": "CharP.eq R char_R_q (CharP.ofCharZero R)",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,143 @@
+[
+  {
+    "module": "Side",
+    "name": "WSameSide.not_sOppSide",
+    "statement": "AffineSubspace R P} {x y : P} (h : s.WSameSide x y) : \u00acs.SOppSide x y",
+    "have_tree": [
+      {
+        "name": "hxy",
+        "type": "",
+        "body": "wSameSide_and_wOppSide_iff.1 \u27e8h, ho.1\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Side",
+    "name": "SSameSide.not_wOppSide",
+    "statement": "AffineSubspace R P} {x y : P} (h : s.SSameSide x y) : \u00acs.WOppSide x y",
+    "have_tree": [
+      {
+        "name": "hxy",
+        "type": "",
+        "body": "wSameSide_and_wOppSide_iff.1 \u27e8h.1, ho\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Side",
+    "name": "_root_.Sbtw.sOppSide_of_notMem_of_mem",
+    "statement": "AffineSubspace R P} {x y z : P} (h : Sbtw R x y z) (hx : x \u2209 s) (hy : y \u2208 s) : s.SOppSide x z",
+    "have_tree": [
+      {
+        "name": "ht",
+        "type": "t \u2260 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hy'",
+        "type": "",
+        "body": "vsub_mem_direction hy hz",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Side",
+    "name": "isConnected_setOf_wSameSide",
+    "statement": "AffineSubspace \u211d P} (x : P) (h : (s : Set P).Nonempty) : IsConnected { y | s.WSameSide x y }",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "AddTorsor.connectedSpace V P",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Side",
+    "name": "isConnected_setOf_wOppSide",
+    "statement": "AffineSubspace \u211d P} (x : P) (h : (s : Set P).Nonempty) : IsConnected { y | s.WOppSide x y }",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "AddTorsor.connectedSpace V P",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Side",
+    "name": "sSameSide_affineSpan_faceOpposite_of_sign_eq",
+    "statement": "Fin (n + 1) \u2192 R} (hw\u2081 : \u2211 j, w\u2081 j = 1) (hw\u2082 : \u2211 j, w\u2082 j = 1) {i : Fin (n + 1)} (hs : SignType.sign (w\u2081 i) = SignType.sign (w\u2082 i)) (h0 : w\u2081 i \u2260 0) : (affineSpan R (Set.range (s.faceOpposite i).points)).SSameSide (Finset.univ.affineCombination R s.points w\u2081) (Finset.univ.affineCombination R s.points w\u2082)",
+    "have_tree": [
+      {
+        "name": "h0'",
+        "type": "w\u2082 i \u2260 0",
+        "body": "by intro h; simp_all",
+        "children": []
+      },
+      {
+        "name": "hj'",
+        "type": "s.points j \u2208 affineSpan R (Set.range (s.faceOpposite i).points)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Side",
+    "name": "sOppSide_affineSpan_faceOpposite_of_pos_of_neg",
+    "statement": "Fin (n + 1) \u2192 R} (hw\u2081 : \u2211 j, w\u2081 j = 1) (hw\u2082 : \u2211 j, w\u2082 j = 1) {i : Fin (n + 1)} (hs\u2081 : 0 < w\u2081 i) (hs\u2082 : w\u2082 i < 0) : (affineSpan R (Set.range (s.faceOpposite i).points)).SOppSide (Finset.univ.affineCombination R s.points w\u2081) (Finset.univ.affineCombination R s.points w\u2082)",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "0 < w\u2081 i - w\u2082 i",
+        "body": "by grind",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "Sbtw R w\u2081 w\u2083 w\u2082",
+        "body": "sbtw_lineMap_iff.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Side",
+    "name": "sSameSide_affineSpan_faceOpposite_iff",
+    "statement": "Fin (n + 1) \u2192 R} (hw\u2081 : \u2211 j, w\u2081 j = 1) (hw\u2082 : \u2211 j, w\u2082 j = 1) {i : Fin (n + 1)} : (affineSpan R (Set.range (s.faceOpposite i).points)).SSameSide (Finset.univ.affineCombination R s.points w\u2081) (Finset.univ.affineCombination R s.points w\u2082) \u2194 SignType.sign (w\u2081 i) = SignType.sign (w\u2082 i) \u2227 w\u2081 i \u2260 0",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "w\u2081 i \u2260 0",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h0'",
+        "type": "w\u2082 i \u2260 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Side",
+    "name": "sOppSide_affineSpan_faceOpposite_iff",
+    "statement": "Fin (n + 1) \u2192 R} (hw\u2081 : \u2211 j, w\u2081 j = 1) (hw\u2082 : \u2211 j, w\u2082 j = 1) {i : Fin (n + 1)} : (affineSpan R (Set.range (s.faceOpposite i).points)).SOppSide (Finset.univ.affineCombination R s.points w\u2081) (Finset.univ.affineCombination R s.points w\u2082) \u2194 SignType.sign (w\u2081 i) = -SignType.sign (w\u2082 i) \u2227 w\u2081 i \u2260 0",
+    "have_tree": [
+      {
+        "name": "h0'",
+        "type": "w\u2082 i \u2260 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

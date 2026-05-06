@@ -1,0 +1,73 @@
+[
+  {
+    "module": "Transfer",
+    "name": "transfer_eq_pow_aux",
+    "statement": "G) (key : \u2200 (k : \u2115) (g\u2080 : G), g\u2080\u207b\u00b9 * g ^ k * g\u2080 \u2208 H \u2192 g\u2080\u207b\u00b9 * g ^ k * g\u2080 = g ^ k) : g ^ H.index \u2208 H",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "\u2200 q, f q \u2208 H.subgroupOf (zpowers g)",
+        "body": "fun q => key q.out",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Transfer",
+    "name": "ker_transferSylow_isComplement'",
+    "statement": "IsComplement' (transferSylow P hP).ker P",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "range_eq_top.mp (top_le_iff.mp (hf.2.ge.trans",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Transfer",
+    "name": "normalizer_le_centralizer",
+    "statement": "IsCyclic P) : normalizer P \u2264 centralizer (P : Set G)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk (Nat.minFac_prime hn)",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "card_dvd_of_injective _ (QuotientGroup.kerLift_injective P.normalizerMonoidHom)",
+        "children": [
+          {
+            "name": "h1",
+            "type": "",
+            "body": "Nat.gcd_dvd_left (Nat.card G) ((Nat.card G).minFac - 1)",
+            "children": []
+          },
+          {
+            "name": "h2",
+            "type": "",
+            "body": "Nat.gcd_le_right (n := (Nat.card G).minFac - 1) (Nat.card G)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Transfer",
+    "name": "isComplement'",
+    "statement": "IsCyclic P) : (MonoidHom.transferSylow P (hP.normalizer_le_centralizer hp)).ker.IsComplement' P",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk (Nat.minFac_prime hn)",
+        "children": []
+      }
+    ]
+  }
+]

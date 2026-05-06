@@ -1,0 +1,85 @@
+[
+  {
+    "module": "PathELength",
+    "name": "pathELength_comp_of_monotoneOn",
+    "statement": "\u211d \u2192 \u211d} (h : a \u2264 b) (hf : MonotoneOn f (Icc a b)) (h'f : DifferentiableOn \u211d f (Icc a b)) (h\u03b3 : MDiff[Icc (f a) (f b)] \u03b3) : pathELength I (\u03b3 \u2218 f) a b = pathELength I \u03b3 (f a) (f b)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 \u2264 derivWithin f (Icc a b) t",
+        "body": "hf.derivWithin_nonneg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PathELength",
+    "name": "pathELength_comp_of_antitoneOn",
+    "statement": "\u211d \u2192 \u211d} (h : a \u2264 b) (hf : AntitoneOn f (Icc a b)) (h'f : DifferentiableOn \u211d f (Icc a b)) (h\u03b3 : MDiff[Icc (f b) (f a)] \u03b3) : pathELength I (\u03b3 \u2218 f) a b = pathELength I \u03b3 (f b) (f a)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 \u2264 -derivWithin f (Icc a b) t",
+        "body": "by simp [hf.derivWithin_nonpos]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PathELength",
+    "name": "riemannianEDist_le_pathELength",
+    "statement": "\u211d \u2192 M} (h\u03b3 : CMDiff[Icc a b] 1 \u03b3) (ha : \u03b3 a = x) (hb : \u03b3 b = y) (hab : a \u2264 b) : riemannianEDist I x y \u2264 pathELength I \u03b3 a b",
+    "have_tree": [
+      {
+        "name": "h\u03b7",
+        "type": "CMDiff[Icc 0 1] 1 (\u03b3 \u2218 \u03b7)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "CMDiff 1 f",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "riemannianEDist I x y \u2264 \u222b\u207b x, \u2016mfderiv% g x 1\u2016\u2091",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PathELength",
+    "name": "riemannianEDist_comm",
+    "statement": "riemannianEDist I x y = riemannianEDist I y x",
+    "have_tree": [
+      {
+        "name": "h_smooth",
+        "type": "CMDiff 1 (\u03b3 \u2218 \u03b7)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "riemannianEDist I y x \u2264 pathELength I (\u03b3 \u2218 \u03b7) (\u03b7 1) (\u03b7 0)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PathELength",
+    "name": "riemannianEDist_triangle",
+    "statement": "riemannianEDist I x z \u2264 riemannianEDist I x y + riemannianEDist I y z",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "riemannianEDist I x z \u2264 pathELength I \u03b3 0 2",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

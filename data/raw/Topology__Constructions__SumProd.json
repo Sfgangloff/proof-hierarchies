@@ -1,0 +1,115 @@
+[
+  {
+    "module": "SumProd",
+    "name": "continuous_inf_dom_left\u2082",
+    "statement": "X \u2192 Y \u2192 Z} {ta1 ta2 : TopologicalSpace X} {tb1 tb2 : TopologicalSpace Y} {tc1 : TopologicalSpace Z} (h : by haveI",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "",
+        "body": "@continuous_inf_dom_left _ _ id ta1 ta2 ta1 (@continuous_id _ (id _))",
+        "children": []
+      },
+      {
+        "name": "hb",
+        "type": "",
+        "body": "@continuous_inf_dom_left _ _ id tb1 tb2 tb1 (@continuous_id _ (id _))",
+        "children": []
+      },
+      {
+        "name": "h_continuous_id",
+        "type": "",
+        "body": "@Continuous.prodMap _ _ _ _ ta1 tb1 (ta1 \u2293 ta2) (tb1 \u2293 tb2) _ _ ha hb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SumProd",
+    "name": "continuous_inf_dom_right\u2082",
+    "statement": "X \u2192 Y \u2192 Z} {ta1 ta2 : TopologicalSpace X} {tb1 tb2 : TopologicalSpace Y} {tc1 : TopologicalSpace Z} (h : by haveI",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "",
+        "body": "@continuous_inf_dom_right _ _ id ta1 ta2 ta2 (@continuous_id _ (id _))",
+        "children": []
+      },
+      {
+        "name": "hb",
+        "type": "",
+        "body": "@continuous_inf_dom_right _ _ id tb1 tb2 tb2 (@continuous_id _ (id _))",
+        "children": []
+      },
+      {
+        "name": "h_continuous_id",
+        "type": "",
+        "body": "@Continuous.prodMap _ _ _ _ ta2 tb2 (ta1 \u2293 ta2) (tb1 \u2293 tb2) _ _ ha hb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SumProd",
+    "name": "continuous_sInf_dom\u2082",
+    "statement": "X \u2192 Y \u2192 Z} {tas : Set (TopologicalSpace X)} {tbs : Set (TopologicalSpace Y)} {tX : TopologicalSpace X} {tY : TopologicalSpace Y} {tc : TopologicalSpace Z} (hX : tX \u2208 tas) (hY : tY \u2208 tbs) (hf : Continuous fun p : X \u00d7 Y => f p.1 p.2) : by haveI",
+    "have_tree": [
+      {
+        "name": "hX",
+        "type": "",
+        "body": "continuous_sInf_dom hX continuous_id",
+        "children": []
+      },
+      {
+        "name": "hY",
+        "type": "",
+        "body": "continuous_sInf_dom hY continuous_id",
+        "children": []
+      },
+      {
+        "name": "h_continuous_id",
+        "type": "",
+        "body": "@Continuous.prodMap _ _ _ _ tX tY (sInf tas) (sInf tbs) _ _ hX hY",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SumProd",
+    "name": "map_mem_closure\u2082",
+    "statement": "X \u2192 Y \u2192 Z} {x : X} {y : Y} {s : Set X} {t : Set Y} {u : Set Z} (hf : Continuous (uncurry f)) (hx : x \u2208 closure s) (hy : y \u2208 closure t) (h : \u2200 a \u2208 s, \u2200 b \u2208 t, f a b \u2208 u) : f x y \u2208 closure u",
+    "have_tree": [
+      {
+        "name": "H\u2081",
+        "type": "(x, y) \u2208 closure (s \u00d7\u02e2 t)",
+        "body": "by simpa only [closure_prod_eq] using mk_mem_prod hx hy",
+        "children": []
+      },
+      {
+        "name": "H\u2082",
+        "type": "MapsTo (uncurry f) (s \u00d7\u02e2 t) u",
+        "body": "forall_prod_set.2 h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SumProd",
+    "name": "Topology.IsInducing.disjoint_of_sumElim_aux",
+    "statement": "IsInducing (Sum.elim f g)) : Disjoint (closure (range f)) (range g)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "closure (range f) \u2286 C",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "Disjoint C (range g)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

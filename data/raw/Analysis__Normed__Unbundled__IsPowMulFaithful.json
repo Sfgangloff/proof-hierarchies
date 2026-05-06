@@ -1,0 +1,40 @@
+[
+  {
+    "module": "IsPowMulFaithful",
+    "name": "eq_seminorms",
+    "statement": "Type*} {\u03b1 : outParam (Type*)} [Ring \u03b1] [FunLike F \u03b1 \u211d] [RingSeminormClass F \u03b1 \u211d] {f g : F} (hfpm : IsPowMul f) (hgpm : IsPowMul g) (hfg : \u2203 (r : \u211d) (_ : 0 < r), \u2200 a : \u03b1, f a \u2264 r * g a) (hgf : \u2203 (r : \u211d) (_ : 0 < r), \u2200 a : \u03b1, g a \u2264 r * f a) : f = g",
+    "have_tree": [
+      {
+        "name": "hle",
+        "type": "RingHom.IsBoundedWrt f g (RingHom.id _)",
+        "body": "\u27e8s, hs0, hs\u27e9",
+        "children": []
+      },
+      {
+        "name": "hge",
+        "type": "RingHom.IsBoundedWrt g f (RingHom.id _)",
+        "body": "\u27e8r, hr0, hr\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsPowMulFaithful",
+    "name": "eq_of_powMul_faithful",
+    "statement": "AlgebraNorm R S) (hf\u2081_pm : IsPowMul f\u2081) (f\u2082 : AlgebraNorm R S) (hf\u2082_pm : IsPowMul f\u2082) (h_eq : \u2200 y : S, \u2203 (C\u2081 C\u2082 : \u211d) (_ : 0 < C\u2081) (_ : 0 < C\u2082), \u2200 x : R[y], f\u2081 x.val \u2264 C\u2081 * f\u2082 x.val \u2227 f\u2082 x.val \u2264 C\u2082 * f\u2081 x.val) : f\u2081 = f\u2082",
+    "have_tree": [
+      {
+        "name": "hg\u2081_pm",
+        "type": "IsPowMul g\u2081",
+        "body": "IsPowMul.restriction _ hf\u2081_pm",
+        "children": []
+      },
+      {
+        "name": "hg\u2082_pm",
+        "type": "IsPowMul g\u2082",
+        "body": "IsPowMul.restriction _ hf\u2082_pm",
+        "children": []
+      }
+    ]
+  }
+]

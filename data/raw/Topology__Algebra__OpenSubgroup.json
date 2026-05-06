@@ -1,0 +1,92 @@
+[
+  {
+    "module": "OpenSubgroup",
+    "name": "isClosed",
+    "statement": "OpenSubgroup G) : IsClosed (U : Set G)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "QuotientGroup.discreteTopology U.isOpen",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OpenSubgroup",
+    "name": "isOpen_of_mem_nhds",
+    "statement": "Subgroup G) {g : G} (hg : (H : Set G) \u2208 \ud835\udcdd g) : IsOpen (H : Set G)",
+    "have_tree": [
+      {
+        "name": "hg'",
+        "type": "g \u2208 H",
+        "body": "SetLike.mem_coe.1 (mem_of_mem_nhds hg)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Filter.Tendsto (fun y \u21a6 y * (x\u207b\u00b9 * g)) (\ud835\udcdd x) (\ud835\udcdd g)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OpenSubgroup",
+    "name": "quotient_finite_of_isOpen",
+    "statement": "Subgroup G) (h : IsOpen (U : Set G)) : Finite (G \u29f8 U)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "DiscreteTopology (G \u29f8 U)",
+        "body": "QuotientGroup.discreteTopology h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OpenSubgroup",
+    "name": "quotient_finite_of_isOpen'",
+    "statement": "Subgroup G) (K : Subgroup U) (hUopen : IsOpen (U : Set G)) (hKopen : IsOpen (K : Set U)) : Finite (U \u29f8 K)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "CompactSpace U",
+        "body": "isCompact_iff_compactSpace.mp <| IsClosed.isCompact <|",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OpenSubgroup",
+    "name": "exist_mul_closure_nhds",
+    "statement": "Set G} (WClopen : IsClopen W) : \u2203 T \u2208 \ud835\udcdd (1 : G), W * T \u2286 W",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(x, 1) \u2208 (fun p \u21a6 p.1 * p.2) \u207b\u00b9' W",
+        "body": "by simp [memW]",
+        "children": []
+      },
+      {
+        "name": "h6",
+        "type": "U * V \u2286 W",
+        "body": "mul_subset_iff.mpr (fun _ hx _ hy \u21a6 prodsub (mk_mem_prod hx hy))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OpenSubgroup",
+    "name": "exist_openSubgroup_sub_clopen_nhds_of_one",
+    "statement": "Type*} [Group G] [TopologicalSpace G] [IsTopologicalGroup G] [CompactSpace G] {W : Set G} (WClopen : IsClopen W) (einW : 1 \u2208 W) : \u2203 H : OpenSubgroup G, (H : Set G) \u2286 W",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsOpen (\u22c3 n, V ^ (n + 1))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

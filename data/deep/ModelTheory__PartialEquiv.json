@@ -1,0 +1,109 @@
+[
+  {
+    "module": "PartialEquiv",
+    "name": "definedAtLeft",
+    "statement": "L.IsExtensionPair M N) (m : M) : Order.Cofinal (FGEquiv L M N) where carrier",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Countable (\u2191X : Type _)",
+        "body": "by simpa only [countable_coe_iff]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Encodable (\u2191X : Type _)",
+        "body": "Encodable.ofCountable _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "X \u2286 F.dom",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Order.sequenceOfCofinals.encode_mem g D \u27e8x, hx\u27e9",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "isTop",
+        "type": "F.dom = \u22a4",
+        "body": "by rwa [\u2190 top_le_iff, \u2190 X_gen, Substructure.closure_le]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PartialEquiv",
+    "name": "equiv_between_cg",
+    "statement": "Structure.CG L M) (N_cg : Structure.CG L N) (g : L.FGEquiv M N) (ext_dom : L.IsExtensionPair M N) (ext_cod : L.IsExtensionPair N M) : \u2203 f : M \u2243[L] N, g \u2264 f.toEmbedding.toPartialEquiv",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Countable (\u2191X : Type _)",
+        "body": "by simpa only [countable_coe_iff]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Encodable (\u2191X : Type _)",
+        "body": "Encodable.ofCountable _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Countable (\u2191Y : Type _)",
+        "body": "by simpa only [countable_coe_iff]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Encodable (\u2191Y : Type _)",
+        "body": "Encodable.ofCountable _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "X \u2286 F.dom",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Order.sequenceOfCofinals.encode_mem g D (Sum.inl \u27e8x, hx\u27e9)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "Y \u2286 F.cod",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Order.sequenceOfCofinals.encode_mem g D (Sum.inr \u27e8y, hy\u27e9)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "dom_top",
+        "type": "F.dom = \u22a4",
+        "body": "by rwa [\u2190 top_le_iff, \u2190 X_gen, Substructure.closure_le]",
+        "children": []
+      },
+      {
+        "name": "cod_top",
+        "type": "F.cod = \u22a4",
+        "body": "by rwa [\u2190 top_le_iff, \u2190 Y_gen, Substructure.closure_le]",
+        "children": []
+      }
+    ]
+  }
+]

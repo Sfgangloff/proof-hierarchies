@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Fin",
+    "name": "prod_take_ofFn",
+    "statement": "\u2115} (f : Fin n \u2192 M) (i : \u2115) : ((ofFn f).take i).prod = \u220f j with j.val < i, f j",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "length (ofFn f) \u2264 i",
+        "body": "not_lt.mp h",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "\u2200 j : Fin n, ((j : \u2115) < i.succ) = ((j : \u2115) < i)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(j : \u2115) < i",
+            "body": "lt_of_lt_of_le j.2 (not_lt.mp h)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

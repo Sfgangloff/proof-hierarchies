@@ -1,0 +1,262 @@
+[
+  {
+    "module": "FermatPsp",
+    "name": "psp_from_prime_psp",
+    "statement": "\u2115} (b_ge_two : 2 \u2264 b) {p : \u2115} (p_prime : p.Prime) (p_gt_two : 2 < p) (not_dvd : \u00acp \u2223 b * (b ^ 2 - 1)) : FermatPsp (psp_from_prime b p) b",
+    "have_tree": [
+      {
+        "name": "hi_A",
+        "type": "1 < A",
+        "body": "a_id_helper (Nat.succ_le_iff.mp b_ge_two) (Nat.Prime.one_lt p_prime)",
+        "children": []
+      },
+      {
+        "name": "hi_B",
+        "type": "1 < B",
+        "body": "b_id_helper (Nat.succ_le_iff.mp b_ge_two) p_gt_two",
+        "children": []
+      },
+      {
+        "name": "hi_AB",
+        "type": "1 < A * B",
+        "body": "one_lt_mul'' hi_A hi_B",
+        "children": []
+      },
+      {
+        "name": "hi_b",
+        "type": "0 < b",
+        "body": "by lia",
+        "children": []
+      },
+      {
+        "name": "hi_p",
+        "type": "1 \u2264 p",
+        "body": "Nat.one_le_of_lt p_gt_two",
+        "children": []
+      },
+      {
+        "name": "hi_bsquared",
+        "type": "0 < b ^ 2 - 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Nat.pow_le_pow_left b_ge_two 2",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hi_bpowtwop",
+        "type": "1 \u2264 b ^ (2 * p)",
+        "body": "Nat.one_le_pow (2 * p) b hi_b",
+        "children": []
+      },
+      {
+        "name": "hi_bpowpsubone",
+        "type": "1 \u2264 b ^ (p - 1)",
+        "body": "Nat.one_le_pow (p - 1) b hi_b",
+        "children": []
+      },
+      {
+        "name": "p_odd",
+        "type": "Odd p",
+        "body": "p_prime.odd_of_ne_two p_gt_two.ne.symm",
+        "children": []
+      },
+      {
+        "name": "AB_not_prime",
+        "type": "\u00acNat.Prime (A * B)",
+        "body": "Nat.not_prime_mul hi_A.ne' hi_B.ne'",
+        "children": []
+      },
+      {
+        "name": "AB_id",
+        "type": "A * B = (b ^ (2 * p) - 1) / (b ^ 2 - 1)",
+        "body": "AB_id_helper _ _ b_ge_two p_odd",
+        "children": []
+      },
+      {
+        "name": "hd",
+        "type": "b ^ 2 - 1 \u2223 b ^ (2 * p) - 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "ha\u2081",
+        "type": "(b ^ 2 - 1) * (A * B - 1) = b * (b ^ (p - 1) - 1) * (b ^ p + b)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "ha\u2082",
+        "type": "2 \u2223 b ^ p + b",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "ha\u2083",
+        "type": "p \u2223 b ^ (p - 1) - 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u00acp \u2223 b",
+            "body": "mt (fun h : p \u2223 b => dvd_mul_of_dvd_left h _) not_dvd",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "p.Coprime b",
+            "body": "Or.resolve_right (Nat.coprime_or_dvd_of_prime p_prime b) this",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "IsCoprime (b : \u2124) \u2191p",
+            "body": "this.symm.isCoprime",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u2191b ^ (p - 1) \u2261 1 [ZMOD \u2191p]",
+            "body": "Int.ModEq.pow_card_sub_one_eq_one p_prime this",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u2191p \u2223 \u2191b ^ (p - 1) - \u21911",
+            "body": "mod_cast Int.ModEq.dvd (Int.ModEq.symm this)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "ha\u2084",
+        "type": "b ^ 2 - 1 \u2223 b ^ (p - 1) - 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "2 \u2223 p - 1",
+            "body": "\u27e8k, by simp [hk]\u27e9",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "b ^ 2 - 1 \u2223 (b ^ 2) ^ c - 1",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "b ^ 2 - 1 \u2223 b ^ (2 * c) - 1",
+            "body": "by rwa [\u2190 pow_mul] at this",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "ha\u2085",
+        "type": "2 * p * (b ^ 2 - 1) \u2223 (b ^ 2 - 1) * (A * B - 1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "q\u2081",
+            "type": "Nat.Coprime p (b ^ 2 - 1)",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "q\u2082",
+            "type": "p * (b ^ 2 - 1) \u2223 b ^ (p - 1) - 1",
+            "body": "Nat.Coprime.mul_dvd_of_dvd_of_dvd q\u2081 ha\u2083 ha\u2084",
+            "children": []
+          },
+          {
+            "name": "q\u2083",
+            "type": "p * (b ^ 2 - 1) * 2 \u2223 (b ^ (p - 1) - 1) * (b ^ p + b)",
+            "body": "mul_dvd_mul q\u2082 ha\u2082",
+            "children": []
+          },
+          {
+            "name": "q\u2084",
+            "type": "p * (b ^ 2 - 1) * 2 \u2223 b * ((b ^ (p - 1) - 1) * (b ^ p + b))",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "ha\u2086",
+        "type": "2 * p \u2223 A * B - 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "ha\u2087",
+        "type": "A * B \u2223 b ^ (2 * p) - 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "A * B * (b ^ 2 - 1) = (b ^ (2 * p) - 1) / (b ^ 2 - 1) * (b ^ 2 - 1)",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "ha\u2088",
+        "type": "b ^ (2 * p) - 1 \u2223 b ^ (A * B - 1) - 1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FermatPsp",
+    "name": "psp_from_prime_gt_p",
+    "statement": "\u2115} (b_ge_two : 2 \u2264 b) {p : \u2115} (p_prime : p.Prime) (p_gt_two : 2 < p) : p < psp_from_prime b p",
+    "have_tree": [
+      {
+        "name": "AB_dvd",
+        "type": "b ^ 2 - 1 \u2223 b ^ (2 * p) - 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "h\u2081",
+            "type": "p * (b ^ 2 - 1) / (b ^ 2 - 1) < (b ^ (2 * p) - 1) / (b ^ 2 - 1)",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "h\u2082",
+            "type": "0 < b ^ 2 - 1",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "2 \u2264 2 * p - 2",
+        "body": "le_tsub_of_add_le_left (show 4 \u2264 2 * p by lia)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "2 + p \u2264 2 * p",
+        "body": "by lia",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "p \u2264 2 * p - 2",
+        "body": "le_tsub_of_add_le_left this",
+        "children": []
+      }
+    ]
+  }
+]

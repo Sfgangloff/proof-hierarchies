@@ -1,0 +1,66 @@
+[
+  {
+    "module": "LinearOrder",
+    "name": "Ico_subset_Ico_iff",
+    "statement": "a\u2081 < b\u2081) : Ico a\u2081 b\u2081 \u2286 Ico a\u2082 b\u2082 \u2194 a\u2082 \u2264 a\u2081 \u2227 b\u2081 \u2264 b\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "a\u2082 \u2264 a\u2081 \u2227 a\u2081 < b\u2082",
+        "body": "h \u27e8le_rfl, h\u2081\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearOrder",
+    "name": "Ico_eq_Ico_iff",
+    "statement": "a < b \u2228 c < d) : Ico a b = Ico c d \u2194 a = c \u2227 b = d",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "c \u2264 a \u2227 b \u2264 d",
+        "body": "(Ico_subset_Ico_iff (show a < b by grind [Set.nonempty_Ico])).1 h.subset",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "a \u2264 c \u2227 d \u2264 b",
+        "body": "(Ico_subset_Ico_iff (show c < d by grind)).1 h.superset",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearOrder",
+    "name": "Ioc_eq_Ioc_iff",
+    "statement": "a < b \u2228 c < d) : Ioc a b = Ioc c d \u2194 a = c \u2227 b = d",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "b \u2264 d \u2227 c \u2264 a",
+        "body": "(Ioc_subset_Ioc_iff (show a < b by grind [Set.nonempty_Ioc])).1 h.subset",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "d \u2264 b \u2227 a \u2264 c",
+        "body": "(Ioc_subset_Ioc_iff (show c < d by grind)).1 h.superset",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearOrder",
+    "name": "Ici_eq_singleton_iff_isTop",
+    "statement": "\u03b1} : (Ici x = {x}) \u2194 IsTop x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "y \u2208 Ici x",
+        "body": "H.le",
+        "children": []
+      }
+    ]
+  }
+]

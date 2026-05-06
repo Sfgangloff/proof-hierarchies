@@ -1,0 +1,46 @@
+[
+  {
+    "module": "Finite",
+    "name": "Module.exists_isPrincipal_quotient_of_finite",
+    "statement": "\u2203 N : Submodule R M, N \u2260 \u22a4 \u2227 Submodule.IsPrincipal (\u22a4 : Submodule R (M \u29f8 N))",
+    "have_tree": [
+      {
+        "name": "hns",
+        "type": "\u2200 x \u2208 s, x < n",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(Fin.val \u207b\u00b9' Set.Iio x : Set (Fin n)) = Set.univ",
+            "body": "by ext y; simpa using y.2.trans_le e",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hs\u2081",
+        "type": "s.Nonempty",
+        "body": "\u27e80, by simp [s]\u27e9",
+        "children": []
+      },
+      {
+        "name": "hs\u2082",
+        "type": "BddAbove s",
+        "body": "\u27e8n, fun x hx \u21a6 (hns x hx).le\u27e9",
+        "children": []
+      },
+      {
+        "name": "hs",
+        "type": "",
+        "body": "Nat.sSup_mem hs\u2081 hs\u2082",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "not_not.mp (notMem_of_csSup_lt (Order.lt_succ _) hs\u2082)",
+        "children": []
+      }
+    ]
+  }
+]

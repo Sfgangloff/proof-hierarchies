@@ -1,0 +1,93 @@
+[
+  {
+    "module": "Summable",
+    "name": "G2_partial_sum_eq",
+    "statement": "\u2115) : \u2211 m \u2208 Icc (-N : \u2124) N, e2Summand m z = 2 * riemannZeta 2 + \u2211 m \u2208 range N, -8 * \u03c0 ^ 2 * \u2211' n : \u2115+, n * \ud835\udd62 z ^ ((m + 1) * n)",
+    "have_tree": [
+      {
+        "name": "H2",
+        "type": "",
+        "body": "qExpansion_identity_pnat (k := 1) (by grind)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "aux_G2_tendsto",
+    "statement": "Tendsto (fun N \u21a6 \u2211 m \u2208 range N, -8 * \u03c0 ^ 2 * \u2211' n : \u2115+, n * \ud835\udd62 z ^ ((m + 1) * n)) atTop (\ud835\udcdd (-8 * \u03c0 ^ 2 * \u2211' n : \u2115+, \u03c3 1 n * \ud835\udd62 z ^ (n : \u2115)))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "tsum_prod_pow_eq_tsum_sigma 1 (norm_exp_two_pi_I_lt_one z)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "summable_left_one_div_linear_sub_one_div_linear",
+    "statement": "\u2124) : Summable fun m : \u2124 \u21a6 1 / (m * (z : \u2102) + a) - 1 / (m * z + b)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Summable.mul_left (b - a : \u2102) (summable_linear_left_mul_linear_left (ne_zero z) a b)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "summable_right_one_div_linear_sub_one_div_linear_succ",
+    "statement": "\u2124) : Summable fun b : \u2124 \u21a6 1 / (m * (z : \u2102) + b) - 1 / (m * z + b + 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "summable_linear_right_add_one_mul_linear_right z m m",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "tendsto_double_sum_S_act",
+    "statement": "Tendsto (fun N : \u2115 \u21a6 (\u2211' (n : \u2124), \u2211 m \u2208 Ico (-N : \u2124) N, (1 / ((n : \u2102) * z + m) ^ 2))) atTop (\ud835\udcdd ((z.1 ^ 2)\u207b\u00b9 * G2 (S \u2022 z)))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "((summable_e2Summand_symmetricIco (S \u2022 z)).mul_left (z.1 ^ 2)\u207b\u00b9).hasSum",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "aux_tendsto_tsum_cexp_pnat",
+    "statement": "Tendsto (fun N : \u2115+ \u21a6 \u2211' (n : \u2115+), cexp (2 * \u03c0 * I * (-N / z)) ^ (n : \u2115)) atTop (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "tendsto_zero_geometric_tsum_pnat (norm_exp_two_pi_I_lt_one \u27e8_, im_pnat_div_pos 1 z\u27e9)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "aux_tendsto_tsum",
+    "statement": "Tendsto (fun n : \u2115 \u21a6 2 / z * \u2211' (m : \u2115+), (1 / (-(n : \u2102) / z - m) + 1 / (-n / z + m))) atTop (\ud835\udcdd (-2 * \u03c0 * I / z))",
+    "have_tree": [
+      {
+        "name": "h2",
+        "type": "",
+        "body": "cot_series_rep <| coe_mem_integerComplement \u27e8-N / z, im_pnat_div_pos N z\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

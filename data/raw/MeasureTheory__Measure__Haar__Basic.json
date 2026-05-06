@@ -1,0 +1,158 @@
+[
+  {
+    "module": "Basic",
+    "name": "index_elim",
+    "statement": "Set G} (hK : IsCompact K) (hV : (interior V).Nonempty) : \u2203 t : Finset G, (K \u2286 \u22c3 g \u2208 t, (fun h => g * h) \u207b\u00b9' V) \u2227 Finset.card t = index K V",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.sInf_mem (index_defined hK hV); rwa [mem_image] at this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "le_index_mul",
+    "statement": "PositiveCompacts G) (K : Compacts G) {V : Set G} (hV : (interior V).Nonempty) : index (K : Set G) V \u2264 index (K : Set G) K\u2080 * index (K\u2080 : Set G) V",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h1t hg\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "nonempty_iInter_clPrehaar",
+    "statement": "PositiveCompacts G) : (haarProduct (K\u2080 : Set G) \u2229 \u22c2 V : OpenNhdsOf (1 : G), clPrehaar K\u2080 V).Nonempty",
+    "have_tree": [
+      {
+        "name": "h1V\u2080",
+        "type": "IsOpen V\u2080",
+        "body": "isOpen_biInter_finset <| by rintro \u27e8\u27e8V, hV\u2081\u27e9, hV\u2082\u27e9 _; exact hV\u2081",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "chaar_mem_clPrehaar",
+    "statement": "PositiveCompacts G) (V : OpenNhdsOf (1 : G)) : chaar K\u2080 \u2208 clPrehaar (K\u2080 : Set G) V",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Classical.choose_spec (nonempty_iInter_clPrehaar K\u2080)).2; rw [mem_iInter] at this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "chaar_nonneg",
+    "statement": "PositiveCompacts G) (K : Compacts G) : 0 \u2264 chaar K\u2080 K",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "chaar_mem_haarProduct K\u2080 K (mem_univ _); rw [mem_Icc] at this; exact this.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "chaar_empty",
+    "statement": "PositiveCompacts G) : chaar K\u2080 \u22a5 = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Continuous eval",
+        "body": "continuous_apply \u22a5",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "chaar_self",
+    "statement": "PositiveCompacts G) : chaar K\u2080 K\u2080.toCompacts = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Continuous eval",
+        "body": "continuous_apply _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "chaar_mono",
+    "statement": "PositiveCompacts G} {K\u2081 K\u2082 : Compacts G} (h : (K\u2081 : Set G) \u2286 K\u2082) : chaar K\u2080 K\u2081 \u2264 chaar K\u2080 K\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Continuous eval",
+        "body": "(continuous_apply K\u2082).sub (continuous_apply K\u2081)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "chaar_sup_le",
+    "statement": "PositiveCompacts G} (K\u2081 K\u2082 : Compacts G) : chaar K\u2080 (K\u2081 \u2294 K\u2082) \u2264 chaar K\u2080 K\u2081 + chaar K\u2080 K\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Continuous eval",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "chaar_sup_eq",
+    "statement": "PositiveCompacts G} {K\u2081 K\u2082 : Compacts G} (h : Disjoint K\u2081.1 K\u2082.1) (h\u2082 : IsClosed K\u2082.1) : chaar K\u2080 (K\u2081 \u2294 K\u2082) = chaar K\u2080 K\u2081 + chaar K\u2080 K\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Continuous eval",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "is_left_invariant_chaar",
+    "statement": "PositiveCompacts G} (g : G) (K : Compacts G) : chaar K\u2080 (K.map _ <| continuous_const_mul g) = chaar K\u2080 K",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Continuous eval",
+        "body": "(continuous_apply (K.map _ _)).sub (continuous_apply K)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "haarMeasure_unique",
+    "statement": "Measure G) [SigmaFinite \u03bc] [IsMulLeftInvariant \u03bc] (K\u2080 : PositiveCompacts G) : \u03bc = \u03bc K\u2080 \u2022 haarMeasure K\u2080",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "measure_eq_div_smul \u03bc (haarMeasure K\u2080)",
+        "children": []
+      }
+    ]
+  }
+]

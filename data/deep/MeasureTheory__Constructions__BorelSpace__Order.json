@@ -1,0 +1,162 @@
+[
+  {
+    "module": "Order",
+    "name": "borel_eq_generateFrom_Iio",
+    "statement": "borel \u03b1 = .generateFrom (range Iio)",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "\u2200 a : \u03b1, MeasurableSet (Iio a)",
+        "body": "fun a => GenerateMeasurable.basic _ \u27e8_, rfl\u27e9",
+        "children": [
+          {
+            "name": "_",
+            "type": "Ioi a = \u22c3 b \u2208 t, Ici b",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Order",
+    "name": "Dense.borel_eq_generateFrom_Icc_mem_aux",
+    "statement": "Type*} [TopologicalSpace \u03b1] [LinearOrder \u03b1] [OrderTopology \u03b1] [SecondCountableTopology \u03b1] {s : Set \u03b1} (hd : Dense s) (hbot : \u2200 x, IsBot x \u2192 x \u2208 s) (hIoo : \u2200 x y : \u03b1, x < y \u2192 Ioo x y = \u2205 \u2192 x \u2208 s) : borel \u03b1 = .generateFrom {S : Set \u03b1 | \u2203 l \u2208 s, \u2203 u \u2208 s, l \u2264 u \u2227 Icc l u = S}",
+    "have_tree": [
+      {
+        "name": "hbs",
+        "type": "b \u2208 s",
+        "body": "hIoo b a ba hb",
+        "children": [
+          {
+            "name": "_",
+            "type": "x \u2264 b",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Order",
+    "name": "MeasurableSet.of_mem_nhdsGT_aux",
+    "statement": "Set \u03b1} (h : \u2200 x \u2208 s, s \u2208 \ud835\udcdd[>] x) (h' : \u2200 x \u2208 s, \u2203 y, x < y) : MeasurableSet s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "s = interior s \u222a s \\ interior s",
+        "body": "by rw [union_diff_cancel interior_subset]",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "\u2200 x \u2208 s, \u2203 y \u2208 Ioi x, Ioo x y \u2286 s",
+        "body": "fun x hx =>",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "Set.PairwiseDisjoint (s \\ interior s) fun x => Ioo x (y x)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "x' \u2208 interior s",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "x \u2208 interior s",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Order",
+    "name": "Measurable.liminf'",
+    "statement": "\u03b9 \u2192 \u03b4 \u2192 \u03b1} {v : Filter \u03b9} (hf : \u2200 i, Measurable (f i)) {p : \u03b9' \u2192 Prop} {s : \u03b9' \u2192 Set \u03b9} (hv : v.HasCountableBasis p s) (hs : \u2200 j, (s j).Countable) : Measurable fun x => liminf (f \u00b7 x) v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Countable (Subtype p)",
+        "body": "hv.countable",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 i, Countable (s i)",
+        "body": "fun i \u21a6 countable_coe_iff.2 (hs i)",
+        "children": []
+      },
+      {
+        "name": "m_meas",
+        "type": "\u2200 j, MeasurableSet (m j)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "mc_meas",
+        "type": "MeasurableSet {x | \u2200 (j : Subtype p), x \u2209 m j}",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "F0_meas",
+        "type": "\u2200 j, Measurable (F0 j)",
+        "body": "fun j \u21a6 .iInf (fun (i : s j) \u21a6 hf i)",
+        "children": []
+      },
+      {
+        "name": "Z",
+        "type": "\u2200 x, \u2203 n, x \u2208 m (g n) \u2228 \u2200 k, x \u2209 m k",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "F1 = fun x \u21a6 if x \u2208 m j then F0 j x else F0 (g (Nat.find (Z x))) x",
+        "body": "by",
+        "children": [
+          {
+            "name": "A",
+            "type": "reparam x j = if x \u2208 m j then j else g (Nat.find (Z x))",
+            "body": "rfl",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Order",
+    "name": "measure_eq_measure_preimage_add_measure_tsum_Ico_zpow",
+    "statement": "Type*} {m\u03b1 : MeasurableSpace \u03b1} (\u03bc : Measure \u03b1) {f : \u03b1 \u2192 \u211d\u22650\u221e} (hf : Measurable f) {s : Set \u03b1} (hs : MeasurableSet s) {t : \u211d\u22650} (ht : 1 < t) : \u03bc s = \u03bc (s \u2229 f \u207b\u00b9' {0}) + \u03bc (s \u2229 f \u207b\u00b9' {\u221e}) + \u2211' n : \u2124, \u03bc (s \u2229 f \u207b\u00b9' Ico ((t : \u211d\u22650\u221e) ^ n) ((t : \u211d\u22650\u221e) ^ (n + 1)))",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u03bc s = \u03bc (s \u2229 f \u207b\u00b9' {0}) + \u03bc (s \u2229 f \u207b\u00b9' Ioi 0)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "\u03bc (s \u2229 f \u207b\u00b9' Ioi 0) = \u03bc (s \u2229 f \u207b\u00b9' {\u221e}) + \u03bc (s \u2229 f \u207b\u00b9' Ioo 0 \u221e)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "f x < \u221e",
+            "body": "h'x.2.2",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "module": "Summable",
+    "name": "auxbound1",
+    "statement": "\u211d} (d : \u211d) (hc : 1 \u2264 c ^ 2) : r z \u2264 \u2016c * (z : \u2102) + d\u2016",
+    "have_tree": [
+      {
+        "name": "H1",
+        "type": "z.im \u2264 \u221a((c * z.re + d) ^ 2 + (c * z).im ^ 2)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "auxbound2",
+    "statement": "\u211d) {d : \u211d} (hd : 1 \u2264 d ^ 2) : r z \u2264 \u2016c * (z : \u2102) + d\u2016",
+    "have_tree": [
+      {
+        "name": "H1",
+        "type": "\u221a(r1 z) \u2264 \u221a((c * z.re + d) ^ 2 + (c * z.im) ^ 2)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "r_mul_max_le",
+    "statement": "Fin 2 \u2192 \u2124} (hx : x \u2260 0) : r z * \u2016x\u2016 \u2264 \u2016x 0 * (z : \u2102) + x 1\u2016",
+    "have_tree": [
+      {
+        "name": "hn0",
+        "type": "\u2016x\u2016 \u2260 0",
+        "body": "by rwa [norm_ne_zero_iff]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "tendsto_zero_inv_linear",
+    "statement": "\u2102) (b : \u2124) : Tendsto (fun d : \u2115 \u21a6 1 / ((b : \u2102) * z + d)) atTop (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(isBigO_sup.mp (Int.cofinite_eq \u25b8 linear_inv_isBigO_right b z)).2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Summable",
+    "name": "aux_isBigO_linear",
+    "statement": "\u210d) (a b : \u2124) : (fun (m : Fin 2 \u2192 \u2124) \u21a6 ((m 0 + a : \u2102) * z + m 1 + b)\u207b\u00b9) =O[cofinite] fun (m : Fin 2 \u2192 \u2124) \u21a6 \u2016![m 0 + a, m 1 + b]\u2016\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "z \u2208 verticalStrip |z.re| (z.im)",
+        "body": "by simp [mem_verticalStrip_iff]",
+        "children": []
+      }
+    ]
+  }
+]

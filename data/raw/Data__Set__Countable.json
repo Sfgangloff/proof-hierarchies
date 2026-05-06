@@ -1,0 +1,145 @@
+[
+  {
+    "module": "Countable",
+    "name": "Countable.mono",
+    "statement": "Set \u03b1} (h : s\u2081 \u2286 s\u2082) (hs : s\u2082.Countable) : s\u2081.Countable",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.to_subtype; (inclusion_injective h).countable",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Countable",
+    "name": "countable_empty",
+    "statement": "(\u2205 : Set \u03b1).Countable",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Countable",
+    "name": "MapsTo.countable_of_injOn",
+    "statement": "Set \u03b1} {t : Set \u03b2} {f : \u03b1 \u2192 \u03b2} (hf : MapsTo f s t) (hf' : InjOn f s) (ht : t.Countable) : s.Countable",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ht.to_subtype",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Injective (hf.restrict f s t)",
+        "body": "(injOn_iff_injective.1 hf').codRestrict _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Countable",
+    "name": "countable_iUnion",
+    "statement": "\u03b9 \u2192 Set \u03b1} [Countable \u03b9] (ht : \u2200 i, (t i).Countable) : (\u22c3 i, t i).Countable",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "fun i \u21a6 (ht i).to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Countable",
+    "name": "Countable.biUnion_iff",
+    "statement": "Set \u03b1} {t : \u2200 a \u2208 s, Set \u03b2} (hs : s.Countable) : (\u22c3 a \u2208 s, t a \u2039_\u203a).Countable \u2194 \u2200 a (ha : a \u2208 s), (t a ha).Countable",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Countable",
+    "name": "Finite.countable",
+    "statement": "Set \u03b1} (hs : s.Finite) : s.Countable",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.to_subtype; s.to_countable",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Countable",
+    "name": "countable_setOf_finite_subset",
+    "statement": "Set \u03b1} (hs : s.Countable) : { t | Set.Finite t \u2227 t \u2286 s }.Countable",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Countable",
+    "name": "countable_univ_pi",
+    "statement": "\u03b1 \u2192 Type*} [Finite \u03b1] {s : \u2200 a, Set (\u03c0 a)} (hs : \u2200 a, (s a).Countable) : (pi univ s).Countable",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "fun a \u21a6 (hs a).to_subtype; .of_equiv _ (Equiv.Set.univPi s).symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Countable",
+    "name": "Countable.prod",
+    "statement": "Set \u03b1} {t : Set \u03b2} (hs : s.Countable) (ht : t.Countable) : Set.Countable (s \u00d7\u02e2 t)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.to_subtype; have := ht.to_subtype; .of_equiv _ <| (Equiv.Set.prod _ _).symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Countable",
+    "name": "countable_setOf_nonempty_of_disjoint",
+    "statement": "\u03b2 \u2192 Set \u03b1} (hf : Pairwise (Disjoint on f)) {s : Set \u03b1} (h'f : \u2200 t, f t \u2286 s) (hs : s.Countable) : Set.Countable {t | (f t).Nonempty}",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "Injective F",
+        "body": "by",
+        "children": [
+          {
+            "name": "A",
+            "type": "(f t \u2229 f t').Nonempty",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

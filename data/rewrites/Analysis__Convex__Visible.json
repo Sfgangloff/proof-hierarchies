@@ -1,0 +1,149 @@
+[
+  {
+    "original": {
+      "module": "Visible",
+      "name": "IsVisible.of_convexHull_of_pos",
+      "statement": "Type*} {t : Finset \u03b9} {a : \u03b9 \u2192 V} {w : \u03b9 \u2192 \ud835\udd5c} (hw\u2080 : \u2200 i \u2208 t, 0 \u2264 w i) (hw\u2081 : \u2211 i \u2208 t, w i = 1) (ha : \u2200 i \u2208 t, a i \u2208 s) (hx : x \u2209 convexHull \ud835\udd5c s) (hw : IsVisible \ud835\udd5c (convexHull \ud835\udd5c s) x (\u2211 i \u2208 t, w i \u2022 a i)) {i : \u03b9} (hi : i \u2208 t) (hwi : 0 < w i) : IsVisible \ud835\udd5c (convexHull \ud835\udd5c s) x (a i)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "0 < 1 - \u03b5",
+          "body": "by linarith",
+          "children": []
+        },
+        {
+          "name": "hwi",
+          "type": "0 < 1 - w i",
+          "body": "by linarith",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Visible",
+          "name": "IsVisible.of_convexHull_of_pos",
+          "statement": "Type*} {t : Finset \u03b9} {a : \u03b9 \u2192 V} {w : \u03b9 \u2192 \ud835\udd5c} (hw\u2080 : \u2200 i \u2208 t, 0 \u2264 w i) (hw\u2081 : \u2211 i \u2208 t, w i = 1) (ha : \u2200 i \u2208 t, a i \u2208 s) (hx : x \u2209 convexHull \ud835\udd5c s) (hw : IsVisible \ud835\udd5c (convexHull \ud835\udd5c s) x (\u2211 i \u2208 t, w i \u2022 a i)) {i : \u03b9} (hi : i \u2208 t) (hwi : 0 < w i) : IsVisible \ud835\udd5c (convexHull \ud835\udd5c s) x (a i)",
+          "have_tree": [
+            {
+              "name": "hwi",
+              "type": "0 < 1 - w i",
+              "body": "by linarith",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "0 < 1 - \u03b5",
+              "body": "by linarith",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Visible",
+      "name": "IsClosed.exists_wbtw_isVisible",
+      "statement": "IsClosed s) (hy : y \u2208 s) (x : V) : \u2203 z \u2208 s, Wbtw \u211d x z y \u2227 IsVisible \u211d s x z",
+      "have_tree": [
+        {
+          "name": "ht\u2081",
+          "type": "1 \u2208 t",
+          "body": "by simpa [t]",
+          "children": []
+        },
+        {
+          "name": "ht",
+          "type": "BddBelow t",
+          "body": "bddBelow_Ici.inter_of_left",
+          "children": []
+        },
+        {
+          "name": "h\u03b4\u2081",
+          "type": "\u03b4 \u2264 1",
+          "body": "csInf_le ht ht\u2081",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Visible",
+          "name": "IsClosed.exists_wbtw_isVisible",
+          "statement": "IsClosed s) (hy : y \u2208 s) (x : V) : \u2203 z \u2208 s, Wbtw \u211d x z y \u2227 IsVisible \u211d s x z",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "BddBelow t",
+              "body": "bddBelow_Ici.inter_of_left",
+              "children": []
+            },
+            {
+              "name": "ht\u2081",
+              "type": "1 \u2208 t",
+              "body": "by simpa [t]",
+              "children": []
+            },
+            {
+              "name": "h\u03b4\u2081",
+              "type": "\u03b4 \u2264 1",
+              "body": "csInf_le ht ht\u2081",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Visible",
+          "name": "IsClosed.exists_wbtw_isVisible",
+          "statement": "IsClosed s) (hy : y \u2208 s) (x : V) : \u2203 z \u2208 s, Wbtw \u211d x z y \u2227 IsVisible \u211d s x z",
+          "have_tree": [
+            {
+              "name": "ht\u2081",
+              "type": "1 \u2208 t",
+              "body": "by simpa [t]",
+              "children": []
+            },
+            {
+              "name": "h\u03b4\u2081",
+              "type": "\u03b4 \u2264 1",
+              "body": "csInf_le ht ht\u2081",
+              "children": []
+            },
+            {
+              "name": "ht",
+              "type": "BddBelow t",
+              "body": "bddBelow_Ici.inter_of_left",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

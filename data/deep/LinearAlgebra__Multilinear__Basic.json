@@ -1,0 +1,104 @@
+[
+  {
+    "module": "Basic",
+    "name": "map_sum_finset_aux",
+    "statement": "\u2115} (h : (\u2211 i, #(A i)) = n) : (f fun i => \u2211 j \u2208 A i, g i j) = \u2211 r \u2208 piFinset A, f fun i => g i (r i)",
+    "have_tree": [
+      {
+        "name": "hpi",
+        "type": "piFinset A = \u2205",
+        "body": "by simpa",
+        "children": [
+          {
+            "name": "pos",
+            "type": "#(A i) \u2260 0",
+            "body": "by rw [Finset.card_ne_zero]; exact Ai_empty i",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "#(A i) \u2264 1",
+            "body": "Ai_singleton i",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u2200 j \u2208 A i, g i j = g i (r i)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "B_subset_A",
+        "type": "\u2200 i, B i \u2286 A i",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "C_subset_A",
+        "type": "\u2200 i, C i \u2286 A i",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "A i\u2080 = B i\u2080 \u222a C i\u2080",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "j = j\u2082",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Brec",
+        "type": "(f fun i => \u2211 j \u2208 B i, g i j) = \u2211 r \u2208 piFinset B, f fun i => g i (r i)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2211 i, #(B i) < \u2211 i, #(A i)",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "{j\u2082} \u2286 A i\u2080",
+                "body": "by simp [hj\u2082]",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Crec",
+        "type": "(f fun i => \u2211 j \u2208 C i, g i j) = \u2211 r \u2208 piFinset C, f fun i => g i (r i)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(\u2211 i, #(C i)) < \u2211 i, #(A i)",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "D",
+        "type": "Disjoint (piFinset B) (piFinset C)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "pi_BC",
+        "type": "piFinset A = piFinset B \u222a piFinset C",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

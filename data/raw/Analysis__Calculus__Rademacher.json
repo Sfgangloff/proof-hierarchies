@@ -1,0 +1,131 @@
+[
+  {
+    "module": "Rademacher",
+    "name": "ae_lineDifferentiableAt",
+    "statement": "LipschitzWith C f) (v : E) : \u2200\u1d50 p \u2202\u03bc, LineDifferentiableAt \u211d f p v",
+    "have_tree": [
+      {
+        "name": "h's",
+        "type": "DifferentiableAt \u211d (fun t \u21a6 f (p + t \u2022 v)) (s + 0)",
+        "body": "by simpa using hs",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "DifferentiableAt \u211d (fun t \u21a6 s + t) 0",
+        "body": "differentiableAt_id.const_add _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rademacher",
+    "name": "integral_inv_smul_sub_mul_tendsto_integral_lineDeriv_mul'",
+    "statement": "LipschitzWith C f) (h'f : HasCompactSupport f) (hg : Continuous g) (v : E) : Tendsto (fun (t : \u211d) \u21a6 \u222b x, (t\u207b\u00b9 \u2022 (f (x + t \u2022 v) - f x)) * g x \u2202\u03bc) (\ud835\udcdd[>] 0) (\ud835\udcdd (\u222b x, lineDeriv \u211d f x v * g x \u2202\u03bc))",
+    "have_tree": [
+      {
+        "name": "K_compact",
+        "type": "IsCompact K",
+        "body": "IsCompact.cthickening h'f",
+        "children": [
+          {
+            "name": "t_pos",
+            "type": "0 < t",
+            "body": "ht.1",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Rademacher",
+    "name": "ae_lineDeriv_sum_eq",
+    "statement": "LipschitzWith C f) {\u03b9 : Type*} (s : Finset \u03b9) (a : \u03b9 \u2192 \u211d) (v : \u03b9 \u2192 E) : \u2200\u1d50 x \u2202\u03bc, lineDeriv \u211d f x (\u2211 i \u2208 s, a i \u2022 v i) = \u2211 i \u2208 s, a i \u2022 lineDeriv \u211d f x (v i)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2200 i \u2208 s, Integrable (fun x \u21a6 g x \u2022 (a i \u2022 fun x \u21a6 lineDeriv \u211d f x (v i)) x) \u03bc",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rademacher",
+    "name": "ae_exists_fderiv_of_countable",
+    "statement": "LipschitzWith C f) {s : Set E} (hs : s.Countable) : \u2200\u1d50 x \u2202\u03bc, \u2203 (L : StrongDual \u211d E), \u2200 v \u2208 s, HasLineDerivAt \u211d f (L v) x v",
+    "have_tree": [
+      {
+        "name": "B",
+        "type": "",
+        "body": "Basis.ofVectorSpace \u211d E",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rademacher",
+    "name": "hasFDerivAt_of_hasLineDerivAt_of_closure",
+    "statement": "E \u2192 F} (hf : LipschitzWith C f) {s : Set E} (hs : sphere 0 1 \u2286 closure s) {L : E \u2192L[\u211d] F} {x : E} (hL : \u2200 v \u2208 s, HasLineDerivAt \u211d f (L v) x v) : HasFDerivAt f L x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "sphere 0 1 \u2286 \u22c3 y \u2208 s, ball y \u03b4",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "rho_pos",
+        "type": "0 \u2264 \u03c1",
+        "body": "by simp [h\u03c1]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2016y - w\u2016 < \u03b4",
+        "body": "by rwa [norm_sub_rev]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rademacher",
+    "name": "ae_differentiableAt_of_real",
+    "statement": "LipschitzWith C f) : \u2200\u1d50 x \u2202\u03bc, DifferentiableAt \u211d f x",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "sphere 0 1 \u2286 closure s",
+        "body": "by rw [s_dense.closure_eq]; exact subset_univ _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rademacher",
+    "name": "ae_differentiableWithinAt_of_mem",
+    "statement": "E \u2192 F} (hf : LipschitzOnWith C f s) : \u2200\u1d50 x \u2202\u03bc, x \u2208 s \u2192 DifferentiableWithinAt \u211d f s x",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "",
+        "body": "(Basis.ofVectorSpace \u211d F).equivFun.toContinuousLinearEquiv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rademacher",
+    "name": "ae_differentiableAt_norm",
+    "statement": "\u2200\u1d50 x \u2202\u03bc, DifferentiableAt \u211d (\u2016\u00b7\u2016) x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "BorelSpace E",
+        "body": "\u27e8rfl\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

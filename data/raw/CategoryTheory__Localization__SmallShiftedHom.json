@@ -1,0 +1,54 @@
+[
+  {
+    "module": "SmallShiftedHom",
+    "name": "hasSmallLocalizedShiftedHom_iff",
+    "statement": "C \u2964 D) [L.IsLocalization W] [L.CommShift M] (X Y : C) : HasSmallLocalizedShiftedHom.{w} W M X Y \u2194 \u2200 (a b : M), Small.{w} ((L.obj X)\u27e6a\u27e7 \u27f6 (L.obj Y)\u27e6b\u27e7)",
+    "have_tree": [
+      {
+        "name": "eq",
+        "type": "",
+        "body": "fun (a b : M) \u21a6 small_congr.{w}",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SmallShiftedHom",
+    "name": "equiv_mk\u2080Inv",
+    "statement": "M) (hm\u2080 : m\u2080 = 0) (f : X \u27f6 Y) (hf : W f) : equiv W L (mk\u2080Inv m\u2080 hm\u2080 f hf) = ShiftedHom.mk\u2080 m\u2080 hm\u2080 ((isoOfHom L W f hf).inv)",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "W ((shiftFunctorZero' C m\u2080 hm\u2080).hom.app X \u226b f)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SmallShiftedHom",
+    "name": "smallShiftedHomMap",
+    "statement": "M} (f : SmallShiftedHom.{w} W\u2081 X\u2081 Y\u2081 m) : SmallShiftedHom.{w''} W\u2082 X\u2082 Y\u2082 m",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasSmallLocalizedHom_of_hasSmallLocalizedShiftedHom\u2080.{w''} W\u2082 M X\u2082 X\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SmallShiftedHom",
+    "name": "equiv_smallShiftedHomMap",
+    "statement": "D\u2081 \u2964 D\u2082) [G.CommShift M] (e : \u03a6.functor \u22d9 L\u2082 \u2245 L\u2081 \u22d9 G) [NatTrans.CommShift e.hom M] {m : M} (f : SmallShiftedHom.{w} W\u2081 X\u2081 Y\u2081 m) : SmallShiftedHom.equiv W\u2082 L\u2082 (\u03a6.smallShiftedHomMap eX eY f) = (ShiftedHom.mk\u2080 0 rfl (L\u2082.map eX.inv \u226b e.hom.app _)).comp (((SmallShiftedHom.equiv W\u2081 L\u2081 f).map G).comp ((ShiftedHom.mk\u2080 0 rfl (e.inv.app _ \u226b L\u2082.map eY.hom))) (zero_add m)) (add_zero m)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasSmallLocalizedHom_of_hasSmallLocalizedShiftedHom\u2080.{w''} W\u2082 M X\u2082 X\u2082",
+        "children": []
+      }
+    ]
+  }
+]

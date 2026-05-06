@@ -1,0 +1,132 @@
+[
+  {
+    "module": "Lemmas",
+    "name": "isBigO_const_smul_left",
+    "statement": "\ud835\udd5c} (hc : c \u2260 0) : (fun x => c \u2022 f' x) =O[l] g \u2194 f' =O[l] g",
+    "have_tree": [
+      {
+        "name": "cne0",
+        "type": "\u2016c\u2016 \u2260 0",
+        "body": "norm_ne_zero_iff.mpr hc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "isLittleO_const_smul_left",
+    "statement": "\ud835\udd5c} (hc : c \u2260 0) : (fun x => c \u2022 f' x) =o[l] g \u2194 f' =o[l] g",
+    "have_tree": [
+      {
+        "name": "cne0",
+        "type": "\u2016c\u2016 \u2260 0",
+        "body": "norm_ne_zero_iff.mpr hc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "isBigO_const_smul_right",
+    "statement": "\ud835\udd5c} (hc : c \u2260 0) : (f =O[l] fun x => c \u2022 f' x) \u2194 f =O[l] f'",
+    "have_tree": [
+      {
+        "name": "cne0",
+        "type": "\u2016c\u2016 \u2260 0",
+        "body": "norm_ne_zero_iff.mpr hc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "isLittleO_const_smul_right",
+    "statement": "\ud835\udd5c} (hc : c \u2260 0) : (f =o[l] fun x => c \u2022 f' x) \u2194 f =o[l] f'",
+    "have_tree": [
+      {
+        "name": "cne0",
+        "type": "\u2016c\u2016 \u2260 0",
+        "body": "norm_ne_zero_iff.mpr hc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "isLittleO_const_const_iff",
+    "statement": "E''} {c : F''} : ((fun _x => d) =o[l] fun _x => c) \u2194 d = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u00acTendsto (Function.const \u03b1 \u2016c\u2016) l atTop",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "isLittleO_norm_pow_id",
+    "statement": "\u2115} (h : 1 < n) : (fun x : E' => \u2016x\u2016 ^ n) =o[\ud835\udcdd 0] fun x => x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "@isLittleO_norm_pow_norm_pow E' _ _ _ h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "bound_of_isBigO_cofinite",
+    "statement": "f =O[cofinite] g'') : \u2203 C > 0, \u2200 \u2983x\u2984, g'' x \u2260 0 \u2192 \u2016f x\u2016 \u2264 C * \u2016g'' x\u2016",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 x, C * \u2016g'' x\u2016 < \u2016f x\u2016 \u2192 \u2016f x\u2016 / \u2016g'' x\u2016 \u2264 C'",
+        "body": "by simpa using hC'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "isBigO_nat_atTop_induction",
+    "statement": "\u2115 \u2192 E''} {g : \u2115 \u2192 F''} (h : \u2200\u1da0 n in atTop, g n = 0 \u2192 f n = 0) (hrec : \u2200\u1da0 n\u2080 in atTop, \u2203 C\u2080, \u2200\u1da0 n in atTop, \u2200 C \u2265 C\u2080, (\u2200 m \u2208 Finset.Ico n\u2080 n, \u2016f m\u2016 \u2264 C * \u2016g m\u2016) \u2192 \u2016f n\u2016 \u2264 C * \u2016g n\u2016) : f =O[atTop] g",
+    "have_tree": [
+      {
+        "name": "C\u2081_mem",
+        "type": "C\u2081 \u2208 ubounds",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "isBigOWith_congr",
+    "statement": "OpenPartialHomeomorph \u03b1 \u03b2) {b : \u03b2} (hb : b \u2208 e.target) {f : \u03b2 \u2192 E} {g : \u03b2 \u2192 F} {C : \u211d} : IsBigOWith C (\ud835\udcdd b) f g \u2194 IsBigOWith C (\ud835\udcdd (e.symm b)) (f \u2218 e) (g \u2218 e)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "e.continuousAt (e.map_target hb)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "isBigOWith_rev_principal",
+    "statement": "ContinuousOn f s) (hs : IsCompact s) (hC : \u2200 i \u2208 s, f i \u2260 0) (c : F) : IsBigOWith (\u2016c\u2016 / sInf (Norm.norm '' (f '' s))) (\ud835\udcdf s) (fun _ => c) f",
+    "have_tree": [
+      {
+        "name": "h_sInf",
+        "type": "",
+        "body": "hs.isGLB_sInf <| Set.image_nonempty.mpr <| Set.image_nonempty.mpr \u27e8x, hx\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

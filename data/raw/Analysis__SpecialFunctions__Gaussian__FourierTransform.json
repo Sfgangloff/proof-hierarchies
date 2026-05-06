@@ -1,0 +1,93 @@
+[
+  {
+    "module": "FourierTransform",
+    "name": "verticalIntegral_norm_le",
+    "statement": "0 < b.re) (c : \u211d) {T : \u211d} (hT : 0 \u2264 T) : \u2016verticalIntegral b c T\u2016 \u2264 (2 : \u211d) * |c| * exp (-(b.re * T ^ 2 - (2 : \u211d) * |b.im| * |c| * T - b.re * c ^ 2))",
+    "have_tree": [
+      {
+        "name": "absy",
+        "type": "|y| \u2264 |c|",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourierTransform",
+    "name": "integral_cexp_neg_mul_sq_add_real_mul_I",
+    "statement": "0 < b.re) (c : \u211d) : \u222b x : \u211d, cexp (-b * (x + c * I) ^ 2) = (\u03c0 / b) ^ (1 / 2 : \u2102)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourierTransform",
+    "name": "_root_.integral_cexp_quadratic",
+    "statement": "b.re < 0) (c d : \u2102) : \u222b x : \u211d, cexp (b * x ^ 2 + c * x + d) = (\u03c0 / -b) ^ (1 / 2 : \u2102) * cexp (d - c ^ 2 / (4 * b))",
+    "have_tree": [
+      {
+        "name": "hb'",
+        "type": "b \u2260 0",
+        "body": "by contrapose! hb; rw [hb, zero_re]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourierTransform",
+    "name": "_root_.integrable_cexp_quadratic'",
+    "statement": "b.re < 0) (c d : \u2102) : Integrable (fun (x : \u211d) \u21a6 cexp (b * x ^ 2 + c * x + d))",
+    "have_tree": [
+      {
+        "name": "hb'",
+        "type": "b \u2260 0",
+        "body": "by contrapose! hb; rw [hb, zero_re]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourierTransform",
+    "name": "_root_.integrable_cexp_quadratic",
+    "statement": "0 < b.re) (c d : \u2102) : Integrable (fun (x : \u211d) \u21a6 cexp (-b * x ^ 2 + c * x + d))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(-b).re < 0",
+        "body": "by simpa using hb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourierTransform",
+    "name": "_root_.fourier_gaussian_pi'",
+    "statement": "0 < b.re) (c : \u2102) : (\ud835\udcd5 fun x : \u211d => cexp (-\u03c0 * b * x ^ 2 + 2 * \u03c0 * c * x)) = fun t : \u211d => 1 / b ^ (1 / 2 : \u2102) * cexp (-\u03c0 / b * (t + I * c) ^ 2)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "(-\u2191\u03c0 * b).re < 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourierTransform",
+    "name": "integral_cexp_neg_sum_mul_add",
+    "statement": "Type*} [Fintype \u03b9] {b : \u03b9 \u2192 \u2102} (hb : \u2200 i, 0 < (b i).re) (c : \u03b9 \u2192 \u2102) : \u222b v : \u03b9 \u2192 \u211d, cexp (-\u2211 i, b i * (v i : \u2102) ^ 2 + \u2211 i, c i * v i) = \u220f i, (\u03c0 / b i) ^ (1 / 2 : \u2102) * cexp (c i ^ 2 / (4 * b i))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(-b i).re < 0",
+        "body": "by simpa using hb i",
+        "children": []
+      }
+    ]
+  }
+]

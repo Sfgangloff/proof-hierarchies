@@ -1,0 +1,124 @@
+[
+  {
+    "module": "LieBracket",
+    "name": "_root_.MDifferentiableWithinAt.differentiableWithinAt_mpullbackWithin_vectorField",
+    "statement": "MDiffAt[s] (fun x \u21a6 (V x : TangentBundle I M)) x) : DifferentiableWithinAt \ud835\udd5c (mpullbackWithin \ud835\udcd8(\ud835\udd5c, E) I (extChartAt I x).symm V (range I)) ((extChartAt I x).symm \u207b\u00b9' s \u2229 range I) (extChartAt I x x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "MDifferentiableWithinAt.mpullbackWithin_vectorField_inter_of_eq hV",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LieBracket",
+    "name": "mpullbackWithin_mlieBracketWithin_aux",
+    "statement": "M \u2192 M'} {V W : \u03a0 (x : M'), TangentSpace I' x} {x\u2080 : M} {s : Set M} {t : Set M'} (hV : MDiffAt[t] (T% V) (f x\u2080)) (hW : MDiffAt[t] (T% W) (f x\u2080)) (hu : UniqueMDiffOn I s) (hf : CMDiff[s] 2 f) (hx\u2080 : x\u2080 \u2208 s) (ht : t \u2286 (extChartAt I' (f x\u2080)).source) (hst : MapsTo f s t) (hsymm : IsSymmSndFDerivWithinAt \ud835\udd5c ((extChartAt I' (f x\u2080)) \u2218 f \u2218 (extChartAt I x\u2080).symm) ((extChartAt I x\u2080).symm \u207b\u00b9' s \u2229 range I) (extChartAt I x\u2080 x\u2080)) : mpullbackWithin I I' f (mlieBracketWithin I' V W t) s x\u2080 = mlieBracketWithin I (mpullbackWithin I I' f V s) (mpullbackWithin I I' f W s) s x\u2080",
+    "have_tree": [
+      {
+        "name": "h'f",
+        "type": "MDiffAt[s] f x\u2080",
+        "body": "(hf x\u2080 hx\u2080).mdifferentiableWithinAt two_ne_zero",
+        "children": [
+          {
+            "name": "h'y",
+            "type": "f ((extChartAt I x\u2080).symm y) \u2208 (extChartAt I' (f x\u2080)).source",
+            "body": "ht (hst hy.1)",
+            "children": []
+          },
+          {
+            "name": "h''y",
+            "type": "f ((extChartAt I x\u2080).symm y) \u2208 (chartAt H' (f x\u2080)).source",
+            "body": "by simpa using h'y",
+            "children": []
+          },
+          {
+            "name": "huy",
+            "type": "UniqueMDiffWithinAt \ud835\udcd8(\ud835\udd5c, E) ((extChartAt I x\u2080).symm \u207b\u00b9' s \u2229 range I) y",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LieBracket",
+    "name": "mpullbackWithin_mlieBracketWithin_of_isSymmSndFDerivWithinAt",
+    "statement": "M \u2192 M'} {V W : \u03a0 (x : M'), TangentSpace I' x} {x\u2080 : M} {s : Set M} {t : Set M'} (hV : MDiffAt[t] (T% V) (f x\u2080)) (hW : MDiffAt[t] (T% W) (f x\u2080)) (hu : UniqueMDiffOn I s) (hf : CMDiffAt[s] 2 f x\u2080) (hx\u2080 : x\u2080 \u2208 s) (hst : f \u207b\u00b9' t \u2208 \ud835\udcdd[s] x\u2080) (hsymm : IsSymmSndFDerivWithinAt \ud835\udd5c ((extChartAt I' (f x\u2080)) \u2218 f \u2218 (extChartAt I x\u2080).symm) ((extChartAt I x\u2080).symm \u207b\u00b9' s \u2229 range I) (extChartAt I x\u2080 x\u2080)) : mpullbackWithin I I' f (mlieBracketWithin I' V W t) s x\u2080 = mlieBracketWithin I (mpullbackWithin I I' f V s) (mpullbackWithin I I' f W s) s x\u2080",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "CompleteSpace E'",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "f \u207b\u00b9' (extChartAt I' (f x\u2080)).source \u2208 \ud835\udcdd[s] x\u2080",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "u_mem",
+        "type": "u \u2208 \ud835\udcdd x\u2080",
+        "body": "u_open.mem_nhds x\u2080u",
+        "children": [
+          {
+            "name": "_",
+            "type": "(extChartAt I x\u2080).symm \u207b\u00b9' u \u2208 \ud835\udcdd (extChartAt I x\u2080 x\u2080)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LieBracket",
+    "name": "_root_.ContMDiffWithinAt.mlieBracketWithin_vectorField",
+    "statement": "\u2115\u221e\u03c9} {U V : \u03a0 (x : M), TangentSpace I x} {s : Set M} {x : M} (hU : CMDiffAt[s] n (T% U) x) (hV : CMDiffAt[s] n (T% V) x) (hs : UniqueMDiffOn I s) (hx : x \u2208 s) (hmn : minSmoothness \ud835\udd5c (m + 1) \u2264 n) : CMDiffAt[s] m (T% (mlieBracketWithin I U V s)) x",
+    "have_tree": [
+      {
+        "name": "min2",
+        "type": "minSmoothness \ud835\udd5c 2 \u2264 n + 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hn",
+        "type": "1 \u2264 m' + 1",
+        "body": "le_add_self",
+        "children": []
+      },
+      {
+        "name": "hm'n",
+        "type": "m' + 1 \u2264 n",
+        "body": "by grw [hm', \u2190 hmn, \u2190 le_minSmoothness]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LieBracket",
+    "name": "leibniz_identity_mlieBracketWithin_apply",
+    "statement": "\u03a0 (x : M), TangentSpace I x} {s : Set M} {x : M} (hs : UniqueMDiffOn I s) (h's : x \u2208 closure (interior s)) (hx : x \u2208 s) (hU : CMDiffAt[s] (minSmoothness \ud835\udd5c 2) (T% U) x) (hV : CMDiffAt[s] (minSmoothness \ud835\udd5c 2) (T% V) x) (hW : CMDiffAt[s] (minSmoothness \ud835\udd5c 2) (T% W) x) : mlieBracketWithin I U (mlieBracketWithin I V W s) s x = mlieBracketWithin I (mlieBracketWithin I U V s) W s x + mlieBracketWithin I V (mlieBracketWithin I U W s) s x",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "minSmoothness \ud835\udd5c 2 + 1 \u2264 minSmoothness \ud835\udd5c 3",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "s_inter_mem",
+        "type": "s \u2229 (extChartAt I x).source \u2208 \ud835\udcdd[s] x",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

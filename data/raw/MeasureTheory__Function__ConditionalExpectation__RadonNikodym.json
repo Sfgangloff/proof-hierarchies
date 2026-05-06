@@ -1,0 +1,71 @@
+[
+  {
+    "module": "RadonNikodym",
+    "name": "toReal_rnDeriv_map",
+    "statement": "\u03bc \u226a \u03bd) {g : \ud835\udce7 \u2192 \ud835\udce8} (hg : Measurable g) [h\u03c3 : SigmaFinite (\u03bd.map g)] : (fun a \u21a6 ((\u03bc.map g).rnDeriv (\u03bd.map g) (g a)).toReal) =\u1d50[\u03bd] \u03bd[(fun a \u21a6 (\u03bc.rnDeriv \u03bd a).toReal) | m\ud835\udce8.comap g]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "SigmaFinite (\u03bd.trim hg.comap_le)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "SigmaFinite \u03bd",
+        "body": "SigmaFinite.of_map _ hg.aemeasurable h\u03c3",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RadonNikodym",
+    "name": "rnDeriv_map",
+    "statement": "\u03bc \u226a \u03bd) {g : \ud835\udce7 \u2192 \ud835\udce8} (hg : Measurable g) [h\u03c3 : SigmaFinite (\u03bd.map g)] : (fun a \u21a6 (\u03bc.map g).rnDeriv (\u03bd.map g) (g a)) =\u1d50[\u03bd] \u03bd\u207b[\u03bc.rnDeriv \u03bd|m\ud835\udce8.comap g]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "SigmaFinite \u03bd",
+        "body": "SigmaFinite.of_map _ hg.aemeasurable h\u03c3",
+        "children": []
+      },
+      {
+        "name": "h_ne_top1",
+        "type": "\u2200\u1d50 x \u2202\u03bd, (\u03bc.map g).rnDeriv (\u03bd.map g) (g x) \u2260 \u221e",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h_ne_top2",
+        "type": "\u2200\u1d50 x \u2202\u03bd, \u03bd\u207b[\u03bc.rnDeriv \u03bd|MeasurableSpace.comap g m\ud835\udce8] x \u2260 \u221e",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_condExp",
+        "type": "",
+        "body": "toReal_condLExp (m\ud835\udce8.comap g) (f := \u03bc.rnDeriv \u03bd) (\u03bc := \u03bd) (by fun_prop) ?_",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RadonNikodym",
+    "name": "toReal_rnDeriv_trim",
+    "statement": "m \u2264 m\ud835\udce7) [IsFiniteMeasure \u03bc] [hsf : SigmaFinite (\u03bd.trim hm)] (h\u03bc\u03bd : \u03bc \u226a \u03bd) : (fun x \u21a6 ((\u03bc.trim hm).rnDeriv (\u03bd.trim hm) x).toReal) =\u1d50[\u03bd.trim hm] \u03bd[fun x \u21a6 (\u03bc.rnDeriv \u03bd x).toReal | m]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "SigmaFinite (@Measure.map _ _ m\ud835\udce7 m id \u03bd)",
+        "body": "by rwa [\u2190 trim_eq_map hm]",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "toReal_rnDeriv_map_ae_eq_trim h\u03bc\u03bd (measurable_id'' hm)",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,260 @@
+[
+  {
+    "original": {
+      "module": "SimpleFuncDenseLp",
+      "name": "_root_.MeasureTheory.MemLp.exists_simpleFunc_eLpNorm_sub_lt",
+      "statement": "Type*} [NormedAddCommGroup E] {f : \u03b2 \u2192 E} {\u03bc : Measure \u03b2} (hf : MemLp f p \u03bc) (hp_ne_top : p \u2260 \u221e) {\u03b5 : \u211d\u22650\u221e} (h\u03b5 : \u03b5 \u2260 0) : \u2203 g : \u03b2 \u2192\u209b E, eLpNorm (f - \u21d1g) p \u03bc < \u03b5 \u2227 MemLp g p \u03bc",
+      "have_tree": [
+        {
+          "name": "hf'",
+          "type": "MemLp f' p \u03bc",
+          "body": "hf.ae_eq hf.1.ae_eq_mk",
+          "children": []
+        },
+        {
+          "name": "f'meas",
+          "type": "Measurable f'",
+          "body": "hf.1.measurable_mk",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "SimpleFuncDenseLp",
+          "name": "_root_.MeasureTheory.MemLp.exists_simpleFunc_eLpNorm_sub_lt",
+          "statement": "Type*} [NormedAddCommGroup E] {f : \u03b2 \u2192 E} {\u03bc : Measure \u03b2} (hf : MemLp f p \u03bc) (hp_ne_top : p \u2260 \u221e) {\u03b5 : \u211d\u22650\u221e} (h\u03b5 : \u03b5 \u2260 0) : \u2203 g : \u03b2 \u2192\u209b E, eLpNorm (f - \u21d1g) p \u03bc < \u03b5 \u2227 MemLp g p \u03bc",
+          "have_tree": [
+            {
+              "name": "f'meas",
+              "type": "Measurable f'",
+              "body": "hf.1.measurable_mk",
+              "children": []
+            },
+            {
+              "name": "hf'",
+              "type": "MemLp f' p \u03bc",
+              "body": "hf.ae_eq hf.1.ae_eq_mk",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "SimpleFuncDenseLp",
+      "name": "measure_preimage_lt_top_of_memLp",
+      "statement": "p \u2260 0) (hp_ne_top : p \u2260 \u221e) (f : \u03b1 \u2192\u209b E) (hf : MemLp f p \u03bc) (y : E) (hy_ne : y \u2260 0) : \u03bc (f \u207b\u00b9' {y}) < \u221e",
+      "have_tree": [
+        {
+          "name": "hp_pos_real",
+          "type": "0 < p.toReal",
+          "body": "ENNReal.toReal_pos hp_pos hp_ne_top",
+          "children": []
+        },
+        {
+          "name": "hf_eLpNorm",
+          "type": "",
+          "body": "MemLp.eLpNorm_lt_top hf",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "SimpleFuncDenseLp",
+          "name": "measure_preimage_lt_top_of_memLp",
+          "statement": "p \u2260 0) (hp_ne_top : p \u2260 \u221e) (f : \u03b1 \u2192\u209b E) (hf : MemLp f p \u03bc) (y : E) (hy_ne : y \u2260 0) : \u03bc (f \u207b\u00b9' {y}) < \u221e",
+          "have_tree": [
+            {
+              "name": "hf_eLpNorm",
+              "type": "",
+              "body": "MemLp.eLpNorm_lt_top hf",
+              "children": []
+            },
+            {
+              "name": "hp_pos_real",
+              "type": "0 < p.toReal",
+              "body": "ENNReal.toReal_pos hp_pos hp_ne_top",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "SimpleFuncDenseLp",
+      "name": "coeSimpleFuncNonnegToLpNonneg",
+      "statement": "{ g : Lp.simpleFunc G p \u03bc // 0 \u2264 g } \u2192 { g : Lp G p \u03bc // 0 \u2264 g }",
+      "have_tree": [
+        {
+          "name": "hx_nonneg",
+          "type": "\u2200 n, 0 \u2264 x n",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hx_memLp",
+          "type": "\u2200 n, MemLp (x n) p \u03bc",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "h_toLp",
+          "type": "",
+          "body": "fun n => MemLp.coeFn_toLp (hx_memLp n)",
+          "children": []
+        },
+        {
+          "name": "hx_nonneg_Lp",
+          "type": "\u2200 n, 0 \u2264 toLp (x n) (hx_memLp n)",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "SimpleFuncDenseLp",
+          "name": "coeSimpleFuncNonnegToLpNonneg",
+          "statement": "{ g : Lp.simpleFunc G p \u03bc // 0 \u2264 g } \u2192 { g : Lp G p \u03bc // 0 \u2264 g }",
+          "have_tree": [
+            {
+              "name": "hx_memLp",
+              "type": "\u2200 n, MemLp (x n) p \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hx_nonneg",
+              "type": "\u2200 n, 0 \u2264 x n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h_toLp",
+              "type": "",
+              "body": "fun n => MemLp.coeFn_toLp (hx_memLp n)",
+              "children": []
+            },
+            {
+              "name": "hx_nonneg_Lp",
+              "type": "\u2200 n, 0 \u2264 toLp (x n) (hx_memLp n)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "SimpleFuncDenseLp",
+          "name": "coeSimpleFuncNonnegToLpNonneg",
+          "statement": "{ g : Lp.simpleFunc G p \u03bc // 0 \u2264 g } \u2192 { g : Lp G p \u03bc // 0 \u2264 g }",
+          "have_tree": [
+            {
+              "name": "hx_nonneg",
+              "type": "\u2200 n, 0 \u2264 x n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h_toLp",
+              "type": "",
+              "body": "fun n => MemLp.coeFn_toLp (hx_memLp n)",
+              "children": []
+            },
+            {
+              "name": "hx_memLp",
+              "type": "\u2200 n, MemLp (x n) p \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hx_nonneg_Lp",
+              "type": "\u2200 n, 0 \u2264 toLp (x n) (hx_memLp n)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "SimpleFuncDenseLp",
+          "name": "coeSimpleFuncNonnegToLpNonneg",
+          "statement": "{ g : Lp.simpleFunc G p \u03bc // 0 \u2264 g } \u2192 { g : Lp G p \u03bc // 0 \u2264 g }",
+          "have_tree": [
+            {
+              "name": "hx_nonneg",
+              "type": "\u2200 n, 0 \u2264 x n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hx_memLp",
+              "type": "\u2200 n, MemLp (x n) p \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hx_nonneg_Lp",
+              "type": "\u2200 n, 0 \u2264 toLp (x n) (hx_memLp n)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h_toLp",
+              "type": "",
+              "body": "fun n => MemLp.coeFn_toLp (hx_memLp n)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

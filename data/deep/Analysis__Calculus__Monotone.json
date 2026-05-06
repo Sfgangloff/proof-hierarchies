@@ -1,0 +1,66 @@
+[
+  {
+    "module": "Monotone",
+    "name": "tendsto_apply_add_mul_sq_div_sub",
+    "statement": "\u211d \u2192 \u211d} {x a c d : \u211d} {l : Filter \u211d} (hl : l \u2264 \ud835\udcdd[\u2260] x) (hf : Tendsto (fun y => (f y - d) / (y - x)) l (\ud835\udcdd a)) (h' : Tendsto (fun y => y + c * (y - x) ^ 2) l l) : Tendsto (fun y => (f (y + c * (y - x) ^ 2) - d) / (y - x)) l (\ud835\udcdd a)",
+    "have_tree": [
+      {
+        "name": "L",
+        "type": "Tendsto (fun y => (y + c * (y - x) ^ 2 - x) / (y - x)) l (\ud835\udcdd 1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Tendsto (fun y => 1 + c * (y - x)) l (\ud835\udcdd (1 + c * (x - x)))",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Z",
+        "type": "",
+        "body": "(hf.comp h').mul L",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200\u1da0 y in l, y + c * (y - x) ^ 2 \u2260 x",
+        "body": "by apply Tendsto.mono_right h' hl self_mem_nhdsWithin",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Monotone",
+    "name": "Monotone.ae_hasDerivAt",
+    "statement": "\u211d \u2192 \u211d} (hf : Monotone f) : \u2200\u1d50 x, HasDerivAt f (rnDeriv hf.stieltjesFunction.measure volume x).toReal x",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "hf.stieltjesFunction x = f x",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Tendsto (fun y : \u211d => y + -\u21911 * (y - x) ^ 2) (\ud835\udcdd x) (\ud835\udcdd (x + -\u21911 * (x - x) ^ 2))",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Tendsto (fun y : \u211d => y + -\u21911 * (y - x) ^ 2) (\ud835\udcdd x) (\ud835\udcdd (x + -\u21911 * (x - x) ^ 2))",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "0 < (y - x) ^ 2",
+            "body": "sq_pos_of_neg hy",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

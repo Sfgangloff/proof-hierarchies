@@ -1,0 +1,116 @@
+[
+  {
+    "module": "Directed",
+    "name": "isCardinalFiltered_aux",
+    "statement": "Type w} (D : \u03b9 \u2192 DiagramWithUniqueTerminal J \u03ba) (h\u03b9 : HasCardinalLT \u03b9 \u03ba) : \u2203 (m : J) (u : \u2200 i, (D i).top \u27f6 m), (\u2200 (i : \u03b9), IsEmpty (m \u27f6 (D i).top)) \u2227 \u2200 (i\u2081 i\u2082 : \u03b9) (j : J) (hj\u2081 : (D i\u2081).P j) (hj\u2082 : (D i\u2082).P j), (D i\u2081).isTerminal.lift hj\u2081 \u226b u i\u2081 = (D i\u2082).isTerminal.lift hj\u2082 \u226b u i\u2082",
+    "have_tree": [
+      {
+        "name": "h\u03ba",
+        "type": "Cardinal.aleph0 \u2264 \u03ba",
+        "body": "Cardinal.IsRegular.aleph0_le Fact.out",
+        "children": []
+      },
+      {
+        "name": "hL",
+        "type": "HasCardinalLT shape.L \u03ba",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hR",
+        "type": "HasCardinalLT shape.R \u03ba",
+        "body": "hasCardinalLT_of_finite _ _ h\u03ba",
+        "children": []
+      },
+      {
+        "name": "hshape",
+        "type": "HasCardinalLT (Arrow (WalkingMultispan shape)) \u03ba",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Directed",
+    "name": "isCardinalFiltered",
+    "statement": "IsCardinalFiltered (DiagramWithUniqueTerminal J \u03ba) \u03ba",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hj.prop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Directed",
+    "name": "final_functor",
+    "statement": "(functor J \u03ba).Final",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isCardinalFiltered J \u03ba hJ",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isFiltered_of_isCardinalFiltered J \u03ba",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isFiltered_of_isCardinalFiltered (DiagramWithUniqueTerminal J \u03ba) \u03ba",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "\u00ac (D.P m\u2081)",
+        "body": "fun h\u2081 \u21a6 hm\u2080.false (u \u226b D.isTerminal.lift h\u2081)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Directed",
+    "name": "exists_cardinal_directed",
+    "statement": "Type w) [SmallCategory J] (\u03ba : Cardinal.{w}) [Fact \u03ba.IsRegular] [IsCardinalFiltered J \u03ba] : \u2203 (\u03b1 : Type w) (_ : PartialOrder \u03b1) (_ : IsCardinalFiltered \u03b1 \u03ba) (F : \u03b1 \u2964 J), F.Final",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isFiltered_of_isCardinalFiltered \u03ba.ord.ToType \u03ba",
+        "children": [
+          {
+            "name": "_",
+            "type": "NoMaxOrder \u03ba.ord.ToType",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Directed",
+    "name": "IsFiltered.exists_directed",
+    "statement": "Type w) [SmallCategory J] [IsFiltered J] : \u2203 (\u03b1 : Type w) (_ : PartialOrder \u03b1) (_ : IsDirected \u03b1 (\u00b7 \u2264 \u00b7)) (_ : Nonempty \u03b1) (F : \u03b1 \u2964 J), F.Final",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(isCardinalFiltered_aleph0_iff.{w} J).2 inferInstance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsFiltered \u03b1",
+        "body": "by rwa [\u2190 isCardinalFiltered_aleph0_iff.{w}]",
+        "children": []
+      }
+    ]
+  }
+]

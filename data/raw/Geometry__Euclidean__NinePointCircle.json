@@ -1,0 +1,35 @@
+[
+  {
+    "module": "NinePointCircle",
+    "name": "points_vsub_eulerPoint",
+    "statement": "\u2115} (s : Simplex \u211d P n) (i : Fin (n + 1)) : s.points i -\u1d65 s.eulerPoint i = ((n - 1) / n : \u211d) \u2022 (s.points i -\u1d65 s.mongePoint)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Subsingleton (Fin (0 + 1))",
+        "body": "inferInstanceAs (Subsingleton (Fin 1))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NinePointCircle",
+    "name": "midpoint_faceOppositeCentroid_eulerPoint",
+    "statement": "\u2115} [hn : NeZero n] (s : Simplex \u211d P n) (i : Fin (n + 1)) : midpoint \u211d (s.faceOppositeCentroid i) (s.eulerPoint i) = s.ninePointCircle.center",
+    "have_tree": [
+      {
+        "name": "hltn",
+        "type": "1 < n",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hn.out",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

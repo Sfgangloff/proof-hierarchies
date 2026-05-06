@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Basic",
+    "name": "choose_mul_factorial_mul_factorial",
+    "statement": "\u2200 {n k}, k \u2264 n \u2192 choose n k * k ! * (n - k)! = n ! | 0, _, hk => by simp [Nat.eq_zero_of_le_zero hk] | n + 1, 0, _ => by simp | n + 1, succ k, hk => by rcases lt_or_eq_of_le hk with hk\u2081 | hk\u2081 \u00b7 have h : choose n k * k.succ ! * (n - k)! = (k + 1) * n !",
+    "have_tree": [
+      {
+        "name": "h\u2083",
+        "type": "k * n ! \u2264 n * n !",
+        "body": "Nat.mul_le_mul_right _ (le_of_succ_le_succ hk)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "choose_mul",
+    "statement": "\u2115} (hsk : s \u2264 k) : n.choose k * k.choose s = n.choose s * (n - s).choose (k - s)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "0 < (n - k)! * (k - s)! * s !",
+        "body": "by apply_rules [factorial_pos, Nat.mul_pos]",
+        "children": []
+      }
+    ]
+  }
+]

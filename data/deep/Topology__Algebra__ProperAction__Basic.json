@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Basic",
+    "name": "t2Space_of_properSMul_of_t1Group",
+    "statement": "ProperSMul G X] [T1Space G] : T2Space X",
+    "have_tree": [
+      {
+        "name": "proper_f",
+        "type": "IsProperMap f",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Function.LeftInverse g f",
+            "body": "fun x \u21a6 by simp [f, g]",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "proper_g",
+        "type": "IsProperMap g",
+        "body": "(properSMul_iff G X).1 h_proper",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "g \u2218 f = fun x \u21a6 (x, x)",
+        "body": "by ext x <;> simp [f, g]",
+        "children": []
+      },
+      {
+        "name": "range_gf",
+        "type": "range (g \u2218 f) = diagonal X",
+        "body": "by simp [this]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "ProperSMul.isProperMap_smul_pair_set",
+    "statement": "Set X} : IsProperMap (fun (gx : G \u00d7 t) \u21a6 ((gx.1 \u2022 gx.2, gx.2) : X \u00d7 t))",
+    "have_tree": [
+      {
+        "name": "\u03a6_proper",
+        "type": "IsProperMap \u03a6",
+        "body": "ProperSMul.isProperMap_smul_pair",
+        "children": [
+          {
+            "name": "_",
+            "type": "univ \u00d7\u02e2 t = \u03a6 \u207b\u00b9' (snd \u207b\u00b9' t)",
+            "body": "by ext; simp [\u03a6]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

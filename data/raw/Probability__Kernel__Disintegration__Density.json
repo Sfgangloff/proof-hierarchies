@@ -1,0 +1,163 @@
+[
+  {
+    "module": "Density",
+    "name": "setIntegral_densityProcess_of_mem",
+    "statement": "fst \u03ba \u2264 \u03bd) [h\u03bd : IsFiniteKernel \u03bd] (n : \u2115) (a : \u03b1) {s : Set \u03b2} (hs : MeasurableSet s) {u : Set \u03b3} (hu : u \u2208 countablePartition \u03b3 n) : \u222b x in u, densityProcess \u03ba \u03bd n a x s \u2202(\u03bd a) = (\u03ba a).real (u \u00d7\u02e2 s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsFiniteKernel \u03ba",
+        "body": "isFiniteKernel_of_isFiniteKernel_fst (h := isFiniteKernel_of_le h\u03ba\u03bd)",
+        "children": []
+      },
+      {
+        "name": "hu_meas",
+        "type": "MeasurableSet u",
+        "body": "measurableSet_countablePartition n hu",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Density",
+    "name": "setIntegral_densityProcess",
+    "statement": "fst \u03ba \u2264 \u03bd) [IsFiniteKernel \u03bd] (n : \u2115) (a : \u03b1) {s : Set \u03b2} (hs : MeasurableSet s) {A : Set \u03b3} (hA : MeasurableSet[countableFiltration \u03b3 n] A) : \u222b x in A, densityProcess \u03ba \u03bd n a x s \u2202(\u03bd a) = (\u03ba a).real (A \u00d7\u02e2 s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsFiniteKernel \u03ba",
+        "body": "isFiniteKernel_of_isFiniteKernel_fst (h := isFiniteKernel_of_le h\u03ba\u03bd)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Density",
+    "name": "densityProcess_mono_kernel_left",
+    "statement": "Kernel \u03b1 (\u03b3 \u00d7 \u03b2)} (h\u03ba\u03ba' : \u03ba \u2264 \u03ba') (h\u03ba'\u03bd : fst \u03ba' \u2264 \u03bd) (n : \u2115) (a : \u03b1) (x : \u03b3) (s : Set \u03b2) : densityProcess \u03ba \u03bd n a x s \u2264 densityProcess \u03ba' \u03bd n a x s",
+    "have_tree": [
+      {
+        "name": "h_le",
+        "type": "\u03ba' a (countablePartitionSet n x \u00d7\u02e2 s) \u2264 \u03bd a (countablePartitionSet n x)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Density",
+    "name": "densityProcess_antitone_kernel_right",
+    "statement": "Kernel \u03b1 \u03b3} (h\u03bd\u03bd' : \u03bd \u2264 \u03bd') (h\u03ba\u03bd : fst \u03ba \u2264 \u03bd) (n : \u2115) (a : \u03b1) (x : \u03b3) (s : Set \u03b2) : densityProcess \u03ba \u03bd' n a x s \u2264 densityProcess \u03ba \u03bd n a x s",
+    "have_tree": [
+      {
+        "name": "h_le",
+        "type": "\u03ba a (countablePartitionSet n x \u00d7\u02e2 s) \u2264 \u03bd a (countablePartitionSet n x)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Density",
+    "name": "setIntegral_density_of_measurableSet",
+    "statement": "fst \u03ba \u2264 \u03bd) [IsFiniteKernel \u03bd] (n : \u2115) (a : \u03b1) {s : Set \u03b2} (hs : MeasurableSet s) {A : Set \u03b3} (hA : MeasurableSet[countableFiltration \u03b3 n] A) : \u222b x in A, density \u03ba \u03bd a x s \u2202(\u03bd a) = (\u03ba a).real (A \u00d7\u02e2 s)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "tendsto_setIntegral_densityProcess h\u03ba\u03bd a hs A",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Density",
+    "name": "setIntegral_density",
+    "statement": "fst \u03ba \u2264 \u03bd) [IsFiniteKernel \u03bd] (a : \u03b1) {s : Set \u03b2} (hs : MeasurableSet s) {A : Set \u03b3} (hA : MeasurableSet A) : \u222b x in A, density \u03ba \u03bd a x s \u2202(\u03bd a) = (\u03ba a).real (A \u00d7\u02e2 s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsFiniteKernel \u03ba",
+        "body": "isFiniteKernel_of_isFiniteKernel_fst (h := isFiniteKernel_of_le h\u03ba\u03bd)",
+        "children": []
+      },
+      {
+        "name": "hpi",
+        "type": "IsPiSystem {s | \u2203 n, MeasurableSet[countableFiltration \u03b3 n] s}",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "integral_add_compl hA (integrable_density h\u03ba\u03bd a hs)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Density",
+    "name": "setLIntegral_density",
+    "statement": "fst \u03ba \u2264 \u03bd) [IsFiniteKernel \u03bd] (a : \u03b1) {s : Set \u03b2} (hs : MeasurableSet s) {A : Set \u03b3} (hA : MeasurableSet A) : \u222b\u207b x in A, ENNReal.ofReal (density \u03ba \u03bd a x s) \u2202(\u03bd a) = \u03ba a (A \u00d7\u02e2 s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsFiniteKernel \u03ba",
+        "body": "isFiniteKernel_of_isFiniteKernel_fst (h := isFiniteKernel_of_le h\u03ba\u03bd)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Density",
+    "name": "tendsto_integral_density_of_monotone",
+    "statement": "fst \u03ba \u2264 \u03bd) [IsFiniteKernel \u03bd] (a : \u03b1) (seq : \u2115 \u2192 Set \u03b2) (hseq : Monotone seq) (hseq_iUnion : \u22c3 i, seq i = univ) (hseq_meas : \u2200 m, MeasurableSet (seq m)) : Tendsto (fun m \u21a6 \u222b x, density \u03ba \u03bd a x (seq m) \u2202(\u03bd a)) atTop (\ud835\udcdd ((\u03ba a).real univ))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsFiniteKernel \u03ba",
+        "body": "isFiniteKernel_of_isFiniteKernel_fst (h := isFiniteKernel_of_le h\u03ba\u03bd)",
+        "children": []
+      },
+      {
+        "name": "h_cont",
+        "type": "",
+        "body": "ENNReal.continuousOn_toReal.continuousAt (x := \u03ba a univ) ?_",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Density",
+    "name": "tendsto_integral_density_of_antitone",
+    "statement": "fst \u03ba \u2264 \u03bd) [IsFiniteKernel \u03bd] (a : \u03b1) (seq : \u2115 \u2192 Set \u03b2) (hseq : Antitone seq) (hseq_iInter : \u22c2 i, seq i = \u2205) (hseq_meas : \u2200 m, MeasurableSet (seq m)) : Tendsto (fun m \u21a6 \u222b x, density \u03ba \u03bd a x (seq m) \u2202(\u03bd a)) atTop (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsFiniteKernel \u03ba",
+        "body": "isFiniteKernel_of_isFiniteKernel_fst (h := isFiniteKernel_of_le h\u03ba\u03bd)",
+        "children": []
+      },
+      {
+        "name": "h_cont",
+        "type": "",
+        "body": "ENNReal.continuousAt_toReal ENNReal.zero_ne_top",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Density",
+    "name": "density_fst_univ",
+    "statement": "Kernel \u03b1 (\u03b3 \u00d7 \u03b2)) [IsFiniteKernel \u03ba] (a : \u03b1) : \u2200\u1d50 x \u2202(fst \u03ba a), density \u03ba (fst \u03ba) a x univ = 1",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "fun n \u21a6 densityProcess_fst_univ_ae \u03ba n a",
+        "children": []
+      }
+    ]
+  }
+]

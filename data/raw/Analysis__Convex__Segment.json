@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Segment",
+    "name": "mem_openSegment_iff_div",
+    "statement": "x \u2208 openSegment \ud835\udd5c y z \u2194 \u2203 a b : \ud835\udd5c, 0 < a \u2227 0 < b \u2227 (a / (a + b)) \u2022 y + (b / (a + b)) \u2022 z = x",
+    "have_tree": [
+      {
+        "name": "hab",
+        "type": "0 < a + b",
+        "body": "add_pos' ha hb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Segment",
+    "name": "openSegment_subset_union",
+    "statement": "E) {z : E} (hz : z \u2208 range (lineMap x y : \ud835\udd5c \u2192 E)) : openSegment \ud835\udd5c x y \u2286 insert z (openSegment \ud835\udd5c x z \u222a openSegment \ud835\udd5c z y)",
+    "have_tree": [
+      {
+        "name": "hc",
+        "type": "0 < c",
+        "body": "h\u2080.trans hac",
+        "children": []
+      },
+      {
+        "name": "hc",
+        "type": "0 < 1 - c",
+        "body": "sub_pos.2 (hca.trans h\u2081)",
+        "children": []
+      }
+    ]
+  }
+]

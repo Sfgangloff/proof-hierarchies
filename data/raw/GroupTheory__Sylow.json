@@ -1,0 +1,278 @@
+[
+  {
+    "module": "Sylow",
+    "name": "_root_.IsPGroup.toSylow",
+    "statement": "Subgroup G} (hP1 : IsPGroup p P) (hP2 : \u00ac p \u2223 P.index) : Sylow p G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "P.FiniteIndex",
+        "body": "\u27e8fun h \u21a6 hP2 (h \u25b8 (dvd_zero p))\u27e9",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "hk \u25b8 Nat.Prime.coprime_pow_of_not_dvd (m := k) Fact.out hP2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sylow",
+    "name": "not_dvd_index_aux",
+    "statement": "Fact p.Prime] (P : Sylow p G) [P.Normal] [P.FiniteIndex] : \u00ac p \u2223 P.index",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "IsPGroup.of_card (((Nat.card_zpowers x).trans hx).trans (pow_one p).symm)",
+        "children": []
+      },
+      {
+        "name": "hQ",
+        "type": "IsPGroup p Q",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sylow",
+    "name": "not_dvd_index",
+    "statement": "Sylow p G) [P.FiniteIndex] : \u00ac p \u2223 P.index",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "P.finite_of_finiteIndex",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sylow",
+    "name": "mapSurjective_surjective",
+    "statement": "\u2115) [Fact p.Prime] : Function.Surjective (Sylow.mapSurjective hf : Sylow p G \u2192 Sylow p G')",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite G'",
+        "body": "Finite.of_surjective f hf",
+        "children": []
+      },
+      {
+        "name": "hPQ",
+        "type": "Q.map f \u2264 P",
+        "body": "Subgroup.map_le_iff_le_comap.mpr (Subgroup.map_subtype_le Q\u2080.1)",
+        "children": []
+      },
+      {
+        "name": "hpQ",
+        "type": "IsPGroup p Q",
+        "body": "Q\u2080.2.map (P.comap f).subtype",
+        "children": []
+      },
+      {
+        "name": "hQ",
+        "type": "\u00ac p \u2223 Q.index",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sylow",
+    "name": "normalizer_sup_eq_top",
+    "statement": "\u2115} [Fact p.Prime] {N : Subgroup G} [N.Normal] [Finite (Sylow p N)] (P : Sylow p N) : normalizer (P.map N.subtype) \u2294 N = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Function.Injective (MulAut.conj (n * g)).toMonoidHom",
+        "body": "(MulAut.conj (n * g)).injective",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sylow",
+    "name": "mem_fixedPoints_mul_left_cosets_iff_mem_normalizer",
+    "statement": "Subgroup G} [Finite (H : Set G)] {x : G} : (x : G \u29f8 H) \u2208 MulAction.fixedPoints H (G \u29f8 H) \u2194 x \u2208 normalizer H",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(n\u207b\u00b9 * x)\u207b\u00b9 * x \u2208 H",
+        "body": "QuotientGroup.eq.1 (ha \u27e8\u27e8n\u207b\u00b9, inv_mem hn\u27e9, rfl\u27e9)",
+        "children": [
+          {
+            "name": "hb\u2082",
+            "type": "(b * x)\u207b\u00b9 * y \u2208 H",
+            "body": "QuotientGroup.eq.1 hb\u2082",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Sylow",
+    "name": "card_normalizer_modEq_card",
+    "statement": "\u2115} {n : \u2115} [hp : Fact p.Prime] {H : Subgroup G} (hH : Nat.card H = p ^ n) : Nat.card (normalizer (H : Set G)) \u2261 Nat.card G [MOD p ^ (n + 1)]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "H.subgroupOf (normalizer H) \u2243 H",
+        "body": "(subgroupOfEquivOfLe le_normalizer).toEquiv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sylow",
+    "name": "exists_subgroup_card_pow_succ",
+    "statement": "\u2115} {n : \u2115} [hp : Fact p.Prime] (hdvd : p ^ (n + 1) \u2223 Nat.card G) {H : Subgroup G} (hH : Nat.card H = p ^ n) : \u2203 K : Subgroup G, Nat.card K = p ^ (n + 1) \u2227 H \u2264 K",
+    "have_tree": [
+      {
+        "name": "hm'",
+        "type": "p \u2223 Nat.card (normalizer H \u29f8 H.subgroupOf (normalizer H))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hequiv",
+        "type": "H \u2243 H.subgroupOf (normalizer H)",
+        "body": "(subgroupOfEquivOfLe le_normalizer).symm.toEquiv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sylow",
+    "name": "exists_subgroup_card_pow_prime_le",
+    "statement": "\u2115) : \u2200 {n m : \u2115} [_hp : Fact p.Prime] (_hdvd : p ^ m \u2223 Nat.card G) (H : Subgroup G) (_hH : Nat.card H = p ^ n) (_hnm : n \u2264 m), \u2203 K : Subgroup G, Nat.card K = p ^ m \u2227 H \u2264 K | n, m => fun {hdvd H hH hnm} => (lt_or_eq_of_le hnm).elim (fun hnm : n < m => have h0m : 0 < m",
+    "have_tree": [
+      {
+        "name": "hdvd'",
+        "type": "p ^ (m - 1 + 1) \u2223 Nat.card G",
+        "body": "by rwa [tsub_add_cancel_of_le h0m.nat_succ_le]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sylow",
+    "name": "exists_subgroup_card_pow_prime_of_le_card",
+    "statement": "\u2115} (hp : p.Prime) (h : IsPGroup p G) (hn : p ^ n \u2264 Nat.card G) : \u2203 H : Subgroup G, Nat.card H = p ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact p.Prime",
+        "body": "\u27e8hp\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Finite G",
+        "body": "Nat.finite_of_card_ne_zero <| by linarith [Nat.one_le_pow n p hp.pos]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sylow",
+    "name": "dvd_card_of_dvd_card",
+    "statement": "\u2115} [Fact p.Prime] (P : Sylow p G) (hdvd : p \u2223 Nat.card G) : p \u2223 Nat.card P",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "P.pow_dvd_card_of_pow_dvd_card hdvd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sylow",
+    "name": "ne_bot_of_dvd_card",
+    "statement": "\u2115} [hp : Fact p.Prime] (P : Sylow p G) (hdvd : p \u2223 Nat.card G) : (P : Subgroup G) \u2260 \u22a5",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "p \u2223 Nat.card P",
+        "body": "P.dvd_card_of_dvd_card hdvd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sylow",
+    "name": "characteristic_of_normal",
+    "statement": "\u2115} [Fact p.Prime] [Finite (Sylow p G)] (P : Sylow p G) (h : P.Normal) : P.Characteristic",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "unique_of_normal P h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sylow",
+    "name": "normalizer_normalizer",
+    "statement": "\u2115} [Fact p.Prime] [Finite (Sylow p G)] (P : Sylow p G) : normalizer (normalizer (P : Set G)) = normalizer (P : Set G)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "normal_of_normalizer_normal (P.subtype (le_normalizer.trans le_normalizer))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sylow",
+    "name": "normal_of_all_max_subgroups_normal",
+    "statement": "\u2200 H : Subgroup G, IsCoatom H \u2192 H.Normal) {p : \u2115} [Fact p.Prime] [Finite (Sylow p G)] (P : Sylow p G) : P.Normal",
+    "have_tree": [
+      {
+        "name": "hPK",
+        "type": "P \u2264 K",
+        "body": "le_trans le_normalizer hNK",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sylow",
+    "name": "directProductOfNormal",
+    "statement": "\u2200 {p : \u2115} [Fact p.Prime] (P : Sylow p G), P.Normal) : (\u2200 p : (Nat.card G).primeFactors, \u2200 P : Sylow p G, P) \u2243* G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite G",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 p, Fintype (P p)",
+        "body": "fun p \u21a6 Fintype.ofFinite (P p)",
+        "children": [
+          {
+            "name": "hne'",
+            "type": "p\u2081 \u2260 p\u2082",
+            "body": "by simpa using hne",
+            "children": []
+          },
+          {
+            "name": "hne'",
+            "type": "p\u2081 \u2260 p\u2082",
+            "body": "by simpa using hne",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

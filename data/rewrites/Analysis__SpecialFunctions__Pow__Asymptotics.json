@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Asymptotics",
+      "name": "isLittleO_log_rpow_rpow_atTop",
+      "statement": "\u211d} (r : \u211d) (hs : 0 < s) : (fun x => log x ^ r) =o[atTop] fun x => x ^ s",
+      "have_tree": [
+        {
+          "name": "hr",
+          "type": "0 < r'",
+          "body": "lt_max_iff.2 <| Or.inr one_pos",
+          "children": []
+        },
+        {
+          "name": "H",
+          "type": "0 < s / r'",
+          "body": "div_pos hs hr",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Asymptotics",
+          "name": "isLittleO_log_rpow_rpow_atTop",
+          "statement": "\u211d} (r : \u211d) (hs : 0 < s) : (fun x => log x ^ r) =o[atTop] fun x => x ^ s",
+          "have_tree": [
+            {
+              "name": "H",
+              "type": "0 < s / r'",
+              "body": "div_pos hs hr",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "0 < r'",
+              "body": "lt_max_iff.2 <| Or.inr one_pos",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "module": "SmoothApprox",
+    "name": "Continuous.exists_contMDiff_approx_and_eqOn",
+    "statement": "\u2115\u221e) (f_cont : Continuous f) (\u03b5_cont : Continuous \u03b5) (\u03b5_pos : \u2200 x, 0 < \u03b5 x) {S U : Set M} (hS : IsClosed S) (hU : U \u2208 \ud835\udcdd\u02e2 S) (hfU : CMDiff[U] n f) : \u2203 g : C^n\u27eeI, M; \ud835\udcd8(\u211d, F), F\u27ef, (\u2200 x, dist (g x) (f x) < \u03b5 x) \u2227 EqOn g f S \u2227 support g \u2286 support f",
+    "have_tree": [
+      {
+        "name": "dist_f_f",
+        "type": "\u2200 x, dist (f x) (f x) < \u03b5 x",
+        "body": "by simpa only [dist_self] using \u03b5_pos",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Convex \u211d (t x)",
+        "body": "(convex_ball (f x) (\u03b5 x)).inter <|",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200\u1da0 y in \ud835\udcdd x, (y \u2209 S \u2227 dist (f x) (f y) < \u03b5 y) \u2227 (f y = 0 \u2192 f x = 0)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

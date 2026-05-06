@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Finiteness",
+    "name": "Submodule.isQuotientEquivQuotientPrime_iff",
+    "statement": "Submodule A M} : N\u2081.IsQuotientEquivQuotientPrime N\u2082 \u2194 \u2203 x, Ideal.IsPrime ((\u22a5 : Submodule A (M \u29f8 N\u2081)).colon {N\u2081.mkQ x}) \u2227 N\u2082 = N\u2081 \u2294 span A {x}",
+    "have_tree": [
+      {
+        "name": "hf\u2081",
+        "type": "ker f = \u22a5",
+        "body": "ker_liftQ_eq_bot _ _ _ (by simp [ker_comp, submoduleOf])",
+        "children": []
+      },
+      {
+        "name": "hf\u2082",
+        "type": "range f = N\u2082.map N\u2081.mkQ",
+        "body": "by simp [f, mapQ, range_liftQ, range_comp]",
+        "children": [
+          {
+            "name": "hx''",
+            "type": "N\u2081.mkQ x = f (e.symm 1)",
+            "body": "by simp [f, \u2190 hx']",
+            "children": [
+              {
+                "name": "_",
+                "type": "(span A {x}).map N\u2081.mkQ = ((span A {1}).map e.symm.toLinearMap).map f",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "",
+                "body": "congr($(hx').submoduleOf N\u2082)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

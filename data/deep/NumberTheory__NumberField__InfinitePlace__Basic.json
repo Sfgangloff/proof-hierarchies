@@ -1,0 +1,67 @@
+[
+  {
+    "module": "Basic",
+    "name": "_root_.NumberField.is_primitive_element_of_infinitePlace_lt",
+    "statement": "\ud835\udcde K} {w : InfinitePlace K} (h\u2081 : x \u2260 0) (h\u2082 : \u2200 \u2983w'\u2984, w' \u2260 w \u2192 w' x < 1) (h\u2083 : IsReal w \u2228 |(w.embedding x).re| < 1) : \u211a\u27ee(x : K)\u27ef = \u22a4",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "1 \u2264 w x",
+        "body": "one_le_of_lt_one h\u2081 h\u2082",
+        "children": []
+      },
+      {
+        "name": "main",
+        "type": "w = InfinitePlace.mk \u03c8.toRingHom",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(embedding w x).im = 0",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "",
+                "body": "RingHom.congr_fun h' x",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "nrRealPlaces_eq_zero_of_two_lt",
+    "statement": "2 < k) (h\u03b6 : IsPrimitiveRoot \u03b6 k) : NumberField.InfinitePlace.nrRealPlaces K = 0",
+    "have_tree": [
+      {
+        "name": "h\u03b6'",
+        "type": "IsPrimitiveRoot (f \u03b6) k",
+        "body": "h\u03b6.map_of_injective f.injective",
+        "children": []
+      },
+      {
+        "name": "him",
+        "type": "(f \u03b6).im = 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hre",
+        "type": "(f \u03b6).re = 1 \u2228 (f \u03b6).re = -1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Complex.norm_eq_one_of_pow_eq_one h\u03b6'.pow_eq_one (by lia)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "module": "LeftRightLim",
+    "name": "leftLim_eq_of_tendsto",
+    "statement": "TopologicalSpace \u03b1] [h'\u03b1 : OrderTopology \u03b1] [T2Space \u03b2] {f : \u03b1 \u2192 \u03b2} {a : \u03b1} {y : \u03b2} (h : \ud835\udcdd[<] a \u2260 \u22a5) (h' : Tendsto f (\ud835\udcdd[<] a) (\ud835\udcdd y)) : leftLim f a = y",
+    "have_tree": [
+      {
+        "name": "h''",
+        "type": "\u2203 y, Tendsto f (\ud835\udcdd[<] a) (\ud835\udcdd y)",
+        "body": "\u27e8y, h'\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LeftRightLim",
+    "name": "leftLim_eq_of_isBot",
+    "statement": "\u03b1 \u2192 \u03b2} {a : \u03b1} (ha : IsBot a) : leftLim f a = f a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "OrderTopology \u03b1",
+        "body": "\u27e8rfl\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LeftRightLim",
+    "name": "mapClusterPt_leftLim",
+    "statement": "\u03b1 \u2192 \u03b2) (a : \u03b1) : MapClusterPt (f.leftLim a) (\ud835\udcdd[\u2264] a) f",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "(\ud835\udcdd (f a) \u2293 map f (\ud835\udcdd[\u2264] a)).NeBot",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "MapClusterPt (f.leftLim a) (\ud835\udcdd[<] a) f",
+        "body": "(tendsto_leftLim_of_tendsto H).mapClusterPt",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LeftRightLim",
+    "name": "continuousWithinAt_leftLim_Iic",
+    "statement": "\u03b1 \u2192 \u03b2} {a : \u03b1} (h : Tendsto f (\ud835\udcdd[<] a) (\ud835\udcdd (f.leftLim a))) : ContinuousWithinAt f.leftLim (Iic a) a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(closed_nhds_basis (f.leftLim a)).tendsto_right_iff.1 h s \u27e8s_mem, s_closed\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LeftRightLim",
+    "name": "leftLim_rightLim",
+    "statement": "\u03b1 \u2192 \u03b2} {a : \u03b1} (h : Tendsto f (\ud835\udcdd[<] a) (\ud835\udcdd (f.leftLim a))) [h' : (\ud835\udcdd[<] a).NeBot] : f.rightLim.leftLim a = f.leftLim a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(closed_nhds_basis (f.leftLim a)).tendsto_right_iff.1 h s \u27e8s_mem, s_closed\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LeftRightLim",
+    "name": "continuousWithinAt_Iio_iff_leftLim_eq",
+    "statement": "ContinuousWithinAt f (Iio x) x \u2194 leftLim f x = f x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.tendsto_leftLim x",
+        "children": []
+      }
+    ]
+  }
+]

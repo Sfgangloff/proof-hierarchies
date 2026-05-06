@@ -1,0 +1,210 @@
+[
+  {
+    "original": {
+      "module": "KrullDimension",
+      "name": "krullDim_eq_iSup_height_add_coheight_of_nonempty",
+      "statement": "krullDim \u03b1 = \u2191(\u2a06 (a : \u03b1), height a + coheight a)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "height a < \u22a4",
+          "body": "WithBot.coe_lt_coe.mp (lt_of_le_of_lt (height_le_krullDim a) hnottop)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "coheight a < \u22a4",
+          "body": "WithBot.coe_lt_coe.mp (lt_of_le_of_lt (coheight_le_krullDim a) hnottop)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "KrullDimension",
+          "name": "krullDim_eq_iSup_height_add_coheight_of_nonempty",
+          "statement": "krullDim \u03b1 = \u2191(\u2a06 (a : \u03b1), height a + coheight a)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "coheight a < \u22a4",
+              "body": "WithBot.coe_lt_coe.mp (lt_of_le_of_lt (coheight_le_krullDim a) hnottop)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "height a < \u22a4",
+              "body": "WithBot.coe_lt_coe.mp (lt_of_le_of_lt (height_le_krullDim a) hnottop)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "KrullDimension",
+      "name": "height_le_of_krullDim_preimage_le",
+      "statement": "\u03b1) : Order.height x \u2264 (m + 1) * Order.height (f x) + m",
+      "have_tree": [
+        {
+          "name": "h_lt",
+          "type": "n' < n",
+          "body": "ENat.coe_lt_coe.mp",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "(length_le_height_last (p := p.take i)).trans <| ih n' h_lt (p i) hn'.symm",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "(LTSeries.length_le_krullDim q).trans (h (f x))",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "p.length > m",
+          "body": "ENat.coe_lt_coe.mp ((le_add_left le_rfl).trans_lt h_len)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "KrullDimension",
+          "name": "height_le_of_krullDim_preimage_le",
+          "statement": "\u03b1) : Order.height x \u2264 (m + 1) * Order.height (f x) + m",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "(length_le_height_last (p := p.take i)).trans <| ih n' h_lt (p i) hn'.symm",
+              "children": []
+            },
+            {
+              "name": "h_lt",
+              "type": "n' < n",
+              "body": "ENat.coe_lt_coe.mp",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(LTSeries.length_le_krullDim q).trans (h (f x))",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "p.length > m",
+              "body": "ENat.coe_lt_coe.mp ((le_add_left le_rfl).trans_lt h_len)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "KrullDimension",
+          "name": "height_le_of_krullDim_preimage_le",
+          "statement": "\u03b1) : Order.height x \u2264 (m + 1) * Order.height (f x) + m",
+          "have_tree": [
+            {
+              "name": "h_lt",
+              "type": "n' < n",
+              "body": "ENat.coe_lt_coe.mp",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(LTSeries.length_le_krullDim q).trans (h (f x))",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(length_le_height_last (p := p.take i)).trans <| ih n' h_lt (p i) hn'.symm",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "p.length > m",
+              "body": "ENat.coe_lt_coe.mp ((le_add_left le_rfl).trans_lt h_len)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "KrullDimension",
+          "name": "height_le_of_krullDim_preimage_le",
+          "statement": "\u03b1) : Order.height x \u2264 (m + 1) * Order.height (f x) + m",
+          "have_tree": [
+            {
+              "name": "h_lt",
+              "type": "n' < n",
+              "body": "ENat.coe_lt_coe.mp",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(length_le_height_last (p := p.take i)).trans <| ih n' h_lt (p i) hn'.symm",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "p.length > m",
+              "body": "ENat.coe_lt_coe.mp ((le_add_left le_rfl).trans_lt h_len)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(LTSeries.length_le_krullDim q).trans (h (f x))",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

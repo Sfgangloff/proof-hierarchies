@@ -1,0 +1,67 @@
+[
+  {
+    "module": "Sylow",
+    "name": "mem_fixedPoints_mul_left_cosets_iff_mem_normalizer",
+    "statement": "Subgroup G} [Finite (H : Set G)] {x : G} : (x : G \u29f8 H) \u2208 MulAction.fixedPoints H (G \u29f8 H) \u2194 x \u2208 normalizer H",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "\u2200 {y : G \u29f8 H}, y \u2208 orbit H (x : G \u29f8 H) \u2192 y = x",
+        "body": "mem_fixedPoints'.1 hx _",
+        "children": [
+          {
+            "name": "_",
+            "type": "(n\u207b\u00b9 * x)\u207b\u00b9 * x \u2208 H",
+            "body": "QuotientGroup.eq.1 (ha \u27e8\u27e8n\u207b\u00b9, inv_mem hn\u27e9, rfl\u27e9)",
+            "children": [
+              {
+                "name": "hb\u2082",
+                "type": "(b * x)\u207b\u00b9 * y \u2208 H",
+                "body": "QuotientGroup.eq.1 hb\u2082",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Sylow",
+    "name": "directProductOfNormal",
+    "statement": "\u2200 {p : \u2115} [Fact p.Prime] (P : Sylow p G), P.Normal) : (\u2200 p : (Nat.card G).primeFactors, \u2200 P : Sylow p G, P) \u2243* G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite G",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 p, Fintype (P p)",
+        "body": "fun p \u21a6 Fintype.ofFinite (P p)",
+        "children": []
+      },
+      {
+        "name": "hcomm",
+        "type": "Pairwise fun p\u2081 p\u2082 : ps => \u2200 x y : G, x \u2208 P p\u2081 \u2192 y \u2208 P p\u2082 \u2192 Commute x y",
+        "body": "by",
+        "children": [
+          {
+            "name": "hne'",
+            "type": "p\u2081 \u2260 p\u2082",
+            "body": "by simpa using hne",
+            "children": []
+          },
+          {
+            "name": "hne'",
+            "type": "p\u2081 \u2260 p\u2082",
+            "body": "by simpa using hne",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

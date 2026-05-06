@@ -1,0 +1,192 @@
+[
+  {
+    "module": "SmoothingSeminorm",
+    "name": "tendsto_smoothingFun_of_eq_zero",
+    "statement": "R} (hx : \u03bc x = 0) : Tendsto (smoothingSeminormSeq \u03bc x) atTop (\ud835\udcdd (smoothingFun \u03bc x))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2115) (hn : 1 \u2264 n) : \u03bc (x ^ n) ^ (1 / (n : \u211d)) = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h\u03bcn",
+            "type": "\u03bc (x ^ n) = 0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hL0",
+        "type": "(iInf fun n : PNat => \u03bc (x ^ (n : \u2115)) ^ (1 / (n : \u211d))) = 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SmoothingSeminorm",
+    "name": "tendsto_smoothingFun_of_ne_zero",
+    "statement": "\u03bc 1 \u2264 1) {x : R} (hx : \u03bc x \u2260 0) : Tendsto (smoothingSeminormSeq \u03bc x) atTop (\ud835\udcdd (smoothingFun \u03bc x))",
+    "have_tree": [
+      {
+        "name": "hL0",
+        "type": "0 \u2264 L",
+        "body": "le_ciInf fun x => rpow_nonneg (apply_nonneg _ _) _",
+        "children": [
+          {
+            "name": "h\u03b52",
+            "type": "0 < \u03b5 / 2",
+            "body": "half_pos h\u03b5",
+            "children": []
+          },
+          {
+            "name": "hL2",
+            "type": "",
+            "body": "smoothingSeminormSeq_tendsto_aux \u03bc hL0 h\u03b52 (PNat.pos m1) hx",
+            "children": []
+          },
+          {
+            "name": "h\u03b4",
+            "type": "0 < \u03b4",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hn0",
+        "type": "0 < n",
+        "body": "lt_of_lt_of_le (lt_of_lt_of_le (PNat.pos m1) (le_max_left (m1 : \u2115) m2)) hn",
+        "children": []
+      },
+      {
+        "name": "hL_le",
+        "type": "L \u2264 smoothingSeminormSeq \u03bc x n",
+        "body": "by",
+        "children": [
+          {
+            "name": "hL\u03b5",
+            "type": "0 < L + \u03b5",
+            "body": "add_pos_of_nonneg_of_pos hL0 h\u03b5",
+            "children": []
+          },
+          {
+            "name": "hxn'",
+            "type": "0 < \u03bc (x ^ (n % \u2191m1))",
+            "body": "lt_of_le_of_ne (apply_nonneg _ _) (Ne.symm hxn)",
+            "children": []
+          },
+          {
+            "name": "hL0'",
+            "type": "0 < L + \u03b5 / 2",
+            "body": "add_pos_of_nonneg_of_pos hL0 (half_pos h\u03b5)",
+            "children": [
+              {
+                "name": "hm10",
+                "type": "(m1 : \u211d) \u2260 0",
+                "body": "cast_ne_zero.mpr (_root_.ne_of_gt (PNat.pos m1))",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "(n : \u211d) / n = (1 : \u211d)",
+                "body": "div_self (cast_ne_zero.mpr (_root_.ne_of_gt hn0))",
+                "children": []
+              },
+              {
+                "name": "h_lt",
+                "type": "0 < ((n / m1 : \u2115) : \u211d) / (n : \u211d)",
+                "body": "",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "h2",
+            "type": "\u03bc (x ^ (n % m1)) ^ (1 / (n : \u211d)) \u2264 (\u03bc x ^ (n % m1)) ^ (1 / (n : \u211d))",
+            "body": "by",
+            "children": [
+              {
+                "name": "heq",
+                "type": "L + \u03b5 = L + \u03b5 / 2 + \u03b5 / 2",
+                "body": "by rw [add_assoc, add_halves]",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "h4",
+            "type": "0 < \u03bc (x ^ (n % \u2191m1)) ^ (1 / (n : \u211d))",
+            "body": "rpow_pos_of_pos hxn' _",
+            "children": []
+          },
+          {
+            "name": "h5",
+            "type": "0 < (L + \u03b5 / 2) * (L + \u03b5 / 2) ^ (-(\u2191(n % \u2191m1) / (n : \u211d)))",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "SmoothingSeminorm",
+    "name": "isNonarchimedean_smoothingFun",
+    "statement": "\u03bc 1 \u2264 1) (hna : IsNonarchimedean \u03bc) : IsNonarchimedean (smoothingFun \u03bc)",
+    "have_tree": [
+      {
+        "name": "hmu_le",
+        "type": "\u2200 n : \u2115, mu n \u2264 n",
+        "body": "fun n => mu_le \u03bc hn n",
+        "children": []
+      },
+      {
+        "name": "hmu_bdd",
+        "type": "\u2200 n : \u2115, (mu n : \u211d) / n \u2208 Set.Icc (0 : \u211d) 1",
+        "body": "fun n => mu_bdd \u03bc hn n",
+        "children": []
+      },
+      {
+        "name": "hs",
+        "type": "Bornology.IsBounded (Set.Icc (0 : \u211d) 1)",
+        "body": "Metric.isBounded_Icc 0 1",
+        "children": []
+      },
+      {
+        "name": "hb_lim",
+        "type": "Tendsto ((fun n : \u2115 => (nu n : \u211d) / \u2191n) \u2218 \u03c8) atTop (\ud835\udcdd b)",
+        "body": "by",
+        "children": [
+          {
+            "name": "h0",
+            "type": "(\u03c8 m : \u211d) \u2260 0",
+            "body": "cast_ne_zero.mpr (_root_.ne_of_gt (lt_of_le_of_lt (_root_.zero_le _)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "b_in",
+        "type": "b \u2208 Set.Icc (0 : \u211d) 1",
+        "body": "Set.Icc.mem_iff_one_sub_mem.mp a_in",
+        "children": []
+      },
+      {
+        "name": "hnu_le",
+        "type": "\u2200 n : \u2115, nu n \u2264 n",
+        "body": "fun n => by simp only [hnu, tsub_le_self]",
+        "children": [
+          {
+            "name": "h_bdd",
+            "type": "IsBoundedUnder LE.le atTop fun n : \u2115 => \u03bc (y ^ nu (\u03c8 n)) ^ (1 / (\u03c8 n : \u211d))",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

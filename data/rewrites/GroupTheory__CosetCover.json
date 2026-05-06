@@ -1,0 +1,219 @@
+[
+  {
+    "original": {
+      "module": "CosetCover",
+      "name": "exists_finiteIndex_of_leftCoset_cover_aux",
+      "statement": "\u03b9) (hj : j \u2208 s) (hcovers' : \u22c3 i \u2208 s.filter (H \u00b7 = H j), g i \u2022 (H i : Set G) \u2260 Set.univ) : \u2203 i \u2208 s, H i \u2260 H j \u2227 (H i).FiniteIndex",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "Finset.mem_filter.mp k.1.property",
+          "children": []
+        },
+        {
+          "name": "hn'",
+          "type": "(Finset.univ.image K).card < n",
+          "body": "hn \u25b8 by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "CosetCover",
+          "name": "exists_finiteIndex_of_leftCoset_cover_aux",
+          "statement": "\u03b9) (hj : j \u2208 s) (hcovers' : \u22c3 i \u2208 s.filter (H \u00b7 = H j), g i \u2022 (H i : Set G) \u2260 Set.univ) : \u2203 i \u2208 s, H i \u2260 H j \u2227 (H i).FiniteIndex",
+          "have_tree": [
+            {
+              "name": "hn'",
+              "type": "(Finset.univ.image K).card < n",
+              "body": "hn \u25b8 by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Finset.mem_filter.mp k.1.property",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "CosetCover",
+      "name": "leftCoset_cover_filter_FiniteIndex_aux",
+      "statement": "Subgroup G \u2192 Prop)] : (\u22c3 k \u2208 s.filter (fun i => (H i).FiniteIndex), g k \u2022 (H k : Set G) = Set.univ) \u2227 (1 \u2264 \u2211 i \u2208 s, ((H i).index : \u211a)\u207b\u00b9) \u2227 (\u2211 i \u2208 s, ((H i).index : \u211a)\u207b\u00b9 = 1 \u2192 Set.PairwiseDisjoint (s.filter (fun i => (H i).FiniteIndex)) (fun i \u21a6 g i \u2022 (H i : Set G)))",
+      "have_tree": [
+        {
+          "name": "hD",
+          "type": "D.FiniteIndex",
+          "body": "finiteIndex_iInf' _ <| by simp",
+          "children": [
+            {
+              "name": "hdisjoint",
+              "type": "",
+              "body": "pairwiseDisjoint_leftCoset_cover_const_of_index_eq hcovers' h.symm",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "CosetCover",
+          "name": "leftCoset_cover_filter_FiniteIndex_aux",
+          "statement": "Subgroup G \u2192 Prop)] : (\u22c3 k \u2208 s.filter (fun i => (H i).FiniteIndex), g k \u2022 (H k : Set G) = Set.univ) \u2227 (1 \u2264 \u2211 i \u2208 s, ((H i).index : \u211a)\u207b\u00b9) \u2227 (\u2211 i \u2208 s, ((H i).index : \u211a)\u207b\u00b9 = 1 \u2192 Set.PairwiseDisjoint (s.filter (fun i => (H i).FiniteIndex)) (fun i \u21a6 g i \u2022 (H i : Set G)))",
+          "have_tree": [
+            {
+              "name": "hD",
+              "type": "D.FiniteIndex",
+              "body": "finiteIndex_iInf' _ <| by simp",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "CosetCover",
+          "name": "leftCoset_cover_filter_FiniteIndex_aux",
+          "statement": "Subgroup G \u2192 Prop)] : (\u22c3 k \u2208 s.filter (fun i => (H i).FiniteIndex), g k \u2022 (H k : Set G) = Set.univ) \u2227 (1 \u2264 \u2211 i \u2208 s, ((H i).index : \u211a)\u207b\u00b9) \u2227 (\u2211 i \u2208 s, ((H i).index : \u211a)\u207b\u00b9 = 1 \u2192 Set.PairwiseDisjoint (s.filter (fun i => (H i).FiniteIndex)) (fun i \u21a6 g i \u2022 (H i : Set G)))",
+          "have_tree": [
+            {
+              "name": "hdisjoint",
+              "type": "",
+              "body": "pairwiseDisjoint_leftCoset_cover_const_of_index_eq hcovers' h.symm",
+              "children": []
+            },
+            {
+              "name": "hD",
+              "type": "D.FiniteIndex",
+              "body": "finiteIndex_iInf' _ <| by simp",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "CosetCover",
+      "name": "Subspace.biUnion_ne_univ_of_top_notMem",
+      "statement": "\u22a4 \u2209 s) : \u22c3 p \u2208 s, (p : Set E) \u2260 Set.univ",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Finite (E \u29f8 p)",
+          "body": "AddSubgroup.finite_quotient_of_finiteIndex",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Nontrivial (E \u29f8 p)",
+          "body": "Submodule.Quotient.nontrivial_iff.mpr (ne_of_mem_of_not_mem hp hs)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Infinite (E \u29f8 p)",
+          "body": "Module.Free.infinite k (E \u29f8 p)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "CosetCover",
+          "name": "Subspace.biUnion_ne_univ_of_top_notMem",
+          "statement": "\u22a4 \u2209 s) : \u22c3 p \u2208 s, (p : Set E) \u2260 Set.univ",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Nontrivial (E \u29f8 p)",
+              "body": "Submodule.Quotient.nontrivial_iff.mpr (ne_of_mem_of_not_mem hp hs)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Finite (E \u29f8 p)",
+              "body": "AddSubgroup.finite_quotient_of_finiteIndex",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Infinite (E \u29f8 p)",
+              "body": "Module.Free.infinite k (E \u29f8 p)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "CosetCover",
+          "name": "Subspace.biUnion_ne_univ_of_top_notMem",
+          "statement": "\u22a4 \u2209 s) : \u22c3 p \u2208 s, (p : Set E) \u2260 Set.univ",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Finite (E \u29f8 p)",
+              "body": "AddSubgroup.finite_quotient_of_finiteIndex",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Infinite (E \u29f8 p)",
+              "body": "Module.Free.infinite k (E \u29f8 p)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Nontrivial (E \u29f8 p)",
+              "body": "Submodule.Quotient.nontrivial_iff.mpr (ne_of_mem_of_not_mem hp hs)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

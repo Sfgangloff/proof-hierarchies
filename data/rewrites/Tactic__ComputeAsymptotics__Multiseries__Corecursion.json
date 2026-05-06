@@ -1,0 +1,72 @@
+[
+  {
+    "original": {
+      "module": "Corecursion",
+      "name": "FriendlyOperation.exists_fixed_point",
+      "statement": "\u03b2 \u2192 Option (\u03b1 \u00d7 \u03b3 \u00d7 \u03b2)) (op : \u03b3 \u2192 Seq \u03b1 \u2192 Seq \u03b1) [h : FriendlyOperationClass op] : \u2203 f : \u03b2 \u2192 Seq \u03b1, \u2200 b : \u03b2, match F b with | none => f b = nil | some (a, c, b') => f b = Seq.cons a (op c (f b'))",
+      "have_tree": [
+        {
+          "name": "hT",
+          "type": "LipschitzWith 2\u207b\u00b9 T",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "h.friend c",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Corecursion",
+          "name": "FriendlyOperation.exists_fixed_point",
+          "statement": "\u03b2 \u2192 Option (\u03b1 \u00d7 \u03b3 \u00d7 \u03b2)) (op : \u03b3 \u2192 Seq \u03b1 \u2192 Seq \u03b1) [h : FriendlyOperationClass op] : \u2203 f : \u03b2 \u2192 Seq \u03b1, \u2200 b : \u03b2, match F b with | none => f b = nil | some (a, c, b') => f b = Seq.cons a (op c (f b'))",
+          "have_tree": [
+            {
+              "name": "hT",
+              "type": "LipschitzWith 2\u207b\u00b9 T",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Corecursion",
+          "name": "FriendlyOperation.exists_fixed_point",
+          "statement": "\u03b2 \u2192 Option (\u03b1 \u00d7 \u03b3 \u00d7 \u03b2)) (op : \u03b3 \u2192 Seq \u03b1 \u2192 Seq \u03b1) [h : FriendlyOperationClass op] : \u2203 f : \u03b2 \u2192 Seq \u03b1, \u2200 b : \u03b2, match F b with | none => f b = nil | some (a, c, b') => f b = Seq.cons a (op c (f b'))",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "h.friend c",
+              "children": []
+            },
+            {
+              "name": "hT",
+              "type": "LipschitzWith 2\u207b\u00b9 T",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

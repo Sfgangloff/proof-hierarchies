@@ -1,0 +1,90 @@
+[
+  {
+    "module": "Basic",
+    "name": "exists_nat_pow_near",
+    "statement": "1 \u2264 x) (hy : 1 < y) : \u2203 n : \u2115, y ^ n \u2264 x \u2227 x < y ^ (n + 1)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "\u2203 n : \u2115, x < y ^ n",
+        "body": "pow_unbounded_of_one_lt _ hy",
+        "children": [
+          {
+            "name": "hn",
+            "type": "x < y ^ n",
+            "body": "Nat.find_spec h",
+            "children": []
+          },
+          {
+            "name": "hnp",
+            "type": "0 < n",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "hnsp",
+            "type": "Nat.pred n + 1 = n",
+            "body": "Nat.succ_pred_eq_of_pos hnp",
+            "children": []
+          },
+          {
+            "name": "hltn",
+            "type": "Nat.pred n < n",
+            "body": "Nat.pred_lt (ne_of_gt hnp)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_pow_btwn",
+    "statement": "\u2115} (hn : n \u2260 0) {x y : K} (h : x < y) (hy : 0 < y) : \u2203 q : K, 0 < q \u2227 x < q ^ n \u2227 q ^ n < y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "uniform_continuous_npow_on_bounded (max 1 y)",
+        "children": []
+      },
+      {
+        "name": "ex",
+        "type": "\u2203 m : \u2115, y \u2264 (m * \u03b4) ^ n",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "exists_nat_ge (y / \u03b4 + 1 / \u03b4)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "m_pos",
+        "type": "0 < m",
+        "body": "(Nat.find_pos _).mpr <| by simpa [zero_pow hn] using hy",
+        "children": []
+      },
+      {
+        "name": "qny",
+        "type": "q ^ n < y",
+        "body": "lt_of_not_ge (Nat.find_min ex <| Nat.pred_lt m_pos.ne')",
+        "children": []
+      },
+      {
+        "name": "q1y",
+        "type": "|q| < max 1 y",
+        "body": "(abs_eq_self.mpr <| by positivity).trans_lt <| lt_max_iff.mpr",
+        "children": []
+      },
+      {
+        "name": "xqn",
+        "type": "max x 0 < q ^ n",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

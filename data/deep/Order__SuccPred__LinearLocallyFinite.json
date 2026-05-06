@@ -1,0 +1,60 @@
+[
+  {
+    "module": "LinearLocallyFinite",
+    "name": "isMax_of_succFn_le",
+    "statement": "\u03b9) (hi : succFn i \u2264 i) : IsMax i",
+    "have_tree": [
+      {
+        "name": "h_succFn_eq",
+        "type": "succFn i = i",
+        "body": "le_antisymm hi (le_succFn i)",
+        "children": []
+      },
+      {
+        "name": "h_glb",
+        "type": "IsGLB (Finset.Ioc i j : Set \u03b9) i",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "succFn_spec i",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hi_mem",
+        "type": "i \u2208 Finset.Ioc i j",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearLocallyFinite",
+    "name": "toZ_iterate_pred_of_not_isMin",
+    "statement": "\u2115) (hn : \u00acIsMin (pred^[n] i0)) : toZ i0 (pred^[n] i0) = -n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "pred^[n.succ] i0 < i0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_pred_eq_pred",
+            "type": "pred^[n.succ] i0 = pred^[0] i0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_eq",
+        "type": "pred^[m] i0 = pred^[n.succ] i0",
+        "body": "iterate_pred_toZ _ this",
+        "children": []
+      }
+    ]
+  }
+]

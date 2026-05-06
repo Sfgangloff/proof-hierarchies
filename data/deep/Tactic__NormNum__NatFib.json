@@ -1,0 +1,138 @@
+[
+  {
+    "module": "NatFib",
+    "name": "isFibAux_two_mul_add_one",
+    "statement": "\u2115} (H : IsFibAux n a b) (hn : 2 * n + 1 = n') (h1 : a * a + b * b = a') (h2 : b * (2 * a + b) = b') : IsFibAux n' a' b'",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "$en' =Q nat_lit 0",
+        "body": "\u27e8\u27e9;",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "$en' =Q nat_lit 1",
+        "body": "\u27e8\u27e9;",
+        "children": []
+      },
+      {
+        "name": "en",
+        "type": "Q(\u2115)",
+        "body": "mkRawNatLit <| n' / 2",
+        "children": [
+          {
+            "name": "hn",
+            "type": "Q(2 * $en = $en')",
+            "body": "(q(Eq.refl $en') : Expr)",
+            "children": []
+          },
+          {
+            "name": "ea'",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit <| a * (2 * b - a)",
+            "children": []
+          },
+          {
+            "name": "eb'",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit <| a * a + b * b",
+            "children": []
+          },
+          {
+            "name": "h1",
+            "type": "Q($ea * (2 * $eb - $ea) = $ea')",
+            "body": "(q(Eq.refl $ea') : Expr)",
+            "children": []
+          },
+          {
+            "name": "h2",
+            "type": "Q($ea * $ea + $eb * $eb = $eb')",
+            "body": "(q(Eq.refl $eb') : Expr)",
+            "children": []
+          },
+          {
+            "name": "hn",
+            "type": "Q(2 * $en + 1 = $en')",
+            "body": "(q(Eq.refl $en') : Expr)",
+            "children": []
+          },
+          {
+            "name": "ea'",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit <| a * a + b * b",
+            "children": []
+          },
+          {
+            "name": "eb'",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit <| b * (2 * a + b)",
+            "children": []
+          },
+          {
+            "name": "h1",
+            "type": "Q($ea * $ea + $eb * $eb = $ea')",
+            "body": "(q(Eq.refl $ea') : Expr)",
+            "children": []
+          },
+          {
+            "name": "h2",
+            "type": "Q($eb * (2 * $ea + $eb) = $eb')",
+            "body": "(q(Eq.refl $eb') : Expr)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "NatFib",
+    "name": "proveNatFib",
+    "statement": "Q(\u2115)) : (em : Q(\u2115)) \u00d7 Q(Nat.fib $en' = $em)",
+    "have_tree": [
+      {
+        "name": "en",
+        "type": "Q(\u2115)",
+        "body": "mkRawNatLit <| n' / 2",
+        "children": [
+          {
+            "name": "hn",
+            "type": "Q(2 * $en = $en')",
+            "body": "(q(Eq.refl $en') : Expr)",
+            "children": []
+          },
+          {
+            "name": "ea'",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit <| a * (2 * b - a)",
+            "children": []
+          },
+          {
+            "name": "h1",
+            "type": "Q($ea * (2 * $eb - $ea) = $ea')",
+            "body": "(q(Eq.refl $ea') : Expr)",
+            "children": []
+          },
+          {
+            "name": "hn",
+            "type": "Q(2 * $en + 1 = $en')",
+            "body": "(q(Eq.refl $en') : Expr)",
+            "children": []
+          },
+          {
+            "name": "ea'",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit <| a * a + b * b",
+            "children": []
+          },
+          {
+            "name": "h1",
+            "type": "Q($ea * $ea + $eb * $eb = $ea')",
+            "body": "(q(Eq.refl $ea') : Expr)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

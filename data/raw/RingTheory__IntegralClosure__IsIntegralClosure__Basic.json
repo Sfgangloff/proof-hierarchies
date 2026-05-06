@@ -1,0 +1,142 @@
+[
+  {
+    "module": "Basic",
+    "name": "IsIntegral.isUnit",
+    "statement": "S} (int : IsIntegral R x) (h0 : x \u2260 0) : IsUnit x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional R (R[x])",
+        "body": ".of_fg int.fg_adjoin_singleton",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsIntegral.inv_mem_adjoin",
+    "statement": "IsIntegral R x) : x\u207b\u00b9 \u2208 R[x]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional R (R[x])",
+        "body": ".of_fg int.fg_adjoin_singleton",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "RingHom.isIntegralElem_leadingCoeff_mul",
+    "statement": "p.eval\u2082 f x = 0) : f.IsIntegralElem (f p.leadingCoeff * x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "p \u2260 0",
+        "body": "fun h'' => by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isField",
+    "statement": "IsField R) : IsField A",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsIntegralClosure.isIntegral_algebra R (A := A) B",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isIntegral_trans",
+    "statement": "B) (hx : IsIntegral A x) : IsIntegral R x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.Finite R S",
+        "body": "\u27e8(Subalgebra.toSubmodule S).fg_top.mpr <|",
+        "children": []
+      },
+      {
+        "name": "hSx",
+        "type": "IsIntegral S x",
+        "body": "\u27e8p', (p.monic_toSubring _ _).mpr pmonic, by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite S Sx",
+        "body": ".of_fg hSx.fg_adjoin_singleton",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsScalarTower R S Sx",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "RingHom.IsIntegral.trans",
+    "statement": "f.IsIntegral) (hg : g.IsIntegral) : (g.comp f).IsIntegral",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsScalarTower R S T",
+        "body": "IsScalarTower.of_algebraMap_eq fun _ \u21a6 rfl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.IsIntegral R S",
+        "body": "\u27e8hf\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.IsIntegral S T",
+        "body": "\u27e8hg\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.IsIntegral R T",
+        "body": "Algebra.IsIntegral.trans S",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isField_of_isIntegral_of_isField",
+    "statement": "Function.Injective (algebraMap R S)) (hS : IsField S) : IsField R",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(faithfulSMul_iff_algebraMap_injective R S).mpr hRS",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Algebra.ker_algebraMap_isMaximal_of_isIntegral",
+    "statement": "Type*) [Field k] [Algebra R k] [Algebra.IsIntegral R k] : (RingHom.ker (algebraMap R k)).IsMaximal",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Ideal.bot_isMaximal (K := k)",
+        "children": []
+      }
+    ]
+  }
+]

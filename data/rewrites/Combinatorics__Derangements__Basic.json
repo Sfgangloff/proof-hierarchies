@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "RemoveNone.fiber_some",
+      "statement": "\u03b1) : RemoveNone.fiber (some a) = { f : Perm \u03b1 | fixedPoints f \u2286 {a} }",
+      "have_tree": [
+        {
+          "name": "ne_1",
+          "type": "some x \u2260 none",
+          "body": "Option.some_ne_none _",
+          "children": []
+        },
+        {
+          "name": "ne_2",
+          "type": "some x \u2260 some a",
+          "body": "(Option.some_injective \u03b1).ne_iff.mpr x_vs_a",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "RemoveNone.fiber_some",
+          "statement": "\u03b1) : RemoveNone.fiber (some a) = { f : Perm \u03b1 | fixedPoints f \u2286 {a} }",
+          "have_tree": [
+            {
+              "name": "ne_2",
+              "type": "some x \u2260 some a",
+              "body": "(Option.some_injective \u03b1).ne_iff.mpr x_vs_a",
+              "children": []
+            },
+            {
+              "name": "ne_1",
+              "type": "some x \u2260 none",
+              "body": "Option.some_ne_none _",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Factorization",
+    "name": "finite_factors'",
+    "statement": "FractionalIdeal R\u2070 K} (hI : I \u2260 0) {a : R} {J : Ideal R} (haJ : I = spanSingleton R\u2070 ((algebraMap R K) a)\u207b\u00b9 * \u2191J) : \u2200\u1da0 v : HeightOneSpectrum R in Filter.cofinite, ((Associates.mk v.asIdeal).count (Associates.mk J).factors : \u2124) - (Associates.mk v.asIdeal).count (Associates.mk (Ideal.span {a})).factors = 0",
+    "have_tree": [
+      {
+        "name": "ha_ne_zero",
+        "type": "Ideal.span {a} \u2260 0",
+        "body": "constant_factor_ne_zero hI haJ",
+        "children": []
+      },
+      {
+        "name": "hJ_ne_zero",
+        "type": "J \u2260 0",
+        "body": "ideal_factor_ne_zero hI haJ",
+        "children": [
+          {
+            "name": "hv_irred",
+            "type": "Irreducible v.asIdeal",
+            "body": "v.irreducible",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

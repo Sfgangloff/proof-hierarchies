@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Padic",
+    "name": "DividedPowers.ofInjective",
+    "statement": "A \u2192+* B) (hf : Injective f) (hJ : DividedPowers J) (hIJ : I.map f = J) (hmem : \u2200 (n : \u2115) {x : A} (_ : x \u2208 I), \u2203 (y : A) (_ : n \u2260 0 \u2192 y \u2208 I), f y = hJ.dpow n (f x)) : DividedPowers I where dpow n x",
+    "have_tree": [
+      {
+        "name": "hxy",
+        "type": "x + y \u2208 I",
+        "body": "Ideal.add_mem _ hx hy",
+        "children": []
+      },
+      {
+        "name": "hax",
+        "type": "a * x \u2208 I",
+        "body": "Ideal.mul_mem_left _ _ hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Padic",
+    "name": "dpow'_mem",
+    "statement": "\u2115} {x : \u2124_[p]} (hm : n \u2260 0) (hx : x \u2208 Ideal.span {\u2191p}) : \u27e8dpow' p n x, dpow'_int p n hx\u27e9 \u2208 Ideal.span {(p : \u2124_[p])}",
+    "have_tree": [
+      {
+        "name": "hiff",
+        "type": "",
+        "body": "PadicInt.norm_le_pow_iff_mem_span_pow \u27e8dpow' p n x, dpow'_int p n hx\u27e9 1",
+        "children": []
+      }
+    ]
+  }
+]

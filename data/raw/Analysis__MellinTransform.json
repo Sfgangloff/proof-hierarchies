@@ -1,0 +1,105 @@
+[
+  {
+    "module": "MellinTransform",
+    "name": "MellinConvergent.comp_mul_left",
+    "statement": "\u211d \u2192 E} {s : \u2102} {a : \u211d} (ha : 0 < a) : MellinConvergent (fun t => f (a * t)) s \u2194 MellinConvergent f s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "integrableOn_Ioi_comp_mul_left_iff (fun t : \u211d => (t : \u2102) ^ (s - 1) \u2022 f t) 0 ha",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MellinTransform",
+    "name": "mellin_convergent_top_of_isBigO",
+    "statement": "\u211d \u2192 \u211d} (hfc : AEStronglyMeasurable f <| volume.restrict (Ioi 0)) {a s : \u211d} (hf : f =O[atTop] (\u00b7 ^ (-a))) (hs : s < a) : \u2203 c : \u211d, 0 < c \u2227 IntegrableOn (fun t : \u211d => t ^ (s - 1) * f t) (Ioi c)",
+    "have_tree": [
+      {
+        "name": "he'",
+        "type": "0 < max e 1",
+        "body": "zero_lt_one.trans_le (le_max_right _ _)",
+        "children": [
+          {
+            "name": "ht'",
+            "type": "0 < t",
+            "body": "he'.trans ht",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "MellinTransform",
+    "name": "mellin_hasDerivAt_of_isBigO_rpow",
+    "statement": "\u211d} {f : \u211d \u2192 E} {s : \u2102} (hfc : LocallyIntegrableOn f (Ioi 0)) (hf_top : f =O[atTop] (\u00b7 ^ (-a))) (hs_top : s.re < a) (hf_bot : f =O[\ud835\udcdd[>] 0] (\u00b7 ^ (-b))) (hs_bot : b < s.re) : MellinConvergent (fun t => log t \u2022 f t) s \u2227 HasDerivAt (mellin f) (mellin (fun t => log t \u2022 f t) s) s",
+    "have_tree": [
+      {
+        "name": "h3",
+        "type": "AEStronglyMeasurable (F' s) (volume.restrict <| Ioi 0)",
+        "body": "by",
+        "children": [
+          {
+            "name": "hz'",
+            "type": "",
+            "body": "(re_le_norm _).trans hz.le",
+            "children": []
+          },
+          {
+            "name": "hz'",
+            "type": "",
+            "body": "(re_le_norm _).trans hz.le",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h5",
+        "type": "IntegrableOn bound (Ioi 0)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "main",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MellinTransform",
+    "name": "hasMellin_one_Ioc",
+    "statement": "\u2102} (hs : 0 < re s) : HasMellin (indicator (Ioc 0 1) (fun _ => 1 : \u211d \u2192 \u2102)) s (1 / s)",
+    "have_tree": [
+      {
+        "name": "aux1",
+        "type": "-1 < (s - 1).re",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "aux2",
+        "type": "s \u2260 0",
+        "body": "by contrapose! hs; rw [hs, zero_re]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MellinTransform",
+    "name": "hasMellin_cpow_Ioc",
+    "statement": "\u2102) {s : \u2102} (hs : 0 < re s + re a) : HasMellin (indicator (Ioc 0 1) (fun t => \u2191t ^ a : \u211d \u2192 \u2102)) s (1 / (s + a))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasMellin_one_Ioc (by rwa [add_re] : 0 < (s + a).re)",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,99 @@
+[
+  {
+    "module": "Lattice",
+    "name": "Finite.biUnion'",
+    "statement": "Set \u03b9} (hs : s.Finite) {t : \u2200 i \u2208 s, Set \u03b1} (ht : \u2200 i (hi : i \u2208 s), (t i hi).Finite) : (\u22c3 i \u2208 s, t i \u2039_\u203a).Finite",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lattice",
+    "name": "finite_iUnion_iff",
+    "statement": "Type*} {s : \u03b9 \u2192 Set \u03b1} (hs : Pairwise fun i j \u21a6 Disjoint (s i) (s j)) : (\u22c3 i, s i).Finite \u2194 (\u2200 i, (s i).Finite) \u2227 {i | (s i).Nonempty}.Finite where mp h",
+    "have_tree": [
+      {
+        "name": "u_inj",
+        "type": "Function.Injective u",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Finite (\u22c3 i, s i)",
+        "body": "h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lattice",
+    "name": "finite_subset_iUnion",
+    "statement": "Set \u03b1} (hs : s.Finite) {\u03b9} {t : \u03b9 \u2192 Set \u03b1} (h : s \u2286 \u22c3 i, t i) : \u2203 I : Set \u03b9, I.Finite \u2227 s \u2286 \u22c3 i \u2208 I, t i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lattice",
+    "name": "Infinite.biUnion",
+    "statement": "Type*} {s : \u03b9 \u2192 Set \u03b1} {a : Set \u03b9} (ha : a.Infinite) (hs : a.InjOn s) : (\u22c3 i \u2208 a, s i).Infinite",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ha.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lattice",
+    "name": "Infinite.sUnion",
+    "statement": "Set (Set \u03b1)} (hs : s.Infinite) : (\u22c3\u2080 s).Infinite",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lattice",
+    "name": "map_finite_biSup",
+    "statement": "Type*} [CompleteLattice \u03b1] [CompleteLattice \u03b2] [FunLike F \u03b1 \u03b2] [SupBotHomClass F \u03b1 \u03b2] {s : Set \u03b9} (hs : s.Finite) (f : F) (g : \u03b9 \u2192 \u03b1) : f (\u2a06 x \u2208 s, g x) = \u2a06 x \u2208 s, f (g x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "map_finset_sup f hs.toFinset g",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lattice",
+    "name": "DirectedOn.exists_mem_subset_of_finite_of_subset_sUnion",
+    "statement": "Type*} {c : Set (Set \u03b1)} (hn : c.Nonempty) (hc : DirectedOn (\u00b7 \u2286 \u00b7) c) {s : Set \u03b1} (hs : s.Finite) (hsc : s \u2286 sUnion c) : \u2203 t \u2208 c, s \u2286 t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "DirectedOn.exists_mem_subset_of_finset_subset_biUnion hn hc hsc",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Permutation",
+    "name": "mem_permutations_of_perm_lemma",
+    "statement": "List \u03b1} (H : l ~ [] ++ is \u2192 (\u2203 (ts' : _) (_ : ts' ~ []), l = ts' ++ is) \u2228 l \u2208 permutationsAux is []) : l ~ is \u2192 l \u2208 permutations is",
+    "have_tree": [
+      {
+        "name": "p",
+        "type": "",
+        "body": "(perm_middle.symm.trans p').cons_inv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Permutation",
+    "name": "permutations_perm_permutations'",
+    "statement": "List \u03b1) : ts.permutations ~ ts.permutations'",
+    "have_tree": [
+      {
+        "name": "IH\u2082",
+        "type": "",
+        "body": "(IH ts.reverse (by rwa [length_reverse])).trans (reverse_perm _).permutations'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Permutation",
+    "name": "nodup_permutations'Aux_iff",
+    "statement": "List \u03b1} {x : \u03b1} : Nodup (permutations'Aux x s) \u2194 x \u2209 s",
+    "have_tree": [
+      {
+        "name": "kl",
+        "type": "k < (permutations'Aux x s).length",
+        "body": "by simpa [Nat.lt_succ_iff] using hk.le",
+        "children": []
+      },
+      {
+        "name": "k1l",
+        "type": "k + 1 < (permutations'Aux x s).length",
+        "body": "by simpa using hk",
+        "children": []
+      }
+    ]
+  }
+]

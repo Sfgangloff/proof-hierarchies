@@ -1,0 +1,118 @@
+[
+  {
+    "module": "KleinFour",
+    "name": "mem_kleinFour_of_order_two_pow",
+    "statement": "Nat.card \u03b1 = 4) {g : Perm \u03b1} (hg0 : g \u2208 alternatingGroup \u03b1) {n : \u2115} (hg : orderOf g \u2223 2 ^ n) : g.cycleType = { } \u2228 g.cycleType = {2, 2}",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "g.cycleType.sum \u2264 4",
+        "body": "by",
+        "children": [
+          {
+            "name": "hk4",
+            "type": "",
+            "body": "(Multiset.le_sum_of_mem hk).trans h1",
+            "children": []
+          },
+          {
+            "name": "hk1",
+            "type": "",
+            "body": "one_lt_of_mem_cycleType hk",
+            "children": [
+              {
+                "name": "h",
+                "type": "0 \u2209 g.cycleType",
+                "body": "Nat.not_succ_lt_self \u2218 one_lt_of_mem_cycleType",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "KleinFour",
+    "name": "card_of_card_eq_four",
+    "statement": "Nat.card \u03b1 = 4) : Nat.card (alternatingGroup \u03b1) = 12",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial \u03b1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "KleinFour",
+    "name": "characteristic_kleinFour",
+    "statement": "Nat.card \u03b1 = 4) : (kleinFour \u03b1).Characteristic",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "subsingleton_two_sylow h\u03b14",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "KleinFour",
+    "name": "normal_kleinFour",
+    "statement": "Nat.card \u03b1 = 4) : (kleinFour \u03b1).Normal",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "characteristic_kleinFour h\u03b14",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "KleinFour",
+    "name": "exponent_kleinFour_of_card_eq_four",
+    "statement": "Nat.card \u03b1 = 4) : Monoid.exponent (kleinFour \u03b1) = 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Monoid.exponent (kleinFour \u03b1) \u2223 2",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "KleinFour",
+    "name": "kleinFour_isKleinFour",
+    "statement": "Nat.card \u03b1 = 4) : IsKleinFour (kleinFour \u03b1) where card_four",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(kleinFour \u03b1).Normal",
+        "body": "normal_kleinFour h\u03b14",
+        "children": []
+      },
+      {
+        "name": "comm_le",
+        "type": "commutator (alternatingGroup \u03b1) \u2264 kleinFour \u03b1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "comm_ne_bot",
+        "type": "commutator (alternatingGroup \u03b1) \u2260 \u22a5",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hk2",
+        "type": "",
+        "body": "comm_le hk",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,282 @@
+[
+  {
+    "module": "HahnEmbedding",
+    "name": "archimedeanClassMk_of_mem_stratum",
+    "statement": "M} (ha : a \u2208 u.stratum c) (h0 : a \u2260 0) : ArchimedeanClass.mk a = c",
+    "have_tree": [
+      {
+        "name": "ha'",
+        "type": "a \u2208 ball K c",
+        "body": "(mem_ball_iff K).mpr fun _ \u21a6 hlt",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HahnEmbedding",
+    "name": "iSupIndep_stratum",
+    "statement": "iSupIndep u.stratum",
+    "have_tree": [
+      {
+        "name": "hmono",
+        "type": "StrictMonoOn (fun i \u21a6 ArchimedeanClass.mk (f i).val) f.support",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "u.archimedeanClassMk_of_mem_stratum ha h0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HahnEmbedding",
+    "name": "baseEmbedding_pos",
+    "statement": "seed.baseEmbedding.domain} (hx : 0 < x) : 0 < seed.baseEmbedding x",
+    "have_tree": [
+      {
+        "name": "hmem",
+        "type": "x.val \u2208 seed.baseEmbedding.domain",
+        "body": "x.prop",
+        "children": []
+      },
+      {
+        "name": "hfpos",
+        "type": "0 < (f.sum fun _ x \u21a6 x.val)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hsupport",
+        "type": "f.support.Nonempty",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hmono",
+        "type": "StrictMonoOn (fun x \u21a6 ArchimedeanClass.mk (f x).val) f.support",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HahnEmbedding",
+    "name": "truncLT_mem_range_baseEmbedding",
+    "statement": "seed.baseEmbedding.domain) (c : FiniteArchimedeanClass M) : toLex (HahnSeries.truncLTLinearMap K c (ofLex (seed.baseEmbedding x))) \u2208 LinearMap.range seed.baseEmbedding.toFun",
+    "have_tree": [
+      {
+        "name": "hmem",
+        "type": "x.val \u2208 seed.baseEmbedding.domain",
+        "body": "x.prop",
+        "children": [
+          {
+            "name": "hcd",
+            "type": "\u00ac c.val \u2264 d.val",
+            "body": "not_le_of_gt hdc",
+            "children": []
+          },
+          {
+            "name": "hcd",
+            "type": "c.val \u2264 d.val",
+            "body": "hdc",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "HahnEmbedding",
+    "name": "apply_of_mem_stratum",
+    "statement": "f.val.domain} {c : FiniteArchimedeanClass M} (hx : x.val \u2208 seed.stratum c) : f.val x = toLex (HahnSeries.single c (seed.coeff c \u27e8x.val, hx\u27e9))",
+    "have_tree": [
+      {
+        "name": "hx'",
+        "type": "x.val \u2208 seed.baseEmbedding.domain",
+        "body": "seed.mem_domain_baseEmbedding hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HahnEmbedding",
+    "name": "orderTop_eq_iff",
+    "statement": "f.val.domain) : (ofLex (f.val x)).orderTop = (ofLex (f.val y)).orderTop \u2194 ArchimedeanClass.mk x.val = .mk y.val",
+    "have_tree": [
+      {
+        "name": "hnonempty",
+        "type": "Nonempty (FiniteArchimedeanClass M)",
+        "body": "inferInstance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nontrivial R",
+        "body": "(seed.strictMono_coeff c).injective.nontrivial",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HahnEmbedding",
+    "name": "orderTop_eq_archimedeanClassMk",
+    "statement": "f.val.domain) : FiniteArchimedeanClass.withTopOrderIso M (ofLex (f.val x)).orderTop = .mk x.val",
+    "have_tree": [
+      {
+        "name": "hx0'",
+        "type": "x.val \u2260 0",
+        "body": "by simpa using hx0",
+        "children": []
+      },
+      {
+        "name": "hx''mem",
+        "type": "x''.val \u2208 seed.stratum (mk x.val hx0')",
+        "body": "hx'mem",
+        "children": []
+      },
+      {
+        "name": "h0",
+        "type": "(seed.coeff (mk x.val hx0')) \u27e8x''.val, hx''mem\u27e9 \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HahnEmbedding",
+    "name": "eval_smul",
+    "statement": "K) (x : M) : f.eval (k \u2022 x) = k \u2022 f.eval x",
+    "have_tree": [
+      {
+        "name": "hy'",
+        "type": "(k \u2022 y).val - k \u2022 x \u2208 ball K c",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HahnEmbedding",
+    "name": "eval_ne",
+    "statement": "M} (hx : x \u2209 f.val.domain) (y : f.val.domain) : f.eval x \u2260 f.val y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "val_sub_ne_zero f hx y",
+        "children": []
+      },
+      {
+        "name": "hxy",
+        "type": "x - y.val \u2208 closedBall K xy",
+        "body": "fun _ \u21a6 by simp; rfl",
+        "children": []
+      },
+      {
+        "name": "hyv",
+        "type": "y.val + v \u2208 f.val.domain",
+        "body": "Submodule.add_mem _ (by simp) (f.mem_domain hv)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HahnEmbedding",
+    "name": "exists_sub_mem_ball",
+    "statement": "M} (hx : x \u2209 f.val.domain) (y : f.val.domain) : \u2203 z : f.val.domain, z.val - x \u2208 ball K (mk _ (val_sub_ne_zero f hx y))",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "f.eval_eq_truncLT hc this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HahnEmbedding",
+    "name": "eval_lt",
+    "statement": "M} (hx : x \u2209 f.val.domain) (y : f.val.domain) (h : x < y.val) : f.eval x < f.val y",
+    "have_tree": [
+      {
+        "name": "hxy0",
+        "type": "y.val - x \u2260 0",
+        "body": "sub_ne_zero_of_ne h.ne.symm",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "z \u2260 x",
+        "body": "by rintro rfl; exact hx z.2",
+        "children": []
+      },
+      {
+        "name": "hzy",
+        "type": "z < y",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hzyne",
+        "type": "z.val - y.val \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "hzy",
+            "type": "z.val - y.val \u2208 ball K i",
+            "body": "fun _ \u21a6 hi",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "HahnEmbedding",
+    "name": "extendFun_strictMono",
+    "statement": "M} (hx : x \u2209 f.val.domain) : StrictMono (f.extendFun hx)",
+    "have_tree": [
+      {
+        "name": "habpos",
+        "type": "0 < a + b",
+        "body": "by exact hyz",
+        "children": []
+      },
+      {
+        "name": "hac",
+        "type": "-c \u2022 x < a",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HahnEmbedding",
+    "name": "sSupFun_strictMono",
+    "statement": "Set (Partial seed)} (hnonempty : c.Nonempty) (hc : DirectedOn (\u00b7 \u2264 \u00b7) c) : StrictMono (sSupFun hc)",
+    "have_tree": [
+      {
+        "name": "hmono",
+        "type": "StrictMono f",
+        "body": "hf'.symm \u25b8 f'.prop.strictMono",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HahnEmbedding",
+    "name": "truncLT_mem_range_sSupFun",
+    "statement": "Set (Partial seed)} (hnonempty : c.Nonempty) (hc : DirectedOn (\u00b7 \u2264 \u00b7) c) (x : (sSupFun hc).domain) (c : FiniteArchimedeanClass M) : toLex ((HahnSeries.truncLTLinearMap K c) (ofLex (sSupFun hc x))) \u2208 LinearMap.range (sSupFun hc).toFun",
+    "have_tree": [
+      {
+        "name": "hmem'",
+        "type": "x'.val \u2208 (sSupFun hc).domain",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

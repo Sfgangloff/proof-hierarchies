@@ -1,0 +1,171 @@
+[
+  {
+    "module": "Separation",
+    "name": "separate_convex_open_set",
+    "statement": "Set E} (hs\u2080 : (0 : E) \u2208 s) (hs\u2081 : Convex \u211d s) (hs\u2082 : IsOpen s) {x\u2080 : E} (hx\u2080 : x\u2080 \u2209 s) : \u2203 f : StrongDual \u211d E, f x\u2080 = 1 \u2227 \u2200 x \u2208 s, f x < 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "exists_extension_of_le_sublinear f (gauge s) (fun c hc => gauge_smul_of_nonneg hc.le)",
+        "children": [
+          {
+            "name": "h\u03c6\u2084",
+            "type": "\u2200 x \u2208 s, \u03c6 x < 1",
+            "body": "fun x hx =>",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Separation",
+    "name": "geometric_hahn_banach_open",
+    "statement": "Convex \u211d s) (hs\u2082 : IsOpen s) (ht : Convex \u211d t) (disj : Disjoint s t) : \u2203 (f : StrongDual \u211d E) (u : \u211d), (\u2200 a \u2208 s, f a < u) \u2227 \u2200 b \u2208 t, u \u2264 f b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Convex \u211d C",
+        "body": "(hs\u2081.sub ht).vadd _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "x\u2080 \u2209 C",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "forall_le",
+        "type": "\u2200 a \u2208 s, \u2200 b \u2208 t, f a \u2264 f b",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hf\u2082 (x\u2080 + (a - b)) (vadd_mem_vadd_set <| sub_mem_sub ha hb)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Separation",
+    "name": "geometric_hahn_banach_compact_closed",
+    "statement": "Convex \u211d s) (hs\u2082 : IsCompact s) (ht\u2081 : Convex \u211d t) (ht\u2082 : IsClosed t) (disj : Disjoint s t) : \u2203 (f : StrongDual \u211d E) (u v : \u211d), (\u2200 a \u2208 s, f a < u) \u2227 u < v \u2227 \u2200 b \u2208 t, v < f b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "f x < u",
+        "body": "hf\u2081 x (sU hx\u2081)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Separation",
+    "name": "separate_convex_open_set",
+    "statement": "Set E} (hs\u2080 : (0 : E) \u2208 s) (hs\u2081 : Convex \u211d s) (hs\u2082 : IsOpen s) {x\u2080 : E} (hx\u2080 : x\u2080 \u2209 s) : \u2203 f : StrongDual \ud835\udd5c E, re (f x\u2080) = 1 \u2227 \u2200 x \u2208 s, re (f x) < 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsScalarTower.continuousSMul (M := \u211d) (\u03b1 := E) \ud835\udd5c",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Separation",
+    "name": "geometric_hahn_banach_open",
+    "statement": "Convex \u211d s) (hs\u2082 : IsOpen s) (ht : Convex \u211d t) (disj : Disjoint s t) : \u2203 (f : StrongDual \ud835\udd5c E) (u : \u211d), (\u2200 a \u2208 s, re (f a) < u) \u2227 \u2200 b \u2208 t, u \u2264 re (f b)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsScalarTower.continuousSMul (M := \u211d) (\u03b1 := E) \ud835\udd5c",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Separation",
+    "name": "geometric_hahn_banach_open_point",
+    "statement": "Convex \u211d s) (hs\u2082 : IsOpen s) (disj : x \u2209 s) : \u2203 f : StrongDual \ud835\udd5c E, \u2200 a \u2208 s, re (f a) < re (f x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsScalarTower.continuousSMul (M := \u211d) (\u03b1 := E) \ud835\udd5c",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Separation",
+    "name": "geometric_hahn_banach_open_open",
+    "statement": "Convex \u211d s) (hs\u2082 : IsOpen s) (ht\u2081 : Convex \u211d t) (ht\u2083 : IsOpen t) (disj : Disjoint s t) : \u2203 (f : StrongDual \ud835\udd5c E) (u : \u211d), (\u2200 a \u2208 s, re (f a) < u) \u2227 \u2200 b \u2208 t, u < re (f b)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsScalarTower.continuousSMul (M := \u211d) (\u03b1 := E) \ud835\udd5c",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Separation",
+    "name": "geometric_hahn_banach_of_nonempty_interior",
+    "statement": "Convex \u211d s) (ht : Convex \u211d t) (hst : Disjoint (interior s) t) (hsint : (interior s).Nonempty) (htne : t.Nonempty) : \u2203 (f : StrongDual \ud835\udd5c E) (u : \u211d), f \u2260 0 \u2227 (\u2200 a \u2208 s, re (f a) \u2264 u) \u2227 \u2200 b \u2208 t, u \u2264 re (f b)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsScalarTower.continuousSMul (M := \u211d) (\u03b1 := E) \ud835\udd5c",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Separation",
+    "name": "geometric_hahn_banach_of_nonempty_interior_point",
+    "statement": "Set E} (hA : Convex \u211d A) (hxA : x \u2209 interior A) (hAint : (interior A).Nonempty) : \u2203 f : StrongDual \ud835\udd5c E, f \u2260 0 \u2227 \u2200 a \u2208 A, re (f a) \u2264 re (f x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsScalarTower.continuousSMul (M := \u211d) (\u03b1 := E) \ud835\udd5c",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Separation",
+    "name": "geometric_hahn_banach_compact_closed",
+    "statement": "Convex \u211d s) (hs\u2082 : IsCompact s) (ht\u2081 : Convex \u211d t) (ht\u2082 : IsClosed t) (disj : Disjoint s t) : \u2203 (f : StrongDual \ud835\udd5c E) (u v : \u211d), (\u2200 a \u2208 s, re (f a) < u) \u2227 u < v \u2227 \u2200 b \u2208 t, v < re (f b)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsScalarTower.continuousSMul (M := \u211d) (\u03b1 := E) \ud835\udd5c",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Separation",
+    "name": "iInter_countable_halfSpaces_eq",
+    "statement": "Convex \u211d s) (hs\u2082 : IsClosed s) : \u2203 l : \u2115 \u2192 StrongDual \ud835\udd5c E, \u2203 c : \u2115 \u2192 \u211d, \u22c2 n, { x | re (l n x) \u2264 c n } = s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b9",
+        "body": "\u27e80, 0, fun _ _ \u21a6 by simp\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

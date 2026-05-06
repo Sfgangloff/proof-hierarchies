@@ -1,0 +1,64 @@
+[
+  {
+    "module": "JordanSub",
+    "name": "toSignedMeasure_restrict_sub",
+    "statement": "IsHahnDecomposition \u03bc \u03bd s) : ((\u03bd - \u03bc).restrict s).toSignedMeasure = \u03bd.toSignedMeasure.restrict s - \u03bc.toSignedMeasure.restrict s",
+    "have_tree": [
+      {
+        "name": "hmeas",
+        "type": "",
+        "body": "hs.measurableSet",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "JordanSub",
+    "name": "sub_toSignedMeasure_eq_toSignedMeasure_sub",
+    "statement": "\u03bc.toSignedMeasure - \u03bd.toSignedMeasure = (\u03bc - \u03bd).toSignedMeasure - (\u03bd - \u03bc).toSignedMeasure",
+    "have_tree": [
+      {
+        "name": "hsc",
+        "type": "",
+        "body": "hs.compl",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "toSignedMeasure_restrict_sub hs",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "toSignedMeasure_restrict_sub hsc",
+        "children": []
+      },
+      {
+        "name": "h\u2081'",
+        "type": "",
+        "body": "toSignedMeasure_congr <| restrict_eq_zero.mpr <|",
+        "children": []
+      },
+      {
+        "name": "h\u2082'",
+        "type": "",
+        "body": "toSignedMeasure_congr <| restrict_eq_zero.mpr <|",
+        "children": []
+      },
+      {
+        "name": "partition\u2081",
+        "type": "",
+        "body": "VectorMeasure.restrict_add_restrict_compl (\u03bc - \u03bd).toSignedMeasure",
+        "children": []
+      },
+      {
+        "name": "partition\u2082",
+        "type": "",
+        "body": "VectorMeasure.restrict_add_restrict_compl (\u03bd - \u03bc).toSignedMeasure",
+        "children": []
+      }
+    ]
+  }
+]

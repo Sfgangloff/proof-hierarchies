@@ -1,0 +1,78 @@
+[
+  {
+    "module": "Ramification",
+    "name": "finrank_eq_two_of_isRamified",
+    "statement": "w.IsRamified K) : Module.finrank v.Completion w.Completion = 2",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "NumberField.InfinitePlace.isRamified_iff.mp h",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "LiesOver.extensionEmbedding_liesOver_of_isReal w H.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ramification",
+    "name": "finrank_eq_one_of_isUnramified",
+    "statement": "w.IsUnramified K) : Module.finrank v.Completion w.Completion = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "ComplexEmbedding.LiesOver w.embedding v.embedding",
+        "body": "\u27e8hl\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "liesOver_extensionEmbedding w v",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "ComplexEmbedding.LiesOver (conjugate w.embedding) v.embedding",
+        "body": "\u27e8hr\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "liesOver_conjugate_extensionEmbedding w v",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ramification",
+    "name": "inertiaDeg_eq_one",
+    "statement": "w \u2208 unramifiedPlacesOver L v) : v.inertiaDeg w = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Set.mem_setOf.1 hw).1; finrank_eq_one_of_isUnramified v hw.2 \u25b8 inertiaDeg_eq_finrank v w",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ramification",
+    "name": "inertiaDeg_eq_two",
+    "statement": "w \u2208 ramifiedPlacesOver L v) : v.inertiaDeg w = 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Set.mem_setOf.1 hw).1; finrank_eq_two_of_isRamified v hw.2 \u25b8 inertiaDeg_eq_finrank v w",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,33 @@
+[
+  {
+    "module": "ExtendFrom",
+    "name": "continuousOn_extendFrom",
+    "statement": "X \u2192 Y} {A B : Set X} (hB : B \u2286 closure A) (hf : \u2200 x \u2208 B, \u2203 y, Tendsto f (\ud835\udcdd[A] x) (\ud835\udcdd y)) : ContinuousOn (extendFrom A f) B",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "tendsto_extendFrom (hf x x_in)",
+        "children": []
+      },
+      {
+        "name": "limy",
+        "type": "Tendsto f (\ud835\udcdd[A] y) (\ud835\udcdd <| \u03c6 y)",
+        "body": "tendsto_extendFrom (hf y hyB)",
+        "children": []
+      },
+      {
+        "name": "hVy",
+        "type": "V \u2208 \ud835\udcdd y",
+        "body": "IsOpen.mem_nhds V_op hyV",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "V \u2229 A \u2208 \ud835\udcdd[A] y",
+        "body": "by simpa only [inter_comm] using inter_mem_nhdsWithin A hVy",
+        "children": []
+      }
+    ]
+  }
+]

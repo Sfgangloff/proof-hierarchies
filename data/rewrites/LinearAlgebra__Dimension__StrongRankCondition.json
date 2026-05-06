@@ -1,0 +1,222 @@
+[
+  {
+    "original": {
+      "module": "StrongRankCondition",
+      "name": "mk_eq_mk_of_basis",
+      "statement": "Basis \u03b9 R M) (v' : Basis \u03b9' R M) : Cardinal.lift.{w'} #\u03b9 = Cardinal.lift.{w} #\u03b9'",
+      "have_tree": [
+        {
+          "name": "w\u2081",
+          "type": "",
+          "body": "infinite_basis_le_maximal_linearIndependent' v _ v'.linearIndependent v'.maximal",
+          "children": []
+        },
+        {
+          "name": "w\u2082",
+          "type": "",
+          "body": "infinite_basis_le_maximal_linearIndependent' v' _ v.linearIndependent v.maximal",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "StrongRankCondition",
+          "name": "mk_eq_mk_of_basis",
+          "statement": "Basis \u03b9 R M) (v' : Basis \u03b9' R M) : Cardinal.lift.{w'} #\u03b9 = Cardinal.lift.{w} #\u03b9'",
+          "have_tree": [
+            {
+              "name": "w\u2082",
+              "type": "",
+              "body": "infinite_basis_le_maximal_linearIndependent' v' _ v.linearIndependent v.maximal",
+              "children": []
+            },
+            {
+              "name": "w\u2081",
+              "type": "",
+              "body": "infinite_basis_le_maximal_linearIndependent' v _ v'.linearIndependent v'.maximal",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "StrongRankCondition",
+      "name": "Module.Basis.le_span",
+      "statement": "Set M} (v : Basis \u03b9 R M) (hJ : span R J = \u22a4) : #(range v) \u2264 #J",
+      "have_tree": [
+        {
+          "name": "hs",
+          "type": "range v \u2286 \u22c3 j, S' j",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "span R J \u2264 comap v.repr.toLinearMap (Finsupp.supported R R (\u22c3 j, S j))",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "StrongRankCondition",
+          "name": "Module.Basis.le_span",
+          "statement": "Set M} (v : Basis \u03b9 R M) (hJ : span R J = \u22a4) : #(range v) \u2264 #J",
+          "have_tree": [
+            {
+              "name": "hs",
+              "type": "range v \u2286 \u22c3 j, S' j",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "StrongRankCondition",
+          "name": "Module.Basis.le_span",
+          "statement": "Set M} (v : Basis \u03b9 R M) (hJ : span R J = \u22a4) : #(range v) \u2264 #J",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "span R J \u2264 comap v.repr.toLinearMap (Finsupp.supported R R (\u22c3 j, S j))",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hs",
+              "type": "range v \u2286 \u22c3 j, S' j",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "StrongRankCondition",
+      "name": "LinearIndependent.finite_of_le_span_finite",
+      "statement": "Type*} (v : \u03b9 \u2192 M) (i : LinearIndependent R v) (w : Set M) [Finite w] (s : range v \u2264 span R w) : Finite \u03b9",
+      "have_tree": [
+        {
+          "name": "i'",
+          "type": "LinearIndependent R v'",
+          "body": "i.comp _ Subtype.val_injective",
+          "children": []
+        },
+        {
+          "name": "s'",
+          "type": "range v' \u2264 span R w",
+          "body": "(range_comp_subset_range _ _).trans s",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "StrongRankCondition",
+          "name": "LinearIndependent.finite_of_le_span_finite",
+          "statement": "Type*} (v : \u03b9 \u2192 M) (i : LinearIndependent R v) (w : Set M) [Finite w] (s : range v \u2264 span R w) : Finite \u03b9",
+          "have_tree": [
+            {
+              "name": "s'",
+              "type": "range v' \u2264 span R w",
+              "body": "(range_comp_subset_range _ _).trans s",
+              "children": []
+            },
+            {
+              "name": "i'",
+              "type": "LinearIndependent R v'",
+              "body": "i.comp _ Subtype.val_injective",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "StrongRankCondition",
+      "name": "linearIndependent_le_infinite_basis",
+      "statement": "Type w} (b : Basis \u03b9 R M) [Infinite \u03b9] {\u03ba : Type w} (v : \u03ba \u2192 M) (i : LinearIndependent R v) : #\u03ba \u2264 #\u03b9",
+      "have_tree": [
+        {
+          "name": "i'",
+          "type": "LinearIndependent R v'",
+          "body": "i.comp _ Subtype.val_injective",
+          "children": []
+        },
+        {
+          "name": "w'",
+          "type": "Finite (\u03a6 \u207b\u00b9' {s})",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "StrongRankCondition",
+          "name": "linearIndependent_le_infinite_basis",
+          "statement": "Type w} (b : Basis \u03b9 R M) [Infinite \u03b9] {\u03ba : Type w} (v : \u03ba \u2192 M) (i : LinearIndependent R v) : #\u03ba \u2264 #\u03b9",
+          "have_tree": [
+            {
+              "name": "w'",
+              "type": "Finite (\u03a6 \u207b\u00b9' {s})",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "i'",
+              "type": "LinearIndependent R v'",
+              "body": "i.comp _ Subtype.val_injective",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

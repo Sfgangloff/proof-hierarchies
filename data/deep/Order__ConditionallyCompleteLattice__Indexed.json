@@ -1,0 +1,35 @@
+[
+  {
+    "module": "Indexed",
+    "name": "ciSup_image",
+    "statement": "Type*} [ConditionallyCompleteLattice \u03b1] [Nonempty \u03b9] [Nonempty \u03b9'] {s : Set \u03b9} (hs : s.Nonempty) {f : \u03b9 \u2192 \u03b9'} {g : \u03b9' \u2192 \u03b1} (hf : BddAbove (Set.range fun i : s \u21a6 g (f i))) (hg' : sSup \u2205 \u2264 \u2a06 i : s, g (f i)) : \u2a06 i \u2208 (f '' s), g i = \u2a06 x \u2208 s, g (f x)",
+    "have_tree": [
+      {
+        "name": "hg",
+        "type": "BddAbove (Set.range fun i : f '' s \u21a6 g i)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf'",
+        "type": "sSup \u2205 \u2264 \u2a06 i : f '' s, g i",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Nonempty s",
+            "body": "Set.Nonempty.to_subtype hs",
+            "children": [
+              {
+                "name": "_",
+                "type": "f i \u2208 f '' s",
+                "body": "Set.mem_image_of_mem _ h",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

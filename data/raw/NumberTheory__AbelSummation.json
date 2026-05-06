@@ -1,0 +1,126 @@
+[
+  {
+    "module": "AbelSummation",
+    "name": "integralmulsum",
+    "statement": "\u2200 t \u2208 Set.Icc a b, DifferentiableAt \u211d f t) (hf_int : IntegrableOn (deriv f) (Set.Icc a b)) (t\u2081 t\u2082 : \u211d) (n : \u2115) (h : t\u2081 \u2264 t\u2082) (h\u2081 : n \u2264 t\u2081) (h\u2082 : t\u2082 \u2264 n + 1) (h\u2083 : a \u2264 t\u2081) (h\u2084 : t\u2082 \u2264 b) : \u222b t in t\u2081..t\u2082, deriv f t * \u2211 k \u2208 Icc 0 \u230at\u230b\u208a, c k = (f t\u2082 - f t\u2081) * \u2211 k \u2208 Icc 0 n, c k",
+    "have_tree": [
+      {
+        "name": "h_inc\u2081",
+        "type": "\u0399 t\u2081 t\u2082 \u2286 Set.Icc n (n + 1)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h_inc\u2082",
+        "type": "Set.uIcc t\u2081 t\u2082 \u2286 Set.Icc a b",
+        "body": "Set.uIcc_of_le h \u25b8 Set.Icc_subset_Icc h\u2083 h\u2084",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AbelSummation",
+    "name": "_root_.integrableOn_mul_sum_Icc",
+    "statement": "\u2115} (ha : 0 \u2264 a) {g : \u211d \u2192 \ud835\udd5c} (hg_int : IntegrableOn g (Set.Icc a b)) : IntegrableOn (fun t \u21a6 g t * \u2211 k \u2208 Icc m \u230at\u230b\u208a, c k) (Set.Icc a b)",
+    "have_tree": [
+      {
+        "name": "aux1",
+        "type": "0 \u2264 b",
+        "body": "(Nat.pos_of_floor_pos <| (Nat.zero_le _).trans_lt hb).le",
+        "children": []
+      },
+      {
+        "name": "aux2",
+        "type": "\u230aa\u230b\u208a + 1 \u2264 b",
+        "body": "by rwa [\u2190 Nat.cast_add_one, \u2190 Nat.le_floor_iff aux1]",
+        "children": []
+      },
+      {
+        "name": "aux3",
+        "type": "a \u2264 \u230aa\u230b\u208a + 1",
+        "body": "(Nat.lt_floor_add_one _).le",
+        "children": []
+      },
+      {
+        "name": "aux4",
+        "type": "a \u2264 \u230ab\u230b\u208a",
+        "body": "le_of_lt (by rwa [\u2190 Nat.floor_lt ha])",
+        "children": []
+      },
+      {
+        "name": "I1",
+        "type": "IntervalIntegrable _ volume a \u2191(\u230aa\u230b\u208a + 1)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "I2",
+        "type": "IntervalIntegrable _ volume \u2191(\u230aa\u230b\u208a + 1) \u230ab\u230b\u208a",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "I3",
+        "type": "IntervalIntegrable _ volume \u230ab\u230b\u208a b",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AbelSummation",
+    "name": "_root_.sum_mul_eq_sub_sub_integral_mul",
+    "statement": "0 \u2264 a) (hab : a \u2264 b) (hf_diff : \u2200 t \u2208 Set.Icc a b, DifferentiableAt \u211d f t) (hf_int : IntegrableOn (deriv f) (Set.Icc a b)) : \u2211 k \u2208 Ioc \u230aa\u230b\u208a \u230ab\u230b\u208a, f k * c k = f b * (\u2211 k \u2208 Icc 0 \u230ab\u230b\u208a, c k) - f a * (\u2211 k \u2208 Icc 0 \u230aa\u230b\u208a, c k) - \u222b t in Set.Ioc a b, deriv f t * \u2211 k \u2208 Icc 0 \u230at\u230b\u208a, c k",
+    "have_tree": [
+      {
+        "name": "aux1",
+        "type": "\u230aa\u230b\u208a \u2264 a",
+        "body": "Nat.floor_le ha",
+        "children": []
+      },
+      {
+        "name": "aux2",
+        "type": "b \u2264 \u230ab\u230b\u208a + 1",
+        "body": "(Nat.lt_floor_add_one _).le",
+        "children": []
+      },
+      {
+        "name": "aux3",
+        "type": "a \u2264 \u230aa\u230b\u208a + 1",
+        "body": "(Nat.lt_floor_add_one _).le",
+        "children": []
+      },
+      {
+        "name": "aux4",
+        "type": "\u230aa\u230b\u208a + 1 \u2264 b",
+        "body": "by rwa [\u2190 Nat.cast_add_one, \u2190 Nat.le_floor_iff (ha.trans hab)]",
+        "children": []
+      },
+      {
+        "name": "aux5",
+        "type": "\u230ab\u230b\u208a \u2264 b",
+        "body": "Nat.floor_le (ha.trans hab)",
+        "children": []
+      },
+      {
+        "name": "aux6",
+        "type": "a \u2264 \u230ab\u230b\u208a",
+        "body": "Nat.floor_lt ha |>.mp hb |>.le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AbelSummation",
+    "name": "sum_mul_eq_sub_integral_mul\u2081",
+    "statement": "c 0 = 0) (hc1 : c 1 = 0) (b : \u211d) (hf_diff : \u2200 t \u2208 Set.Icc 2 b, DifferentiableAt \u211d f t) (hf_int : IntegrableOn (deriv f) (Set.Icc 2 b)) : \u2211 k \u2208 Icc 0 \u230ab\u230b\u208a, f k * c k = f b * (\u2211 k \u2208 Icc 0 \u230ab\u230b\u208a, c k) - \u222b t in Set.Ioc 2 b, deriv f t * \u2211 k \u2208 Icc 0 \u230at\u230b\u208a, c k",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "2 \u2264 \u230ab\u230b\u208a",
+        "body": "Nat.le_floor hb",
+        "children": []
+      }
+    ]
+  }
+]

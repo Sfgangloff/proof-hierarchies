@@ -1,0 +1,90 @@
+[
+  {
+    "module": "Quotient",
+    "name": "LinearMap.ker_inf_smul_top_eq_smul_of_flat",
+    "statement": "Type*} [AddCommGroup M] [AddCommGroup N] [Module R M] [Module R N] (I : Ideal R) (f : M \u2192\u2097[R] N) (surj : Function.Surjective f) [Module.Flat R N] : f.ker \u2293 (I \u2022 (\u22a4 : Submodule R M)) = I \u2022 f.ker",
+    "have_tree": [
+      {
+        "name": "inj",
+        "type": "Function.Injective ((TensorProduct.lid R N).comp (I.subtype.rTensor N))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Quotient",
+    "name": "mul_le_ker_of_range_le_mul_of_sq_zero",
+    "statement": "Ideal R} (sq : I ^ 2 = \u22a5) (f : J.Cotangent \u2192\u2097[R] J.Cotangent) (le : f.range \u2264 (Submodule.comap J.subtype (I * J)).map J.toCotangent) : (Submodule.comap J.subtype (I * J)).map J.toCotangent \u2264 f.ker",
+    "have_tree": [
+      {
+        "name": "mem_bot",
+        "type": "",
+        "body": "Ideal.mul_mem_mul hy (Submodule.mem_comap.mp hw)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Quotient",
+    "name": "Algebra.FormallySmooth.of_surjective_of_ker_eq_map_of_flat",
+    "statement": "Function.Surjective (algebraMap R R')) (surjS : Function.Surjective (algebraMap S S')) (eqmap : RingHom.ker (algebraMap S S') = (RingHom.ker (algebraMap R R')).map (algebraMap R S)) (sq0 : (RingHom.ker (algebraMap R R')) ^ 2 = \u22a5) (smoothq : Algebra.FormallySmooth R' S') : Algebra.FormallySmooth R S",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsScalarTower P.Ring P'.Ring S'",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "surjPP'",
+        "type": "Function.Surjective (algebraMap P.Ring P'.Ring)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "surjP",
+        "type": "Function.Surjective (algebraMap P.Ring S)",
+        "body": "fun x \u21a6 \u27e8P.\u03c3 x, P.algebraMap_\u03c3 x\u27e9",
+        "children": []
+      },
+      {
+        "name": "surjP'",
+        "type": "Function.Surjective (algebraMap P'.Ring S')",
+        "body": "fun x \u21a6 \u27e8P'.\u03c3 x, P'.algebraMap_\u03c3 x\u27e9",
+        "children": [
+          {
+            "name": "_",
+            "type": "x \u2208 I \u2022 (J.restrictScalars R)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Jle",
+        "type": "J \u2264 J'.comap (algebraMap P.Ring P'.Ring)",
+        "body": "le_of_le_of_eq le_sup_right h.symm",
+        "children": []
+      },
+      {
+        "name": "cotsurj",
+        "type": "Function.Surjective mapcot",
+        "body": "Ideal.mapCotangent_surjective_of_comap_eq surjPP' h",
+        "children": []
+      },
+      {
+        "name": "r\u0394le",
+        "type": "\u0394.range \u2264 (Submodule.comap J.subtype (IP * J)).map J.toCotangent",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "le\u0394k",
+        "type": "",
+        "body": "mul_le_ker_of_range_le_mul_of_sq_zero (by simp [IP, \u2190 Ideal.map_pow, I, sq0]) \u0394 r\u0394le",
+        "children": []
+      }
+    ]
+  }
+]

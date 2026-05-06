@@ -1,0 +1,110 @@
+[
+  {
+    "module": "Pullback",
+    "name": "mpullbackWithin_comp_of_left",
+    "statement": "M' \u2192 M''} {f : M \u2192 M'} {V : \u03a0 (x : M''), TangentSpace I'' x} {s : Set M} {t : Set M'} {x\u2080 : M} (hf : MDiffAt[s] f x\u2080) (h : Set.MapsTo f s t) (hu : UniqueMDiffWithinAt I s x\u2080) (hg' : (mfderiv[t] g (f x\u2080)).IsInvertible) : mpullbackWithin I I'' (g \u2218 f) V s x\u2080 = mpullbackWithin I I' f (mpullbackWithin I' I'' g V t) s x\u2080",
+    "have_tree": [
+      {
+        "name": "hg",
+        "type": "MDifferentiableWithinAt I' I'' g t (f x\u2080)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pullback",
+    "name": "mpullbackWithin_comp_of_right",
+    "statement": "M' \u2192 M''} {f : M \u2192 M'} {V : \u03a0 (x : M''), TangentSpace I'' x} {s : Set M} {t : Set M'} {x\u2080 : M} (hg : MDiffAt[t] g (f x\u2080)) (h : Set.MapsTo f s t) (hu : UniqueMDiffWithinAt I s x\u2080) (hf' : (mfderiv[s] f x\u2080).IsInvertible) : mpullbackWithin I I'' (g \u2218 f) V s x\u2080 = mpullbackWithin I I' f (mpullbackWithin I' I'' g V t) s x\u2080",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "MDifferentiableWithinAt I I' f s x\u2080",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pullback",
+    "name": "_root_.MDifferentiableWithinAt.mpullbackWithin_vectorField_inter",
+    "statement": "MDiffAt[t] (T% V) (f x\u2080)) (hf : CMDiffAt[s] n f x\u2080) (hf' : (mfderiv[s] f x\u2080).IsInvertible) (hx\u2080 : x\u2080 \u2208 s) (hs : UniqueMDiffOn I s) (hmn : 2 \u2264 n) : MDiffAt[s \u2229 f \u207b\u00b9' t] (T% (mpullbackWithin I I' f V s)) x\u2080",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "(trivializationAt E (TangentSpace I) x\u2080).baseSet \u2208 \ud835\udcdd[s] x\u2080",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "f \u207b\u00b9' (trivializationAt E' (TangentSpace I') (f x\u2080)).baseSet \u2208 \ud835\udcdd[s] x\u2080",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pullback",
+    "name": "_root_.ContMDiffWithinAt.mpullbackWithin_vectorField_inter",
+    "statement": "CMDiffAt[t] m (T% V) (f x\u2080)) (hf : CMDiffAt[s] n f x\u2080) (hf' : (mfderiv[s] f x\u2080).IsInvertible) (hx\u2080 : x\u2080 \u2208 s) (hs : UniqueMDiffOn I s) (hmn : m + 1 \u2264 n) : CMDiffAt[s \u2229 f \u207b\u00b9' t] m (T% (mpullbackWithin I I' f V s)) x\u2080",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "(trivializationAt E (TangentSpace I) x\u2080).baseSet \u2208 \ud835\udcdd[s] x\u2080",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "f \u207b\u00b9' (trivializationAt E' (TangentSpace I') (f x\u2080)).baseSet \u2208 \ud835\udcdd[s] x\u2080",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pullback",
+    "name": "_root_.ContMDiffWithinAt.mpullbackWithin_vectorField'",
+    "statement": "Set M} (hV : CMDiffAt[t] m (T% V) (f x\u2080)) (hf : CMDiffAt[u] n f x\u2080) (hf' : (mfderiv[u] f x\u2080).IsInvertible) (hx\u2080 : x\u2080 \u2208 s) (hs : UniqueMDiffOn I s) (hmn : m + 1 \u2264 n) (hst : f \u207b\u00b9' t \u2208 \ud835\udcdd[s] x\u2080) (hu : s \u2286 u) : CMDiffAt[s] m (T% (mpullbackWithin I I' f V u)) x\u2080",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "1 \u2264 n",
+        "body": "le_trans (by simp) hmn",
+        "children": []
+      },
+      {
+        "name": "hh",
+        "type": "(mfderiv[s] f x\u2080).IsInvertible",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "Y",
+        "type": "",
+        "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).1 (hf.of_le hn)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pullback",
+    "name": "eventually_contMDiffWithinAt_mpullbackWithin_extChartAt_symm",
+    "statement": "\u03a0 (x : M), TangentSpace I x} (hV : CMDiffAt[s] m (T% V) x) (hs : UniqueMDiffOn I s) (hx : x \u2208 s) (hmn : m + 1 \u2264 n) (hm : m \u2260 \u221e) : \u2200\u1da0 y in \ud835\udcdd[s] x, CMDiffAt[(extChartAt I x).target \u2229 (extChartAt I x).symm \u207b\u00b9' s] m (T% (mpullbackWithin \ud835\udcd8(\ud835\udd5c, E) I (extChartAt I x).symm V (range I))) (extChartAt I x y)",
+    "have_tree": [
+      {
+        "name": "T",
+        "type": "",
+        "body": "nhdsWithin_mono _ (subset_insert _ _)",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "",
+        "body": "(continuousAt_extChartAt (I := I) x).continuousWithinAt.preimage_mem_nhdsWithin'' T rfl",
+        "children": []
+      }
+    ]
+  }
+]

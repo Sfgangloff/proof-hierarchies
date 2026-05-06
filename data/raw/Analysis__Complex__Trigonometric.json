@@ -1,0 +1,79 @@
+[
+  {
+    "module": "Trigonometric",
+    "name": "sin_sub_sin",
+    "statement": "sin x - sin y = 2 * sin ((x - y) / 2) * cos ((x + y) / 2)",
+    "have_tree": [
+      {
+        "name": "s1",
+        "type": "",
+        "body": "sin_add ((x + y) / 2) ((x - y) / 2)",
+        "children": []
+      },
+      {
+        "name": "s2",
+        "type": "",
+        "body": "sin_sub ((x + y) / 2) ((x - y) / 2)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Trigonometric",
+    "name": "cos_sub_cos",
+    "statement": "cos x - cos y = -2 * sin ((x + y) / 2) * sin ((x - y) / 2)",
+    "have_tree": [
+      {
+        "name": "s1",
+        "type": "",
+        "body": "cos_add ((x + y) / 2) ((x - y) / 2)",
+        "children": []
+      },
+      {
+        "name": "s2",
+        "type": "",
+        "body": "cos_sub ((x + y) / 2) ((x - y) / 2)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Trigonometric",
+    "name": "inv_one_add_tan_sq",
+    "statement": "\u211d} (hx : cos x \u2260 0) : (1 + tan x ^ 2)\u207b\u00b9 = cos x ^ 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Complex.cos x \u2260 0",
+        "body": "mt (congr_arg re) hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Trigonometric",
+    "name": "sin_pos_of_pos_of_le_two",
+    "statement": "\u211d} (hx0 : 0 < x) (hx : x \u2264 2) : 0 < sin x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x / 2 \u2264 1",
+        "body": "(div_le_iff\u2080 (by simp)).mpr (by simpa)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Trigonometric",
+    "name": "norm_cos_add_sin_mul_I",
+    "statement": "\u211d) : \u2016cos x + sin x * I\u2016 = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Real.sin_sq_add_cos_sq x",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "module": "HasOuterApproxClosed",
+    "name": "tendsto_lintegral_thickenedIndicator_of_isClosed",
+    "statement": "Type*} {m\u03a9 : MeasurableSpace \u03a9} [PseudoEMetricSpace \u03a9] [OpensMeasurableSpace \u03a9] (\u03bc : Measure \u03a9) [IsFiniteMeasure \u03bc] {F : Set \u03a9} (F_closed : IsClosed F) {\u03b4s : \u2115 \u2192 \u211d} (\u03b4s_pos : \u2200 n, 0 < \u03b4s n) (\u03b4s_lim : Tendsto \u03b4s atTop (\ud835\udcdd 0)) : Tendsto (fun n \u21a6 lintegral \u03bc fun \u03c9 \u21a6 (thickenedIndicator (\u03b4s_pos n) F \u03c9 : \u211d\u22650\u221e)) atTop (\ud835\udcdd (\u03bc F))",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "thickenedIndicator_tendsto_indicator_closure \u03b4s_pos \u03b4s_lim F",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HasOuterApproxClosed",
+    "name": "tendsto_integral_thickenedIndicator_of_isClosed",
+    "statement": "Type*} {m\u03a9 : MeasurableSpace \u03a9} [PseudoEMetricSpace \u03a9] [OpensMeasurableSpace \u03a9] (\u03bc : Measure \u03a9) [IsFiniteMeasure \u03bc] {F : Set \u03a9} (F_closed : IsClosed F) {\u03b4s : \u2115 \u2192 \u211d} (\u03b4s_pos : \u2200 (n : \u2115), 0 < \u03b4s n) (\u03b4s_lim : Tendsto \u03b4s atTop (\ud835\udcdd 0)) : Tendsto (fun n : \u2115 \u21a6 \u222b \u03c9, (thickenedIndicator (\u03b4s_pos n) F \u03c9 : \u211d) \u2202\u03bc) atTop (\ud835\udcdd (\u03bc.real F))",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "tendsto_lintegral_thickenedIndicator_of_isClosed \u03bc F_closed \u03b4s_pos \u03b4s_lim",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HasOuterApproxClosed",
+    "name": "measure_isClosed_eq_of_forall_lintegral_eq_of_isFiniteMeasure",
+    "statement": "Type*} [MeasurableSpace \u03a9] [TopologicalSpace \u03a9] [HasOuterApproxClosed \u03a9] [OpensMeasurableSpace \u03a9] {\u03bc \u03bd : Measure \u03a9} [IsFiniteMeasure \u03bc] (h : \u2200 (f : \u03a9 \u2192\u1d47 \u211d\u22650), \u222b\u207b x, f x \u2202\u03bc = \u222b\u207b x, f x \u2202\u03bd) {F : Set \u03a9} (F_closed : IsClosed F) : \u03bc F = \u03bd F",
+    "have_tree": [
+      {
+        "name": "\u03bd_finite",
+        "type": "IsFiniteMeasure \u03bd",
+        "body": "by",
+        "children": [
+          {
+            "name": "whole",
+            "type": "",
+            "body": "h 1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "obs_\u03bc",
+        "type": "",
+        "body": "HasOuterApproxClosed.tendsto_lintegral_apprSeq F_closed \u03bc",
+        "children": []
+      },
+      {
+        "name": "obs_\u03bd",
+        "type": "",
+        "body": "HasOuterApproxClosed.tendsto_lintegral_apprSeq F_closed \u03bd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HasOuterApproxClosed",
+    "name": "ext_of_forall_lintegral_eq_of_IsFiniteMeasure",
+    "statement": "Type*} [MeasurableSpace \u03a9] [TopologicalSpace \u03a9] [HasOuterApproxClosed \u03a9] [BorelSpace \u03a9] {\u03bc \u03bd : Measure \u03a9} [IsFiniteMeasure \u03bc] (h : \u2200 (f : \u03a9 \u2192\u1d47 \u211d\u22650), \u222b\u207b x, f x \u2202\u03bc = \u222b\u207b x, f x \u2202\u03bd) : \u03bc = \u03bd",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "@measure_isClosed_eq_of_forall_lintegral_eq_of_isFiniteMeasure \u03a9 _ _ _ _ \u03bc \u03bd _ h",
+        "children": []
+      }
+    ]
+  }
+]

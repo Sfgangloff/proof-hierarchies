@@ -1,0 +1,247 @@
+[
+  {
+    "module": "Lebesgue",
+    "name": "eq_singularPart",
+    "statement": "Measure \u03b1} {f : \u03b1 \u2192 \u211d\u22650\u221e} (hf : Measurable f) (hs : s \u27c2\u2098 \u03bd) (hadd : \u03bc = s + \u03bd.withDensity f) : s = \u03bc.singularPart \u03bd",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "HaveLebesgueDecomposition \u03bc \u03bd",
+        "body": "\u27e8\u27e8\u27e8s, f\u27e9, hf, hs, hadd\u27e9\u27e9",
+        "children": []
+      },
+      {
+        "name": "h\u03bdinter",
+        "type": "\u03bd (S \u2229 T)\u1d9c = 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "heq",
+        "type": "s.restrict (S \u2229 T)\u1d9c = (\u03bc.singularPart \u03bd).restrict (S \u2229 T)\u1d9c",
+        "body": "by",
+        "children": [
+          {
+            "name": "hf",
+            "type": "\u03bd.withDensity f (A \u2229 (S \u2229 T)\u1d9c) = 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hrn",
+            "type": "\u03bd.withDensity (\u03bc.rnDeriv \u03bd) (A \u2229 (S \u2229 T)\u1d9c) = 0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "heq'",
+        "type": "\u2200 A : Set \u03b1, MeasurableSet A \u2192 s A = s.restrict (S \u2229 T)\u1d9c A",
+        "body": "by",
+        "children": [
+          {
+            "name": "hsinter",
+            "type": "s (A \u2229 (S \u2229 T)) = 0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h\u03bcinter",
+        "type": "\u03bc.singularPart \u03bd (A \u2229 (S \u2229 T)) = 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lebesgue",
+    "name": "eq_withDensity_rnDeriv",
+    "statement": "Measure \u03b1} {f : \u03b1 \u2192 \u211d\u22650\u221e} (hf : Measurable f) (hs : s \u27c2\u2098 \u03bd) (hadd : \u03bc = s + \u03bd.withDensity f) : \u03bd.withDensity f = \u03bd.withDensity (\u03bc.rnDeriv \u03bd)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "HaveLebesgueDecomposition \u03bc \u03bd",
+        "body": "\u27e8\u27e8\u27e8s, f\u27e9, hf, hs, hadd\u27e9\u27e9",
+        "children": []
+      },
+      {
+        "name": "h\u03bdinter",
+        "type": "\u03bd (S \u2229 T)\u1d9c = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "hs",
+            "type": "s (A \u2229 (S \u2229 T)) = 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hsing",
+            "type": "\u03bc.singularPart \u03bd (A \u2229 (S \u2229 T)) = 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h\u03bdfinter",
+            "type": "\u03bd.withDensity f (A \u2229 (S \u2229 T)\u1d9c) = 0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h\u03bdrn",
+        "type": "\u03bd.withDensity (\u03bc.rnDeriv \u03bd) (A \u2229 (S \u2229 T)\u1d9c) = 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lebesgue",
+    "name": "exists_positive_of_not_mutuallySingular",
+    "statement": "Measure \u03b1) [IsFiniteMeasure \u03bc] [IsFiniteMeasure \u03bd] (h : \u00ac \u03bc \u27c2\u2098 \u03bd) : \u2203 \u03b5 : \u211d\u22650, 0 < \u03b5 \u2227 \u2203 E : Set \u03b1, MeasurableSet E \u2227 0 < \u03bd E \u2227 \u2200 A, MeasurableSet A \u2192 \u03b5 * \u03bd (A \u2229 E) \u2264 \u03bc (A \u2229 E)",
+    "have_tree": [
+      {
+        "name": "hAmeas",
+        "type": "MeasurableSet A",
+        "body": "MeasurableSet.iInter fun n \u21a6 (hf\u2081 n).compl",
+        "children": [
+          {
+            "name": "_",
+            "type": "A \u2229 (f n)\u1d9c = A",
+            "body": "inter_eq_left.mpr (iInter_subset _ n)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u2115) : \u03bc A \u2264 (1 / (n + 1) : \u211d\u22650) * \u03bd A",
+        "body": "by simpa using hA\u2082 n univ .univ",
+        "children": []
+      },
+      {
+        "name": "h\u03bc",
+        "type": "\u03bc A = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h'",
+            "type": "",
+            "body": "this (\u03bcA / 2) (half_pos (zero_lt_iff.2 h))",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u2203 n : \u2115, 1 / (n + 1 : \u211d) < c * (\u03bdA : \u211d)\u207b\u00b9",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hb\u2081",
+            "type": "(0 : \u211d) < (\u03bdA : \u211d)\u207b\u00b9",
+            "body": "by rw [_root_.inv_pos]; exact hb",
+            "children": []
+          },
+          {
+            "name": "h'",
+            "type": "1 / (\u2191n + 1) * \u03bdA < c",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h _ hAmeas h\u03bc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lebesgue",
+    "name": "haveLebesgueDecomposition_of_finiteMeasure",
+    "statement": "HaveLebesgueDecomposition \u03bc \u03bd where lebesgue_decomposition",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "@exists_seq_tendsto_sSup _ _ _ _ _ (measurableLEEval \u03bd \u03bc)",
+        "children": []
+      },
+      {
+        "name": "h\u03be\u2081",
+        "type": "sSup (measurableLEEval \u03bd \u03bc) = \u222b\u207b a, \u03be a \u2202\u03bd",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "@lintegral_tendsto_of_tendsto_of_monotone _ _ \u03bd (fun n \u21a6 \u2a06 (k) (_ : k \u2264 n), f k)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h\u03bem",
+        "type": "Measurable \u03be",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "MeasurableSet A) : \u222b\u207b a in A, \u03be a \u2202\u03bd \u2264 \u03bc A",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hle",
+        "type": "\u03bd.withDensity \u03be \u2264 \u03bc",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsFiniteMeasure (\u03bd.withDensity \u03be)",
+        "body": "by",
+        "children": [
+          {
+            "name": "hle'",
+            "type": "",
+            "body": "hle univ",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Set \u03b1) (hA : MeasurableSet A) : \u222b\u207b a in A \u2229 E, \u03b5 + \u03be a \u2202\u03bd \u2264 \u03bc (A \u2229 E)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h\u03be\u03b5",
+            "type": "(\u03be + E.indicator fun _ \u21a6 (\u03b5 : \u211d\u22650\u221e)) \u2208 measurableLE \u03bd \u03bc",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "(\u222b\u207b a, \u03be a + E.indicator (fun _ \u21a6 (\u03b5 : \u211d\u22650\u221e)) a \u2202\u03bd) \u2264 sSup (measurableLEEval \u03bd \u03bc)",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "measure_ne_top (\u03bd.withDensity \u03be) univ",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

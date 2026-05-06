@@ -1,0 +1,122 @@
+[
+  {
+    "original": {
+      "module": "Countable",
+      "name": "MapsTo.countable_of_injOn",
+      "statement": "Set \u03b1} {t : Set \u03b2} {f : \u03b1 \u2192 \u03b2} (hf : MapsTo f s t) (hf' : InjOn f s) (ht : t.Countable) : s.Countable",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "ht.to_subtype",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Injective (hf.restrict f s t)",
+          "body": "(injOn_iff_injective.1 hf').codRestrict _",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Countable",
+          "name": "MapsTo.countable_of_injOn",
+          "statement": "Set \u03b1} {t : Set \u03b2} {f : \u03b1 \u2192 \u03b2} (hf : MapsTo f s t) (hf' : InjOn f s) (ht : t.Countable) : s.Countable",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Injective (hf.restrict f s t)",
+              "body": "(injOn_iff_injective.1 hf').codRestrict _",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "ht.to_subtype",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Countable",
+      "name": "countable_setOf_nonempty_of_disjoint",
+      "statement": "\u03b2 \u2192 Set \u03b1} (hf : Pairwise (Disjoint on f)) {s : Set \u03b1} (h'f : \u2200 t, f t \u2286 s) (hs : s.Countable) : Set.Countable {t | (f t).Nonempty}",
+      "have_tree": [
+        {
+          "name": "A",
+          "type": "Injective F",
+          "body": "by",
+          "children": [
+            {
+              "name": "A",
+              "type": "(f t \u2229 f t').Nonempty",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Countable",
+          "name": "countable_setOf_nonempty_of_disjoint",
+          "statement": "\u03b2 \u2192 Set \u03b1} (hf : Pairwise (Disjoint on f)) {s : Set \u03b1} (h'f : \u2200 t, f t \u2286 s) (hs : s.Countable) : Set.Countable {t | (f t).Nonempty}",
+          "have_tree": [
+            {
+              "name": "A",
+              "type": "Injective F",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Countable",
+          "name": "countable_setOf_nonempty_of_disjoint",
+          "statement": "\u03b2 \u2192 Set \u03b1} (hf : Pairwise (Disjoint on f)) {s : Set \u03b1} (h'f : \u2200 t, f t \u2286 s) (hs : s.Countable) : Set.Countable {t | (f t).Nonempty}",
+          "have_tree": [
+            {
+              "name": "A",
+              "type": "(f t \u2229 f t').Nonempty",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "Injective F",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

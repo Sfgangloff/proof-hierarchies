@@ -1,0 +1,72 @@
+[
+  {
+    "original": {
+      "module": "RegularExpressions",
+      "name": "star_rmatch_iff",
+      "statement": "RegularExpression \u03b1) : \u2200 x : List \u03b1, (star P).rmatch x \u2194 \u2203 S : List (List \u03b1), x = S.flatten \u2227 \u2200 t \u2208 S, t \u2260 [] \u2227 P.rmatch t",
+      "have_tree": [
+        {
+          "name": "IH",
+          "type": "",
+          "body": "fun t (_h : List.length t < List.length x) => star_rmatch_iff P t",
+          "children": [
+            {
+              "name": "hwf",
+              "type": "u.length < (List.cons a x).length",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "RegularExpressions",
+          "name": "star_rmatch_iff",
+          "statement": "RegularExpression \u03b1) : \u2200 x : List \u03b1, (star P).rmatch x \u2194 \u2203 S : List (List \u03b1), x = S.flatten \u2227 \u2200 t \u2208 S, t \u2260 [] \u2227 P.rmatch t",
+          "have_tree": [
+            {
+              "name": "IH",
+              "type": "",
+              "body": "fun t (_h : List.length t < List.length x) => star_rmatch_iff P t",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "RegularExpressions",
+          "name": "star_rmatch_iff",
+          "statement": "RegularExpression \u03b1) : \u2200 x : List \u03b1, (star P).rmatch x \u2194 \u2203 S : List (List \u03b1), x = S.flatten \u2227 \u2200 t \u2208 S, t \u2260 [] \u2227 P.rmatch t",
+          "have_tree": [
+            {
+              "name": "hwf",
+              "type": "u.length < (List.cons a x).length",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "IH",
+              "type": "",
+              "body": "fun t (_h : List.length t < List.length x) => star_rmatch_iff P t",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

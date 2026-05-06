@@ -1,0 +1,58 @@
+[
+  {
+    "module": "Basic",
+    "name": "Prime.mul_eq_prime_sq_iff",
+    "statement": "\u2115} (hp : p.Prime) (hx : x \u2260 1) (hy : y \u2260 1) : x * y = p ^ 2 \u2194 x = p \u2227 y = p",
+    "have_tree": [
+      {
+        "name": "pdvdxy",
+        "type": "p \u2223 x * y",
+        "body": "by rw [h]; simp [sq]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "a \u2223 p",
+        "body": "\u27e8y, by rwa [ha, sq, mul_assoc, mul_right_inj' hp.ne_zero, eq_comm] at h\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "succ_dvd_or_succ_dvd_of_succ_sum_dvd_mul",
+    "statement": "\u2115} (p_prime : Prime p) {m n k l : \u2115} (hpm : p ^ k \u2223 m) (hpn : p ^ l \u2223 n) (hpmn : p ^ (k + l + 1) \u2223 m * n) : p ^ (k + 1) \u2223 m \u2228 p ^ (l + 1) \u2223 n",
+    "have_tree": [
+      {
+        "name": "hpd",
+        "type": "p ^ (k + l) * p \u2223 m * n",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hpd2",
+        "type": "p \u2223 m * n / p ^ (k + l)",
+        "body": "dvd_div_of_mul_dvd hpd",
+        "children": []
+      },
+      {
+        "name": "hpd3",
+        "type": "p \u2223 m * n / (p ^ k * p ^ l)",
+        "body": "by simpa [pow_add] using hpd2",
+        "children": []
+      },
+      {
+        "name": "hpd4",
+        "type": "p \u2223 m / p ^ k * (n / p ^ l)",
+        "body": "by simpa [Nat.div_mul_div_comm hpm hpn] using hpd3",
+        "children": []
+      },
+      {
+        "name": "hpd5",
+        "type": "p \u2223 m / p ^ k \u2228 p \u2223 n / p ^ l",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

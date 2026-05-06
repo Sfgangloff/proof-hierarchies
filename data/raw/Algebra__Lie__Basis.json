@@ -1,0 +1,213 @@
+[
+  {
+    "module": "Basis",
+    "name": "A_diag_eq_two",
+    "statement": "\u03b9) : b.A i i = 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NoZeroSMulDivisors \u2124 L",
+        "body": "IsAddTorsionFree.to_noZeroSMulDivisors_int",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basis",
+    "name": "linearIndependent_baseSupp",
+    "statement": "LinearIndependent R b.baseSupp",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "((Int.castRingHom R).mapMatrix b.A).Nondegenerate",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hv",
+        "type": "LinearIndependent R v",
+        "body": "Basis.linearIndependent_coord _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basis",
+    "name": "baseSupp_apply_smul_e",
+    "statement": "\u03b9) (x : b.cartan) : b.baseSupp i x \u2022 b.e i = \u2045x, b.e i\u2046",
+    "have_tree": [
+      {
+        "name": "hx'",
+        "type": "x \u2208 Submodule.span R (range b.h)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basis",
+    "name": "baseSupp_apply_smul_f",
+    "statement": "\u03b9) (x : b.cartan) : b.baseSupp i x \u2022 b.f i = -\u2045x, b.f i\u2046",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "b.symm.baseSupp_apply_smul_e i x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basis",
+    "name": "borelUpper_le_biSup",
+    "statement": "b.borelUpper \u2264 \u2a06 (n : \u03b9 \u2192 \u2115) (_ : n \u2260 0), rootSpace b.cartan (\u2211 i, n i \u2022 b.baseSupp i)",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "\u2200 \u03c7\u2081 \u2208 s, \u2200 \u03c7\u2082 \u2208 s, \u03c7\u2081 + \u03c7\u2082 \u2208 s",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "b.linearIndependent_baseSupp.restrict_scalars' \u2115",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basis",
+    "name": "iSupIndep_rootSpace",
+    "statement": "letI U",
+    "have_tree": [
+      {
+        "name": "hU0",
+        "type": "Disjoint s0 sU",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Fintype.linearIndependent_iff.mp b.linearIndependent_baseSupp ((\u2191) \u2218 n)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hV0",
+        "type": "Disjoint s0 sV",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Fintype.linearIndependent_iff.mp b.linearIndependent_baseSupp ((\u2191) \u2218 n)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hUV",
+        "type": "Disjoint sU sV",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Fintype.linearIndependent_iff.mp b.linearIndependent_baseSupp ((\u2191) \u2218 (m + n)) hn'",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "LieModule.iSupIndep_genWeightSpace R b.cartan L",
+        "children": []
+      },
+      {
+        "name": "h\u2080",
+        "type": "Disjoint (rootSpace b.cartan 0) (U \u2294 V)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "Disjoint U (V \u2294 rootSpace b.cartan 0)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "Disjoint V (rootSpace b.cartan 0 \u2294 U)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basis",
+    "name": "root_mem_or_mem_neg",
+    "statement": "b.cartan.root) : (rootSystem b.cartan).root \u03c7 \u2208 closure ((rootSystem b.cartan).root '' range b.baseSupp') \u2228 -(rootSystem b.cartan).root \u03c7 \u2208 closure ((rootSystem b.cartan).root '' range b.baseSupp')",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "b.iSup_cartan_borelLower_borelUpper_eq_top",
+        "children": []
+      },
+      {
+        "name": "h\u03c7'",
+        "type": "\u00ac \u03c7.IsZero",
+        "body": "by simpa using h\u03c7",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basis",
+    "name": "baseSupportEquiv",
+    "statement": "\u03b9 \u2243 b.base.support",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Injective b.baseSupp'",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basis",
+    "name": "coe_baseSupportEquiv_apply",
+    "statement": "\u03b9) : b.baseSupportEquiv i = b.baseSupp i",
+    "have_tree": [
+      {
+        "name": "_i",
+        "type": "IsAddTorsionFree L",
+        "body": ".of_isTorsionFree K L",
+        "children": []
+      },
+      {
+        "name": "h_mem",
+        "type": "\u2045b.e i, b.f i\u2046 \u2208 b.cartan",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "he",
+        "type": "b.e i \u2208 rootSpace b.cartan (b.baseSupp i)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "b.f i \u2208 rootSpace b.cartan (-b.baseSupp i)",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

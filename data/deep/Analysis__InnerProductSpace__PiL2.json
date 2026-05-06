@@ -1,0 +1,80 @@
+[
+  {
+    "module": "PiL2",
+    "name": "orthonormalBasis_one_dim",
+    "statement": "OrthonormalBasis \u03b9 \u211d \u211d) : (\u21d1b = fun _ => (1 : \u211d)) \u2228 \u21d1b = fun _ => (-1 : \u211d)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Unique \u03b9",
+        "body": "b.toBasis.unique",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "b default = 1 \u2228 b default = -1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2016b default\u2016 = 1",
+            "body": "b.orthonormal.1 _",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PiL2",
+    "name": "LinearIsometry.extend",
+    "statement": "S \u2192\u2097\u1d62[\ud835\udd5c] V) : V \u2192\u2097\u1d62[\ud835\udd5c] V",
+    "have_tree": [
+      {
+        "name": "E",
+        "type": "S\u15ee \u2243\u2097\u1d62[\ud835\udd5c] LS\u15ee",
+        "body": "by",
+        "children": [
+          {
+            "name": "dim_LS_perp",
+            "type": "finrank \ud835\udd5c LS\u15ee = d",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "M_norm_map",
+        "type": "\u2200 x : V, \u2016M x\u2016 = \u2016x\u2016",
+        "body": "by",
+        "children": [
+          {
+            "name": "Mx_decomp",
+            "type": "M x = L (p1 x) + L3 (p2 x)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "Mx_orth",
+            "type": "\u27eaL (p1 x), L3 (p2 x)\u27eb = 0",
+            "body": "by",
+            "children": [
+              {
+                "name": "Lp1x",
+                "type": "L (p1 x) \u2208 LinearMap.range L.toLinearMap",
+                "body": "",
+                "children": []
+              },
+              {
+                "name": "Lp2x",
+                "type": "L3 (p2 x) \u2208 (LinearMap.range L.toLinearMap)\u15ee",
+                "body": "by",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

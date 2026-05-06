@@ -1,0 +1,162 @@
+[
+  {
+    "module": "Basic",
+    "name": "Algebra.isInvariant_of_isGalois",
+    "statement": "IsGalois K L] : letI",
+    "have_tree": [
+      {
+        "name": "hb",
+        "type": "IsIntegral A b",
+        "body": "IsIntegralClosure.isIntegral A L b",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "orbit_eq_primesOver",
+    "statement": "Ideal A) (Q : Ideal B) [hP : Q.LiesOver P] [hQ : Q.IsPrime] : MulAction.orbit G Q = P.primesOver B",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "R.IsPrime",
+        "body": "h.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "fixed_of_fixed1_aux1",
+    "statement": "\u2203 a b : B, (\u2200 g : G, g \u2022 a = a) \u2227 a \u2209 Q \u2227 \u2200 g : G, algebraMap B (B \u29f8 Q) (g \u2022 b) = algebraMap B (B \u29f8 Q) (if g \u2022 Q = Q then a else 0)",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "\u00ac P \u2264 Q",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hr",
+        "type": "r.eval b \u2208 Q",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "fixed_of_fixed1_aux3",
+    "statement": "B} {i j : \u2115} {p : Polynomial A} (h : p.map (algebraMap A B) = (X - C b) ^ i * X ^ j) (f : B \u2243\u2090[A] B) (hi : i \u2260 0) : f b = b",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "",
+        "body": "congrArg (eval b) (congrArg (Polynomial.mapAlgHom f.toAlgHom) h)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "fixed_of_fixed2",
+    "statement": "Gal(L/K)) (x : L) (hx : \u2200 g : MulAction.stabilizer G Q, IsFractionRing.stabilizerHom G P Q K L g x = x) : f x = x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "P.IsPrime",
+        "body": "Ideal.over_def Q P \u25b8 Ideal.IsPrime.under A Q",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.IsIntegral A B",
+        "body": "Algebra.IsInvariant.isIntegral A B G",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Ideal.Quotient.stabilizerHom_surjective",
+    "statement": "Function.Surjective (Ideal.Quotient.stabilizerHom Q P G)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "P.IsPrime",
+        "body": "Ideal.over_def Q P \u25b8 Ideal.IsPrime.under A Q",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "IsFractionRing.stabilizerHom_surjective G P Q",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Ideal.Quotient.exists_algHom_fixedPoint_quotient_under",
+    "statement": "k \u2192\u2090[A \u29f8 P] k) : \u2203 \u03c4 : (B \u29f8 Q) \u2192\u2090[A \u29f8 P] B \u29f8 Q, \u2200 x : B \u29f8 Q, algebraMap _ _ (\u03c4 x) = \u03c3 (algebraMap (B \u29f8 Q) k x)",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "Function.Injective f",
+        "body": "FaithfulSMul.algebraMap_injective _ _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Ideal.Quotient.exists_algEquiv_fixedPoint_quotient_under",
+    "statement": "k \u2243\u2090[A \u29f8 P] k) : \u2203 \u03c4 : (B \u29f8 Q) \u2243\u2090[A \u29f8 P] B \u29f8 Q, \u2200 x : B \u29f8 Q, algebraMap _ _ (\u03c4 x) = \u03c3 (algebraMap (B \u29f8 Q) k x)",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "Function.Injective f",
+        "body": "FaithfulSMul.algebraMap_injective _ _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Ideal.Quotient.normal",
+    "statement": "Normal (A \u29f8 P) (B \u29f8 Q)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Algebra.IsInvariant.isIntegral A B G",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "minpoly.dvd _ (algebraMap _ (B \u29f8 Q) x) (p := p.map (algebraMap _ (A \u29f8 P)))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Ideal.Quotient.finite_of_isInvariant",
+    "statement": "Module.Finite (A \u29f8 P) (B \u29f8 Q)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsGalois (A \u29f8 P) (B \u29f8 Q)",
+        "body": "{ __ := Ideal.Quotient.normal (A := A) G P Q }",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Finite.of_surjective _ (Ideal.Quotient.stabilizerHom_surjective G P Q)",
+        "children": []
+      }
+    ]
+  }
+]

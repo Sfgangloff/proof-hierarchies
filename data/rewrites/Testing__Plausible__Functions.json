@@ -1,0 +1,122 @@
+[
+  {
+    "original": {
+      "module": "Functions",
+      "name": "applyId_mem_iff",
+      "statement": "List \u03b1} (h\u2080 : List.Nodup xs) (h\u2081 : xs ~ ys) (x : \u03b1) : List.applyId.{u} (xs.zip ys) x \u2208 ys \u2194 x \u2208 xs",
+      "have_tree": [
+        {
+          "name": "h\u2082",
+          "type": "ys.Nodup",
+          "body": "h\u2081.nodup_iff.1 h\u2080",
+          "children": [
+            {
+              "name": "h\u2086",
+              "type": "",
+              "body": "Nat.succ.inj h\u2081",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Functions",
+          "name": "applyId_mem_iff",
+          "statement": "List \u03b1} (h\u2080 : List.Nodup xs) (h\u2081 : xs ~ ys) (x : \u03b1) : List.applyId.{u} (xs.zip ys) x \u2208 ys \u2194 x \u2208 xs",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "ys.Nodup",
+              "body": "h\u2081.nodup_iff.1 h\u2080",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Functions",
+          "name": "applyId_mem_iff",
+          "statement": "List \u03b1} (h\u2080 : List.Nodup xs) (h\u2081 : xs ~ ys) (x : \u03b1) : List.applyId.{u} (xs.zip ys) x \u2208 ys \u2194 x \u2208 xs",
+          "have_tree": [
+            {
+              "name": "h\u2086",
+              "type": "",
+              "body": "Nat.succ.inj h\u2081",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "ys.Nodup",
+              "body": "h\u2081.nodup_iff.1 h\u2080",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Functions",
+      "name": "shrink",
+      "statement": "Type} [DecidableEq \u03b1] : InjectiveFunction \u03b1 \u2192 List (InjectiveFunction \u03b1) | \u27e8_, h\u2080, h\u2081\u27e9 => do let \u27e8xs', ys', h\u2080, h\u2081\u27e9 \u2190 InjectiveFunction.shrinkPerm \u27e8_, _, h\u2080, h\u2081\u27e9 have h\u2083 : xs'.length \u2264 ys'.length",
+      "have_tree": [
+        {
+          "name": "h\u2080",
+          "type": "xs.length \u2264 ys.length",
+          "body": "le_of_eq h.length_eq",
+          "children": []
+        },
+        {
+          "name": "h\u2081",
+          "type": "ys.length \u2264 xs.length",
+          "body": "le_of_eq h.length_eq.symm",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Functions",
+          "name": "shrink",
+          "statement": "Type} [DecidableEq \u03b1] : InjectiveFunction \u03b1 \u2192 List (InjectiveFunction \u03b1) | \u27e8_, h\u2080, h\u2081\u27e9 => do let \u27e8xs', ys', h\u2080, h\u2081\u27e9 \u2190 InjectiveFunction.shrinkPerm \u27e8_, _, h\u2080, h\u2081\u27e9 have h\u2083 : xs'.length \u2264 ys'.length",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "ys.length \u2264 xs.length",
+              "body": "le_of_eq h.length_eq.symm",
+              "children": []
+            },
+            {
+              "name": "h\u2080",
+              "type": "xs.length \u2264 ys.length",
+              "body": "le_of_eq h.length_eq",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

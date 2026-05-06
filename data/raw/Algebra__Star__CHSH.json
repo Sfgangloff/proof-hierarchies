@@ -1,0 +1,41 @@
+[
+  {
+    "module": "CHSH",
+    "name": "CHSH_inequality_of_comm",
+    "statement": "R) (T : IsCHSHTuple A\u2080 A\u2081 B\u2080 B\u2081) : A\u2080 * B\u2080 + A\u2080 * B\u2081 + A\u2081 * B\u2080 - A\u2081 * B\u2081 \u2264 2",
+    "have_tree": [
+      {
+        "name": "i\u2081",
+        "type": "0 \u2264 P",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CHSH",
+    "name": "tsirelson_inequality",
+    "statement": "R) (T : IsCHSHTuple A\u2080 A\u2081 B\u2080 B\u2081) : A\u2080 * B\u2080 + A\u2080 * B\u2081 + A\u2081 * B\u2080 - A\u2081 * B\u2081 \u2264 \u221a2 ^ 3 \u2022 (1 : R)",
+    "have_tree": [
+      {
+        "name": "pos",
+        "type": "0 \u2264 (\u221a2)\u207b\u00b9 \u2022 (P ^ 2 + Q ^ 2)",
+        "body": "by",
+        "children": [
+          {
+            "name": "P2_nonneg",
+            "type": "0 \u2264 P ^ 2",
+            "body": "by simpa only [P_sa, sq] using star_mul_self_nonneg P",
+            "children": []
+          },
+          {
+            "name": "Q2_nonneg",
+            "type": "0 \u2264 Q ^ 2",
+            "body": "by simpa only [Q_sa, sq] using star_mul_self_nonneg Q",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

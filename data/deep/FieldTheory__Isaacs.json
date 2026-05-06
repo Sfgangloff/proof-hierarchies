@@ -1,0 +1,85 @@
+[
+  {
+    "module": "Isaacs",
+    "name": "nonempty_algHom_of_exist_roots",
+    "statement": "\u2200 x : E, \u2203 y : K, aeval y (minpoly F x) = 0) : Nonempty (E \u2192\u2090[F] K)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "s \u2208 S) : ((minpoly F s).map (algebraMap F K')).Splits",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "finiteDimensional_adjoin (S := (S : Set E)) fun _ _ \u21a6 (alg.isIntegral).1 _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u22c3 \u03c9 : \u03a9, (M \u03c9 : Set FS) = Set.univ",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "h \u03b1",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "exists_algHom_adjoin_of_splits",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "\u03c9",
+        "type": "\u2203 \u03c9 : \u03a9, \u22a4 \u2264 M \u03c9",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Set.mem_iUnion.mp (this \u25b8 Set.mem_univ \u03b1)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Isaacs",
+    "name": "nonempty_algEquiv_of_range_minpoly_eq",
+    "statement": "Set.range (@minpoly F E _ _ _) = Set.range (@minpoly F K _ _ _)) : Nonempty (E \u2243\u2090[F] K)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "nonempty_algHom_of_range_minpoly_subset h.le",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.IsAlgebraic F K",
+        "body": "\u27e8fun y \u21a6 IsIntegral.isAlgebraic <| by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "h.ge \u27e8y, rfl\u27e9",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "nonempty_algHom_of_range_minpoly_subset h.ge",
+        "children": []
+      }
+    ]
+  }
+]

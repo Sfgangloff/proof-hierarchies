@@ -1,0 +1,169 @@
+[
+  {
+    "module": "Cauchy",
+    "name": "Cauchy.ultrafilter_of",
+    "statement": "Filter \u03b1} (h : Cauchy l) : Cauchy (@Ultrafilter.of _ l h.1 : Filter \u03b1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Ultrafilter.of_le l",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cauchy",
+    "name": "Cauchy.prod",
+    "statement": "Filter \u03b1} {g : Filter \u03b2} (hf : Cauchy f) (hg : Cauchy g) : Cauchy (f \u00d7\u02e2 g)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.1; have := hg.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cauchy",
+    "name": "CauchySeq.mem_entourage",
+    "statement": "Type*} [SemilatticeSup \u03b2] {u : \u03b2 \u2192 \u03b1} (h : CauchySeq u) {V : SetRel \u03b1 \u03b1} (hV : V \u2208 \ud835\udce4 \u03b1) : \u2203 k\u2080, \u2200 i j, k\u2080 \u2264 i \u2192 k\u2080 \u2264 j \u2192 (u i, u j) \u2208 V",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.tendsto_uniformity; rw [\u2190 prod_atTop_atTop_eq] at this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cauchy",
+    "name": "CauchySeq.subseq_mem",
+    "statement": "\u2115 \u2192 SetRel \u03b1 \u03b1} (hV : \u2200 n, V n \u2208 \ud835\udce4 \u03b1) {u : \u2115 \u2192 \u03b1} (hu : CauchySeq u) : \u2203 \u03c6 : \u2115 \u2192 \u2115, StrictMono \u03c6 \u2227 \u2200 n, (u <| \u03c6 (n + 1), u <| \u03c6 n) \u2208 V n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 n, \u2203 N, \u2200 k \u2265 N, \u2200 l \u2265 k, (u l, u k) \u2208 V n",
+        "body": "fun n => by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cauchy",
+    "name": "Filter.totallyBounded_biSup",
+    "statement": "Type*} {I : Set \u03b9} (hI : I.Finite) {f : \u03b9 \u2192 Filter \u03b1} : (\u2a06 i \u2208 I, f i).TotallyBounded \u2194 \u2200 i \u2208 I, (f i).TotallyBounded",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hI.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cauchy",
+    "name": "totallyBounded_biUnion",
+    "statement": "Type*} {I : Set \u03b9} (hI : I.Finite) {s : \u03b9 \u2192 Set \u03b1} : TotallyBounded (\u22c3 i \u2208 I, s i) \u2194 \u2200 i \u2208 I, TotallyBounded (s i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hI.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cauchy",
+    "name": "Ultrafilter.cauchy_of_totallyBounded'",
+    "statement": "Ultrafilter \u03b1) (hf : f.TotallyBounded) : Cauchy (f : Filter \u03b1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2203 y \u2208 i, { x | (x, y) \u2208 t' } \u2208 f",
+        "body": "(Ultrafilter.eventually_exists_mem_iff hi).1 ht'_f",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "{x | (x, y) \u2208 t'} \u00d7\u02e2 {x | (x, y) \u2208 t'} \u2286 t' \u25cb t'",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cauchy",
+    "name": "Filter.totallyBounded_iff_filter",
+    "statement": "Filter \u03b1} : g.TotallyBounded \u2194 \u2200 f, NeBot f \u2192 f \u2264 g \u2192 \u2203 c \u2264 f, Cauchy c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Filter.NeBot f",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "f \u2264 g",
+        "body": "iInf_le_of_le \u2205 (by simp)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "{x | (x, y) \u2208 d}\u1d9c \u2208 c",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cauchy",
+    "name": "Filter.TotallyBounded.exists_clusterPt",
+    "statement": "Filter \u03b1} [f.NeBot] (hf : f.TotallyBounded) : \u2203 x, ClusterPt x f",
+    "have_tree": [
+      {
+        "name": "hmf",
+        "type": "m \u2264 f",
+        "body": "Ultrafilter.of_le f",
+        "children": []
+      },
+      {
+        "name": "hm",
+        "type": "",
+        "body": "m.cauchy_of_totallyBounded' (hf.mono hmf)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cauchy",
+    "name": "complete_of_convergent_controlled_sequences",
+    "statement": "\u2115 \u2192 SetRel \u03b1 \u03b1) (U_mem : \u2200 n, U n \u2208 \ud835\udce4 \u03b1) (HU : \u2200 u : \u2115 \u2192 \u03b1, (\u2200 N m n, N \u2264 m \u2192 N \u2264 n \u2192 (u m, u n) \u2208 U N) \u2192 \u2203 a, Tendsto u atTop (\ud835\udcdd a)) : CompleteSpace \u03b1",
+    "have_tree": [
+      {
+        "name": "Hmem",
+        "type": "\u2200 n, U n \u2229 U' n \u2208 \ud835\udce4 \u03b1",
+        "body": "fun n => inter_mem (U_mem n) (hU'.2 \u27e8n, Subset.refl _\u27e9)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cauchy",
+    "name": "subset_countable_closure_of_almost_dense_set",
+    "statement": "Set \u03b1) (hs : \u2200 U \u2208 \ud835\udce4 \u03b1, \u2203 t : Set \u03b1, t.Countable \u2227 s \u2286 \u22c3 x \u2208 t, ball x U) : \u2203 t, t \u2286 s \u2227 t.Countable \u2227 s \u2286 closure t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "fun n => (tC n).to_subtype",
+        "children": []
+      }
+    ]
+  }
+]

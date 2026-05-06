@@ -1,0 +1,91 @@
+[
+  {
+    "module": "CHSH",
+    "name": "CHSH_inequality_of_comm",
+    "statement": "R) (T : IsCHSHTuple A\u2080 A\u2081 B\u2080 B\u2081) : A\u2080 * B\u2080 + A\u2080 * B\u2081 + A\u2081 * B\u2080 - A\u2081 * B\u2081 \u2264 2",
+    "have_tree": [
+      {
+        "name": "i\u2081",
+        "type": "0 \u2264 P",
+        "body": "by",
+        "children": [
+          {
+            "name": "idem",
+            "type": "P * P = 4 * P",
+            "body": "CHSH_id T.A\u2080_inv T.A\u2081_inv T.B\u2080_inv T.B\u2081_inv",
+            "children": []
+          },
+          {
+            "name": "idem'",
+            "type": "P = (1 / 4 : \u211d) \u2022 (P * P)",
+            "body": "by",
+            "children": [
+              {
+                "name": "h",
+                "type": "4 * P = (4 : \u211d) \u2022 P",
+                "body": "by simp [map_ofNat, Algebra.smul_def]",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "sa",
+            "type": "star P = P",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "CHSH",
+    "name": "tsirelson_inequality",
+    "statement": "R) (T : IsCHSHTuple A\u2080 A\u2081 B\u2080 B\u2081) : A\u2080 * B\u2080 + A\u2080 * B\u2081 + A\u2081 * B\u2080 - A\u2081 * B\u2081 \u2264 \u221a2 ^ 3 \u2022 (1 : R)",
+    "have_tree": [
+      {
+        "name": "M",
+        "type": "\u2200 (m : \u2124) (a : \u211d) (x : R), m \u2022 a \u2022 x = ((m : \u211d) * a) \u2022 x",
+        "body": "fun m a x => by",
+        "children": []
+      },
+      {
+        "name": "w",
+        "type": "\u221a2 ^ 3 \u2022 (1 : R) - A\u2080 * B\u2080 - A\u2080 * B\u2081 - A\u2081 * B\u2080 + A\u2081 * B\u2081 = (\u221a2)\u207b\u00b9 \u2022 (P ^ 2 + Q ^ 2)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "pos",
+        "type": "0 \u2264 (\u221a2)\u207b\u00b9 \u2022 (P ^ 2 + Q ^ 2)",
+        "body": "by",
+        "children": [
+          {
+            "name": "P_sa",
+            "type": "star P = P",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "Q_sa",
+            "type": "star Q = Q",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "P2_nonneg",
+            "type": "0 \u2264 P ^ 2",
+            "body": "by simpa only [P_sa, sq] using star_mul_self_nonneg P",
+            "children": []
+          },
+          {
+            "name": "Q2_nonneg",
+            "type": "0 \u2264 Q ^ 2",
+            "body": "by simpa only [Q_sa, sq] using star_mul_self_nonneg Q",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

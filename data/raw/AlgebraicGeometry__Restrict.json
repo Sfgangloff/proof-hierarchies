@@ -1,0 +1,53 @@
+[
+  {
+    "module": "Restrict",
+    "name": "Scheme.openCoverOfIsOpenCover",
+    "statement": "Type*} (X : Scheme.{u}) (U : s \u2192 X.Opens) (hU : IsOpenCover U) : X.OpenCover where I\u2080",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "x \u2208 \u2a06 i, U i",
+        "body": "hU.symm \u25b8 show x \u2208 (\u22a4 : X.Opens) by trivial",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Restrict",
+    "name": "Scheme.homOfLE_app",
+    "statement": "X.Opens} (e : U \u2264 V) (W : Opens V) : (X.homOfLE e).app W = X.presheaf.map (homOfLE <| X.\u03b9_image_homOfLE_le_\u03b9_image e W).op",
+    "have_tree": [
+      {
+        "name": "e\u2081",
+        "type": "",
+        "body": "Scheme.Hom.congr_app (X.homOfLE_\u03b9 e) (V.\u03b9 ''\u1d41 W)",
+        "children": []
+      },
+      {
+        "name": "e\u2082",
+        "type": "",
+        "body": "(X.homOfLE e).naturality (eqToIso this).hom.op",
+        "children": []
+      },
+      {
+        "name": "e\u2083",
+        "type": "",
+        "body": "e\u2082.symm.trans e\u2081",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Restrict",
+    "name": "morphismRestrictRestrictBasicOpen",
+    "statement": "Scheme.{u}} (f : X \u27f6 Y) (U : Y.Opens) (r : \u0393(Y, U)) : Arrow.mk (f \u2223_ U \u2223_ U.toScheme.basicOpen (Y.presheaf.map (eqToHom U.isOpenEmbedding_obj_top).op r)) \u2245 Arrow.mk (f \u2223_ Y.basicOpen r)",
+    "have_tree": [
+      {
+        "name": "e",
+        "type": "",
+        "body": "Scheme.preimage_basicOpen U.\u03b9 r",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "module": "ScaleRoots",
+    "name": "scaleRoots_ne_zero",
+    "statement": "R[X]} (hp : p \u2260 0) (s : R) : scaleRoots p s \u2260 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "p.coeff p.natDegree \u2260 0",
+        "body": "mt leadingCoeff_eq_zero.mp hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ScaleRoots",
+    "name": "support_scaleRoots_eq",
+    "statement": "R[X]) {s : R} (hs : s \u2208 nonZeroDivisors R) : (scaleRoots p s).support = p.support",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(pow_mem hs (p.natDegree - i)).2 _ ps_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ScaleRoots",
+    "name": "degree_scaleRoots",
+    "statement": "R[X]) {s : R} : degree (scaleRoots p s) = degree p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "leadingCoeff_eq_zero.mp h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ScaleRoots",
+    "name": "rootMultiplicity_scaleRoots",
+    "statement": "R[X]) {r a : R} (hr : IsLeftRegular r) : rootMultiplicity (r * a) (p.scaleRoots r) = rootMultiplicity a p",
+    "have_tree": [
+      {
+        "name": "hq0",
+        "type": "q \u2260 0",
+        "body": "by contrapose hp; simp_all",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ScaleRoots",
+    "name": "roots_scaleRoots",
+    "statement": "R[X]) {r : R} (hr : IsUnit r) : (p.scaleRoots r).roots = p.roots.map (r * \u00b7)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Function.Bijective (\u03b1",
+        "body": "R) (r * \u00b7) := IsUnit.isUnit_iff_mulLeft_bijective.mp hr",
+        "children": []
+      }
+    ]
+  }
+]

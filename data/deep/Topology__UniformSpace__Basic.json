@@ -1,0 +1,40 @@
+[
+  {
+    "module": "Basic",
+    "name": "exists_is_open_mem_uniformity_of_forall_mem_eq",
+    "statement": "SetRel \u03b1 \u03b1} {s : Set \u03b2} {f g : \u03b2 \u2192 \u03b1} (hf : \u2200 x \u2208 s, ContinuousAt f x) (hg : \u2200 x \u2208 s, ContinuousAt g x) (hfg : s.EqOn f g) (hr : r \u2208 \ud835\udce4 \u03b1) : \u2203 t, IsOpen t \u2227 s \u2286 t \u2227 \u2200 x \u2208 t, (f x, g x) \u2208 r",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2200 x \u2208 s, \u2203 t, IsOpen t \u2227 x \u2208 t \u2227 \u2200 z \u2208 t, (f z, g z) \u2208 r",
+        "body": "by",
+        "children": [
+          {
+            "name": "A",
+            "type": "{z | (f x, f z) \u2208 t} \u2208 \ud835\udcdd x",
+            "body": "(hf x hx).preimage_mem_nhds (mem_nhds_left (f x) ht)",
+            "children": []
+          },
+          {
+            "name": "B",
+            "type": "{z | (g x, g z) \u2208 t} \u2208 \ud835\udcdd x",
+            "body": "(hg x hx).preimage_mem_nhds (mem_nhds_left (g x) ht)",
+            "children": []
+          },
+          {
+            "name": "I1",
+            "type": "(f y, f x) \u2208 t",
+            "body": "SetRel.symm t (hu hy).1",
+            "children": []
+          },
+          {
+            "name": "I2",
+            "type": "(g x, g y) \u2208 t",
+            "body": "(hu hy).2",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

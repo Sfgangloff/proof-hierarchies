@@ -1,0 +1,115 @@
+[
+  {
+    "module": "CompleteMultipartite",
+    "name": "IsPathGraph3Compl.pathGraph3ComplEmbedding",
+    "statement": "\u03b1} (h : G.IsPathGraph3Compl v w\u2081 w\u2082) : (pathGraph 3)\u1d9c \u21aag G where toFun",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.ne_fst",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.ne_snd",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.adj.ne",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.adj",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.adj.symm",
+        "children": []
+      },
+      {
+        "name": "h1",
+        "type": "",
+        "body": "h.not_adj_fst",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "h.not_adj_snd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CompleteMultipartite",
+    "name": "not_isCompleteMultipartite_of_pathGraph3ComplEmbedding",
+    "statement": "(pathGraph 3)\u1d9c \u21aag G) : \u00ac IsCompleteMultipartite G",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "\u00ac G.Adj (e 0) (e 1)",
+        "body": "by simp [pathGraph_adj]",
+        "children": []
+      },
+      {
+        "name": "h1",
+        "type": "\u00ac G.Adj (e 1) (e 2)",
+        "body": "by simp [pathGraph_adj]",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "G.Adj (e 0) (e 2)",
+        "body": "by simp [pathGraph_adj]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CompleteMultipartite",
+    "name": "toCopy",
+    "statement": "Copy (completeEquipartiteGraph r t) G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsEmpty (Fin r \u00d7 Fin t)",
+        "body": "by simp [ht, Fin.isEmpty]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CompleteMultipartite",
+    "name": "ofCopy",
+    "statement": "Copy (completeEquipartiteGraph r t) G) : G.CompleteEquipartiteSubgraph r t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero t",
+        "body": "\u27e8ht\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CompleteMultipartite",
+    "name": "completeEquipartiteGraph_succ_isContained_iff",
+    "statement": "completeEquipartiteGraph (r + 1) t \u2291 G \u2194 \u2203\u1d49 (K : G.CompleteEquipartiteSubgraph r t) (s : Finset V), #s = t \u2227 \u2200 p \u2208 K.parts, G.IsCompleteBetween p s",
+    "have_tree": [
+      {
+        "name": "hs_mem",
+        "type": "s \u2208 K'.parts",
+        "body": "by simp [\u2190 hs]",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "module": "BaseChange",
+    "name": "LinearIndependent.linearIndependent_algebraMap_comp_aux",
+    "statement": "Type*} (L : Type*) [Field K] [Field L] [Algebra K L] {v : \u03b9 \u2192 \u03b9' \u2192 K} (hv : LinearIndependent K v) : LinearIndependent L (fun i \u21a6 algebraMap K L \u2218 v i)",
+    "have_tree": [
+      {
+        "name": "h_inj",
+        "type": "Injective v'",
+        "body": "fun i j hij \u21a6 by have : Injective v := hv.injective; aesop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BaseChange",
+    "name": "linearIndependent_algebraMap_comp_iff",
+    "statement": "Type*} [CommRing R] [CommRing S] [Algebra R S] [FaithfulSMul R S] [IsDomain S] {v : \u03b9 \u2192 \u03b9' \u2192 R} : LinearIndependent S (fun i \u21a6 algebraMap R S \u2218 v i) \u2194 LinearIndependent R v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsDomain R",
+        "body": ".of_faithfulSMul R S",
+        "children": [
+          {
+            "name": "_",
+            "type": "Function.Injective (Pi.algebraMap \u03b9' R K)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

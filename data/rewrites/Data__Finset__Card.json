@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Card",
+      "name": "surj_on_of_inj_on_of_card_le",
+      "statement": "\u2200 a \u2208 s, \u03b2) (hf : \u2200 a ha, f a ha \u2208 t) (hinj : \u2200 a\u2081 a\u2082 ha\u2081 ha\u2082, f a\u2081 ha\u2081 = f a\u2082 ha\u2082 \u2192 a\u2081 = a\u2082) (hst : #t \u2264 #s) : \u2200 b \u2208 t, \u2203 a ha, b = f a ha",
+      "have_tree": [
+        {
+          "name": "hinj'",
+          "type": "Set.InjOn f' s.attach",
+          "body": "fun x hx y hy hxy \u21a6 Subtype.ext (hinj _ _ x.2 y.2 hxy)",
+          "children": []
+        },
+        {
+          "name": "hmapsto'",
+          "type": "Set.MapsTo f' s.attach t",
+          "body": "fun x hx \u21a6 hf _ _",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Card",
+          "name": "surj_on_of_inj_on_of_card_le",
+          "statement": "\u2200 a \u2208 s, \u03b2) (hf : \u2200 a ha, f a ha \u2208 t) (hinj : \u2200 a\u2081 a\u2082 ha\u2081 ha\u2082, f a\u2081 ha\u2081 = f a\u2082 ha\u2082 \u2192 a\u2081 = a\u2082) (hst : #t \u2264 #s) : \u2200 b \u2208 t, \u2203 a ha, b = f a ha",
+          "have_tree": [
+            {
+              "name": "hmapsto'",
+              "type": "Set.MapsTo f' s.attach t",
+              "body": "fun x hx \u21a6 hf _ _",
+              "children": []
+            },
+            {
+              "name": "hinj'",
+              "type": "Set.InjOn f' s.attach",
+              "body": "fun x hx y hy hxy \u21a6 Subtype.ext (hinj _ _ x.2 y.2 hxy)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Card",
+      "name": "inj_on_of_surj_on_of_card_le",
+      "statement": "\u2200 a \u2208 s, \u03b2) (hf : \u2200 a ha, f a ha \u2208 t) (hsurj : \u2200 b \u2208 t, \u2203 a ha, f a ha = b) (hst : #s \u2264 #t) \u2983a\u2081\u2984 (ha\u2081 : a\u2081 \u2208 s) \u2983a\u2082\u2984 (ha\u2082 : a\u2082 \u2208 s) (ha\u2081a\u2082 : f a\u2081 ha\u2081 = f a\u2082 ha\u2082) : a\u2081 = a\u2082",
+      "have_tree": [
+        {
+          "name": "hsurj'",
+          "type": "Set.SurjOn f' s.attach t",
+          "body": "fun x hx \u21a6 by simpa [f'] using hsurj x hx",
+          "children": []
+        },
+        {
+          "name": "hinj'",
+          "type": "",
+          "body": "injOn_of_surjOn_of_card_le f' (fun x hx \u21a6 hf _ _) hsurj' (by simpa)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Card",
+          "name": "inj_on_of_surj_on_of_card_le",
+          "statement": "\u2200 a \u2208 s, \u03b2) (hf : \u2200 a ha, f a ha \u2208 t) (hsurj : \u2200 b \u2208 t, \u2203 a ha, f a ha = b) (hst : #s \u2264 #t) \u2983a\u2081\u2984 (ha\u2081 : a\u2081 \u2208 s) \u2983a\u2082\u2984 (ha\u2082 : a\u2082 \u2208 s) (ha\u2081a\u2082 : f a\u2081 ha\u2081 = f a\u2082 ha\u2082) : a\u2081 = a\u2082",
+          "have_tree": [
+            {
+              "name": "hinj'",
+              "type": "",
+              "body": "injOn_of_surjOn_of_card_le f' (fun x hx \u21a6 hf _ _) hsurj' (by simpa)",
+              "children": []
+            },
+            {
+              "name": "hsurj'",
+              "type": "Set.SurjOn f' s.attach t",
+              "body": "fun x hx \u21a6 by simpa [f'] using hsurj x hx",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,93 @@
+[
+  {
+    "module": "StructurePolynomial",
+    "name": "wittStructureRat_rec_aux",
+    "statement": "MvPolynomial idx \u211a) (n : \u2115) : wittStructureRat p \u03a6 n * C ((p : \u211a) ^ n) = bind\u2081 (fun b => rename (fun i => (b, i)) (W_ \u211a n)) \u03a6 - \u2211 i \u2208 range n, C ((p : \u211a) ^ i) * wittStructureRat p \u03a6 i ^ p ^ (n - i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "xInTermsOfW_aux p \u211a n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StructurePolynomial",
+    "name": "bind\u2081_rename_expand_wittPolynomial",
+    "statement": "MvPolynomial idx \u2124) (n : \u2115) (IH : \u2200 m : \u2115, m < n + 1 \u2192 map (Int.castRingHom \u211a) (wittStructureInt p \u03a6 m) = wittStructureRat p (map (Int.castRingHom \u211a) \u03a6) m) : bind\u2081 (fun b => rename (fun i => (b, i)) (expand p (W_ \u2124 n))) \u03a6 = bind\u2081 (fun i => expand p (wittStructureInt p \u03a6 i)) (W_ \u2124 n)",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "(wittStructureRat_prop p (map (Int.castRingHom \u211a) \u03a6) n).symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StructurePolynomial",
+    "name": "C_p_pow_dvd_bind\u2081_rename_wittPolynomial_sub_sum",
+    "statement": "MvPolynomial idx \u2124) (n : \u2115) (IH : \u2200 m : \u2115, m < n \u2192 map (Int.castRingHom \u211a) (wittStructureInt p \u03a6 m) = wittStructureRat p (map (Int.castRingHom \u211a) \u03a6) m) : (C ((p ^ n :) : \u2124) : MvPolynomial (idx \u00d7 \u2115) \u2124) \u2223 bind\u2081 (fun b : idx => rename (fun i => (b, i)) (wittPolynomial p \u2124 n)) \u03a6 - \u2211 i \u2208 range n, C ((p : \u2124) ^ i) * wittStructureInt p \u03a6 i ^ p ^ (n - i)",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "bind\u2081_rename_expand_wittPolynomial \u03a6 n IH",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StructurePolynomial",
+    "name": "wittStructureInt_prop",
+    "statement": "MvPolynomial idx \u2124) (n) : bind\u2081 (wittStructureInt p \u03a6) (wittPolynomial p \u2124 n) = bind\u2081 (fun i => rename (Prod.mk i) (W_ \u2124 n)) \u03a6",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "wittStructureRat_prop p (map (Int.castRingHom \u211a) \u03a6) n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StructurePolynomial",
+    "name": "constantCoeff_wittStructureInt_zero",
+    "statement": "MvPolynomial idx \u2124) : constantCoeff (wittStructureInt p \u03a6 0) = constantCoeff \u03a6",
+    "have_tree": [
+      {
+        "name": "inj",
+        "type": "Function.Injective (Int.castRingHom \u211a)",
+        "body": "by intro m n; exact Int.cast_inj.mp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StructurePolynomial",
+    "name": "constantCoeff_wittStructureInt",
+    "statement": "MvPolynomial idx \u2124) (h : constantCoeff \u03a6 = 0) (n : \u2115) : constantCoeff (wittStructureInt p \u03a6 n) = 0",
+    "have_tree": [
+      {
+        "name": "inj",
+        "type": "Function.Injective (Int.castRingHom \u211a)",
+        "body": "by intro m n; exact Int.cast_inj.mp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StructurePolynomial",
+    "name": "wittStructureInt_vars",
+    "statement": "MvPolynomial idx \u2124) (n : \u2115) : (wittStructureInt p \u03a6 n).vars \u2286 Finset.univ \u00d7\u02e2 Finset.range (n + 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Function.Injective (Int.castRingHom \u211a)",
+        "body": "Int.cast_injective",
+        "children": []
+      }
+    ]
+  }
+]

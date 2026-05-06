@@ -1,0 +1,84 @@
+[
+  {
+    "module": "Basic",
+    "name": "RingHom.HoldsForLocalization.isLocalizationMap",
+    "statement": "StableUnderComposition P) (hPp : LocalizationPreserves P) (hPl : HoldsForLocalization P) {M : Submonoid R} {T : Submonoid S} {R' : Type u} [CommRing R'] [Algebra R R'] [IsLocalization M R'] (S' : Type u) [CommRing S'] [Algebra S S'] [IsLocalization T S'] {f : R \u2192+* S} (hy : M \u2264 Submonoid.comap f T) (hf : P f) : P (IsLocalization.map (S",
+    "have_tree": [
+      {
+        "name": "hle",
+        "type": "Submonoid.map f M \u2264 T",
+        "body": "by simpa [Submonoid.map_le_iff_le_comap]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsScalarTower S (Localization (Submonoid.map f M)) S'",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsLocalization (T.map (algebraMap S (Localization (M.map f)))) S'",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "heq",
+        "type": "IsLocalization.map (S",
+        "body": "R') S' f hy =",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "RingHom.HoldsForLocalizationAway.of_bijective",
+    "statement": "RingHom.HoldsForLocalizationAway P) (hf : Function.Bijective f) : P f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsLocalization.of_le_isUnit (S := .powers (1 : R)) (by simp)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsLocalization.isLocalization_of_algEquiv (.powers (1 : R))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "RingHom.LocalizationAwayPreserves.respectsIso",
+    "statement": "LocalizationAwayPreserves P) : RespectsIso P where left {R S T} _ _ _ f e hf",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsLocalization.Away (f 1) T",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsLocalization.Away (f 1) T",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "RingHom.LocalizationPreserves.away",
+    "statement": "RingHom.LocalizationPreserves @P) : RingHom.LocalizationAwayPreserves P",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsLocalization ((Submonoid.powers r).map f) S'",
+        "body": "by rw [Submonoid.map_powers]; assumption",
+        "children": []
+      }
+    ]
+  }
+]

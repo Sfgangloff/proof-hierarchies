@@ -1,0 +1,65 @@
+[
+  {
+    "module": "ConvergentsEquiv",
+    "name": "contsAux_eq_contsAux_squashGCF_of_le",
+    "statement": "\u2115} : m \u2264 n \u2192 contsAux g m = (squashGCF g n).contsAux m",
+    "have_tree": [
+      {
+        "name": "m'_lt_n",
+        "type": "m'' + 1 < n' + 1",
+        "body": "m_le_n",
+        "children": []
+      },
+      {
+        "name": "succ_m''th_contsAux_eq",
+        "type": "",
+        "body": "IH (m'' + 1) (lt_add_one (m'' + 1)) m'_lt_n.le",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "m'' < m'' + 2",
+        "body": "lt_add_of_pos_right m'' zero_lt_two",
+        "children": []
+      },
+      {
+        "name": "m''th_contsAux_eq",
+        "type": "",
+        "body": "IH m'' this (le_trans this.le m_le_n)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ConvergentsEquiv",
+    "name": "succ_nth_conv_eq_squashGCF_nth_conv",
+    "statement": "\u2200 {b : K}, g.partDens.get? n = some b \u2192 b \u2260 0) : g.convs (n + 1) = (squashGCF g n).convs n",
+    "have_tree": [
+      {
+        "name": "b_ne_zero",
+        "type": "b \u2260 0",
+        "body": "nth_partDen_ne_zero (partDen_eq_s_b s_nth_eq)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ConvergentsEquiv",
+    "name": "convs_eq_convs'",
+    "statement": "\u2200 {gp : Pair K} {m : \u2115}, m < n \u2192 g.s.get? m = some gp \u2192 0 < gp.a \u2227 0 < gp.b) : g.convs n = g.convs' n",
+    "have_tree": [
+      {
+        "name": "m_lt_n",
+        "type": "m < m.succ",
+        "body": "Nat.lt_succ_self m",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 < gp_succ_m.a \u2227 0 < gp_succ_m.b",
+        "body": "s_pos (lt_add_one <| m + 1) s_succ_mth_eq",
+        "children": []
+      }
+    ]
+  }
+]

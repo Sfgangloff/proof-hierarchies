@@ -1,0 +1,239 @@
+[
+  {
+    "module": "Integral",
+    "name": "Algebra.IsAlgebraic.of_isIntegralClosure",
+    "statement": "Type*) [CommRing R] [Nontrivial R] [CommRing B] [CommRing C] [Algebra R B] [Algebra R C] [Algebra B C] [IsScalarTower R B C] [IsIntegralClosure B R C] : Algebra.IsAlgebraic R B",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsIntegralClosure.isIntegral_algebra R (A := B) C",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "exists_integral_multiple",
+    "statement": "IsAlgebraic R z) : \u2203 y \u2260 (0 : R), IsIntegral R (y \u2022 z)",
+    "have_tree": [
+      {
+        "name": "a_ne_zero",
+        "type": "a \u2260 0",
+        "body": "mt Polynomial.leadingCoeff_eq_zero.mp p_ne_zero",
+        "children": []
+      },
+      {
+        "name": "x_integral",
+        "type": "IsIntegral R (algebraMap R A a * z)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "_root_.Algebra.IsAlgebraic.exists_integral_multiples",
+    "statement": "Algebra.IsAlgebraic R A] (s : Finset A) : \u2203 y \u2260 (0 : R), \u2200 z \u2208 s, IsIntegral R (y \u2022 z)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Algebra.IsAlgebraic.nontrivial R A",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "of_smul_isIntegral",
+    "statement": "R} (hy : \u00ac IsNilpotent y) (h : IsIntegral R (y \u2022 z)) : IsAlgebraic R z",
+    "have_tree": [
+      {
+        "name": "hy0",
+        "type": "y \u2260 0",
+        "body": "by rintro rfl; exact hy .zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "restrictScalars_of_isIntegral",
+    "statement": "Algebra.IsIntegral R S] {a : A} (h : IsAlgebraic S a) : IsAlgebraic R a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hRS.noZeroDivisors _ (map_zero _) (map_mul _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "restrictScalars",
+    "statement": "A} (h : IsAlgebraic S a) : IsAlgebraic R a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "NoZeroDivisors.of_faithfulSMul R S",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Algebra.nontrivial_of_isAlgebraic R S",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsDomain R",
+        "body": "NoZeroDivisors.to_isDomain _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAlgebraic (integralClosure R S) a",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "pow",
+    "statement": "\u2115) : IsAlgebraic R (a ^ n)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ha.nontrivial",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "Algebra.isAlgebraic_adjoin_of_nonempty",
+    "statement": "Set S} (hs : s.Nonempty) : (adjoin R s).IsAlgebraic \u2194 \u2200 x \u2208 s, IsAlgebraic R x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(isDomain_iff_noZeroDivisors_and_nontrivial _).mpr \u27e8\u2039_\u203a, (h x hx).nontrivial\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "IsAlgebraic.of_mul",
+    "statement": "S} (hy : y \u2208 nonZeroDivisors S) (alg_y : IsAlgebraic R y) (alg_yz : IsAlgebraic R (y * z)) : IsAlgebraic R z",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "alg_yz.mul (Algebra.isAlgebraic_adjoin_singleton_iff.mpr alg_y _ ht)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "IsAlgebraic.adjoin_of_forall_isAlgebraic",
+    "statement": "Set S} (alg : \u2200 x \u2208 s \\ t, IsAlgebraic (adjoin R t) x) {a : A} (ha : IsAlgebraic (adjoin R s) a) : IsAlgebraic (adjoin R t) a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsScalarTower Rs Rts A",
+        "body": ".of_algebraMap_eq fun \u27e8a, _\u27e9 \u21a6 rfl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.IsAlgebraic Rt Rts",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "ha.nontrivial",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "Subtype.val_injective (p := (\u00b7 \u2208 Rs)).nontrivial",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "(isDomain_iff_noZeroDivisors_and_nontrivial Rt).mpr \u27e8inferInstance, inferInstance\u27e9",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "IsAlgebraic Rts a",
+        "body": "ha.extendScalars (by apply Subalgebra.inclusion_injective)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "rank_mvPolynomial_mvPolynomial",
+    "statement": "Type u) : Module.rank (MvPolynomial \u03c3 R) (MvPolynomial \u03c3 S) = Cardinal.lift.{u} (Module.rank R S)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Algebra.isPushout_iff R (MvPolynomial \u03c3 R) S (MvPolynomial \u03c3 S)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "Algebra.IsPushout.isAlgebraic",
+    "statement": "IsPushout R S R' S'] : Algebra.IsAlgebraic R' S'",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.symm; (equiv R R' S S').isAlgebraic",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "rank_fractionRing_polynomial",
+    "statement": "Module.rank (FractionRing R[X]) (FractionRing S[X]) = Module.rank R S",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsDomain.of_faithfulSMul R S",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "rank_fractionRing_mvPolynomial",
+    "statement": "Type u) : Module.rank (FractionRing (MvPolynomial \u03c3 R)) (FractionRing (MvPolynomial \u03c3 S)) = lift.{u} (Module.rank R S)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsDomain.of_faithfulSMul R S",
+        "children": []
+      }
+    ]
+  }
+]

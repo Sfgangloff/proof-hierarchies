@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Pochhammer",
+    "name": "pow_le_descPochhammer_eval",
+    "statement": "\u2115} {s : S} (h : n - 1 \u2264 s) : (s - n + 1) ^ n \u2264 (descPochhammer S n).eval s",
+    "have_tree": [
+      {
+        "name": "hsub1",
+        "type": "n - 1 \u2264 s",
+        "body": "(sub_le_self (n : S) zero_le_one).trans (le_of_sub_nonneg h)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pochhammer",
+    "name": "monotoneOn_descPochhammer_eval",
+    "statement": "\u2115) : MonotoneOn (descPochhammer S n).eval (Set.Ici (n - 1 : S))",
+    "have_tree": [
+      {
+        "name": "ha_sub1",
+        "type": "n - 1 \u2264 a",
+        "body": "(sub_le_self (n : S) zero_le_one).trans ha",
+        "children": []
+      },
+      {
+        "name": "hb_sub1",
+        "type": "n - 1 \u2264 b",
+        "body": "(sub_le_self (n : S) zero_le_one).trans hb",
+        "children": []
+      }
+    ]
+  }
+]

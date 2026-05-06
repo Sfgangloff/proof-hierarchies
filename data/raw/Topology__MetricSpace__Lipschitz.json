@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Lipschitz",
+    "name": "of_le_add_mul'",
+    "statement": "\u03b1 \u2192 \u211d} (K : \u211d) (h : \u2200 x y, f x \u2264 f y + K * dist x y) : LipschitzWith (Real.toNNReal K) f",
+    "have_tree": [
+      {
+        "name": "I",
+        "type": "\u2200 x y, f x - f y \u2264 K * dist x y",
+        "body": "fun x y => sub_le_iff_le_add'.2 (h x y)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lipschitz",
+    "name": "of_le_add_mul'",
+    "statement": "\u03b1 \u2192 \u211d} (K : \u211d) (h : \u2200 x \u2208 s, \u2200 y \u2208 s, f x \u2264 f y + K * dist x y) : LipschitzOnWith (Real.toNNReal K) f s",
+    "have_tree": [
+      {
+        "name": "I",
+        "type": "\u2200 x \u2208 s, \u2200 y \u2208 s, f x - f y \u2264 K * dist x y",
+        "body": "fun x hx y hy =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lipschitz",
+    "name": "LipschitzOnWith.extend_real",
+    "statement": "\u03b1 \u2192 \u211d} {s : Set \u03b1} {K : \u211d\u22650} (hf : LipschitzOnWith K f s) : \u2203 g : \u03b1 \u2192 \u211d, LipschitzWith K g \u2227 EqOn f g s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty s",
+        "body": "by simp only [hs, nonempty_coe_sort]",
+        "children": []
+      },
+      {
+        "name": "E",
+        "type": "EqOn f g s",
+        "body": "fun x hx => by",
+        "children": []
+      }
+    ]
+  }
+]

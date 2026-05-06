@@ -1,0 +1,93 @@
+[
+  {
+    "module": "Indexed",
+    "name": "WithBot.coe_biSup",
+    "statement": "Type*} {s : Set \u03b9} (hs : s.Nonempty) {\u03b1 : Type*} [CompleteLattice \u03b1] (f : \u03b9 \u2192 \u03b1) : \u2a06 i \u2208 s, f i = \u2a06 i \u2208 s, (f i : WithBot \u03b1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b9",
+        "body": "Nonempty.intro j",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Indexed",
+    "name": "ciSup_prod",
+    "statement": "\u03b2 \u00d7 \u03b3 \u2192 \u03b1} (hf : BddAbove (Set.range f)) : \u2a06 p, f p = \u2a06 b, \u2a06 c, f (b, c)",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "BddAbove (Set.range fun b \u21a6 \u2a06 c, f (b, c))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Indexed",
+    "name": "ciSup_subtype",
+    "statement": "\u03b9 \u2192 Prop} {f : Subtype p \u2192 \u03b1} (hf : BddAbove (Set.range f)) (hf' : sSup \u2205 \u2264 iSup f) : iSup f = \u2a06 (i) (h : p i), f \u27e8i, h\u27e9",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b9",
+        "body": "(nonempty_subtype.mp \u2039_\u203a).nonempty",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Indexed",
+    "name": "ciSup_image",
+    "statement": "Type*} {s : Set \u03b9} {f : \u03b9 \u2192 \u03b9'} {g : \u03b9' \u2192 \u03b1} (hf : BddAbove (Set.range fun i : s \u21a6 g (f i))) (hg' : sSup \u2205 \u2264 \u2a06 i : s, g (f i)) : \u2a06 i \u2208 (f '' s), g i = \u2a06 x \u2208 s, g (f x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty s",
+        "body": "Set.Nonempty.to_subtype hs",
+        "children": [
+          {
+            "name": "_",
+            "type": "f i \u2208 f '' s",
+            "body": "Set.mem_image_of_mem _ h",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Indexed",
+    "name": "cbiSup_eq_of_not_forall",
+    "statement": "\u03b9 \u2192 Prop} {f : Subtype p \u2192 \u03b1} (hp : \u00ac (\u2200 i, p i)) : \u2a06 (i) (h : p i), f \u27e8i, h\u27e9 = iSup f \u2294 sSup \u2205",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b9",
+        "body": "\u27e8i\u27e9",
+        "children": []
+      },
+      {
+        "name": "bdd",
+        "type": "BddAbove (range f)",
+        "body": "not_not.mp fun h \u21a6 gt.ne (ciSup_of_not_bddAbove h)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Indexed",
+    "name": "ciInf_eq_iff",
+    "statement": "\u03b9 \u2192 \u03b1) (n : \u03b1) : \u2a05 i, (f i) = n \u2194 (\u2203 i, f i = n) \u2227 \u2200 i, n \u2264 f i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "OrderBot \u03b1",
+        "body": "WellFoundedLT.toOrderBot \u03b1",
+        "children": []
+      }
+    ]
+  }
+]

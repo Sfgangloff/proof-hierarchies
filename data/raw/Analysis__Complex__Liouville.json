@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Liouville",
+    "name": "norm_iteratedDeriv_le_of_forall_mem_sphere_norm_le",
+    "statement": "\u2102} {R C : \u211d} {f : \u2102 \u2192 F} (n : \u2115) (hR : 0 < R) (hf : DiffContOnCl \u2102 f (ball c R)) (hC : \u2200 z \u2208 sphere c R, \u2016f z\u2016 \u2264 C) : \u2016iteratedDeriv n f c\u2016 \u2264 n.factorial * C / R ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(2 * \u03c0 * I / n.factorial) \u2260 0",
+        "body": "by simp [Nat.factorial_ne_zero]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Liouville",
+    "name": "norm_deriv_le_of_forall_mem_sphere_norm_le",
+    "statement": "\u2102} {R C : \u211d} {f : \u2102 \u2192 F} (hR : 0 < R) (hd : DiffContOnCl \u2102 f (ball c R)) (hC : \u2200 z \u2208 sphere c R, \u2016f z\u2016 \u2264 C) : \u2016deriv f c\u2016 \u2264 C / R",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "HasDerivAt (e \u2218 f) (e (deriv f c)) c",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Liouville",
+    "name": "eq_const_of_tendsto_cocompact",
+    "statement": "E \u2192 F} (hf : Differentiable \u2102 f) {c : F} (hb : Tendsto f (cocompact E) (\ud835\udcdd c)) : f = Function.const E c",
+    "have_tree": [
+      {
+        "name": "h_bdd",
+        "type": "Bornology.IsBounded (Set.range f)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

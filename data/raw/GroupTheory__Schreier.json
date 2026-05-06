@@ -1,0 +1,65 @@
+[
+  {
+    "module": "Schreier",
+    "name": "card_dvd_exponent_pow_rank",
+    "statement": "Nat.card G \u2223 Monoid.exponent G ^ Group.rank G",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "Function.Surjective f",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Schreier",
+    "name": "card_commutator_dvd_index_center_pow",
+    "statement": "Nat.card (_root_.commutator G) \u2223 (center G).index ^ ((center G).index * Nat.card (commutatorSet G) + 1)",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "relIndex_dvd_index_of_normal (center G) (_root_.commutator G)",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "rank_le_index_mul_rank ((center G).subgroupOf (_root_.commutator G))",
+        "children": []
+      },
+      {
+        "name": "h3",
+        "type": "",
+        "body": "Nat.mul_le_mul (Nat.le_of_dvd (Nat.pos_of_ne_zero hG) h1) (rank_commutator_le_card G)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Abelianization.commutator_subset_ker (MonoidHom.transferCenterPow G) g.1.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Schreier",
+    "name": "card_commutator_le_of_finite_commutatorSet",
+    "statement": "Nat.card (_root_.commutator G) \u2264 cardCommutatorBound (Nat.card (commutatorSet G))",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "index_center_le_pow (closureCommutatorRepresentatives G)",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "card_commutator_dvd_index_center_pow (closureCommutatorRepresentatives G)",
+        "children": []
+      }
+    ]
+  }
+]

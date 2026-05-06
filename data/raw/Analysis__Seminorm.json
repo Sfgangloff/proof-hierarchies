@@ -1,0 +1,79 @@
+[
+  {
+    "module": "Seminorm",
+    "name": "closedBall_iSup",
+    "statement": "Sort*} {p : \u03b9 \u2192 Seminorm \ud835\udd5c E} (hp : BddAbove (range p)) (e : E) {r : \u211d} (hr : 0 < r) : closedBall (\u2a06 i, p i) e r = \u22c2 i, closedBall (p i) e r",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Seminorm.bddAbove_range_iff.mp hp (x - e)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Seminorm",
+    "name": "uniformContinuous_of_continuousAt_zero",
+    "statement": "Seminorm \ud835\udd5d E} (hp : ContinuousAt p 0) : UniformContinuous p",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "Filter.Tendsto p (\ud835\udcdd 0) (\ud835\udcdd 0)",
+        "body": "map_zero p \u25b8 hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Seminorm",
+    "name": "ball_mem_nhds",
+    "statement": "Seminorm \ud835\udd5d E} (hp : Continuous p) {r : \u211d} (hr : 0 < r) : p.ball 0 r \u2208 (\ud835\udcdd 0 : Filter E)",
+    "have_tree": [
+      {
+        "name": "this",
+        "type": "Tendsto p (\ud835\udcdd 0) (\ud835\udcdd 0)",
+        "body": "map_zero p \u25b8 hp.tendsto 0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Seminorm",
+    "name": "rescale_to_shell_zpow",
+    "statement": "Seminorm \ud835\udd5c E) {c : \ud835\udd5c} (hc : 1 < \u2016c\u2016) {\u03b5 : \u211d} (\u03b5pos : 0 < \u03b5) {x : E} (hx : p x \u2260 0) : \u2203 n : \u2124, c ^ n \u2260 0 \u2227 p (c ^ n \u2022 x) < \u03b5 \u2227 (\u03b5 / \u2016c\u2016 \u2264 p (c ^ n \u2022 x)) \u2227 (\u2016c ^ n\u2016\u207b\u00b9 \u2264 \u03b5\u207b\u00b9 * \u2016c\u2016 * p x)",
+    "have_tree": [
+      {
+        "name": "x\u03b5pos",
+        "type": "0 < (p x) / \u03b5",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "cpos",
+        "type": "0 < \u2016c\u2016",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "cnpos",
+        "type": "0 < \u2016c ^ (n + 1)\u2016",
+        "body": "by rw [norm_zpow]; exact x\u03b5pos.trans hn.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Seminorm",
+    "name": "bound_of_shell_sup",
+    "statement": "\u03b9 \u2192 Seminorm \ud835\udd5c E) (s : Finset \u03b9) (q : Seminorm \ud835\udd5c E) {\u03b5 : \u211d} {C : \u211d\u22650} (\u03b5_pos : 0 < \u03b5) {c : \ud835\udd5c} (hc : 1 < \u2016c\u2016) (hf : \u2200 x, (\u2200 i \u2208 s, p i x < \u03b5) \u2192 \u2200 j \u2208 s, \u03b5 / \u2016c\u2016 \u2264 p j x \u2192 q x \u2264 (C \u2022 p j) x) {x : E} (hx : \u2203 j, j \u2208 s \u2227 p j x \u2260 0) : q x \u2264 (C \u2022 s.sup p) x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(s.sup p) x \u2260 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

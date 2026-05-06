@@ -1,0 +1,85 @@
+[
+  {
+    "module": "Portmanteau",
+    "name": "integral_le_liminf_integral_of_forall_isOpen_measure_le_liminf_measure",
+    "statement": "Measure \u03a9} {\u03bcs : \u2115 \u2192 Measure \u03a9} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] {f : \u03a9 \u2192\u1d47 \u211d} (f_nn : 0 \u2264 f) (h_opens : \u2200 G, IsOpen G \u2192 \u03bc G \u2264 atTop.liminf (fun i \u21a6 \u03bcs i G)) : \u222b x, (f x) \u2202\u03bc \u2264 atTop.liminf (fun i \u21a6 \u222b x, (f x) \u2202(\u03bcs i))",
+    "have_tree": [
+      {
+        "name": "same",
+        "type": "",
+        "body": "lintegral_le_liminf_lintegral_of_forall_isOpen_measure_le_liminf_measure",
+        "children": [
+          {
+            "name": "bound",
+            "type": "\u2200 i, \u222b\u207b x, ENNReal.ofReal (f x) \u2202(\u03bcs i) \u2264 nndist 0 g",
+            "body": "fun i \u21a6 by",
+            "children": []
+          },
+          {
+            "name": "obs",
+            "type": "",
+            "body": "fun (i : \u2115) \u21a6 @BoundedContinuousFunction.lintegral_nnnorm_le \u03a9 _ _ (\u03bcs i) \u211d _ f",
+            "children": [
+              {
+                "name": "aux",
+                "type": "",
+                "body": "ENNReal.ofReal_eq_coe_nnreal (f_nn x)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Portmanteau",
+    "name": "tendsto_of_forall_isClosed_limsup_real_le'",
+    "statement": "Filter \u03b9} [L.IsCountablyGenerated] (h : \u2200 F : Set \u03a9, IsClosed F \u2192 limsup (fun i \u21a6 (\u03bcs i : Measure \u03a9).real F) L \u2264 (\u03bc : Measure \u03a9).real F) : Tendsto \u03bcs L (\ud835\udcdd \u03bc)",
+    "have_tree": [
+      {
+        "name": "key\u2081",
+        "type": "Tendsto (fun n \u21a6 \u222b \u03c9, fs n \u03c9 \u2202\u03bc) atTop (\ud835\udcdd ((\u03bc : Measure \u03a9).real s))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "room\u2081",
+        "type": "(\u03bc : Measure \u03a9).real s < (\u03bc : Measure \u03a9).real s + \u03b5 / 2",
+        "body": "by simp [\u03b5_pos]",
+        "children": []
+      },
+      {
+        "name": "key\u2082",
+        "type": "Tendsto (fun i \u21a6 \u222b \u03c9, fs M \u03c9 \u2202(\u03bcs i)) F (\ud835\udcdd (\u222b \u03c9, fs M \u03c9 \u2202\u03bc))",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "fs M x \u2264 1",
+            "body": "thickenedIndicator_le_one _ _ _",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "0 \u2264 fs M x",
+            "body": "by simp [fs]",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "room\u2082",
+        "type": "\u222b a, fs M a \u2202\u03bc < \u222b a, fs M a \u2202\u03bc + \u03b5 / 2",
+        "body": "by simp [\u03b5_pos]",
+        "children": []
+      },
+      {
+        "name": "ev_near",
+        "type": "\u2200\u1da0 x in F, (\u03bcs x : Measure \u03a9).real s \u2264 \u222b a, fs M a \u2202\u03bc + \u03b5 / 2",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

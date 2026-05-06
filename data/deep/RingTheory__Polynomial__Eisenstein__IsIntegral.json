@@ -1,0 +1,84 @@
+[
+  {
+    "module": "IsIntegral",
+    "name": "dvd_coeff_zero_of_aeval_eq_prime_smul_of_minpoly_isEisensteinAt",
+    "statement": "PowerBasis K L} (hp : Prime p) (hBint : IsIntegral R B.gen) {z : L} {Q : R[X]} (hQ : aeval B.gen Q = p \u2022 z) (hzint : IsIntegral R z) (hei : (minpoly R B.gen).IsEisensteinAt \ud835\udcdf) : p \u2223 Q.coeff 0",
+    "have_tree": [
+      {
+        "name": "finrank_K_L",
+        "type": "Module.finrank K L = B.dim",
+        "body": "B.finrank",
+        "children": []
+      },
+      {
+        "name": "deg_K_P",
+        "type": "(minpoly K B.gen).natDegree = B.dim",
+        "body": "B.natDegree_minpoly",
+        "children": []
+      },
+      {
+        "name": "deg_R_P",
+        "type": "P.natDegree = B.dim",
+        "body": "by",
+        "children": [
+          {
+            "name": "hndiv",
+            "type": "\u00acp ^ 2 \u2223 (minpoly R B.gen).coeff 0",
+            "body": "fun h =>",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "aux",
+        "type": "\u2200 i \u2208 (range (Q.natDegree + 1)).erase 0, B.dim \u2264 i + n",
+        "body": "by grind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsIntegral",
+    "name": "mem_adjoin_of_smul_prime_smul_of_minpoly_isEisensteinAt",
+    "statement": "PowerBasis K L} (hp : Prime p) (hBint : IsIntegral R B.gen) {z : L} (hzint : IsIntegral R z) (hz : p \u2022 z \u2208 adjoin R ({B.gen} : Set L)) (hei : (minpoly R B.gen).IsEisensteinAt \ud835\udcdf) : z \u2208 adjoin R ({B.gen} : Set L)",
+    "have_tree": [
+      {
+        "name": "hndiv",
+        "type": "\u00acp ^ 2 \u2223 (minpoly R B.gen).coeff 0",
+        "body": "fun h =>",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "B.finite",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.IsTorsionFree R L",
+        "body": ".trans_faithfulSMul R K L",
+        "children": [
+          {
+            "name": "H",
+            "type": "",
+            "body": "degree_modByMonic_lt Q\u2081 (minpoly.monic hBint)",
+            "children": []
+          },
+          {
+            "name": "Hj",
+            "type": "Q.natDegree + 1 = j + 1 + (Q.natDegree - j)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hppdiv",
+            "type": "p ^ B.dim \u2223 p ^ B.dim * r",
+            "body": "dvd_mul_of_dvd_left dvd_rfl _",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

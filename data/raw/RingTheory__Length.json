@@ -1,0 +1,66 @@
+[
+  {
+    "module": "Length",
+    "name": "Module.length_eq_zero_of_subsingleton_ring",
+    "statement": "Module.length R M = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Module.subsingleton R M",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Length",
+    "name": "Module.length_compositionSeries",
+    "statement": "CompositionSeries (Submodule R M)) (h\u2081 : s.head = \u22a5) (h\u2082 : s.last = \u22a4) : s.length = Module.length R M",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "isFiniteLength_of_exists_compositionSeries \u27e8s, h\u2081, h\u2082\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(isFiniteLength_iff_isNoetherian_isArtinian.mp H).1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(isFiniteLength_iff_isNoetherian_isArtinian.mp H).2",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(s.jordan_holder t' (h\u2081.trans ht\u2081.symm) (h\u2082.trans ht\u2082.symm)).choose",
+            "children": []
+          },
+          {
+            "name": "h",
+            "type": "t.length \u2264 t'.length",
+            "body": "by simpa using Fintype.card_le_of_embedding i",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Length",
+    "name": "Module.length_eq_of_surjective",
+    "statement": "Type*} [CommRing S] [Algebra S R] [Module S M] [IsScalarTower S R M] (h : Function.Surjective (algebraMap S R)) : Module.length S M = Module.length R M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "RingHomSurjective (algebraMap S R)",
+        "body": "\u27e8h\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

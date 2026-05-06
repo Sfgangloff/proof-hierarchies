@@ -1,0 +1,41 @@
+[
+  {
+    "module": "NoetherNormalization",
+    "name": "T_leadingcoeff_isUnit",
+    "statement": "f \u2260 0) : IsUnit (finSuccEquiv k n (T f f)).leadingCoeff",
+    "have_tree": [
+      {
+        "name": "h2",
+        "type": "h v \u2260 0",
+        "body": "by simpa [h] using mem_support_iff.mp vin",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NoetherNormalization",
+    "name": "exists_integral_inj_algHom_of_quotient",
+    "statement": "Ideal (MvPolynomial (Fin n) k)) (hi : I \u2260 \u22a4) : \u2203 s \u2264 n, \u2203 g : (MvPolynomial (Fin s) k) \u2192\u2090[k] ((MvPolynomial (Fin n) k) \u29f8 I), Function.Injective g \u2227 g.IsIntegral",
+    "have_tree": [
+      {
+        "name": "eq",
+        "type": "",
+        "body": "eq_C_of_isEmpty (a - b)",
+        "children": []
+      },
+      {
+        "name": "ne",
+        "type": "coeff 0 (a - b) \u2260 0",
+        "body": "fun h \u21a6 h \u25b8 eq \u25b8 sub_ne_zero_of_ne ne <| map_zero _",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Quotient.nontrivial_iff.mpr hi",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

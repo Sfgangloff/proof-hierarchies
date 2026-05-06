@@ -1,0 +1,78 @@
+[
+  {
+    "module": "Basic",
+    "name": "intervalIntegrable_rpow'",
+    "statement": "\u211d} (h : -1 < r) : IntervalIntegrable (fun x => x ^ r) volume a b",
+    "have_tree": [
+      {
+        "name": "m",
+        "type": "",
+        "body": "(this (-c) (by linarith)).smul (cos (r * \u03c0))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integrableOn_Ioo_rpow_iff",
+    "statement": "\u211d} (ht : 0 < t) : IntegrableOn (fun x \u21a6 x ^ s) (Ioo (0 : \u211d) t) \u2194 -1 < s",
+    "have_tree": [
+      {
+        "name": "I",
+        "type": "0 < min 1 t",
+        "body": "lt_min zero_lt_one ht",
+        "children": []
+      },
+      {
+        "name": "H'",
+        "type": "IntegrableOn (fun x \u21a6 x ^ s) (Ioo 0 (min 1 t))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IntegrableOn (fun x \u21a6 x\u207b\u00b9) (Ioo 0 (min 1 t))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IntervalIntegrable (fun x \u21a6 x\u207b\u00b9) volume 0 (min 1 t)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "intervalIntegrable_cpow'",
+    "statement": "\u2102} (h : -1 < r.re) : IntervalIntegrable (fun x : \u211d => (x : \u2102) ^ r) volume a b",
+    "have_tree": [
+      {
+        "name": "m",
+        "type": "",
+        "body": "(this (-c) (by linarith)).const_mul (Complex.exp (\u03c0 * Complex.I * r))",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "-x \u2264 0",
+        "body": "by linarith [hx.1]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integrableOn_Ioo_cpow_iff",
+    "statement": "\u2102} {t : \u211d} (ht : 0 < t) : IntegrableOn (fun x : \u211d \u21a6 (x : \u2102) ^ s) (Ioo (0 : \u211d) t) \u2194 -1 < s.re",
+    "have_tree": [
+      {
+        "name": "B",
+        "type": "IntegrableOn (fun a \u21a6 a ^ s.re) (Ioo 0 t)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

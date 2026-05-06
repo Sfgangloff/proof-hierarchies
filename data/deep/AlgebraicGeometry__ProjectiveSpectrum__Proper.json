@@ -1,0 +1,77 @@
+[
+  {
+    "module": "Proper",
+    "name": "valuativeCriterion_existence_aux",
+    "statement": "Type*} [CommRing O] [IsDomain O] [ValuationRing O] {K : Type*} [Field K] [Algebra O K] [IsFractionRing O K] (\u03c6\u2080 : (\ud835\udc9c 0) \u2192+* O) (\u03b9 : Type*) [Finite \u03b9] (x : \u03b9 \u2192 A) (h2 : Algebra.adjoin (\ud835\udc9c 0) (Set.range x) = \u22a4) (j : \u03b9) (\u03c6 : Away \ud835\udc9c (x j) \u2192+* K) (hcomm : (algebraMap O K).comp \u03c6\u2080 = \u03c6.comp (fromZeroRingHom \ud835\udc9c _)) (d : \u03b9 \u2192 \u2115) (hdi : \u2200 i, 0 < d i) (hxdi : \u2200 i, x i \u2208 \ud835\udc9c (d i)) : \u2203 (j\u2080 : \u03b9) (\u03c6' : Away \ud835\udc9c (x j * x j\u2080) \u2192+* K), \u03c6'.comp (awayMap \ud835\udc9c (hxdi j\u2080) rfl) = \u03c6 \u2227 (\u03c6'.comp (awayMap \ud835\udc9c (hxdi j) (mul_comm (x j) (x j\u2080)))).range \u2264 (algebraMap O K).range",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b9",
+        "body": "\u27e8j\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2203 a, \u03c8 a = Kmax",
+        "body": "by simpa using Finset.max'_mem (Finset.univ.image \u03c8)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u03c8 j \u2264 \u03c8 i\u2080",
+        "body": "hi1 \u25b8 (Finset.univ.image \u03c8).le_max' (\u03c8 j) (by simp)",
+        "children": []
+      },
+      {
+        "name": "hKmax",
+        "type": "0 < Kmax",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "_) : \u03c8 i = 0",
+            "body": "le_zero_iff.mp (hKmax \u25b8 Finset.le_max' _ _ (by simp))",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u03c6 1 = 0",
+            "body": "by convert (this j).1; ext; simp",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Away.isLocalization_mul (hxdi j) (hxdi i\u2080) rfl (hdi _).ne'",
+        "children": []
+      },
+      {
+        "name": "hunit",
+        "type": "IsUnit (\u03c6 (Away.isLocalizationElem (hxdi j) (hxdi i\u2080)))",
+        "body": "isUnit_iff_ne_zero.mpr",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u03c6' (awayMap \ud835\udc9c (hxdi i\u2080) rfl s) = \u03c6 s",
+        "body": "IsLocalization.Away.lift_eq _ hunit s",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Away.span_mk_prod_pow_eq_top (hxdi i\u2080) x h2 d hxdi).ge (Submodule.mem_top (x := sx))",
+        "children": [
+          {
+            "name": "H",
+            "type": "(\u220f i, x i ^ ai i) * x i\u2080 ^ (a * (d j - 1)) \u2208 \ud835\udc9c ((a * d i\u2080) \u2022 d j)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

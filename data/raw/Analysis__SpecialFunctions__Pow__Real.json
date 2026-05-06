@@ -1,0 +1,106 @@
+[
+  {
+    "module": "Real",
+    "name": "abs_rpow_of_nonneg",
+    "statement": "\u211d} (hx_nonneg : 0 \u2264 x) : |x ^ y| = |x| ^ y",
+    "have_tree": [
+      {
+        "name": "h_rpow_nonneg",
+        "type": "0 \u2264 x ^ y",
+        "body": "Real.rpow_nonneg hx_nonneg _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "rpow_add'",
+    "statement": "0 \u2264 x) (h : y + z \u2260 0) : x ^ (y + z) = x ^ y * x ^ z",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "y \u2260 0 \u2228 z \u2260 0",
+        "body": "not_and_or.1 fun \u27e8hy, hz\u27e9 => h <| hy.symm \u25b8 hz.symm \u25b8 zero_add 0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "rpow_lt_rpow_of_neg",
+    "statement": "0 < x) (hxy : x < y) (hz : z < 0) : y ^ z < x ^ z",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hx.trans hxy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "rpow_le_rpow_of_nonpos",
+    "statement": "0 < x) (hxy : x \u2264 y) (hz : z \u2264 0) : y ^ z \u2264 x ^ z",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hx.trans_le hxy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "rpow_le_rpow_left_iff",
+    "statement": "1 < x) : x ^ y \u2264 x ^ z \u2194 y \u2264 z",
+    "have_tree": [
+      {
+        "name": "x_pos",
+        "type": "0 < x",
+        "body": "lt_trans zero_lt_one hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "abs_log_mul_self_rpow_lt",
+    "statement": "\u211d) (h1 : 0 < x) (h2 : x \u2264 1) (ht : 0 < t) : |log x * x ^ t| < 1 / t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "abs_log_mul_self_lt (x ^ t) (rpow_pos_of_pos h1 t) (rpow_le_one h1.le h2 ht.le)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "one_sub_prime_cpow_ne_zero",
+    "statement": "\u2115} (hp : p.Prime) {s : \u2102} (hs : 1 < s.re) : 1 - (p : \u2102) ^ (-s) \u2260 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "norm_prime_cpow_le_one_half \u27e8p, hp\u27e9 hs",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "IsNat.rpow_isNNRat",
+    "statement": "\u211d} {m n d r : \u2115} (ha : IsNat a m) (hb : IsNNRat b n d) (k : \u2115) (hr : r ^ d = k) (l : \u2115) (hm : m ^ n = l) (hkl : k = l) : IsNat (a ^ b) r",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "d \u2260 0",
+        "body": "mod_cast hb.den_nz",
+        "children": []
+      }
+    ]
+  }
+]

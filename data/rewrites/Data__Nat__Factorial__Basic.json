@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "self_le_factorial",
+      "statement": "\u2200 n : \u2115, n \u2264 n ! | 0 => Nat.zero_le _ | k + 1 => Nat.le_mul_of_pos_right _ (Nat.one_le_of_lt k.factorial_pos)  theorem lt_factorial_self {n : \u2115} (hi : 3 \u2264 n) : n < n !",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "0 < n",
+          "body": "by lia",
+          "children": []
+        },
+        {
+          "name": "hn",
+          "type": "1 < pred n",
+          "body": "le_pred_of_lt (succ_le_iff.mp hi)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "self_le_factorial",
+          "statement": "\u2200 n : \u2115, n \u2264 n ! | 0 => Nat.zero_le _ | k + 1 => Nat.le_mul_of_pos_right _ (Nat.one_le_of_lt k.factorial_pos)  theorem lt_factorial_self {n : \u2115} (hi : 3 \u2264 n) : n < n !",
+          "have_tree": [
+            {
+              "name": "hn",
+              "type": "1 < pred n",
+              "body": "le_pred_of_lt (succ_le_iff.mp hi)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "0 < n",
+              "body": "by lia",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,61 @@
+[
+  {
+    "module": "Fractions",
+    "name": "right_fac_of_isStrictlyLE",
+    "statement": "CochainComplex C \u2124} (f : Q.obj X \u27f6 Q.obj Y) (n : \u2124) [X.IsStrictlyLE n] : \u2203 (X' : CochainComplex C \u2124) (_ : X'.IsStrictlyLE n) (s : X' \u27f6 X) (_ : IsIso (Q.map s)) (g : X' \u27f6 Y), f = inv (Q.map s) \u226b Q.map g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso (Q.map (CochainComplex.truncLEMap s n))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fractions",
+    "name": "left_fac_of_isStrictlyGE",
+    "statement": "CochainComplex C \u2124} (f : Q.obj X \u27f6 Q.obj Y) (n : \u2124) [Y.IsStrictlyGE n] : \u2203 (Y' : CochainComplex C \u2124) (_ : Y'.IsStrictlyGE n) (g : X \u27f6 Y') (s : Y \u27f6 Y') (_ : IsIso (Q.map s)), f = Q.map g \u226b inv (Q.map s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso (Q.map (CochainComplex.truncGEMap s n))",
+        "body": "by",
+        "children": [
+          {
+            "name": "eq'",
+            "type": "",
+            "body": "Q.congr_map (CochainComplex.\u03c0TruncGE_naturality g n)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Fractions",
+    "name": "right_fac_of_isStrictlyLE_of_isStrictlyGE",
+    "statement": "CochainComplex C \u2124} (a b : \u2124) [X.IsStrictlyGE a] [X.IsStrictlyLE b] [Y.IsStrictlyGE a] (f : Q.obj X \u27f6 Q.obj Y) : \u2203 (X' : CochainComplex C \u2124) (_ : X'.IsStrictlyGE a) (_ : X'.IsStrictlyLE b) (s : X' \u27f6 X) (_ : IsIso (Q.map s)) (g : X' \u27f6 Y), f = inv (Q.map s) \u226b Q.map g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso (Q.map (CochainComplex.truncGEMap s a))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fractions",
+    "name": "left_fac_of_isStrictlyLE_of_isStrictlyGE",
+    "statement": "CochainComplex C \u2124} (a b : \u2124) [X.IsStrictlyLE b] [Y.IsStrictlyGE a] [Y.IsStrictlyLE b] (f : Q.obj X \u27f6 Q.obj Y) : \u2203 (Y' : CochainComplex C \u2124) (_ : Y'.IsStrictlyGE a) (_ : Y'.IsStrictlyLE b) (g : X \u27f6 Y') (s : Y \u27f6 Y') (_ : IsIso (Q.map s)), f = Q.map g \u226b inv (Q.map s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso (Q.map (CochainComplex.truncLEMap s b))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

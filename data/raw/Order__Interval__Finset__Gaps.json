@@ -1,0 +1,40 @@
+[
+  {
+    "module": "Gaps",
+    "name": "intervalGapsWithin_fst_le_snd",
+    "statement": "\u03b1} (hab : a \u2264 b) (hFab : \u2200 \u2983z\u2984, z \u2208 F \u2192 a \u2264 z.1 \u2227 z.1 \u2264 z.2 \u2227 z.2 \u2264 b) (hF : (SetLike.coe F).PairwiseDisjoint (fun z \u21a6 Set.Icc z.1 z.2)) : (F.intervalGapsWithin h a b j).1 \u2264 (F.intervalGapsWithin h a b j).2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hF (by simp [G, F.orderEmbOfFin_mem (\u03b1 := \u03b1 \u00d7\u2097 \u03b1)])",
+        "children": []
+      },
+      {
+        "name": "hG",
+        "type": "(G \u27e8j - 1, by omega\u27e9).1 \u2264 (G \u27e8j, by omega\u27e9).1",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hFabi",
+        "type": "",
+        "body": "hFab (z := G \u27e8j, by omega\u27e9) (by simp [G, F.orderEmbOfFin_mem (\u03b1 := \u03b1 \u00d7\u2097 \u03b1)])",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gaps",
+    "name": "intervalGapsWithin_pairwiseDisjoint_Ioc",
+    "statement": "\u03b1} (hFab : \u2200 \u2983z\u2984, z \u2208 F \u2192 a \u2264 z.1 \u2227 z.1 \u2264 z.2 \u2227 z.2 \u2264 b) : (Set.Iio (k + 1)).PairwiseDisjoint (fun (j : \u2115) \u21a6 Set.Ioc (F.intervalGapsWithin h a b j).1 (F.intervalGapsWithin h a b j).2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hFab (F.intervalGapsWithin_mapsTo h a b (x := j' - 1) (by grind)) |>.right.left",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "module": "Maximal",
+    "name": "IsMaximal.isPrime",
+    "statement": "Ideal \u03b1} (H : I.IsMaximal) : I.IsPrime",
+    "have_tree": [
+      {
+        "name": "IJ",
+        "type": "I \u2264 J",
+        "body": "Set.Subset.trans (subset_insert _ _) subset_span",
+        "children": []
+      },
+      {
+        "name": "xJ",
+        "type": "x \u2208 J",
+        "body": "Ideal.subset_span (Set.mem_insert x I)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Maximal",
+    "name": "exists_disjoint_powers_of_span_eq_top",
+    "statement": "Set \u03b1) (hs : span s = \u22a4) (I : Ideal \u03b1) (hI : I \u2260 \u22a4) : \u2203 r \u2208 s, Disjoint (I : Set \u03b1) (Submonoid.powers r)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hM.1.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Maximal",
+    "name": "isPrime_of_maximally_disjoint",
+    "statement": "Ideal \u03b1) (S : Submonoid \u03b1) (disjoint : Disjoint (I : Set \u03b1) S) (maximally_disjoint : \u2200 (J : Ideal \u03b1), I < J \u2192 \u00ac Disjoint (J : Set \u03b1) S) : I.IsPrime where ne_top'",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "",
+        "body": "maximally_disjoint (I \u2294 span {x}) (Submodule.lt_sup_iff_notMem.mpr rid.1)",
+        "children": []
+      },
+      {
+        "name": "hy",
+        "type": "",
+        "body": "maximally_disjoint (I \u2294 span {y}) (Submodule.lt_sup_iff_notMem.mpr rid.2)",
+        "children": []
+      }
+    ]
+  }
+]

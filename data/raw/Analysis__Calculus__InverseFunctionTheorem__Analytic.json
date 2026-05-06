@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Analytic",
+    "name": "analyticAt_localInverse",
+    "statement": "AnalyticAt \ud835\udd5c f x) (hf' : deriv f x \u2260 0) : AnalyticAt \ud835\udd5c (hf.hasStrictDerivAt.localInverse _ _ _ hf') (f x)",
+    "have_tree": [
+      {
+        "name": "hfd",
+        "type": "HasStrictFDerivAt f i.toContinuousLinearMap x",
+        "body": "hf.hasStrictDerivAt",
+        "children": []
+      },
+      {
+        "name": "hx",
+        "type": "x \u2208 R.source",
+        "body": "HasStrictFDerivAt.mem_toOpenPartialHomeomorph_source _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Analytic",
+    "name": "analyticAt_comp_iff_of_deriv_ne_zero",
+    "statement": "AnalyticAt \ud835\udd5c f x) (hf' : deriv f x \u2260 0) : AnalyticAt \ud835\udd5c (g \u2218 f) x \u2194 AnalyticAt \ud835\udd5c g (f x)",
+    "have_tree": [
+      {
+        "name": "hra",
+        "type": "AnalyticAt \ud835\udd5c r (f x)",
+        "body": "hf.analyticAt_localInverse hf'",
+        "children": []
+      }
+    ]
+  }
+]

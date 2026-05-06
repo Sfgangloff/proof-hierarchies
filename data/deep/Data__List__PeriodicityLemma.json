@@ -1,0 +1,205 @@
+[
+  {
+    "module": "PeriodicityLemma",
+    "name": "HasPeriod",
+    "statement": "List \u03b1) (p : \u2115) : Prop",
+    "have_tree": [
+      {
+        "name": "i1",
+        "type": "j < w.length",
+        "body": "by lia",
+        "children": []
+      },
+      {
+        "name": "i2",
+        "type": "j + p < w.length",
+        "body": "by lia",
+        "children": []
+      },
+      {
+        "name": "min",
+        "type": "p < w.length",
+        "body": "by lia",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "j + p - (List.take p w).length = j",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "drop",
+        "type": "drop p w <+: w",
+        "body": "by",
+        "children": [
+          {
+            "name": "len",
+            "type": "i + p < w.length",
+            "body": "by lia",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PeriodicityLemma",
+    "name": "HasPeriod.factor",
+    "statement": "List \u03b1} {p : \u2115} (per : HasPeriod (u ++ v ++ w) p) : HasPeriod v p",
+    "have_tree": [
+      {
+        "name": "shift_position",
+        "type": "(u ++ (v ++ w))[j + u.length]? = v[j]?",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "shift_position'",
+        "type": "(u ++ (v ++ w))[j + u.length + p]? = v[j + p]?",
+        "body": "by",
+        "children": [
+          {
+            "name": "eq",
+            "type": "j + u.length + p - u.length = j + p",
+            "body": "by lia",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PeriodicityLemma",
+    "name": "HasPeriod.take_append",
+    "statement": "\u2115) (w : List \u03b1) (dvd : p \u2223 n) (len : n \u2264 w.length) (per : HasPeriod w p) : HasPeriod (take n w ++ w) p",
+    "have_tree": [
+      {
+        "name": "mod_w",
+        "type": "\u2200 i < w.length, w[i % p]? = w[i]?",
+        "body": "(per.getElem?_mod)",
+        "children": []
+      },
+      {
+        "name": "mod_p",
+        "type": "\u2200 j < n + length w, (take n w ++ w)[j]? = w[j % p]?",
+        "body": "by",
+        "children": [
+          {
+            "name": "j_minus",
+            "type": "j - n < w.length",
+            "body": "by lia",
+            "children": []
+          },
+          {
+            "name": "n_le_j",
+            "type": "n \u2264 j",
+            "body": "le_of_not_gt j_lt_n; clear j_lt_n;",
+            "children": []
+          },
+          {
+            "name": "j_mod",
+            "type": "(j - n) % p = j % p",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "less_mod",
+        "type": "i % p < n + w.length",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "i % p < p",
+            "body": "mod_lt i p_pos; have : p \u2264 n := le_of_dvd pos dvd; lia",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PeriodicityLemma",
+    "name": "HasPeriod.gcd",
+    "statement": "List \u03b1} {p q : \u2115} (per_p : HasPeriod w p) (per_q : HasPeriod w q) (len : p + q - p.gcd q \u2264 w.length) : HasPeriod w (p.gcd q)",
+    "have_tree": [
+      {
+        "name": "p_lt_q",
+        "type": "",
+        "body": "Nat.compare_eq_lt.mp hyp",
+        "children": []
+      },
+      {
+        "name": "q_lt_p",
+        "type": "q < p",
+        "body": "Nat.compare_eq_gt.mp hyp",
+        "children": []
+      },
+      {
+        "name": "gcd_lt_p",
+        "type": "p.gcd q < p",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "p.gcd q \u2260 p",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "per_diff",
+        "type": "HasPeriod (drop q w) (p - q)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "p = (p - q) + q",
+            "body": "by lia",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "per_q'",
+        "type": "HasPeriod (drop q w) q",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "gcd_stable",
+        "type": "(p - q).gcd q = p.gcd q",
+        "body": "gcd_sub_self_left (le_of_lt q_lt_p)",
+        "children": []
+      },
+      {
+        "name": "drop_len",
+        "type": "q \u2264 (drop q w).length",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "p.gcd q \u2264 p - q",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "take_eq",
+        "type": "take q (drop q w) = take q w",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "IH",
+        "type": "HasPeriod (drop q w) ((p - q).gcd q)",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

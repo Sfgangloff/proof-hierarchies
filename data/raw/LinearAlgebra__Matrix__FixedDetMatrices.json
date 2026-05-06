@@ -1,0 +1,92 @@
+[
+  {
+    "module": "FixedDetMatrices",
+    "name": "reps_entries_le_m'",
+    "statement": "\u0394 m} (h : A \u2208 reps m) (i j : Fin 2) : A.1 i j \u2208 Finset.Icc (-|m|) |m|",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "0 < |A.1 1 1|",
+        "body": "(abs_nonneg _).trans_lt h11",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "0 < |A.1 0 0|",
+        "body": "abs_pos.mpr h00.ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FixedDetMatrices",
+    "name": "reps_zero_empty",
+    "statement": "reps 0 = \u2205",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "A_c_eq_zero h\u2081",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FixedDetMatrices",
+    "name": "reduce_mem_reps",
+    "statement": "\u2124} (hm : m \u2260 0) (A : \u0394 m) : reduce A \u2208 reps m",
+    "have_tree": [
+      {
+        "name": "hd",
+        "type": "",
+        "body": "A_d_ne_zero h hm",
+        "children": [
+          {
+            "name": "h2",
+            "type": "",
+            "body": "Int.emod_def (A.1 0 1) (A.1 1 1)",
+            "children": []
+          },
+          {
+            "name": "h4",
+            "type": "",
+            "body": "Int.ediv_mul_le (A.1 0 1) hd",
+            "children": []
+          },
+          {
+            "name": "h3",
+            "type": "",
+            "body": "Int.emod_lt_abs (A.1 0 1) hd",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "FixedDetMatrices",
+    "name": "induction_on",
+    "statement": "\u0394 m \u2192 Prop} {A : \u0394 m} (hm : m \u2260 0) (h0 : \u2200 A : \u0394 m, A.1 1 0 = 0 \u2192 0 < A.1 0 0 \u2192 0 \u2264 A.1 0 1 \u2192 |(A.1 0 1)| < |(A.1 1 1)| \u2192 C A) (hS : \u2200 B, C B \u2192 C (S \u2022 B)) (hT : \u2200 B, C B \u2192 C (T \u2022 B)) : C A",
+    "have_tree": [
+      {
+        "name": "h_reduce",
+        "type": "C (reduce A)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FixedDetMatrices",
+    "name": "reps_one_id",
+    "statement": "FixedDetMatrix (Fin 2) \u2124 1) (a1 : A.1 1 0 = 0) (a4 : 0 < A.1 0 0) (a6 : |A.1 0 1| < |(A.1 1 1)|) : A = (1 : SL(2, \u2124))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Int.mul_eq_one_iff_eq_one_or_neg_one.mp (A_c_eq_zero a1)",
+        "children": []
+      }
+    ]
+  }
+]

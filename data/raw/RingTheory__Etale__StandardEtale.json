@@ -1,0 +1,124 @@
+[
+  {
+    "module": "StandardEtale",
+    "name": "HasMap.isUnit_derivative_f",
+    "statement": "S} (h : P.HasMap x) : IsUnit (P.f.derivative.aeval x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "aeval x P.f.derivative \u2223 aeval x P.g ^ n",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StandardEtale",
+    "name": "aeval_X_g_mul_mk_X",
+    "statement": "aeval P.X P.g * Ideal.Quotient.mk _ .X = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "aeval (R",
+        "body": "R) P.X = (Ideal.Quotient.mk\u2090 _ _).comp Polynomial.CAlgHom := by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StandardEtale",
+    "name": "hasMap_X",
+    "statement": "P.HasMap P.X",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "aeval (R",
+        "body": "R) P.X = (Ideal.Quotient.mk\u2090 _ _).comp Polynomial.CAlgHom := by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StandardEtale",
+    "name": "hom_ext",
+    "statement": "P.Ring \u2192\u2090[R] S} (H : f P.X = g P.X) : f = g",
+    "have_tree": [
+      {
+        "name": "H'",
+        "type": "aeval (R",
+        "body": "R) P.X = (Ideal.Quotient.mk\u2090 _ _).comp Polynomial.CAlgHom := by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StandardEtale",
+    "name": "homEquiv",
+    "statement": "(P.Ring \u2192\u2090[R] S) \u2243 { x : S // P.HasMap x } where toFun f",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "",
+        "body": "Ideal.Quotient.eq_zero_iff_mem.mp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StandardEtale",
+    "name": "StandardEtalePresentation.baseChange",
+    "statement": "StandardEtalePresentation T (T \u2297[R] S) where __",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "P.HasMap (P.map (algebraMap R T)).X",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StandardEtale",
+    "name": "IsStandardEtale.of_isLocalizationAway",
+    "statement": "Type*} [CommRing S\u209b] [Algebra S S\u209b] [Algebra R S\u209b] [IsScalarTower R S S\u209b] (s : S) [IsLocalization.Away s S\u209b] : IsStandardEtale R S\u209b",
+    "have_tree": [
+      {
+        "name": "P",
+        "type": "StandardEtalePresentation R S",
+        "body": "IsStandardEtale.nonempty_standardEtalePresentation.some",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsLocalization.Away.mul S' (Localization.Away (algebraMap _ S' (AdjoinRoot.mk P.f p)))",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsLocalization.Away (aeval P.x p) S\u209b",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StandardEtale",
+    "name": "IsStandardEtale.of_surjective",
+    "statement": "S \u2192\u2090[R] T) (hf : Function.Surjective f) : IsStandardEtale R T",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsScalarTower R S T",
+        "body": ".of_algebraMap_eq' f.comp_algebraMap.symm",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsLocalization.away_of_isIdempotentElem he.one_sub (hfe.trans (by simp)) hf",
+        "children": []
+      }
+    ]
+  }
+]

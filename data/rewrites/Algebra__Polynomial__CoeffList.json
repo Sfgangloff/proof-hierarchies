@@ -1,0 +1,174 @@
+[
+  {
+    "original": {
+      "module": "CoeffList",
+      "name": "leadingCoeff_cons_eraseLead",
+      "statement": "P.nextCoeff \u2260 0) : P.leadingCoeff :: P.eraseLead.coeffList = P.coeffList",
+      "have_tree": [
+        {
+          "name": "h\u2082",
+          "type": "",
+          "body": "ne_zero_of_natDegree_gt (natDegree_pos_of_nextCoeff_ne_zero h)",
+          "children": []
+        },
+        {
+          "name": "h\u2083",
+          "type": "",
+          "body": "mt nextCoeff_eq_zero_of_eraseLead_eq_zero h",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "CoeffList",
+          "name": "leadingCoeff_cons_eraseLead",
+          "statement": "P.nextCoeff \u2260 0) : P.leadingCoeff :: P.eraseLead.coeffList = P.coeffList",
+          "have_tree": [
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "mt nextCoeff_eq_zero_of_eraseLead_eq_zero h",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "ne_zero_of_natDegree_gt (natDegree_pos_of_nextCoeff_ne_zero h)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "CoeffList",
+      "name": "coeffList_eraseLead",
+      "statement": "P \u2260 0) : P.coeffList = P.leadingCoeff :: (.replicate (P.natDegree - P.eraseLead.degree.succ) 0 ++ P.eraseLead.coeffList)",
+      "have_tree": [
+        {
+          "name": "h\u2081",
+          "type": "",
+          "body": "withBotSucc_degree_eq_natDegree_add_one h",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "",
+          "body": "withBotSucc_degree_eq_natDegree_add_one hep",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "eraseLead_natDegree_le P",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "CoeffList",
+          "name": "coeffList_eraseLead",
+          "statement": "P \u2260 0) : P.coeffList = P.leadingCoeff :: (.replicate (P.natDegree - P.eraseLead.degree.succ) 0 ++ P.eraseLead.coeffList)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "withBotSucc_degree_eq_natDegree_add_one h",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "withBotSucc_degree_eq_natDegree_add_one hep",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "CoeffList",
+          "name": "coeffList_eraseLead",
+          "statement": "P \u2260 0) : P.coeffList = P.leadingCoeff :: (.replicate (P.natDegree - P.eraseLead.degree.succ) 0 ++ P.eraseLead.coeffList)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "withBotSucc_degree_eq_natDegree_add_one h",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "eraseLead_natDegree_le P",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "withBotSucc_degree_eq_natDegree_add_one hep",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "CoeffList",
+          "name": "coeffList_eraseLead",
+          "statement": "P \u2260 0) : P.coeffList = P.leadingCoeff :: (.replicate (P.natDegree - P.eraseLead.degree.succ) 0 ++ P.eraseLead.coeffList)",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "withBotSucc_degree_eq_natDegree_add_one hep",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "eraseLead_natDegree_le P",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "withBotSucc_degree_eq_natDegree_add_one h",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

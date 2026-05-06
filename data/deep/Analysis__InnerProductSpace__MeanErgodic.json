@@ -1,0 +1,40 @@
+[
+  {
+    "module": "MeanErgodic",
+    "name": "LinearMap.tendsto_birkhoffAverage_of_ker_subset_closure",
+    "statement": "E \u2192\u2097[\ud835\udd5c] E) (hf : LipschitzWith 1 f) (g : E \u2192L[\ud835\udd5c] LinearMap.eqLocus f 1) (hg_proj : \u2200 x : LinearMap.eqLocus f 1, g x = x) (hg_ker : (g.ker : Set E) \u2286 closure (LinearMap.range (f - 1))) (x : E) : Tendsto (birkhoffAverage \ud835\udd5c f _root_.id \u00b7 x) atTop (\ud835\udcdd (g x))",
+    "have_tree": [
+      {
+        "name": "hgz",
+        "type": "g z = z",
+        "body": "congr_arg Subtype.val (hg_proj \u27e8z, hz\u27e9)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsClosed {x | Tendsto (birkhoffAverage \ud835\udd5c f _root_.id \u00b7 x) atTop (\ud835\udcdd 0)}",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsBounded (Set.range (_root_.id <| f^[\u00b7] x))",
+        "body": "",
+        "children": [
+          {
+            "name": "H",
+            "type": "f^[n] 0 = 0",
+            "body": "iterate_map_zero (f : E \u2192+ E) n",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "H",
+        "type": "\u2200 n x y, f^[n] (x - y) = f^[n] x - f^[n] y",
+        "body": "iterate_map_sub (f : E \u2192+ E)",
+        "children": []
+      }
+    ]
+  }
+]

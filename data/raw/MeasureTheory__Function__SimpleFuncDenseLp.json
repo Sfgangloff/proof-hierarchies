@@ -1,0 +1,136 @@
+[
+  {
+    "module": "SimpleFuncDenseLp",
+    "name": "nnnorm_approxOn_le",
+    "statement": "\u03b2 \u2192 E} (hf : Measurable f) {s : Set E} {y\u2080 : E} (h\u2080 : y\u2080 \u2208 s) [SeparableSpace s] (x : \u03b2) (n : \u2115) : \u2016approxOn f hf s y\u2080 h\u2080 n x - f x\u2016\u208a \u2264 \u2016f x - y\u2080\u2016\u208a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "edist_approxOn_le hf h\u2080 x n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SimpleFuncDenseLp",
+    "name": "tendsto_approxOn_Lp_eLpNorm",
+    "statement": "\u03b2 \u2192 E} (hf : Measurable f) {s : Set E} {y\u2080 : E} (h\u2080 : y\u2080 \u2208 s) [SeparableSpace s] (hp_ne_top : p \u2260 \u221e) {\u03bc : Measure \u03b2} (h\u03bc : \u2200\u1d50 x \u2202\u03bc, f x \u2208 closure s) (hi : eLpNorm (fun x => f x - y\u2080) p \u03bc < \u221e) : Tendsto (fun n => eLpNorm (\u21d1(approxOn f hf s y\u2080 h\u2080 n) - f) p \u03bc) atTop (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "0 < p.toReal",
+        "body": "toReal_pos hp_zero hp_ne_top",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SimpleFuncDenseLp",
+    "name": "memLp_approxOn",
+    "statement": "\u03b2 \u2192 E} {\u03bc : Measure \u03b2} (fmeas : Measurable f) (hf : MemLp f p \u03bc) {s : Set E} {y\u2080 : E} (h\u2080 : y\u2080 \u2208 s) [SeparableSpace s] (hi\u2080 : MemLp (fun _ => y\u2080) p \u03bc) (n : \u2115) : MemLp (approxOn f fmeas s y\u2080 h\u2080 n) p \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200\u1d50 x \u2202\u03bc, \u2016approxOn f fmeas s y\u2080 h\u2080 n x - y\u2080\u2016 \u2264 \u2016\u2016f x - y\u2080\u2016 + \u2016f x - y\u2080\u2016\u2016",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SimpleFuncDenseLp",
+    "name": "_root_.MeasureTheory.MemLp.exists_simpleFunc_eLpNorm_sub_lt",
+    "statement": "Type*} [NormedAddCommGroup E] {f : \u03b2 \u2192 E} {\u03bc : Measure \u03b2} (hf : MemLp f p \u03bc) (hp_ne_top : p \u2260 \u221e) {\u03b5 : \u211d\u22650\u221e} (h\u03b5 : \u03b5 \u2260 0) : \u2203 g : \u03b2 \u2192\u209b E, eLpNorm (f - \u21d1g) p \u03bc < \u03b5 \u2227 MemLp g p \u03bc",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "MemLp f' p \u03bc",
+        "body": "hf.ae_eq hf.1.ae_eq_mk",
+        "children": []
+      },
+      {
+        "name": "f'meas",
+        "type": "Measurable f'",
+        "body": "hf.1.measurable_mk",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SimpleFuncDenseLp",
+    "name": "measure_preimage_lt_top_of_memLp",
+    "statement": "p \u2260 0) (hp_ne_top : p \u2260 \u221e) (f : \u03b1 \u2192\u209b E) (hf : MemLp f p \u03bc) (y : E) (hy_ne : y \u2260 0) : \u03bc (f \u207b\u00b9' {y}) < \u221e",
+    "have_tree": [
+      {
+        "name": "hp_pos_real",
+        "type": "0 < p.toReal",
+        "body": "ENNReal.toReal_pos hp_pos hp_ne_top",
+        "children": []
+      },
+      {
+        "name": "hf_eLpNorm",
+        "type": "",
+        "body": "MemLp.eLpNorm_lt_top hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SimpleFuncDenseLp",
+    "name": "isDenseEmbedding",
+    "statement": "p \u2260 \u221e) : IsDenseEmbedding ((\u2191) : Lp.simpleFunc E p \u03bc \u2192 Lp E p \u03bc)",
+    "have_tree": [
+      {
+        "name": "hfi'",
+        "type": "MemLp f p \u03bc",
+        "body": "Lp.memLp f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SimpleFuncDenseLp",
+    "name": "coeSimpleFuncNonnegToLpNonneg",
+    "statement": "{ g : Lp.simpleFunc G p \u03bc // 0 \u2264 g } \u2192 { g : Lp G p \u03bc // 0 \u2264 g }",
+    "have_tree": [
+      {
+        "name": "hx_nonneg",
+        "type": "\u2200 n, 0 \u2264 x n",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hx_memLp",
+        "type": "\u2200 n, MemLp (x n) p \u03bc",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h_toLp",
+        "type": "",
+        "body": "fun n => MemLp.coeFn_toLp (hx_memLp n)",
+        "children": []
+      },
+      {
+        "name": "hx_nonneg_Lp",
+        "type": "\u2200 n, 0 \u2264 toLp (x n) (hx_memLp n)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SimpleFuncDenseLp",
+    "name": "MemLp.induction",
+    "statement": "Fact (1 \u2264 p)] (hp_ne_top : p \u2260 \u221e) (motive : (\u03b1 \u2192 E) \u2192 Prop) (indicator : \u2200 (c : E) \u2983s\u2984, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 motive (s.indicator fun _ => c)) (add : \u2200 \u2983f g : \u03b1 \u2192 E\u2984, Disjoint (support f) (support g) \u2192 MemLp f p \u03bc \u2192 MemLp g p \u03bc \u2192 motive f \u2192 motive g \u2192 motive (f + g)) (closed : IsClosed { f : Lp E p \u03bc | motive f }) (ae : \u2200 \u2983f g\u2984, f =\u1d50[\u03bc] g \u2192 MemLp f p \u03bc \u2192 motive f \u2192 motive g) : \u2200 \u2983f : \u03b1 \u2192 E\u2984, MemLp f p \u03bc \u2192 motive f",
+    "have_tree": [
+      {
+        "name": "hp_pos",
+        "type": "p \u2260 0",
+        "body": "(lt_of_lt_of_le zero_lt_one _i.elim).ne'",
+        "children": []
+      }
+    ]
+  }
+]

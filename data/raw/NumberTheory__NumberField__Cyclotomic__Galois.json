@@ -1,0 +1,59 @@
+[
+  {
+    "module": "Galois",
+    "name": "galEquivZMod_restrictNormal_apply",
+    "statement": "m \u2223 n) (\u03c3 : Gal(K/\u211a)) : galEquivZMod m F (\u03c3.restrictNormal F) = ZMod.unitsMap h (galEquivZMod n K \u03c3)",
+    "have_tree": [
+      {
+        "name": "h\u03b6",
+        "type": "",
+        "body": "IsCyclotomicExtension.zeta_spec m \u211a F",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Galois",
+    "name": "mem_zpowers_galEquivZMod_of_mem_stabilizer",
+    "statement": "Gal(K/\u211a)} (h\u03c3 : \u03c3 \u2208 stabilizer Gal(K/\u211a) P) : galEquivZMod n K \u03c3 \u2208 Subgroup.zpowers (ZMod.unitOfCoprime p hn)",
+    "have_tree": [
+      {
+        "name": "h\u03b6",
+        "type": "",
+        "body": "IsCyclotomicExtension.zeta_spec n \u211a K",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Finite (\ud835\udcde K \u29f8 P)",
+        "body": "Ring.HasFiniteQuotients.finiteQuotient (NeZero.ne P)",
+        "children": []
+      },
+      {
+        "name": "h\u2080",
+        "type": "IsPrimitiveRoot (Ideal.Quotient.mk P h\u03b6.toInteger) n",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "IsFractionRing.stabilizerHom_apply_apply_mk Gal(K/\u211a) (Ideal.span {(p : \u2124)}) P",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Galois",
+    "name": "galEquivZMod_stabilizer",
+    "statement": "(galEquivZMod n K).mapSubgroup (stabilizer Gal(K/\u211a) P) = Subgroup.zpowers (ZMod.unitOfCoprime p hn)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsGalois \u211a K",
+        "body": "IsCyclotomicExtension.isGalois {n} \u211a K",
+        "children": []
+      }
+    ]
+  }
+]

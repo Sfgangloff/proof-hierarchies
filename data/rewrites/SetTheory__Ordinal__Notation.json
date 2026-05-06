@@ -1,0 +1,946 @@
+[
+  {
+    "original": {
+      "module": "Notation",
+      "name": "NF.of_dvd_omega0_opow",
+      "statement": "NF (ONote.oadd e n a)) (d : \u03c9 ^ b \u2223 repr (ONote.oadd e n a)) : b \u2264 repr e \u2227 \u03c9 ^ b \u2223 repr a",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "mt repr_inj.1 (fun h => by injection h : ONote.oadd e n a \u2260 0)",
+          "children": []
+        },
+        {
+          "name": "L",
+          "type": "",
+          "body": "le_of_not_gt fun l => not_le_of_gt (h.below_of_lt l).repr_lt (le_of_dvd this d)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Notation",
+          "name": "NF.of_dvd_omega0_opow",
+          "statement": "NF (ONote.oadd e n a)) (d : \u03c9 ^ b \u2223 repr (ONote.oadd e n a)) : b \u2264 repr e \u2227 \u03c9 ^ b \u2223 repr a",
+          "have_tree": [
+            {
+              "name": "L",
+              "type": "",
+              "body": "le_of_not_gt fun l => not_le_of_gt (h.below_of_lt l).repr_lt (le_of_dvd this d)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "mt repr_inj.1 (fun h => by injection h : ONote.oadd e n a \u2260 0)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Notation",
+      "name": "scale_opowAux",
+      "statement": "ONote) [NF e] [NF a0] [NF a] : \u2200 k m, repr (opowAux e a0 a k m) = \u03c9 ^ repr e * repr (opowAux 0 a0 a k m) | 0, m => by cases m <;> simp [opowAux] | k + 1, m => by by_cases h : m = 0 <;> simp only [h, opowAux, mulNat_eq_mul, repr_add, repr_scale, repr_mul, repr_ofNat, zero_add, mul_add, repr_zero, mul_zero, scale_opowAux e, opow_add, mul_assoc]  theorem repr_opow_aux\u2081 {e a} [Ne : NF e] [Na : NF a] {a' : Ordinal} (e0 : repr e \u2260 0) (h : a' < (\u03c9 : Ordinal.{0}) ^ repr e) (aa : repr a = a') (n : \u2115+) : ((\u03c9 : Ordinal.{0}) ^ repr e * (n : \u2115) + a') ^ (\u03c9 : Ordinal.{0}) = (\u03c9 ^ repr e) ^ (\u03c9 : Ordinal.{0})",
+      "have_tree": [
+        {
+          "name": "No",
+          "type": "",
+          "body": "Ne.oadd n (Na.below_of_lt' h)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "omega0_le_oadd e n a",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "(No.below_of_lt (lt_succ _)).repr_lt",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Notation",
+          "name": "scale_opowAux",
+          "statement": "ONote) [NF e] [NF a0] [NF a] : \u2200 k m, repr (opowAux e a0 a k m) = \u03c9 ^ repr e * repr (opowAux 0 a0 a k m) | 0, m => by cases m <;> simp [opowAux] | k + 1, m => by by_cases h : m = 0 <;> simp only [h, opowAux, mulNat_eq_mul, repr_add, repr_scale, repr_mul, repr_ofNat, zero_add, mul_add, repr_zero, mul_zero, scale_opowAux e, opow_add, mul_assoc]  theorem repr_opow_aux\u2081 {e a} [Ne : NF e] [Na : NF a] {a' : Ordinal} (e0 : repr e \u2260 0) (h : a' < (\u03c9 : Ordinal.{0}) ^ repr e) (aa : repr a = a') (n : \u2115+) : ((\u03c9 : Ordinal.{0}) ^ repr e * (n : \u2115) + a') ^ (\u03c9 : Ordinal.{0}) = (\u03c9 ^ repr e) ^ (\u03c9 : Ordinal.{0})",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "omega0_le_oadd e n a",
+              "children": []
+            },
+            {
+              "name": "No",
+              "type": "",
+              "body": "Ne.oadd n (Na.below_of_lt' h)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(No.below_of_lt (lt_succ _)).repr_lt",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Notation",
+          "name": "scale_opowAux",
+          "statement": "ONote) [NF e] [NF a0] [NF a] : \u2200 k m, repr (opowAux e a0 a k m) = \u03c9 ^ repr e * repr (opowAux 0 a0 a k m) | 0, m => by cases m <;> simp [opowAux] | k + 1, m => by by_cases h : m = 0 <;> simp only [h, opowAux, mulNat_eq_mul, repr_add, repr_scale, repr_mul, repr_ofNat, zero_add, mul_add, repr_zero, mul_zero, scale_opowAux e, opow_add, mul_assoc]  theorem repr_opow_aux\u2081 {e a} [Ne : NF e] [Na : NF a] {a' : Ordinal} (e0 : repr e \u2260 0) (h : a' < (\u03c9 : Ordinal.{0}) ^ repr e) (aa : repr a = a') (n : \u2115+) : ((\u03c9 : Ordinal.{0}) ^ repr e * (n : \u2115) + a') ^ (\u03c9 : Ordinal.{0}) = (\u03c9 ^ repr e) ^ (\u03c9 : Ordinal.{0})",
+          "have_tree": [
+            {
+              "name": "No",
+              "type": "",
+              "body": "Ne.oadd n (Na.below_of_lt' h)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(No.below_of_lt (lt_succ _)).repr_lt",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "omega0_le_oadd e n a",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Notation",
+      "name": "repr_opow_aux\u2082",
+      "statement": "NF a0] [Na' : NF a'] (m : \u2115) (d : \u03c9 \u2223 repr a') (e0 : repr a0 \u2260 0) (h : repr a' + m < (\u03c9 ^ repr a0)) (n : \u2115+) (k : \u2115) : let R",
+      "have_tree": [
+        {
+          "name": "\u03b10",
+          "type": "0 < \u03b1'",
+          "body": "by simpa [lt_def, repr] using oadd_pos a0 n a'",
+          "children": []
+        },
+        {
+          "name": "Rl",
+          "type": "R < \u03c9 ^ (repr a0 * succ \u2191k)",
+          "body": "by",
+          "children": [
+            {
+              "name": "e0",
+              "type": "",
+              "body": "pos_iff_ne_zero.2 e0",
+              "children": []
+            },
+            {
+              "name": "rr0",
+              "type": "0 < repr a0 + repr a0",
+              "body": "lt_of_lt_of_le e0 le_add_self",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "_ < \u03c9 ^ (repr a0 + repr a0)",
+                  "body": "(No.below_of_lt ?_).repr_lt",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "\u03b10",
+              "type": "\u00acIsMin \u03b1'",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Notation",
+          "name": "repr_opow_aux\u2082",
+          "statement": "NF a0] [Na' : NF a'] (m : \u2115) (d : \u03c9 \u2223 repr a') (e0 : repr a0 \u2260 0) (h : repr a' + m < (\u03c9 ^ repr a0)) (n : \u2115+) (k : \u2115) : let R",
+          "have_tree": [
+            {
+              "name": "\u03b10",
+              "type": "0 < \u03b1'",
+              "body": "by simpa [lt_def, repr] using oadd_pos a0 n a'",
+              "children": []
+            },
+            {
+              "name": "Rl",
+              "type": "R < \u03c9 ^ (repr a0 * succ \u2191k)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "rr0",
+                  "type": "0 < repr a0 + repr a0",
+                  "body": "lt_of_lt_of_le e0 le_add_self",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "_ < \u03c9 ^ (repr a0 + repr a0)",
+                      "body": "(No.below_of_lt ?_).repr_lt",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "\u03b10",
+                  "type": "\u00acIsMin \u03b1'",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          1,
+          0
+        ],
+        "result": {
+          "module": "Notation",
+          "name": "repr_opow_aux\u2082",
+          "statement": "NF a0] [Na' : NF a'] (m : \u2115) (d : \u03c9 \u2223 repr a') (e0 : repr a0 \u2260 0) (h : repr a' + m < (\u03c9 ^ repr a0)) (n : \u2115+) (k : \u2115) : let R",
+          "have_tree": [
+            {
+              "name": "\u03b10",
+              "type": "0 < \u03b1'",
+              "body": "by simpa [lt_def, repr] using oadd_pos a0 n a'",
+              "children": []
+            },
+            {
+              "name": "Rl",
+              "type": "R < \u03c9 ^ (repr a0 * succ \u2191k)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "e0",
+                  "type": "",
+                  "body": "pos_iff_ne_zero.2 e0",
+                  "children": []
+                },
+                {
+                  "name": "rr0",
+                  "type": "0 < repr a0 + repr a0",
+                  "body": "lt_of_lt_of_le e0 le_add_self",
+                  "children": []
+                },
+                {
+                  "name": "\u03b10",
+                  "type": "\u00acIsMin \u03b1'",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          1
+        ],
+        "result": {
+          "module": "Notation",
+          "name": "repr_opow_aux\u2082",
+          "statement": "NF a0] [Na' : NF a'] (m : \u2115) (d : \u03c9 \u2223 repr a') (e0 : repr a0 \u2260 0) (h : repr a' + m < (\u03c9 ^ repr a0)) (n : \u2115+) (k : \u2115) : let R",
+          "have_tree": [
+            {
+              "name": "\u03b10",
+              "type": "0 < \u03b1'",
+              "body": "by simpa [lt_def, repr] using oadd_pos a0 n a'",
+              "children": []
+            },
+            {
+              "name": "Rl",
+              "type": "R < \u03c9 ^ (repr a0 * succ \u2191k)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "e0",
+                  "type": "",
+                  "body": "pos_iff_ne_zero.2 e0",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "_ < \u03c9 ^ (repr a0 + repr a0)",
+                  "body": "(No.below_of_lt ?_).repr_lt",
+                  "children": []
+                },
+                {
+                  "name": "\u03b10",
+                  "type": "\u00acIsMin \u03b1'",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          1,
+          0
+        ],
+        "result": {
+          "module": "Notation",
+          "name": "repr_opow_aux\u2082",
+          "statement": "NF a0] [Na' : NF a'] (m : \u2115) (d : \u03c9 \u2223 repr a') (e0 : repr a0 \u2260 0) (h : repr a' + m < (\u03c9 ^ repr a0)) (n : \u2115+) (k : \u2115) : let R",
+          "have_tree": [
+            {
+              "name": "\u03b10",
+              "type": "0 < \u03b1'",
+              "body": "by simpa [lt_def, repr] using oadd_pos a0 n a'",
+              "children": []
+            },
+            {
+              "name": "Rl",
+              "type": "R < \u03c9 ^ (repr a0 * succ \u2191k)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "e0",
+                  "type": "",
+                  "body": "pos_iff_ne_zero.2 e0",
+                  "children": []
+                },
+                {
+                  "name": "rr0",
+                  "type": "0 < repr a0 + repr a0",
+                  "body": "lt_of_lt_of_le e0 le_add_self",
+                  "children": []
+                },
+                {
+                  "name": "\u03b10",
+                  "type": "\u00acIsMin \u03b1'",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          2
+        ],
+        "result": {
+          "module": "Notation",
+          "name": "repr_opow_aux\u2082",
+          "statement": "NF a0] [Na' : NF a'] (m : \u2115) (d : \u03c9 \u2223 repr a') (e0 : repr a0 \u2260 0) (h : repr a' + m < (\u03c9 ^ repr a0)) (n : \u2115+) (k : \u2115) : let R",
+          "have_tree": [
+            {
+              "name": "\u03b10",
+              "type": "0 < \u03b1'",
+              "body": "by simpa [lt_def, repr] using oadd_pos a0 n a'",
+              "children": []
+            },
+            {
+              "name": "Rl",
+              "type": "R < \u03c9 ^ (repr a0 * succ \u2191k)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "e0",
+                  "type": "",
+                  "body": "pos_iff_ne_zero.2 e0",
+                  "children": []
+                },
+                {
+                  "name": "rr0",
+                  "type": "0 < repr a0 + repr a0",
+                  "body": "lt_of_lt_of_le e0 le_add_self",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "_ < \u03c9 ^ (repr a0 + repr a0)",
+                      "body": "(No.below_of_lt ?_).repr_lt",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          1,
+          0
+        ],
+        "result": {
+          "module": "Notation",
+          "name": "repr_opow_aux\u2082",
+          "statement": "NF a0] [Na' : NF a'] (m : \u2115) (d : \u03c9 \u2223 repr a') (e0 : repr a0 \u2260 0) (h : repr a' + m < (\u03c9 ^ repr a0)) (n : \u2115+) (k : \u2115) : let R",
+          "have_tree": [
+            {
+              "name": "\u03b10",
+              "type": "0 < \u03b1'",
+              "body": "by simpa [lt_def, repr] using oadd_pos a0 n a'",
+              "children": []
+            },
+            {
+              "name": "Rl",
+              "type": "R < \u03c9 ^ (repr a0 * succ \u2191k)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "e0",
+                  "type": "",
+                  "body": "pos_iff_ne_zero.2 e0",
+                  "children": []
+                },
+                {
+                  "name": "rr0",
+                  "type": "0 < repr a0 + repr a0",
+                  "body": "lt_of_lt_of_le e0 le_add_self",
+                  "children": []
+                },
+                {
+                  "name": "\u03b10",
+                  "type": "\u00acIsMin \u03b1'",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Notation",
+          "name": "repr_opow_aux\u2082",
+          "statement": "NF a0] [Na' : NF a'] (m : \u2115) (d : \u03c9 \u2223 repr a') (e0 : repr a0 \u2260 0) (h : repr a' + m < (\u03c9 ^ repr a0)) (n : \u2115+) (k : \u2115) : let R",
+          "have_tree": [
+            {
+              "name": "\u03b10",
+              "type": "0 < \u03b1'",
+              "body": "by simpa [lt_def, repr] using oadd_pos a0 n a'",
+              "children": []
+            },
+            {
+              "name": "e0",
+              "type": "",
+              "body": "pos_iff_ne_zero.2 e0",
+              "children": []
+            },
+            {
+              "name": "Rl",
+              "type": "R < \u03c9 ^ (repr a0 * succ \u2191k)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "rr0",
+                  "type": "0 < repr a0 + repr a0",
+                  "body": "lt_of_lt_of_le e0 le_add_self",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "_ < \u03c9 ^ (repr a0 + repr a0)",
+                      "body": "(No.below_of_lt ?_).repr_lt",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "\u03b10",
+                  "type": "\u00acIsMin \u03b1'",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Notation",
+          "name": "repr_opow_aux\u2082",
+          "statement": "NF a0] [Na' : NF a'] (m : \u2115) (d : \u03c9 \u2223 repr a') (e0 : repr a0 \u2260 0) (h : repr a' + m < (\u03c9 ^ repr a0)) (n : \u2115+) (k : \u2115) : let R",
+          "have_tree": [
+            {
+              "name": "\u03b10",
+              "type": "0 < \u03b1'",
+              "body": "by simpa [lt_def, repr] using oadd_pos a0 n a'",
+              "children": []
+            },
+            {
+              "name": "rr0",
+              "type": "0 < repr a0 + repr a0",
+              "body": "lt_of_lt_of_le e0 le_add_self",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "_ < \u03c9 ^ (repr a0 + repr a0)",
+                  "body": "(No.below_of_lt ?_).repr_lt",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "Rl",
+              "type": "R < \u03c9 ^ (repr a0 * succ \u2191k)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "e0",
+                  "type": "",
+                  "body": "pos_iff_ne_zero.2 e0",
+                  "children": []
+                },
+                {
+                  "name": "\u03b10",
+                  "type": "\u00acIsMin \u03b1'",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 2,
+        "result": {
+          "module": "Notation",
+          "name": "repr_opow_aux\u2082",
+          "statement": "NF a0] [Na' : NF a'] (m : \u2115) (d : \u03c9 \u2223 repr a') (e0 : repr a0 \u2260 0) (h : repr a' + m < (\u03c9 ^ repr a0)) (n : \u2115+) (k : \u2115) : let R",
+          "have_tree": [
+            {
+              "name": "\u03b10",
+              "type": "0 < \u03b1'",
+              "body": "by simpa [lt_def, repr] using oadd_pos a0 n a'",
+              "children": []
+            },
+            {
+              "name": "\u03b10",
+              "type": "\u00acIsMin \u03b1'",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "Rl",
+              "type": "R < \u03c9 ^ (repr a0 * succ \u2191k)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "e0",
+                  "type": "",
+                  "body": "pos_iff_ne_zero.2 e0",
+                  "children": []
+                },
+                {
+                  "name": "rr0",
+                  "type": "0 < repr a0 + repr a0",
+                  "body": "lt_of_lt_of_le e0 le_add_self",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "_ < \u03c9 ^ (repr a0 + repr a0)",
+                      "body": "(No.below_of_lt ?_).repr_lt",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1,
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Notation",
+          "name": "repr_opow_aux\u2082",
+          "statement": "NF a0] [Na' : NF a'] (m : \u2115) (d : \u03c9 \u2223 repr a') (e0 : repr a0 \u2260 0) (h : repr a' + m < (\u03c9 ^ repr a0)) (n : \u2115+) (k : \u2115) : let R",
+          "have_tree": [
+            {
+              "name": "\u03b10",
+              "type": "0 < \u03b1'",
+              "body": "by simpa [lt_def, repr] using oadd_pos a0 n a'",
+              "children": []
+            },
+            {
+              "name": "Rl",
+              "type": "R < \u03c9 ^ (repr a0 * succ \u2191k)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "e0",
+                  "type": "",
+                  "body": "pos_iff_ne_zero.2 e0",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "_ < \u03c9 ^ (repr a0 + repr a0)",
+                  "body": "(No.below_of_lt ?_).repr_lt",
+                  "children": []
+                },
+                {
+                  "name": "rr0",
+                  "type": "0 < repr a0 + repr a0",
+                  "body": "lt_of_lt_of_le e0 le_add_self",
+                  "children": []
+                },
+                {
+                  "name": "\u03b10",
+                  "type": "\u00acIsMin \u03b1'",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Notation",
+          "name": "repr_opow_aux\u2082",
+          "statement": "NF a0] [Na' : NF a'] (m : \u2115) (d : \u03c9 \u2223 repr a') (e0 : repr a0 \u2260 0) (h : repr a' + m < (\u03c9 ^ repr a0)) (n : \u2115+) (k : \u2115) : let R",
+          "have_tree": [
+            {
+              "name": "Rl",
+              "type": "R < \u03c9 ^ (repr a0 * succ \u2191k)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "e0",
+                  "type": "",
+                  "body": "pos_iff_ne_zero.2 e0",
+                  "children": []
+                },
+                {
+                  "name": "rr0",
+                  "type": "0 < repr a0 + repr a0",
+                  "body": "lt_of_lt_of_le e0 le_add_self",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "_ < \u03c9 ^ (repr a0 + repr a0)",
+                      "body": "(No.below_of_lt ?_).repr_lt",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "\u03b10",
+                  "type": "\u00acIsMin \u03b1'",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "\u03b10",
+              "type": "0 < \u03b1'",
+              "body": "by simpa [lt_def, repr] using oadd_pos a0 n a'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          1
+        ],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Notation",
+          "name": "repr_opow_aux\u2082",
+          "statement": "NF a0] [Na' : NF a'] (m : \u2115) (d : \u03c9 \u2223 repr a') (e0 : repr a0 \u2260 0) (h : repr a' + m < (\u03c9 ^ repr a0)) (n : \u2115+) (k : \u2115) : let R",
+          "have_tree": [
+            {
+              "name": "\u03b10",
+              "type": "0 < \u03b1'",
+              "body": "by simpa [lt_def, repr] using oadd_pos a0 n a'",
+              "children": []
+            },
+            {
+              "name": "Rl",
+              "type": "R < \u03c9 ^ (repr a0 * succ \u2191k)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "rr0",
+                  "type": "0 < repr a0 + repr a0",
+                  "body": "lt_of_lt_of_le e0 le_add_self",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "_ < \u03c9 ^ (repr a0 + repr a0)",
+                      "body": "(No.below_of_lt ?_).repr_lt",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "e0",
+                  "type": "",
+                  "body": "pos_iff_ne_zero.2 e0",
+                  "children": []
+                },
+                {
+                  "name": "\u03b10",
+                  "type": "\u00acIsMin \u03b1'",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          1
+        ],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Notation",
+          "name": "repr_opow_aux\u2082",
+          "statement": "NF a0] [Na' : NF a'] (m : \u2115) (d : \u03c9 \u2223 repr a') (e0 : repr a0 \u2260 0) (h : repr a' + m < (\u03c9 ^ repr a0)) (n : \u2115+) (k : \u2115) : let R",
+          "have_tree": [
+            {
+              "name": "\u03b10",
+              "type": "0 < \u03b1'",
+              "body": "by simpa [lt_def, repr] using oadd_pos a0 n a'",
+              "children": []
+            },
+            {
+              "name": "Rl",
+              "type": "R < \u03c9 ^ (repr a0 * succ \u2191k)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "e0",
+                  "type": "",
+                  "body": "pos_iff_ne_zero.2 e0",
+                  "children": []
+                },
+                {
+                  "name": "\u03b10",
+                  "type": "\u00acIsMin \u03b1'",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "rr0",
+                  "type": "0 < repr a0 + repr a0",
+                  "body": "lt_of_lt_of_le e0 le_add_self",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "_ < \u03c9 ^ (repr a0 + repr a0)",
+                      "body": "(No.below_of_lt ?_).repr_lt",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Notation",
+      "name": "repr_opow",
+      "statement": "repr (o\u2081 ^ o\u2082) = repr o\u2081 ^ repr o\u2082",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "mt repr_inj.1 h",
+          "children": []
+        },
+        {
+          "name": "al",
+          "type": "",
+          "body": "split_add_lt e\u2081",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Notation",
+          "name": "repr_opow",
+          "statement": "repr (o\u2081 ^ o\u2082) = repr o\u2081 ^ repr o\u2082",
+          "have_tree": [
+            {
+              "name": "al",
+              "type": "",
+              "body": "split_add_lt e\u2081",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "mt repr_inj.1 h",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Notation",
+      "name": "fundamentalSequence_has_prop",
+      "statement": "FundamentalSequenceProp o (fundamentalSequence o)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "PNat.natPred_add_one m; rw [e'] at this; exact PNat.coe_inj.1 this.symm]) <;>",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "H.snd'.repr_lt",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Notation",
+          "name": "fundamentalSequence_has_prop",
+          "statement": "FundamentalSequenceProp o (fundamentalSequence o)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H.snd'.repr_lt",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "PNat.natPred_add_one m; rw [e'] at this; exact PNat.coe_inj.1 this.symm]) <;>",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "module": "Ceva",
+    "name": "prod_eq_prod_one_sub_of_mem_line_point_lineMap",
+    "statement": "Triangle k P} {r : Fin 3 \u2192 k} {p' : P} (hp' : \u2200 i : Fin 3, p' \u2208 line[k, t.points i, AffineMap.lineMap (t.points (i + 1)) (t.points (i + 2)) (r i)]) : \u220f i, r i = \u220f i, (1 - r i)",
+    "have_tree": [
+      {
+        "name": "hw",
+        "type": "\u2200 i, \u2211 j, w i j = 1",
+        "body": "by simp [w]",
+        "children": []
+      },
+      {
+        "name": "h'",
+        "type": "\u2200 i : Fin 3, \u2203 c : k, \u2200 j \u2260 i, c * w \u27e8i, by simp\u27e9 j = w' j",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fin 3) : c i * (1 - r i) = w' (i + 1)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fin 3) : c i * r i = w' (i + 2)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hcr",
+        "type": "(\u220f i, c i) * \u220f i, r i = (\u220f i, c i) * \u220f i, (1 - r i)",
+        "body": "by",
+        "children": [
+          {
+            "name": "hw'i1",
+            "type": "w' (i + 1) = 0",
+            "body": "by simpa [hi] using (hc1 i).symm",
+            "children": []
+          },
+          {
+            "name": "hw'i2",
+            "type": "w' (i + 2) = 0",
+            "body": "by simpa [hi] using (hc2 i).symm",
+            "children": []
+          },
+          {
+            "name": "hw'i0",
+            "type": "w' i = 1",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hi1",
+            "type": "c (i + 1) * r (i + 1) = 1",
+            "body": "by simpa [add_assoc, hw'i0] using hc2 (i + 1)",
+            "children": []
+          },
+          {
+            "name": "hi1'",
+            "type": "c (i + 1) * (1 - r (i + 1)) = 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hci1",
+            "type": "c (i + 1) = 1",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hri1",
+            "type": "r (i + 1) = 1",
+            "body": "by simpa [hci1] using hi1",
+            "children": []
+          },
+          {
+            "name": "hi2",
+            "type": "c (i + 2) * (1 - r (i + 2)) = 1",
+            "body": "by simpa [add_assoc, hw'i0] using hc1 (i + 2)",
+            "children": []
+          },
+          {
+            "name": "hi2'",
+            "type": "c (i + 2) * r (i + 2) = 0",
+            "body": "by simpa [add_assoc, hw'i1] using hc2 (i + 2)",
+            "children": []
+          },
+          {
+            "name": "hci2",
+            "type": "c (i + 2) = 1",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hri2",
+            "type": "r (i + 2) = 0",
+            "body": "by simpa [hci2] using hi2'",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

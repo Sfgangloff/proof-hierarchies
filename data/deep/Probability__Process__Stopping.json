@@ -1,0 +1,68 @@
+[
+  {
+    "module": "Stopping",
+    "name": "IsStoppingTime.measurableSet_lt_of_isLUB",
+    "statement": "IsStoppingTime f \u03c4) (i : \u03b9) (h_lub : IsLUB (Set.Iio i) i) : MeasurableSet[f i] {\u03c9 | \u03c4 \u03c9 < i}",
+    "have_tree": [
+      {
+        "name": "h_Iio_eq_Union",
+        "type": "Set.Iio (i : WithTop \u03b9) = \u22c3 j, {k : WithTop \u03b9 | k \u2264 seq j}",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_nhds",
+            "type": "Set.Ici k \u2208 \ud835\udcdd i",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_lt_eq_preimage",
+        "type": "{\u03c9 | \u03c4 \u03c9 < i} = \u03c4 \u207b\u00b9' Set.Iio i",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "stoppedProcess_stoppedProcess_of_le_right",
+    "statement": "\u03c3 \u2264 \u03c4) : stoppedProcess (stoppedProcess u \u03c4) \u03c3 = stoppedProcess u \u03c3",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "MeasurableSet[m_prod] s",
+        "body": "@measurable_snd (Set.Iic i) \u03a9 _ (f i) _ (h\u03c4 i)",
+        "children": [
+          {
+            "name": "hx_fst_le",
+            "type": "\u2191(\u03c9 : Set.Iic i \u00d7 \u03a9).fst \u2264 i",
+            "body": "(\u03c9 : Set.Iic i \u00d7 \u03a9).fst.prop",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Stopping",
+    "name": "stoppedProcess_eq''",
+    "statement": "\u03b9) : stoppedProcess u \u03c4 n = Set.indicator {a | n \u2264 \u03c4 a} (u n) + \u2211 i \u2208 Finset.Iio n, Set.indicator {\u03c9 | \u03c4 \u03c9 = i} (u i)",
+    "have_tree": [
+      {
+        "name": "h_mem",
+        "type": "\u2200 \u03c9, \u03c4 \u03c9 < n \u2192 \u03c4 \u03c9 \u2208 WithTop.some '' (Finset.Iio n)",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_top",
+            "type": "\u03c4 \u03c9 \u2260 \u22a4",
+            "body": "fun h_contra \u21a6 by simp [h_contra] at h",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

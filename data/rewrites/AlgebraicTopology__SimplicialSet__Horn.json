@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Horn",
+      "name": "horn_obj_zero",
+      "statement": "\u2115) (i : Fin (n + 3)) : (horn.{u} (n + 2) i).obj (op (.mk 0)) = \u22a4",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "Finset.card_le_card hS.symm.le",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "this.trans Finset.card_le_two",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Horn",
+          "name": "horn_obj_zero",
+          "statement": "\u2115) (i : Fin (n + 3)) : (horn.{u} (n + 2) i).obj (op (.mk 0)) = \u22a4",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "this.trans Finset.card_le_two",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Finset.card_le_card hS.symm.le",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Horn",
+      "name": "horn_obj_eq_univ",
+      "statement": "\u2115} (i : Fin (n + 1)) (m : \u2115) (h : m + 1 < n",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "(congr_arg Finset.card this).symm.le.trans (Finset.card_union_le _ _)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "n \u2264 m + 1",
+          "body": "by simpa using this.trans Finset.card_image_le",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Horn",
+          "name": "horn_obj_eq_univ",
+          "statement": "\u2115} (i : Fin (n + 1)) (m : \u2115) (h : m + 1 < n",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "n \u2264 m + 1",
+              "body": "by simpa using this.trans Finset.card_image_le",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(congr_arg Finset.card this).symm.le.trans (Finset.card_union_le _ _)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

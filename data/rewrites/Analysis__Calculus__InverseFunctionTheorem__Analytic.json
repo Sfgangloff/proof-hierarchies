@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Analytic",
+      "name": "analyticAt_localInverse",
+      "statement": "AnalyticAt \ud835\udd5c f x) (hf' : deriv f x \u2260 0) : AnalyticAt \ud835\udd5c (hf.hasStrictDerivAt.localInverse _ _ _ hf') (f x)",
+      "have_tree": [
+        {
+          "name": "hfd",
+          "type": "HasStrictFDerivAt f i.toContinuousLinearMap x",
+          "body": "hf.hasStrictDerivAt",
+          "children": []
+        },
+        {
+          "name": "hx",
+          "type": "x \u2208 R.source",
+          "body": "HasStrictFDerivAt.mem_toOpenPartialHomeomorph_source _",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Analytic",
+          "name": "analyticAt_localInverse",
+          "statement": "AnalyticAt \ud835\udd5c f x) (hf' : deriv f x \u2260 0) : AnalyticAt \ud835\udd5c (hf.hasStrictDerivAt.localInverse _ _ _ hf') (f x)",
+          "have_tree": [
+            {
+              "name": "hx",
+              "type": "x \u2208 R.source",
+              "body": "HasStrictFDerivAt.mem_toOpenPartialHomeomorph_source _",
+              "children": []
+            },
+            {
+              "name": "hfd",
+              "type": "HasStrictFDerivAt f i.toContinuousLinearMap x",
+              "body": "hf.hasStrictDerivAt",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

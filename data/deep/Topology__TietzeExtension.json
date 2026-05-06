@@ -1,0 +1,114 @@
+[
+  {
+    "module": "TietzeExtension",
+    "name": "tietze_extension_step",
+    "statement": "X \u2192\u1d47 \u211d) (e : C(X, Y)) (he : IsClosedEmbedding e) : \u2203 g : Y \u2192\u1d47 \u211d, \u2016g\u2016 \u2264 \u2016f\u2016 / 3 \u2227 dist (g.compContinuous e) f \u2264 2 / 3 * \u2016f\u2016",
+    "have_tree": [
+      {
+        "name": "h3",
+        "type": "(0 : \u211d) < 3",
+        "body": "by norm_num1",
+        "children": []
+      },
+      {
+        "name": "h23",
+        "type": "0 < (2 / 3 : \u211d)",
+        "body": "by norm_num1",
+        "children": []
+      },
+      {
+        "name": "hf3",
+        "type": "-\u2016f\u2016 / 3 < \u2016f\u2016 / 3",
+        "body": "(div_lt_div_iff_of_pos_right h3).2 (Left.neg_lt_self hf)",
+        "children": []
+      },
+      {
+        "name": "hc\u2081",
+        "type": "IsClosed (e '' (f \u207b\u00b9' Iic (-\u2016f\u2016 / 3)))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hc\u2082",
+        "type": "IsClosed (e '' (f \u207b\u00b9' Ici (\u2016f\u2016 / 3)))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hd",
+        "type": "Disjoint (e '' (f \u207b\u00b9' Iic (-\u2016f\u2016 / 3))) (e '' (f \u207b\u00b9' Ici (\u2016f\u2016 / 3)))",
+        "body": "by",
+        "children": [
+          {
+            "name": "hfx",
+            "type": "-\u2016f\u2016 \u2264 f x \u2227 f x \u2264 \u2016f\u2016",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "TietzeExtension",
+    "name": "exists_extension_forall_exists_le_ge_of_isClosedEmbedding",
+    "statement": "X \u2192\u1d47 \u211d) {e : X \u2192 Y} (he : IsClosedEmbedding e) : \u2203 g : Y \u2192\u1d47 \u211d, (\u2200 y, \u2203 x\u2081 x\u2082, g y \u2208 Icc (f x\u2081) (f x\u2082)) \u2227 g \u2218 e = f",
+    "have_tree": [
+      {
+        "name": "hmem",
+        "type": "\u2200 x, f x \u2208 Icc a b",
+        "body": "fun x => \u27e8ha.1 \u27e8x, rfl\u27e9, hb.1 \u27e8x, rfl\u27e9\u27e9",
+        "children": []
+      },
+      {
+        "name": "hle",
+        "type": "a \u2264 b",
+        "body": "(hmem default).1.trans (hmem default).2",
+        "children": []
+      },
+      {
+        "name": "hac",
+        "type": "a < c",
+        "body": "left_lt_add_div_two.2 hlt",
+        "children": []
+      },
+      {
+        "name": "hcb",
+        "type": "c < b",
+        "body": "add_div_two_lt_right.2 hlt",
+        "children": []
+      },
+      {
+        "name": "hsub",
+        "type": "c - a = b - c",
+        "body": "by",
+        "children": [
+          {
+            "name": "hd",
+            "type": "Disjoint (range e \u222a g \u207b\u00b9' Ici c) (g \u207b\u00b9' {a})",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hay",
+            "type": "a < (g + dg) y",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hd",
+        "type": "Disjoint (range e \u222a g \u207b\u00b9' Iic c) (g \u207b\u00b9' {b})",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hyb",
+        "type": "(g - dg) y < b",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

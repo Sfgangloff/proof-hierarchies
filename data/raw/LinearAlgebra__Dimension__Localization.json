@@ -1,0 +1,78 @@
+[
+  {
+    "module": "Localization",
+    "name": "IsLocalization.rank_eq",
+    "statement": "Module.rank S N = Module.rank R N",
+    "have_tree": [
+      {
+        "name": "inj",
+        "type": "",
+        "body": "IsLocalization.injective S hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "lift_rank_eq",
+    "statement": "Cardinal.lift.{uM} (Module.rank T P) = Cardinal.lift.{uP} (Module.rank R M)",
+    "have_tree": [
+      {
+        "name": "inj",
+        "type": "",
+        "body": "FaithfulSMul.algebraMap_injective R T",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "inj.noZeroDivisors _ (map_zero _) (map_mul _)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(isDomain_iff_noZeroDivisors_and_nontrivial T).mpr",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsLocalizedModule R\u2070 (TensorProduct.mk R FR FT 1)",
+        "body": "inferInstance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "bc.comp_iff.2 ((isLocalizedModule_iff_isBaseChange T\u2070 FT g).1 inferInstance)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "aleph0_le_rank_of_isEmpty_oreSet",
+    "statement": "IsEmpty (OreLocalization.OreSet R\u2070)) : \u2135\u2080 \u2264 Module.rank R R",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mul_right_cancel\u2080 (mem_nonZeroDivisors_iff_ne_zero.mp (s ^ x).prop) hg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "nonempty_oreSet_of_strongRankCondition",
+    "statement": "Nonempty (OreLocalization.OreSet R\u2070)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "aleph0_le_rank_of_isEmpty_oreSet h",
+        "children": []
+      }
+    ]
+  }
+]

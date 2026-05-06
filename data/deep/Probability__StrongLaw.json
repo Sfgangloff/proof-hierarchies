@@ -1,0 +1,163 @@
+[
+  {
+    "module": "StrongLaw",
+    "name": "moment_truncation_eq_intervalIntegral_of_nonneg",
+    "statement": "AEStronglyMeasurable f \u03bc) {A : \u211d} {n : \u2115} (hn : n \u2260 0) (h'f : 0 \u2264 f) : \u222b x, truncation f A x ^ n \u2202\u03bc = \u222b y in 0..A, y ^ n \u2202Measure.map f \u03bc",
+    "have_tree": [
+      {
+        "name": "M",
+        "type": "MeasurableSet (Set.Ioc 0 A)",
+        "body": "measurableSet_Ioc",
+        "children": []
+      },
+      {
+        "name": "M'",
+        "type": "MeasurableSet (Set.Ioc A 0)",
+        "body": "measurableSet_Ioc",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200\u1d50 x \u2202Measure.map f \u03bc, (0 : \u211d) \u2264 x",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "x = 0",
+            "body": "by linarith",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "StrongLaw",
+    "name": "sum_prob_mem_Ioc_le",
+    "statement": "\u03a9 \u2192 \u211d} (hint : Integrable X) (hnonneg : 0 \u2264 X) {K : \u2115} {N : \u2115} (hKN : K \u2264 N) : \u2211 j \u2208 range K, \u2119 {\u03c9 | X \u03c9 \u2208 Set.Ioc (j : \u211d) N} \u2264 ENNReal.ofReal (\ud835\udd3c[X] + 1)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2211 j \u2208 range K, \u222b _ in j..N, (1 : \u211d) \u2202\u03c1 \u2264 \ud835\udd3c[X] + 1",
+        "body": "",
+        "children": [
+          {
+            "name": "I",
+            "type": "(i : \u211d) \u2264 (i + 1 : \u2115)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "B",
+        "type": "\u2200 a b, \u2119 {\u03c9 | X \u03c9 \u2208 Set.Ioc a b} = ENNReal.ofReal (\u222b _ in Set.Ioc a b, (1 : \u211d) \u2202\u03c1)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongLaw",
+    "name": "sum_variance_truncation_le",
+    "statement": "\u03a9 \u2192 \u211d} (hint : Integrable X) (hnonneg : 0 \u2264 X) (K : \u2115) : \u2211 j \u2208 range K, ((j : \u211d) ^ 2)\u207b\u00b9 * \ud835\udd3c[truncation X j ^ 2] \u2264 2 * \ud835\udd3c[X]",
+    "have_tree": [
+      {
+        "name": "Y2",
+        "type": "\u2200 n, \ud835\udd3c[Y n ^ 2] = \u222b x in 0..n, x ^ 2 \u2202\u03c1",
+        "body": "by",
+        "children": [
+          {
+            "name": "Ik",
+            "type": "(k : \u211d) \u2264 (k + 1 : \u2115)",
+            "body": "by simp",
+            "children": [
+              {
+                "name": "_",
+                "type": "0 < x",
+                "body": "k.cast_nonneg.trans_lt hx.1",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "StrongLaw",
+    "name": "strong_law_aux6",
+    "statement": "\u211d} (c_one : 1 < c) : \u2200\u1d50 \u03c9, Tendsto (fun n : \u2115 => (\u2211 i \u2208 range \u230ac ^ n\u230b\u208a, X i \u03c9) / \u230ac ^ n\u230b\u208a) atTop (\ud835\udcdd \ud835\udd3c[X 0])",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "\u2200 n : \u2115, (0 : \u211d) < \u230ac ^ n\u230b\u208a",
+        "body": "by",
+        "children": [
+          {
+            "name": "A",
+            "type": "Tendsto (fun n : \u2115 => \u230ac ^ n\u230b\u208a) atTop atTop",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "StrongLaw",
+    "name": "strong_law_ae_of_measurable",
+    "statement": "\u2115 \u2192 \u03a9 \u2192 E) (hint : Integrable (X 0) \u03bc) (h' : StronglyMeasurable (X 0)) (hindep : Pairwise ((\u00b7 \u27c2\u1d62[\u03bc] \u00b7) on X)) (hident : \u2200 i, IdentDistrib (X i) (X 0) \u03bc \u03bc) : \u2200\u1d50 \u03c9 \u2202\u03bc, Tendsto (fun n : \u2115 \u21a6 (n : \u211d)\u207b\u00b9 \u2022 (\u2211 i \u2208 range n, X i \u03c9)) atTop (\ud835\udcdd \u03bc[X 0])",
+    "have_tree": [
+      {
+        "name": "zero_s",
+        "type": "0 \u2208 s",
+        "body": "by simp [s]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "SeparableSpace s",
+        "body": "h'.separableSpace_range_union_singleton",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nonempty s",
+        "body": "\u27e80, zero_s\u27e9",
+        "children": [
+          {
+            "name": "G_meas",
+            "type": "\u2200 k, Measurable (G k)",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "I",
+            "type": "\u2200 k i, (fun \u03c9 \u21a6 \u2016(X i - Y k i) \u03c9\u2016) = (G k) \u2218 (X i)",
+            "body": "fun k i \u21a6 rfl",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u2016\u03bc[Y k 0] - \u03bc[X 0]\u2016 < \u03b4",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "I",
+        "type": "\u2200\u1da0 n in atTop, (\u2211 i \u2208 range n, \u2016(X i - Y k i) \u03c9\u2016) / n < \u03b4",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "J",
+        "type": "\u2200\u1da0 (n : \u2115) in atTop, \u2016(n : \u211d)\u207b\u00b9 \u2022 (\u2211 i \u2208 range n, Y k i \u03c9) - \u03bc[Y k 0]\u2016 < \u03b4",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

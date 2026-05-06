@@ -1,0 +1,123 @@
+[
+  {
+    "module": "Beta",
+    "name": "Gamma_mul_Gamma_eq_betaIntegral",
+    "statement": "\u2102} (hs : 0 < re s) (ht : 0 < re t) : Gamma s * Gamma t = Gamma (s + t) * betaIntegral s t",
+    "have_tree": [
+      {
+        "name": "conv_int",
+        "type": "",
+        "body": "integral_posConvolution",
+        "children": []
+      },
+      {
+        "name": "hst",
+        "type": "0 < re (s + t)",
+        "body": "by rw [add_re]; exact add_pos hs ht",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Beta",
+    "name": "betaIntegral_recurrence",
+    "statement": "\u2102} (hu : 0 < re u) (hv : 0 < re v) : u * betaIntegral u (v + 1) = v * betaIntegral (u + 1) v",
+    "have_tree": [
+      {
+        "name": "hu'",
+        "type": "0 < re (u + 1)",
+        "body": "by rw [add_re, one_re]; positivity",
+        "children": []
+      },
+      {
+        "name": "hv'",
+        "type": "0 < re (v + 1)",
+        "body": "by rw [add_re, one_re]; positivity",
+        "children": []
+      },
+      {
+        "name": "hc",
+        "type": "ContinuousOn F (Icc 0 1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "@HasDerivAt.cpow_const _ _ _ u (hasDerivAt_id (x : \u2102)) (Or.inl ?_)",
+            "children": []
+          },
+          {
+            "name": "A",
+            "type": "",
+            "body": "@HasDerivAt.cpow_const _ _ _ v (hasDerivAt_id (1 - (x : \u2102))) (Or.inl ?_)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_int",
+        "type": "",
+        "body": "((betaIntegral_convergent hu hv').const_mul u).sub",
+        "children": []
+      },
+      {
+        "name": "int_ev",
+        "type": "",
+        "body": "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le zero_le_one hc hder h_int",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Beta",
+    "name": "betaIntegral_eval_nat_add_one_right",
+    "statement": "\u2102} (hu : 0 < re u) (n : \u2115) : betaIntegral u (n + 1) = n ! / \u220f j \u2208 Finset.range (n + 1), (u + j)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "betaIntegral_recurrence hu (?_ : 0 < re n.succ)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Beta",
+    "name": "GammaSeq_eq_approx_Gamma_integral",
+    "statement": "\u2102} (hs : 0 < re s) {n : \u2115} (hn : n \u2260 0) : GammaSeq s n = \u222b x : \u211d in 0..n, \u2191((1 - x / n) ^ n) * (x : \u2102) ^ (s - 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "intervalIntegral.integral_comp_div (a := 0) (b := n)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Beta",
+    "name": "GammaSeq_tendsto_Gamma",
+    "statement": "\u2102) : Tendsto (GammaSeq s) atTop (\ud835\udcdd <| Gamma s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "@Tendsto.congr' _ _ _ ?_ _ _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Beta",
+    "name": "Gamma_ne_zero",
+    "statement": "\u2102} (hs : \u2200 m : \u2115, s \u2260 -m) : Gamma s \u2260 0",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "",
+        "body": "div_ne_zero (ofReal_ne_zero.mpr Real.pi_pos.ne') this",
+        "children": []
+      }
+    ]
+  }
+]

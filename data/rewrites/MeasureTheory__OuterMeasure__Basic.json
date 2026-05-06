@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "measure_iUnion_of_tendsto_zero",
+      "statement": "F) {s : \u03b9 \u2192 Set \u03b1} (l : Filter \u03b9) [NeBot l] (h0 : Tendsto (fun k => \u03bc ((\u22c3 n, s n) \\ s k)) l (\ud835\udcdd 0)) : \u03bc (\u22c3 n, s n) = \u2a06 n, \u03bc (s n)",
+      "have_tree": [
+        {
+          "name": "A",
+          "type": "\u2200 k, \u03bc S \u2264 M + \u03bc (S \\ s k)",
+          "body": "fun k \u21a6 calc",
+          "children": []
+        },
+        {
+          "name": "B",
+          "type": "Tendsto (fun k \u21a6 M + \u03bc (S \\ s k)) l (\ud835\udcdd M)",
+          "body": "by simpa using tendsto_const_nhds.add h0",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "measure_iUnion_of_tendsto_zero",
+          "statement": "F) {s : \u03b9 \u2192 Set \u03b1} (l : Filter \u03b9) [NeBot l] (h0 : Tendsto (fun k => \u03bc ((\u22c3 n, s n) \\ s k)) l (\ud835\udcdd 0)) : \u03bc (\u22c3 n, s n) = \u2a06 n, \u03bc (s n)",
+          "have_tree": [
+            {
+              "name": "B",
+              "type": "Tendsto (fun k \u21a6 M + \u03bc (S \\ s k)) l (\ud835\udcdd M)",
+              "body": "by simpa using tendsto_const_nhds.add h0",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "\u2200 k, \u03bc S \u2264 M + \u03bc (S \\ s k)",
+              "body": "fun k \u21a6 calc",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "iUnion_nat_of_monotone_of_tsum_ne_top",
+      "statement": "OuterMeasure \u03b1) {s : \u2115 \u2192 Set \u03b1} (h_mono : \u2200 n, s n \u2286 s (n + 1)) (h0 : (\u2211' k, m (s (k + 1) \\ s k)) \u2260 \u221e) : m (\u22c3 n, s n) = \u2a06 n, m (s n)",
+      "have_tree": [
+        {
+          "name": "h'",
+          "type": "Monotone s",
+          "body": "@monotone_nat_of_le_succ (Set \u03b1) _ _ h_mono",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "\u2203 i, x \u2208 s i",
+          "body": "by exists i",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "iUnion_nat_of_monotone_of_tsum_ne_top",
+          "statement": "OuterMeasure \u03b1) {s : \u2115 \u2192 Set \u03b1} (h_mono : \u2200 n, s n \u2286 s (n + 1)) (h0 : (\u2211' k, m (s (k + 1) \\ s k)) \u2260 \u221e) : m (\u22c3 n, s n) = \u2a06 n, m (s n)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "\u2203 i, x \u2208 s i",
+              "body": "by exists i",
+              "children": []
+            },
+            {
+              "name": "h'",
+              "type": "Monotone s",
+              "body": "@monotone_nat_of_le_succ (Set \u03b1) _ _ h_mono",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

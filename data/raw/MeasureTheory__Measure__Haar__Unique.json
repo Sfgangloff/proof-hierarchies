@@ -1,0 +1,402 @@
+[
+  {
+    "module": "Unique",
+    "name": "continuous_integral_apply_inv_mul",
+    "statement": "Type*} [TopologicalSpace G] [LocallyCompactSpace G] [Group G] [IsTopologicalGroup G] [MeasurableSpace G] [BorelSpace G] {\u03bc : Measure G} [IsFiniteMeasureOnCompacts \u03bc] {E : Type*} [NormedAddCommGroup E] [NormedSpace \u211d E] {g : G \u2192 E} (hg : Continuous g) (h'g : HasCompactSupport g) : Continuous (fun (x : G) \u21a6 \u222b y, g (y\u207b\u00b9 * x) \u2202\u03bc)",
+    "have_tree": [
+      {
+        "name": "k_comp",
+        "type": "IsCompact k",
+        "body": "h'g",
+        "children": []
+      },
+      {
+        "name": "k'_comp",
+        "type": "IsCompact k'",
+        "body": "t_comp.smul_set k_comp.inv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "integral_isMulLeftInvariant_isMulRightInvariant_combo",
+    "statement": "Measure G} [IsFiniteMeasureOnCompacts \u03bc] [IsFiniteMeasureOnCompacts \u03bd] [IsMulLeftInvariant \u03bc] [IsMulRightInvariant \u03bd] [IsOpenPosMeasure \u03bd] {f g : G \u2192 \u211d} (hf : Continuous f) (h'f : HasCompactSupport f) (hg : Continuous g) (h'g : HasCompactSupport g) (g_nonneg : 0 \u2264 g) {x\u2080 : G} (g_pos : g x\u2080 \u2260 0) : \u222b x, f x \u2202\u03bc = (\u222b y, f y * (\u222b z, g (z\u207b\u00b9 * y) \u2202\u03bd)\u207b\u00b9 \u2202\u03bd) * \u222b x, g x \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "D_cont",
+        "type": "Continuous D",
+        "body": "continuous_integral_apply_inv_mul hg h'g",
+        "children": []
+      },
+      {
+        "name": "D_pos",
+        "type": "\u2200 x, 0 < D x",
+        "body": "by",
+        "children": [
+          {
+            "name": "C",
+            "type": "Continuous (fun y \u21a6 g (y\u207b\u00b9 * x))",
+            "body": "by fun_prop",
+            "children": [
+              {
+                "name": "K_comp",
+                "type": "IsCompact K",
+                "body": "h'f",
+                "children": []
+              },
+              {
+                "name": "L_comp",
+                "type": "IsCompact L",
+                "body": "h'g",
+                "children": []
+              },
+              {
+                "name": "M_comp",
+                "type": "IsCompact M",
+                "body": "",
+                "children": []
+              },
+              {
+                "name": "M'_comp",
+                "type": "IsCompact (closure M)",
+                "body": "M_comp.closure",
+                "children": []
+              },
+              {
+                "name": "K_comp",
+                "type": "IsCompact K",
+                "body": "h'f",
+                "children": []
+              },
+              {
+                "name": "L_comp",
+                "type": "IsCompact L",
+                "body": "h'g",
+                "children": []
+              },
+              {
+                "name": "M_comp",
+                "type": "IsCompact M",
+                "body": "",
+                "children": []
+              },
+              {
+                "name": "M'_comp",
+                "type": "IsCompact (closure M)",
+                "body": "M_comp.closure",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "exists_integral_isMulLeftInvariant_eq_smul_of_hasCompactSupport",
+    "statement": "Measure G) [IsHaarMeasure \u03bc] [IsFiniteMeasureOnCompacts \u03bc'] [IsMulLeftInvariant \u03bc'] : \u2203 (c : \u211d\u22650), \u2200 (f : G \u2192 \u211d), Continuous f \u2192 HasCompactSupport f \u2192 \u222b x, f x \u2202\u03bc' = \u222b x, f x \u2202(c \u2022 \u03bc)",
+    "have_tree": [
+      {
+        "name": "int_g_pos",
+        "type": "0 < \u222b x, g x \u2202\u03bc",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "c_nonneg",
+        "type": "0 \u2264 c",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "haarScalarFactor_eq_integral_div",
+    "statement": "Measure G) [IsHaarMeasure \u03bc] [IsFiniteMeasureOnCompacts \u03bc'] [IsMulLeftInvariant \u03bc'] {f : G \u2192 \u211d} (hf : Continuous f) (h'f : HasCompactSupport f) (int_nonzero : \u222b x, f x \u2202\u03bc \u2260 0) : haarScalarFactor \u03bc' \u03bc = (\u222b x, f x \u2202\u03bc') / \u222b x, f x \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "integral_isMulLeftInvariant_eq_smul_of_hasCompactSupport \u03bc' \u03bc hf h'f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "mul_haarScalarFactor_smul",
+    "statement": "Measure G) [IsHaarMeasure \u03bc] [IsFiniteMeasureOnCompacts \u03bc'] [IsMulLeftInvariant \u03bc'] {c : \u211d\u22650} (hc : c \u2260 0) : haveI : IsHaarMeasure (c \u2022 \u03bc)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsHaarMeasure (c \u2022 \u03bc)",
+        "body": "IsHaarMeasure.nnreal_smul _ hc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "haarScalarFactor_self",
+    "statement": "Measure G) [IsHaarMeasure \u03bc] : haarScalarFactor \u03bc \u03bc = 1",
+    "have_tree": [
+      {
+        "name": "int_g_ne_zero",
+        "type": "\u222b x, g x \u2202\u03bc \u2260 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "haarScalarFactor_eq_mul",
+    "statement": "Measure G) [IsHaarMeasure \u03bc] [IsHaarMeasure \u03bd] [IsFiniteMeasureOnCompacts \u03bc'] [IsMulLeftInvariant \u03bc'] : haarScalarFactor \u03bc' \u03bd = haarScalarFactor \u03bc' \u03bc * haarScalarFactor \u03bc \u03bd",
+    "have_tree": [
+      {
+        "name": "Z",
+        "type": "",
+        "body": "integral_isMulLeftInvariant_eq_smul_of_hasCompactSupport \u03bc' \u03bc g_cont g_comp",
+        "children": []
+      },
+      {
+        "name": "int_g_pos",
+        "type": "0 < \u222b x, g x \u2202\u03bd",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "measure_preimage_isMulLeftInvariant_eq_smul_of_hasCompactSupport",
+    "statement": "Measure G) [IsHaarMeasure \u03bc] [IsFiniteMeasureOnCompacts \u03bc'] [IsMulLeftInvariant \u03bc'] {f : G \u2192 \u211d} (hf : Continuous f) (h'f : HasCompactSupport f) : \u03bc' (f \u207b\u00b9' {1}) = haarScalarFactor \u03bc' \u03bc \u2022 \u03bc (f \u207b\u00b9' {1})",
+    "have_tree": [
+      {
+        "name": "T",
+        "type": "",
+        "body": "tendsto_pi_nhds.1 (thickenedIndicator_tendsto_indicator_closure",
+        "children": []
+      },
+      {
+        "name": "I1",
+        "type": "",
+        "body": "I \u03bc' (by infer_instance)",
+        "children": [
+          {
+            "name": "mf",
+            "type": "MeasurableSet (f \u207b\u00b9' {1})",
+            "body": "(isClosed_singleton.preimage hf).measurableSet",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "C",
+        "type": "IsCompact (f \u207b\u00b9' {1})",
+        "body": "h'f.isCompact_preimage hf isClosed_singleton (by simp)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "smul_measure_isMulInvariant_le_of_isCompact_closure",
+    "statement": "Measure G) [IsHaarMeasure \u03bc] [IsFiniteMeasureOnCompacts \u03bc'] [IsMulLeftInvariant \u03bc'] [InnerRegularCompactLTTop \u03bc] {s : Set G} (hs : MeasurableSet s) (h's : IsCompact (closure s)) : haarScalarFactor \u03bc' \u03bc \u2022 \u03bc s \u2264 \u03bc' s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u03bd s \u2260 \u221e",
+        "body": "((measure_mono subset_closure).trans_lt h's.measure_lt_top).ne",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "measure_isMulInvariant_eq_smul_of_isCompact_closure_of_innerRegularCompactLTTop",
+    "statement": "Measure G) [IsHaarMeasure \u03bc] [IsFiniteMeasureOnCompacts \u03bc'] [IsMulLeftInvariant \u03bc'] [InnerRegularCompactLTTop \u03bc] {s : Set G} (hs : MeasurableSet s) (h's : IsCompact (closure s)) : \u03bc' s = haarScalarFactor \u03bc' \u03bc \u2022 \u03bc s",
+    "have_tree": [
+      {
+        "name": "t_closed",
+        "type": "IsClosed t",
+        "body": "isClosed_singleton.preimage f_cont",
+        "children": []
+      },
+      {
+        "name": "t_comp",
+        "type": "IsCompact t",
+        "body": "f_comp.isCompact_preimage f_cont isClosed_singleton (by simp)",
+        "children": []
+      },
+      {
+        "name": "st",
+        "type": "s \u2286 t",
+        "body": "(IsClosed.closure_subset_iff t_closed).mp hf",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "\u03bd (t \\ s) \u2264 \u03bc' (t \\ s)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "isHaarMeasure_eq_of_isProbabilityMeasure",
+    "statement": "Measure G) [IsProbabilityMeasure \u03bc] [IsProbabilityMeasure \u03bc'] [IsHaarMeasure \u03bc] [IsHaarMeasure \u03bc'] : \u03bc' = \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "CompactSpace G",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "Z",
+        "type": "",
+        "body": "A univ",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "measure_isHaarMeasure_eq_smul_of_isEverywherePos",
+    "statement": "Measure G) [IsHaarMeasure \u03bc] [IsHaarMeasure \u03bc'] {s : Set G} (hs : MeasurableSet s) (h's : IsEverywherePos \u03bc s) : \u03bc' s = haarScalarFactor \u03bc' \u03bc \u2022 \u03bc s",
+    "have_tree": [
+      {
+        "name": "one_k",
+        "type": "1 \u2208 k",
+        "body": "mem_of_mem_nhds k_mem",
+        "children": []
+      },
+      {
+        "name": "sm",
+        "type": "s \u2286 \u22c3 x \u2208 m, x \u2022 (k * k\u207b\u00b9)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "y \u2208 y \u2022 (k * k\u207b\u00b9)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "y \u2208 x \u2022 (k * k\u207b\u00b9)",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "(x\u207b\u00b9 * z) * (y\u207b\u00b9 * z)\u207b\u00b9 \u2208 k * k\u207b\u00b9",
+                "body": "Set.mul_mem_mul ((mem_leftCoset_iff x).mp zx)",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "IsClosed (k \u2022 k\u207b\u00b9)",
+            "body": "IsClosed.smul_left_of_isCompact k_closed.inv k_comp",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "IsCompact (f n \u2022 (k * k\u207b\u00b9))",
+            "body": "IsCompact.smul (f n) (k_comp.mul k_comp.inv)",
+            "children": [
+              {
+                "name": "_",
+                "type": "Countable m",
+                "body": "countable_univ_iff.mp C",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "H\u03bd",
+            "type": "IsEverywherePos \u03bd s",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "H\u03bc'",
+            "type": "IsEverywherePos \u03bc' s",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "measure_isMulLeftInvariant_eq_smul_of_ne_top",
+    "statement": "Measure G) [IsHaarMeasure \u03bc] [IsFiniteMeasureOnCompacts \u03bc'] [IsMulLeftInvariant \u03bc'] [InnerRegularCompactLTTop \u03bc] [InnerRegularCompactLTTop \u03bc'] {s : Set G} (hs : \u03bc s \u2260 \u221e) (h's : \u03bc' s \u2260 \u221e) : \u03bc' s = haarScalarFactor \u03bc' \u03bc \u2022 \u03bc s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(c \u2022 \u03bc) s \u2260 \u221e",
+        "body": "by simp [ENNReal.mul_eq_top, hs.ne]",
+        "children": []
+      },
+      {
+        "name": "st",
+        "type": "s \u2286 t",
+        "body": "subset_inter (subset_toMeasurable \u03bc' s) (subset_toMeasurable \u03bc s)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "absolutelyContinuous_isHaarMeasure",
+    "statement": "Measure G) [SigmaFinite \u03bc] [IsMulLeftInvariant \u03bc] [IsHaarMeasure \u03bd] : \u03bc \u226a \u03bd",
+    "have_tree": [
+      {
+        "name": "K",
+        "type": "PositiveCompacts G",
+        "body": "Classical.arbitrary _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "_root_.MonoidHom.measurePreserving",
+    "statement": "Type*} [Group H] [TopologicalSpace H] [IsTopologicalGroup H] [CompactSpace H] [MeasurableSpace H] [BorelSpace H] {\u03bc : Measure G} [IsHaarMeasure \u03bc] {\u03bd : Measure H} [IsHaarMeasure \u03bd] {f : G \u2192* H} (hcont : Continuous f) (hsurj : Surjective f) (huniv : \u03bc univ = \u03bd univ) : MeasurePreserving f \u03bc \u03bd where measurable",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsFiniteMeasure \u03bc",
+        "body": "\u27e8by rw [huniv]; apply measure_lt_top\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(\u03bc.map f).IsHaarMeasure",
+        "body": "isHaarMeasure_map_of_isFiniteMeasure \u03bc f hcont hsurj",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Unique",
+    "name": "addHaarScalarFactor_domSMul",
+    "statement": "G\u1d48\u1d50\u1d43) : addHaarScalarFactor (g \u2022 \u03bc) (g \u2022 \u03bd) = addHaarScalarFactor \u03bc \u03bd",
+    "have_tree": [
+      {
+        "name": "int_f_ne_zero",
+        "type": "\u222b x, f x \u2202g \u2022 \u03bd \u2260 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "module": "UniformIntegrable",
+    "name": "MemLp.eLpNormEssSup_indicator_norm_ge_eq_zero",
+    "statement": "MemLp f \u221e \u03bc) (hmeas : StronglyMeasurable f) : \u2203 M : \u211d, eLpNormEssSup ({ x | M \u2264 \u2016f x\u2016\u208a }.indicator f) \u03bc = 0",
+    "have_tree": [
+      {
+        "name": "hbdd",
+        "type": "eLpNormEssSup f \u03bc < \u221e",
+        "body": "hf.eLpNorm_lt_top",
+        "children": [
+          {
+            "name": "hle",
+            "type": "",
+            "body": "enorm_ae_le_eLpNormEssSup f \u03bc",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "UniformIntegrable",
+    "name": "tendsto_Lp_finite_of_tendsto_ae_of_meas",
+    "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 n, StronglyMeasurable (f n)) (hg : StronglyMeasurable g) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "h\u03b5'",
+        "type": "0 < \u03b5.toReal / 3",
+        "body": "div_pos (ENNReal.toReal_pos h\u03b5.ne' h.ne) (by simp)",
+        "children": []
+      },
+      {
+        "name": "hdivp",
+        "type": "0 \u2264 1 / p.toReal",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "hpow",
+        "type": "0 < measureUnivNNReal \u03bc ^ (1 / p.toReal)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hnf",
+        "type": "eLpNorm (t.indicator (f n)) p \u03bc \u2264 ENNReal.ofReal (\u03b5.toReal / 3)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hng",
+        "type": "eLpNorm (t.indicator g) p \u03bc \u2264 ENNReal.ofReal (\u03b5.toReal / 3)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hlt",
+        "type": "eLpNorm (t\u1d9c.indicator (f n - g)) p \u03bc \u2264 ENNReal.ofReal (\u03b5.toReal / 3)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 \u2264 \u03b5.toReal / (3 * measureUnivNNReal \u03bc ^ (1 / p.toReal))",
+            "body": "by positivity",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "eLpNorm_indicator_sub_le_of_dist_bdd \u03bc hp' htm.compl this fun x hx =>",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "ENNReal.ofReal (\u03b5.toReal / 3) = \u03b5 / 3",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UniformIntegrable",
+    "name": "unifIntegrable_of'",
+    "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u03b9 \u2192 \u03b1 \u2192 \u03b2} (hf : \u2200 i, StronglyMeasurable (f i)) (h : \u2200 \u03b5 : \u211d, 0 < \u03b5 \u2192 \u2203 C : \u211d\u22650, 0 < C \u2227 \u2200 i, eLpNorm ({ x | C \u2264 \u2016f i x\u2016\u208a }.indicator (f i)) p \u03bc \u2264 ENNReal.ofReal \u03b5) : UnifIntegrable f p \u03bc",
+    "have_tree": [
+      {
+        "name": "hpzero",
+        "type": "",
+        "body": "(lt_of_lt_of_le zero_lt_one hp).ne.symm",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200\u1d50 x \u2202\u03bc.restrict s, \u2016{ x : \u03b1 | \u2016f i x\u2016\u208a < C }.indicator (f i) x\u2016 \u2264 C",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

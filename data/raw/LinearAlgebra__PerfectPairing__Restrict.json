@@ -1,0 +1,71 @@
+[
+  {
+    "module": "Restrict",
+    "name": "exists_basis_basis_of_span_eq_top_of_mem_algebraMap",
+    "statement": "Submodule K M) (N' : Submodule K N) (hM : span L (M' : Set M) = \u22a4) (hN : span L (N' : Set N) = \u22a4) (hp : \u2200\u1d49 (x \u2208 M') (y \u2208 N'), p x y \u2208 (algebraMap K L).range) : \u2203 (n : \u2115) (b : Basis (Fin n) L M) (b' : Basis (Fin n) K M'), \u2200 i, b i = b' i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsReflexive L M",
+        "body": ".of_isPerfPair p",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsReflexive L N",
+        "body": ".of_isPerfPair p.flip",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fintype v",
+        "body": "Set.Finite.fintype <| Module.Finite.finite_basis b",
+        "children": []
+      },
+      {
+        "name": "hv'",
+        "type": "LinearIndependent K v'",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fintype w",
+        "body": "Set.Finite.fintype <| Module.Finite.finite_basis bN",
+        "children": []
+      },
+      {
+        "name": "e",
+        "type": "v \u2243 w",
+        "body": "Fintype.equivOfCardEq <| by rw [\u2190 Module.finrank_eq_card_basis b,",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Restrict",
+    "name": "restrictScalars_field_aux",
+    "statement": "span L (LinearMap.range i : Set M) = \u22a4) (hN : span L (LinearMap.range j : Set N) = \u22a4) (hp : \u2200 m n, p (i m) (j n) \u2208 (algebraMap K L).range) : (LinearMap.restrictScalarsRange\u2082 i j (Algebra.linearMap K L) (FaithfulSMul.algebraMap_injective K L) p hp).IsPerfPair",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional K (LinearMap.range i)",
+        "body": "b'.finiteDimensional_of_finite",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Restrict",
+    "name": "IsPerfPair.restrictScalars_of_field",
+    "statement": "p.IsPerfectCompl (span L <| LinearMap.range i) (span L <| LinearMap.range j)) (hp : \u2200 m n, p (i m) (j n) \u2208 (algebraMap K L).range) : (LinearMap.restrictScalarsRange\u2082 i j (Algebra.linearMap K L) (FaithfulSMul.algebraMap_injective K L) p hp).IsPerfPair",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(p.compl\u2081\u2082 (span L <| .range i).subtype (span L <| .range j).subtype).IsPerfPair",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

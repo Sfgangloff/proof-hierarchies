@@ -1,0 +1,182 @@
+[
+  {
+    "module": "Cyclic",
+    "name": "card_orderOf_eq_totient_aux\u2082",
+    "statement": "\u2115} (hd : d \u2223 Fintype.card \u03b1) : #{a : \u03b1 | orderOf a = d} = \u03c6 d",
+    "have_tree": [
+      {
+        "name": "hc0",
+        "type": "0 < c",
+        "body": "Fintype.card_pos_iff.2 \u27e81\u27e9",
+        "children": [
+          {
+            "name": "hmc",
+            "type": "m \u2223 c",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Cyclic",
+    "name": "isSimpleGroup_of_prime_card",
+    "statement": "\u2115} [hp : Fact p.Prime] (h : Nat.card \u03b1 = p) : IsSimpleGroup \u03b1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite \u03b1",
+        "body": "Nat.finite_of_card_ne_zero hp.1.ne_zero",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nontrivial \u03b1",
+        "body": "Finite.one_lt_card_iff_nontrivial.mp hp.1.one_lt",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cyclic",
+    "name": "commutative_of_cyclic_center_quotient",
+    "statement": "G \u2192* G') (hf : f.ker \u2264 center G) (a b : G) : a * b = b * a",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "y ^ (-m) * a \u2208 center G",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hb",
+        "type": "y ^ (-n) * b \u2208 center G",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cyclic",
+    "name": "prime_card",
+    "statement": "(Nat.card \u03b1).Prime",
+    "have_tree": [
+      {
+        "name": "h\u03b1",
+        "type": "Nontrivial \u03b1",
+        "body": "IsSimpleGroup.toNontrivial",
+        "children": [
+          {
+            "name": "hgn",
+            "type": "g \u2208 Subgroup.zpowers (g ^ n)",
+            "body": "by simp_all only [ne_eq, orderOf_eq_one_iff,",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Cyclic",
+    "name": "LinearOrderedAddCommGroup.isAddCyclic_iff_nonempty_equiv_int",
+    "statement": "Type*} [AddCommGroup A] [LinearOrder A] [IsOrderedAddMonoid A] [Nontrivial A] : IsAddCyclic A \u2194 Nonempty (A \u2243+o \u2124)",
+    "have_tree": [
+      {
+        "name": "h_ne",
+        "type": "g \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cyclic",
+    "name": "not_isCyclic_iff_exponent_eq_prime",
+    "statement": "\u2115} (hp : p.Prime) (h\u03b1 : Nat.card \u03b1 = p ^ 2) : \u00ac IsCyclic \u03b1 \u2194 Monoid.exponent \u03b1 = p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite \u03b1",
+        "body": "Nat.finite_of_card_ne_zero (h\u03b1 \u25b8 pow_ne_zero 2 hp.ne_zero)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nontrivial \u03b1",
+        "body": "Finite.one_lt_card_iff_nontrivial.mp",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Nat.mem_divisors (m := p ^ 2)).mpr \u27e8h\u03b1 \u25b8 orderOf_dvd_natCard (x := g), by aesop\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cyclic",
+    "name": "addEquivOfAddCyclicCardEq",
+    "statement": "IsAddCyclic G] [hH : IsAddCyclic G'] (hcard : Nat.card G = Nat.card G') : G \u2243+ G'",
+    "have_tree": [
+      {
+        "name": "hGcyc",
+        "type": "",
+        "body": "isCyclic_of_prime_card hG",
+        "children": []
+      },
+      {
+        "name": "hHcyc",
+        "type": "",
+        "body": "isCyclic_of_prime_card hH",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cyclic",
+    "name": "IsCyclic.card_mulAut",
+    "statement": "IsCyclic G] : Nat.card (MulAut G) = Nat.totient (Nat.card G)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero (Nat.card G)",
+        "body": "\u27e8Nat.card_pos.ne'\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cyclic",
+    "name": "Group.isCyclic_of_coprime_card_range_card_ker",
+    "statement": "Type*} [CommGroup M] [Group N] (f : M \u2192* N) (h : (Nat.card f.ker).Coprime (Nat.card f.range)) [IsCyclic f.ker] [IsCyclic f.range] : IsCyclic M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "f.finite_iff_finite_ker_range.mpr \u27e8\u2039_\u203a, \u2039_\u203a\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cyclic",
+    "name": "coprime_card_of_isCyclic_prod",
+    "statement": "(Nat.card M).Coprime (Nat.card N)",
+    "have_tree": [
+      {
+        "name": "hM",
+        "type": "",
+        "body": "isCyclic_left_of_prod M N",
+        "children": []
+      },
+      {
+        "name": "hN",
+        "type": "",
+        "body": "isCyclic_right_of_prod M N",
+        "children": []
+      }
+    ]
+  }
+]

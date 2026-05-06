@@ -1,0 +1,319 @@
+[
+  {
+    "module": "Div",
+    "name": "X_pow_dvd_iff",
+    "statement": "R[X]} {n : \u2115} : X ^ n \u2223 f \u2194 \u2200 d < n, f.coeff d = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "coeff_X_pow_mul g n 0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "finiteMultiplicity_of_degree_pos_of_monic",
+    "statement": "(0 : WithBot \u2115) < degree p) (hmp : Monic p) (hq : q \u2260 0) : FiniteMultiplicity p q",
+    "have_tree": [
+      {
+        "name": "hp0",
+        "type": "p \u2260 0",
+        "body": "fun hp0 => by simp [hp0] at hp",
+        "children": []
+      },
+      {
+        "name": "hr0",
+        "type": "r \u2260 0",
+        "body": "fun hr0 => by subst hr0; simp [hq] at hr",
+        "children": []
+      },
+      {
+        "name": "hpn0'",
+        "type": "leadingCoeff p ^ (natDegree q + 1) \u2260 0",
+        "body": "hpn1.symm \u25b8 zn0.symm",
+        "children": []
+      },
+      {
+        "name": "hpnr0",
+        "type": "leadingCoeff (p ^ (natDegree q + 1)) * leadingCoeff r \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hnp",
+        "type": "0 < natDegree p",
+        "body": "Nat.cast_lt.1 <| by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_arg natDegree hr",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "div_wf_lemma",
+    "statement": "degree q \u2264 degree p \u2227 p \u2260 0) (hq : Monic q) : degree (p - q * (C (leadingCoeff p) * X ^ (natDegree p - natDegree q))) < degree p",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "leadingCoeff p \u2260 0",
+        "body": "mt leadingCoeff_eq_zero.1 h.2",
+        "children": []
+      },
+      {
+        "name": "hq0",
+        "type": "q \u2260 0",
+        "body": "hq.ne_zero_of_polynomial_ne h.2",
+        "children": []
+      },
+      {
+        "name": "hlt",
+        "type": "natDegree q \u2264 natDegree p",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "modByMonic_eq_self_iff",
+    "statement": "Monic q) : p %\u2098 q = p \u2194 degree p < degree q",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u00acdegree q \u2264 degree p",
+        "body": "not_le_of_gt h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "divByMonic_eq_zero_iff",
+    "statement": "Monic q) : p /\u2098 q = 0 \u2194 degree p < degree q",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "modByMonic_add_div p q",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u00acdegree q \u2264 degree p",
+        "body": "not_le_of_gt h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "degree_add_divByMonic",
+    "statement": "Monic q) (h : degree q \u2264 degree p) : degree q + degree (p /\u2098 q) = degree p",
+    "have_tree": [
+      {
+        "name": "hdiv0",
+        "type": "p /\u2098 q \u2260 0",
+        "body": "by rwa [Ne, divByMonic_eq_zero_iff hq, not_lt]",
+        "children": []
+      },
+      {
+        "name": "hlc",
+        "type": "leadingCoeff q * leadingCoeff (p /\u2098 q) \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hmod",
+        "type": "degree (p %\u2098 q) < degree (q * (p /\u2098 q))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "natDegree_divByMonic",
+    "statement": "R[X]) {g : R[X]} (hg : g.Monic) : natDegree (f /\u2098 g) = natDegree f - natDegree g",
+    "have_tree": [
+      {
+        "name": "hgf",
+        "type": "",
+        "body": "hfg",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "degree_add_divByMonic hg hgf",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "f \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "div_modByMonic_unique",
+    "statement": "R[X]) (hg : Monic g) (h : r + g * q = f \u2227 degree r < degree g) : f /\u2098 g = q \u2227 f %\u2098 g = r",
+    "have_tree": [
+      {
+        "name": "h\u2084",
+        "type": "degree (r - f %\u2098 g) < degree g",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "modByMonic_eq_zero_iff_dvd",
+    "statement": "Monic q) : p %\u2098 q = 0 \u2194 q \u2223 p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "degree (q * (r - p /\u2098 q)) < degree q",
+        "body": "hmod \u25b8 degree_modByMonic_lt _ hq",
+        "children": []
+      },
+      {
+        "name": "hrpq0",
+        "type": "leadingCoeff (r - p /\u2098 q) \u2260 0",
+        "body": "fun h =>",
+        "children": []
+      },
+      {
+        "name": "hlc",
+        "type": "leadingCoeff q * leadingCoeff (r - p /\u2098 q) \u2260 0",
+        "body": "by rwa [Monic.def.1 hq, one_mul]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "coeff_divByMonic_X_sub_C_rec",
+    "statement": "R[X]) (a : R) (n : \u2115) : (p /\u2098 (X - C a)).coeff n = coeff p (n + 1) + a * (p /\u2098 (X - C a)).coeff (n + 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "monic_X_sub_C a",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "degree (p %\u2098 (X - C a)) < \u2191(n + 1)",
+        "body": "degree_X_sub_C a \u25b8 p.degree_modByMonic_lt this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "rootMultiplicity_C",
+    "statement": "R) : rootMultiplicity a (C r) = 0",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "natDegree (C r) < natDegree (X - C a)",
+        "body": "by simp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "pow_mul_divByMonic_rootMultiplicity_eq",
+    "statement": "R[X]) (a : R) : (X - C a) ^ rootMultiplicity a p * (p /\u2098 (X - C a) ^ rootMultiplicity a p) = p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Monic ((X - C a) ^ rootMultiplicity a p)",
+        "body": "(monic_X_sub_C _).pow _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "modByMonic_X_sub_C_eq_C_eval",
+    "statement": "R[X]) (a : R) : p %\u2098 (X - C a) = C (p.eval a)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "degree (p %\u2098 (X - C a)) < 1",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "degree (p %\u2098 (X - C a)) \u2264 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "eval_divByMonic_pow_rootMultiplicity_ne_zero",
+    "statement": "R[X]} (a : R) (hp : p \u2260 0) : eval a (p /\u2098 (X - C a) ^ rootMultiplicity a p) \u2260 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "pow_mul_divByMonic_rootMultiplicity_eq p a",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "eval_divByMonic_eq_trailingCoeff_comp",
+    "statement": "R[X]} {t : R} : (p /\u2098 (X - C t) ^ p.rootMultiplicity t).eval t = (p.comp (X + C t)).trailingCoeff",
+    "have_tree": [
+      {
+        "name": "mul_eq",
+        "type": "",
+        "body": "p.pow_mul_divByMonic_rootMultiplicity_eq t",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "leadingCoeff_divByMonic_of_monic",
+    "statement": "q.Monic) (hdegree : q.degree \u2264 p.degree) : (p /\u2098 q).leadingCoeff = p.leadingCoeff",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "q.leadingCoeff * (p /\u2098 q).leadingCoeff \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "degree_eq_one_of_irreducible_of_root",
+    "statement": "Irreducible p) {x : R} (hx : IsRoot p x) : degree p = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsUnit (X - C x) \u2228 IsUnit g",
+        "body": "hi.isUnit_or_isUnit hg",
+        "children": []
+      }
+    ]
+  }
+]

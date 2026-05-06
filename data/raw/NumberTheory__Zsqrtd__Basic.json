@@ -1,0 +1,132 @@
+[
+  {
+    "module": "Basic",
+    "name": "sqLe_add",
+    "statement": "\u2115} (xy : SqLe x c y d) (zw : SqLe z c w d) : SqLe (x + z) c (y + w) d",
+    "have_tree": [
+      {
+        "name": "xz",
+        "type": "",
+        "body": "sqLe_add_mixed xy zw",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "sqLe_cancel",
+    "statement": "\u2115} (zw : SqLe y d x c) (h : SqLe (x + z) c (y + w) d) : SqLe z c w d",
+    "have_tree": [
+      {
+        "name": "hm",
+        "type": "",
+        "body": "sqLe_add_mixed zw (le_of_lt l)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "sqLe_mul",
+    "statement": "\u2115} : (SqLe x 1 y d \u2192 SqLe z 1 w d \u2192 SqLe (x * w + y * z) d (x * z + d * y * w) 1) \u2227 (SqLe x 1 y d \u2192 SqLe w d z 1 \u2192 SqLe (x * z + d * y * w) 1 (x * w + y * z) d) \u2227 (SqLe y d x 1 \u2192 SqLe z 1 w d \u2192 SqLe (x * z + d * y * w) 1 (x * w + y * z) d) \u2227 (SqLe y d x 1 \u2192 SqLe w d z 1 \u2192 SqLe (x * w + y * z) d (x * z + d * y * w) 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "norm_eq_one_iff",
+    "statement": "\u2124\u221ad} : x.norm.natAbs = 1 \u2194 IsUnit x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_arg (Int.natAbs \u2218 norm) hy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "norm_eq_zero_iff",
+    "statement": "\u2124} (hd : d < 0) (z : \u2124\u221ad) : z.norm = 0 \u2194 z = 0",
+    "have_tree": [
+      {
+        "name": "left",
+        "type": "",
+        "body": "mul_self_nonneg z.re",
+        "children": []
+      },
+      {
+        "name": "right",
+        "type": "",
+        "body": "neg_nonneg.mpr (mul_nonpos_of_nonpos_of_nonneg hd.le (mul_self_nonneg z.im))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "nonneg_cases",
+    "statement": "\u2200 {a : \u2124\u221ad}, Nonneg a \u2192 \u2203 x y : \u2115, a = \u27e8x, y\u27e9 \u2228 a = \u27e8x, -y\u27e9 \u2228 a = \u27e8-x, y\u27e9 | \u27e8(x : \u2115), (y : \u2115)\u27e9, _ => \u27e8x, y, Or.inl rfl\u27e9 | \u27e8(x : \u2115), -[y+1]\u27e9, _ => \u27e8x, y + 1, Or.inr <| Or.inl rfl\u27e9 | \u27e8-[x+1], (y : \u2115)\u27e9, _ => \u27e8x + 1, y, Or.inr <| Or.inr rfl\u27e9 | \u27e8-[_+1], -[_+1]\u27e9, h => False.elim h  open Int in theorem nonneg_add_lem {x y z w : \u2115} (xy : Nonneg (\u27e8x, -y\u27e9 : \u2124\u221ad)) (zw : Nonneg (\u27e8-z, w\u27e9 : \u2124\u221ad)) : Nonneg (\u27e8x, -y\u27e9 + \u27e8-z, w\u27e9 : \u2124\u221ad)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonneg \u27e8Int.subNatNat x z, Int.subNatNat w y\u27e9",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "k + j + 1 \u2264 k",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "nonneg_total",
+    "statement": "\u2200 a : \u2124\u221ad, Nonneg a \u2228 Nonneg (-a) | \u27e8(x : \u2115), (y : \u2115)\u27e9 => Or.inl trivial | \u27e8-[_+1], -[_+1]\u27e9 => Or.inr trivial | \u27e80, -[_+1]\u27e9 => Or.inr trivial | \u27e8-[_+1], 0\u27e9 => Or.inr trivial | \u27e8(_ + 1 : \u2115), -[_+1]\u27e9 => Nat.le_total _ _ | \u27e8-[_+1], (_ + 1 : \u2115)\u27e9 => Nat.le_total _ _  @[deprecated _root_.le_total (since",
+    "have_tree": [
+      {
+        "name": "t",
+        "type": "",
+        "body": "(b - a).nonneg_total",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "le_arch",
+    "statement": "\u2124\u221ad) : \u2203 n : \u2115, a \u2264 n",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "\u2200 y, SqLe y d (d * y) 1",
+        "body": "fun y => by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "divides_sq_eq_zero",
+    "statement": "x * x = d * y * y) : x = 0 \u2227 y = 0",
+    "have_tree": [
+      {
+        "name": "co2",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

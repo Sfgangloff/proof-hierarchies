@@ -1,0 +1,59 @@
+[
+  {
+    "module": "BoundedVariation",
+    "name": "add_point",
+    "statement": "\u03b1 \u2192 E) {s : Set \u03b1} {x : \u03b1} (hx : x \u2208 s) (u : \u2115 \u2192 \u03b1) (hu : Monotone u) (us : \u2200 i, u i \u2208 s) (n : \u2115) : \u2203 (v : \u2115 \u2192 \u03b1) (m : \u2115), Monotone v \u2227 (\u2200 i, v i \u2208 s) \u2227 x \u2208 v '' Iio m \u2227 (\u2211 i \u2208 Finset.range n, edist (f (u (i + 1))) (f (u i))) \u2264 \u2211 j \u2208 Finset.range m, edist (f (v (j + 1))) (f (v j))",
+    "have_tree": [
+      {
+        "name": "exists_N",
+        "type": "\u2203 N, N \u2264 n \u2227 x < u N",
+        "body": "\u27e8n, le_rfl, h\u27e9",
+        "children": []
+      },
+      {
+        "name": "hN",
+        "type": "N \u2264 n \u2227 x < u N",
+        "body": "Nat.find_spec exists_N",
+        "children": []
+      },
+      {
+        "name": "hw",
+        "type": "Monotone w",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Nat.find_min exists_N A",
+            "children": [
+              {
+                "name": "_",
+                "type": "Finset.Ico (N - 1) N = {N - 1}",
+                "body": "by rw [\u2190 Nat.Ico_succ_singleton, A]",
+                "children": []
+              },
+              {
+                "name": "A",
+                "type": "N - 1 + 1 = N",
+                "body": "Nat.succ_pred_eq_of_pos Npos",
+                "children": []
+              },
+              {
+                "name": "B",
+                "type": "N - 1 + 1 < N + 1",
+                "body": "A.symm \u25b8 N.lt_succ_self",
+                "children": []
+              },
+              {
+                "name": "C",
+                "type": "N - 1 < N + 1",
+                "body": "lt_of_le_of_lt N.pred_le N.lt_succ_self",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

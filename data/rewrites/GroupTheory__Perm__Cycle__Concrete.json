@@ -1,0 +1,149 @@
+[
+  {
+    "original": {
+      "module": "Concrete",
+      "name": "cycleOf_formPerm",
+      "statement": "Nodup l) (hn : 2 \u2264 l.length) (x) : cycleOf l.attach.formPerm x = l.attach.formPerm",
+      "have_tree": [
+        {
+          "name": "hn",
+          "type": "2 \u2264 l.attach.length",
+          "body": "by rwa [\u2190 length_attach] at hn",
+          "children": []
+        },
+        {
+          "name": "hl",
+          "type": "l.attach.Nodup",
+          "body": "by rwa [\u2190 nodup_attach] at hl",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Concrete",
+          "name": "cycleOf_formPerm",
+          "statement": "Nodup l) (hn : 2 \u2264 l.length) (x) : cycleOf l.attach.formPerm x = l.attach.formPerm",
+          "have_tree": [
+            {
+              "name": "hl",
+              "type": "l.attach.Nodup",
+              "body": "by rwa [\u2190 nodup_attach] at hl",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "2 \u2264 l.attach.length",
+              "body": "by rwa [\u2190 length_attach] at hn",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Concrete",
+      "name": "nodup_toList",
+      "statement": "Perm \u03b1) (x : \u03b1) : Nodup (toList p x)",
+      "have_tree": [
+        {
+          "name": "hc",
+          "type": "IsCycle (cycleOf p x)",
+          "body": "isCycle_cycleOf p hx",
+          "children": []
+        },
+        {
+          "name": "hn'",
+          "type": "\u00acorderOf (p.cycleOf x) \u2223 n.succ",
+          "body": "Nat.not_dvd_of_pos_of_lt n.zero_lt_succ hn",
+          "children": []
+        },
+        {
+          "name": "hm'",
+          "type": "\u00acorderOf (p.cycleOf x) \u2223 m.succ",
+          "body": "Nat.not_dvd_of_pos_of_lt m.zero_lt_succ hm",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Concrete",
+          "name": "nodup_toList",
+          "statement": "Perm \u03b1) (x : \u03b1) : Nodup (toList p x)",
+          "have_tree": [
+            {
+              "name": "hn'",
+              "type": "\u00acorderOf (p.cycleOf x) \u2223 n.succ",
+              "body": "Nat.not_dvd_of_pos_of_lt n.zero_lt_succ hn",
+              "children": []
+            },
+            {
+              "name": "hc",
+              "type": "IsCycle (cycleOf p x)",
+              "body": "isCycle_cycleOf p hx",
+              "children": []
+            },
+            {
+              "name": "hm'",
+              "type": "\u00acorderOf (p.cycleOf x) \u2223 m.succ",
+              "body": "Nat.not_dvd_of_pos_of_lt m.zero_lt_succ hm",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Concrete",
+          "name": "nodup_toList",
+          "statement": "Perm \u03b1) (x : \u03b1) : Nodup (toList p x)",
+          "have_tree": [
+            {
+              "name": "hc",
+              "type": "IsCycle (cycleOf p x)",
+              "body": "isCycle_cycleOf p hx",
+              "children": []
+            },
+            {
+              "name": "hm'",
+              "type": "\u00acorderOf (p.cycleOf x) \u2223 m.succ",
+              "body": "Nat.not_dvd_of_pos_of_lt m.zero_lt_succ hm",
+              "children": []
+            },
+            {
+              "name": "hn'",
+              "type": "\u00acorderOf (p.cycleOf x) \u2223 n.succ",
+              "body": "Nat.not_dvd_of_pos_of_lt n.zero_lt_succ hn",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

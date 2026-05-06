@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Taylor",
+    "name": "hasDerivWithinAt_taylorWithinEval",
+    "statement": "\u211d \u2192 E} {x y : \u211d} {n : \u2115} {s s' : Set \u211d} (hs_unique : UniqueDiffOn \u211d s) (hs' : s' \u2208 \ud835\udcdd[s] y) (hy : y \u2208 s') (h : s' \u2286 s) (hf : ContDiffOn \u211d n f s) (hf' : DifferentiableWithinAt \u211d (iteratedDerivWithin n f s) s y) : HasDerivWithinAt (fun t => taylorWithinEval f n s t x) (((n ! : \u211d)\u207b\u00b9 * (x - y) ^ n) \u2022 iteratedDerivWithin (n + 1) f s y) s' y",
+    "have_tree": [
+      {
+        "name": "hs'_unique",
+        "type": "UniqueDiffWithinAt \u211d s' y",
+        "body": "",
+        "children": [
+          {
+            "name": "coe_lt_succ",
+            "type": "(k : WithTop \u2115) < k.succ",
+            "body": "Nat.cast_lt.2 k.lt_succ_self",
+            "children": []
+          },
+          {
+            "name": "hdiff",
+            "type": "DifferentiableOn \u211d (iteratedDerivWithin k f s) s'",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Taylor",
+    "name": "taylor_mean_remainder_bound",
+    "statement": "\u211d \u2192 E} {a b C x : \u211d} {n : \u2115} (hab : a \u2264 b) (hf : ContDiffOn \u211d (n + 1) f (Icc a b)) (hx : x \u2208 Icc a b) (hC : \u2200 y \u2208 Icc a b, \u2016iteratedDerivWithin (n + 1) f (Icc a b) y\u2016 \u2264 C) : \u2016f x - taylorWithinEval f n (Icc a b) a x\u2016 \u2264 C * (x - a) ^ (n + 1) / n !",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "DifferentiableOn \u211d (iteratedDerivWithin n f (Icc a b)) (Icc a b)",
+        "body": "",
+        "children": [
+          {
+            "name": "I",
+            "type": "Icc a x \u2286 Icc a b",
+            "body": "Icc_subset_Icc_right hx.2",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "norm_image_sub_le_of_norm_deriv_le_segment' A h' x (right_mem_Icc.2 hx.1)",
+        "children": []
+      }
+    ]
+  }
+]

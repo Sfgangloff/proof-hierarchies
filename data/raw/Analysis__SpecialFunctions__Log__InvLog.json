@@ -1,0 +1,28 @@
+[
+  {
+    "module": "InvLog",
+    "name": "not_differentiableAt_inv_log_zero",
+    "statement": "\u00ac DifferentiableAt \u211d (fun x \u21a6 (log x)\u207b\u00b9) 0",
+    "have_tree": [
+      {
+        "name": "H'",
+        "type": "Tendsto (fun x \u21a6 log x * x) (nhdsWithin 0 (Set.Iio 0)) (nhdsWithin 0 (Set.Ioi 0))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "InvLog",
+    "name": "not_continuousAt_inv_log_one",
+    "statement": "\u00ac ContinuousAt (fun x \u21a6 (log x)\u207b\u00b9) 1",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "HasDerivAt.tendsto_nhdsNE (by simpa using hasDerivAt_log one_ne_zero) one_ne_zero",
+        "children": []
+      }
+    ]
+  }
+]

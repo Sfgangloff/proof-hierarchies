@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Module",
+      "name": "HasSum.smul_eq",
+      "statement": "HasSum f s) (hg : HasSum g t) (hfg : HasSum (fun x : \u03b9 \u00d7 \u03ba \u21a6 f x.1 \u2022 g x.2) u) : s \u2022 t = u",
+      "have_tree": [
+        {
+          "name": "key\u2081",
+          "type": "HasSum (fun i \u21a6 f i \u2022 t) (s \u2022 t)",
+          "body": "hf.smul_const t",
+          "children": []
+        },
+        {
+          "name": "key\u2082",
+          "type": "HasSum (fun i \u21a6 f i \u2022 t) u",
+          "body": "HasSum.prod_fiberwise hfg this",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Module",
+          "name": "HasSum.smul_eq",
+          "statement": "HasSum f s) (hg : HasSum g t) (hfg : HasSum (fun x : \u03b9 \u00d7 \u03ba \u21a6 f x.1 \u2022 g x.2) u) : s \u2022 t = u",
+          "have_tree": [
+            {
+              "name": "key\u2082",
+              "type": "HasSum (fun i \u21a6 f i \u2022 t) u",
+              "body": "HasSum.prod_fiberwise hfg this",
+              "children": []
+            },
+            {
+              "name": "key\u2081",
+              "type": "HasSum (fun i \u21a6 f i \u2022 t) (s \u2022 t)",
+              "body": "hf.smul_const t",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

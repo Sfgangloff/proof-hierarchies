@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Cycle",
+    "name": "next_eq_getElem",
+    "statement": "List \u03b1} {a : \u03b1} (ha : a \u2208 l) : l.next a ha = l[(l.idxOf a + 1) % l.length]'(Nat.mod_lt _ <| by grind)",
+    "have_tree": [
+      {
+        "name": "hl",
+        "type": "",
+        "body": "ne_nil_of_mem ha",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cycle",
+    "name": "prev_eq_getElem",
+    "statement": "List \u03b1} {a : \u03b1} (ha : a \u2208 l) (ha\u2080 : a \u2260 l.head (ne_nil_of_mem ha)) : l.prev a ha = l[l.idxOf a - 1]?",
+    "have_tree": [
+      {
+        "name": "ih",
+        "type": "",
+        "body": "(y :: tail).prev_eq_getElem?_idxOf_pred_of_ne_head (a := a)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cycle",
+    "name": "prev_infix_of_mem_tail",
+    "statement": "List \u03b1} {a : \u03b1} (ha : a \u2208 l) (ha\u2080 : a \u2260 l.head (ne_nil_of_mem ha)) : [l.prev a ha, a] <:+: l",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "cons_head_tail (ne_nil_of_mem ha) \u25b8 idxOf_cons_ne _ <| Ne.symm ha\u2080",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cycle",
+    "name": "prev_reverse_eq_next",
+    "statement": "List \u03b1) (h : Nodup l) (x : \u03b1) (hx : x \u2208 l) : prev l.reverse x (mem_reverse.mpr hx) = next l x hx",
+    "have_tree": [
+      {
+        "name": "lpos",
+        "type": "0 < l.length",
+        "body": "k.zero_le.trans_lt hk",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "l.length - 1 - k < l.length",
+        "body": "by lia",
+        "children": []
+      }
+    ]
+  }
+]

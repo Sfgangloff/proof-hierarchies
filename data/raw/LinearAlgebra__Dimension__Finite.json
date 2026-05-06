@@ -1,0 +1,93 @@
+[
+  {
+    "module": "Finite",
+    "name": "Module.finite_of_rank_eq_nat",
+    "statement": "\u2115} (h : Module.rank R M = n) : Module.Finite R M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mk_lt_aleph0_iff.mp <|",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finite",
+    "name": "exists_finset_linearIndependent_of_le_rank",
+    "statement": "\u2115} (hn : n \u2264 Module.rank R M) : \u2203 s : Finset M, s.card = n \u2227 LinearIndepOn R id (s : Set M)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite s",
+        "body": "lt_aleph0_iff_finite.mp (hs' \u25b8 natCast_lt_aleph0)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Finite s",
+        "body": "lt_aleph0_iff_finite.mp (hs \u25b8 natCast_lt_aleph0)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finite",
+    "name": "Module.Finite.not_linearIndependent_of_infinite",
+    "statement": "Type*} [Infinite \u03b9] (v : \u03b9 \u2192 M) : \u00acLinearIndependent R v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "LinearIndependent R v",
+        "body": "(hV.comp Subtype.coe_injective).linearIndependent _ hvV hv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finite",
+    "name": "Module.exists_nontrivial_relation_sum_zero_of_finrank_succ_lt_card",
+    "statement": "Finset M} (h : finrank R M + 1 < t.card) : \u2203 f : M \u2192 R, \u2211 e \u2208 t, f e \u2022 e = 0 \u2227 \u2211 e \u2208 t, f e = 0 \u2227 \u2203 x \u2208 t, f x \u2260 0",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "finrank R M < t'.card",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "mem_erase.mp x\u2081_mem'",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Finite",
+    "name": "Module.finrank_quotient_add_finrank_le",
+    "statement": "Submodule R M) : finrank R (M \u29f8 N) + finrank R N \u2264 finrank R M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "rank_quotient_add_rank_le N",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finite",
+    "name": "finrank_eq_zero_of_basis_imp_not_finite",
+    "statement": "\u2200 s : Set M, Basis.{v} (s : Set M) R M \u2192 \u00acs.Finite) : finrank R M = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Set.Infinite.to_subtype (h _ b)",
+        "children": []
+      }
+    ]
+  }
+]

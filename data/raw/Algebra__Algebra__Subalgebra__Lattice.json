@@ -1,0 +1,80 @@
+[
+  {
+    "module": "Lattice",
+    "name": "mem_sup_left",
+    "statement": "Subalgebra R A} : \u2200 {x : A}, x \u2208 S \u2192 x \u2208 S \u2294 T",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "S \u2264 S \u2294 T",
+        "body": "le_sup_left; (this \u00b7)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lattice",
+    "name": "mem_sup_right",
+    "statement": "Subalgebra R A} : \u2200 {x : A}, x \u2208 T \u2192 x \u2208 S \u2294 T",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "T \u2264 S \u2294 T",
+        "body": "le_sup_right; (this \u00b7)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lattice",
+    "name": "mem_adjoin_of_map_mul",
+    "statement": "A} {f : A \u2192\u2097[R] B} (hf : \u2200 a\u2081 a\u2082, f (a\u2081 * a\u2082) = f a\u2081 * f a\u2082) (h : x \u2208 adjoin R s) : f x \u2208 adjoin R (f '' (s \u222a {1}))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "f 1 \u2208 adjoin R (f '' (s \u222a {1}))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lattice",
+    "name": "isMulCommutative_adjoin",
+    "statement": "Set A} (hcomm : \u2200 x \u2208 s, \u2200 y \u2208 s, x * y = y * x) : IsMulCommutative (adjoin R s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "adjoin_le_centralizer_centralizer R s",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lattice",
+    "name": "adjoinCommSemiringOfComm",
+    "statement": "Set A} (hcomm : \u2200 a \u2208 s, \u2200 b \u2208 s, a * b = b * a) : CommSemiring (adjoin R s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isMulCommutative_adjoin R hcomm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lattice",
+    "name": "adjoinCommRingOfComm",
+    "statement": "Set A} (hcomm : \u2200 a \u2208 s, \u2200 b \u2208 s, a * b = b * a) : CommRing (adjoin R s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isMulCommutative_adjoin R hcomm",
+        "children": []
+      }
+    ]
+  }
+]

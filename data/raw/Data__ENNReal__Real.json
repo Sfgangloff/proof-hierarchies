@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Real",
+    "name": "toReal_le_of_le_ofReal",
+    "statement": "\u211d\u22650\u221e} {b : \u211d} (hb : 0 \u2264 b) (h : a \u2264 ENNReal.ofReal b) : ENNReal.toReal a \u2264 b",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "a \u2260 \u221e",
+        "body": "ne_top_of_le_ne_top ofReal_ne_top h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "trichotomy\u2082",
+    "statement": "\u211d\u22650\u221e} (hpq : p \u2264 q) : p = 0 \u2227 q = 0 \u2228 p = 0 \u2227 q = \u221e \u2228 p = 0 \u2227 0 < q.toReal \u2228 p = \u221e \u2227 q = \u221e \u2228 0 < p.toReal \u2227 q = \u221e \u2228 0 < p.toReal \u2227 0 < q.toReal \u2227 p.toReal \u2264 q.toReal",
+    "have_tree": [
+      {
+        "name": "hq'",
+        "type": "0 < q",
+        "body": "lt_of_lt_of_le hp hpq",
+        "children": []
+      },
+      {
+        "name": "hp'",
+        "type": "p < \u221e",
+        "body": "lt_of_le_of_lt hpq hq",
+        "children": []
+      }
+    ]
+  }
+]

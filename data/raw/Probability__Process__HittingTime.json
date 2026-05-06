@@ -1,0 +1,137 @@
+[
+  {
+    "module": "HittingTime",
+    "name": "notMem_of_lt_hittingBtwn",
+    "statement": "\u03b9} (hk\u2081 : k < hittingBtwn u s n m \u03c9) (hk\u2082 : n \u2264 k) : u k \u03c9 \u2209 s",
+    "have_tree": [
+      {
+        "name": "hexists",
+        "type": "\u2203 j \u2208 Set.Icc n m, u j \u03c9 \u2208 s",
+        "body": "\u27e8k, \u27e8hk\u2082, le_trans hk\u2081.le <| hittingBtwn_le _\u27e9, h\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HittingTime",
+    "name": "hittingBtwn_mem_set",
+    "statement": "\u03b9} (h_exists : \u2203 j \u2208 Set.Icc n m, u j \u03c9 \u2208 s) : u (hittingBtwn u s n m \u03c9) \u03c9 \u2208 s",
+    "have_tree": [
+      {
+        "name": "h_mem",
+        "type": "",
+        "body": "csInf_mem h_nonempty",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HittingTime",
+    "name": "hittingBtwn_le_of_mem",
+    "statement": "\u03b9} (hin : n \u2264 i) (him : i \u2264 m) (his : u i \u03c9 \u2208 s) : hittingBtwn u s n m \u03c9 \u2264 i",
+    "have_tree": [
+      {
+        "name": "h_exists",
+        "type": "\u2203 k \u2208 Set.Icc n m, u k \u03c9 \u2208 s",
+        "body": "\u27e8i, \u27e8hin, him\u27e9, his\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HittingTime",
+    "name": "hittingAfter_le_of_mem",
+    "statement": "n \u2264 i) (his : u i \u03c9 \u2208 s) : hittingAfter u s n \u03c9 \u2264 i",
+    "have_tree": [
+      {
+        "name": "h_exists",
+        "type": "\u2203 k, n \u2264 k \u2227 u k \u03c9 \u2208 s",
+        "body": "\u27e8i, hin, his\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HittingTime",
+    "name": "hittingAfter_le_iff",
+    "statement": "hittingAfter u s n \u03c9 \u2264 i \u2194 \u2203 j \u2208 Set.Icc n i, u j \u03c9 \u2208 s",
+    "have_tree": [
+      {
+        "name": "h_le",
+        "type": "",
+        "body": "le_hittingAfter (u := u) (s := s) (n := n) \u03c9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HittingTime",
+    "name": "hittingBtwn_lt_iff",
+    "statement": "\u03b9} (i : \u03b9) (hi : i \u2264 m) : hittingBtwn u s n m \u03c9 < i \u2194 \u2203 j \u2208 Set.Ico n i, u j \u03c9 \u2208 s",
+    "have_tree": [
+      {
+        "name": "hni",
+        "type": "n < i",
+        "body": "(le_hittingBtwn_of_exists h).trans_lt h'",
+        "children": []
+      },
+      {
+        "name": "h_le",
+        "type": "",
+        "body": "le_hittingBtwn (u := u) (s := s) (hni.le.trans hi) \u03c9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HittingTime",
+    "name": "hittingAfter_lt_iff",
+    "statement": "hittingAfter u s n \u03c9 < i \u2194 \u2203 j \u2208 Set.Ico n i, u j \u03c9 \u2208 s",
+    "have_tree": [
+      {
+        "name": "h_exists",
+        "type": "\u2203 j, n \u2264 j \u2227 u j \u03c9 \u2208 s",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_le",
+        "type": "",
+        "body": "le_hittingAfter (u := u) (s := s) (n := n) \u03c9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HittingTime",
+    "name": "stoppedValue_hittingBtwn_mem",
+    "statement": "\u03b9 \u2192 \u03a9 \u2192 \u03b2} {s : Set \u03b2} {n m : \u03b9} {\u03c9 : \u03a9} (h : \u2203 j \u2208 Set.Icc n m, u j \u03c9 \u2208 s) : stoppedValue u (fun \u03c9 \u21a6 (hittingBtwn u s n m \u03c9 : \u03b9)) \u03c9 \u2208 s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "sInf (Set.Icc n m \u2229 {i | u i \u03c9 \u2208 s}) \u2208 Set.Icc n m \u2229 {i | u i \u03c9 \u2208 s}",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HittingTime",
+    "name": "Adapted.isStoppingTime_hittingBtwn_isStoppingTime",
+    "statement": "Filtration \u03b9 m} {u : \u03b9 \u2192 \u03a9 \u2192 \u03b2} {\u03c4 : \u03a9 \u2192 WithTop \u03b9} (h\u03c4 : IsStoppingTime f \u03c4) {N : \u03b9} (h\u03c4bdd : \u2200 x, \u03c4 x \u2264 N) {s : Set \u03b2} (hs : MeasurableSet s) (hf : Adapted f u) : IsStoppingTime f fun x \u21a6 (hittingBtwn u s (\u03c4 x).untopA N x : \u03b9)",
+    "have_tree": [
+      {
+        "name": "h_top",
+        "type": "\u03c4 x \u2260 \u22a4",
+        "body": "fun h => by simp [h] at h\u03c4bdd",
+        "children": []
+      },
+      {
+        "name": "h_top",
+        "type": "\u03c4 x \u2260 \u22a4",
+        "body": "fun h => by simp [h] at h\u03c4bdd",
+        "children": []
+      }
+    ]
+  }
+]

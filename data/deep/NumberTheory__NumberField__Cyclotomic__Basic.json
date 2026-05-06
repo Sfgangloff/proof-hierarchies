@@ -1,0 +1,341 @@
+[
+  {
+    "module": "Basic",
+    "name": "isIntegralClosure_adjoin_singleton_of_prime_pow",
+    "statement": "IsCyclotomicExtension {p ^ k} \u211a K] (h\u03b6 : IsPrimitiveRoot \u03b6 (p ^ k)) : IsIntegralClosure (adjoin \u2124 ({\u03b6} : Set K)) \u2124 K",
+    "have_tree": [
+      {
+        "name": "hint",
+        "type": "IsIntegral \u2124 B.gen",
+        "body": "(h\u03b6.isIntegral (NeZero.pos _)).sub isIntegral_one",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "discr_mul_isIntegral_mem_adjoin \u211a hint h",
+        "children": [
+          {
+            "name": "_",
+            "type": "x \u2208 (\u22a5 : Subalgebra \u211a K)",
+            "body": "by",
+            "children": [
+              {
+                "name": "h\u2081",
+                "type": "",
+                "body": "minpoly.isIntegrallyClosed_eq_field_fractions' \u211a hint",
+                "children": []
+              },
+              {
+                "name": "h\u2082",
+                "type": "",
+                "body": "h\u03b6.minpoly_sub_one_eq_cyclotomic_comp (cyclotomic.irreducible_rat (NeZero.pos _))",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "prime_dvd_of_dvd_norm_sub_one",
+    "statement": "\u2115} (hn : 2 \u2264 n) {K : Type*} [Field K] [NumberField K] {\u03b6 : K} {p : \u2115} [hF : Fact (Nat.Prime p)] (h\u03b6 : IsPrimitiveRoot \u03b6 n) (hp : haveI : NeZero n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero n",
+        "body": "NeZero.of_gt hn",
+        "children": [
+          {
+            "name": "_",
+            "type": "NumberField \u211a\u27ee\u03b6\u27ef",
+            "body": "of_intermediateField _",
+            "children": [
+              {
+                "name": "_",
+                "type": "Fact (Nat.Prime q)",
+                "body": "\u27e8hq\u27e9",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "p = q",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "discr",
+    "statement": "IsCyclotomicExtension {n} \u211a K] : haveI : NumberField K",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (Nat.Prime p)",
+        "body": "\u27e8hp\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero n\u2081",
+        "body": "NeZero.of_gt hn\u2081",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero n\u2082",
+        "body": "NeZero.of_gt hn\u2082",
+        "children": []
+      },
+      {
+        "name": "h\u03b6",
+        "type": "",
+        "body": "zeta_spec (n\u2081 * n\u2082) \u211a K",
+        "children": []
+      },
+      {
+        "name": "h\u03b6\u2081",
+        "type": "",
+        "body": "h\u03b6.pow (NeZero.pos _) (a := n\u2082) (b := n\u2081) (by rw [mul_comm])",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h\u03b6\u2081.intermediateField_adjoin_isCyclotomicExtension \u211a",
+        "children": []
+      },
+      {
+        "name": "h\u03b6\u2081'",
+        "type": "IsPrimitiveRoot (AdjoinSimple.gen \u211a (\u03b6 ^ n\u2082)) n\u2081",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u03b6\u2082",
+        "type": "",
+        "body": "h\u03b6.pow (NeZero.pos _) (a := n\u2081) (b := n\u2082) rfl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h\u03b6\u2082.intermediateField_adjoin_isCyclotomicExtension \u211a",
+        "children": []
+      },
+      {
+        "name": "h\u03b6\u2082'",
+        "type": "IsPrimitiveRoot (AdjoinSimple.gen \u211a (\u03b6 ^ n\u2081)) n\u2082",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsGalois \u211a \u211a\u27ee\u03b6 ^ n\u2082\u27ef",
+        "body": "isGalois {n\u2081} \u211a _",
+        "children": []
+      },
+      {
+        "name": "h_top",
+        "type": "\u211a\u27ee\u03b6 ^ n\u2082\u27ef \u2294 \u211a\u27ee\u03b6 ^ n\u2081\u27ef = \u22a4",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsCyclotomicExtension {n\u2081 * n\u2082} \u211a (\u22a4 : IntermediateField \u211a K)",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "IsCyclotomicExtension {n\u2081 * n\u2082} \u211a \u21a5(\u211a\u27ee\u03b6 ^ n\u2082\u27ef \u2294 \u211a\u27ee\u03b6 ^ n\u2081\u27ef)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_cpr",
+        "type": "IsCoprime (discr \u211a\u27ee\u03b6 ^ n\u2082\u27ef) (discr \u211a\u27ee\u03b6 ^ n\u2081\u27ef)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_dsj",
+        "type": "\u211a\u27ee\u03b6 ^ n\u2082\u27ef.LinearDisjoint \u211a\u27ee\u03b6 ^ n\u2081\u27ef",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h_div\u2081",
+        "type": "",
+        "body": "prod_primeFactors_pow_totient_ediv_dvd n\u2081.pos_of_neZero",
+        "children": []
+      },
+      {
+        "name": "h_div\u2082",
+        "type": "",
+        "body": "prod_primeFactors_pow_totient_ediv_dvd n\u2082.pos_of_neZero",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2115} (hp : p \u2208 n.primeFactors) : p - 1 \u2223 n.totient",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "adjoin_singleton_eq_top_aux",
+    "statement": "IntermediateField \u211a K) {n\u2081 n\u2082 : \u2115} [NeZero n\u2081] [NeZero n\u2082] [IsCyclotomicExtension {n\u2081} \u211a F\u2081] [IsCyclotomicExtension {n\u2082} \u211a F\u2082] {\u03b6\u2081 : F\u2081} (h\u03b6\u2081 : IsPrimitiveRoot \u03b6\u2081 n\u2081) (h\u2081 : Algebra.adjoin \u2124 {h\u03b6\u2081.toInteger} = \u22a4) {\u03b6\u2082 : F\u2082} (h\u03b6\u2082 : IsPrimitiveRoot \u03b6\u2082 n\u2082) (h\u2082 : Algebra.adjoin \u2124 {h\u03b6\u2082.toInteger} = \u22a4) (h : n\u2081.Coprime n\u2082) (htop : F\u2081 \u2294 F\u2082 = \u22a4) {\u03b6 : K} (h\u03b6 : IsPrimitiveRoot \u03b6 (n\u2081 * n\u2082)) : Algebra.adjoin \u2124 {h\u03b6.toInteger} = \u22a4",
+    "have_tree": [
+      {
+        "name": "h_cpr",
+        "type": "IsCoprime (NumberField.discr F\u2081) (NumberField.discr F\u2082)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_disj",
+        "type": "F\u2081.LinearDisjoint F\u2082",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsGalois \u211a F\u2081",
+            "body": "IsCyclotomicExtension.isGalois {n\u2081} \u211a F\u2081",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "adjoin_singleton_eq_top",
+    "statement": "IsCyclotomicExtension {n} \u211a K] {\u03b6 : K} (h\u03b6 : IsPrimitiveRoot \u03b6 n) : Algebra.adjoin \u2124 {h\u03b6.toInteger} = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (p.Prime)",
+        "body": "\u27e8hp\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero n\u2081",
+        "body": "NeZero.of_gt hn\u2081",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero n\u2082",
+        "body": "NeZero.of_gt hn\u2082",
+        "children": []
+      },
+      {
+        "name": "h\u03b6\u2081",
+        "type": "",
+        "body": "h\u03b6.pow (NeZero.pos _) (a := n\u2082) (b := n\u2081) (by rw [mul_comm])",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h\u03b6\u2081.intermediateField_adjoin_isCyclotomicExtension \u211a",
+        "children": []
+      },
+      {
+        "name": "h\u03b6\u2082",
+        "type": "",
+        "body": "h\u03b6.pow (NeZero.pos _) (a := n\u2081) (b := n\u2082) rfl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h\u03b6\u2082.intermediateField_adjoin_isCyclotomicExtension \u211a",
+        "children": []
+      },
+      {
+        "name": "h_top",
+        "type": "\u211a\u27ee\u03b6 ^ n\u2082\u27ef \u2294 \u211a\u27ee\u03b6 ^ n\u2081\u27ef = \u22a4",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsCyclotomicExtension {n\u2081 * n\u2082} \u211a (\u22a4 : IntermediateField \u211a K)",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "IsCyclotomicExtension {n\u2081 * n\u2082} \u211a \u21a5(\u211a\u27ee\u03b6 ^ n\u2082\u27ef \u2294 \u211a\u27ee\u03b6 ^ n\u2081\u27ef)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsCyclotomicExtension.Rat.torsionOrder_eq",
+    "statement": "IsCyclotomicExtension {n} \u211a K] : torsionOrder K = if Even n then n else 2 * n",
+    "have_tree": [
+      {
+        "name": "h\u03b6",
+        "type": "",
+        "body": "hK.zeta_spec",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "h\u03b6.pow_mul_pow_lcm h\u03bc (NeZero.ne _) (torsionOrder_ne_zero K)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero (n.lcm (torsionOrder K))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsCyclotomicExtension {n.lcm (torsionOrder K)} \u211a K",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hK.union_of_isPrimitiveRoot _ _ _ h",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_main",
+        "type": "",
+        "body": "(IsCyclotomicExtension.Rat.finrank n K).symm.trans <|",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(Nat.eq_or_eq_of_totient_eq_totient (Nat.dvd_lcm_left _ _) h_main).resolve_left ?_",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

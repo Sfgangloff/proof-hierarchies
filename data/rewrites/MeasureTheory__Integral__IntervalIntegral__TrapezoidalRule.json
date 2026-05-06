@@ -1,0 +1,421 @@
+[
+  {
+    "original": {
+      "module": "TrapezoidalRule",
+      "name": "trapezoidal_error_le_of_lt",
+      "statement": "\u211d \u2192 \u211d} {\u03b6 : \u211d} {a b : \u211d} (a_lt_b : a < b) (h_df : DifferentiableOn \u211d f (Icc a b)) (h_ddf : DifferentiableOn \u211d (derivWithin f (Icc a b)) (Icc a b)) (fpp_bound : \u2200 x, |iteratedDerivWithin 2 f (Icc a b) x| \u2264 \u03b6) {N : \u2115} (N_nonzero : 0 < N) : |trapezoidal_error f N a b| \u2264 (b - a) ^ 3 * \u03b6 / (12 * N ^ 2)",
+      "have_tree": [
+        {
+          "name": "hab",
+          "type": "0 < b - a",
+          "body": "sub_pos.mpr a_lt_b",
+          "children": []
+        },
+        {
+          "name": "hpos",
+          "type": "0 < h",
+          "body": "by positivity",
+          "children": []
+        },
+        {
+          "name": "h1",
+          "type": "a \u2264 ak k",
+          "body": "by simp only [ak, le_add_iff_nonneg_right]; positivity",
+          "children": []
+        },
+        {
+          "name": "h2",
+          "type": "ak (k + 1) \u2264 b",
+          "body": "by simp only [ak, hb]; grw [Nat.lt_iff_add_one_le.mp hk]",
+          "children": []
+        },
+        {
+          "name": "h3",
+          "type": "Icc (ak k) (ak (k + 1)) \u2286 Icc a b",
+          "body": "Icc_subset_Icc h1 h2",
+          "children": []
+        },
+        {
+          "name": "h4",
+          "type": "ak k < ak (k + 1)",
+          "body": "by rwa [\u2190 sub_pos, h0]",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "TrapezoidalRule",
+          "name": "trapezoidal_error_le_of_lt",
+          "statement": "\u211d \u2192 \u211d} {\u03b6 : \u211d} {a b : \u211d} (a_lt_b : a < b) (h_df : DifferentiableOn \u211d f (Icc a b)) (h_ddf : DifferentiableOn \u211d (derivWithin f (Icc a b)) (Icc a b)) (fpp_bound : \u2200 x, |iteratedDerivWithin 2 f (Icc a b) x| \u2264 \u03b6) {N : \u2115} (N_nonzero : 0 < N) : |trapezoidal_error f N a b| \u2264 (b - a) ^ 3 * \u03b6 / (12 * N ^ 2)",
+          "have_tree": [
+            {
+              "name": "hpos",
+              "type": "0 < h",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hab",
+              "type": "0 < b - a",
+              "body": "sub_pos.mpr a_lt_b",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "a \u2264 ak k",
+              "body": "by simp only [ak, le_add_iff_nonneg_right]; positivity",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "ak (k + 1) \u2264 b",
+              "body": "by simp only [ak, hb]; grw [Nat.lt_iff_add_one_le.mp hk]",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "Icc (ak k) (ak (k + 1)) \u2286 Icc a b",
+              "body": "Icc_subset_Icc h1 h2",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "ak k < ak (k + 1)",
+              "body": "by rwa [\u2190 sub_pos, h0]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "TrapezoidalRule",
+          "name": "trapezoidal_error_le_of_lt",
+          "statement": "\u211d \u2192 \u211d} {\u03b6 : \u211d} {a b : \u211d} (a_lt_b : a < b) (h_df : DifferentiableOn \u211d f (Icc a b)) (h_ddf : DifferentiableOn \u211d (derivWithin f (Icc a b)) (Icc a b)) (fpp_bound : \u2200 x, |iteratedDerivWithin 2 f (Icc a b) x| \u2264 \u03b6) {N : \u2115} (N_nonzero : 0 < N) : |trapezoidal_error f N a b| \u2264 (b - a) ^ 3 * \u03b6 / (12 * N ^ 2)",
+          "have_tree": [
+            {
+              "name": "hab",
+              "type": "0 < b - a",
+              "body": "sub_pos.mpr a_lt_b",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "a \u2264 ak k",
+              "body": "by simp only [ak, le_add_iff_nonneg_right]; positivity",
+              "children": []
+            },
+            {
+              "name": "hpos",
+              "type": "0 < h",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "ak (k + 1) \u2264 b",
+              "body": "by simp only [ak, hb]; grw [Nat.lt_iff_add_one_le.mp hk]",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "Icc (ak k) (ak (k + 1)) \u2286 Icc a b",
+              "body": "Icc_subset_Icc h1 h2",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "ak k < ak (k + 1)",
+              "body": "by rwa [\u2190 sub_pos, h0]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5
+        ],
+        "result": {
+          "module": "TrapezoidalRule",
+          "name": "trapezoidal_error_le_of_lt",
+          "statement": "\u211d \u2192 \u211d} {\u03b6 : \u211d} {a b : \u211d} (a_lt_b : a < b) (h_df : DifferentiableOn \u211d f (Icc a b)) (h_ddf : DifferentiableOn \u211d (derivWithin f (Icc a b)) (Icc a b)) (fpp_bound : \u2200 x, |iteratedDerivWithin 2 f (Icc a b) x| \u2264 \u03b6) {N : \u2115} (N_nonzero : 0 < N) : |trapezoidal_error f N a b| \u2264 (b - a) ^ 3 * \u03b6 / (12 * N ^ 2)",
+          "have_tree": [
+            {
+              "name": "hab",
+              "type": "0 < b - a",
+              "body": "sub_pos.mpr a_lt_b",
+              "children": []
+            },
+            {
+              "name": "hpos",
+              "type": "0 < h",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "ak (k + 1) \u2264 b",
+              "body": "by simp only [ak, hb]; grw [Nat.lt_iff_add_one_le.mp hk]",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "a \u2264 ak k",
+              "body": "by simp only [ak, le_add_iff_nonneg_right]; positivity",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "Icc (ak k) (ak (k + 1)) \u2286 Icc a b",
+              "body": "Icc_subset_Icc h1 h2",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "ak k < ak (k + 1)",
+              "body": "by rwa [\u2190 sub_pos, h0]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5
+        ],
+        "result": {
+          "module": "TrapezoidalRule",
+          "name": "trapezoidal_error_le_of_lt",
+          "statement": "\u211d \u2192 \u211d} {\u03b6 : \u211d} {a b : \u211d} (a_lt_b : a < b) (h_df : DifferentiableOn \u211d f (Icc a b)) (h_ddf : DifferentiableOn \u211d (derivWithin f (Icc a b)) (Icc a b)) (fpp_bound : \u2200 x, |iteratedDerivWithin 2 f (Icc a b) x| \u2264 \u03b6) {N : \u2115} (N_nonzero : 0 < N) : |trapezoidal_error f N a b| \u2264 (b - a) ^ 3 * \u03b6 / (12 * N ^ 2)",
+          "have_tree": [
+            {
+              "name": "hab",
+              "type": "0 < b - a",
+              "body": "sub_pos.mpr a_lt_b",
+              "children": []
+            },
+            {
+              "name": "hpos",
+              "type": "0 < h",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "a \u2264 ak k",
+              "body": "by simp only [ak, le_add_iff_nonneg_right]; positivity",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "Icc (ak k) (ak (k + 1)) \u2286 Icc a b",
+              "body": "Icc_subset_Icc h1 h2",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "ak (k + 1) \u2264 b",
+              "body": "by simp only [ak, hb]; grw [Nat.lt_iff_add_one_le.mp hk]",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "ak k < ak (k + 1)",
+              "body": "by rwa [\u2190 sub_pos, h0]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4
+        ],
+        "result": {
+          "module": "TrapezoidalRule",
+          "name": "trapezoidal_error_le_of_lt",
+          "statement": "\u211d \u2192 \u211d} {\u03b6 : \u211d} {a b : \u211d} (a_lt_b : a < b) (h_df : DifferentiableOn \u211d f (Icc a b)) (h_ddf : DifferentiableOn \u211d (derivWithin f (Icc a b)) (Icc a b)) (fpp_bound : \u2200 x, |iteratedDerivWithin 2 f (Icc a b) x| \u2264 \u03b6) {N : \u2115} (N_nonzero : 0 < N) : |trapezoidal_error f N a b| \u2264 (b - a) ^ 3 * \u03b6 / (12 * N ^ 2)",
+          "have_tree": [
+            {
+              "name": "hab",
+              "type": "0 < b - a",
+              "body": "sub_pos.mpr a_lt_b",
+              "children": []
+            },
+            {
+              "name": "hpos",
+              "type": "0 < h",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "a \u2264 ak k",
+              "body": "by simp only [ak, le_add_iff_nonneg_right]; positivity",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "ak (k + 1) \u2264 b",
+              "body": "by simp only [ak, hb]; grw [Nat.lt_iff_add_one_le.mp hk]",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "ak k < ak (k + 1)",
+              "body": "by rwa [\u2190 sub_pos, h0]",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "Icc (ak k) (ak (k + 1)) \u2286 Icc a b",
+              "body": "Icc_subset_Icc h1 h2",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "TrapezoidalRule",
+      "name": "trapezoidal_error_le_of_c2",
+      "statement": "\u211d \u2192 \u211d} {a b : \u211d} (h_f_c2 : ContDiffOn \u211d 2 f [[a, b]]) {\u03b6 : \u211d} (fpp_bound : \u2200 x, |iteratedDerivWithin 2 f [[a, b]] x| \u2264 \u03b6) {N : \u2115} (N_nonzero : 0 < N) : |trapezoidal_error f N a b| \u2264 |b - a| ^ 3 * \u03b6 / (12 * N ^ 2)",
+      "have_tree": [
+        {
+          "name": "ud",
+          "type": "UniqueDiffOn \u211d [[a, b]]",
+          "body": "uniqueDiffOn_Icc (inf_lt_sup.mpr h_ne)",
+          "children": []
+        },
+        {
+          "name": "h_df",
+          "type": "DifferentiableOn \u211d f [[a, b]]",
+          "body": "ContDiffOn.differentiableOn h_f_c2 two_ne_zero",
+          "children": []
+        },
+        {
+          "name": "h_ddf",
+          "type": "DifferentiableOn \u211d (derivWithin f [[a, b]]) [[a, b]]",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "TrapezoidalRule",
+          "name": "trapezoidal_error_le_of_c2",
+          "statement": "\u211d \u2192 \u211d} {a b : \u211d} (h_f_c2 : ContDiffOn \u211d 2 f [[a, b]]) {\u03b6 : \u211d} (fpp_bound : \u2200 x, |iteratedDerivWithin 2 f [[a, b]] x| \u2264 \u03b6) {N : \u2115} (N_nonzero : 0 < N) : |trapezoidal_error f N a b| \u2264 |b - a| ^ 3 * \u03b6 / (12 * N ^ 2)",
+          "have_tree": [
+            {
+              "name": "h_df",
+              "type": "DifferentiableOn \u211d f [[a, b]]",
+              "body": "ContDiffOn.differentiableOn h_f_c2 two_ne_zero",
+              "children": []
+            },
+            {
+              "name": "ud",
+              "type": "UniqueDiffOn \u211d [[a, b]]",
+              "body": "uniqueDiffOn_Icc (inf_lt_sup.mpr h_ne)",
+              "children": []
+            },
+            {
+              "name": "h_ddf",
+              "type": "DifferentiableOn \u211d (derivWithin f [[a, b]]) [[a, b]]",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "TrapezoidalRule",
+          "name": "trapezoidal_error_le_of_c2",
+          "statement": "\u211d \u2192 \u211d} {a b : \u211d} (h_f_c2 : ContDiffOn \u211d 2 f [[a, b]]) {\u03b6 : \u211d} (fpp_bound : \u2200 x, |iteratedDerivWithin 2 f [[a, b]] x| \u2264 \u03b6) {N : \u2115} (N_nonzero : 0 < N) : |trapezoidal_error f N a b| \u2264 |b - a| ^ 3 * \u03b6 / (12 * N ^ 2)",
+          "have_tree": [
+            {
+              "name": "ud",
+              "type": "UniqueDiffOn \u211d [[a, b]]",
+              "body": "uniqueDiffOn_Icc (inf_lt_sup.mpr h_ne)",
+              "children": []
+            },
+            {
+              "name": "h_ddf",
+              "type": "DifferentiableOn \u211d (derivWithin f [[a, b]]) [[a, b]]",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h_df",
+              "type": "DifferentiableOn \u211d f [[a, b]]",
+              "body": "ContDiffOn.differentiableOn h_f_c2 two_ne_zero",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,207 @@
+[
+  {
+    "module": "Order",
+    "name": "Set.OrdConnected.measurableSet",
+    "statement": "OrdConnected s) : MeasurableSet s",
+    "have_tree": [
+      {
+        "name": "huopen",
+        "type": "IsOpen u",
+        "body": "isOpen_biUnion fun _ _ => isOpen_biUnion fun _ _ => isOpen_Ioo",
+        "children": []
+      },
+      {
+        "name": "humeas",
+        "type": "MeasurableSet u",
+        "body": "huopen.measurableSet",
+        "children": []
+      },
+      {
+        "name": "hfinite",
+        "type": "(s \\ u).Finite",
+        "body": "s.finite_diff_iUnion_Ioo",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "u \u2286 s",
+        "body": "iUnion\u2082_subset fun x hx => iUnion\u2082_subset fun y hy =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Order",
+    "name": "Dense.borel_eq_generateFrom_Icc_mem_aux",
+    "statement": "Type*} [TopologicalSpace \u03b1] [LinearOrder \u03b1] [OrderTopology \u03b1] [SecondCountableTopology \u03b1] {s : Set \u03b1} (hd : Dense s) (hbot : \u2200 x, IsBot x \u2192 x \u2208 s) (hIoo : \u2200 x y : \u03b1, x < y \u2192 Ioo x y = \u2205 \u2192 x \u2208 s) : borel \u03b1 = .generateFrom {S : Set \u03b1 | \u2203 l \u2208 s, \u2203 u \u2208 s, l \u2264 u \u2227 Icc l u = S}",
+    "have_tree": [
+      {
+        "name": "hbs",
+        "type": "b \u2208 s",
+        "body": "hIoo b a ba hb",
+        "children": [
+          {
+            "name": "_",
+            "type": "x \u2264 b",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Order",
+    "name": "ext_of_Iic",
+    "statement": "Type*} [TopologicalSpace \u03b1] {m : MeasurableSpace \u03b1} [SecondCountableTopology \u03b1] [LinearOrder \u03b1] [OrderTopology \u03b1] [BorelSpace \u03b1] (\u03bc \u03bd : Measure \u03b1) [IsFiniteMeasure \u03bc] (h : \u2200 a, \u03bc (Iic a) = \u03bd (Iic a)) : \u03bc = \u03bd",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "DirectedOn (\u00b7 \u2264 \u00b7) s",
+        "body": "directedOn_iff_directed.2 (Subtype.mono_coe _).directed_le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Order",
+    "name": "measurable_iSup_of_lowerSemicontinuous",
+    "statement": "Type*} [TopologicalSpace \u03b9] [SeparableSpace \u03b9] {f : \u03b9 \u2192 \u03b4 \u2192 \u03b2} (mf : \u2200 t, Measurable (f t)) (cf : \u2200 x, LowerSemicontinuous (f \u00b7 x)) : Measurable (\u2a06 i, f i)",
+    "have_tree": [
+      {
+        "name": "hj",
+        "type": "",
+        "body": "dJ.inter_nhds_nonempty hv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Order",
+    "name": "MeasurableSet.of_mem_nhdsGT_aux",
+    "statement": "Set \u03b1} (h : \u2200 x \u2208 s, s \u2208 \ud835\udcdd[>] x) (h' : \u2200 x \u2208 s, \u2203 y, x < y) : MeasurableSet s",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2200 x \u2208 s, \u2203 y \u2208 Ioi x, Ioo x y \u2286 s",
+        "body": "fun x hx =>",
+        "children": [
+          {
+            "name": "_",
+            "type": "x' \u2208 interior s",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "x \u2208 interior s",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Order",
+    "name": "MeasurableSet.of_mem_nhdsGT",
+    "statement": "Set \u03b1} (h : \u2200 x \u2208 s, s \u2208 \ud835\udcdd[>] x) : MeasurableSet s",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2200 x \u2208 s \\ { x\u2080 }, x < x\u2080",
+        "body": "fun x hx => lt_of_le_of_ne (h\u2080 _) (by simpa using hx.2)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Order",
+    "name": "Measurable.iSup",
+    "statement": "\u03b9 \u2192 \u03b4 \u2192 \u03b1} (hf : \u2200 i, Measurable (f i)) : Measurable (fun b \u21a6 \u2a06 i, f i b)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "MeasurableSet {b | BddAbove (range (fun i \u21a6 f i b))}",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Order",
+    "name": "Measurable.sSup",
+    "statement": "\u03b9 \u2192 \u03b4 \u2192 \u03b1} {s : Set \u03b9} (hs : s.Countable) (hf : \u2200 i \u2208 s, Measurable (f i)) : Measurable fun x => sSup ((fun i => f i x) '' s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Countable s",
+        "body": "hs.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Order",
+    "name": "AEMeasurable.biSup",
+    "statement": "Measure \u03b4} (s : Set \u03b9) {f : \u03b9 \u2192 \u03b4 \u2192 \u03b1} (hs : s.Countable) (hf : \u2200 i \u2208 s, AEMeasurable (f i) \u03bc) : AEMeasurable (fun b => \u2a06 i \u2208 s, f i b) \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 i \u2208 s, Measurable (g i)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Order",
+    "name": "Measurable.liminf'",
+    "statement": "\u03b9 \u2192 \u03b4 \u2192 \u03b1} {v : Filter \u03b9} (hf : \u2200 i, Measurable (f i)) {p : \u03b9' \u2192 Prop} {s : \u03b9' \u2192 Set \u03b9} (hv : v.HasCountableBasis p s) (hs : \u2200 j, (s j).Countable) : Measurable fun x => liminf (f \u00b7 x) v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Countable (Subtype p)",
+        "body": "hv.countable",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 i, Countable (s i)",
+        "body": "fun i \u21a6 countable_coe_iff.2 (hs i)",
+        "children": []
+      },
+      {
+        "name": "m_meas",
+        "type": "\u2200 j, MeasurableSet (m j)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "F0_meas",
+        "type": "\u2200 j, Measurable (F0 j)",
+        "body": "fun j \u21a6 .iInf (fun (i : s j) \u21a6 hf i)",
+        "children": []
+      },
+      {
+        "name": "Z",
+        "type": "\u2200 x, \u2203 n, x \u2208 m (g n) \u2228 \u2200 k, x \u2209 m k",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Order",
+    "name": "measure_eq_measure_preimage_add_measure_tsum_Ico_zpow",
+    "statement": "Type*} {m\u03b1 : MeasurableSpace \u03b1} (\u03bc : Measure \u03b1) {f : \u03b1 \u2192 \u211d\u22650\u221e} (hf : Measurable f) {s : Set \u03b1} (hs : MeasurableSet s) {t : \u211d\u22650} (ht : 1 < t) : \u03bc s = \u03bc (s \u2229 f \u207b\u00b9' {0}) + \u03bc (s \u2229 f \u207b\u00b9' {\u221e}) + \u2211' n : \u2124, \u03bc (s \u2229 f \u207b\u00b9' Ico ((t : \u211d\u22650\u221e) ^ n) ((t : \u211d\u22650\u221e) ^ (n + 1)))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "f x < \u221e",
+        "body": "h'x.2.2",
+        "children": []
+      }
+    ]
+  }
+]

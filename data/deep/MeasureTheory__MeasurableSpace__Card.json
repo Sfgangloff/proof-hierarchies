@@ -1,0 +1,40 @@
+[
+  {
+    "module": "Card",
+    "name": "cardinal_generateMeasurableRec_le",
+    "statement": "Set (Set \u03b1)) (i : Ordinal.{v}) : #(generateMeasurableRec s i) \u2264 max #s 2 ^ \u2135\u2080",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\ud835\udd20 \u2264 max #s 2 ^ \u2135\u2080",
+        "body": "power_le_power_right (le_max_right _ _)",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "",
+        "body": "aleph0_le_continuum.trans A",
+        "children": []
+      },
+      {
+        "name": "C",
+        "type": "#(\u22c3 j < i, generateMeasurableRec s j) \u2264 max #s 2 ^ \u2135\u2080",
+        "body": "by",
+        "children": [
+          {
+            "name": "H",
+            "type": "",
+            "body": "card_le_of_le_ord hi",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "@power_le_power_right _ _ \u2135\u2080 C",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

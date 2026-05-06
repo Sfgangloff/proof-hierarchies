@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Finpartition",
+      "name": "exists_le_of_le",
+      "statement": "\u03b1} {P Q : Finpartition a} (h : P \u2264 Q) (hb : b \u2208 Q.parts) : \u2203 c \u2208 P.parts, c \u2264 b",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "\u2200 p \u2208 P.parts, \u2203 q \u2208 Q.parts.erase b, p \u2264 q",
+          "body": "by grind [h _]",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "P.parts.sup id \u2264 (Q.parts.erase b).sup id",
+          "body": "by grind [Finset.le_sup, Finset.sup_le_iff]",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Finpartition",
+          "name": "exists_le_of_le",
+          "statement": "\u03b1} {P Q : Finpartition a} (h : P \u2264 Q) (hb : b \u2208 Q.parts) : \u2203 c \u2208 P.parts, c \u2264 b",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "P.parts.sup id \u2264 (Q.parts.erase b).sup id",
+              "body": "by grind [Finset.le_sup, Finset.sup_le_iff]",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2200 p \u2208 P.parts, \u2203 q \u2208 Q.parts.erase b, p \u2264 q",
+              "body": "by grind [h _]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

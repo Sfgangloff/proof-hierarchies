@@ -1,0 +1,2260 @@
+[
+  {
+    "original": {
+      "module": "Four",
+      "name": "exists_minimal",
+      "statement": "\u2124} (h : Fermat42 a b c) : \u2203 a0 b0 c0, Minimal a0 b0 c0",
+      "have_tree": [
+        {
+          "name": "S_nonempty",
+          "type": "S.Nonempty",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "m_mem",
+          "type": "m \u2208 S",
+          "body": "Nat.find_spec S_nonempty",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Four",
+          "name": "exists_minimal",
+          "statement": "\u2124} (h : Fermat42 a b c) : \u2203 a0 b0 c0, Minimal a0 b0 c0",
+          "have_tree": [
+            {
+              "name": "m_mem",
+              "type": "m \u2208 S",
+              "body": "Nat.find_spec S_nonempty",
+              "children": []
+            },
+            {
+              "name": "S_nonempty",
+              "type": "S.Nonempty",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Four",
+      "name": "not_minimal",
+      "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+      "have_tree": [
+        {
+          "name": "ht",
+          "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "htt",
+          "type": "PythagoreanTriple a n m",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hb20",
+          "type": "b ^ 2 \u2260 0",
+          "body": "pow_ne_zero _ h.1.2.1",
+          "children": []
+        },
+        {
+          "name": "h4",
+          "type": "0 < m",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hb2",
+          "type": "2 \u2223 b",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hrsz",
+          "type": "r * s \u2260 0",
+          "body": "by grind",
+          "children": []
+        },
+        {
+          "name": "h2b0",
+          "type": "b' \u2260 0",
+          "body": "by grind",
+          "children": [
+            {
+              "name": "hit",
+              "type": "-i ^ 2 \u2264 0",
+              "body": "neg_nonpos.mpr (sq_nonneg i)",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "b' ^ 2 \u2264 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h2'",
+              "type": "0 \u2264 b' ^ 2",
+              "body": "by apply sq_nonneg b'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "hj0",
+          "type": "j \u2260 0",
+          "body": "by grind",
+          "children": []
+        },
+        {
+          "name": "hk0",
+          "type": "k \u2260 0",
+          "body": "by grind",
+          "children": []
+        },
+        {
+          "name": "hn",
+          "type": "n \u2260 0",
+          "body": "by grind",
+          "children": []
+        },
+        {
+          "name": "hic",
+          "type": "Int.natAbs i < Int.natAbs c",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hic'",
+          "type": "Int.natAbs c \u2264 Int.natAbs i",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          6,
+          0
+        ],
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          6,
+          1
+        ],
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          6,
+          2
+        ],
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          6
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hit",
+              "type": "-i ^ 2 \u2264 0",
+              "body": "neg_nonpos.mpr (sq_nonneg i)",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          6
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "b' ^ 2 \u2264 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          6
+        ],
+        "child_index": 2,
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "h2'",
+              "type": "0 \u2264 b' ^ 2",
+              "body": "by apply sq_nonneg b'",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          5,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          6,
+          8,
+          9,
+          10,
+          11
+        ],
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          7,
+          9,
+          10,
+          11
+        ],
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          8,
+          10,
+          11
+        ],
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          9,
+          11
+        ],
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          11,
+          10
+        ],
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          6
+        ],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          6
+        ],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Four",
+          "name": "not_minimal",
+          "statement": "\u2124} (h : Minimal a b c) (ha2 : a % 2 = 1) (hc : 0 < c) : False",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "PythagoreanTriple (a ^ 2) (b ^ 2) c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "htt",
+              "type": "PythagoreanTriple a n m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb20",
+              "type": "b ^ 2 \u2260 0",
+              "body": "pow_ne_zero _ h.1.2.1",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "0 < m",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb2",
+              "type": "2 \u2223 b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrsz",
+              "type": "r * s \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "h2b0",
+              "type": "b' \u2260 0",
+              "body": "by grind",
+              "children": [
+                {
+                  "name": "hit",
+                  "type": "-i ^ 2 \u2264 0",
+                  "body": "neg_nonpos.mpr (sq_nonneg i)",
+                  "children": []
+                },
+                {
+                  "name": "h2'",
+                  "type": "0 \u2264 b' ^ 2",
+                  "body": "by apply sq_nonneg b'",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "b' ^ 2 \u2264 0",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hj0",
+              "type": "j \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hk0",
+              "type": "k \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "n \u2260 0",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hic",
+              "type": "Int.natAbs i < Int.natAbs c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hic'",
+              "type": "Int.natAbs c \u2264 Int.natAbs i",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

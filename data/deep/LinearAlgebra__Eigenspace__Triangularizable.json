@@ -1,0 +1,65 @@
+[
+  {
+    "module": "Triangularizable",
+    "name": "inf_iSup_genEigenspace",
+    "statement": "\u2200 x \u2208 p, f x \u2208 p) (k : \u2115\u221e) : p \u2293 \u2a06 \u03bc, f.genEigenspace \u03bc k = \u2a06 \u03bc, p \u2293 f.genEigenspace \u03bc k",
+    "have_tree": [
+      {
+        "name": "hm\u2082_aux",
+        "type": "",
+        "body": "hm\u2082",
+        "children": []
+      },
+      {
+        "name": "hfg",
+        "type": "Commute f g",
+        "body": "Finset.noncommProd_commute _ _ _ _ fun \u03bc' _ \u21a6",
+        "children": []
+      },
+      {
+        "name": "hg\u2080",
+        "type": "g (m.sum fun _\u03bc m\u03bc \u21a6 m\u03bc) = g (m \u03bc)",
+        "body": "by",
+        "children": [
+          {
+            "name": "hl\u2080",
+            "type": "((f - algebraMap K (End K V) \u03bc') ^ l\u2080) (m \u03bc') = 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "_ = g",
+            "body": "(m.support.erase \u03bc).noncommProd_erase_mul (Finset.mem_erase.mpr \u27e8h\u03bc\u03bc', h\u03bc'\u27e9)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hg\u2081",
+        "type": "MapsTo g p p",
+        "body": "Finset.noncommProd_induction _ _ _ (fun g' : End K V \u21a6 MapsTo g' p p)",
+        "children": []
+      },
+      {
+        "name": "hg\u2082",
+        "type": "MapsTo g \u2191(f.genEigenspace \u03bc k) \u2191(f.genEigenspace \u03bc k)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hg\u2083",
+        "type": "InjOn g \u2191(f.genEigenspace \u03bc k)",
+        "body": "by",
+        "children": [
+          {
+            "name": "this",
+            "type": "",
+            "body": "f.independent_genEigenspace k",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

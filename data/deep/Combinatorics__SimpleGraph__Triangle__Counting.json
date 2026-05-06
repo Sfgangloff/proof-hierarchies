@@ -1,0 +1,40 @@
+[
+  {
+    "module": "Counting",
+    "name": "triangle_counting'",
+    "statement": "2 * \u03b5 \u2264 G.edgeDensity s t) (hst : G.IsUniform \u03b5 s t) (dsu : 2 * \u03b5 \u2264 G.edgeDensity s u) (usu : G.IsUniform \u03b5 s u) (dtu : 2 * \u03b5 \u2264 G.edgeDensity t u) (utu : G.IsUniform \u03b5 t u) : (1 - 2 * \u03b5) * \u03b5 ^ 3 * #s * #t * #u \u2264 #((s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c)",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "#(badVertices G \u03b5 s t) \u2264 #s * \u03b5",
+        "body": "G.card_badVertices_le dst hst",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "#(badVertices G \u03b5 s u) \u2264 #s * \u03b5",
+        "body": "G.card_badVertices_le dsu usu",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "X'.biUnion _ \u2286 (s \u00d7\u02e2 t \u00d7\u02e2 u).filter fun (a, b, c) \u21a6 G.Adj a b \u2227 G.Adj a c \u2227 G.Adj b c",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hst.pos.le",
+            "children": []
+          },
+          {
+            "name": "i",
+            "type": "badVertices G \u03b5 s t \u222a badVertices G \u03b5 s u \u2286 s",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

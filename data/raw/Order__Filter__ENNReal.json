@@ -1,0 +1,86 @@
+[
+  {
+    "module": "ENNReal",
+    "name": "toReal_limsup",
+    "statement": "limsup (fun i \u21a6 (u i : \u211d)) f = limsup u f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "f.IsCoboundedUnder (\u00b7 \u2264 \u00b7) u",
+        "body": "by isBoundedDefault",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ENNReal",
+    "name": "limsup_const_mul",
+    "statement": "\u03b1 \u2192 \u211d\u22650\u221e} {a : \u211d\u22650\u221e} : f.limsup (a * u \u00b7) = a * f.limsup u",
+    "have_tree": [
+      {
+        "name": "hfu",
+        "type": "f.limsup u \u2260 0",
+        "body": "mt limsup_eq_zero_iff.1 hu",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ENNReal",
+    "name": "ofReal_limsup",
+    "statement": "\u03b1 \u2192 \u211d} (h\u2081 : IsCoboundedUnder (\u00b7 \u2264 \u00b7) f u",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < x",
+        "body": "hx.trans_le' (by simp)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ENNReal",
+    "name": "ofReal_limsup_toReal",
+    "statement": "\u03b1 \u2192 \u211d\u22650\u221e} {C : \u211d\u22650} (hf : \u2200\u1da0 a in f, u a \u2264 C) : ENNReal.ofReal (limsup (fun a \u21a6 (u a).toReal) f) = limsup u f",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "IsCoboundedUnder (\u00b7 \u2264 \u00b7) f (fun a \u21a6 (u a).toReal)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "IsBoundedUnder (\u00b7 \u2264 \u00b7) f (fun a \u21a6 (u a).toReal)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ENNReal",
+    "name": "toReal_limsup",
+    "statement": "\u03b1 \u2192 \u211d\u22650\u221e} (h\u2081 : \u2200\u1da0 a in f, u a \u2260 \u221e) (h\u2082 : IsBoundedUnder (\u00b7 \u2264 \u00b7) f fun a \u21a6 (u a).toReal",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsCoboundedUnder (\u00b7 \u2264 \u00b7) f fun a \u21a6 (u a).toReal",
+        "body": ".of_frequently_ge (a := 0) (by simpa)",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 < x",
+            "body": "hx.trans_le' hr",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hx\u2080",
+        "type": "0 \u2264 x",
+        "body": "by obtain \u27e8i, hi\u27e9 := hx.exists; exact toReal_nonneg.trans hi",
+        "children": []
+      }
+    ]
+  }
+]

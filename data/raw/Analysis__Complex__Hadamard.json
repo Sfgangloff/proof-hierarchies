@@ -1,0 +1,67 @@
+[
+  {
+    "module": "Hadamard",
+    "name": "scale",
+    "statement": "\u2102 \u2192 E) (l u : \u211d) : \u2102 \u2192 E",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "sub_nonneg.2 hul.le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hadamard",
+    "name": "scale_bddAbove",
+    "statement": "\u2102 \u2192 E} {l u : \u211d} (hul : l < u) (hB : BddAbove ((norm \u2218 f) '' verticalClosedStrip l u)) : BddAbove ((norm \u2218 scale f l u) '' verticalClosedStrip 0 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2016f (\u2191l + w * (\u2191u - \u2191l))\u2016 \u2208 norm \u2218 f '' verticalClosedStrip l u",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hadamard",
+    "name": "norm_le_interp_of_mem_verticalClosedStrip\u2080\u2081'",
+    "statement": "\u2102 \u2192 E) {z : \u2102} {a b : \u211d} (hz : z \u2208 verticalClosedStrip 0 1) (hd : DiffContOnCl \u2102 f (verticalStrip 0 1)) (hB : BddAbove ((norm \u2218 f) '' verticalClosedStrip 0 1)) (ha : \u2200 z \u2208 re \u207b\u00b9' {0}, \u2016f z\u2016 \u2264 a) (hb : \u2200 z \u2208 re \u207b\u00b9' {1}, \u2016f z\u2016 \u2264 b) : \u2016f z\u2016 \u2264 a ^ (1 - z.re) * b ^ z.re",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2016interpStrip f z\u2016 \u2264 sSupNormIm f 0 ^ (1 - z.re) * sSupNormIm f 1 ^ z.re",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hadamard",
+    "name": "norm_le_interpStrip_of_mem_verticalClosedStrip",
+    "statement": "\u211d} (hul : l < u) {f : \u2102 \u2192 E} {z : \u2102} (hz : z \u2208 verticalClosedStrip l u) (hd : DiffContOnCl \u2102 f (verticalStrip l u)) (hB : BddAbove ((norm \u2218 f) '' verticalClosedStrip l u)) : \u2016f z\u2016 \u2264 \u2016interpStrip' f l u z\u2016",
+    "have_tree": [
+      {
+        "name": "hgoal",
+        "type": "",
+        "body": "norm_le_interpStrip_of_mem_verticalClosedStrip\u2080\u2081 (scale f l u)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hadamard",
+    "name": "norm_le_interp_of_mem_verticalClosedStrip'",
+    "statement": "\u2102 \u2192 E} {z : \u2102} {a b l u : \u211d} (hul : l < u) (hz : z \u2208 verticalClosedStrip l u) (hd : DiffContOnCl \u2102 f (verticalStrip l u)) (hB : BddAbove ((norm \u2218 f) '' verticalClosedStrip l u)) (ha : \u2200 z \u2208 re \u207b\u00b9' {l}, \u2016f z\u2016 \u2264 a) (hb : \u2200 z \u2208 re \u207b\u00b9' {u}, \u2016f z\u2016 \u2264 b) : \u2016f z\u2016 \u2264 a ^ (1 - (z.re - l) / (u - l)) * b ^ ((z.re - l) / (u - l))",
+    "have_tree": [
+      {
+        "name": "hgoal",
+        "type": "",
+        "body": "norm_le_interp_of_mem_verticalClosedStrip\u2080\u2081' (scale f l u)",
+        "children": []
+      }
+    ]
+  }
+]

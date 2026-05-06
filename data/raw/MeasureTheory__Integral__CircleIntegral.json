@@ -1,0 +1,74 @@
+[
+  {
+    "module": "CircleIntegral",
+    "name": "continuous_circleMap_inv",
+    "statement": "\u211d} {z w : \u2102} (hw : w \u2208 ball z R) : Continuous fun \u03b8 => (circleMap z R \u03b8 - w)\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 \u03b8, circleMap z R \u03b8 - w \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CircleIntegral",
+    "name": "circleMap_preimage_codiscrete",
+    "statement": "\u2102} {R : \u211d} (hR : R \u2260 0) : map (circleMap c R) (codiscrete \u211d) \u2264 codiscreteWithin (sphere c |R|)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ha.deriv.eq_of_nhds",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CircleIntegral",
+    "name": "integral_sub_inv_smul_sub_smul",
+    "statement": "\u2102 \u2192 E) (c w : \u2102) (R : \u211d) : (\u222e z in C(c, R), (z - w)\u207b\u00b9 \u2022 (z - w) \u2022 f z) = \u222e z in C(c, R), f z",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(circleMap c R \u207b\u00b9' {w}).Countable",
+        "body": "(countable_singleton _).preimage_circleMap c hR",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CircleIntegral",
+    "name": "hasSum_two_pi_I_cauchyPowerSeries_integral",
+    "statement": "\u2102 \u2192 E} {c : \u2102} {R : \u211d} {w : \u2102} (hf : CircleIntegrable f c R) (hw : \u2016w\u2016 < R) : HasSum (fun n : \u2115 => \u222e z in C(c, R), (w / (z - c)) ^ n \u2022 (z - c)\u207b\u00b9 \u2022 f z) (\u222e z in C(c, R), (z - (c + w))\u207b\u00b9 \u2022 f z)",
+    "have_tree": [
+      {
+        "name": "hR",
+        "type": "0 < R",
+        "body": "(norm_nonneg w).trans_lt hw",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2016w / (circleMap c R \u03b8 - c)\u2016 < 1",
+            "body": "by simpa [abs_of_pos hR] using hwR.2",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "CircleIntegral",
+    "name": "integral_sub_inv_of_mem_ball",
+    "statement": "\u2102} {R : \u211d} (hw : w \u2208 ball c R) : (\u222e z in C(c, R), (z - w)\u207b\u00b9) = 2 * \u03c0 * I",
+    "have_tree": [
+      {
+        "name": "hR",
+        "type": "0 < R",
+        "body": "dist_nonneg.trans_lt hw",
+        "children": []
+      }
+    ]
+  }
+]

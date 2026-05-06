@@ -1,0 +1,149 @@
+[
+  {
+    "original": {
+      "module": "PadicNorm",
+      "name": "nonarchimedean_aux",
+      "statement": "\u211a} (h : padicValRat p q \u2264 padicValRat p r) : padicNorm p (q + r) \u2264 max (padicNorm p q) (padicNorm p r)",
+      "have_tree": [
+        {
+          "name": "hnqp",
+          "type": "padicNorm p q \u2265 0",
+          "body": "padicNorm.nonneg _",
+          "children": []
+        },
+        {
+          "name": "hnrp",
+          "type": "padicNorm p r \u2265 0",
+          "body": "padicNorm.nonneg _",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "PadicNorm",
+          "name": "nonarchimedean_aux",
+          "statement": "\u211a} (h : padicValRat p q \u2264 padicValRat p r) : padicNorm p (q + r) \u2264 max (padicNorm p q) (padicNorm p r)",
+          "have_tree": [
+            {
+              "name": "hnrp",
+              "type": "padicNorm p r \u2265 0",
+              "body": "padicNorm.nonneg _",
+              "children": []
+            },
+            {
+              "name": "hnqp",
+              "type": "padicNorm p q \u2265 0",
+              "body": "padicNorm.nonneg _",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "PadicNorm",
+      "name": "add_eq_max_of_ne",
+      "statement": "\u211a} (hne : padicNorm p q \u2260 padicNorm p r) : padicNorm p (q + r) = max (padicNorm p q) (padicNorm p r)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "padicNorm p q \u2264 max (padicNorm p (q + r)) (padicNorm p r)",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "hnge",
+          "type": "padicNorm p r \u2264 padicNorm p (q + r)",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "padicNorm p q \u2264 padicNorm p (q + r)",
+          "body": "by rwa [max_eq_left hnge] at this",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "PadicNorm",
+          "name": "add_eq_max_of_ne",
+          "statement": "\u211a} (hne : padicNorm p q \u2260 padicNorm p r) : padicNorm p (q + r) = max (padicNorm p q) (padicNorm p r)",
+          "have_tree": [
+            {
+              "name": "hnge",
+              "type": "padicNorm p r \u2264 padicNorm p (q + r)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "padicNorm p q \u2264 max (padicNorm p (q + r)) (padicNorm p r)",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "padicNorm p q \u2264 padicNorm p (q + r)",
+              "body": "by rwa [max_eq_left hnge] at this",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "PadicNorm",
+          "name": "add_eq_max_of_ne",
+          "statement": "\u211a} (hne : padicNorm p q \u2260 padicNorm p r) : padicNorm p (q + r) = max (padicNorm p q) (padicNorm p r)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "padicNorm p q \u2264 max (padicNorm p (q + r)) (padicNorm p r)",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "padicNorm p q \u2264 padicNorm p (q + r)",
+              "body": "by rwa [max_eq_left hnge] at this",
+              "children": []
+            },
+            {
+              "name": "hnge",
+              "type": "padicNorm p r \u2264 padicNorm p (q + r)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

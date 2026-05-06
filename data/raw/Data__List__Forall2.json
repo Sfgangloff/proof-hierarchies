@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Forall2",
+    "name": "forall\u2082_take",
+    "statement": "\u2200 (n) {l\u2081 l\u2082}, Forall\u2082 R l\u2081 l\u2082 \u2192 Forall\u2082 R (take n l\u2081) (take n l\u2082) | 0, _, _, _ => by simp only [Forall\u2082.nil, take] | _ + 1, _, _, Forall\u2082.nil => by simp only [Forall\u2082.nil, take] | n + 1, _, _, Forall\u2082.cons h\u2081 h\u2082 => by simp [And.intro h\u2081 h\u2082, forall\u2082_take n]  theorem forall\u2082_drop : \u2200 (n) {l\u2081 l\u2082}, Forall\u2082 R l\u2081 l\u2082 \u2192 Forall\u2082 R (drop n l\u2081) (drop n l\u2082) | 0, _, _, h => by simp only [drop, h] | _ + 1, _, _, Forall\u2082.nil => by simp only [Forall\u2082.nil, drop] | n + 1, _, _, Forall\u2082.cons h\u2081 h\u2082 => by simp [And.intro h\u2081 h\u2082, forall\u2082_drop n]  theorem forall\u2082_take_append (l : List \u03b1) (l\u2081 : List \u03b2) (l\u2082 : List \u03b2) (h : Forall\u2082 R l (l\u2081 ++ l\u2082)) : Forall\u2082 R (List.take (length l\u2081) l) l\u2081",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "Forall\u2082 R (take (length l\u2081) l) (take (length l\u2081) (l\u2081 ++ l\u2082))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Forall2",
+    "name": "forall\u2082_drop_append",
+    "statement": "List \u03b1) (l\u2081 : List \u03b2) (l\u2082 : List \u03b2) (h : Forall\u2082 R l (l\u2081 ++ l\u2082)) : Forall\u2082 R (List.drop (length l\u2081) l) l\u2082",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "Forall\u2082 R (drop (length l\u2081) l) (drop (length l\u2081) (l\u2081 ++ l\u2082))",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

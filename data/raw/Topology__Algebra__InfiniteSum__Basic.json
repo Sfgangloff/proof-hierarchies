@@ -1,0 +1,80 @@
+[
+  {
+    "module": "Basic",
+    "name": "Set.Finite.multipliable",
+    "statement": "Set \u03b2} (hs : s.Finite) (f : \u03b2 \u2192 \u03b1) : Multipliable (f \u2218 (\u2191) : s \u2192 \u03b1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.toFinset.multipliable f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Multipliable.map_iff_of_leftInverse",
+    "statement": "G) (g' : G') (hg : Continuous g) (hg' : Continuous g') (hinv : Function.LeftInverse g' g) : Multipliable (g \u2218 f) L \u2194 Multipliable f L",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.map _ hg'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Topology.IsInducing.multipliable_iff_tprod_comp_mem_range",
+    "statement": "G} (hg : IsInducing g) (f : \u03b2 \u2192 \u03b1) : Multipliable f L \u2194 Multipliable (g \u2218 f) L \u2227 \u220f'[L] i, g (f i) \u2208 Set.range g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hgf.hasProd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "HasProd.update'",
+    "statement": "Type*} [TopologicalSpace \u03b1] [CommMonoid \u03b1] [T2Space \u03b1] [ContinuousMul \u03b1] [DecidableEq \u03b2] {f : \u03b2 \u2192 \u03b1} {a a' : \u03b1} (hf : HasProd f a L) (b : \u03b2) (x : \u03b1) (hf' : HasProd (update f b x) a' L) : a * x = a' * f b",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "hf.mul (hasProd_ite_eq b x L)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "tprod_extend_one",
+    "statement": "Type*} {g : \u03b3 \u2192 \u03b2} (hg : Injective g) (f : \u03b3 \u2192 \u03b1) : \u220f' y, extend g f 1 y = \u220f' x, f x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "mulSupport (extend g f 1) \u2286 Set.range g",
+        "body": "mulSupport_subset_iff'.2 <| extend_apply' _ _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Function.Surjective.tprod_eq_tprod_of_hasProd_iff_hasProd",
+    "statement": "Type*} [CommMonoid \u03b1'] [TopologicalSpace \u03b1'] {e : \u03b1' \u2192 \u03b1} (hes : Function.Surjective e) (h1 : e 1 = 1) {f : \u03b2 \u2192 \u03b1} {g : \u03b3 \u2192 \u03b1'} (h : \u2200 {a}, HasProd f (e a) \u2194 HasProd g a) : \u220f' b, f b = e (\u220f' c, g c)",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "\u00acMultipliable f",
+        "body": "mt (hes.multipliable_iff_of_hasProd_iff @h).1 hg",
+        "children": []
+      }
+    ]
+  }
+]

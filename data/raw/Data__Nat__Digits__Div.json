@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Div",
+    "name": "modEq_eleven_digits_sum",
+    "statement": "\u2115) : n \u2261 ((digits 10 n).map fun n : \u2115 => (n : \u2124)).alternatingSum [ZMOD 11]",
+    "have_tree": [
+      {
+        "name": "t",
+        "type": "",
+        "body": "zmodeq_ofDigits_digits 11 10 (-1 : \u2124) (by unfold Int.ModEq; rfl) n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "eleven_dvd_iff",
+    "statement": "11 \u2223 n \u2194 (11 : \u2124) \u2223 ((digits 10 n).map fun n : \u2115 => (n : \u2124)).alternatingSum",
+    "have_tree": [
+      {
+        "name": "t",
+        "type": "",
+        "body": "dvd_iff_dvd_ofDigits 11 10 (-1 : \u2124) (by simp) n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Div",
+    "name": "eleven_dvd_of_palindrome",
+    "statement": "(digits 10 n).Palindrome) (h : Even (digits 10 n).length) : 11 \u2223 n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "dig.alternatingSum_reverse",
+        "children": []
+      }
+    ]
+  }
+]

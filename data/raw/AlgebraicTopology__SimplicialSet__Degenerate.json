@@ -1,0 +1,119 @@
+[
+  {
+    "module": "Degenerate",
+    "name": "mem_degenerate_iff",
+    "statement": "X _\u298bn\u298c) : x \u2208 X.degenerate n \u2194 \u2203 (m : \u2115) (_ : m < n) (f : \u298bn\u298c \u27f6 \u298bm\u298c) (_ : Epi f), x \u2208 Set.range (X.map f.op)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "_ \u2264 m",
+        "body": "SimplexCategory.len_le_of_mono (image.\u03b9 f)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Degenerate",
+    "name": "degenerate_eq_iUnion_range_\u03c3",
+    "statement": "X.degenerate (n + 1) = \u22c3 (i : Fin (n + 1)), Set.range (X.\u03c3 i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "SimplexCategory.le_of_mono f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Degenerate",
+    "name": "mono_of_nonDegenerate",
+    "statement": "X.nonDegenerate n) {m : SimplexCategory} (f : \u298bn\u298c \u27f6 m) (y : X.obj (op m)) (hy : X.map f.op y = x) : Mono f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "X.isIso_of_nonDegenerate x (factorThruImage f) (y := X.map (image.\u03b9 f).op y) (by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Degenerate",
+    "name": "isIso_factorThruImage_g",
+    "statement": "IsIso (factorThruImage (g hf\u2081 f\u2082))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "map_g_op_y\u2082 hf\u2081 hy\u2081 hy\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Degenerate",
+    "name": "mono_g",
+    "statement": "Mono (g hf\u2081 f\u2082)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isIso_factorThruImage_g hf\u2081 hy\u2081 hy\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Degenerate",
+    "name": "le",
+    "statement": "m\u2081 \u2264 m\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isIso_factorThruImage_g hf\u2081 hy\u2081 hy\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Degenerate",
+    "name": "g_eq_id",
+    "statement": "X _\u298bn\u298c} {m : \u2115} {f\u2081 : \u298bn\u298c \u27f6 \u298bm\u298c} {y\u2081 : X.nonDegenerate m} (hy\u2081 : x = X.map f\u2081.op y\u2081) {f\u2082 : \u298bn\u298c \u27f6 \u298bm\u298c} {y\u2082 : X _\u298bm\u298c} (hy\u2082 : x = X.map f\u2082.op y\u2082) (hf\u2081 : SplitEpi f\u2081) : g hf\u2081 f\u2082 = \ud835\udfd9 _",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mono_g hf\u2081 hy\u2081 hy\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Degenerate",
+    "name": "unique_nonDegenerate_map",
+    "statement": "X _\u298bn\u298c) {m : \u2115} (f\u2081 : \u298bn\u298c \u27f6 \u298bm\u298c) [Epi f\u2081] (y\u2081 : X.nonDegenerate m) (hy\u2081 : x = X.map f\u2081.op y\u2081) (f\u2082 : \u298bn\u298c \u27f6 \u298bm\u298c) (y\u2082 : X.nonDegenerate m) (hy\u2082 : x = X.map f\u2082.op y\u2082) : f\u2081 = f\u2082",
+    "have_tree": [
+      {
+        "name": "h\u03b1\u2082",
+        "type": "Monotone \u03b1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Degenerate",
+    "name": "mem_degenerate_iff",
+    "statement": "\u2115} (x : A.obj (op \u298bn\u298c)) : x \u2208 degenerate A n \u2194 x.val \u2208 X.degenerate n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isSplitEpi_of_epi f",
+        "children": []
+      }
+    ]
+  }
+]

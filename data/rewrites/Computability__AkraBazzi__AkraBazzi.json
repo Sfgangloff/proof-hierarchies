@@ -1,0 +1,1750 @@
+[
+  {
+    "original": {
+      "module": "AkraBazzi",
+      "name": "isBigO_apply_r_sub_b",
+      "statement": "\u211d \u2192 \u211d) (hq_diff : DifferentiableOn \u211d q (Set.Ioi 1)) (hq_poly : GrowsPolynomially fun x => \u2016deriv q x\u2016) (i : \u03b1) : (fun n => q (r i n) - q (b i * n)) =O[atTop] fun n => (deriv q n) * (r i n - b i * n)",
+      "have_tree": [
+        {
+          "name": "hb_pos",
+          "type": "0 < b'",
+          "body": "by have := R.b_pos (min_bi b); positivity",
+          "children": []
+        },
+        {
+          "name": "hb_lt_one",
+          "type": "b' < 1",
+          "body": "calc b (min_bi b) / 2",
+          "children": []
+        },
+        {
+          "name": "hb",
+          "type": "b' \u2208 Set.Ioo 0 1",
+          "body": "\u27e8hb_pos, hb_lt_one\u27e9",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "isBigO_apply_r_sub_b",
+          "statement": "\u211d \u2192 \u211d) (hq_diff : DifferentiableOn \u211d q (Set.Ioi 1)) (hq_poly : GrowsPolynomially fun x => \u2016deriv q x\u2016) (i : \u03b1) : (fun n => q (r i n) - q (b i * n)) =O[atTop] fun n => (deriv q n) * (r i n - b i * n)",
+          "have_tree": [
+            {
+              "name": "hb_lt_one",
+              "type": "b' < 1",
+              "body": "calc b (min_bi b) / 2",
+              "children": []
+            },
+            {
+              "name": "hb_pos",
+              "type": "0 < b'",
+              "body": "by have := R.b_pos (min_bi b); positivity",
+              "children": []
+            },
+            {
+              "name": "hb",
+              "type": "b' \u2208 Set.Ioo 0 1",
+              "body": "\u27e8hb_pos, hb_lt_one\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "isBigO_apply_r_sub_b",
+          "statement": "\u211d \u2192 \u211d) (hq_diff : DifferentiableOn \u211d q (Set.Ioi 1)) (hq_poly : GrowsPolynomially fun x => \u2016deriv q x\u2016) (i : \u03b1) : (fun n => q (r i n) - q (b i * n)) =O[atTop] fun n => (deriv q n) * (r i n - b i * n)",
+          "have_tree": [
+            {
+              "name": "hb_pos",
+              "type": "0 < b'",
+              "body": "by have := R.b_pos (min_bi b); positivity",
+              "children": []
+            },
+            {
+              "name": "hb",
+              "type": "b' \u2208 Set.Ioo 0 1",
+              "body": "\u27e8hb_pos, hb_lt_one\u27e9",
+              "children": []
+            },
+            {
+              "name": "hb_lt_one",
+              "type": "b' < 1",
+              "body": "calc b (min_bi b) / 2",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "AkraBazzi",
+      "name": "rpow_p_mul_one_sub_smoothingFn_le",
+      "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (r i n) ^ (p a b) * (1 - \u03b5 (r i n)) \u2264 (b i) ^ (p a b) * n ^ (p a b) * (1 - \u03b5 n)",
+      "have_tree": [
+        {
+          "name": "h_diff_q",
+          "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "R.b_pos i; positivity",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "R.b_pos i",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "R.b_pos i",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_sub_smoothingFn_le",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (r i n) ^ (p a b) * (1 - \u03b5 (r i n)) \u2264 (b i) ^ (p a b) * n ^ (p a b) * (1 - \u03b5 n)",
+          "have_tree": [
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          1
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_sub_smoothingFn_le",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (r i n) ^ (p a b) * (1 - \u03b5 (r i n)) \u2264 (b i) ^ (p a b) * n ^ (p a b) * (1 - \u03b5 n)",
+          "have_tree": [
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          2
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_sub_smoothingFn_le",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (r i n) ^ (p a b) * (1 - \u03b5 (r i n)) \u2264 (b i) ^ (p a b) * n ^ (p a b) * (1 - \u03b5 n)",
+          "have_tree": [
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          3
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_sub_smoothingFn_le",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (r i n) ^ (p a b) * (1 - \u03b5 (r i n)) \u2264 (b i) ^ (p a b) * n ^ (p a b) * (1 - \u03b5 n)",
+          "have_tree": [
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_sub_smoothingFn_le",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (r i n) ^ (p a b) * (1 - \u03b5 (r i n)) \u2264 (b i) ^ (p a b) * n ^ (p a b) * (1 - \u03b5 n)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "R.b_pos i; positivity",
+              "children": []
+            },
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_sub_smoothingFn_le",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (r i n) ^ (p a b) * (1 - \u03b5 (r i n)) \u2264 (b i) ^ (p a b) * n ^ (p a b) * (1 - \u03b5 n)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "R.b_pos i",
+              "children": []
+            },
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 2,
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_sub_smoothingFn_le",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (r i n) ^ (p a b) * (1 - \u03b5 (r i n)) \u2264 (b i) ^ (p a b) * n ^ (p a b) * (1 - \u03b5 n)",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 3,
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_sub_smoothingFn_le",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (r i n) ^ (p a b) * (1 - \u03b5 (r i n)) \u2264 (b i) ^ (p a b) * n ^ (p a b) * (1 - \u03b5 n)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "R.b_pos i",
+              "children": []
+            },
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0
+        ],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_sub_smoothingFn_le",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (r i n) ^ (p a b) * (1 - \u03b5 (r i n)) \u2264 (b i) ^ (p a b) * n ^ (p a b) * (1 - \u03b5 n)",
+          "have_tree": [
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0
+        ],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_sub_smoothingFn_le",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (r i n) ^ (p a b) * (1 - \u03b5 (r i n)) \u2264 (b i) ^ (p a b) * n ^ (p a b) * (1 - \u03b5 n)",
+          "have_tree": [
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0
+        ],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_sub_smoothingFn_le",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (r i n) ^ (p a b) * (1 - \u03b5 (r i n)) \u2264 (b i) ^ (p a b) * n ^ (p a b) * (1 - \u03b5 n)",
+          "have_tree": [
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "AkraBazzi",
+      "name": "rpow_p_mul_one_add_smoothingFn_ge",
+      "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (b i) ^ (p a b) * n ^ (p a b) * (1 + \u03b5 n) \u2264 (r i n) ^ (p a b) * (1 + \u03b5 (r i n))",
+      "have_tree": [
+        {
+          "name": "h_diff_q",
+          "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "R.b_pos i; positivity",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "R.b_pos i",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "R.b_pos i",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_add_smoothingFn_ge",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (b i) ^ (p a b) * n ^ (p a b) * (1 + \u03b5 n) \u2264 (r i n) ^ (p a b) * (1 + \u03b5 (r i n))",
+          "have_tree": [
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          1
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_add_smoothingFn_ge",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (b i) ^ (p a b) * n ^ (p a b) * (1 + \u03b5 n) \u2264 (r i n) ^ (p a b) * (1 + \u03b5 (r i n))",
+          "have_tree": [
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          2
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_add_smoothingFn_ge",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (b i) ^ (p a b) * n ^ (p a b) * (1 + \u03b5 n) \u2264 (r i n) ^ (p a b) * (1 + \u03b5 (r i n))",
+          "have_tree": [
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          3
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_add_smoothingFn_ge",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (b i) ^ (p a b) * n ^ (p a b) * (1 + \u03b5 n) \u2264 (r i n) ^ (p a b) * (1 + \u03b5 (r i n))",
+          "have_tree": [
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_add_smoothingFn_ge",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (b i) ^ (p a b) * n ^ (p a b) * (1 + \u03b5 n) \u2264 (r i n) ^ (p a b) * (1 + \u03b5 (r i n))",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "R.b_pos i; positivity",
+              "children": []
+            },
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_add_smoothingFn_ge",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (b i) ^ (p a b) * n ^ (p a b) * (1 + \u03b5 n) \u2264 (r i n) ^ (p a b) * (1 + \u03b5 (r i n))",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "R.b_pos i",
+              "children": []
+            },
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 2,
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_add_smoothingFn_ge",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (b i) ^ (p a b) * n ^ (p a b) * (1 + \u03b5 n) \u2264 (r i n) ^ (p a b) * (1 + \u03b5 (r i n))",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 3,
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_add_smoothingFn_ge",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (b i) ^ (p a b) * n ^ (p a b) * (1 + \u03b5 n) \u2264 (r i n) ^ (p a b) * (1 + \u03b5 (r i n))",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "R.b_pos i",
+              "children": []
+            },
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0
+        ],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_add_smoothingFn_ge",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (b i) ^ (p a b) * n ^ (p a b) * (1 + \u03b5 n) \u2264 (r i n) ^ (p a b) * (1 + \u03b5 (r i n))",
+          "have_tree": [
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0
+        ],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_add_smoothingFn_ge",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (b i) ^ (p a b) * n ^ (p a b) * (1 + \u03b5 n) \u2264 (r i n) ^ (p a b) * (1 + \u03b5 (r i n))",
+          "have_tree": [
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0
+        ],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "rpow_p_mul_one_add_smoothingFn_ge",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (b i) ^ (p a b) * n ^ (p a b) * (1 + \u03b5 n) \u2264 (r i n) ^ (p a b) * (1 + \u03b5 (r i n))",
+          "have_tree": [
+            {
+              "name": "h_diff_q",
+              "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i; positivity",
+                  "children": []
+                },
+                {
+                  "name": "h\u2081",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "R.b_pos i",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "AkraBazzi",
+      "name": "T_isBigO_smoothingFn_mul_asympBound",
+      "statement": "T =O[atTop] (fun n => (1 - \u03b5 n) * asympBound g a b n)",
+      "have_tree": [
+        {
+          "name": "hb_pos",
+          "type": "0 < b'",
+          "body": "R.bi_min_div_two_pos",
+          "children": []
+        },
+        {
+          "name": "n\u2080_le_r",
+          "type": "\u2200 i, n\u2080 \u2264 r i n",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "r_le_n",
+          "type": "\u2200 i, r i n < n",
+          "body": "by grind [AkraBazziRecurrence]",
+          "children": []
+        },
+        {
+          "name": "C_pos",
+          "type": "0 \u2264 C",
+          "body": "by grind [inv_pos]",
+          "children": []
+        },
+        {
+          "name": "g_pos",
+          "type": "0 \u2264 g n",
+          "body": "R.g_nonneg n (by positivity)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "T_isBigO_smoothingFn_mul_asympBound",
+          "statement": "T =O[atTop] (fun n => (1 - \u03b5 n) * asympBound g a b n)",
+          "have_tree": [
+            {
+              "name": "n\u2080_le_r",
+              "type": "\u2200 i, n\u2080 \u2264 r i n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb_pos",
+              "type": "0 < b'",
+              "body": "R.bi_min_div_two_pos",
+              "children": []
+            },
+            {
+              "name": "r_le_n",
+              "type": "\u2200 i, r i n < n",
+              "body": "by grind [AkraBazziRecurrence]",
+              "children": []
+            },
+            {
+              "name": "C_pos",
+              "type": "0 \u2264 C",
+              "body": "by grind [inv_pos]",
+              "children": []
+            },
+            {
+              "name": "g_pos",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "T_isBigO_smoothingFn_mul_asympBound",
+          "statement": "T =O[atTop] (fun n => (1 - \u03b5 n) * asympBound g a b n)",
+          "have_tree": [
+            {
+              "name": "hb_pos",
+              "type": "0 < b'",
+              "body": "R.bi_min_div_two_pos",
+              "children": []
+            },
+            {
+              "name": "r_le_n",
+              "type": "\u2200 i, r i n < n",
+              "body": "by grind [AkraBazziRecurrence]",
+              "children": []
+            },
+            {
+              "name": "n\u2080_le_r",
+              "type": "\u2200 i, n\u2080 \u2264 r i n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "C_pos",
+              "type": "0 \u2264 C",
+              "body": "by grind [inv_pos]",
+              "children": []
+            },
+            {
+              "name": "g_pos",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "T_isBigO_smoothingFn_mul_asympBound",
+          "statement": "T =O[atTop] (fun n => (1 - \u03b5 n) * asympBound g a b n)",
+          "have_tree": [
+            {
+              "name": "hb_pos",
+              "type": "0 < b'",
+              "body": "R.bi_min_div_two_pos",
+              "children": []
+            },
+            {
+              "name": "n\u2080_le_r",
+              "type": "\u2200 i, n\u2080 \u2264 r i n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "C_pos",
+              "type": "0 \u2264 C",
+              "body": "by grind [inv_pos]",
+              "children": []
+            },
+            {
+              "name": "r_le_n",
+              "type": "\u2200 i, r i n < n",
+              "body": "by grind [AkraBazziRecurrence]",
+              "children": []
+            },
+            {
+              "name": "g_pos",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "T_isBigO_smoothingFn_mul_asympBound",
+          "statement": "T =O[atTop] (fun n => (1 - \u03b5 n) * asympBound g a b n)",
+          "have_tree": [
+            {
+              "name": "hb_pos",
+              "type": "0 < b'",
+              "body": "R.bi_min_div_two_pos",
+              "children": []
+            },
+            {
+              "name": "n\u2080_le_r",
+              "type": "\u2200 i, n\u2080 \u2264 r i n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "r_le_n",
+              "type": "\u2200 i, r i n < n",
+              "body": "by grind [AkraBazziRecurrence]",
+              "children": []
+            },
+            {
+              "name": "g_pos",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": []
+            },
+            {
+              "name": "C_pos",
+              "type": "0 \u2264 C",
+              "body": "by grind [inv_pos]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "AkraBazzi",
+      "name": "smoothingFn_mul_asympBound_isBigO_T",
+      "statement": "(fun (n : \u2115) => (1 + \u03b5 n) * asympBound g a b n) =O[atTop] T",
+      "have_tree": [
+        {
+          "name": "hb_pos",
+          "type": "0 < b'",
+          "body": "R.bi_min_div_two_pos",
+          "children": []
+        },
+        {
+          "name": "n\u2080_le_r",
+          "type": "\u2200 i, n\u2080 \u2264 r i n",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "r_le_n",
+          "type": "\u2200 i, r i n < n",
+          "body": "by grind [AkraBazziRecurrence]",
+          "children": []
+        },
+        {
+          "name": "C_pos",
+          "type": "0 \u2264 C",
+          "body": "by grind [inv_pos]",
+          "children": []
+        },
+        {
+          "name": "g_pos",
+          "type": "0 \u2264 g n",
+          "body": "R.g_nonneg n (by positivity)",
+          "children": [
+            {
+              "name": "_",
+              "type": "1 + \u03b5 \u2191n < 2",
+              "body": "by grind",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          4,
+          0
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "smoothingFn_mul_asympBound_isBigO_T",
+          "statement": "(fun (n : \u2115) => (1 + \u03b5 n) * asympBound g a b n) =O[atTop] T",
+          "have_tree": [
+            {
+              "name": "hb_pos",
+              "type": "0 < b'",
+              "body": "R.bi_min_div_two_pos",
+              "children": []
+            },
+            {
+              "name": "n\u2080_le_r",
+              "type": "\u2200 i, n\u2080 \u2264 r i n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "r_le_n",
+              "type": "\u2200 i, r i n < n",
+              "body": "by grind [AkraBazziRecurrence]",
+              "children": []
+            },
+            {
+              "name": "C_pos",
+              "type": "0 \u2264 C",
+              "body": "by grind [inv_pos]",
+              "children": []
+            },
+            {
+              "name": "g_pos",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          4
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "AkraBazzi",
+          "name": "smoothingFn_mul_asympBound_isBigO_T",
+          "statement": "(fun (n : \u2115) => (1 + \u03b5 n) * asympBound g a b n) =O[atTop] T",
+          "have_tree": [
+            {
+              "name": "hb_pos",
+              "type": "0 < b'",
+              "body": "R.bi_min_div_two_pos",
+              "children": []
+            },
+            {
+              "name": "n\u2080_le_r",
+              "type": "\u2200 i, n\u2080 \u2264 r i n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "r_le_n",
+              "type": "\u2200 i, r i n < n",
+              "body": "by grind [AkraBazziRecurrence]",
+              "children": []
+            },
+            {
+              "name": "C_pos",
+              "type": "0 \u2264 C",
+              "body": "by grind [inv_pos]",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "1 + \u03b5 \u2191n < 2",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "g_pos",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "smoothingFn_mul_asympBound_isBigO_T",
+          "statement": "(fun (n : \u2115) => (1 + \u03b5 n) * asympBound g a b n) =O[atTop] T",
+          "have_tree": [
+            {
+              "name": "n\u2080_le_r",
+              "type": "\u2200 i, n\u2080 \u2264 r i n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb_pos",
+              "type": "0 < b'",
+              "body": "R.bi_min_div_two_pos",
+              "children": []
+            },
+            {
+              "name": "r_le_n",
+              "type": "\u2200 i, r i n < n",
+              "body": "by grind [AkraBazziRecurrence]",
+              "children": []
+            },
+            {
+              "name": "C_pos",
+              "type": "0 \u2264 C",
+              "body": "by grind [inv_pos]",
+              "children": []
+            },
+            {
+              "name": "g_pos",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "1 + \u03b5 \u2191n < 2",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "smoothingFn_mul_asympBound_isBigO_T",
+          "statement": "(fun (n : \u2115) => (1 + \u03b5 n) * asympBound g a b n) =O[atTop] T",
+          "have_tree": [
+            {
+              "name": "hb_pos",
+              "type": "0 < b'",
+              "body": "R.bi_min_div_two_pos",
+              "children": []
+            },
+            {
+              "name": "r_le_n",
+              "type": "\u2200 i, r i n < n",
+              "body": "by grind [AkraBazziRecurrence]",
+              "children": []
+            },
+            {
+              "name": "n\u2080_le_r",
+              "type": "\u2200 i, n\u2080 \u2264 r i n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "C_pos",
+              "type": "0 \u2264 C",
+              "body": "by grind [inv_pos]",
+              "children": []
+            },
+            {
+              "name": "g_pos",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "1 + \u03b5 \u2191n < 2",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "smoothingFn_mul_asympBound_isBigO_T",
+          "statement": "(fun (n : \u2115) => (1 + \u03b5 n) * asympBound g a b n) =O[atTop] T",
+          "have_tree": [
+            {
+              "name": "hb_pos",
+              "type": "0 < b'",
+              "body": "R.bi_min_div_two_pos",
+              "children": []
+            },
+            {
+              "name": "n\u2080_le_r",
+              "type": "\u2200 i, n\u2080 \u2264 r i n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "C_pos",
+              "type": "0 \u2264 C",
+              "body": "by grind [inv_pos]",
+              "children": []
+            },
+            {
+              "name": "r_le_n",
+              "type": "\u2200 i, r i n < n",
+              "body": "by grind [AkraBazziRecurrence]",
+              "children": []
+            },
+            {
+              "name": "g_pos",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "1 + \u03b5 \u2191n < 2",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "AkraBazzi",
+          "name": "smoothingFn_mul_asympBound_isBigO_T",
+          "statement": "(fun (n : \u2115) => (1 + \u03b5 n) * asympBound g a b n) =O[atTop] T",
+          "have_tree": [
+            {
+              "name": "hb_pos",
+              "type": "0 < b'",
+              "body": "R.bi_min_div_two_pos",
+              "children": []
+            },
+            {
+              "name": "n\u2080_le_r",
+              "type": "\u2200 i, n\u2080 \u2264 r i n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "r_le_n",
+              "type": "\u2200 i, r i n < n",
+              "body": "by grind [AkraBazziRecurrence]",
+              "children": []
+            },
+            {
+              "name": "g_pos",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "1 + \u03b5 \u2191n < 2",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "C_pos",
+              "type": "0 \u2264 C",
+              "body": "by grind [inv_pos]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

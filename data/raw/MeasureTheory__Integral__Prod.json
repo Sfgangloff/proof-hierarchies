@@ -1,0 +1,99 @@
+[
+  {
+    "module": "Prod",
+    "name": "MeasureTheory.StronglyMeasurable.integral_prod_right",
+    "statement": "\u03b1 \u2192 \u03b2 \u2192 E\u2984 (hf : StronglyMeasurable (uncurry f)) : StronglyMeasurable fun x => \u222b y, f x y \u2202\u03bd",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "\u2200 n, StronglyMeasurable (f' n)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Prod",
+    "name": "MeasureTheory.AEStronglyMeasurable.of_comp_snd",
+    "statement": "\u03b2 \u2192 X} [SFinite \u03bd] (hf : AEStronglyMeasurable (f \u00b7.2) (\u03bc.prod \u03bd)) (h\u03bc : \u03bc \u2260 0) : AEStronglyMeasurable f \u03bd",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "NeZero.mk h\u03bc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Prod",
+    "name": "Integrable.of_comp_snd",
+    "statement": "\u03b2 \u2192 E} (hf : Integrable (f \u00b7.2) (\u03bc.prod \u03bd)) (h\u03bc : \u03bc \u2260 0) : Integrable f \u03bd",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf_meas.enorm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Prod",
+    "name": "integral_prod_smul",
+    "statement": "Type*} [RCLike \ud835\udd5c] [NormedSpace \ud835\udd5c E] (f : \u03b1 \u2192 \ud835\udd5c) (g : \u03b2 \u2192 E) : \u222b z, f z.1 \u2022 g z.2 \u2202\u03bc.prod \u03bd = (\u222b x, f x \u2202\u03bc) \u2022 \u222b y, g y \u2202\u03bd",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "\u00acIntegrable f \u03bc \u2228 \u00acIntegrable g \u03bd",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Prod",
+    "name": "integral_integral_swap_of_hasCompactSupport",
+    "statement": "X \u2192 Y \u2192 E} (hf : Continuous f.uncurry) (h'f : HasCompactSupport f.uncurry) {\u03bc : Measure X} {\u03bd : Measure Y} [IsFiniteMeasureOnCompacts \u03bc] [IsFiniteMeasureOnCompacts \u03bd] : \u222b x, (\u222b y, f x y \u2202\u03bd) \u2202\u03bc = \u222b y, (\u222b x, f x y \u2202\u03bc) \u2202\u03bd",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (\u03bc U < \u221e)",
+        "body": "\u27e8(IsCompact.image h'f continuous_fst).measure_lt_top\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fact (\u03bd V < \u221e)",
+        "body": "\u27e8(IsCompact.image h'f continuous_snd).measure_lt_top\u27e9",
+        "children": [
+          {
+            "name": "_",
+            "type": "(x, y) \u2208 Function.support f.uncurry",
+            "body": "hy",
+            "children": [
+              {
+                "name": "_",
+                "type": "(x, y) \u2208 Function.support f.uncurry",
+                "body": "hx",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "(x, y) \u2208 Function.support f.uncurry",
+                "body": "hy",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "(x, y) \u2208 Function.support f.uncurry",
+            "body": "hx",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

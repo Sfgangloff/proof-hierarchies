@@ -1,0 +1,357 @@
+[
+  {
+    "original": {
+      "module": "FieldDivision",
+      "name": "derivative_rootMultiplicity_of_root_of_mem_nonZeroDivisors",
+      "statement": "R[X]} {t : R} (hpt : Polynomial.IsRoot p t) (hnzd : (p.rootMultiplicity t : R) \u2208 nonZeroDivisors R) : (derivative p).rootMultiplicity t = p.rootMultiplicity t - 1",
+      "have_tree": [
+        {
+          "name": "hndvd",
+          "type": "\u00ac(X - C t) ^ m \u2223 derivative p",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hnezero",
+          "type": "derivative p \u2260 0",
+          "body": "fun h \u21a6 hndvd (by rw [h]; exact dvd_zero _)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "FieldDivision",
+          "name": "derivative_rootMultiplicity_of_root_of_mem_nonZeroDivisors",
+          "statement": "R[X]} {t : R} (hpt : Polynomial.IsRoot p t) (hnzd : (p.rootMultiplicity t : R) \u2208 nonZeroDivisors R) : (derivative p).rootMultiplicity t = p.rootMultiplicity t - 1",
+          "have_tree": [
+            {
+              "name": "hnezero",
+              "type": "derivative p \u2260 0",
+              "body": "fun h \u21a6 hndvd (by rw [h]; exact dvd_zero _)",
+              "children": []
+            },
+            {
+              "name": "hndvd",
+              "type": "\u00ac(X - C t) ^ m \u2223 derivative p",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "FieldDivision",
+      "name": "isRoot_of_isRoot_of_dvd_derivative_mul",
+      "statement": "R[X]} (hf0 : f \u2260 0) (hfd : f \u2223 f.derivative * g) {a : R} (haf : f.IsRoot a) : g.IsRoot a",
+      "have_tree": [
+        {
+          "name": "hdf0",
+          "type": "derivative f \u2260 0",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hdfg0",
+          "type": "f.derivative * g \u2260 0",
+          "body": "mul_ne_zero hdf0 (by rintro rfl; simp at hg)",
+          "children": []
+        },
+        {
+          "name": "hr'",
+          "type": "",
+          "body": "congr_arg (rootMultiplicity a) hr",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "IsDomain R",
+          "body": "{}",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "FieldDivision",
+          "name": "isRoot_of_isRoot_of_dvd_derivative_mul",
+          "statement": "R[X]} (hf0 : f \u2260 0) (hfd : f \u2223 f.derivative * g) {a : R} (haf : f.IsRoot a) : g.IsRoot a",
+          "have_tree": [
+            {
+              "name": "hdfg0",
+              "type": "f.derivative * g \u2260 0",
+              "body": "mul_ne_zero hdf0 (by rintro rfl; simp at hg)",
+              "children": []
+            },
+            {
+              "name": "hdf0",
+              "type": "derivative f \u2260 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr'",
+              "type": "",
+              "body": "congr_arg (rootMultiplicity a) hr",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsDomain R",
+              "body": "{}",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "FieldDivision",
+          "name": "isRoot_of_isRoot_of_dvd_derivative_mul",
+          "statement": "R[X]} (hf0 : f \u2260 0) (hfd : f \u2223 f.derivative * g) {a : R} (haf : f.IsRoot a) : g.IsRoot a",
+          "have_tree": [
+            {
+              "name": "hdf0",
+              "type": "derivative f \u2260 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr'",
+              "type": "",
+              "body": "congr_arg (rootMultiplicity a) hr",
+              "children": []
+            },
+            {
+              "name": "hdfg0",
+              "type": "f.derivative * g \u2260 0",
+              "body": "mul_ne_zero hdf0 (by rintro rfl; simp at hg)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsDomain R",
+              "body": "{}",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "FieldDivision",
+          "name": "isRoot_of_isRoot_of_dvd_derivative_mul",
+          "statement": "R[X]} (hf0 : f \u2260 0) (hfd : f \u2223 f.derivative * g) {a : R} (haf : f.IsRoot a) : g.IsRoot a",
+          "have_tree": [
+            {
+              "name": "hdf0",
+              "type": "derivative f \u2260 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hdfg0",
+              "type": "f.derivative * g \u2260 0",
+              "body": "mul_ne_zero hdf0 (by rintro rfl; simp at hg)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsDomain R",
+              "body": "{}",
+              "children": []
+            },
+            {
+              "name": "hr'",
+              "type": "",
+              "body": "congr_arg (rootMultiplicity a) hr",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "FieldDivision",
+      "name": "isUnit_iff_degree_eq_zero",
+      "statement": "IsUnit p \u2194 degree p = 0",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "degree p \u2264 0",
+          "body": "by simp [*]",
+          "children": []
+        },
+        {
+          "name": "hc",
+          "type": "coeff p 0 \u2260 0",
+          "body": "fun hc => by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "FieldDivision",
+          "name": "isUnit_iff_degree_eq_zero",
+          "statement": "IsUnit p \u2194 degree p = 0",
+          "have_tree": [
+            {
+              "name": "hc",
+              "type": "coeff p 0 \u2260 0",
+              "body": "fun hc => by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "degree p \u2264 0",
+              "body": "by simp [*]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "FieldDivision",
+      "name": "div_eq_zero_iff",
+      "statement": "q \u2260 0) : p / q = 0 \u2194 degree p < degree q",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "EuclideanDomain.div_add_mod p q",
+          "children": []
+        },
+        {
+          "name": "hlt",
+          "type": "degree p < degree (q * C (leadingCoeff q)\u207b\u00b9)",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hm",
+          "type": "Monic (q * C (leadingCoeff q)\u207b\u00b9)",
+          "body": "monic_mul_leadingCoeff_inv hq0",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "FieldDivision",
+          "name": "div_eq_zero_iff",
+          "statement": "q \u2260 0) : p / q = 0 \u2194 degree p < degree q",
+          "have_tree": [
+            {
+              "name": "hlt",
+              "type": "degree p < degree (q * C (leadingCoeff q)\u207b\u00b9)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "EuclideanDomain.div_add_mod p q",
+              "children": []
+            },
+            {
+              "name": "hm",
+              "type": "Monic (q * C (leadingCoeff q)\u207b\u00b9)",
+              "body": "monic_mul_leadingCoeff_inv hq0",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "FieldDivision",
+          "name": "div_eq_zero_iff",
+          "statement": "q \u2260 0) : p / q = 0 \u2194 degree p < degree q",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "EuclideanDomain.div_add_mod p q",
+              "children": []
+            },
+            {
+              "name": "hm",
+              "type": "Monic (q * C (leadingCoeff q)\u207b\u00b9)",
+              "body": "monic_mul_leadingCoeff_inv hq0",
+              "children": []
+            },
+            {
+              "name": "hlt",
+              "type": "degree p < degree (q * C (leadingCoeff q)\u207b\u00b9)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

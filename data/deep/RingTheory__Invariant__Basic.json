@@ -1,0 +1,52 @@
+[
+  {
+    "module": "Basic",
+    "name": "fixed_of_fixed1_aux1",
+    "statement": "\u2203 a b : B, (\u2200 g : G, g \u2022 a = a) \u2227 a \u2209 Q \u2227 \u2200 g : G, algebraMap B (B \u29f8 Q) (g \u2022 b) = algebraMap B (B \u29f8 Q) (if g \u2022 Q = Q then a else 0)",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "\u00ac P \u2264 Q",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hr",
+        "type": "r.map (algebraMap B (B \u29f8 Q)) = q",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "f.eval b = 0",
+        "body": "MulSemiringAction.eval_charpoly G b",
+        "children": []
+      },
+      {
+        "name": "hr",
+        "type": "r.eval b \u2208 Q",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "ha",
+        "type": "\u2200 g : G, g \u2022 a = a",
+        "body": "MulSemiringAction.smul_coeff_charpoly b j",
+        "children": []
+      },
+      {
+        "name": "hr'",
+        "type": "\u2200 g : G, g \u2022 Q \u2260 Q \u2192 a - r.eval b \u2208 g \u2022 Q",
+        "body": "by",
+        "children": [
+          {
+            "name": "hr",
+            "type": "r = \u2211 i \u2208 Finset.range (k + 1), Polynomial.monomial i (f.coeff (i + j))",
+            "body": "rfl",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

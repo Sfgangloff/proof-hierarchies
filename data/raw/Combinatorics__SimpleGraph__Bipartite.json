@@ -1,0 +1,118 @@
+[
+  {
+    "module": "Bipartite",
+    "name": "IsBipartiteWith.mem_of_mem_adj",
+    "statement": "G.IsBipartiteWith s t) (hv : v \u2208 s) (hadj : G.Adj v w) : w \u2208 t",
+    "have_tree": [
+      {
+        "name": "nhv",
+        "type": "v \u2209 t",
+        "body": "Set.disjoint_left.mp h.disjoint hv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bipartite",
+    "name": "IsBipartiteWith.mem_of_mem_adj'",
+    "statement": "G.IsBipartiteWith s t) (hw : w \u2208 t) (hadj : G.Adj v w) : v \u2208 s",
+    "have_tree": [
+      {
+        "name": "nhw",
+        "type": "w \u2209 s",
+        "body": "Set.disjoint_right.mp h.disjoint hw",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bipartite",
+    "name": "isBipartiteWith_sum_degrees_eq_twice_card_edges",
+    "statement": "G.IsBipartiteWith s t) : \u2211 v \u2208 s \u222a t, G.degree v = 2 * #G.edgeFinset",
+    "have_tree": [
+      {
+        "name": "hsub",
+        "type": "G.support \u2286 \u2191s \u222a \u2191t",
+        "body": "isBipartiteWith_support_subset h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bipartite",
+    "name": "Copy.completeBipartiteGraph",
+    "statement": "Finset V) (card_left : #left = card \u03b1) (card_right : #right = card \u03b2) (h : G.IsCompleteBetween left right) : Copy (completeBipartiteGraph \u03b1 \u03b2) G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty (\u03b1 \u21aa left)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nonempty (\u03b2 \u21aa right)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bipartite",
+    "name": "degree_le_between_add",
+    "statement": "v \u2208 s) : G.degree v \u2264 (G.between s s\u1d9c).degree v + s.card",
+    "have_tree": [
+      {
+        "name": "h_bipartite",
+        "type": "(G.between s s\u1d9c).IsBipartiteWith s \u2191(s\u1d9c)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bipartite",
+    "name": "degree_le_between_add_compl",
+    "statement": "w \u2208 s\u1d9c) : G.degree w \u2264 (G.between s s\u1d9c).degree w + s\u1d9c.card",
+    "have_tree": [
+      {
+        "name": "h_bipartite",
+        "type": "(G.between s s\u1d9c).IsBipartiteWith s \u2191(s\u1d9c)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bipartite",
+    "name": "IsBipartite.four_mul_encard_edgeSet_le",
+    "statement": "G.IsBipartite) : 4 * G.edgeSet.encard \u2264 ENat.card V ^ 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Set.encard_union_eq h.disjoint \u25b8 Set.encard_le_card",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bipartite",
+    "name": "completeBipartiteGraph_isContained_bipartiteDoubleCover",
+    "statement": "Type*} [Finite \u03b1] [Finite \u03b2] [Nonempty \u03b1] [Nonempty \u03b2] : completeBipartiteGraph \u03b1 \u03b2 \u2291 G.bipartiteDoubleCover \u2194 completeBipartiteGraph \u03b1 \u03b2 \u2291 G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype \u03b1",
+        "body": ".ofFinite \u03b1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fintype \u03b2",
+        "body": ".ofFinite \u03b2",
+        "children": []
+      }
+    ]
+  }
+]

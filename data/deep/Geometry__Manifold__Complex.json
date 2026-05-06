@@ -1,0 +1,46 @@
+[
+  {
+    "module": "Complex",
+    "name": "Complex.norm_eventually_eq_of_mdifferentiableAt_of_isLocalMax",
+    "statement": "M \u2192 F} {c : M} (hd : \u2200\u1da0 z in \ud835\udcdd c, MDifferentiableAt I \ud835\udcd8(\u2102, F) f z) (hc : IsLocalMax (norm \u2218 f) c) : \u2200\u1da0 y in \ud835\udcdd c, \u2016f y\u2016 = \u2016f c\u2016",
+    "have_tree": [
+      {
+        "name": "hI",
+        "type": "range I = univ",
+        "body": "ModelWithCorners.Boundaryless.range_eq_univ",
+        "children": []
+      },
+      {
+        "name": "H\u2081",
+        "type": "\ud835\udcdd[range I] (e c) = \ud835\udcdd (e c)",
+        "body": "by rw [hI, nhdsWithin_univ]",
+        "children": []
+      },
+      {
+        "name": "H\u2082",
+        "type": "map e.symm (\ud835\udcdd (e c)) = \ud835\udcdd c",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "e.target \u2208 \ud835\udcdd (e c)",
+            "body": "H\u2081 \u25b8 extChartAt_target_mem_nhdsWithin c",
+            "children": []
+          },
+          {
+            "name": "hys",
+            "type": "e.symm y \u2208 (chartAt H c).source",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hfy",
+            "type": "f (e.symm y) \u2208 (chartAt F (0 : F)).source",
+            "body": "mem_univ _",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,694 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "adjoin_minpoly_coeff_of_exists_primitive_element",
+      "statement": "adjoin F {\u03b1} = \u22a4) (K : IntermediateField F E) : adjoin F ((minpoly K \u03b1).map (algebraMap K E)).coeffs = K",
+      "have_tree": [
+        {
+          "name": "hsub",
+          "type": "K' \u2264 K",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "dvd_g",
+          "type": "minpoly K' \u03b1 \u2223 g.toSubring K'.toSubring (subset_adjoin F _)",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "adjoin.finrank (.of_finite K \u03b1)",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "adjoin_minpoly_coeff_of_exists_primitive_element",
+          "statement": "adjoin F {\u03b1} = \u22a4) (K : IntermediateField F E) : adjoin F ((minpoly K \u03b1).map (algebraMap K E)).coeffs = K",
+          "have_tree": [
+            {
+              "name": "hsub",
+              "type": "K' \u2264 K",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "dvd_g",
+              "type": "minpoly K' \u03b1 \u2223 g.toSubring K'.toSubring (subset_adjoin F _)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Basic",
+          "name": "adjoin_minpoly_coeff_of_exists_primitive_element",
+          "statement": "adjoin F {\u03b1} = \u22a4) (K : IntermediateField F E) : adjoin F ((minpoly K \u03b1).map (algebraMap K E)).coeffs = K",
+          "have_tree": [
+            {
+              "name": "hsub",
+              "type": "K' \u2264 K",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "adjoin.finrank (.of_finite K \u03b1)",
+              "children": []
+            },
+            {
+              "name": "dvd_g",
+              "type": "minpoly K' \u03b1 \u2223 g.toSubring K'.toSubring (subset_adjoin F _)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "adjoin_minpoly_coeff_of_exists_primitive_element",
+          "statement": "adjoin F {\u03b1} = \u22a4) (K : IntermediateField F E) : adjoin F ((minpoly K \u03b1).map (algebraMap K E)).coeffs = K",
+          "have_tree": [
+            {
+              "name": "dvd_g",
+              "type": "minpoly K' \u03b1 \u2223 g.toSubring K'.toSubring (subset_adjoin F _)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "adjoin.finrank (.of_finite K \u03b1)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsub",
+              "type": "K' \u2264 K",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "_root_.Polynomial.Irreducible.natDegree_dvd_finrank",
+      "statement": "K[X]} (hi : Irreducible f) (hs : (f.map (algebraMap K L)).Splits) : f.natDegree \u2223 finrank K L",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "hi.degree_pos.ne'",
+          "children": []
+        },
+        {
+          "name": "key",
+          "type": "",
+          "body": "minpoly.Irreducible.eq_minpoly hi hx",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "_root_.Polynomial.Irreducible.natDegree_dvd_finrank",
+          "statement": "K[X]} (hi : Irreducible f) (hs : (f.map (algebraMap K L)).Splits) : f.natDegree \u2223 finrank K L",
+          "have_tree": [
+            {
+              "name": "key",
+              "type": "",
+              "body": "minpoly.Irreducible.eq_minpoly hi hx",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hi.degree_pos.ne'",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "_root_.Polynomial.irreducible_comp",
+      "statement": "K[X]} (hfm : f.Monic) (hgm : g.Monic) (hf : Irreducible f) (hg : \u2200 (E : Type u) [Field E] [Algebra K E] (x : E) (_ : minpoly K x = f), Irreducible (g.map (algebraMap _ _) - C (AdjoinSimple.gen K x))) : Irreducible (f.comp g)",
+      "have_tree": [
+        {
+          "name": "hf'",
+          "type": "natDegree f \u2260 0",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "hg'",
+          "type": "natDegree g \u2260 0",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Fact.mk hf",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "H\u2081",
+          "type": "f.comp g \u2260 0",
+          "body": "fun h \u21a6 by simpa [hf', hg', natDegree_comp] using congr_arg natDegree h",
+          "children": []
+        },
+        {
+          "name": "H\u2082",
+          "type": "\u00ac IsUnit (f.comp g)",
+          "body": "fun h \u21a6",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "Fact.mk hp\u2081",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "Module.finrank_mul_finrank K K\u27eeaeval (root p) g\u27ef Kx",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "_root_.Polynomial.irreducible_comp",
+          "statement": "K[X]} (hfm : f.Monic) (hgm : g.Monic) (hf : Irreducible f) (hg : \u2200 (E : Type u) [Field E] [Algebra K E] (x : E) (_ : minpoly K x = f), Irreducible (g.map (algebraMap _ _) - C (AdjoinSimple.gen K x))) : Irreducible (f.comp g)",
+          "have_tree": [
+            {
+              "name": "hf'",
+              "type": "natDegree f \u2260 0",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hg'",
+              "type": "natDegree g \u2260 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "H\u2081",
+              "type": "f.comp g \u2260 0",
+              "body": "fun h \u21a6 by simpa [hf', hg', natDegree_comp] using congr_arg natDegree h",
+              "children": []
+            },
+            {
+              "name": "H\u2082",
+              "type": "\u00ac IsUnit (f.comp g)",
+              "body": "fun h \u21a6",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Fact.mk hp\u2081",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Module.finrank_mul_finrank K K\u27eeaeval (root p) g\u27ef Kx",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Basic",
+          "name": "_root_.Polynomial.irreducible_comp",
+          "statement": "K[X]} (hfm : f.Monic) (hgm : g.Monic) (hf : Irreducible f) (hg : \u2200 (E : Type u) [Field E] [Algebra K E] (x : E) (_ : minpoly K x = f), Irreducible (g.map (algebraMap _ _) - C (AdjoinSimple.gen K x))) : Irreducible (f.comp g)",
+          "have_tree": [
+            {
+              "name": "hf'",
+              "type": "natDegree f \u2260 0",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Fact.mk hf",
+              "children": []
+            },
+            {
+              "name": "hg'",
+              "type": "natDegree g \u2260 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "H\u2081",
+              "type": "f.comp g \u2260 0",
+              "body": "fun h \u21a6 by simpa [hf', hg', natDegree_comp] using congr_arg natDegree h",
+              "children": []
+            },
+            {
+              "name": "H\u2082",
+              "type": "\u00ac IsUnit (f.comp g)",
+              "body": "fun h \u21a6",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Fact.mk hp\u2081",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Module.finrank_mul_finrank K K\u27eeaeval (root p) g\u27ef Kx",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "_root_.Polynomial.irreducible_comp",
+          "statement": "K[X]} (hfm : f.Monic) (hgm : g.Monic) (hf : Irreducible f) (hg : \u2200 (E : Type u) [Field E] [Algebra K E] (x : E) (_ : minpoly K x = f), Irreducible (g.map (algebraMap _ _) - C (AdjoinSimple.gen K x))) : Irreducible (f.comp g)",
+          "have_tree": [
+            {
+              "name": "hg'",
+              "type": "natDegree g \u2260 0",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "Fact.mk hf",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hf'",
+              "type": "natDegree f \u2260 0",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "H\u2081",
+              "type": "f.comp g \u2260 0",
+              "body": "fun h \u21a6 by simpa [hf', hg', natDegree_comp] using congr_arg natDegree h",
+              "children": []
+            },
+            {
+              "name": "H\u2082",
+              "type": "\u00ac IsUnit (f.comp g)",
+              "body": "fun h \u21a6",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Fact.mk hp\u2081",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Module.finrank_mul_finrank K K\u27eeaeval (root p) g\u27ef Kx",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "_root_.Polynomial.irreducible_comp",
+          "statement": "K[X]} (hfm : f.Monic) (hgm : g.Monic) (hf : Irreducible f) (hg : \u2200 (E : Type u) [Field E] [Algebra K E] (x : E) (_ : minpoly K x = f), Irreducible (g.map (algebraMap _ _) - C (AdjoinSimple.gen K x))) : Irreducible (f.comp g)",
+          "have_tree": [
+            {
+              "name": "hf'",
+              "type": "natDegree f \u2260 0",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "H\u2081",
+              "type": "f.comp g \u2260 0",
+              "body": "fun h \u21a6 by simpa [hf', hg', natDegree_comp] using congr_arg natDegree h",
+              "children": []
+            },
+            {
+              "name": "hg'",
+              "type": "natDegree g \u2260 0",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "Fact.mk hf",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "H\u2082",
+              "type": "\u00ac IsUnit (f.comp g)",
+              "body": "fun h \u21a6",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Fact.mk hp\u2081",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Module.finrank_mul_finrank K K\u27eeaeval (root p) g\u27ef Kx",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "_root_.Polynomial.irreducible_comp",
+          "statement": "K[X]} (hfm : f.Monic) (hgm : g.Monic) (hf : Irreducible f) (hg : \u2200 (E : Type u) [Field E] [Algebra K E] (x : E) (_ : minpoly K x = f), Irreducible (g.map (algebraMap _ _) - C (AdjoinSimple.gen K x))) : Irreducible (f.comp g)",
+          "have_tree": [
+            {
+              "name": "hf'",
+              "type": "natDegree f \u2260 0",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hg'",
+              "type": "natDegree g \u2260 0",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "Fact.mk hf",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "H\u2082",
+              "type": "\u00ac IsUnit (f.comp g)",
+              "body": "fun h \u21a6",
+              "children": []
+            },
+            {
+              "name": "H\u2081",
+              "type": "f.comp g \u2260 0",
+              "body": "fun h \u21a6 by simpa [hf', hg', natDegree_comp] using congr_arg natDegree h",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Fact.mk hp\u2081",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Module.finrank_mul_finrank K K\u27eeaeval (root p) g\u27ef Kx",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "_root_.Polynomial.irreducible_comp",
+          "statement": "K[X]} (hfm : f.Monic) (hgm : g.Monic) (hf : Irreducible f) (hg : \u2200 (E : Type u) [Field E] [Algebra K E] (x : E) (_ : minpoly K x = f), Irreducible (g.map (algebraMap _ _) - C (AdjoinSimple.gen K x))) : Irreducible (f.comp g)",
+          "have_tree": [
+            {
+              "name": "hf'",
+              "type": "natDegree f \u2260 0",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hg'",
+              "type": "natDegree g \u2260 0",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "Fact.mk hf",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "H\u2081",
+              "type": "f.comp g \u2260 0",
+              "body": "fun h \u21a6 by simpa [hf', hg', natDegree_comp] using congr_arg natDegree h",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Fact.mk hp\u2081",
+              "children": []
+            },
+            {
+              "name": "H\u2082",
+              "type": "\u00ac IsUnit (f.comp g)",
+              "body": "fun h \u21a6",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Module.finrank_mul_finrank K K\u27eeaeval (root p) g\u27ef Kx",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "_root_.Polynomial.irreducible_comp",
+          "statement": "K[X]} (hfm : f.Monic) (hgm : g.Monic) (hf : Irreducible f) (hg : \u2200 (E : Type u) [Field E] [Algebra K E] (x : E) (_ : minpoly K x = f), Irreducible (g.map (algebraMap _ _) - C (AdjoinSimple.gen K x))) : Irreducible (f.comp g)",
+          "have_tree": [
+            {
+              "name": "hf'",
+              "type": "natDegree f \u2260 0",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hg'",
+              "type": "natDegree g \u2260 0",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "Fact.mk hf",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "H\u2081",
+              "type": "f.comp g \u2260 0",
+              "body": "fun h \u21a6 by simpa [hf', hg', natDegree_comp] using congr_arg natDegree h",
+              "children": []
+            },
+            {
+              "name": "H\u2082",
+              "type": "\u00ac IsUnit (f.comp g)",
+              "body": "fun h \u21a6",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Module.finrank_mul_finrank K K\u27eeaeval (root p) g\u27ef Kx",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Fact.mk hp\u2081",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "finiteDimensional_adjoin_pair",
+      "statement": "IsIntegral K x) (hy : IsIntegral K y) : FiniteDimensional K K\u27eex, y\u27ef",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "adjoin.finiteDimensional hx",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "adjoin.finiteDimensional hy",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "finiteDimensional_adjoin_pair",
+          "statement": "IsIntegral K x) (hy : IsIntegral K y) : FiniteDimensional K K\u27eex, y\u27ef",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "adjoin.finiteDimensional hy",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "adjoin.finiteDimensional hx",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

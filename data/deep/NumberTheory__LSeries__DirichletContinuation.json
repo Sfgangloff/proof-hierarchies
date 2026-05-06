@@ -1,0 +1,48 @@
+[
+  {
+    "module": "DirichletContinuation",
+    "name": "LFunction_changeLevel_aux",
+    "statement": "\u2115} [NeZero M] [NeZero N] (hMN : M \u2223 N) (\u03c7 : DirichletCharacter \u2102 M) {s : \u2102} (hs : s \u2260 1) : LFunction (changeLevel hMN \u03c7) s = LFunction \u03c7 s * \u220f p \u2208 N.primeFactors, (1 - \u03c7 p * p ^ (-s))",
+    "have_tree": [
+      {
+        "name": "hpc",
+        "type": "IsPreconnected ({1}\u1d9c : Set \u2102)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hne",
+        "type": "2 \u2208 ({1}\u1d9c : Set \u2102)",
+        "body": "by simp",
+        "children": [
+          {
+            "name": "_",
+            "type": "NeZero i",
+            "body": "\u27e8(Nat.pos_of_mem_primeFactors h).ne'\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "DirichletContinuation",
+    "name": "LFunction_changeLevel",
+    "statement": "\u2115} [NeZero M] [NeZero N] (hMN : M \u2223 N) (\u03c7 : DirichletCharacter \u2102 M) {s : \u2102} (h : \u03c7 \u2260 1 \u2228 s \u2260 1) : LFunction (changeLevel hMN \u03c7) s = LFunction \u03c7 s * \u220f p \u2208 N.primeFactors, (1 - \u03c7 p * p ^ (-s))",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "Continuous fun s \u21a6 LFunction \u03c7 s * \u220f p \u2208 N.primeFactors, (1 - \u03c7 p * \u2191p ^ (-s))",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "NeZero p",
+            "body": "\u27e8(Nat.prime_of_mem_primeFactors hp).ne_zero\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

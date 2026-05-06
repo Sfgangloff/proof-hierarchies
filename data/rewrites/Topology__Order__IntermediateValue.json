@@ -1,0 +1,1491 @@
+[
+  {
+    "original": {
+      "module": "IntermediateValue",
+      "name": "IsClosed.mem_of_ge_of_forall_exists_gt",
+      "statement": "\u03b1} {s : Set \u03b1} (hs : IsClosed (s \u2229 Icc a b)) (ha : a \u2208 s) (hab : a \u2264 b) (hgt : \u2200 x \u2208 s \u2229 Ico a b, (s \u2229 Ioc x b).Nonempty) : b \u2208 s",
+      "have_tree": [
+        {
+          "name": "Sbd",
+          "type": "BddAbove S",
+          "body": "\u27e8b, fun z hz => hz.2.2\u27e9",
+          "children": []
+        },
+        {
+          "name": "c_mem",
+          "type": "c \u2208 S",
+          "body": "hs.csSup_mem \u27e8_, ha\u27e9 Sbd",
+          "children": []
+        },
+        {
+          "name": "c_le",
+          "type": "c \u2264 b",
+          "body": "csSup_le \u27e8_, ha\u27e9 fun x hx => hx.2.2",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "IsClosed.mem_of_ge_of_forall_exists_gt",
+          "statement": "\u03b1} {s : Set \u03b1} (hs : IsClosed (s \u2229 Icc a b)) (ha : a \u2208 s) (hab : a \u2264 b) (hgt : \u2200 x \u2208 s \u2229 Ico a b, (s \u2229 Ioc x b).Nonempty) : b \u2208 s",
+          "have_tree": [
+            {
+              "name": "c_mem",
+              "type": "c \u2208 S",
+              "body": "hs.csSup_mem \u27e8_, ha\u27e9 Sbd",
+              "children": []
+            },
+            {
+              "name": "Sbd",
+              "type": "BddAbove S",
+              "body": "\u27e8b, fun z hz => hz.2.2\u27e9",
+              "children": []
+            },
+            {
+              "name": "c_le",
+              "type": "c \u2264 b",
+              "body": "csSup_le \u27e8_, ha\u27e9 fun x hx => hx.2.2",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "IsClosed.mem_of_ge_of_forall_exists_gt",
+          "statement": "\u03b1} {s : Set \u03b1} (hs : IsClosed (s \u2229 Icc a b)) (ha : a \u2208 s) (hab : a \u2264 b) (hgt : \u2200 x \u2208 s \u2229 Ico a b, (s \u2229 Ioc x b).Nonempty) : b \u2208 s",
+          "have_tree": [
+            {
+              "name": "Sbd",
+              "type": "BddAbove S",
+              "body": "\u27e8b, fun z hz => hz.2.2\u27e9",
+              "children": []
+            },
+            {
+              "name": "c_le",
+              "type": "c \u2264 b",
+              "body": "csSup_le \u27e8_, ha\u27e9 fun x hx => hx.2.2",
+              "children": []
+            },
+            {
+              "name": "c_mem",
+              "type": "c \u2208 S",
+              "body": "hs.csSup_mem \u27e8_, ha\u27e9 Sbd",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "IntermediateValue",
+      "name": "IsClosed.Icc_subset_of_forall_mem_nhdsGT_of_Icc_subset",
+      "statement": "\u03b1} {s : Set \u03b1} (hs : IsClosed (s \u2229 Icc a b)) (ha : a \u2208 s) (h : \u2200 t \u2208 Ico a b, Icc a t \u2286 s \u2192 s \u2208 \ud835\udcdd[>] t) : Icc a b \u2286 s",
+      "have_tree": [
+        {
+          "name": "a_mem",
+          "type": "a \u2208 A",
+          "body": "\u27e8left_mem_Icc.mpr hab, by simp [ha]\u27e9",
+          "children": []
+        },
+        {
+          "name": "bdd_A",
+          "type": "BddAbove A",
+          "body": "\u27e8b, fun t ht \u21a6 ht.1.2\u27e9",
+          "children": []
+        },
+        {
+          "name": "t\u2081_mem",
+          "type": "t\u2081 \u2208 Icc a b",
+          "body": "\u27e8le_csSup bdd_A a_mem, csSup_le \u27e8a, a_mem\u27e9 (fun t ht \u21a6 ht.1.2)\u27e9",
+          "children": [
+            {
+              "name": "_",
+              "type": "t \u2208 Icc a t",
+              "body": "\u27e8ht.1.1, le_rfl\u27e9",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "_",
+          "type": "t \u2208 A",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "t \u2264 t\u2081",
+          "body": "le_csSup bdd_A this",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          2,
+          0
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "IsClosed.Icc_subset_of_forall_mem_nhdsGT_of_Icc_subset",
+          "statement": "\u03b1} {s : Set \u03b1} (hs : IsClosed (s \u2229 Icc a b)) (ha : a \u2208 s) (h : \u2200 t \u2208 Ico a b, Icc a t \u2286 s \u2192 s \u2208 \ud835\udcdd[>] t) : Icc a b \u2286 s",
+          "have_tree": [
+            {
+              "name": "a_mem",
+              "type": "a \u2208 A",
+              "body": "\u27e8left_mem_Icc.mpr hab, by simp [ha]\u27e9",
+              "children": []
+            },
+            {
+              "name": "bdd_A",
+              "type": "BddAbove A",
+              "body": "\u27e8b, fun t ht \u21a6 ht.1.2\u27e9",
+              "children": []
+            },
+            {
+              "name": "t\u2081_mem",
+              "type": "t\u2081 \u2208 Icc a b",
+              "body": "\u27e8le_csSup bdd_A a_mem, csSup_le \u27e8a, a_mem\u27e9 (fun t ht \u21a6 ht.1.2)\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "t \u2208 A",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "t \u2264 t\u2081",
+              "body": "le_csSup bdd_A this",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "IntermediateValue",
+          "name": "IsClosed.Icc_subset_of_forall_mem_nhdsGT_of_Icc_subset",
+          "statement": "\u03b1} {s : Set \u03b1} (hs : IsClosed (s \u2229 Icc a b)) (ha : a \u2208 s) (h : \u2200 t \u2208 Ico a b, Icc a t \u2286 s \u2192 s \u2208 \ud835\udcdd[>] t) : Icc a b \u2286 s",
+          "have_tree": [
+            {
+              "name": "a_mem",
+              "type": "a \u2208 A",
+              "body": "\u27e8left_mem_Icc.mpr hab, by simp [ha]\u27e9",
+              "children": []
+            },
+            {
+              "name": "bdd_A",
+              "type": "BddAbove A",
+              "body": "\u27e8b, fun t ht \u21a6 ht.1.2\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "t \u2208 Icc a t",
+              "body": "\u27e8ht.1.1, le_rfl\u27e9",
+              "children": []
+            },
+            {
+              "name": "t\u2081_mem",
+              "type": "t\u2081 \u2208 Icc a b",
+              "body": "\u27e8le_csSup bdd_A a_mem, csSup_le \u27e8a, a_mem\u27e9 (fun t ht \u21a6 ht.1.2)\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "t \u2208 A",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "t \u2264 t\u2081",
+              "body": "le_csSup bdd_A this",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "IsClosed.Icc_subset_of_forall_mem_nhdsGT_of_Icc_subset",
+          "statement": "\u03b1} {s : Set \u03b1} (hs : IsClosed (s \u2229 Icc a b)) (ha : a \u2208 s) (h : \u2200 t \u2208 Ico a b, Icc a t \u2286 s \u2192 s \u2208 \ud835\udcdd[>] t) : Icc a b \u2286 s",
+          "have_tree": [
+            {
+              "name": "bdd_A",
+              "type": "BddAbove A",
+              "body": "\u27e8b, fun t ht \u21a6 ht.1.2\u27e9",
+              "children": []
+            },
+            {
+              "name": "a_mem",
+              "type": "a \u2208 A",
+              "body": "\u27e8left_mem_Icc.mpr hab, by simp [ha]\u27e9",
+              "children": []
+            },
+            {
+              "name": "t\u2081_mem",
+              "type": "t\u2081 \u2208 Icc a b",
+              "body": "\u27e8le_csSup bdd_A a_mem, csSup_le \u27e8a, a_mem\u27e9 (fun t ht \u21a6 ht.1.2)\u27e9",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "t \u2208 Icc a t",
+                  "body": "\u27e8ht.1.1, le_rfl\u27e9",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "t \u2208 A",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "t \u2264 t\u2081",
+              "body": "le_csSup bdd_A this",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "IsClosed.Icc_subset_of_forall_mem_nhdsGT_of_Icc_subset",
+          "statement": "\u03b1} {s : Set \u03b1} (hs : IsClosed (s \u2229 Icc a b)) (ha : a \u2208 s) (h : \u2200 t \u2208 Ico a b, Icc a t \u2286 s \u2192 s \u2208 \ud835\udcdd[>] t) : Icc a b \u2286 s",
+          "have_tree": [
+            {
+              "name": "a_mem",
+              "type": "a \u2208 A",
+              "body": "\u27e8left_mem_Icc.mpr hab, by simp [ha]\u27e9",
+              "children": []
+            },
+            {
+              "name": "t\u2081_mem",
+              "type": "t\u2081 \u2208 Icc a b",
+              "body": "\u27e8le_csSup bdd_A a_mem, csSup_le \u27e8a, a_mem\u27e9 (fun t ht \u21a6 ht.1.2)\u27e9",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "t \u2208 Icc a t",
+                  "body": "\u27e8ht.1.1, le_rfl\u27e9",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "bdd_A",
+              "type": "BddAbove A",
+              "body": "\u27e8b, fun t ht \u21a6 ht.1.2\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "t \u2208 A",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "t \u2264 t\u2081",
+              "body": "le_csSup bdd_A this",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "IsClosed.Icc_subset_of_forall_mem_nhdsGT_of_Icc_subset",
+          "statement": "\u03b1} {s : Set \u03b1} (hs : IsClosed (s \u2229 Icc a b)) (ha : a \u2208 s) (h : \u2200 t \u2208 Ico a b, Icc a t \u2286 s \u2192 s \u2208 \ud835\udcdd[>] t) : Icc a b \u2286 s",
+          "have_tree": [
+            {
+              "name": "a_mem",
+              "type": "a \u2208 A",
+              "body": "\u27e8left_mem_Icc.mpr hab, by simp [ha]\u27e9",
+              "children": []
+            },
+            {
+              "name": "bdd_A",
+              "type": "BddAbove A",
+              "body": "\u27e8b, fun t ht \u21a6 ht.1.2\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "t \u2208 A",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "t\u2081_mem",
+              "type": "t\u2081 \u2208 Icc a b",
+              "body": "\u27e8le_csSup bdd_A a_mem, csSup_le \u27e8a, a_mem\u27e9 (fun t ht \u21a6 ht.1.2)\u27e9",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "t \u2208 Icc a t",
+                  "body": "\u27e8ht.1.1, le_rfl\u27e9",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "t \u2264 t\u2081",
+              "body": "le_csSup bdd_A this",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "IsClosed.Icc_subset_of_forall_mem_nhdsGT_of_Icc_subset",
+          "statement": "\u03b1} {s : Set \u03b1} (hs : IsClosed (s \u2229 Icc a b)) (ha : a \u2208 s) (h : \u2200 t \u2208 Ico a b, Icc a t \u2286 s \u2192 s \u2208 \ud835\udcdd[>] t) : Icc a b \u2286 s",
+          "have_tree": [
+            {
+              "name": "a_mem",
+              "type": "a \u2208 A",
+              "body": "\u27e8left_mem_Icc.mpr hab, by simp [ha]\u27e9",
+              "children": []
+            },
+            {
+              "name": "bdd_A",
+              "type": "BddAbove A",
+              "body": "\u27e8b, fun t ht \u21a6 ht.1.2\u27e9",
+              "children": []
+            },
+            {
+              "name": "t\u2081_mem",
+              "type": "t\u2081 \u2208 Icc a b",
+              "body": "\u27e8le_csSup bdd_A a_mem, csSup_le \u27e8a, a_mem\u27e9 (fun t ht \u21a6 ht.1.2)\u27e9",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "t \u2208 Icc a t",
+                  "body": "\u27e8ht.1.1, le_rfl\u27e9",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "t \u2264 t\u2081",
+              "body": "le_csSup bdd_A this",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "t \u2208 A",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "IntermediateValue",
+      "name": "isPreconnected_Icc_aux",
+      "statement": "\u03b1) (s t : Set \u03b1) (hxy : x \u2264 y) (hs : IsClosed s) (ht : IsClosed t) (hab : Icc a b \u2286 s \u222a t) (hx : x \u2208 Icc a b \u2229 s) (hy : y \u2208 Icc a b \u2229 t) : (Icc a b \u2229 (s \u2229 t)).Nonempty",
+      "have_tree": [
+        {
+          "name": "xyab",
+          "type": "Icc x y \u2286 Icc a b",
+          "body": "Icc_subset_Icc hx.1.1 hy.1.2",
+          "children": []
+        },
+        {
+          "name": "zt",
+          "type": "z \u2208 t\u1d9c",
+          "body": "fun zt => hst \u27e8z, xyab <| Ico_subset_Icc_self hz, zs, zt\u27e9",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "t\u1d9c \u2229 Ioc z y \u2208 \ud835\udcdd[>] z",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Ioc z y \u2286 s \u222a t",
+          "body": "fun w hw => hab (xyab \u27e8le_trans hz.1 (le_of_lt hw.1), hw.2\u27e9)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "isPreconnected_Icc_aux",
+          "statement": "\u03b1) (s t : Set \u03b1) (hxy : x \u2264 y) (hs : IsClosed s) (ht : IsClosed t) (hab : Icc a b \u2286 s \u222a t) (hx : x \u2208 Icc a b \u2229 s) (hy : y \u2208 Icc a b \u2229 t) : (Icc a b \u2229 (s \u2229 t)).Nonempty",
+          "have_tree": [
+            {
+              "name": "zt",
+              "type": "z \u2208 t\u1d9c",
+              "body": "fun zt => hst \u27e8z, xyab <| Ico_subset_Icc_self hz, zs, zt\u27e9",
+              "children": []
+            },
+            {
+              "name": "xyab",
+              "type": "Icc x y \u2286 Icc a b",
+              "body": "Icc_subset_Icc hx.1.1 hy.1.2",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "t\u1d9c \u2229 Ioc z y \u2208 \ud835\udcdd[>] z",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Ioc z y \u2286 s \u222a t",
+              "body": "fun w hw => hab (xyab \u27e8le_trans hz.1 (le_of_lt hw.1), hw.2\u27e9)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "isPreconnected_Icc_aux",
+          "statement": "\u03b1) (s t : Set \u03b1) (hxy : x \u2264 y) (hs : IsClosed s) (ht : IsClosed t) (hab : Icc a b \u2286 s \u222a t) (hx : x \u2208 Icc a b \u2229 s) (hy : y \u2208 Icc a b \u2229 t) : (Icc a b \u2229 (s \u2229 t)).Nonempty",
+          "have_tree": [
+            {
+              "name": "xyab",
+              "type": "Icc x y \u2286 Icc a b",
+              "body": "Icc_subset_Icc hx.1.1 hy.1.2",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "t\u1d9c \u2229 Ioc z y \u2208 \ud835\udcdd[>] z",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "zt",
+              "type": "z \u2208 t\u1d9c",
+              "body": "fun zt => hst \u27e8z, xyab <| Ico_subset_Icc_self hz, zs, zt\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Ioc z y \u2286 s \u222a t",
+              "body": "fun w hw => hab (xyab \u27e8le_trans hz.1 (le_of_lt hw.1), hw.2\u27e9)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "isPreconnected_Icc_aux",
+          "statement": "\u03b1) (s t : Set \u03b1) (hxy : x \u2264 y) (hs : IsClosed s) (ht : IsClosed t) (hab : Icc a b \u2286 s \u222a t) (hx : x \u2208 Icc a b \u2229 s) (hy : y \u2208 Icc a b \u2229 t) : (Icc a b \u2229 (s \u2229 t)).Nonempty",
+          "have_tree": [
+            {
+              "name": "xyab",
+              "type": "Icc x y \u2286 Icc a b",
+              "body": "Icc_subset_Icc hx.1.1 hy.1.2",
+              "children": []
+            },
+            {
+              "name": "zt",
+              "type": "z \u2208 t\u1d9c",
+              "body": "fun zt => hst \u27e8z, xyab <| Ico_subset_Icc_self hz, zs, zt\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Ioc z y \u2286 s \u222a t",
+              "body": "fun w hw => hab (xyab \u27e8le_trans hz.1 (le_of_lt hw.1), hw.2\u27e9)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "t\u1d9c \u2229 Ioc z y \u2208 \ud835\udcdd[>] z",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "IntermediateValue",
+      "name": "Continuous.strictMonoOn_of_inj_rigidity",
+      "statement": "\u03b1 \u2192 \u03b4} (hf_c : Continuous f) (hf_i : Injective f) {a b : \u03b1} (hab : a < b) (hf_mono : StrictMonoOn f (Icc a b)) : StrictMono f",
+      "have_tree": [
+        {
+          "name": "hsa",
+          "type": "s \u2264 a",
+          "body": "min_le_left a x",
+          "children": []
+        },
+        {
+          "name": "hbt",
+          "type": "b \u2264 t",
+          "body": "le_max_left b y",
+          "children": []
+        },
+        {
+          "name": "hf_mono_st",
+          "type": "StrictMonoOn f (Icc s t) \u2228 StrictAntiOn f (Icc s t)",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "Fact (s \u2264 t)",
+              "body": "\u27e8hsa.trans <| hbt.trans' hab.le\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Continuous.strictMono_of_inj_boundedOrder' (f := Set.restrict (Icc s t) f)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Icc a b \u2286 Icc s t",
+              "body": "Icc_subset_Icc hsa hbt",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "hsx",
+          "type": "s \u2264 x",
+          "body": "min_le_right a x",
+          "children": []
+        },
+        {
+          "name": "hyt",
+          "type": "y \u2264 t",
+          "body": "le_max_right b y",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          2,
+          0
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "Continuous.strictMonoOn_of_inj_rigidity",
+          "statement": "\u03b1 \u2192 \u03b4} (hf_c : Continuous f) (hf_i : Injective f) {a b : \u03b1} (hab : a < b) (hf_mono : StrictMonoOn f (Icc a b)) : StrictMono f",
+          "have_tree": [
+            {
+              "name": "hsa",
+              "type": "s \u2264 a",
+              "body": "min_le_left a x",
+              "children": []
+            },
+            {
+              "name": "hbt",
+              "type": "b \u2264 t",
+              "body": "le_max_left b y",
+              "children": []
+            },
+            {
+              "name": "hf_mono_st",
+              "type": "StrictMonoOn f (Icc s t) \u2228 StrictAntiOn f (Icc s t)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "Continuous.strictMono_of_inj_boundedOrder' (f := Set.restrict (Icc s t) f)",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "Icc a b \u2286 Icc s t",
+                  "body": "Icc_subset_Icc hsa hbt",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsx",
+              "type": "s \u2264 x",
+              "body": "min_le_right a x",
+              "children": []
+            },
+            {
+              "name": "hyt",
+              "type": "y \u2264 t",
+              "body": "le_max_right b y",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          2,
+          1
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "Continuous.strictMonoOn_of_inj_rigidity",
+          "statement": "\u03b1 \u2192 \u03b4} (hf_c : Continuous f) (hf_i : Injective f) {a b : \u03b1} (hab : a < b) (hf_mono : StrictMonoOn f (Icc a b)) : StrictMono f",
+          "have_tree": [
+            {
+              "name": "hsa",
+              "type": "s \u2264 a",
+              "body": "min_le_left a x",
+              "children": []
+            },
+            {
+              "name": "hbt",
+              "type": "b \u2264 t",
+              "body": "le_max_left b y",
+              "children": []
+            },
+            {
+              "name": "hf_mono_st",
+              "type": "StrictMonoOn f (Icc s t) \u2228 StrictAntiOn f (Icc s t)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Fact (s \u2264 t)",
+                  "body": "\u27e8hsa.trans <| hbt.trans' hab.le\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "Icc a b \u2286 Icc s t",
+                  "body": "Icc_subset_Icc hsa hbt",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsx",
+              "type": "s \u2264 x",
+              "body": "min_le_right a x",
+              "children": []
+            },
+            {
+              "name": "hyt",
+              "type": "y \u2264 t",
+              "body": "le_max_right b y",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          2,
+          2
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "Continuous.strictMonoOn_of_inj_rigidity",
+          "statement": "\u03b1 \u2192 \u03b4} (hf_c : Continuous f) (hf_i : Injective f) {a b : \u03b1} (hab : a < b) (hf_mono : StrictMonoOn f (Icc a b)) : StrictMono f",
+          "have_tree": [
+            {
+              "name": "hsa",
+              "type": "s \u2264 a",
+              "body": "min_le_left a x",
+              "children": []
+            },
+            {
+              "name": "hbt",
+              "type": "b \u2264 t",
+              "body": "le_max_left b y",
+              "children": []
+            },
+            {
+              "name": "hf_mono_st",
+              "type": "StrictMonoOn f (Icc s t) \u2228 StrictAntiOn f (Icc s t)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Fact (s \u2264 t)",
+                  "body": "\u27e8hsa.trans <| hbt.trans' hab.le\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "Continuous.strictMono_of_inj_boundedOrder' (f := Set.restrict (Icc s t) f)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsx",
+              "type": "s \u2264 x",
+              "body": "min_le_right a x",
+              "children": []
+            },
+            {
+              "name": "hyt",
+              "type": "y \u2264 t",
+              "body": "le_max_right b y",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "IntermediateValue",
+          "name": "Continuous.strictMonoOn_of_inj_rigidity",
+          "statement": "\u03b1 \u2192 \u03b4} (hf_c : Continuous f) (hf_i : Injective f) {a b : \u03b1} (hab : a < b) (hf_mono : StrictMonoOn f (Icc a b)) : StrictMono f",
+          "have_tree": [
+            {
+              "name": "hsa",
+              "type": "s \u2264 a",
+              "body": "min_le_left a x",
+              "children": []
+            },
+            {
+              "name": "hbt",
+              "type": "b \u2264 t",
+              "body": "le_max_left b y",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Fact (s \u2264 t)",
+              "body": "\u27e8hsa.trans <| hbt.trans' hab.le\u27e9",
+              "children": []
+            },
+            {
+              "name": "hf_mono_st",
+              "type": "StrictMonoOn f (Icc s t) \u2228 StrictAntiOn f (Icc s t)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "Continuous.strictMono_of_inj_boundedOrder' (f := Set.restrict (Icc s t) f)",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "Icc a b \u2286 Icc s t",
+                  "body": "Icc_subset_Icc hsa hbt",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsx",
+              "type": "s \u2264 x",
+              "body": "min_le_right a x",
+              "children": []
+            },
+            {
+              "name": "hyt",
+              "type": "y \u2264 t",
+              "body": "le_max_right b y",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "IntermediateValue",
+          "name": "Continuous.strictMonoOn_of_inj_rigidity",
+          "statement": "\u03b1 \u2192 \u03b4} (hf_c : Continuous f) (hf_i : Injective f) {a b : \u03b1} (hab : a < b) (hf_mono : StrictMonoOn f (Icc a b)) : StrictMono f",
+          "have_tree": [
+            {
+              "name": "hsa",
+              "type": "s \u2264 a",
+              "body": "min_le_left a x",
+              "children": []
+            },
+            {
+              "name": "hbt",
+              "type": "b \u2264 t",
+              "body": "le_max_left b y",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Continuous.strictMono_of_inj_boundedOrder' (f := Set.restrict (Icc s t) f)",
+              "children": []
+            },
+            {
+              "name": "hf_mono_st",
+              "type": "StrictMonoOn f (Icc s t) \u2228 StrictAntiOn f (Icc s t)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Fact (s \u2264 t)",
+                  "body": "\u27e8hsa.trans <| hbt.trans' hab.le\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "Icc a b \u2286 Icc s t",
+                  "body": "Icc_subset_Icc hsa hbt",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsx",
+              "type": "s \u2264 x",
+              "body": "min_le_right a x",
+              "children": []
+            },
+            {
+              "name": "hyt",
+              "type": "y \u2264 t",
+              "body": "le_max_right b y",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 2,
+        "result": {
+          "module": "IntermediateValue",
+          "name": "Continuous.strictMonoOn_of_inj_rigidity",
+          "statement": "\u03b1 \u2192 \u03b4} (hf_c : Continuous f) (hf_i : Injective f) {a b : \u03b1} (hab : a < b) (hf_mono : StrictMonoOn f (Icc a b)) : StrictMono f",
+          "have_tree": [
+            {
+              "name": "hsa",
+              "type": "s \u2264 a",
+              "body": "min_le_left a x",
+              "children": []
+            },
+            {
+              "name": "hbt",
+              "type": "b \u2264 t",
+              "body": "le_max_left b y",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Icc a b \u2286 Icc s t",
+              "body": "Icc_subset_Icc hsa hbt",
+              "children": []
+            },
+            {
+              "name": "hf_mono_st",
+              "type": "StrictMonoOn f (Icc s t) \u2228 StrictAntiOn f (Icc s t)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Fact (s \u2264 t)",
+                  "body": "\u27e8hsa.trans <| hbt.trans' hab.le\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "Continuous.strictMono_of_inj_boundedOrder' (f := Set.restrict (Icc s t) f)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsx",
+              "type": "s \u2264 x",
+              "body": "min_le_right a x",
+              "children": []
+            },
+            {
+              "name": "hyt",
+              "type": "y \u2264 t",
+              "body": "le_max_right b y",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "Continuous.strictMonoOn_of_inj_rigidity",
+          "statement": "\u03b1 \u2192 \u03b4} (hf_c : Continuous f) (hf_i : Injective f) {a b : \u03b1} (hab : a < b) (hf_mono : StrictMonoOn f (Icc a b)) : StrictMono f",
+          "have_tree": [
+            {
+              "name": "hbt",
+              "type": "b \u2264 t",
+              "body": "le_max_left b y",
+              "children": []
+            },
+            {
+              "name": "hsa",
+              "type": "s \u2264 a",
+              "body": "min_le_left a x",
+              "children": []
+            },
+            {
+              "name": "hf_mono_st",
+              "type": "StrictMonoOn f (Icc s t) \u2228 StrictAntiOn f (Icc s t)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Fact (s \u2264 t)",
+                  "body": "\u27e8hsa.trans <| hbt.trans' hab.le\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "Continuous.strictMono_of_inj_boundedOrder' (f := Set.restrict (Icc s t) f)",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "Icc a b \u2286 Icc s t",
+                  "body": "Icc_subset_Icc hsa hbt",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsx",
+              "type": "s \u2264 x",
+              "body": "min_le_right a x",
+              "children": []
+            },
+            {
+              "name": "hyt",
+              "type": "y \u2264 t",
+              "body": "le_max_right b y",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "Continuous.strictMonoOn_of_inj_rigidity",
+          "statement": "\u03b1 \u2192 \u03b4} (hf_c : Continuous f) (hf_i : Injective f) {a b : \u03b1} (hab : a < b) (hf_mono : StrictMonoOn f (Icc a b)) : StrictMono f",
+          "have_tree": [
+            {
+              "name": "hsa",
+              "type": "s \u2264 a",
+              "body": "min_le_left a x",
+              "children": []
+            },
+            {
+              "name": "hf_mono_st",
+              "type": "StrictMonoOn f (Icc s t) \u2228 StrictAntiOn f (Icc s t)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Fact (s \u2264 t)",
+                  "body": "\u27e8hsa.trans <| hbt.trans' hab.le\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "Continuous.strictMono_of_inj_boundedOrder' (f := Set.restrict (Icc s t) f)",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "Icc a b \u2286 Icc s t",
+                  "body": "Icc_subset_Icc hsa hbt",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hbt",
+              "type": "b \u2264 t",
+              "body": "le_max_left b y",
+              "children": []
+            },
+            {
+              "name": "hsx",
+              "type": "s \u2264 x",
+              "body": "min_le_right a x",
+              "children": []
+            },
+            {
+              "name": "hyt",
+              "type": "y \u2264 t",
+              "body": "le_max_right b y",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "Continuous.strictMonoOn_of_inj_rigidity",
+          "statement": "\u03b1 \u2192 \u03b4} (hf_c : Continuous f) (hf_i : Injective f) {a b : \u03b1} (hab : a < b) (hf_mono : StrictMonoOn f (Icc a b)) : StrictMono f",
+          "have_tree": [
+            {
+              "name": "hsa",
+              "type": "s \u2264 a",
+              "body": "min_le_left a x",
+              "children": []
+            },
+            {
+              "name": "hbt",
+              "type": "b \u2264 t",
+              "body": "le_max_left b y",
+              "children": []
+            },
+            {
+              "name": "hsx",
+              "type": "s \u2264 x",
+              "body": "min_le_right a x",
+              "children": []
+            },
+            {
+              "name": "hf_mono_st",
+              "type": "StrictMonoOn f (Icc s t) \u2228 StrictAntiOn f (Icc s t)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Fact (s \u2264 t)",
+                  "body": "\u27e8hsa.trans <| hbt.trans' hab.le\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "Continuous.strictMono_of_inj_boundedOrder' (f := Set.restrict (Icc s t) f)",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "Icc a b \u2286 Icc s t",
+                  "body": "Icc_subset_Icc hsa hbt",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hyt",
+              "type": "y \u2264 t",
+              "body": "le_max_right b y",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "Continuous.strictMonoOn_of_inj_rigidity",
+          "statement": "\u03b1 \u2192 \u03b4} (hf_c : Continuous f) (hf_i : Injective f) {a b : \u03b1} (hab : a < b) (hf_mono : StrictMonoOn f (Icc a b)) : StrictMono f",
+          "have_tree": [
+            {
+              "name": "hsa",
+              "type": "s \u2264 a",
+              "body": "min_le_left a x",
+              "children": []
+            },
+            {
+              "name": "hbt",
+              "type": "b \u2264 t",
+              "body": "le_max_left b y",
+              "children": []
+            },
+            {
+              "name": "hf_mono_st",
+              "type": "StrictMonoOn f (Icc s t) \u2228 StrictAntiOn f (Icc s t)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Fact (s \u2264 t)",
+                  "body": "\u27e8hsa.trans <| hbt.trans' hab.le\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "Continuous.strictMono_of_inj_boundedOrder' (f := Set.restrict (Icc s t) f)",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "Icc a b \u2286 Icc s t",
+                  "body": "Icc_subset_Icc hsa hbt",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hyt",
+              "type": "y \u2264 t",
+              "body": "le_max_right b y",
+              "children": []
+            },
+            {
+              "name": "hsx",
+              "type": "s \u2264 x",
+              "body": "min_le_right a x",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          2
+        ],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "Continuous.strictMonoOn_of_inj_rigidity",
+          "statement": "\u03b1 \u2192 \u03b4} (hf_c : Continuous f) (hf_i : Injective f) {a b : \u03b1} (hab : a < b) (hf_mono : StrictMonoOn f (Icc a b)) : StrictMono f",
+          "have_tree": [
+            {
+              "name": "hsa",
+              "type": "s \u2264 a",
+              "body": "min_le_left a x",
+              "children": []
+            },
+            {
+              "name": "hbt",
+              "type": "b \u2264 t",
+              "body": "le_max_left b y",
+              "children": []
+            },
+            {
+              "name": "hf_mono_st",
+              "type": "StrictMonoOn f (Icc s t) \u2228 StrictAntiOn f (Icc s t)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "Continuous.strictMono_of_inj_boundedOrder' (f := Set.restrict (Icc s t) f)",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "Fact (s \u2264 t)",
+                  "body": "\u27e8hsa.trans <| hbt.trans' hab.le\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "Icc a b \u2286 Icc s t",
+                  "body": "Icc_subset_Icc hsa hbt",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsx",
+              "type": "s \u2264 x",
+              "body": "min_le_right a x",
+              "children": []
+            },
+            {
+              "name": "hyt",
+              "type": "y \u2264 t",
+              "body": "le_max_right b y",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          2
+        ],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "Continuous.strictMonoOn_of_inj_rigidity",
+          "statement": "\u03b1 \u2192 \u03b4} (hf_c : Continuous f) (hf_i : Injective f) {a b : \u03b1} (hab : a < b) (hf_mono : StrictMonoOn f (Icc a b)) : StrictMono f",
+          "have_tree": [
+            {
+              "name": "hsa",
+              "type": "s \u2264 a",
+              "body": "min_le_left a x",
+              "children": []
+            },
+            {
+              "name": "hbt",
+              "type": "b \u2264 t",
+              "body": "le_max_left b y",
+              "children": []
+            },
+            {
+              "name": "hf_mono_st",
+              "type": "StrictMonoOn f (Icc s t) \u2228 StrictAntiOn f (Icc s t)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Fact (s \u2264 t)",
+                  "body": "\u27e8hsa.trans <| hbt.trans' hab.le\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "Icc a b \u2286 Icc s t",
+                  "body": "Icc_subset_Icc hsa hbt",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "Continuous.strictMono_of_inj_boundedOrder' (f := Set.restrict (Icc s t) f)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hsx",
+              "type": "s \u2264 x",
+              "body": "min_le_right a x",
+              "children": []
+            },
+            {
+              "name": "hyt",
+              "type": "y \u2264 t",
+              "body": "le_max_right b y",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "IntermediateValue",
+      "name": "ContinuousOn.strictMonoOn_of_injOn_Icc",
+      "statement": "\u03b1} {f : \u03b1 \u2192 \u03b4} (hab : a \u2264 b) (hfab : f a \u2264 f b) (hf_c : ContinuousOn f (Icc a b)) (hf_i : InjOn f (Icc a b)) : StrictMonoOn f (Icc a b)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Fact (a \u2264 b)",
+          "body": "\u27e8hab\u27e9",
+          "children": []
+        },
+        {
+          "name": "hgab",
+          "type": "g \u22a5 \u2264 g \u22a4",
+          "body": "by aesop",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "IntermediateValue",
+          "name": "ContinuousOn.strictMonoOn_of_injOn_Icc",
+          "statement": "\u03b1} {f : \u03b1 \u2192 \u03b4} (hab : a \u2264 b) (hfab : f a \u2264 f b) (hf_c : ContinuousOn f (Icc a b)) (hf_i : InjOn f (Icc a b)) : StrictMonoOn f (Icc a b)",
+          "have_tree": [
+            {
+              "name": "hgab",
+              "type": "g \u22a5 \u2264 g \u22a4",
+              "body": "by aesop",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Fact (a \u2264 b)",
+              "body": "\u27e8hab\u27e9",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,85 @@
+[
+  {
+    "module": "Basic",
+    "name": "Cospherical.affineIndependent",
+    "statement": "Set P} (hs : Cospherical s) {p : Fin 3 \u2192 P} (hps : Set.range p \u2286 s) (hpi : Function.Injective p) : AffineIndependent \u211d p",
+    "have_tree": [
+      {
+        "name": "hv0",
+        "type": "v \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "he",
+            "type": "p 1 = p 0",
+            "body": "by simpa [h] using hv 1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hs'",
+        "type": "",
+        "body": "fun i => hs (p i) (Set.mem_of_mem_of_subset (Set.mem_range_self _) hps)",
+        "children": []
+      },
+      {
+        "name": "hsd",
+        "type": "\u2200 i, dist (f i \u2022 v +\u1d65 p 0) c = r",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf0",
+        "type": "f 0 = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "hf0'",
+            "type": "",
+            "body": "hf 0",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hfi",
+        "type": "Function.Injective f",
+        "body": "by",
+        "children": [
+          {
+            "name": "hi",
+            "type": "",
+            "body": "hf i",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hfn0",
+        "type": "\u2200 i, i \u2260 0 \u2192 f i \u2260 0",
+        "body": "fun i => (hfi.ne_iff' hf0).2",
+        "children": []
+      },
+      {
+        "name": "hfn0'",
+        "type": "\u2200 i, i \u2260 0 \u2192 f i = -2 * \u27eav, p 0 -\u1d65 c\u27eb / \u27eav, v\u27eb",
+        "body": "by",
+        "children": [
+          {
+            "name": "hsdi",
+            "type": "",
+            "body": "hsd i",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hf12",
+        "type": "f 1 = f 2",
+        "body": "by rw [hfn0' 1 (by decide), hfn0' 2 (by decide)]",
+        "children": []
+      }
+    ]
+  }
+]

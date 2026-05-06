@@ -1,0 +1,334 @@
+[
+  {
+    "module": "Different",
+    "name": "isIntegral_discr_mul_of_mem_traceDual",
+    "statement": "Submodule B L) {\u03b9} [DecidableEq \u03b9] [Fintype \u03b9] {b : Basis \u03b9 K L} (hb : \u2200 i, IsIntegral A (b i)) {a x : L} (ha : a \u2208 I) (hx : x \u2208 I\u1d5b) : IsIntegral A ((discr K b) \u2022 a * x)",
+    "have_tree": [
+      {
+        "name": "hinv",
+        "type": "IsUnit (traceMatrix K b).det",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "mulVec_cramer (traceMatrix K b) fun i => trace K L (x * a * b i)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Function.Injective (traceMatrix K b).mulVec",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Different",
+    "name": "dual_eq_dual_mul_dual",
+    "statement": "dual A K (1 : FractionalIdeal C\u2070 M) = dual B L (1 : FractionalIdeal C\u2070 M) * (dual A K (1 : FractionalIdeal B\u2070 L)).extendedHom M C",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsIntegralClosure.isLocalization B L M C",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "B\u2070 \u2264 Submonoid.comap (algebraMap B C) C\u2070",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Different",
+    "name": "coeSubmodule_differentIdeal_fractionRing",
+    "statement": "coeSubmodule (FractionRing B) (differentIdeal A B) = 1 / Submodule.traceDual A (FractionRing A) 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "FractionalIdeal.dual_inv_le (A := A) (K := FractionRing A)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Different",
+    "name": "coeSubmodule_differentIdeal",
+    "statement": "coeSubmodule L (differentIdeal A B) = 1 / Submodule.traceDual A K 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Algebra.IsSeparable (FractionRing A) (FractionRing B)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "FiniteDimensional (FractionRing A) (FractionRing B)",
+        "body": "Module.Finite.of_equiv_equiv _ _ H",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.IsIntegral A B",
+        "body": "IsIntegralClosure.isIntegral_algebra _ L",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Different",
+    "name": "differentIdeal_eq_differentIdeal_mul_differentIdeal",
+    "statement": "Type*) [IsDomain B] [CommRing C] [Algebra B C] [Algebra A C] [IsDedekindDomain C] [Module.Finite A B] [Module.Finite A C] [Module.Finite B C] [IsTorsionFree A C] [IsTorsionFree B C] [IsScalarTower A B C] [Algebra.IsSeparable (FractionRing A) (FractionRing C)] : differentIdeal A C = differentIdeal B C * (differentIdeal A B).map (algebraMap B C)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Algebra.IsSeparable (FractionRing B) (FractionRing C)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.IsSeparable (FractionRing A) (FractionRing B)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Different",
+    "name": "traceForm_dualSubmodule_adjoin",
+    "statement": "L} (hx : Algebra.adjoin K {x} = \u22a4) (hAx : IsIntegral A x) : (traceForm K L).dualSubmodule (Subalgebra.toSubmodule (Algebra.adjoin A {x})) = (aeval x (derivative <| minpoly K x) : L)\u207b\u00b9 \u2022 (Subalgebra.toSubmodule (Algebra.adjoin A {x}))",
+    "have_tree": [
+      {
+        "name": "hKx",
+        "type": "IsIntegral K x",
+        "body": "Algebra.IsIntegral.isIntegral x",
+        "children": []
+      },
+      {
+        "name": "hnondeg",
+        "type": "(traceForm K L).Nondegenerate",
+        "body": "traceForm_nondegenerate K L",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Different",
+    "name": "conductor_mul_differentIdeal",
+    "statement": "B) (hx : Algebra.adjoin K {algebraMap B L x} = \u22a4) : (conductor A x) * differentIdeal A B = Ideal.span {aeval x (derivative (minpoly A x))}",
+    "have_tree": [
+      {
+        "name": "hAx",
+        "type": "IsIntegral A x",
+        "body": "IsIntegralClosure.isIntegral A L x",
+        "children": []
+      },
+      {
+        "name": "hne\u2081",
+        "type": "aeval (algebraMap B L x) (derivative (minpoly K (algebraMap B L x))) \u2260 0",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "algebraMap B L (aeval x (derivative (minpoly A x))) \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hne\u2082",
+        "type": "(aeval (algebraMap B L x) (derivative (minpoly K (algebraMap B L x))))\u207b\u00b9 \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsIntegral A (algebraMap B L x)",
+        "body": "IsIntegral.map (IsScalarTower.toAlgHom A B L) hAx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Different",
+    "name": "pow_sub_one_dvd_differentIdeal_aux",
+    "statement": "Ideal A} [p.IsMaximal] (P : Ideal B) {e : \u2115} (he : e \u2260 0) (hp : p \u2260 \u22a5) (hP : P ^ e \u2223 p.map (algebraMap A B)) : P ^ (e - 1) \u2223 differentIdeal A B",
+    "have_tree": [
+      {
+        "name": "hp'",
+        "type": "",
+        "body": "(Ideal.map_eq_bot_iff_of_injective",
+        "children": []
+      },
+      {
+        "name": "habot",
+        "type": "a \u2260 \u22a5",
+        "body": "fun ha' \u21a6 hp' (by simpa [ha'] using ha)",
+        "children": []
+      },
+      {
+        "name": "hPbot",
+        "type": "P \u2260 \u22a5",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "p.map (algebraMap A B) \u2223 a ^ e",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Different",
+    "name": "pow_sub_one_dvd_differentIdeal",
+    "statement": "Ideal A} [p.IsMaximal] (P : Ideal B) (e : \u2115) (hp : p \u2260 \u22a5) (hP : P ^ e \u2223 p.map (algebraMap A B)) : P ^ (e - 1) \u2223 differentIdeal A B",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsLocalization (algebraMapSubmonoid B A\u2070) (FractionRing B)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "FiniteDimensional (FractionRing A) (FractionRing B)",
+        "body": ".of_isLocalization A B A\u2070",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Different",
+    "name": "not_dvd_differentIdeal_of_intTrace_not_mem",
+    "statement": "Ideal A} (P Q : Ideal B) (hP : P * Q = Ideal.map (algebraMap A B) p) (x : B) (hxQ : x \u2208 Q) (hx : Algebra.intTrace A B x \u2209 p) : \u00ac P \u2223 differentIdeal A B",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsLocalization (Algebra.algebraMapSubmonoid B A\u2070) L",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "FiniteDimensional K L",
+        "body": ".of_isLocalization A B A\u2070",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Different",
+    "name": "not_dvd_differentIdeal_of_isCoprime_of_isSeparable",
+    "statement": "Ideal A} [p.IsMaximal] (P Q : Ideal B) [P.IsMaximal] [P.LiesOver p] (hPQ : IsCoprime P Q) (hP : P * Q = Ideal.map (algebraMap A B) p) [Algebra.IsSeparable (A \u29f8 p) (B \u29f8 P)] : \u00ac P \u2223 differentIdeal A B",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsScalarTower A (A \u29f8 p) (B \u29f8 Q)",
+        "body": ".of_algebraMap_eq' rfl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite (A \u29f8 p) (B \u29f8 Q)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Different",
+    "name": "not_dvd_differentIdeal_of_isCoprime",
+    "statement": "Ideal A} [p.IsMaximal] [Finite (A \u29f8 p)] (P Q : Ideal B) [P.IsMaximal] (hPQ : IsCoprime P Q) (hP : P * Q = Ideal.map (algebraMap A B) p) : \u00ac P \u2223 differentIdeal A B",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "P.LiesOver p",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Different",
+    "name": "dvd_differentIdeal_of_not_isSeparable",
+    "statement": "Ideal A} [p.IsMaximal] (hp : p \u2260 \u22a5) (P : Ideal B) [P.IsMaximal] [P.LiesOver p] (H : \u00ac Algebra.IsSeparable (A \u29f8 p) (B \u29f8 P)) : P \u2223 differentIdeal A B",
+    "have_tree": [
+      {
+        "name": "hp'",
+        "type": "",
+        "body": "(Ideal.map_eq_bot_iff_of_injective",
+        "children": []
+      },
+      {
+        "name": "habot",
+        "type": "a \u2260 \u22a5",
+        "body": "fun ha' \u21a6 hp' (by simpa [ha'] using ha)",
+        "children": []
+      },
+      {
+        "name": "hPbot",
+        "type": "P \u2260 \u22a5",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsScalarTower A (A \u29f8 p) (B \u29f8 a)",
+        "body": ".of_algebraMap_eq' rfl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite (A \u29f8 p) (B \u29f8 a)",
+        "body": ".of_restrictScalars_finite A _ _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "((Ideal.prime_iff_isPrime hPbot).mpr inferInstance)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Different",
+    "name": "not_dvd_differentIdeal_iff",
+    "statement": "Ideal B} [P.IsPrime] : \u00ac P \u2223 differentIdeal A B \u2194 Algebra.IsUnramifiedAt A P",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Algebra.FormallyUnramified K L",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hp",
+        "type": "P.under A \u2260 \u22a5",
+        "body": "mt Ideal.eq_bot_of_comap_eq_bot hPbot",
+        "children": []
+      },
+      {
+        "name": "hp'",
+        "type": "",
+        "body": "(Ideal.map_eq_bot_iff_of_injective",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Ideal.IsPrime.isMaximal inferInstance hPbot",
+        "children": []
+      }
+    ]
+  }
+]

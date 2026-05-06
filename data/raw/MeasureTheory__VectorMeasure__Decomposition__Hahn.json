@@ -1,0 +1,103 @@
+[
+  {
+    "module": "Hahn",
+    "name": "exists_subset_restrict_nonpos'",
+    "statement": "MeasurableSet i) (hi\u2082 : s i < 0) (hn : \u00ac\u2200 n : \u2115, \u00acs \u2264[i \\ \u22c3 l < n, restrictNonposSeq s i l] 0) : \u2203 j : Set \u03b1, MeasurableSet j \u2227 j \u2286 i \u2227 s \u2264[j] 0 \u2227 s j < 0",
+    "have_tree": [
+      {
+        "name": "hk\u2082",
+        "type": "s \u2264[i \\ \u22c3 l < k, restrictNonposSeq s i l] 0",
+        "body": "Nat.find_spec hn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hahn",
+    "name": "exists_subset_restrict_nonpos",
+    "statement": "s i < 0) : \u2203 j : Set \u03b1, MeasurableSet j \u2227 j \u2286 i \u2227 s \u2264[j] 0 \u2227 s j < 0",
+    "have_tree": [
+      {
+        "name": "hi\u2081",
+        "type": "MeasurableSet i",
+        "body": "by_contradiction fun h => ne_of_lt hi <| s.not_measurable h",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "s A \u2264 s i",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "A_meas",
+        "type": "MeasurableSet A",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hA'",
+        "type": "A \u2286 i \\ \u22c3 l \u2264 k, restrictNonposSeq s i l",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hahn",
+    "name": "bddBelow_measureOfNegatives",
+    "statement": "BddBelow s.measureOfNegatives",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "s \u2264[A] 0",
+        "body": "restrict_le_restrict_iUnion _ _ hmeas hr",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hahn",
+    "name": "exists_compl_positive_negative",
+    "statement": "SignedMeasure \u03b1) : \u2203 i : Set \u03b1, MeasurableSet i \u2227 0 \u2264[i] s \u2227 s \u2264[i\u1d9c] 0",
+    "have_tree": [
+      {
+        "name": "hB\u2081",
+        "type": "\u2200 n, MeasurableSet (B n)",
+        "body": "fun n => (hB n).1.1",
+        "children": []
+      },
+      {
+        "name": "hB\u2082",
+        "type": "\u2200 n, s \u2264[B n] 0",
+        "body": "fun n => (hB n).1.2",
+        "children": []
+      },
+      {
+        "name": "hA\u2081",
+        "type": "MeasurableSet A",
+        "body": "MeasurableSet.iUnion hB\u2081",
+        "children": []
+      },
+      {
+        "name": "hA\u2082",
+        "type": "s \u2264[A] 0",
+        "body": "restrict_le_restrict_iUnion _ _ hB\u2081 hB\u2082",
+        "children": [
+          {
+            "name": "_",
+            "type": "s \u2264[A] 0",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "s (A \u222a D) < sInf s.measureOfNegatives",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

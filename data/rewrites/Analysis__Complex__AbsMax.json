@@ -1,0 +1,640 @@
+[
+  {
+    "original": {
+      "module": "AbsMax",
+      "name": "norm_max_aux\u2081",
+      "statement": "\u2102 \u2192 F} {z w : \u2102} (hd : DiffContOnCl \u2102 f (ball z (dist w z))) (hz : IsMaxOn (norm \u2218 f) (closedBall z (dist w z)) z) : \u2016f w\u2016 = \u2016f z\u2016",
+      "have_tree": [
+        {
+          "name": "hw",
+          "type": "w \u2208 closedBall z r",
+          "body": "mem_closedBall.2 le_rfl",
+          "children": []
+        },
+        {
+          "name": "hr",
+          "type": "0 < r",
+          "body": "dist_pos.2 (ne_of_apply_ne (norm \u2218 f) hw_lt.ne)",
+          "children": []
+        },
+        {
+          "name": "hsub",
+          "type": "sphere z r \u2286 closedBall z r",
+          "body": "sphere_subset_closedBall",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "AbsMax",
+          "name": "norm_max_aux\u2081",
+          "statement": "\u2102 \u2192 F} {z w : \u2102} (hd : DiffContOnCl \u2102 f (ball z (dist w z))) (hz : IsMaxOn (norm \u2218 f) (closedBall z (dist w z)) z) : \u2016f w\u2016 = \u2016f z\u2016",
+          "have_tree": [
+            {
+              "name": "hr",
+              "type": "0 < r",
+              "body": "dist_pos.2 (ne_of_apply_ne (norm \u2218 f) hw_lt.ne)",
+              "children": []
+            },
+            {
+              "name": "hw",
+              "type": "w \u2208 closedBall z r",
+              "body": "mem_closedBall.2 le_rfl",
+              "children": []
+            },
+            {
+              "name": "hsub",
+              "type": "sphere z r \u2286 closedBall z r",
+              "body": "sphere_subset_closedBall",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "AbsMax",
+          "name": "norm_max_aux\u2081",
+          "statement": "\u2102 \u2192 F} {z w : \u2102} (hd : DiffContOnCl \u2102 f (ball z (dist w z))) (hz : IsMaxOn (norm \u2218 f) (closedBall z (dist w z)) z) : \u2016f w\u2016 = \u2016f z\u2016",
+          "have_tree": [
+            {
+              "name": "hw",
+              "type": "w \u2208 closedBall z r",
+              "body": "mem_closedBall.2 le_rfl",
+              "children": []
+            },
+            {
+              "name": "hsub",
+              "type": "sphere z r \u2286 closedBall z r",
+              "body": "sphere_subset_closedBall",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "0 < r",
+              "body": "dist_pos.2 (ne_of_apply_ne (norm \u2218 f) hw_lt.ne)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "AbsMax",
+      "name": "norm_eqOn_closedBall_of_isMaxOn",
+      "statement": "E \u2192 F} {z : E} {r : \u211d} (hd : DiffContOnCl \u2102 f (ball z r)) (hz : IsMaxOn (norm \u2218 f) (ball z r) z) : EqOn (norm \u2218 f) (const E \u2016f z\u2016) (closedBall z r)",
+      "have_tree": [
+        {
+          "name": "hde",
+          "type": "Differentiable \u2102 e",
+          "body": "(differentiable_id.smul_const (w - z)).add_const z",
+          "children": []
+        },
+        {
+          "name": "hball",
+          "type": "MapsTo e (ball 0 1) (ball z r)",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "AbsMax",
+          "name": "norm_eqOn_closedBall_of_isMaxOn",
+          "statement": "E \u2192 F} {z : E} {r : \u211d} (hd : DiffContOnCl \u2102 f (ball z r)) (hz : IsMaxOn (norm \u2218 f) (ball z r) z) : EqOn (norm \u2218 f) (const E \u2016f z\u2016) (closedBall z r)",
+          "have_tree": [
+            {
+              "name": "hball",
+              "type": "MapsTo e (ball 0 1) (ball z r)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hde",
+              "type": "Differentiable \u2102 e",
+              "body": "(differentiable_id.smul_const (w - z)).add_const z",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "AbsMax",
+      "name": "norm_eqOn_of_isPreconnected_of_isMaxOn",
+      "statement": "E \u2192 F} {U : Set E} {c : E} (hc : IsPreconnected U) (ho : IsOpen U) (hd : DifferentiableOn \u2102 f U) (hcU : c \u2208 U) (hm : IsMaxOn (norm \u2218 f) U c) : EqOn (norm \u2218 f) (const E \u2016f c\u2016) U",
+      "have_tree": [
+        {
+          "name": "hVo",
+          "type": "IsOpen V",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hVne",
+          "type": "(U \u2229 V).Nonempty",
+          "body": "\u27e8c, hcU, hcU, hm\u27e9",
+          "children": []
+        },
+        {
+          "name": "hWo",
+          "type": "IsOpen W",
+          "body": "hd.continuousOn.norm.isOpen_inter_preimage ho isOpen_ne",
+          "children": []
+        },
+        {
+          "name": "hdVW",
+          "type": "Disjoint V W",
+          "body": "disjoint_left.mpr fun x hxV hxW => hxW.2 (hV x hxV)",
+          "children": []
+        },
+        {
+          "name": "hUVW",
+          "type": "U \u2286 V \u222a W",
+          "body": "fun x hx =>",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "AbsMax",
+          "name": "norm_eqOn_of_isPreconnected_of_isMaxOn",
+          "statement": "E \u2192 F} {U : Set E} {c : E} (hc : IsPreconnected U) (ho : IsOpen U) (hd : DifferentiableOn \u2102 f U) (hcU : c \u2208 U) (hm : IsMaxOn (norm \u2218 f) U c) : EqOn (norm \u2218 f) (const E \u2016f c\u2016) U",
+          "have_tree": [
+            {
+              "name": "hVne",
+              "type": "(U \u2229 V).Nonempty",
+              "body": "\u27e8c, hcU, hcU, hm\u27e9",
+              "children": []
+            },
+            {
+              "name": "hVo",
+              "type": "IsOpen V",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hWo",
+              "type": "IsOpen W",
+              "body": "hd.continuousOn.norm.isOpen_inter_preimage ho isOpen_ne",
+              "children": []
+            },
+            {
+              "name": "hdVW",
+              "type": "Disjoint V W",
+              "body": "disjoint_left.mpr fun x hxV hxW => hxW.2 (hV x hxV)",
+              "children": []
+            },
+            {
+              "name": "hUVW",
+              "type": "U \u2286 V \u222a W",
+              "body": "fun x hx =>",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "AbsMax",
+          "name": "norm_eqOn_of_isPreconnected_of_isMaxOn",
+          "statement": "E \u2192 F} {U : Set E} {c : E} (hc : IsPreconnected U) (ho : IsOpen U) (hd : DifferentiableOn \u2102 f U) (hcU : c \u2208 U) (hm : IsMaxOn (norm \u2218 f) U c) : EqOn (norm \u2218 f) (const E \u2016f c\u2016) U",
+          "have_tree": [
+            {
+              "name": "hVo",
+              "type": "IsOpen V",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hWo",
+              "type": "IsOpen W",
+              "body": "hd.continuousOn.norm.isOpen_inter_preimage ho isOpen_ne",
+              "children": []
+            },
+            {
+              "name": "hVne",
+              "type": "(U \u2229 V).Nonempty",
+              "body": "\u27e8c, hcU, hcU, hm\u27e9",
+              "children": []
+            },
+            {
+              "name": "hdVW",
+              "type": "Disjoint V W",
+              "body": "disjoint_left.mpr fun x hxV hxW => hxW.2 (hV x hxV)",
+              "children": []
+            },
+            {
+              "name": "hUVW",
+              "type": "U \u2286 V \u222a W",
+              "body": "fun x hx =>",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "AbsMax",
+          "name": "norm_eqOn_of_isPreconnected_of_isMaxOn",
+          "statement": "E \u2192 F} {U : Set E} {c : E} (hc : IsPreconnected U) (ho : IsOpen U) (hd : DifferentiableOn \u2102 f U) (hcU : c \u2208 U) (hm : IsMaxOn (norm \u2218 f) U c) : EqOn (norm \u2218 f) (const E \u2016f c\u2016) U",
+          "have_tree": [
+            {
+              "name": "hVo",
+              "type": "IsOpen V",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hVne",
+              "type": "(U \u2229 V).Nonempty",
+              "body": "\u27e8c, hcU, hcU, hm\u27e9",
+              "children": []
+            },
+            {
+              "name": "hdVW",
+              "type": "Disjoint V W",
+              "body": "disjoint_left.mpr fun x hxV hxW => hxW.2 (hV x hxV)",
+              "children": []
+            },
+            {
+              "name": "hWo",
+              "type": "IsOpen W",
+              "body": "hd.continuousOn.norm.isOpen_inter_preimage ho isOpen_ne",
+              "children": []
+            },
+            {
+              "name": "hUVW",
+              "type": "U \u2286 V \u222a W",
+              "body": "fun x hx =>",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "AbsMax",
+          "name": "norm_eqOn_of_isPreconnected_of_isMaxOn",
+          "statement": "E \u2192 F} {U : Set E} {c : E} (hc : IsPreconnected U) (ho : IsOpen U) (hd : DifferentiableOn \u2102 f U) (hcU : c \u2208 U) (hm : IsMaxOn (norm \u2218 f) U c) : EqOn (norm \u2218 f) (const E \u2016f c\u2016) U",
+          "have_tree": [
+            {
+              "name": "hVo",
+              "type": "IsOpen V",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hVne",
+              "type": "(U \u2229 V).Nonempty",
+              "body": "\u27e8c, hcU, hcU, hm\u27e9",
+              "children": []
+            },
+            {
+              "name": "hWo",
+              "type": "IsOpen W",
+              "body": "hd.continuousOn.norm.isOpen_inter_preimage ho isOpen_ne",
+              "children": []
+            },
+            {
+              "name": "hUVW",
+              "type": "U \u2286 V \u222a W",
+              "body": "fun x hx =>",
+              "children": []
+            },
+            {
+              "name": "hdVW",
+              "type": "Disjoint V W",
+              "body": "disjoint_left.mpr fun x hxV hxW => hxW.2 (hV x hxV)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "AbsMax",
+      "name": "eventually_eq_or_eq_zero_of_isLocalMin_norm",
+      "statement": "E \u2192 \u2102} {c : E} (hf : \u2200\u1da0 z in \ud835\udcdd c, DifferentiableAt \u2102 f z) (hc : IsLocalMin (norm \u2218 f) c) : (\u2200\u1da0 z in \ud835\udcdd c, f z = f c) \u2228 f c = 0",
+      "have_tree": [
+        {
+          "name": "h1",
+          "type": "\u2200\u1da0 z in \ud835\udcdd c, f z \u2260 0",
+          "body": "hf.self_of_nhds.continuousAt.eventually_ne h",
+          "children": []
+        },
+        {
+          "name": "h2",
+          "type": "IsLocalMax (norm \u2218 f)\u207b\u00b9 c",
+          "body": "hc.inv (h1.mono fun z => norm_pos_iff.mpr)",
+          "children": []
+        },
+        {
+          "name": "h3",
+          "type": "IsLocalMax (norm \u2218 f\u207b\u00b9) c",
+          "body": "by refine h2.congr (Eventually.of_forall ?_); simp",
+          "children": []
+        },
+        {
+          "name": "h4",
+          "type": "\u2200\u1da0 z in \ud835\udcdd c, DifferentiableAt \u2102 f\u207b\u00b9 z",
+          "body": "by filter_upwards [hf, h1] with z h using h.inv",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "AbsMax",
+          "name": "eventually_eq_or_eq_zero_of_isLocalMin_norm",
+          "statement": "E \u2192 \u2102} {c : E} (hf : \u2200\u1da0 z in \ud835\udcdd c, DifferentiableAt \u2102 f z) (hc : IsLocalMin (norm \u2218 f) c) : (\u2200\u1da0 z in \ud835\udcdd c, f z = f c) \u2228 f c = 0",
+          "have_tree": [
+            {
+              "name": "h2",
+              "type": "IsLocalMax (norm \u2218 f)\u207b\u00b9 c",
+              "body": "hc.inv (h1.mono fun z => norm_pos_iff.mpr)",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "\u2200\u1da0 z in \ud835\udcdd c, f z \u2260 0",
+              "body": "hf.self_of_nhds.continuousAt.eventually_ne h",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "IsLocalMax (norm \u2218 f\u207b\u00b9) c",
+              "body": "by refine h2.congr (Eventually.of_forall ?_); simp",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "\u2200\u1da0 z in \ud835\udcdd c, DifferentiableAt \u2102 f\u207b\u00b9 z",
+              "body": "by filter_upwards [hf, h1] with z h using h.inv",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "AbsMax",
+          "name": "eventually_eq_or_eq_zero_of_isLocalMin_norm",
+          "statement": "E \u2192 \u2102} {c : E} (hf : \u2200\u1da0 z in \ud835\udcdd c, DifferentiableAt \u2102 f z) (hc : IsLocalMin (norm \u2218 f) c) : (\u2200\u1da0 z in \ud835\udcdd c, f z = f c) \u2228 f c = 0",
+          "have_tree": [
+            {
+              "name": "h1",
+              "type": "\u2200\u1da0 z in \ud835\udcdd c, f z \u2260 0",
+              "body": "hf.self_of_nhds.continuousAt.eventually_ne h",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "IsLocalMax (norm \u2218 f\u207b\u00b9) c",
+              "body": "by refine h2.congr (Eventually.of_forall ?_); simp",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "IsLocalMax (norm \u2218 f)\u207b\u00b9 c",
+              "body": "hc.inv (h1.mono fun z => norm_pos_iff.mpr)",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "\u2200\u1da0 z in \ud835\udcdd c, DifferentiableAt \u2102 f\u207b\u00b9 z",
+              "body": "by filter_upwards [hf, h1] with z h using h.inv",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "AbsMax",
+          "name": "eventually_eq_or_eq_zero_of_isLocalMin_norm",
+          "statement": "E \u2192 \u2102} {c : E} (hf : \u2200\u1da0 z in \ud835\udcdd c, DifferentiableAt \u2102 f z) (hc : IsLocalMin (norm \u2218 f) c) : (\u2200\u1da0 z in \ud835\udcdd c, f z = f c) \u2228 f c = 0",
+          "have_tree": [
+            {
+              "name": "h1",
+              "type": "\u2200\u1da0 z in \ud835\udcdd c, f z \u2260 0",
+              "body": "hf.self_of_nhds.continuousAt.eventually_ne h",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "IsLocalMax (norm \u2218 f)\u207b\u00b9 c",
+              "body": "hc.inv (h1.mono fun z => norm_pos_iff.mpr)",
+              "children": []
+            },
+            {
+              "name": "h4",
+              "type": "\u2200\u1da0 z in \ud835\udcdd c, DifferentiableAt \u2102 f\u207b\u00b9 z",
+              "body": "by filter_upwards [hf, h1] with z h using h.inv",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "IsLocalMax (norm \u2218 f\u207b\u00b9) c",
+              "body": "by refine h2.congr (Eventually.of_forall ?_); simp",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "AbsMax",
+      "name": "exists_mem_frontier_isMaxOn_norm",
+      "statement": "E \u2192 F} {U : Set E} (hb : IsBounded U) (hne : U.Nonempty) (hd : DiffContOnCl \u2102 f U) : \u2203 z \u2208 frontier U, IsMaxOn (norm \u2218 f) (closure U) z",
+      "have_tree": [
+        {
+          "name": "hc",
+          "type": "IsCompact (closure U)",
+          "body": "hb.isCompact_closure",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "interior U \u2260 univ",
+          "body": "ne_top_of_le_ne_top hc.ne_univ interior_subset_closure",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "AbsMax",
+          "name": "exists_mem_frontier_isMaxOn_norm",
+          "statement": "E \u2192 F} {U : Set E} (hb : IsBounded U) (hne : U.Nonempty) (hd : DiffContOnCl \u2102 f U) : \u2203 z \u2208 frontier U, IsMaxOn (norm \u2218 f) (closure U) z",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "interior U \u2260 univ",
+              "body": "ne_top_of_le_ne_top hc.ne_univ interior_subset_closure",
+              "children": []
+            },
+            {
+              "name": "hc",
+              "type": "IsCompact (closure U)",
+              "body": "hb.isCompact_closure",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "AbsMax",
+      "name": "norm_le_of_forall_mem_frontier_norm_le",
+      "statement": "E \u2192 F} {U : Set E} (hU : IsBounded U) (hd : DiffContOnCl \u2102 f U) {C : \u211d} (hC : \u2200 z \u2208 frontier U, \u2016f z\u2016 \u2264 C) {z : E} (hz : z \u2208 closure U) : \u2016f z\u2016 \u2264 C",
+      "have_tree": [
+        {
+          "name": "hde",
+          "type": "Differentiable \u2102 e",
+          "body": "(differentiable_id.smul_const (w - z)).add_const z",
+          "children": []
+        },
+        {
+          "name": "hL",
+          "type": "AntilipschitzWith (nndist z w)\u207b\u00b9 e",
+          "body": "antilipschitzWith_lineMap hne.symm",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "AbsMax",
+          "name": "norm_le_of_forall_mem_frontier_norm_le",
+          "statement": "E \u2192 F} {U : Set E} (hU : IsBounded U) (hd : DiffContOnCl \u2102 f U) {C : \u211d} (hC : \u2200 z \u2208 frontier U, \u2016f z\u2016 \u2264 C) {z : E} (hz : z \u2208 closure U) : \u2016f z\u2016 \u2264 C",
+          "have_tree": [
+            {
+              "name": "hL",
+              "type": "AntilipschitzWith (nndist z w)\u207b\u00b9 e",
+              "body": "antilipschitzWith_lineMap hne.symm",
+              "children": []
+            },
+            {
+              "name": "hde",
+              "type": "Differentiable \u2102 e",
+              "body": "(differentiable_id.smul_const (w - z)).add_const z",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

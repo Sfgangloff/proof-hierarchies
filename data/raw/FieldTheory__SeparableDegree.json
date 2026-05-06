@@ -1,0 +1,207 @@
+[
+  {
+    "module": "SeparableDegree",
+    "name": "embEquivOfEquiv",
+    "statement": "E \u2243\u2090[F] K) : Emb F E \u2243 Emb F K",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "isAlgebraic_algebraMap (R := E) (A := K) (i.symm.toAlgHom x)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SeparableDegree",
+    "name": "embEquivOfAdjoinSplits",
+    "statement": "Set E} (hS : adjoin F S = \u22a4) (hK : \u2200 s \u2208 S, IsIntegral F s \u2227 Splits ((minpoly F s).map (algebraMap F K))) : Emb F E \u2243 (E \u2192\u2090[F] K)",
+    "have_tree": [
+      {
+        "name": "halg",
+        "type": "",
+        "body": "(topEquiv (F := F) (E := E)).isAlgebraic",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SeparableDegree",
+    "name": "natSepDegree",
+    "statement": "\u2115",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "f.map (algebraMap F f.SplittingField) |>.card_roots'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SeparableDegree",
+    "name": "HasSeparableContraction.natSepDegree_eq",
+    "statement": "\u2115} [ExpChar F q] (hf : f.HasSeparableContraction q) : f.natSepDegree = hf.degree",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "",
+        "body": "h.hasSeparableContraction q",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SeparableDegree",
+    "name": "eq_X_sub_C_pow_of_natSepDegree_eq_one_of_splits",
+    "statement": "f.Monic) (hs : f.Splits) (h : f.natSepDegree = 1) : \u2203 (m : \u2115) (y : F), m \u2260 0 \u2227 f = (X - C y) ^ m",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "hs.eq_prod_roots_of_monic hm",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "(natSepDegree_eq_of_splits f (hs.map <| .id F)).symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SeparableDegree",
+    "name": "eq_X_pow_char_pow_sub_C_pow_of_natSepDegree_eq_one",
+    "statement": "\u2115) [ExpChar F q] (hm : f.Monic) (h : f.natSepDegree = 1) : \u2203 (m n : \u2115) (y : F), m \u2260 0 \u2227 (n = 0 \u2228 y \u2209 (frobenius F q).range) \u2227 f = (X ^ q ^ n - C y) ^ m",
+    "have_tree": [
+      {
+        "name": "hD",
+        "type": "",
+        "body": "(h \u25b8 natSepDegree_le_of_dvd p f hf hm.ne_zero).antisymm <|",
+        "children": []
+      },
+      {
+        "name": "hF",
+        "type": "",
+        "body": "finiteMultiplicity_of_degree_pos_of_monic (degree_pos_of_irreducible hI) hM hm.ne_zero",
+        "children": []
+      },
+      {
+        "name": "hne",
+        "type": "",
+        "body": "(multiplicity_pos_of_dvd hf).ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SeparableDegree",
+    "name": "natSepDegree_eq_one_iff_pow_mem",
+    "statement": "(minpoly F x).natSepDegree = 1 \u2194 \u2203 n : \u2115, x ^ q ^ n \u2208 (algebraMap F E).range",
+    "have_tree": [
+      {
+        "name": "hnezero",
+        "type": "",
+        "body": "X_pow_sub_C_ne_zero (expChar_pow_pos F q n) y",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SeparableDegree",
+    "name": "natSepDegree_eq_one_iff_eq_X_sub_C_pow",
+    "statement": "(minpoly F x).natSepDegree = 1 \u2194 \u2203 n : \u2115, (minpoly F x).map (algebraMap F E) = (X - C x) ^ q ^ n",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "",
+        "body": "congr_arg (Polynomial.aeval x) h.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SeparableDegree",
+    "name": "finSepDegree_dvd_finrank",
+    "statement": "finSepDegree F E \u2223 finrank F E",
+    "have_tree": [
+      {
+        "name": "hdvd",
+        "type": "",
+        "body": "mul_dvd_mul h <| finSepDegree_adjoin_simple_dvd_finrank L E x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SeparableDegree",
+    "name": "finSepDegree_le_finrank",
+    "statement": "finSepDegree F E \u2264 finrank F E",
+    "have_tree": [
+      {
+        "name": "hd",
+        "type": "",
+        "body": "finSepDegree_mul_finSepDegree_of_isAlgebraic F L E",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SeparableDegree",
+    "name": "finSepDegree_eq_finrank_iff",
+    "statement": "finSepDegree F E = finrank F E \u2194 Algebra.IsSeparable F E",
+    "have_tree": [
+      {
+        "name": "halg",
+        "type": "",
+        "body": "IsAlgebraic.of_finite F x",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.mul_lt_mul_of_lt_of_le' h (finSepDegree_le_finrank F\u27eex\u27ef E) Fin.pos'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SeparableDegree",
+    "name": "IsSeparable.of_algebra_isSeparable_of_isSeparable",
+    "statement": "K} (hsep : IsSeparable E x) : IsSeparable F x",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "x \u2208 E'\u27eex\u27ef.restrictScalars F",
+        "body": "mem_adjoin_simple_self _ x",
+        "children": []
+      },
+      {
+        "name": "halg",
+        "type": "IsIntegral E' x",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "finSepDegree_mul_finSepDegree_of_isAlgebraic F E' E'\u27eex\u27ef",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SeparableDegree",
+    "name": "perfectField_iff_splits_of_natSepDegree_eq_one",
+    "statement": "Type*) [Field F] : PerfectField F \u2194 \u2200 f : F[X], f.natSepDegree = 1 \u2192 Splits f",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "natSepDegree_le_of_dvd g f (UniqueFactorizationMonoid.dvd_of_mem_factors hg) hf0",
+        "children": []
+      }
+    ]
+  }
+]

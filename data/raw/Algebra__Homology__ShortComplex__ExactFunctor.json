@@ -1,0 +1,121 @@
+[
+  {
+    "module": "ExactFunctor",
+    "name": "preservesFiniteLimits_of_preservesHomology",
+    "statement": "PreservesFiniteLimits F",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "fun {X Y : C} (f : X \u27f6 Y) \u21a6 PreservesHomology.preservesKernel F f",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasBinaryBiproducts C",
+        "body": "HasBinaryBiproducts.of_hasBinaryProducts",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasEqualizers C",
+        "body": "Preadditive.hasEqualizers_of_hasKernels",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasZeroObject D",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ExactFunctor",
+    "name": "preservesFiniteColimits_of_preservesHomology",
+    "statement": "PreservesFiniteColimits F",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "fun {X Y : C} (f : X \u27f6 Y) \u21a6 PreservesHomology.preservesCokernel F f",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasBinaryBiproducts C",
+        "body": "HasBinaryBiproducts.of_hasBinaryCoproducts",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasCoequalizers C",
+        "body": "Preadditive.hasCoequalizers_of_hasCokernels",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasZeroObject D",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ExactFunctor",
+    "name": "preservesFiniteLimits_tfae",
+    "statement": "List.TFAE [ \u2200 (S : ShortComplex C), S.ShortExact \u2192 (S.map F).Exact \u2227 Mono (F.map S.f), \u2200 (S : ShortComplex C), S.Exact \u2227 Mono S.f \u2192 (S.map F).Exact \u2227 Mono (F.map S.f), \u2200 \u2983X Y : C\u2984 (f : X \u27f6 Y), PreservesLimit (parallelPair f 0) F, PreservesFiniteLimits F ]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesMonomorphisms_of_preserves_shortExact_left F hF",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Mono (S.map F).f",
+        "body": "hS.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ExactFunctor",
+    "name": "preservesFiniteColimits_tfae",
+    "statement": "List.TFAE [ \u2200 (S : ShortComplex C), S.ShortExact \u2192 (S.map F).Exact \u2227 Epi (F.map S.g), \u2200 (S : ShortComplex C), S.Exact \u2227 Epi S.g \u2192 (S.map F).Exact \u2227 Epi (F.map S.g), \u2200 \u2983X Y : C\u2984 (f : X \u27f6 Y), PreservesColimit (parallelPair f 0) F, PreservesFiniteColimits F ]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesEpimorphisms_of_preserves_shortExact_right F hF",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Epi (S.map F).g",
+        "body": "hS.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ExactFunctor",
+    "name": "exact_tfae",
+    "statement": "List.TFAE [ \u2200 (S : ShortComplex C), S.ShortExact \u2192 (S.map F).ShortExact, \u2200 (S : ShortComplex C), S.Exact \u2192 (S.map F).Exact, PreservesHomology F, PreservesFiniteLimits F \u2227 PreservesFiniteColimits F ]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Mono (S.map F).f",
+        "body": "exact_iff_mono _ (by simp) |>.1 <|",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Epi (S.map F).g",
+        "body": "exact_iff_epi _ (by simp) |>.1 <|",
+        "children": []
+      }
+    ]
+  }
+]

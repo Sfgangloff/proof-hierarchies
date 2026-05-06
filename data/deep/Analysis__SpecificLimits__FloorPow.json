@@ -1,0 +1,245 @@
+[
+  {
+    "module": "FloorPow",
+    "name": "tendsto_div_of_monotone_of_exists_subseq_tendsto_div",
+    "statement": "\u2115 \u2192 \u211d) (l : \u211d) (hmono : Monotone u) (hlim : \u2200 a : \u211d, 1 < a \u2192 \u2203 c : \u2115 \u2192 \u2115, (\u2200\u1da0 n in atTop, (c (n + 1) : \u211d) \u2264 a * c n) \u2227 Tendsto c atTop atTop \u2227 Tendsto (fun n => u (c n) / c n) atTop (\ud835\udcdd l)) : Tendsto (fun n => u n / n) atTop (\ud835\udcdd l)",
+    "have_tree": [
+      {
+        "name": "lnonneg",
+        "type": "0 \u2264 l",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Tendsto (fun n => u 0 / c n) atTop (\ud835\udcdd 0)",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "A",
+        "type": "\u2200 \u03b5 : \u211d, 0 < \u03b5 \u2192 \u2200\u1da0 n in atTop, u n - n * l \u2264 \u03b5 * (1 + \u03b5 + l) * n",
+        "body": "by",
+        "children": [
+          {
+            "name": "L",
+            "type": "\u2200\u1da0 n in atTop, u (c n) - c n * l \u2264 \u03b5 * c n",
+            "body": "by",
+            "children": [
+              {
+                "name": "cnpos",
+                "type": "0 < c n",
+                "body": "cnpos'",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "exN",
+            "type": "\u2203 N, n < c N",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "ncN",
+            "type": "n < c N",
+            "body": "Nat.find_spec exN",
+            "children": []
+          },
+          {
+            "name": "aN",
+            "type": "a + 1 \u2264 N",
+            "body": "by",
+            "children": [
+              {
+                "name": "cNM",
+                "type": "c N \u2264 M",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Npos",
+            "type": "0 < N",
+            "body": "lt_of_lt_of_le Nat.succ_pos' aN",
+            "children": []
+          },
+          {
+            "name": "cNn",
+            "type": "c (N - 1) \u2264 n",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "N - 1 < N",
+                "body": "Nat.pred_lt Npos.ne'",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "IcN",
+            "type": "(c N : \u211d) \u2264 (1 + \u03b5) * c (N - 1)",
+            "body": "by",
+            "children": [
+              {
+                "name": "A",
+                "type": "a \u2264 N - 1",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "B",
+                "type": "N - 1 + 1 = N",
+                "body": "Nat.succ_pred_eq_of_pos Npos",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "",
+                "body": "(ha _ A).1",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "B",
+        "type": "\u2200 \u03b5 : \u211d, 0 < \u03b5 \u2192 \u2200\u1da0 n : \u2115 in atTop, (n : \u211d) * l - u n \u2264 \u03b5 * (1 + l) * n",
+        "body": "by",
+        "children": [
+          {
+            "name": "L",
+            "type": "\u2200\u1da0 n : \u2115 in atTop, (c n : \u211d) * l - u (c n) \u2264 \u03b5 * c n",
+            "body": "by",
+            "children": [
+              {
+                "name": "cnpos",
+                "type": "0 < c n",
+                "body": "cnpos'",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "exN",
+            "type": "\u2203 N, n < c N",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "ncN",
+            "type": "n < c N",
+            "body": "Nat.find_spec exN",
+            "children": []
+          },
+          {
+            "name": "aN",
+            "type": "a + 1 \u2264 N",
+            "body": "by",
+            "children": [
+              {
+                "name": "cNM",
+                "type": "c N \u2264 M",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Npos",
+            "type": "0 < N",
+            "body": "lt_of_lt_of_le Nat.succ_pos' aN",
+            "children": []
+          },
+          {
+            "name": "aN'",
+            "type": "a \u2264 N - 1",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "cNn",
+            "type": "c (N - 1) \u2264 n",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "N - 1 < N",
+                "body": "Nat.pred_lt Npos.ne'",
+                "children": [
+                  {
+                    "name": "B",
+                    "type": "N - 1 + 1 = N",
+                    "body": "Nat.succ_pred_eq_of_pos Npos",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "L",
+                "type": "Tendsto (fun \u03b5 => d + \u03b5 * (1 + l)) (\ud835\udcdd[>] 0) (\ud835\udcdd (d + 0 * (1 + l)))",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "L",
+                "type": "Tendsto (fun \u03b5 => l + \u03b5 * (1 + \u03b5 + l)) (\ud835\udcdd[>] 0) (\ud835\udcdd (l + 0 * (1 + 0 + l)))",
+                "body": "by",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "FloorPow",
+    "name": "sum_div_pow_sq_le_div_sq",
+    "statement": "\u2115) {j : \u211d} (hj : 0 < j) {c : \u211d} (hc : 1 < c) : (\u2211 i \u2208 range N with j < c ^ i, (1 : \u211d) / (c ^ i) ^ 2) \u2264 c ^ 3 * (c - 1)\u207b\u00b9 / j ^ 2",
+    "have_tree": [
+      {
+        "name": "cpos",
+        "type": "0 < c",
+        "body": "zero_lt_one.trans hc",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "(0 : \u211d) < c\u207b\u00b9 ^ 2",
+        "body": "sq_pos_of_pos (inv_pos.2 cpos)",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "c ^ 2 * ((1 : \u211d) - c\u207b\u00b9 ^ 2)\u207b\u00b9 \u2264 c ^ 3 * (c - 1)\u207b\u00b9",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "c ^ 3 = c ^ 2 * c",
+            "body": "by ring",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "C",
+        "type": "c\u207b\u00b9 ^ 2 < 1",
+        "body": "pow_lt_one\u2080 (inv_nonneg.2 cpos.le) (inv_lt_one_of_one_lt\u2080 hc) two_ne_zero",
+        "children": [
+          {
+            "name": "I",
+            "type": "(c\u207b\u00b9 ^ 2) ^ (Real.log j / Real.log c) = (1 : \u211d) / j ^ 2",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

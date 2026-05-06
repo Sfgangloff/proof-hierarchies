@@ -1,0 +1,165 @@
+[
+  {
+    "module": "LocallyUniformLimit",
+    "name": "norm_cderiv_le",
+    "statement": "0 < r) (hf : \u2200 w \u2208 sphere z r, \u2016f w\u2016 \u2264 M) : \u2016cderiv r f z\u2016 \u2264 M / r",
+    "have_tree": [
+      {
+        "name": "hM",
+        "type": "0 \u2264 M",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h1",
+        "type": "\u2200 w \u2208 sphere z r, \u2016((w - z) ^ 2)\u207b\u00b9 \u2022 f w\u2016 \u2264 M / r ^ 2",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "circleIntegral.norm_integral_le_of_norm_le_const hr.le h1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocallyUniformLimit",
+    "name": "norm_cderiv_lt",
+    "statement": "0 < r) (hfM : \u2200 w \u2208 sphere z r, \u2016f w\u2016 < M) (hf : ContinuousOn f (sphere z r)) : \u2016cderiv r f z\u2016 < M / r",
+    "have_tree": [
+      {
+        "name": "e1",
+        "type": "(sphere z r).Nonempty",
+        "body": "NormedSpace.sphere_nonempty.mpr hr.le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocallyUniformLimit",
+    "name": "_root_.TendstoUniformlyOn.cderiv",
+    "statement": "TendstoUniformlyOn F f \u03c6 (cthickening \u03b4 K)) (h\u03b4 : 0 < \u03b4) (hFn : \u2200\u1da0 n in \u03c6, ContinuousOn (F n) (cthickening \u03b4 K)) : TendstoUniformlyOn (cderiv \u03b4 \u2218 F) (cderiv \u03b4 f) \u03c6 K",
+    "have_tree": [
+      {
+        "name": "e1",
+        "type": "ContinuousOn f (cthickening \u03b4 K)",
+        "body": "TendstoUniformlyOn.continuousOn hF hFn.frequently",
+        "children": []
+      },
+      {
+        "name": "e2",
+        "type": "\u2200 w \u2208 sphere z \u03b4, \u2016f w - F n w\u2016 < \u03b5 * \u03b4",
+        "body": "fun w hw1 =>",
+        "children": []
+      },
+      {
+        "name": "e3",
+        "type": "",
+        "body": "sphere_subset_closedBall.trans (closedBall_subset_cthickening hz \u03b4)",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "ContinuousOn f (sphere z \u03b4)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocallyUniformLimit",
+    "name": "tendstoUniformlyOn_deriv_of_cthickening_subset",
+    "statement": "TendstoLocallyUniformlyOn F f \u03c6 U) (hF : \u2200\u1da0 n in \u03c6, DifferentiableOn \u2102 (F n) U) {\u03b4 : \u211d} (h\u03b4 : 0 < \u03b4) (hK : IsCompact K) (hU : IsOpen U) (hKU : cthickening \u03b4 K \u2286 U) : TendstoUniformlyOn (deriv \u2218 F) (cderiv \u03b4 f) \u03c6 K",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "\u2200\u1da0 n in \u03c6, ContinuousOn (F n) (cthickening \u03b4 K)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "IsCompact (cthickening \u03b4 K)",
+        "body": "hK.cthickening",
+        "children": []
+      },
+      {
+        "name": "h3",
+        "type": "TendstoUniformlyOn F f \u03c6 (cthickening \u03b4 K)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocallyUniformLimit",
+    "name": "_root_.TendstoLocallyUniformlyOn.differentiableOn",
+    "statement": "TendstoLocallyUniformlyOn F f \u03c6 U) (hF : \u2200\u1da0 n in \u03c6, DifferentiableOn \u2102 (F n) U) (hU : IsOpen U) : DifferentiableOn \u2102 f U",
+    "have_tree": [
+      {
+        "name": "h2",
+        "type": "interior K \u2286 U",
+        "body": "interior_subset.trans hKU",
+        "children": []
+      },
+      {
+        "name": "h3",
+        "type": "\u2200\u1da0 n in \u03c6, DifferentiableOn \u2102 (F n) (interior K)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h4",
+        "type": "TendstoLocallyUniformlyOn F f \u03c6 (interior K)",
+        "body": "hf.mono h2",
+        "children": []
+      },
+      {
+        "name": "h5",
+        "type": "TendstoLocallyUniformlyOn (deriv \u2218 F) (cderiv \u03b4 f) \u03c6 (interior K)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h6",
+        "type": "\u2200 x \u2208 interior K, HasDerivAt f (cderiv \u03b4 f x) x",
+        "body": "fun x h =>",
+        "children": []
+      },
+      {
+        "name": "h7",
+        "type": "DifferentiableOn \u2102 f (interior K)",
+        "body": "fun x hx =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocallyUniformLimit",
+    "name": "differentiableOn_tsum_of_summable_norm",
+    "statement": "\u03b9 \u2192 \u211d} (hu : Summable u) (hf : \u2200 i : \u03b9, DifferentiableOn \u2102 (F i) U) (hU : IsOpen U) (hF_le : \u2200 (i : \u03b9) (w : \u2102), w \u2208 U \u2192 \u2016F i w\u2016 \u2264 u i) : DifferentiableOn \u2102 (fun w : \u2102 => \u2211' i : \u03b9, F i w) U",
+    "have_tree": [
+      {
+        "name": "hc",
+        "type": "",
+        "body": "(tendstoUniformlyOn_tsum hu hF_le).tendstoLocallyUniformlyOn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocallyUniformLimit",
+    "name": "hasSum_deriv_of_summable_norm",
+    "statement": "\u03b9 \u2192 \u211d} (hu : Summable u) (hf : \u2200 i : \u03b9, DifferentiableOn \u2102 (F i) U) (hU : IsOpen U) (hF_le : \u2200 (i : \u03b9) (w : \u2102), w \u2208 U \u2192 \u2016F i w\u2016 \u2264 u i) (hz : z \u2208 U) : HasSum (fun i : \u03b9 => deriv (F i) z) (deriv (fun w : \u2102 => \u2211' i : \u03b9, F i w) z)",
+    "have_tree": [
+      {
+        "name": "hc",
+        "type": "",
+        "body": "(tendstoUniformlyOn_tsum hu hF_le).tendstoLocallyUniformlyOn",
+        "children": []
+      }
+    ]
+  }
+]

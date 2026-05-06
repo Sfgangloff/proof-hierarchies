@@ -1,0 +1,126 @@
+[
+  {
+    "module": "PID",
+    "name": "generator_maximal_submoduleImage_dvd",
+    "statement": "Submodule R M} (hNO : N \u2264 O) {\u03d5 : O \u2192\u2097[R] R} (h\u03d5 : \u2200 \u03c8 : O \u2192\u2097[R] R, \u00ac\u03d5.submoduleImage N < \u03c8.submoduleImage N) [(\u03d5.submoduleImage N).IsPrincipal] (y : M) (yN : y \u2208 N) (\u03d5y_eq : \u03d5 \u27e8y, hNO yN\u27e9 = generator (\u03d5.submoduleImage N)) (\u03c8 : O \u2192\u2097[R] R) : generator (\u03d5.submoduleImage N) \u2223 \u03c8 \u27e8y, hNO yN\u27e9",
+    "have_tree": [
+      {
+        "name": "d_dvd_left",
+        "type": "d \u2223 a",
+        "body": "(mem_iff_generator_dvd _).mp (subset_span (mem_insert _ _))",
+        "children": []
+      },
+      {
+        "name": "d_dvd_right",
+        "type": "d \u2223 \u03c8 \u27e8y, hNO yN\u27e9",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "span R {d} \u2264 \u03c8'.submoduleImage N",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PID",
+    "name": "Submodule.basis_of_pid_aux",
+    "statement": "Type*} [AddCommGroup O] [Module R O] (M N : Submodule R O) (b'M : Basis \u03b9 R M) (N_bot : N \u2260 \u22a5) (N_le_M : N \u2264 M) : \u2203 y \u2208 M, \u2203 a : R, a \u2022 y \u2208 N \u2227 \u2203 M' \u2264 M, \u2203 N' \u2264 N, N' \u2264 M' \u2227 (\u2200 (c : R) (z : O), z \u2208 M' \u2192 c \u2022 y + z = 0 \u2192 c = 0) \u2227 (\u2200 (c : R) (z : O), z \u2208 N' \u2192 c \u2022 a \u2022 y + z = 0 \u2192 c = 0) \u2227 \u2200 (n') (bN' : Basis (Fin n') R N'), \u2203 bN : Basis (Fin (n' + 1)) R N, \u2200 (m') (hn'm' : n' \u2264 m') (bM' : Basis (Fin m') R M'), \u2203 (hnm : n' + 1 \u2264 m' + 1) (bM : Basis (Fin (m' + 1)) R M), \u2200 as : Fin n' \u2192 R, (\u2200 i : Fin n', (bN' i : O) = as i \u2022 (bM' (Fin.castLE hn'm' i) : O)) \u2192 \u2203 as' : Fin (n' + 1) \u2192 R, \u2200 i : Fin (n' + 1), (bN i : O) = as' i \u2022 (bM (Fin.castLE hnm i) : O)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2203 \u03d5 : M \u2192\u2097[R] R, \u2200 \u03c8 : M \u2192\u2097[R] R, \u00ac\u03d5.submoduleImage N < \u03c8.submoduleImage N",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "\u03d5_max",
+        "type": "",
+        "body": "this.choose_spec",
+        "children": []
+      },
+      {
+        "name": "a_mem",
+        "type": "a \u2208 \u03d5.submoduleImage N",
+        "body": "generator_mem _",
+        "children": []
+      },
+      {
+        "name": "hdvd",
+        "type": "\u2200 i, a \u2223 b'M.coord i \u27e8y, N_le_M yN\u27e9",
+        "body": "fun i \u21a6",
+        "children": []
+      },
+      {
+        "name": "y'M",
+        "type": "y' \u2208 M",
+        "body": "M.sum_mem fun i _ \u21a6 M.smul_mem (c i) (b'M i).2",
+        "children": []
+      },
+      {
+        "name": "mk_y'",
+        "type": "(\u27e8y', y'M\u27e9 : M) = \u2211 i, c i \u2022 b'M i",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "a_smul_y'",
+        "type": "a \u2022 y' = y",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "\u03d5y'_eq",
+        "type": "\u03d5 \u27e8y', y'M\u27e9 = 1",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "\u03d5y'_ne_zero",
+        "type": "\u03d5 \u27e8y', y'M\u27e9 \u2260 0",
+        "body": "by simpa only [\u03d5y'_eq] using one_ne_zero",
+        "children": []
+      },
+      {
+        "name": "M'_le_M",
+        "type": "M' \u2264 M",
+        "body": "M.map_subtype_le (LinearMap.ker \u03d5)",
+        "children": []
+      },
+      {
+        "name": "N'_le_M'",
+        "type": "N' \u2264 M'",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "N'_le_N",
+        "type": "N' \u2264 N",
+        "body": "N.map_subtype_le (LinearMap.ker (\u03d5.comp (inclusion N_le_M)))",
+        "children": []
+      },
+      {
+        "name": "y'_ortho_M'",
+        "type": "\u2200 (c : R), \u2200 z \u2208 M', c \u2022 y' + z = 0 \u2192 c = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "hc'",
+            "type": "(c \u2022 \u27e8y', y'M\u27e9 + \u27e8x, xM\u27e9 : M) = 0",
+            "body": "by exact @Subtype.coe_injective O (\u00b7 \u2208 M) _ _ hc",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "ay'_ortho_N'",
+        "type": "\u2200 (c : R), \u2200 z \u2208 N', c \u2022 a \u2022 y' + z = 0 \u2192 c = 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

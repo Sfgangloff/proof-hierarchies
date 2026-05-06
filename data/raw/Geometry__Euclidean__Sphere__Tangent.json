@@ -1,0 +1,111 @@
+[
+  {
+    "module": "Tangent",
+    "name": "IsTangentAt.eq_of_isTangentAt",
+    "statement": "Sphere P} {p q : P} {as : AffineSubspace \u211d P} (hp : s.IsTangentAt p as) (hq : s.IsTangentAt q as) : p = q",
+    "have_tree": [
+      {
+        "name": "hqp",
+        "type": "",
+        "body": "hp.inner_left_eq_zero_of_mem hq.mem_space",
+        "children": []
+      },
+      {
+        "name": "hpq",
+        "type": "",
+        "body": "hq.inner_left_eq_zero_of_mem hp.mem_space",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tangent",
+    "name": "IsTangentAt.dist_eq_of_mem_of_mem",
+    "statement": "Sphere P} {p\u2081 p\u2082 q : P} {as\u2081 as\u2082 : AffineSubspace \u211d P} (h\u2081 : s.IsTangentAt p\u2081 as\u2081) (h\u2082 : s.IsTangentAt p\u2082 as\u2082) (hq_mem\u2081 : q \u2208 as\u2081) (hq_mem\u2082 : q \u2208 as\u2082) : dist q p\u2081 = dist q p\u2082",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "dist_sq_eq_of_mem h\u2081 hq_mem\u2081",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "dist_sq_eq_of_mem h\u2082 hq_mem\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tangent",
+    "name": "IsTangentAt.eq_orthRadius_of_finrank_add_one_eq",
+    "statement": "Sphere P} {as : AffineSubspace \u211d P} {p : P} (ht : s.IsTangentAt p as) (hr : s.radius \u2260 0) (hfr : Module.finrank \u211d as.direction + 1 = Module.finrank \u211d V) : as = s.orthRadius p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional \u211d V",
+        "body": "Module.finite_of_finrank_eq_succ hfr.symm",
+        "children": []
+      },
+      {
+        "name": "hp",
+        "type": "p \u2260 s.center",
+        "body": "fun h \u21a6 (h \u25b8 s.center_mem_iff).not.2 hr ht.mem_sphere",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tangent",
+    "name": "IsTangent.infDist_eq_radius",
+    "statement": "Sphere P} {as : AffineSubspace \u211d P} (h : s.IsTangent as) : Metric.infDist s.center as = s.radius",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty as",
+        "body": "\u27e8\u27e8p, h.mem_space\u27e9\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tangent",
+    "name": "IsTangent.eq_orthRadius_or_eq_orthRadius_pointReflection_of_parallel_orthRadius",
+    "statement": "Sphere P} {as : AffineSubspace \u211d P} {p : P} (h : s.IsTangent as) (hpar : as \u2225 s.orthRadius p) (hp : p \u2208 s) : as = s.orthRadius p \u2228 as = s.orthRadius (Equiv.pointReflection s.center p)",
+    "have_tree": [
+      {
+        "name": "hd",
+        "type": "",
+        "body": "direction_le hqo",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tangent",
+    "name": "IsTangentAt.eq_orthogonalProjection",
+    "statement": "Sphere P} {p : P} {as : AffineSubspace \u211d P} [Nonempty as] [as.direction.HasOrthogonalProjection] (h : s.IsTangentAt p as) : p = orthogonalProjection as s.center",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "h.isTangent",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tangent",
+    "name": "isIntTangent_iff_dist_center",
+    "statement": "Sphere P} : s\u2081.IsIntTangent s\u2082 \u2194 dist s\u2081.center s\u2082.center = s\u2082.radius - s\u2081.radius \u2227 0 \u2264 s\u2081.radius \u2227 0 \u2264 s\u2082.radius",
+    "have_tree": [
+      {
+        "name": "hr0",
+        "type": "s\u2082.radius - s\u2081.radius \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "module": "CompactConvergence",
+    "name": "tendsto_iff_forall_isCompact_tendstoUniformlyOn",
+    "statement": "Type u\u2083} {p : Filter \u03b9} {F : \u03b9 \u2192 C(\u03b1, \u03b2)} {f} : Tendsto F p (\ud835\udcdd f) \u2194 \u2200 K, IsCompact K \u2192 TendstoUniformlyOn (fun i a => F i a) f p K",
+    "have_tree": [
+      {
+        "name": "hnhds",
+        "type": "s \u2208 \ud835\udcdd[K] x",
+        "body": "inter_mem_nhdsWithin _ <| f.continuousAt _ (ball_mem_nhds _ hW)",
+        "children": []
+      },
+      {
+        "name": "hcomp",
+        "type": "IsCompact s",
+        "body": "hK.inter_right <| (isClosed_ball _ hWc).preimage f.continuous",
+        "children": []
+      },
+      {
+        "name": "hmaps",
+        "type": "MapsTo f s (ball (f x) V)",
+        "body": "fun x hx \u21a6 hWU hx.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CompactConvergence",
+    "name": "uniformSpace_eq_inf_precomp_of_cover",
+    "statement": "Type*} [TopologicalSpace \u03b4\u2081] [TopologicalSpace \u03b4\u2082] (\u03c6\u2081 : C(\u03b4\u2081, \u03b1)) (\u03c6\u2082 : C(\u03b4\u2082, \u03b1)) (h_proper\u2081 : IsProperMap \u03c6\u2081) (h_proper\u2082 : IsProperMap \u03c6\u2082) (h_cover : range \u03c6\u2081 \u222a range \u03c6\u2082 = univ) : ((inferInstance : UniformSpace C(\u03b1, \u03b2))) = .comap (comp \u00b7 \u03c6\u2081) inferInstance \u2293 .comap (comp \u00b7 \u03c6\u2082) inferInstance",
+    "have_tree": [
+      {
+        "name": "h_image\u2081",
+        "type": "MapsTo (\u03c6\u2081 '' \u00b7) \ud835\udd17\u2081 \ud835\udd16",
+        "body": "fun K hK \u21a6 hK.image \u03c6\u2081.continuous",
+        "children": []
+      },
+      {
+        "name": "h_image\u2082",
+        "type": "MapsTo (\u03c6\u2082 '' \u00b7) \ud835\udd17\u2082 \ud835\udd16",
+        "body": "fun K hK \u21a6 hK.image \u03c6\u2082.continuous",
+        "children": []
+      },
+      {
+        "name": "h_preimage\u2081",
+        "type": "MapsTo (\u03c6\u2081 \u207b\u00b9' \u00b7) \ud835\udd16 \ud835\udd17\u2081",
+        "body": "fun K \u21a6 h_proper\u2081.isCompact_preimage",
+        "children": []
+      },
+      {
+        "name": "h_preimage\u2082",
+        "type": "MapsTo (\u03c6\u2082 \u207b\u00b9' \u00b7) \ud835\udd16 \ud835\udd17\u2082",
+        "body": "fun K \u21a6 h_proper\u2082.isCompact_preimage",
+        "children": []
+      },
+      {
+        "name": "h_cover'",
+        "type": "\u2200 S \u2208 \ud835\udd16, S \u2286 range \u03c6\u2081 \u222a range \u03c6\u2082",
+        "body": "fun S _ \u21a6 h_cover \u25b8 subset_univ _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CompactConvergence",
+    "name": "uniformSpace_eq_iInf_precomp_of_cover",
+    "statement": "\u03b9 \u2192 Type*} [\u2200 i, TopologicalSpace (\u03b4 i)] (\u03c6 : \u03a0 i, C(\u03b4 i, \u03b1)) (h_proper : \u2200 i, IsProperMap (\u03c6 i)) (h_lf : LocallyFinite fun i \u21a6 range (\u03c6 i)) (h_cover : \u22c3 i, range (\u03c6 i) = univ) : ((inferInstance : UniformSpace C(\u03b1, \u03b2))) = \u2a05 i, .comap (comp \u00b7 (\u03c6 i)) inferInstance",
+    "have_tree": [
+      {
+        "name": "h_image",
+        "type": "\u2200 i, MapsTo (\u03c6 i '' \u00b7) (\ud835\udd17 i) \ud835\udd16",
+        "body": "fun i K hK \u21a6 hK.image (\u03c6 i).continuous",
+        "children": []
+      },
+      {
+        "name": "h_preimage",
+        "type": "\u2200 i, MapsTo (\u03c6 i \u207b\u00b9' \u00b7) \ud835\udd16 (\ud835\udd17 i)",
+        "body": "fun i K \u21a6 (h_proper i).isCompact_preimage",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CompactConvergence",
+    "name": "isComplete_setOf_eqOn",
+    "statement": "\u03b1 \u2192 \u03b2) (s : Set \u03b1) : IsComplete {g : C(\u03b1, \u03b2) | EqOn g f s}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hlc.1",
+        "children": []
+      },
+      {
+        "name": "H\u2081",
+        "type": "\u2200 x \u2208 s, Inseparable (f x) (f' x)",
+        "body": "fun x hx \u21a6 by",
+        "children": []
+      }
+    ]
+  }
+]

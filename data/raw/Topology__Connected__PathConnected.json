@@ -1,0 +1,40 @@
+[
+  {
+    "module": "PathConnected",
+    "name": "JoinedIn.mem",
+    "statement": "JoinedIn F x y) : x \u2208 F \u2227 y \u2208 F",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u03b3 0 \u2208 F \u2227 \u03b3 1 \u2208 F",
+        "body": "by constructor <;> apply \u03b3_in",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PathConnected",
+    "name": "Topology.IsInducing.joinedIn_image",
+    "statement": "X \u2192 Y} (hf : IsInducing f) (hx : x \u2208 F) (hy : y \u2208 F) : JoinedIn (f '' F) (f x) (f y) \u2194 JoinedIn F x y",
+    "have_tree": [
+      {
+        "name": "h\u2080",
+        "type": "x \u2933 \u03b3' 0",
+        "body": "by rw [\u2190 hf.specializes_iff, h\u03b3', \u03b3.source]",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "\u03b3' 1 \u2933 y",
+        "body": "by rw [\u2190 hf.specializes_iff, h\u03b3', \u03b3.target]",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "JoinedIn F (\u03b3' 0) (\u03b3' 1)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

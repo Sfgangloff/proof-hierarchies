@@ -1,0 +1,66 @@
+[
+  {
+    "module": "Cardinality",
+    "name": "card",
+    "statement": "Nat.card V - 1 = Nat.card (\u2119 k V) * (Nat.card k - 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Infinite V",
+        "body": "Module.Free.infinite k V",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "not_iff_not.mpr (finite_iff_of_finite k V)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Infinite (\u2119 k V)",
+        "body": "by rwa [this]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cardinality",
+    "name": "card'",
+    "statement": "Nat.card V = Nat.card (\u2119 k V) * (Nat.card k - 1) + 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nat.card V > 0",
+        "body": "Nat.card_pos",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cardinality",
+    "name": "card''",
+    "statement": "Nat.card (\u2119 k V) = (Nat.card V - 1) / (Nat.card k - 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "1 < Nat.card k",
+        "body": "Finite.one_lt_card",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cardinality",
+    "name": "card_of_finrank",
+    "statement": "\u2115} (h : Module.finrank k V = n) : Nat.card (\u2119 k V) = \u2211 i \u2208 Finset.range n, Nat.card k ^ i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "1 < Nat.card k",
+        "body": "Finite.one_lt_card",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,91 @@
+[
+  {
+    "module": "CircleTransform",
+    "name": "circleTransformDeriv_periodic",
+    "statement": "\u2102 \u2192 E) : Periodic (circleTransformDeriv R z w f) (2 * \u03c0)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "periodic_circleMap",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CircleTransform",
+    "name": "continuousOn_prod_circle_transform_function",
+    "statement": "\u211d} (hr : r < R) {z : \u2102} : ContinuousOn (fun w : \u2102 \u00d7 \u211d => (circleMap z R w.snd - w.fst)\u207b\u00b9 ^ 2) (closedBall z r \u00d7\u02e2 univ)",
+    "have_tree": [
+      {
+        "name": "ha2",
+        "type": "a \u2208 ball z R",
+        "body": "closedBall_subset_ball hr ha",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CircleTransform",
+    "name": "continuousOn_norm_circleTransformBoundingFunction",
+    "statement": "\u211d} (hr : r < R) (z : \u2102) : ContinuousOn ((\u2016\u00b7\u2016) \u2218 circleTransformBoundingFunction R z) (closedBall z r \u00d7\u02e2 univ)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "ContinuousOn (circleTransformBoundingFunction R z) (closedBall z r \u00d7\u02e2 univ)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CircleTransform",
+    "name": "norm_circleTransformBoundingFunction_le",
+    "statement": "\u211d} (hr : r < R) (hr' : 0 \u2264 r) (z : \u2102) : \u2203 x : closedBall z r \u00d7\u02e2 [[0, 2 * \u03c0]], \u2200 y : closedBall z r \u00d7\u02e2 [[0, 2 * \u03c0]], \u2016circleTransformBoundingFunction R z y\u2016 \u2264 \u2016circleTransformBoundingFunction R z x\u2016",
+    "have_tree": [
+      {
+        "name": "cts",
+        "type": "",
+        "body": "continuousOn_norm_circleTransformBoundingFunction hr z",
+        "children": []
+      },
+      {
+        "name": "comp",
+        "type": "IsCompact (closedBall z r \u00d7\u02e2 [[0, 2 * \u03c0]])",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "none",
+        "type": "(closedBall z r \u00d7\u02e2 [[0, 2 * \u03c0]]).Nonempty",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsCompact.exists_isMaxOn comp none (cts.mono <| prod_mono_right (subset_univ _))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CircleTransform",
+    "name": "circleTransformDeriv_bound",
+    "statement": "\u211d} (hR : 0 < R) {z x : \u2102} {f : \u2102 \u2192 \u2102} (hx : x \u2208 ball z R) (hf : ContinuousOn f (sphere z R)) : \u2203 B \u03b5 : \u211d, 0 < \u03b5 \u2227 ball x \u03b5 \u2286 ball z R \u2227 \u2200 (t : \u211d), \u2200 y \u2208 ball x \u03b5, \u2016circleTransformDeriv R z y f t\u2016 \u2264 B",
+    "have_tree": [
+      {
+        "name": "hy2",
+        "type": "y1 \u2208 [[0, 2 * \u03c0]]",
+        "body": "Icc_subset_uIcc <| Ico_subset_Icc_self hy1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "mul_le_mul (hab \u27e8\u27e8v, y1\u27e9, \u27e8ball_subset_closedBall (H hv), hy2\u27e9\u27e9)",
+        "children": []
+      }
+    ]
+  }
+]

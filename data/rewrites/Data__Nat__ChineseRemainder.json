@@ -1,0 +1,210 @@
+[
+  {
+    "original": {
+      "module": "ChineseRemainder",
+      "name": "chineseRemainderOfList",
+      "statement": "(l : List \u03b9) \u2192 l.Pairwise (Coprime on s) \u2192 { k // \u2200 i \u2208 l, k \u2261 a i [MOD s i] } | [],     _  => \u27e80, by simp\u27e9 | i :: l, co => by have : Coprime (s i) (l.map s).prod",
+      "have_tree": [
+        {
+          "name": "ih",
+          "type": "",
+          "body": "chineseRemainderOfList l co.of_cons",
+          "children": []
+        },
+        {
+          "name": "k",
+          "type": "",
+          "body": "chineseRemainder this (a i) ih",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "ChineseRemainder",
+          "name": "chineseRemainderOfList",
+          "statement": "(l : List \u03b9) \u2192 l.Pairwise (Coprime on s) \u2192 { k // \u2200 i \u2208 l, k \u2261 a i [MOD s i] } | [],     _  => \u27e80, by simp\u27e9 | i :: l, co => by have : Coprime (s i) (l.map s).prod",
+          "have_tree": [
+            {
+              "name": "k",
+              "type": "",
+              "body": "chineseRemainder this (a i) ih",
+              "children": []
+            },
+            {
+              "name": "ih",
+              "type": "",
+              "body": "chineseRemainderOfList l co.of_cons",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "ChineseRemainder",
+      "name": "chineseRemainderOfMultiset",
+      "statement": "Multiset \u03b9} : m.Nodup \u2192 (\u2200 i \u2208 m, s i \u2260 0) \u2192 Set.Pairwise {x | x \u2208 m} (Coprime on s) \u2192 { k // \u2200 i \u2208 m, k \u2261 a i [MOD s i] }",
+      "have_tree": [
+        {
+          "name": "nod",
+          "type": "l.Nodup",
+          "body": "pp.symm.nodup_iff.mp nod'",
+          "children": []
+        },
+        {
+          "name": "hs",
+          "type": "\u2200 i \u2208 l, s i \u2260 0",
+          "body": "by simpa [List.Perm.mem_iff pp] using hs'",
+          "children": []
+        },
+        {
+          "name": "co",
+          "type": "Set.Pairwise {x | x \u2208 l} (Coprime on s)",
+          "body": "by simpa [List.Perm.mem_iff pp] using co'",
+          "children": []
+        },
+        {
+          "name": "lco",
+          "type": "l.Pairwise (Coprime on s)",
+          "body": "List.Nodup.pairwise_of_forall_ne nod co",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "ChineseRemainder",
+          "name": "chineseRemainderOfMultiset",
+          "statement": "Multiset \u03b9} : m.Nodup \u2192 (\u2200 i \u2208 m, s i \u2260 0) \u2192 Set.Pairwise {x | x \u2208 m} (Coprime on s) \u2192 { k // \u2200 i \u2208 m, k \u2261 a i [MOD s i] }",
+          "have_tree": [
+            {
+              "name": "hs",
+              "type": "\u2200 i \u2208 l, s i \u2260 0",
+              "body": "by simpa [List.Perm.mem_iff pp] using hs'",
+              "children": []
+            },
+            {
+              "name": "nod",
+              "type": "l.Nodup",
+              "body": "pp.symm.nodup_iff.mp nod'",
+              "children": []
+            },
+            {
+              "name": "co",
+              "type": "Set.Pairwise {x | x \u2208 l} (Coprime on s)",
+              "body": "by simpa [List.Perm.mem_iff pp] using co'",
+              "children": []
+            },
+            {
+              "name": "lco",
+              "type": "l.Pairwise (Coprime on s)",
+              "body": "List.Nodup.pairwise_of_forall_ne nod co",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "ChineseRemainder",
+          "name": "chineseRemainderOfMultiset",
+          "statement": "Multiset \u03b9} : m.Nodup \u2192 (\u2200 i \u2208 m, s i \u2260 0) \u2192 Set.Pairwise {x | x \u2208 m} (Coprime on s) \u2192 { k // \u2200 i \u2208 m, k \u2261 a i [MOD s i] }",
+          "have_tree": [
+            {
+              "name": "nod",
+              "type": "l.Nodup",
+              "body": "pp.symm.nodup_iff.mp nod'",
+              "children": []
+            },
+            {
+              "name": "co",
+              "type": "Set.Pairwise {x | x \u2208 l} (Coprime on s)",
+              "body": "by simpa [List.Perm.mem_iff pp] using co'",
+              "children": []
+            },
+            {
+              "name": "hs",
+              "type": "\u2200 i \u2208 l, s i \u2260 0",
+              "body": "by simpa [List.Perm.mem_iff pp] using hs'",
+              "children": []
+            },
+            {
+              "name": "lco",
+              "type": "l.Pairwise (Coprime on s)",
+              "body": "List.Nodup.pairwise_of_forall_ne nod co",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "ChineseRemainder",
+          "name": "chineseRemainderOfMultiset",
+          "statement": "Multiset \u03b9} : m.Nodup \u2192 (\u2200 i \u2208 m, s i \u2260 0) \u2192 Set.Pairwise {x | x \u2208 m} (Coprime on s) \u2192 { k // \u2200 i \u2208 m, k \u2261 a i [MOD s i] }",
+          "have_tree": [
+            {
+              "name": "nod",
+              "type": "l.Nodup",
+              "body": "pp.symm.nodup_iff.mp nod'",
+              "children": []
+            },
+            {
+              "name": "hs",
+              "type": "\u2200 i \u2208 l, s i \u2260 0",
+              "body": "by simpa [List.Perm.mem_iff pp] using hs'",
+              "children": []
+            },
+            {
+              "name": "lco",
+              "type": "l.Pairwise (Coprime on s)",
+              "body": "List.Nodup.pairwise_of_forall_ne nod co",
+              "children": []
+            },
+            {
+              "name": "co",
+              "type": "Set.Pairwise {x | x \u2208 l} (Coprime on s)",
+              "body": "by simpa [List.Perm.mem_iff pp] using co'",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

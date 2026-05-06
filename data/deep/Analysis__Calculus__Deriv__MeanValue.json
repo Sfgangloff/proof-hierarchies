@@ -1,0 +1,150 @@
+[
+  {
+    "module": "MeanValue",
+    "name": "exists_ratio_hasDerivAt_eq_ratio_slope'",
+    "statement": "\u211d} (hff' : \u2200 x \u2208 Ioo a b, HasDerivAt f (f' x) x) (hgg' : \u2200 x \u2208 Ioo a b, HasDerivAt g (g' x) x) (hfa : Tendsto f (\ud835\udcdd[>] a) (\ud835\udcdd lfa)) (hga : Tendsto g (\ud835\udcdd[>] a) (\ud835\udcdd lga)) (hfb : Tendsto f (\ud835\udcdd[<] b) (\ud835\udcdd lfb)) (hgb : Tendsto g (\ud835\udcdd[<] b) (\ud835\udcdd lgb)) : \u2203 c \u2208 Ioo a b, (lgb - lga) * f' c = (lfb - lfa) * g' c",
+    "have_tree": [
+      {
+        "name": "hha",
+        "type": "Tendsto h (\ud835\udcdd[>] a) (\ud835\udcdd <| lgb * lfa - lfb * lga)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Tendsto h (\ud835\udcdd[>] a) (\ud835\udcdd <| (lgb - lga) * lfa - (lfb - lfa) * lga)",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hhb",
+        "type": "Tendsto h (\ud835\udcdd[<] b) (\ud835\udcdd <| lgb * lfa - lfb * lga)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Tendsto h (\ud835\udcdd[<] b) (\ud835\udcdd <| (lgb - lga) * lfb - (lfb - lfa) * lgb)",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hhh'",
+        "type": "\u2200 x \u2208 Ioo a b, HasDerivAt h (h' x) x",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MeanValue",
+    "name": "not_differentiableWithinAt_of_deriv_tendsto_atTop_Ioi",
+    "statement": "\u211d \u2192 \u211d) {a : \u211d} (hf : Tendsto (deriv f) (\ud835\udcdd[>] a) atTop) : \u00ac DifferentiableWithinAt \u211d f (Ioi a) a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Ioi a \u2208 \ud835\udcdd x",
+        "body": "by simp [\u2190 mem_interior_iff_mem_nhds, hx]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hcontra.continuousWithinAt",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "\u2200\u1da0 b in \ud835\udcdd[>] a, slope f a b < derivWithin f (Ioi a) a + 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hcontra",
+        "type": "\u2200\u1da0 _ in \ud835\udcdd[>] a, False",
+        "body": "by",
+        "children": [
+          {
+            "name": "hdiff'",
+            "type": "DifferentiableOn \u211d f (Ioc a b)",
+            "body": "fun z hz => by",
+            "children": [
+              {
+                "name": "_",
+                "type": "derivWithin f (Ioi a) z \u2260 0",
+                "body": "ne_of_gt <| by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "hcont_Ioc",
+            "type": "\u2200 z \u2208 Ioc a b, ContinuousWithinAt f (Icc a b) z",
+            "body": "by",
+            "children": [
+              {
+                "name": "hfinal",
+                "type": "\ud835\udcdd[Ioc a b] z = \ud835\udcdd[Icc a b] z",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "hcont",
+            "type": "ContinuousOn f (Icc a b)",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "Ioi a \u2208 \ud835\udcdd x",
+                "body": "by simp [\u2190 mem_interior_iff_mem_nhds, hx\u2081.1]",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "MeanValue",
+    "name": "not_differentiableWithinAt_of_deriv_tendsto_atBot_Iio",
+    "statement": "\u211d \u2192 \u211d) {a : \u211d} (hf : Tendsto (deriv f) (\ud835\udcdd[<] a) atBot) : \u00ac DifferentiableWithinAt \u211d f (Iio a) a",
+    "have_tree": [
+      {
+        "name": "hderiv",
+        "type": "deriv f' =\u1da0[\ud835\udcdd[>] (-a)] -(deriv f \u2218 Neg.neg)",
+        "body": "by",
+        "children": [
+          {
+            "name": "h\u2081",
+            "type": "-x \u2208 Ioo b a",
+            "body": "\u27e8by linarith, by linarith\u27e9",
+            "children": []
+          },
+          {
+            "name": "h\u2082",
+            "type": "deriv f (-x) \u2264 -1",
+            "body": "hb\u2082 h\u2081",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hmain",
+        "type": "\u00ac DifferentiableWithinAt \u211d f' (Ioi (-a)) (-a)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "DifferentiableWithinAt \u211d f' (Ioi (-a)) (-a)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

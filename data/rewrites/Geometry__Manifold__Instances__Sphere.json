@@ -1,0 +1,169 @@
+[
+  {
+    "original": {
+      "module": "Sphere",
+      "name": "stereo_left_inv",
+      "statement": "\u2016v\u2016 = 1) {x : sphere (0 : E) 1} (hx : (x : E) \u2260 v) : stereoInvFun hv (stereoToFun v x) = x",
+      "have_tree": [
+        {
+          "name": "ha",
+          "type": "0 < 1 - a",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "a < 1",
+              "body": "(inner_lt_one_iff_real_of_norm_eq_one hv (by simp)).mpr hx.symm",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Sphere",
+          "name": "stereo_left_inv",
+          "statement": "\u2016v\u2016 = 1) {x : sphere (0 : E) 1} (hx : (x : E) \u2260 v) : stereoInvFun hv (stereoToFun v x) = x",
+          "have_tree": [
+            {
+              "name": "ha",
+              "type": "0 < 1 - a",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Sphere",
+          "name": "stereo_left_inv",
+          "statement": "\u2016v\u2016 = 1) {x : sphere (0 : E) 1} (hx : (x : E) \u2260 v) : stereoInvFun hv (stereoToFun v x) = x",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "a < 1",
+              "body": "(inner_lt_one_iff_real_of_norm_eq_one hv (by simp)).mpr hx.symm",
+              "children": []
+            },
+            {
+              "name": "ha",
+              "type": "0 < 1 - a",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Sphere",
+      "name": "ContMDiff.codRestrict_sphere",
+      "statement": "\u2115} [Fact (finrank \u211d E = n + 1)] {f : M \u2192 E} (hf : CMDiff m f) (hf' : \u2200 x, f x \u2208 sphere (0 : E) 1) : CMDiff m (Set.codRestrict _ _ hf' : M \u2192 sphere (0 : E) 1)",
+      "have_tree": [
+        {
+          "name": "h",
+          "type": "ContDiffOn \u211d \u03c9 _ Set.univ",
+          "body": "U.contDiff.contDiffOn",
+          "children": []
+        },
+        {
+          "name": "H\u2081",
+          "type": "",
+          "body": "(h.comp_inter contDiffOn_stereoToFun).contMDiffOn",
+          "children": []
+        },
+        {
+          "name": "H\u2082",
+          "type": "CMDiff[Set.univ] m f",
+          "body": "hf.contMDiffOn",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Sphere",
+          "name": "ContMDiff.codRestrict_sphere",
+          "statement": "\u2115} [Fact (finrank \u211d E = n + 1)] {f : M \u2192 E} (hf : CMDiff m f) (hf' : \u2200 x, f x \u2208 sphere (0 : E) 1) : CMDiff m (Set.codRestrict _ _ hf' : M \u2192 sphere (0 : E) 1)",
+          "have_tree": [
+            {
+              "name": "H\u2081",
+              "type": "",
+              "body": "(h.comp_inter contDiffOn_stereoToFun).contMDiffOn",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "ContDiffOn \u211d \u03c9 _ Set.univ",
+              "body": "U.contDiff.contDiffOn",
+              "children": []
+            },
+            {
+              "name": "H\u2082",
+              "type": "CMDiff[Set.univ] m f",
+              "body": "hf.contMDiffOn",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Sphere",
+          "name": "ContMDiff.codRestrict_sphere",
+          "statement": "\u2115} [Fact (finrank \u211d E = n + 1)] {f : M \u2192 E} (hf : CMDiff m f) (hf' : \u2200 x, f x \u2208 sphere (0 : E) 1) : CMDiff m (Set.codRestrict _ _ hf' : M \u2192 sphere (0 : E) 1)",
+          "have_tree": [
+            {
+              "name": "h",
+              "type": "ContDiffOn \u211d \u03c9 _ Set.univ",
+              "body": "U.contDiff.contDiffOn",
+              "children": []
+            },
+            {
+              "name": "H\u2082",
+              "type": "CMDiff[Set.univ] m f",
+              "body": "hf.contMDiffOn",
+              "children": []
+            },
+            {
+              "name": "H\u2081",
+              "type": "",
+              "body": "(h.comp_inter contDiffOn_stereoToFun).contMDiffOn",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Defs",
+      "name": "ge_stable",
+      "statement": "Seq \u03b1) {a\u2099 : \u03b1} {n m : \u2115} (m_le_n : m \u2264 n) (s_nth_eq_some : s.get? n = some a\u2099) : \u2203 a\u2098 : \u03b1, s.get? m = some a\u2098",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "s.get? n \u2260 none",
+          "body": "by simp [s_nth_eq_some]",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "s.get? m \u2260 none",
+          "body": "mt (s.le_stable m_le_n) this",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Defs",
+          "name": "ge_stable",
+          "statement": "Seq \u03b1) {a\u2099 : \u03b1} {n m : \u2115} (m_le_n : m \u2264 n) (s_nth_eq_some : s.get? n = some a\u2099) : \u2203 a\u2098 : \u03b1, s.get? m = some a\u2098",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "s.get? m \u2260 none",
+              "body": "mt (s.le_stable m_le_n) this",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "s.get? n \u2260 none",
+              "body": "by simp [s_nth_eq_some]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

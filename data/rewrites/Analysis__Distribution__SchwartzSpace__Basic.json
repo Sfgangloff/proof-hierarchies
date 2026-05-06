@@ -1,0 +1,726 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "_root_.HasCompactSupport.toSchwartzMap",
+      "statement": "E \u2192 F} (h\u2081 : HasCompactSupport f) (h\u2082 : ContDiff \u211d \u221e f) : \ud835\udce2(E, F) where toFun",
+      "have_tree": [
+        {
+          "name": "hg\u2081",
+          "type": "Continuous g",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hg\u2082",
+          "type": "HasCompactSupport g",
+          "body": "(h\u2081.iteratedFDeriv _).norm.mul_left",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "_root_.HasCompactSupport.toSchwartzMap",
+          "statement": "E \u2192 F} (h\u2081 : HasCompactSupport f) (h\u2082 : ContDiff \u211d \u221e f) : \ud835\udce2(E, F) where toFun",
+          "have_tree": [
+            {
+              "name": "hg\u2082",
+              "type": "HasCompactSupport g",
+              "body": "(h\u2081.iteratedFDeriv _).norm.mul_left",
+              "children": []
+            },
+            {
+              "name": "hg\u2081",
+              "type": "Continuous g",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "evalCLM_apply_apply",
+      "statement": "\ud835\udce2(E, F \u2192L[\u211d] G)) (m : F) (x : E) : SchwartzMap.evalCLM \ud835\udd5c E G m f x = f x m",
+      "have_tree": [
+        {
+          "name": "hxk",
+          "type": "0 \u2264 \u2016x\u2016 ^ k",
+          "body": "by positivity",
+          "children": []
+        },
+        {
+          "name": "hnorm_mul",
+          "type": "",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "evalCLM_apply_apply",
+          "statement": "\ud835\udce2(E, F \u2192L[\u211d] G)) (m : F) (x : E) : SchwartzMap.evalCLM \ud835\udd5c E G m f x = f x m",
+          "have_tree": [
+            {
+              "name": "hnorm_mul",
+              "type": "",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hxk",
+              "type": "0 \u2264 \u2016x\u2016 ^ k",
+              "body": "by positivity",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "smulRightCLM_apply_apply",
+      "statement": "E \u2192L[\u211d] G \u2192L[\u211d] \u211d) (f : \ud835\udce2(E, F)) (x : E) : smulRightCLM \ud835\udd5c F L f x = (L x).smulRight (f x)",
+      "have_tree": [
+        {
+          "name": "hCg",
+          "type": "1 \u2264 1 + Cg",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hg_upper''",
+          "type": "(1 + \u2016x\u2016) ^ (k + l * n) \u2264 (1 + Cg) ^ (k + l * n) * (1 + \u2016g x\u2016) ^ k'",
+          "body": "by",
+          "children": [
+            {
+              "name": "hpos",
+              "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hN\u2081'",
+              "type": "",
+              "body": "(lt_of_lt_of_le zero_lt_one hN\u2081).ne'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "norm_iteratedFDeriv_comp_le (f.smooth \u22a4) hg.1 (mod_cast le_top) x hbound hgrowth'",
+          "children": []
+        },
+        {
+          "name": "hxk",
+          "type": "\u2016x\u2016 ^ k \u2264 (1 + \u2016x\u2016) ^ k",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "hgxk'",
+          "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+          "body": "by positivity",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "smulRightCLM_apply_apply",
+          "statement": "E \u2192L[\u211d] G \u2192L[\u211d] \u211d) (f : \ud835\udce2(E, F)) (x : E) : smulRightCLM \ud835\udd5c F L f x = (L x).smulRight (f x)",
+          "have_tree": [
+            {
+              "name": "hCg",
+              "type": "1 \u2264 1 + Cg",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hg_upper''",
+              "type": "(1 + \u2016x\u2016) ^ (k + l * n) \u2264 (1 + Cg) ^ (k + l * n) * (1 + \u2016g x\u2016) ^ k'",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hN\u2081'",
+                  "type": "",
+                  "body": "(lt_of_lt_of_le zero_lt_one hN\u2081).ne'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "norm_iteratedFDeriv_comp_le (f.smooth \u22a4) hg.1 (mod_cast le_top) x hbound hgrowth'",
+              "children": []
+            },
+            {
+              "name": "hxk",
+              "type": "\u2016x\u2016 ^ k \u2264 (1 + \u2016x\u2016) ^ k",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hgxk'",
+              "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+              "body": "by positivity",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          1
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "smulRightCLM_apply_apply",
+          "statement": "E \u2192L[\u211d] G \u2192L[\u211d] \u211d) (f : \ud835\udce2(E, F)) (x : E) : smulRightCLM \ud835\udd5c F L f x = (L x).smulRight (f x)",
+          "have_tree": [
+            {
+              "name": "hCg",
+              "type": "1 \u2264 1 + Cg",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hg_upper''",
+              "type": "(1 + \u2016x\u2016) ^ (k + l * n) \u2264 (1 + Cg) ^ (k + l * n) * (1 + \u2016g x\u2016) ^ k'",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hpos",
+                  "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+                  "body": "by positivity",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "norm_iteratedFDeriv_comp_le (f.smooth \u22a4) hg.1 (mod_cast le_top) x hbound hgrowth'",
+              "children": []
+            },
+            {
+              "name": "hxk",
+              "type": "\u2016x\u2016 ^ k \u2264 (1 + \u2016x\u2016) ^ k",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hgxk'",
+              "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+              "body": "by positivity",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Basic",
+          "name": "smulRightCLM_apply_apply",
+          "statement": "E \u2192L[\u211d] G \u2192L[\u211d] \u211d) (f : \ud835\udce2(E, F)) (x : E) : smulRightCLM \ud835\udd5c F L f x = (L x).smulRight (f x)",
+          "have_tree": [
+            {
+              "name": "hCg",
+              "type": "1 \u2264 1 + Cg",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hpos",
+              "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hg_upper''",
+              "type": "(1 + \u2016x\u2016) ^ (k + l * n) \u2264 (1 + Cg) ^ (k + l * n) * (1 + \u2016g x\u2016) ^ k'",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hN\u2081'",
+                  "type": "",
+                  "body": "(lt_of_lt_of_le zero_lt_one hN\u2081).ne'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "norm_iteratedFDeriv_comp_le (f.smooth \u22a4) hg.1 (mod_cast le_top) x hbound hgrowth'",
+              "children": []
+            },
+            {
+              "name": "hxk",
+              "type": "\u2016x\u2016 ^ k \u2264 (1 + \u2016x\u2016) ^ k",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hgxk'",
+              "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+              "body": "by positivity",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Basic",
+          "name": "smulRightCLM_apply_apply",
+          "statement": "E \u2192L[\u211d] G \u2192L[\u211d] \u211d) (f : \ud835\udce2(E, F)) (x : E) : smulRightCLM \ud835\udd5c F L f x = (L x).smulRight (f x)",
+          "have_tree": [
+            {
+              "name": "hCg",
+              "type": "1 \u2264 1 + Cg",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hN\u2081'",
+              "type": "",
+              "body": "(lt_of_lt_of_le zero_lt_one hN\u2081).ne'",
+              "children": []
+            },
+            {
+              "name": "hg_upper''",
+              "type": "(1 + \u2016x\u2016) ^ (k + l * n) \u2264 (1 + Cg) ^ (k + l * n) * (1 + \u2016g x\u2016) ^ k'",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hpos",
+                  "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+                  "body": "by positivity",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "norm_iteratedFDeriv_comp_le (f.smooth \u22a4) hg.1 (mod_cast le_top) x hbound hgrowth'",
+              "children": []
+            },
+            {
+              "name": "hxk",
+              "type": "\u2016x\u2016 ^ k \u2264 (1 + \u2016x\u2016) ^ k",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hgxk'",
+              "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+              "body": "by positivity",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "smulRightCLM_apply_apply",
+          "statement": "E \u2192L[\u211d] G \u2192L[\u211d] \u211d) (f : \ud835\udce2(E, F)) (x : E) : smulRightCLM \ud835\udd5c F L f x = (L x).smulRight (f x)",
+          "have_tree": [
+            {
+              "name": "hg_upper''",
+              "type": "(1 + \u2016x\u2016) ^ (k + l * n) \u2264 (1 + Cg) ^ (k + l * n) * (1 + \u2016g x\u2016) ^ k'",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hpos",
+                  "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+                  "body": "by positivity",
+                  "children": []
+                },
+                {
+                  "name": "hN\u2081'",
+                  "type": "",
+                  "body": "(lt_of_lt_of_le zero_lt_one hN\u2081).ne'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hCg",
+              "type": "1 \u2264 1 + Cg",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "norm_iteratedFDeriv_comp_le (f.smooth \u22a4) hg.1 (mod_cast le_top) x hbound hgrowth'",
+              "children": []
+            },
+            {
+              "name": "hxk",
+              "type": "\u2016x\u2016 ^ k \u2264 (1 + \u2016x\u2016) ^ k",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hgxk'",
+              "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+              "body": "by positivity",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "smulRightCLM_apply_apply",
+          "statement": "E \u2192L[\u211d] G \u2192L[\u211d] \u211d) (f : \ud835\udce2(E, F)) (x : E) : smulRightCLM \ud835\udd5c F L f x = (L x).smulRight (f x)",
+          "have_tree": [
+            {
+              "name": "hCg",
+              "type": "1 \u2264 1 + Cg",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "norm_iteratedFDeriv_comp_le (f.smooth \u22a4) hg.1 (mod_cast le_top) x hbound hgrowth'",
+              "children": []
+            },
+            {
+              "name": "hg_upper''",
+              "type": "(1 + \u2016x\u2016) ^ (k + l * n) \u2264 (1 + Cg) ^ (k + l * n) * (1 + \u2016g x\u2016) ^ k'",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hpos",
+                  "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+                  "body": "by positivity",
+                  "children": []
+                },
+                {
+                  "name": "hN\u2081'",
+                  "type": "",
+                  "body": "(lt_of_lt_of_le zero_lt_one hN\u2081).ne'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hxk",
+              "type": "\u2016x\u2016 ^ k \u2264 (1 + \u2016x\u2016) ^ k",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hgxk'",
+              "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+              "body": "by positivity",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "smulRightCLM_apply_apply",
+          "statement": "E \u2192L[\u211d] G \u2192L[\u211d] \u211d) (f : \ud835\udce2(E, F)) (x : E) : smulRightCLM \ud835\udd5c F L f x = (L x).smulRight (f x)",
+          "have_tree": [
+            {
+              "name": "hCg",
+              "type": "1 \u2264 1 + Cg",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hg_upper''",
+              "type": "(1 + \u2016x\u2016) ^ (k + l * n) \u2264 (1 + Cg) ^ (k + l * n) * (1 + \u2016g x\u2016) ^ k'",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hpos",
+                  "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+                  "body": "by positivity",
+                  "children": []
+                },
+                {
+                  "name": "hN\u2081'",
+                  "type": "",
+                  "body": "(lt_of_lt_of_le zero_lt_one hN\u2081).ne'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hxk",
+              "type": "\u2016x\u2016 ^ k \u2264 (1 + \u2016x\u2016) ^ k",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "norm_iteratedFDeriv_comp_le (f.smooth \u22a4) hg.1 (mod_cast le_top) x hbound hgrowth'",
+              "children": []
+            },
+            {
+              "name": "hgxk'",
+              "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+              "body": "by positivity",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "smulRightCLM_apply_apply",
+          "statement": "E \u2192L[\u211d] G \u2192L[\u211d] \u211d) (f : \ud835\udce2(E, F)) (x : E) : smulRightCLM \ud835\udd5c F L f x = (L x).smulRight (f x)",
+          "have_tree": [
+            {
+              "name": "hCg",
+              "type": "1 \u2264 1 + Cg",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hg_upper''",
+              "type": "(1 + \u2016x\u2016) ^ (k + l * n) \u2264 (1 + Cg) ^ (k + l * n) * (1 + \u2016g x\u2016) ^ k'",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hpos",
+                  "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+                  "body": "by positivity",
+                  "children": []
+                },
+                {
+                  "name": "hN\u2081'",
+                  "type": "",
+                  "body": "(lt_of_lt_of_le zero_lt_one hN\u2081).ne'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "norm_iteratedFDeriv_comp_le (f.smooth \u22a4) hg.1 (mod_cast le_top) x hbound hgrowth'",
+              "children": []
+            },
+            {
+              "name": "hgxk'",
+              "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hxk",
+              "type": "\u2016x\u2016 ^ k \u2264 (1 + \u2016x\u2016) ^ k",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          1
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "smulRightCLM_apply_apply",
+          "statement": "E \u2192L[\u211d] G \u2192L[\u211d] \u211d) (f : \ud835\udce2(E, F)) (x : E) : smulRightCLM \ud835\udd5c F L f x = (L x).smulRight (f x)",
+          "have_tree": [
+            {
+              "name": "hCg",
+              "type": "1 \u2264 1 + Cg",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hg_upper''",
+              "type": "(1 + \u2016x\u2016) ^ (k + l * n) \u2264 (1 + Cg) ^ (k + l * n) * (1 + \u2016g x\u2016) ^ k'",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hN\u2081'",
+                  "type": "",
+                  "body": "(lt_of_lt_of_le zero_lt_one hN\u2081).ne'",
+                  "children": []
+                },
+                {
+                  "name": "hpos",
+                  "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+                  "body": "by positivity",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "norm_iteratedFDeriv_comp_le (f.smooth \u22a4) hg.1 (mod_cast le_top) x hbound hgrowth'",
+              "children": []
+            },
+            {
+              "name": "hxk",
+              "type": "\u2016x\u2016 ^ k \u2264 (1 + \u2016x\u2016) ^ k",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hgxk'",
+              "type": "0 < (1 + \u2016g x\u2016) ^ k'",
+              "body": "by positivity",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "inner_toL2_toL2_eq",
+      "statement": "\ud835\udce2(H, V)) (\u03bc : Measure H",
+      "have_tree": [
+        {
+          "name": "hf_ae",
+          "type": "",
+          "body": "f.coeFn_toLp 2 \u03bc",
+          "children": []
+        },
+        {
+          "name": "hg_ae",
+          "type": "",
+          "body": "g.coeFn_toLp 2 \u03bc",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "inner_toL2_toL2_eq",
+          "statement": "\ud835\udce2(H, V)) (\u03bc : Measure H",
+          "have_tree": [
+            {
+              "name": "hg_ae",
+              "type": "",
+              "body": "g.coeFn_toLp 2 \u03bc",
+              "children": []
+            },
+            {
+              "name": "hf_ae",
+              "type": "",
+              "body": "f.coeFn_toLp 2 \u03bc",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

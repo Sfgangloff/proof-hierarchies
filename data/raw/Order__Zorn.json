@@ -1,0 +1,48 @@
+[
+  {
+    "module": "Zorn",
+    "name": "exists_maximal_of_chains_bounded",
+    "statement": "\u2200 c, IsChain r c \u2192 \u2203 ub, \u2200 a \u2208 c, a \u227a ub) (trans : \u2200 {a b c}, a \u227a b \u2192 b \u227a c \u2192 a \u227a c) : \u2203 m, \u2200 a, m \u227a a \u2192 a \u227a m",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2203 ub, \u2200 a \u2208 maxChain r, a \u227a ub",
+        "body": "h _ <| maxChain_spec.left",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsChain r (insert a <| maxChain r)",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Zorn",
+    "name": "zorn_le_nonempty\u2080",
+    "statement": "Set \u03b1) (ih : \u2200 c \u2286 s, IsChain (\u00b7 \u2264 \u00b7) c \u2192 \u2200 y \u2208 c, \u2203 ub \u2208 s, \u2200 z \u2208 c, z \u2264 ub) (x : \u03b1) (hxs : x \u2208 s) : \u2203 m, x \u2264 m \u2227 Maximal (\u00b7 \u2208 s) m",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "zorn_le\u2080 ({ y \u2208 s | x \u2264 y }) fun c hcs hc => ?_",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Zorn",
+    "name": "IsChain.exists_maxChain",
+    "statement": "IsChain r c) : \u2203 M, @IsMaxChain _ r M \u2227 c \u2286 M",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "zorn_subset_nonempty { s | c \u2286 s \u2227 IsChain r s } ?_ c \u27e8Subset.rfl, hc\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

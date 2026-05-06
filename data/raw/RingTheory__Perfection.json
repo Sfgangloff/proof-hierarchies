@@ -1,0 +1,73 @@
+[
+  {
+    "module": "Perfection",
+    "name": "preVal_mul",
+    "statement": "ModP O p} (hxy0 : x * y \u2260 0) : preVal K v O p (x * y) = preVal K v O p x * preVal K v O p y",
+    "have_tree": [
+      {
+        "name": "hx0",
+        "type": "x \u2260 0",
+        "body": "mt (by rintro rfl; rw [zero_mul]) hxy0",
+        "children": []
+      },
+      {
+        "name": "hy0",
+        "type": "y \u2260 0",
+        "body": "mt (by rintro rfl; rw [mul_zero]) hxy0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Perfection",
+    "name": "valAux_eq",
+    "statement": "PreTilt O p} {n : \u2115} (hfn : coeff n f \u2260 0) : valAux K v O p f = ModP.preVal K v O p (coeff n f) ^ p ^ n",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "\u2203 n, coeff n f \u2260 0",
+        "body": "\u27e8n, hfn\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Perfection",
+    "name": "valAux_mul",
+    "statement": "PreTilt O p) : valAux K v O p (f * g) = valAux K v O p f * valAux K v O p g",
+    "have_tree": [
+      {
+        "name": "hfg",
+        "type": "coeff (max m n + 1) (f * g) \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Perfection",
+    "name": "isDomain",
+    "statement": "IsDomain (PreTilt O p)",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "Nat.Prime p",
+        "body": "Fact.out",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Perfection",
+    "name": "Tilt",
+    "statement": "Fact (v p \u2260 1)]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk <| mt hv.one_of_isUnit <| (map_natCast (algebraMap O K) p).symm \u25b8 hvp.1",
+        "children": []
+      }
+    ]
+  }
+]

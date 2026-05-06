@@ -1,0 +1,111 @@
+[
+  {
+    "module": "Limits",
+    "name": "IsAffineOpen.of_subsingleton",
+    "statement": "Scheme} {U : X.Opens} (hU : Set.Subsingleton (U : Set X)) : IsAffineOpen U",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Subsingleton U",
+        "body": "hU.coe_sort",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Limits",
+    "name": "nonempty_isColimit_cofanMk_of",
+    "statement": "\u03c3 \u2192 Scheme.{u}} {S : Scheme.{u}} (f : \u2200 i, X i \u27f6 S) [\u2200 i, IsOpenImmersion (f i)] (hcov : \u2a06 i, (f i).opensRange = \u22a4) (hdisj : Pairwise (Disjoint on (f \u00b7 |>.opensRange))) : Nonempty (IsColimit <| Cofan.mk S f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsOpenImmersion (Sigma.desc f)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "x \u2208 \u2a06 i, (f i).opensRange",
+        "body": "by rwa [hcov]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Limits",
+    "name": "isIso_stalkMap_coprodSpec",
+    "statement": "IsIso ((coprodSpec R S).stalkMap x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsOpenImmersion (Spec.map (CommRingCat.ofHom (RingHom.fst R S)))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsOpenImmersion (Spec.map (CommRingCat.ofHom (RingHom.snd R S)))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Limits",
+    "name": "IsAffineOpen.iSup_of_disjoint_aux",
+    "statement": "\u03b9 \u2192 X.Opens} (hU : \u2200 i, IsAffineOpen (U i)) (hU' : Pairwise (Disjoint on U)) : IsAffineOpen (iSup U)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isOpenImmersion_sigmaDesc _ (fun i \u21a6 (U i).\u03b9)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Limits",
+    "name": "IsAffineOpen.iSup_of_disjoint",
+    "statement": "\u03c3 \u2192 X.Opens} (hU : \u2200 i, IsAffineOpen (U i)) (hU' : Pairwise (Disjoint on U)) : IsAffineOpen (iSup U)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite \u03b9",
+        "body": "e.finite_iff.mp \u2039_\u203a",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Limits",
+    "name": "IsAffineOpen.biSup_of_disjoint",
+    "statement": "Set \u03c3} (hs : s.Finite) {U : \u03c3 \u2192 X.Opens} (hU : \u2200 i \u2208 s, IsAffineOpen (U i)) (hU' : s.Pairwise (Disjoint on U)) : IsAffineOpen (\u2a06 i \u2208 s, U i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Limits",
+    "name": "Scheme.isAffine_of_isLimit",
+    "statement": "Type*} [Category* I] {D : I \u2964 Scheme.{u}} (c : Cone D) (hc : IsLimit c) [\u2200 i, IsAffine (D.obj i)] : IsAffine c.pt",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso \u03b1",
+        "body": "NatIso.isIso_of_isIso_app \u03b1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "c.pt \u2245 Spec \u0393(c.pt, \u22a4)",
+        "body": "hc.conePointUniqueUpToIso ((IsLimit.postcomposeHomEquiv",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,15 @@
+[
+  {
+    "module": "Basic",
+    "name": "exists_eq_succ_of_ne_one",
+    "statement": "\u2200 {n : \u2115+} (_ : n \u2260 1), \u2203 k : \u2115+, n = k + 1 | \u27e81, _\u27e9, h\u2081 => False.elim <| h\u2081 rfl | \u27e8n + 2, _\u27e9, _ => \u27e8\u27e8n + 1, by simp\u27e9, rfl\u27e9  /-- Lemmas with div, dvd and mod operations -/ theorem modDivAux_spec : \u2200 (k : \u2115+) (r q : \u2115) (_ : \u00ac(r = 0 \u2227 q = 0)), ((modDivAux k r q).1 : \u2115) + k * (modDivAux k r q).2 = r + k * q | _, 0, 0, h => (h \u27e8rfl, rfl\u27e9).elim | k, 0, q + 1, _ => by change (k : \u2115) + (k : \u2115) * (q + 1).pred = 0 + (k : \u2115) * (q + 1) rw [Nat.pred_succ, Nat.mul_succ, zero_add, add_comm] | _, _ + 1, _, _ => rfl  theorem mod_add_div (m k : \u2115+) : (mod m k + k * div m k : \u2115) = m",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "modDivAux_spec k ((m : \u2115) % (k : \u2115)) ((m : \u2115) / (k : \u2115)) this",
+        "children": []
+      }
+    ]
+  }
+]

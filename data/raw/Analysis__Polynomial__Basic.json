@@ -1,0 +1,98 @@
+[
+  {
+    "module": "Basic",
+    "name": "div_tendsto_atTop_of_degree_gt'",
+    "statement": "Q.degree < P.degree) (hpos : 0 < P.leadingCoeff / Q.leadingCoeff) : Tendsto (fun x => eval x P / eval x Q) atTop atTop",
+    "have_tree": [
+      {
+        "name": "hQ",
+        "type": "Q \u2260 0",
+        "body": "fun h => by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "div_tendsto_atTop_of_degree_gt",
+    "statement": "Q.degree < P.degree) (hQ : Q \u2260 0) (hnng : 0 \u2264 P.leadingCoeff / Q.leadingCoeff) : Tendsto (fun x => eval x P / eval x Q) atTop atTop",
+    "have_tree": [
+      {
+        "name": "ratio_pos",
+        "type": "0 < P.leadingCoeff / Q.leadingCoeff",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "div_tendsto_atBot_of_degree_gt'",
+    "statement": "Q.degree < P.degree) (hneg : P.leadingCoeff / Q.leadingCoeff < 0) : Tendsto (fun x => eval x P / eval x Q) atTop atBot",
+    "have_tree": [
+      {
+        "name": "hQ",
+        "type": "Q \u2260 0",
+        "body": "fun h => by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "div_tendsto_atBot_of_degree_gt",
+    "statement": "Q.degree < P.degree) (hQ : Q \u2260 0) (hnps : P.leadingCoeff / Q.leadingCoeff \u2264 0) : Tendsto (fun x => eval x P / eval x Q) atTop atBot",
+    "have_tree": [
+      {
+        "name": "ratio_neg",
+        "type": "P.leadingCoeff / Q.leadingCoeff < 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "finite_abs_eval_le_of_degree_lt",
+    "statement": "\u2124[X]} (h : Q.degree < P.degree) : {x | |P.eval x| \u2264 |Q.eval x|}.Finite",
+    "have_tree": [
+      {
+        "name": "o",
+        "type": "",
+        "body": "isLittleO_cobounded_of_degree_lt h",
+        "children": []
+      },
+      {
+        "name": "nr",
+        "type": "",
+        "body": "eventually_cofinite_not_isRoot (ne_zero_of_degree_gt h)",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "o.eventuallyLT_norm_of_eventually_pos (nr.congr (.of_forall (by simp)))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "dvd_of_infinite_eval_dvd_eval",
+    "statement": "\u2124[X]} (mQ : Q.Monic) (h : {a | Q.eval a \u2223 P.eval a}.Infinite) : Q \u2223 P",
+    "have_tree": [
+      {
+        "name": "eqR",
+        "type": "",
+        "body": "modByMonic_add_div P Q",
+        "children": []
+      },
+      {
+        "name": "degR",
+        "type": "",
+        "body": "degree_modByMonic_lt P mQ",
+        "children": []
+      }
+    ]
+  }
+]

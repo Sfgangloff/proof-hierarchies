@@ -1,0 +1,222 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "SameCycle.exists_pow_eq'",
+      "statement": "SameCycle f x y \u2192 \u2203 i < orderOf f, (f ^ i) x = y",
+      "have_tree": [
+        {
+          "name": "h\u2080",
+          "type": "",
+          "body": "Int.natCast_pos.mpr (orderOf_pos f)",
+          "children": []
+        },
+        {
+          "name": "h\u2081",
+          "type": "",
+          "body": "Int.emod_nonneg k h\u2080.ne'",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "SameCycle.exists_pow_eq'",
+          "statement": "SameCycle f x y \u2192 \u2203 i < orderOf f, (f ^ i) x = y",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "Int.emod_nonneg k h\u2080.ne'",
+              "children": []
+            },
+            {
+              "name": "h\u2080",
+              "type": "",
+              "body": "Int.natCast_pos.mpr (orderOf_pos f)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "isCycle_swap_mul_aux\u2081",
+      "statement": "Type*} [DecidableEq \u03b1] : \u2200 (n : \u2115) {b x : \u03b1} {f : Perm \u03b1} (_ : (swap x (f x) * f) b \u2260 b) (_ : (f ^ n) (f x) = b), \u2203 i : \u2124, ((swap x (f x) * f) ^ i) (f x) = b",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "f b \u2260 b \u2227 b \u2260 x",
+          "body": "ne_and_ne_of_swap_mul_apply_ne_self hb",
+          "children": []
+        },
+        {
+          "name": "hb'",
+          "type": "(swap x (f x) * f) (f.symm b) \u2260 f.symm b",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "isCycle_swap_mul_aux\u2081",
+          "statement": "Type*} [DecidableEq \u03b1] : \u2200 (n : \u2115) {b x : \u03b1} {f : Perm \u03b1} (_ : (swap x (f x) * f) b \u2260 b) (_ : (f ^ n) (f x) = b), \u2203 i : \u2124, ((swap x (f x) * f) ^ i) (f x) = b",
+          "have_tree": [
+            {
+              "name": "hb'",
+              "type": "(swap x (f x) * f) (f.symm b) \u2260 f.symm b",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "f b \u2260 b \u2227 b \u2260 x",
+              "body": "ne_and_ne_of_swap_mul_apply_ne_self hb",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "IsCycle.eq_on_support_inter_nonempty_congr",
+      "statement": "IsCycle f) (hg : IsCycle g) (h : \u2200 x \u2208 f.support \u2229 g.support, f x = g x) (hx : f x = g x) (hx' : x \u2208 f.support) : f = g",
+      "have_tree": [
+        {
+          "name": "hx''",
+          "type": "x \u2208 g.support",
+          "body": "by rwa [mem_support, \u2190 hx, \u2190 mem_support]",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "f.support \u2286 g.support",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "IsCycle.eq_on_support_inter_nonempty_congr",
+          "statement": "IsCycle f) (hg : IsCycle g) (h : \u2200 x \u2208 f.support \u2229 g.support, f x = g x) (hx : f x = g x) (hx' : x \u2208 f.support) : f = g",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "f.support \u2286 g.support",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hx''",
+              "type": "x \u2208 g.support",
+              "body": "by rwa [mem_support, \u2190 hx, \u2190 mem_support]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "IsCycle.commute_iff'",
+      "statement": "Perm \u03b1} (hc : c.IsCycle) : Commute g c \u2194 \u2203 hc' : \u2200 x : \u03b1, g x \u2208 c.support \u2194 x \u2208 c.support, subtypePerm g hc' \u2208 Subgroup.zpowers c.subtypePermOfSupport",
+      "have_tree": [
+        {
+          "name": "hgc'",
+          "type": "",
+          "body": "mem_support_iff_of_commute hgc",
+          "children": [
+            {
+              "name": "hix",
+              "type": "",
+              "body": "Perm.congr_fun hi \u27e8x, hx\u27e9",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "IsCycle.commute_iff'",
+          "statement": "Perm \u03b1} (hc : c.IsCycle) : Commute g c \u2194 \u2203 hc' : \u2200 x : \u03b1, g x \u2208 c.support \u2194 x \u2208 c.support, subtypePerm g hc' \u2208 Subgroup.zpowers c.subtypePermOfSupport",
+          "have_tree": [
+            {
+              "name": "hgc'",
+              "type": "",
+              "body": "mem_support_iff_of_commute hgc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Basic",
+          "name": "IsCycle.commute_iff'",
+          "statement": "Perm \u03b1} (hc : c.IsCycle) : Commute g c \u2194 \u2203 hc' : \u2200 x : \u03b1, g x \u2208 c.support \u2194 x \u2208 c.support, subtypePerm g hc' \u2208 Subgroup.zpowers c.subtypePermOfSupport",
+          "have_tree": [
+            {
+              "name": "hix",
+              "type": "",
+              "body": "Perm.congr_fun hi \u27e8x, hx\u27e9",
+              "children": []
+            },
+            {
+              "name": "hgc'",
+              "type": "",
+              "body": "mem_support_iff_of_commute hgc",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

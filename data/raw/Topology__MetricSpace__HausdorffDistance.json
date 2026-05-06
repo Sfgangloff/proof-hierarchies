@@ -1,0 +1,182 @@
+[
+  {
+    "module": "HausdorffDistance",
+    "name": "infEDist_closure",
+    "statement": "infEDist x (closure s) = infEDist x s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "infEDist x (closure s) < infEDist x (closure s) + \u03b5 / 2",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HausdorffDistance",
+    "name": "_root_.IsOpen.exists_iUnion_isClosed",
+    "statement": "Set \u03b1} (hU : IsOpen U) : \u2203 F : \u2115 \u2192 Set \u03b1, (\u2200 n, IsClosed (F n)) \u2227 (\u2200 n, F n \u2286 U) \u2227 \u22c3 n, F n = U \u2227 Monotone F",
+    "have_tree": [
+      {
+        "name": "F_subset",
+        "type": "\u2200 n, F n \u2286 U",
+        "body": "fun n x hx \u21a6 by",
+        "children": [
+          {
+            "name": "_",
+            "type": "infEDist x U\u1d9c \u2260 0",
+            "body": "((ENNReal.pow_pos a_pos _).trans_le hx).ne'",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "x \u2209 U\u1d9c",
+            "body": "by simpa using hx",
+            "children": []
+          },
+          {
+            "name": "B",
+            "type": "0 < infEDist x U\u1d9c",
+            "body": "by simpa [pos_iff_ne_zero] using this",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "HausdorffDistance",
+    "name": "exists_pos_forall_lt_edist",
+    "statement": "IsCompact s) (ht : IsClosed t) (hst : Disjoint s t) : \u2203 r : \u211d\u22650, 0 < r \u2227 \u2200 x \u2208 s, \u2200 y \u2208 t, (r : \u211d\u22650\u221e) < edist x y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < infEDist x t",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HausdorffDistance",
+    "name": "infEDist_le_infEDist_add_hausdorffEDist",
+    "statement": "infEDist x t \u2264 infEDist x s + hausdorffEDist s t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "infEDist x s < infEDist x s + \u03b5 / 2",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "hausdorffEDist s t < hausdorffEDist s t + \u03b5 / 2",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HausdorffDistance",
+    "name": "hausdorffEDist_empty",
+    "statement": "s.Nonempty) : hausdorffEDist s \u2205 = \u221e",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "infEDist x \u2205 \u2264 hausdorffEDist s \u2205",
+        "body": "infEDist_le_hausdorffEDist_of_mem xs",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HausdorffDistance",
+    "name": "_root_.IsClosed.exists_infDist_eq_dist",
+    "statement": "IsClosed s) (hne : s.Nonempty) (x : \u03b1) : \u2203 y \u2208 s, infDist x s = dist x y",
+    "have_tree": [
+      {
+        "name": "htc",
+        "type": "IsCompact t",
+        "body": "(isCompact_closedBall x (dist z x)).inter_left h",
+        "children": []
+      },
+      {
+        "name": "htne",
+        "type": "t.Nonempty",
+        "body": "\u27e8z, hz, mem_closedBall.2 le_rfl\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HausdorffDistance",
+    "name": "hausdorffDist_nonneg",
+    "statement": "0 \u2264 hausdorffDist s t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "hausdorffEDist s t \u2264 ENNReal.ofReal (max rs rt)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "dist x ct \u2264 max rs rt",
+            "body": "le_trans (hrs xs) (le_max_left _ _)",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "dist x cs \u2264 max rs rt",
+            "body": "le_trans (hrt xt) (le_max_right _ _)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "HausdorffDistance",
+    "name": "hausdorffDist_empty'",
+    "statement": "hausdorffDist \u2205 s = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "hausdorffEDist s t \u2264 ENNReal.ofReal r",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HausdorffDistance",
+    "name": "exists_dist_lt_of_hausdorffDist_lt",
+    "statement": "\u211d} (h : x \u2208 s) (H : hausdorffDist s t < r) (fin : hausdorffEDist s t \u2260 \u22a4) : \u2203 y \u2208 t, dist x y < r",
+    "have_tree": [
+      {
+        "name": "r0",
+        "type": "0 < r",
+        "body": "lt_of_le_of_lt hausdorffDist_nonneg H",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "hausdorffEDist s t < ENNReal.ofReal r",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HausdorffDistance",
+    "name": "hausdorffDist_triangle'",
+    "statement": "hausdorffEDist t u \u2260 \u22a4) : hausdorffDist s u \u2264 hausdorffDist s t + hausdorffDist t u",
+    "have_tree": [
+      {
+        "name": "I",
+        "type": "hausdorffDist u s \u2264 hausdorffDist u t + hausdorffDist t s",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

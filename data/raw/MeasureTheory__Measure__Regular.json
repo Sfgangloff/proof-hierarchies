@@ -1,0 +1,197 @@
+[
+  {
+    "module": "Regular",
+    "name": "comap",
+    "statement": "MeasurableSpace \u03b2} {\u03bc : Measure \u03b2} {pa qa : Set \u03b1 \u2192 Prop} {pb qb : Set \u03b2 \u2192 Prop} (H : InnerRegularWRT \u03bc pb qb) {f : \u03b1 \u2192 \u03b2} (hf : MeasurableEmbedding f) (hAB : \u2200 U, qa U \u2192 qb (f '' U)) (hAB' : \u2200 K \u2286 range f, pb K \u2192 pa (f \u207b\u00b9' K)) : (\u03bc.comap f).InnerRegularWRT pa qa",
+    "have_tree": [
+      {
+        "name": "hKrange",
+        "type": "",
+        "body": "hKU.trans (image_subset_range _ _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "map",
+    "statement": "\u03b1 \u2243\u209c \u03b2) (\u03bc : Measure \u03b1) [OuterRegular \u03bc] : (Measure.map f \u03bc).OuterRegular",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsOpen (f.symm \u207b\u00b9' U)",
+        "body": "hUo.preimage f.symm.continuous",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "of_restrict",
+    "statement": "Measure \u03b1} {s : \u2115 \u2192 Set \u03b1} (h : \u2200 n, OuterRegular (\u03bc.restrict (s n))) (h' : \u2200 n, IsOpen (s n)) (h'' : univ \u2286 \u22c3 n, s n) : OuterRegular \u03bc",
+    "have_tree": [
+      {
+        "name": "HA",
+        "type": "\u03bc A < \u221e",
+        "body": "lt_of_lt_of_le hr le_top",
+        "children": []
+      },
+      {
+        "name": "hm",
+        "type": "\u2200 n, MeasurableSet (s n)",
+        "body": "fun n => (h' n).measurableSet",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 n, \u2203 U \u2287 A n, IsOpen U \u2227 \u03bc U < \u03bc (A n) + \u03b4 n",
+        "body": "by",
+        "children": [
+          {
+            "name": "Ht",
+            "type": "\u03bc.restrict (s n) (A n) \u2260 \u221e",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "restrict",
+    "statement": "InnerRegularWRT \u03bc p (fun s \u21a6 MeasurableSet s \u2227 \u03bc s \u2260 \u221e)) (A : Set \u03b1) : InnerRegularWRT (\u03bc.restrict A) p (fun s \u21a6 MeasurableSet s \u2227 \u03bc.restrict A s \u2260 \u221e)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "r < \u03bc ((toMeasurable \u03bc (s \u2229 A)) \u2229 s)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "restrict_of_measure_ne_top",
+    "statement": "InnerRegularWRT \u03bc p (fun s \u21a6 MeasurableSet s \u2227 \u03bc s \u2260 \u221e)) {A : Set \u03b1} (hA : \u03bc A \u2260 \u221e) : InnerRegularWRT (\u03bc.restrict A) p (fun s \u21a6 MeasurableSet s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (\u03bc A < \u221e)",
+        "body": "\u27e8hA.lt_top\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "measurableSet_of_isOpen",
+    "statement": "InnerRegularWRT \u03bc p IsOpen) (hd : \u2200 \u2983s U\u2984, p s \u2192 IsOpen U \u2192 p (s \\ U)) : InnerRegularWRT \u03bc p fun s => MeasurableSet s \u2227 \u03bc s \u2260 \u221e",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "p \u2205",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 < \u03bc univ",
+            "body": "(bot_le.trans_lt hr).trans_le (measure_mono (subset_univ _))",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "weaklyRegular_of_finite",
+    "statement": "Measure \u03b1) [IsFiniteMeasure \u03bc] (H : InnerRegularWRT \u03bc IsClosed IsOpen) : WeaklyRegular \u03bc",
+    "have_tree": [
+      {
+        "name": "hfin",
+        "type": "\u2200 {s}, \u03bc s \u2260 \u221e",
+        "body": "@(measure_ne_top \u03bc)",
+        "children": [
+          {
+            "name": "\u03b50'",
+            "type": "\u03b5 / 2 \u2260 0",
+            "body": "(ENNReal.half_pos \u03b50).ne'",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "isCompact_isClosed",
+    "statement": "Type*} [TopologicalSpace X] [SigmaCompactSpace X] [MeasurableSpace X] (\u03bc : Measure X) : InnerRegularWRT \u03bc IsCompact IsClosed",
+    "have_tree": [
+      {
+        "name": "hBc",
+        "type": "\u2200 n, IsCompact (F \u2229 B n)",
+        "body": "fun n => (isCompact_compactCovering X n).inter_left hF",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "_root_.IsCompact.exists_isOpen_lt_of_lt",
+    "statement": "Set \u03b1} (hK : IsCompact K) (r : \u211d\u22650\u221e) (hr : \u03bc K < r) : \u2203 U, K \u2286 U \u2227 IsOpen U \u2227 \u03bc U < r",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk h\u03bcV",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "_root_.MeasurableSet.exists_isOpen_symmDiff_lt",
+    "statement": "Set \u03b1} (hs : MeasurableSet s) (h\u03bcs : \u03bc s \u2260 \u221e) {\u03b5 : \u211d\u22650\u221e} (h\u03b5 : \u03b5 \u2260 0) : \u2203 U, IsOpen U \u2227 \u03bc U < \u221e \u2227 \u03bc (U \u2206 s) < \u03b5",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u03b5 / 2 \u2260 0",
+        "body": "(ENNReal.half_pos h\u03b5).ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "restrict_of_measure_ne_top",
+    "statement": "Set \u03b1} (h'A : \u03bc A \u2260 \u221e) : WeaklyRegular (\u03bc.restrict A)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "InnerRegularWRT (\u03bc.restrict A) IsClosed (fun s \u21a6 MeasurableSet s)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "restrict_of_measure_ne_top",
+    "statement": "Set \u03b1} (h'A : \u03bc A \u2260 \u221e) : Regular (\u03bc.restrict A)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "WeaklyRegular (\u03bc.restrict A)",
+        "body": "WeaklyRegular.restrict_of_measure_ne_top h'A",
+        "children": []
+      },
+      {
+        "name": "R",
+        "type": "restrict \u03bc A V \u2260 \u221e",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

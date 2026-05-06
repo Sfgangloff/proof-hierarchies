@@ -1,0 +1,177 @@
+[
+  {
+    "module": "Average",
+    "name": "measure_mul_setLAverage",
+    "statement": "\u03b1 \u2192 \u211d\u22650\u221e) (h : \u03bc s \u2260 \u221e) : \u03bc s * \u2a0d\u207b x in s, f x \u2202\u03bc = \u222b\u207b x in s, f x \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk h.lt_top",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Average",
+    "name": "setLAverage_le_essSup",
+    "statement": "Set \u03b1) (f : \u03b1 \u2192 \u211d\u22650\u221e) : \u2a0d\u207b x in s, f x \u2202\u03bc \u2264 essSup f \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero (\u03bc.restrict s)",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "NeZero (\u03bc s)",
+            "body": "{ out := h\u03bc0 }",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Average",
+    "name": "setAverage_const",
+    "statement": "Set \u03b1} (hs\u2080 : \u03bc s \u2260 0) (hs : \u03bc s \u2260 \u221e) (c : E) : \u2a0d _ in s, c \u2202\u03bc = c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "NeZero.mk hs\u2080; have := Fact.mk hs.lt_top; average_const _ _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Average",
+    "name": "exists_notMem_null_le_average",
+    "statement": "\u03bc \u2260 0) (hf : Integrable f \u03bc) (hN : \u03bc N = 0) : \u2203 x, x \u2209 N \u2227 f x \u2264 \u2a0d a, f a \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "measure_le_average_pos h\u03bc hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Average",
+    "name": "measure_le_setLAverage_pos",
+    "statement": "\u03bc s \u2260 0) (h\u03bc\u2081 : \u03bc s \u2260 \u221e) (hf : AEMeasurable f (\u03bc.restrict s)) : 0 < \u03bc {x \u2208 s | f x \u2264 \u2a0d\u207b a in s, f a \u2202\u03bc}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "measure_le_setAverage_pos h\u03bc h\u03bc\u2081 (integrable_toReal_of_lintegral_ne_top hf h)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Average",
+    "name": "measure_setLAverage_le_pos",
+    "statement": "\u03bc s \u2260 0) (hs : NullMeasurableSet s \u03bc) (hint : \u222b\u207b a in s, f a \u2202\u03bc \u2260 \u221e) : 0 < \u03bc {x \u2208 s | \u2a0d\u207b a in s, f a \u2202\u03bc \u2264 f x}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Average",
+    "name": "exists_notMem_null_laverage_le",
+    "statement": "\u03bc \u2260 0) (hint : \u222b\u207b a : \u03b1, f a \u2202\u03bc \u2260 \u221e) (hN : \u03bc N = 0) : \u2203 x, x \u2209 N \u2227 \u2a0d\u207b a, f a \u2202\u03bc \u2264 f x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "measure_laverage_le_pos h\u03bc hint",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Average",
+    "name": "exists_notMem_null_le_laverage",
+    "statement": "\u03bc \u2260 0) (hf : AEMeasurable f \u03bc) (hN : \u03bc N = 0) : \u2203 x, x \u2209 N \u2227 f x \u2264 \u2a0d\u207b a, f a \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "measure_le_laverage_pos h\u03bc hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Average",
+    "name": "tendsto_integral_smul_of_tendsto_average_norm_sub",
+    "statement": "Type*} {a : \u03b9 \u2192 Set \u03b1} {l : Filter \u03b9} {f : \u03b1 \u2192 E} {c : E} {g : \u03b9 \u2192 \u03b1 \u2192 \u211d} (K : \u211d) (hf : Tendsto (fun i \u21a6 \u2a0d y in a i, \u2016f y - c\u2016 \u2202\u03bc) l (\ud835\udcdd 0)) (f_int : \u2200\u1da0 i in l, IntegrableOn f (a i) \u03bc) (hg : Tendsto (fun i \u21a6 \u222b y, g i y \u2202\u03bc) l (\ud835\udcdd 1)) (g_supp : \u2200\u1da0 i in l, Function.support (g i) \u2286 a i) (g_bound : \u2200\u1da0 i in l, \u2200 x, |g i x| \u2264 K / \u03bc.real (a i)) : Tendsto (fun i \u21a6 \u222b y, g i y \u2022 f y \u2202\u03bc) l (\ud835\udcdd c)",
+    "have_tree": [
+      {
+        "name": "g_int",
+        "type": "\u2200\u1da0 i in l, Integrable (g i) \u03bc",
+        "body": "by",
+        "children": [
+          {
+            "name": "A",
+            "type": "Function.support (fun y \u21a6 g i y \u2022 f y) \u2286 a i",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "L0",
+        "type": "Tendsto (fun i \u21a6 \u222b y, g i y \u2022 (f y - c) \u2202\u03bc) l (\ud835\udcdd 0)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hf.const_mul K",
+            "children": []
+          },
+          {
+            "name": "mu_ai",
+            "type": "\u03bc (a i) < \u221e",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "L0.add (hg.smul_const c)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Average",
+    "name": "exists_eq_setAverage",
+    "statement": "\u03b1 \u2192 \u211d} (hs : IsConnected s) (hf : ContinuousOn f s) (hint : IntegrableOn f s \u03bc) (h\u03bcfin : \u03bc s \u2260 \u22a4) (h\u03bc0 : \u03bc s \u2260 0) : \u2203 c \u2208 s, f c = \u2a0d x in s, f x \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "hS\u2081",
+        "type": "0 < \u03bc S\u2081",
+        "body": "measure_le_setAverage_pos h\u03bc0 h\u03bcfin hint",
+        "children": []
+      },
+      {
+        "name": "hS\u2082",
+        "type": "0 < \u03bc S\u2082",
+        "body": "measure_setAverage_le_pos h\u03bc0 h\u03bcfin hint",
+        "children": []
+      }
+    ]
+  }
+]

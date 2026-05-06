@@ -1,0 +1,2289 @@
+[
+  {
+    "original": {
+      "module": "SumTransform",
+      "name": "eventually_bi_mul_le_r",
+      "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (b (min_bi b) / 2) * n \u2264 r i n",
+      "have_tree": [
+        {
+          "name": "gt_zero",
+          "type": "0 < b (min_bi b)",
+          "body": "R.b_pos (min_bi b)",
+          "children": []
+        },
+        {
+          "name": "hlo",
+          "type": "",
+          "body": "isLittleO_self_div_log_id",
+          "children": []
+        },
+        {
+          "name": "hlo'",
+          "type": "",
+          "body": "hlo (by positivity : 0 < b (min_bi b) / 2)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_bi_mul_le_r",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (b (min_bi b) / 2) * n \u2264 r i n",
+          "have_tree": [
+            {
+              "name": "hlo",
+              "type": "",
+              "body": "isLittleO_self_div_log_id",
+              "children": []
+            },
+            {
+              "name": "gt_zero",
+              "type": "0 < b (min_bi b)",
+              "body": "R.b_pos (min_bi b)",
+              "children": []
+            },
+            {
+              "name": "hlo'",
+              "type": "",
+              "body": "hlo (by positivity : 0 < b (min_bi b) / 2)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_bi_mul_le_r",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (b (min_bi b) / 2) * n \u2264 r i n",
+          "have_tree": [
+            {
+              "name": "gt_zero",
+              "type": "0 < b (min_bi b)",
+              "body": "R.b_pos (min_bi b)",
+              "children": []
+            },
+            {
+              "name": "hlo'",
+              "type": "",
+              "body": "hlo (by positivity : 0 < b (min_bi b) / 2)",
+              "children": []
+            },
+            {
+              "name": "hlo",
+              "type": "",
+              "body": "isLittleO_self_div_log_id",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "SumTransform",
+      "name": "exists_eventually_r_le_const_mul",
+      "statement": "\u2203 c \u2208 Set.Ioo (0 : \u211d) 1, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, r i n \u2264 c * n",
+      "have_tree": [
+        {
+          "name": "h_max_bi_pos",
+          "type": "0 < b (max_bi b)",
+          "body": "R.b_pos _",
+          "children": []
+        },
+        {
+          "name": "h_max_bi_lt_one",
+          "type": "0 < 1 - b (max_bi b)",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "b (max_bi b) < 1",
+              "body": "R.b_lt_one _",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "hc_pos",
+          "type": "0 < c",
+          "body": "by positivity",
+          "children": []
+        },
+        {
+          "name": "h\u2081",
+          "type": "0 < (1 - b (max_bi b)) / 2",
+          "body": "by positivity",
+          "children": []
+        },
+        {
+          "name": "hc_lt_one",
+          "type": "c < 1",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "hlo",
+          "type": "",
+          "body": "isLittleO_self_div_log_id",
+          "children": []
+        },
+        {
+          "name": "hlo'",
+          "type": "",
+          "body": "hlo h\u2081",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "exists_eventually_r_le_const_mul",
+          "statement": "\u2203 c \u2208 Set.Ioo (0 : \u211d) 1, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, r i n \u2264 c * n",
+          "have_tree": [
+            {
+              "name": "h_max_bi_pos",
+              "type": "0 < b (max_bi b)",
+              "body": "R.b_pos _",
+              "children": []
+            },
+            {
+              "name": "h_max_bi_lt_one",
+              "type": "0 < 1 - b (max_bi b)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hc_pos",
+              "type": "0 < c",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "0 < (1 - b (max_bi b)) / 2",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hc_lt_one",
+              "type": "c < 1",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hlo",
+              "type": "",
+              "body": "isLittleO_self_div_log_id",
+              "children": []
+            },
+            {
+              "name": "hlo'",
+              "type": "",
+              "body": "hlo h\u2081",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "SumTransform",
+          "name": "exists_eventually_r_le_const_mul",
+          "statement": "\u2203 c \u2208 Set.Ioo (0 : \u211d) 1, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, r i n \u2264 c * n",
+          "have_tree": [
+            {
+              "name": "h_max_bi_pos",
+              "type": "0 < b (max_bi b)",
+              "body": "R.b_pos _",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "b (max_bi b) < 1",
+              "body": "R.b_lt_one _",
+              "children": []
+            },
+            {
+              "name": "h_max_bi_lt_one",
+              "type": "0 < 1 - b (max_bi b)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hc_pos",
+              "type": "0 < c",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "0 < (1 - b (max_bi b)) / 2",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hc_lt_one",
+              "type": "c < 1",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hlo",
+              "type": "",
+              "body": "isLittleO_self_div_log_id",
+              "children": []
+            },
+            {
+              "name": "hlo'",
+              "type": "",
+              "body": "hlo h\u2081",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "exists_eventually_r_le_const_mul",
+          "statement": "\u2203 c \u2208 Set.Ioo (0 : \u211d) 1, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, r i n \u2264 c * n",
+          "have_tree": [
+            {
+              "name": "h_max_bi_lt_one",
+              "type": "0 < 1 - b (max_bi b)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "b (max_bi b) < 1",
+                  "body": "R.b_lt_one _",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_max_bi_pos",
+              "type": "0 < b (max_bi b)",
+              "body": "R.b_pos _",
+              "children": []
+            },
+            {
+              "name": "hc_pos",
+              "type": "0 < c",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "0 < (1 - b (max_bi b)) / 2",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hc_lt_one",
+              "type": "c < 1",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hlo",
+              "type": "",
+              "body": "isLittleO_self_div_log_id",
+              "children": []
+            },
+            {
+              "name": "hlo'",
+              "type": "",
+              "body": "hlo h\u2081",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "exists_eventually_r_le_const_mul",
+          "statement": "\u2203 c \u2208 Set.Ioo (0 : \u211d) 1, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, r i n \u2264 c * n",
+          "have_tree": [
+            {
+              "name": "h_max_bi_pos",
+              "type": "0 < b (max_bi b)",
+              "body": "R.b_pos _",
+              "children": []
+            },
+            {
+              "name": "hc_pos",
+              "type": "0 < c",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "h_max_bi_lt_one",
+              "type": "0 < 1 - b (max_bi b)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "b (max_bi b) < 1",
+                  "body": "R.b_lt_one _",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h\u2081",
+              "type": "0 < (1 - b (max_bi b)) / 2",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hc_lt_one",
+              "type": "c < 1",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hlo",
+              "type": "",
+              "body": "isLittleO_self_div_log_id",
+              "children": []
+            },
+            {
+              "name": "hlo'",
+              "type": "",
+              "body": "hlo h\u2081",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "exists_eventually_r_le_const_mul",
+          "statement": "\u2203 c \u2208 Set.Ioo (0 : \u211d) 1, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, r i n \u2264 c * n",
+          "have_tree": [
+            {
+              "name": "h_max_bi_pos",
+              "type": "0 < b (max_bi b)",
+              "body": "R.b_pos _",
+              "children": []
+            },
+            {
+              "name": "h_max_bi_lt_one",
+              "type": "0 < 1 - b (max_bi b)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "b (max_bi b) < 1",
+                  "body": "R.b_lt_one _",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h\u2081",
+              "type": "0 < (1 - b (max_bi b)) / 2",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hc_pos",
+              "type": "0 < c",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hc_lt_one",
+              "type": "c < 1",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hlo",
+              "type": "",
+              "body": "isLittleO_self_div_log_id",
+              "children": []
+            },
+            {
+              "name": "hlo'",
+              "type": "",
+              "body": "hlo h\u2081",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5,
+          6
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "exists_eventually_r_le_const_mul",
+          "statement": "\u2203 c \u2208 Set.Ioo (0 : \u211d) 1, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, r i n \u2264 c * n",
+          "have_tree": [
+            {
+              "name": "h_max_bi_pos",
+              "type": "0 < b (max_bi b)",
+              "body": "R.b_pos _",
+              "children": []
+            },
+            {
+              "name": "h_max_bi_lt_one",
+              "type": "0 < 1 - b (max_bi b)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "b (max_bi b) < 1",
+                  "body": "R.b_lt_one _",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hc_pos",
+              "type": "0 < c",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hc_lt_one",
+              "type": "c < 1",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "0 < (1 - b (max_bi b)) / 2",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hlo",
+              "type": "",
+              "body": "isLittleO_self_div_log_id",
+              "children": []
+            },
+            {
+              "name": "hlo'",
+              "type": "",
+              "body": "hlo h\u2081",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4,
+          6
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "exists_eventually_r_le_const_mul",
+          "statement": "\u2203 c \u2208 Set.Ioo (0 : \u211d) 1, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, r i n \u2264 c * n",
+          "have_tree": [
+            {
+              "name": "h_max_bi_pos",
+              "type": "0 < b (max_bi b)",
+              "body": "R.b_pos _",
+              "children": []
+            },
+            {
+              "name": "h_max_bi_lt_one",
+              "type": "0 < 1 - b (max_bi b)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "b (max_bi b) < 1",
+                  "body": "R.b_lt_one _",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hc_pos",
+              "type": "0 < c",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "0 < (1 - b (max_bi b)) / 2",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hlo",
+              "type": "",
+              "body": "isLittleO_self_div_log_id",
+              "children": []
+            },
+            {
+              "name": "hc_lt_one",
+              "type": "c < 1",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hlo'",
+              "type": "",
+              "body": "hlo h\u2081",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          5
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "exists_eventually_r_le_const_mul",
+          "statement": "\u2203 c \u2208 Set.Ioo (0 : \u211d) 1, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, r i n \u2264 c * n",
+          "have_tree": [
+            {
+              "name": "h_max_bi_pos",
+              "type": "0 < b (max_bi b)",
+              "body": "R.b_pos _",
+              "children": []
+            },
+            {
+              "name": "h_max_bi_lt_one",
+              "type": "0 < 1 - b (max_bi b)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "b (max_bi b) < 1",
+                  "body": "R.b_lt_one _",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hc_pos",
+              "type": "0 < c",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "0 < (1 - b (max_bi b)) / 2",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hc_lt_one",
+              "type": "c < 1",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hlo'",
+              "type": "",
+              "body": "hlo h\u2081",
+              "children": []
+            },
+            {
+              "name": "hlo",
+              "type": "",
+              "body": "isLittleO_self_div_log_id",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "SumTransform",
+      "name": "eventually_one_add_smoothingFn_pos",
+      "statement": "\u2200\u1da0 (n : \u2115) in atTop, 0 < 1 + \u03b5 n",
+      "have_tree": [
+        {
+          "name": "h\u2081",
+          "type": "",
+          "body": "isLittleO_smoothingFn_one",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "0 < log x",
+          "body": "Real.log_pos hx'",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_one_add_smoothingFn_pos",
+          "statement": "\u2200\u1da0 (n : \u2115) in atTop, 0 < 1 + \u03b5 n",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "0 < log x",
+              "body": "Real.log_pos hx'",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "isLittleO_smoothingFn_one",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "SumTransform",
+      "name": "isEquivalent_smoothingFn_sub_self",
+      "statement": "\u03b1) : (fun (n : \u2115) => \u03b5 (b i * n) - \u03b5 n) ~[atTop] fun n => -log (b i) / (log n) ^ 2",
+      "have_tree": [
+        {
+          "name": "h_log_pos",
+          "type": "0 < log n",
+          "body": "Real.log_pos <| by simp_all",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "0 < b i",
+          "body": "R.b_pos i",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "isEquivalent_smoothingFn_sub_self",
+          "statement": "\u03b1) : (fun (n : \u2115) => \u03b5 (b i * n) - \u03b5 n) ~[atTop] fun n => -log (b i) / (log n) ^ 2",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "0 < b i",
+              "body": "R.b_pos i",
+              "children": []
+            },
+            {
+              "name": "h_log_pos",
+              "type": "0 < log n",
+              "body": "Real.log_pos <| by simp_all",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "SumTransform",
+      "name": "eventually_atTop_sumTransform_le",
+      "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, sumTransform (p a b) g (r i n) n \u2264 c * g n",
+      "have_tree": [
+        {
+          "name": "hc\u2081_pos",
+          "type": "0 < c\u2081",
+          "body": "hc\u2081_mem.1",
+          "children": []
+        },
+        {
+          "name": "hrpos_i",
+          "type": "",
+          "body": "hrpos i",
+          "children": []
+        },
+        {
+          "name": "g_nonneg",
+          "type": "0 \u2264 g n",
+          "body": "R.g_nonneg n (by positivity)",
+          "children": [
+            {
+              "name": "hu'",
+              "type": "u \u2208 Set.Icc (r i n) n",
+              "body": "\u27e8hu.1, by lia\u27e9",
+              "children": []
+            },
+            {
+              "name": "hu'",
+              "type": "u \u2208 Set.Icc (r i n) n",
+              "body": "\u27e8hu.1, by lia\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "0 < u",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          2,
+          0
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_le",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, sumTransform (p a b) g (r i n) n \u2264 c * g n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "0 < u",
+                  "body": "calc",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          2,
+          1
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_le",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, sumTransform (p a b) g (r i n) n \u2264 c * g n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "0 < u",
+                  "body": "calc",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          2,
+          2
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_le",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, sumTransform (p a b) g (r i n) n \u2264 c * g n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_le",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, sumTransform (p a b) g (r i n) n \u2264 c * g n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "hu'",
+              "type": "u \u2208 Set.Icc (r i n) n",
+              "body": "\u27e8hu.1, by lia\u27e9",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "0 < u",
+                  "body": "calc",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_le",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, sumTransform (p a b) g (r i n) n \u2264 c * g n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "hu'",
+              "type": "u \u2208 Set.Icc (r i n) n",
+              "body": "\u27e8hu.1, by lia\u27e9",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "0 < u",
+                  "body": "calc",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 2,
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_le",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, sumTransform (p a b) g (r i n) n \u2264 c * g n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "0 < u",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_le",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, sumTransform (p a b) g (r i n) n \u2264 c * g n",
+          "have_tree": [
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "0 < u",
+                  "body": "calc",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_le",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, sumTransform (p a b) g (r i n) n \u2264 c * g n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "0 < u",
+                  "body": "calc",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          2
+        ],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_le",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, sumTransform (p a b) g (r i n) n \u2264 c * g n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "0 < u",
+                  "body": "calc",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          2
+        ],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_le",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, sumTransform (p a b) g (r i n) n \u2264 c * g n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "0 < u",
+                  "body": "calc",
+                  "children": []
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "SumTransform",
+      "name": "eventually_atTop_sumTransform_ge",
+      "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, c * g n \u2264 sumTransform (p a b) g (r i n) n",
+      "have_tree": [
+        {
+          "name": "hc\u2081_pos",
+          "type": "0 < c\u2081",
+          "body": "hc\u2081_mem.1",
+          "children": []
+        },
+        {
+          "name": "hc\u2083'",
+          "type": "0 < (1 - c\u2083)",
+          "body": "by have := hc\u2083_mem.2; linarith",
+          "children": []
+        },
+        {
+          "name": "hrpos_i",
+          "type": "",
+          "body": "hrpos i",
+          "children": []
+        },
+        {
+          "name": "g_nonneg",
+          "type": "0 \u2264 g n",
+          "body": "R.g_nonneg n (by positivity)",
+          "children": [
+            {
+              "name": "hu'",
+              "type": "u \u2208 Set.Icc (r i n) n",
+              "body": "\u27e8hu.1, by lia\u27e9",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "calc 0 < r i n := hrpos_i",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hu'",
+              "type": "u \u2208 Set.Icc (r i n) n",
+              "body": "\u27e8hu.1, by lia\u27e9",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "calc 0 < r i n := hrpos_i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          3,
+          0
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_ge",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, c * g n \u2264 sumTransform (p a b) g (r i n) n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hc\u2083'",
+              "type": "0 < (1 - c\u2083)",
+              "body": "by have := hc\u2083_mem.2; linarith",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "calc 0 < r i n := hrpos_i",
+                  "children": []
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          3,
+          0,
+          0
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_ge",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, c * g n \u2264 sumTransform (p a b) g (r i n) n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hc\u2083'",
+              "type": "0 < (1 - c\u2083)",
+              "body": "by have := hc\u2083_mem.2; linarith",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          3,
+          1,
+          0
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_ge",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, c * g n \u2264 sumTransform (p a b) g (r i n) n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hc\u2083'",
+              "type": "0 < (1 - c\u2083)",
+              "body": "by have := hc\u2083_mem.2; linarith",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          3,
+          1
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_ge",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, c * g n \u2264 sumTransform (p a b) g (r i n) n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hc\u2083'",
+              "type": "0 < (1 - c\u2083)",
+              "body": "by have := hc\u2083_mem.2; linarith",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "calc 0 < r i n := hrpos_i",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          3,
+          0,
+          0
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_ge",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, c * g n \u2264 sumTransform (p a b) g (r i n) n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hc\u2083'",
+              "type": "0 < (1 - c\u2083)",
+              "body": "by have := hc\u2083_mem.2; linarith",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          3,
+          1,
+          0
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_ge",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, c * g n \u2264 sumTransform (p a b) g (r i n) n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hc\u2083'",
+              "type": "0 < (1 - c\u2083)",
+              "body": "by have := hc\u2083_mem.2; linarith",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          3
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_ge",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, c * g n \u2264 sumTransform (p a b) g (r i n) n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hc\u2083'",
+              "type": "0 < (1 - c\u2083)",
+              "body": "by have := hc\u2083_mem.2; linarith",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "hu'",
+              "type": "u \u2208 Set.Icc (r i n) n",
+              "body": "\u27e8hu.1, by lia\u27e9",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "calc 0 < r i n := hrpos_i",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          3
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_ge",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, c * g n \u2264 sumTransform (p a b) g (r i n) n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hc\u2083'",
+              "type": "0 < (1 - c\u2083)",
+              "body": "by have := hc\u2083_mem.2; linarith",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "hu'",
+              "type": "u \u2208 Set.Icc (r i n) n",
+              "body": "\u27e8hu.1, by lia\u27e9",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "calc 0 < r i n := hrpos_i",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          3,
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_ge",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, c * g n \u2264 sumTransform (p a b) g (r i n) n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hc\u2083'",
+              "type": "0 < (1 - c\u2083)",
+              "body": "by have := hc\u2083_mem.2; linarith",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "calc 0 < r i n := hrpos_i",
+                  "children": []
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          3,
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_ge",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, c * g n \u2264 sumTransform (p a b) g (r i n) n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hc\u2083'",
+              "type": "0 < (1 - c\u2083)",
+              "body": "by have := hc\u2083_mem.2; linarith",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "calc 0 < r i n := hrpos_i",
+                  "children": []
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_ge",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, c * g n \u2264 sumTransform (p a b) g (r i n) n",
+          "have_tree": [
+            {
+              "name": "hc\u2083'",
+              "type": "0 < (1 - c\u2083)",
+              "body": "by have := hc\u2083_mem.2; linarith",
+              "children": []
+            },
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_ge",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, c * g n \u2264 sumTransform (p a b) g (r i n) n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "hc\u2083'",
+              "type": "0 < (1 - c\u2083)",
+              "body": "by have := hc\u2083_mem.2; linarith",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_ge",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, c * g n \u2264 sumTransform (p a b) g (r i n) n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hc\u2083'",
+              "type": "0 < (1 - c\u2083)",
+              "body": "by have := hc\u2083_mem.2; linarith",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          3
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "SumTransform",
+          "name": "eventually_atTop_sumTransform_ge",
+          "statement": "\u2203 c > 0, \u2200\u1da0 (n : \u2115) in atTop, \u2200 i, c * g n \u2264 sumTransform (p a b) g (r i n) n",
+          "have_tree": [
+            {
+              "name": "hc\u2081_pos",
+              "type": "0 < c\u2081",
+              "body": "hc\u2081_mem.1",
+              "children": []
+            },
+            {
+              "name": "hc\u2083'",
+              "type": "0 < (1 - c\u2083)",
+              "body": "by have := hc\u2083_mem.2; linarith",
+              "children": []
+            },
+            {
+              "name": "hrpos_i",
+              "type": "",
+              "body": "hrpos i",
+              "children": []
+            },
+            {
+              "name": "g_nonneg",
+              "type": "0 \u2264 g n",
+              "body": "R.g_nonneg n (by positivity)",
+              "children": [
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "hu'",
+                  "type": "u \u2208 Set.Icc (r i n) n",
+                  "body": "\u27e8hu.1, by lia\u27e9",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "calc 0 < r i n := hrpos_i",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

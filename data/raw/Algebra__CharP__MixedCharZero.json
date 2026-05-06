@@ -1,0 +1,73 @@
+[
+  {
+    "module": "MixedCharZero",
+    "name": "reduce_to_p_prime",
+    "statement": "Prop} : (\u2200 p > 0, MixedCharZero R p \u2192 P) \u2194 \u2200 p : \u2115, p.Prime \u2192 MixedCharZero R p \u2192 P",
+    "have_tree": [
+      {
+        "name": "r_pos",
+        "type": "r \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "q_zero",
+            "type": "",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "r_prime",
+        "type": "Nat.Prime r",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "CharZero R",
+        "body": "q_mixedChar.toCharZero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MixedCharZero",
+    "name": "reduce_to_maximal_ideal",
+    "statement": "\u2115} (hp : Nat.Prime p) : (\u2203 I : Ideal R, I \u2260 \u22a4 \u2227 CharP (R \u29f8 I) p) \u2194 \u2203 I : Ideal R, I.IsMaximal \u2227 CharP (R \u29f8 I) p",
+    "have_tree": [
+      {
+        "name": "r_dvd_p",
+        "type": "r \u2223 p",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MixedCharZero",
+    "name": "of_not_mixedCharZero",
+    "statement": "\u2200 p > 0, \u00acMixedCharZero R p) : \u2200 I : Ideal R, I \u2260 \u22a4 \u2192 CharZero (R \u29f8 I)",
+    "have_tree": [
+      {
+        "name": "h_mixed",
+        "type": "MixedCharZero R p.succ",
+        "body": "\u27e8\u27e8I, \u27e8hI_ne_top, hp\u27e9\u27e9\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MixedCharZero",
+    "name": "split_by_characteristic_domain",
+    "statement": "\u2200 p : \u2115, Nat.Prime p \u2192 CharP R p \u2192 P) (h_equal : Algebra \u211a R \u2192 P) (h_mixed : \u2200 p : \u2115, Nat.Prime p \u2192 MixedCharZero R p \u2192 P) : P",
+    "have_tree": [
+      {
+        "name": "p_prime",
+        "type": "Nat.Prime p",
+        "body": "or_iff_not_imp_right.mp (CharP.char_is_prime_or_zero R p) p_pos",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Cyclic",
+    "name": "genLTOne_unique",
+    "statement": "G} (hg : g < 1) (hH : Subgroup.zpowers g = H) : g = H.genLTOne",
+    "have_tree": [
+      {
+        "name": "hg'",
+        "type": "\u00ac IsOfFinOrder g",
+        "body": "not_isOfFinOrder_of_isMulTorsionFree (ne_of_lt hg)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cyclic",
+    "name": "genLTOne_unique_of_zpowers_eq",
+    "statement": "G} (hg1 : g1 < 1) (hg2 : g2 < 1) (h : Subgroup.zpowers g1 = Subgroup.zpowers g2) : g1 = g2",
+    "have_tree": [
+      {
+        "name": "h2",
+        "type": "Nontrivial \u21a5(Subgroup.zpowers g1)",
+        "body": "by rw [h]; exact h'",
+        "children": []
+      },
+      {
+        "name": "h3",
+        "type": "IsCyclic \u21a5(Subgroup.zpowers g1)",
+        "body": "by rw [h]; exact h1",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "module": "Basic",
+    "name": "iSup_basicOpen_eq_top'",
+    "statement": "Type*} (f : \u03b9 \u2192 A) (hfn : \u2200 i, \u2203 n, f i \u2208 \ud835\udc9c n) (hf : Algebra.adjoin (\ud835\udc9c 0) (Set.range f) = \u22a4) : \u2a06 i, Proj.basicOpen \ud835\udc9c (f i) = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(eq_iff_iff.mp congr(x \u2208 $hf)).mpr trivial",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "basicOpenIsoSpec",
+    "statement": "(basicOpen \ud835\udc9c f).toScheme \u2245 Spec (.of <| Away \ud835\udc9c f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso (basicOpenToSpec \ud835\udc9c f)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "basicOpenIsoAway",
+    "statement": "CommRingCat.of (Away \ud835\udc9c f) \u2245 \u0393(Proj \ud835\udc9c, basicOpen \ud835\udc9c f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso (awayToSection \ud835\udc9c f)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "basicOpenToSpec_app_top \ud835\udc9c f",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "homOfLE_toBasicOpenOfGlobalSections_\u03b9",
+    "statement": "f t = x} {h0d : 0 < d} {hd : t \u2208 \ud835\udc9c d} {H' : f t' = x'} {h0d' : 0 < d'} {hd' : t' \u2208 \ud835\udc9c d'} {s : A} (hts : t * s = t') {n : \u2115} (hn : d + n = d') (hs : s \u2208 \ud835\udc9c n) : X.homOfLE (by aesop) \u226b toBasicOpenOfGlobalSections \ud835\udc9c f H h0d hd \u226b (basicOpen \ud835\udc9c t).\u03b9 = toBasicOpenOfGlobalSections \ud835\udc9c f H' h0d' hd' \u226b (basicOpen \ud835\udc9c t').\u03b9",
+    "have_tree": [
+      {
+        "name": "hx'x",
+        "type": "PrimeSpectrum.basicOpen x' \u2264 PrimeSpectrum.basicOpen x",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "openCoverOfMapIrrelevantEqTop",
+    "statement": "X.OpenCover",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "c \u2260 0",
+        "body": "by contrapose hc; simpa [hc] using hx",
+        "children": []
+      }
+    ]
+  }
+]

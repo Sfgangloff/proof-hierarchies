@@ -1,0 +1,622 @@
+[
+  {
+    "original": {
+      "module": "Sylow",
+      "name": "_root_.IsPGroup.toSylow",
+      "statement": "Subgroup G} (hP1 : IsPGroup p P) (hP2 : \u00ac p \u2223 P.index) : Sylow p G",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "P.FiniteIndex",
+          "body": "\u27e8fun h \u21a6 hP2 (h \u25b8 (dvd_zero p))\u27e9",
+          "children": []
+        },
+        {
+          "name": "h",
+          "type": "",
+          "body": "hk \u25b8 Nat.Prime.coprime_pow_of_not_dvd (m := k) Fact.out hP2",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Sylow",
+          "name": "_root_.IsPGroup.toSylow",
+          "statement": "Subgroup G} (hP1 : IsPGroup p P) (hP2 : \u00ac p \u2223 P.index) : Sylow p G",
+          "have_tree": [
+            {
+              "name": "h",
+              "type": "",
+              "body": "hk \u25b8 Nat.Prime.coprime_pow_of_not_dvd (m := k) Fact.out hP2",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "P.FiniteIndex",
+              "body": "\u27e8fun h \u21a6 hP2 (h \u25b8 (dvd_zero p))\u27e9",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Sylow",
+      "name": "not_dvd_index_aux",
+      "statement": "Fact p.Prime] (P : Sylow p G) [P.Normal] [P.FiniteIndex] : \u00ac p \u2223 P.index",
+      "have_tree": [
+        {
+          "name": "h",
+          "type": "",
+          "body": "IsPGroup.of_card (((Nat.card_zpowers x).trans hx).trans (pow_one p).symm)",
+          "children": []
+        },
+        {
+          "name": "hQ",
+          "type": "IsPGroup p Q",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Sylow",
+          "name": "not_dvd_index_aux",
+          "statement": "Fact p.Prime] (P : Sylow p G) [P.Normal] [P.FiniteIndex] : \u00ac p \u2223 P.index",
+          "have_tree": [
+            {
+              "name": "hQ",
+              "type": "IsPGroup p Q",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "",
+              "body": "IsPGroup.of_card (((Nat.card_zpowers x).trans hx).trans (pow_one p).symm)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Sylow",
+      "name": "mapSurjective_surjective",
+      "statement": "\u2115) [Fact p.Prime] : Function.Surjective (Sylow.mapSurjective hf : Sylow p G \u2192 Sylow p G')",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Finite G'",
+          "body": "Finite.of_surjective f hf",
+          "children": []
+        },
+        {
+          "name": "hPQ",
+          "type": "Q.map f \u2264 P",
+          "body": "Subgroup.map_le_iff_le_comap.mpr (Subgroup.map_subtype_le Q\u2080.1)",
+          "children": []
+        },
+        {
+          "name": "hpQ",
+          "type": "IsPGroup p Q",
+          "body": "Q\u2080.2.map (P.comap f).subtype",
+          "children": []
+        },
+        {
+          "name": "hQ",
+          "type": "\u00ac p \u2223 Q.index",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Sylow",
+          "name": "mapSurjective_surjective",
+          "statement": "\u2115) [Fact p.Prime] : Function.Surjective (Sylow.mapSurjective hf : Sylow p G \u2192 Sylow p G')",
+          "have_tree": [
+            {
+              "name": "hPQ",
+              "type": "Q.map f \u2264 P",
+              "body": "Subgroup.map_le_iff_le_comap.mpr (Subgroup.map_subtype_le Q\u2080.1)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Finite G'",
+              "body": "Finite.of_surjective f hf",
+              "children": []
+            },
+            {
+              "name": "hpQ",
+              "type": "IsPGroup p Q",
+              "body": "Q\u2080.2.map (P.comap f).subtype",
+              "children": []
+            },
+            {
+              "name": "hQ",
+              "type": "\u00ac p \u2223 Q.index",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Sylow",
+          "name": "mapSurjective_surjective",
+          "statement": "\u2115) [Fact p.Prime] : Function.Surjective (Sylow.mapSurjective hf : Sylow p G \u2192 Sylow p G')",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Finite G'",
+              "body": "Finite.of_surjective f hf",
+              "children": []
+            },
+            {
+              "name": "hpQ",
+              "type": "IsPGroup p Q",
+              "body": "Q\u2080.2.map (P.comap f).subtype",
+              "children": []
+            },
+            {
+              "name": "hPQ",
+              "type": "Q.map f \u2264 P",
+              "body": "Subgroup.map_le_iff_le_comap.mpr (Subgroup.map_subtype_le Q\u2080.1)",
+              "children": []
+            },
+            {
+              "name": "hQ",
+              "type": "\u00ac p \u2223 Q.index",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Sylow",
+          "name": "mapSurjective_surjective",
+          "statement": "\u2115) [Fact p.Prime] : Function.Surjective (Sylow.mapSurjective hf : Sylow p G \u2192 Sylow p G')",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Finite G'",
+              "body": "Finite.of_surjective f hf",
+              "children": []
+            },
+            {
+              "name": "hPQ",
+              "type": "Q.map f \u2264 P",
+              "body": "Subgroup.map_le_iff_le_comap.mpr (Subgroup.map_subtype_le Q\u2080.1)",
+              "children": []
+            },
+            {
+              "name": "hQ",
+              "type": "\u00ac p \u2223 Q.index",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hpQ",
+              "type": "IsPGroup p Q",
+              "body": "Q\u2080.2.map (P.comap f).subtype",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Sylow",
+      "name": "exists_subgroup_card_pow_succ",
+      "statement": "\u2115} {n : \u2115} [hp : Fact p.Prime] (hdvd : p ^ (n + 1) \u2223 Nat.card G) {H : Subgroup G} (hH : Nat.card H = p ^ n) : \u2203 K : Subgroup G, Nat.card K = p ^ (n + 1) \u2227 H \u2264 K",
+      "have_tree": [
+        {
+          "name": "hm'",
+          "type": "p \u2223 Nat.card (normalizer H \u29f8 H.subgroupOf (normalizer H))",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "hequiv",
+          "type": "H \u2243 H.subgroupOf (normalizer H)",
+          "body": "(subgroupOfEquivOfLe le_normalizer).symm.toEquiv",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Sylow",
+          "name": "exists_subgroup_card_pow_succ",
+          "statement": "\u2115} {n : \u2115} [hp : Fact p.Prime] (hdvd : p ^ (n + 1) \u2223 Nat.card G) {H : Subgroup G} (hH : Nat.card H = p ^ n) : \u2203 K : Subgroup G, Nat.card K = p ^ (n + 1) \u2227 H \u2264 K",
+          "have_tree": [
+            {
+              "name": "hequiv",
+              "type": "H \u2243 H.subgroupOf (normalizer H)",
+              "body": "(subgroupOfEquivOfLe le_normalizer).symm.toEquiv",
+              "children": []
+            },
+            {
+              "name": "hm'",
+              "type": "p \u2223 Nat.card (normalizer H \u29f8 H.subgroupOf (normalizer H))",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Sylow",
+      "name": "exists_subgroup_card_pow_prime_of_le_card",
+      "statement": "\u2115} (hp : p.Prime) (h : IsPGroup p G) (hn : p ^ n \u2264 Nat.card G) : \u2203 H : Subgroup G, Nat.card H = p ^ n",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Fact p.Prime",
+          "body": "\u27e8hp\u27e9",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Finite G",
+          "body": "Nat.finite_of_card_ne_zero <| by linarith [Nat.one_le_pow n p hp.pos]",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Sylow",
+          "name": "exists_subgroup_card_pow_prime_of_le_card",
+          "statement": "\u2115} (hp : p.Prime) (h : IsPGroup p G) (hn : p ^ n \u2264 Nat.card G) : \u2203 H : Subgroup G, Nat.card H = p ^ n",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Finite G",
+              "body": "Nat.finite_of_card_ne_zero <| by linarith [Nat.one_le_pow n p hp.pos]",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Fact p.Prime",
+              "body": "\u27e8hp\u27e9",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Sylow",
+      "name": "directProductOfNormal",
+      "statement": "\u2200 {p : \u2115} [Fact p.Prime] (P : Sylow p G), P.Normal) : (\u2200 p : (Nat.card G).primeFactors, \u2200 P : Sylow p G, P) \u2243* G",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "Fintype.ofFinite G",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "\u2200 p, Fintype (P p)",
+          "body": "fun p \u21a6 Fintype.ofFinite (P p)",
+          "children": [
+            {
+              "name": "hne'",
+              "type": "p\u2081 \u2260 p\u2082",
+              "body": "by simpa using hne",
+              "children": []
+            },
+            {
+              "name": "hne'",
+              "type": "p\u2081 \u2260 p\u2082",
+              "body": "by simpa using hne",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Sylow",
+          "name": "directProductOfNormal",
+          "statement": "\u2200 {p : \u2115} [Fact p.Prime] (P : Sylow p G), P.Normal) : (\u2200 p : (Nat.card G).primeFactors, \u2200 P : Sylow p G, P) \u2243* G",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Fintype.ofFinite G",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2200 p, Fintype (P p)",
+              "body": "fun p \u21a6 Fintype.ofFinite (P p)",
+              "children": [
+                {
+                  "name": "hne'",
+                  "type": "p\u2081 \u2260 p\u2082",
+                  "body": "by simpa using hne",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          1
+        ],
+        "result": {
+          "module": "Sylow",
+          "name": "directProductOfNormal",
+          "statement": "\u2200 {p : \u2115} [Fact p.Prime] (P : Sylow p G), P.Normal) : (\u2200 p : (Nat.card G).primeFactors, \u2200 P : Sylow p G, P) \u2243* G",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Fintype.ofFinite G",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2200 p, Fintype (P p)",
+              "body": "fun p \u21a6 Fintype.ofFinite (P p)",
+              "children": [
+                {
+                  "name": "hne'",
+                  "type": "p\u2081 \u2260 p\u2082",
+                  "body": "by simpa using hne",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Sylow",
+          "name": "directProductOfNormal",
+          "statement": "\u2200 {p : \u2115} [Fact p.Prime] (P : Sylow p G), P.Normal) : (\u2200 p : (Nat.card G).primeFactors, \u2200 P : Sylow p G, P) \u2243* G",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Fintype.ofFinite G",
+              "children": []
+            },
+            {
+              "name": "hne'",
+              "type": "p\u2081 \u2260 p\u2082",
+              "body": "by simpa using hne",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2200 p, Fintype (P p)",
+              "body": "fun p \u21a6 Fintype.ofFinite (P p)",
+              "children": [
+                {
+                  "name": "hne'",
+                  "type": "p\u2081 \u2260 p\u2082",
+                  "body": "by simpa using hne",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Sylow",
+          "name": "directProductOfNormal",
+          "statement": "\u2200 {p : \u2115} [Fact p.Prime] (P : Sylow p G), P.Normal) : (\u2200 p : (Nat.card G).primeFactors, \u2200 P : Sylow p G, P) \u2243* G",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Fintype.ofFinite G",
+              "children": []
+            },
+            {
+              "name": "hne'",
+              "type": "p\u2081 \u2260 p\u2082",
+              "body": "by simpa using hne",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2200 p, Fintype (P p)",
+              "body": "fun p \u21a6 Fintype.ofFinite (P p)",
+              "children": [
+                {
+                  "name": "hne'",
+                  "type": "p\u2081 \u2260 p\u2082",
+                  "body": "by simpa using hne",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Sylow",
+          "name": "directProductOfNormal",
+          "statement": "\u2200 {p : \u2115} [Fact p.Prime] (P : Sylow p G), P.Normal) : (\u2200 p : (Nat.card G).primeFactors, \u2200 P : Sylow p G, P) \u2243* G",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "\u2200 p, Fintype (P p)",
+              "body": "fun p \u21a6 Fintype.ofFinite (P p)",
+              "children": [
+                {
+                  "name": "hne'",
+                  "type": "p\u2081 \u2260 p\u2082",
+                  "body": "by simpa using hne",
+                  "children": []
+                },
+                {
+                  "name": "hne'",
+                  "type": "p\u2081 \u2260 p\u2082",
+                  "body": "by simpa using hne",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Fintype.ofFinite G",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          1
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Sylow",
+          "name": "directProductOfNormal",
+          "statement": "\u2200 {p : \u2115} [Fact p.Prime] (P : Sylow p G), P.Normal) : (\u2200 p : (Nat.card G).primeFactors, \u2200 P : Sylow p G, P) \u2243* G",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Fintype.ofFinite G",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2200 p, Fintype (P p)",
+              "body": "fun p \u21a6 Fintype.ofFinite (P p)",
+              "children": [
+                {
+                  "name": "hne'",
+                  "type": "p\u2081 \u2260 p\u2082",
+                  "body": "by simpa using hne",
+                  "children": []
+                },
+                {
+                  "name": "hne'",
+                  "type": "p\u2081 \u2260 p\u2082",
+                  "body": "by simpa using hne",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

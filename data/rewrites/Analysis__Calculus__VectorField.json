@@ -1,0 +1,238 @@
+[
+  {
+    "original": {
+      "module": "VectorField",
+      "name": "fderivWithin_apply_lieBracket_of_isSymmSndFDerivWithinAt",
+      "statement": "E \u2192 F} (hf : ContDiffWithinAt \ud835\udd5c 2 f s x) (hsymm : IsSymmSndFDerivWithinAt \ud835\udd5c f s x) (hs : UniqueDiffOn \ud835\udd5c s) (hxs : x \u2208 s) (hW : DifferentiableWithinAt \ud835\udd5c W s x) (hV : DifferentiableWithinAt \ud835\udd5c V s x) : fderivWithin \ud835\udd5c f s x (lieBracketWithin \ud835\udd5c V W s x) = fderivWithin \ud835\udd5c (fun x \u21a6 fderivWithin \ud835\udd5c f s x (W x)) s x (V x) - fderivWithin \ud835\udd5c (fun x \u21a6 fderivWithin \ud835\udd5c f s x (V x)) s x (W x)",
+      "have_tree": [
+        {
+          "name": "H\u2080",
+          "type": "DifferentiableWithinAt \ud835\udd5c (fderivWithin \ud835\udd5c f s) s x",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "H\u2081",
+          "type": "UniqueDiffWithinAt \ud835\udd5c s x",
+          "body": "hs x hxs",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "VectorField",
+          "name": "fderivWithin_apply_lieBracket_of_isSymmSndFDerivWithinAt",
+          "statement": "E \u2192 F} (hf : ContDiffWithinAt \ud835\udd5c 2 f s x) (hsymm : IsSymmSndFDerivWithinAt \ud835\udd5c f s x) (hs : UniqueDiffOn \ud835\udd5c s) (hxs : x \u2208 s) (hW : DifferentiableWithinAt \ud835\udd5c W s x) (hV : DifferentiableWithinAt \ud835\udd5c V s x) : fderivWithin \ud835\udd5c f s x (lieBracketWithin \ud835\udd5c V W s x) = fderivWithin \ud835\udd5c (fun x \u21a6 fderivWithin \ud835\udd5c f s x (W x)) s x (V x) - fderivWithin \ud835\udd5c (fun x \u21a6 fderivWithin \ud835\udd5c f s x (V x)) s x (W x)",
+          "have_tree": [
+            {
+              "name": "H\u2081",
+              "type": "UniqueDiffWithinAt \ud835\udd5c s x",
+              "body": "hs x hxs",
+              "children": []
+            },
+            {
+              "name": "H\u2080",
+              "type": "DifferentiableWithinAt \ud835\udd5c (fderivWithin \ud835\udd5c f s) s x",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "VectorField",
+      "name": "_root_.exists_continuousLinearEquiv_fderivWithin_symm_eq",
+      "statement": "E \u2192 F} {s : Set E} {x : E} (h'f : ContDiffWithinAt \ud835\udd5c 2 f s x) (hf : (fderivWithin \ud835\udd5c f s x).IsInvertible) (hs : UniqueDiffOn \ud835\udd5c s) (hx : x \u2208 s) : \u2203 N : E \u2192 (E \u2243L[\ud835\udd5c] F), ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 (N y : E \u2192L[\ud835\udd5c] F)) s x \u2227 ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 ((N y).symm : F \u2192L[\ud835\udd5c] E)) s x \u2227 (\u2200\u1da0 y in \ud835\udcdd[s] x, N y = fderivWithin \ud835\udd5c f s y) \u2227 \u2200 v, fderivWithin \ud835\udd5c (fun y \u21a6 ((N y).symm : F \u2192L[\ud835\udd5c] E)) s x v = - (N x).symm \u2218L ((fderivWithin \ud835\udd5c (fderivWithin \ud835\udd5c f s) s x v)) \u2218L (N x).symm",
+      "have_tree": [
+        {
+          "name": "hU",
+          "type": "U \u2208 \ud835\udcdd[s] x",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "ContinuousWithinAt (fderivWithin \ud835\udd5c f s) s x",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 fderivWithin \ud835\udd5c f s y) s x",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "VectorField",
+          "name": "_root_.exists_continuousLinearEquiv_fderivWithin_symm_eq",
+          "statement": "E \u2192 F} {s : Set E} {x : E} (h'f : ContDiffWithinAt \ud835\udd5c 2 f s x) (hf : (fderivWithin \ud835\udd5c f s x).IsInvertible) (hs : UniqueDiffOn \ud835\udd5c s) (hx : x \u2208 s) : \u2203 N : E \u2192 (E \u2243L[\ud835\udd5c] F), ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 (N y : E \u2192L[\ud835\udd5c] F)) s x \u2227 ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 ((N y).symm : F \u2192L[\ud835\udd5c] E)) s x \u2227 (\u2200\u1da0 y in \ud835\udcdd[s] x, N y = fderivWithin \ud835\udd5c f s y) \u2227 \u2200 v, fderivWithin \ud835\udd5c (fun y \u21a6 ((N y).symm : F \u2192L[\ud835\udd5c] E)) s x v = - (N x).symm \u2218L ((fderivWithin \ud835\udd5c (fderivWithin \ud835\udd5c f s) s x v)) \u2218L (N x).symm",
+          "have_tree": [
+            {
+              "name": "hU",
+              "type": "U \u2208 \ud835\udcdd[s] x",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 fderivWithin \ud835\udd5c f s y) s x",
+                  "body": "",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          1
+        ],
+        "result": {
+          "module": "VectorField",
+          "name": "_root_.exists_continuousLinearEquiv_fderivWithin_symm_eq",
+          "statement": "E \u2192 F} {s : Set E} {x : E} (h'f : ContDiffWithinAt \ud835\udd5c 2 f s x) (hf : (fderivWithin \ud835\udd5c f s x).IsInvertible) (hs : UniqueDiffOn \ud835\udd5c s) (hx : x \u2208 s) : \u2203 N : E \u2192 (E \u2243L[\ud835\udd5c] F), ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 (N y : E \u2192L[\ud835\udd5c] F)) s x \u2227 ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 ((N y).symm : F \u2192L[\ud835\udd5c] E)) s x \u2227 (\u2200\u1da0 y in \ud835\udcdd[s] x, N y = fderivWithin \ud835\udd5c f s y) \u2227 \u2200 v, fderivWithin \ud835\udd5c (fun y \u21a6 ((N y).symm : F \u2192L[\ud835\udd5c] E)) s x v = - (N x).symm \u2218L ((fderivWithin \ud835\udd5c (fderivWithin \ud835\udd5c f s) s x v)) \u2218L (N x).symm",
+          "have_tree": [
+            {
+              "name": "hU",
+              "type": "U \u2208 \ud835\udcdd[s] x",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "ContinuousWithinAt (fderivWithin \ud835\udd5c f s) s x",
+                  "body": "",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "VectorField",
+          "name": "_root_.exists_continuousLinearEquiv_fderivWithin_symm_eq",
+          "statement": "E \u2192 F} {s : Set E} {x : E} (h'f : ContDiffWithinAt \ud835\udd5c 2 f s x) (hf : (fderivWithin \ud835\udd5c f s x).IsInvertible) (hs : UniqueDiffOn \ud835\udd5c s) (hx : x \u2208 s) : \u2203 N : E \u2192 (E \u2243L[\ud835\udd5c] F), ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 (N y : E \u2192L[\ud835\udd5c] F)) s x \u2227 ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 ((N y).symm : F \u2192L[\ud835\udd5c] E)) s x \u2227 (\u2200\u1da0 y in \ud835\udcdd[s] x, N y = fderivWithin \ud835\udd5c f s y) \u2227 \u2200 v, fderivWithin \ud835\udd5c (fun y \u21a6 ((N y).symm : F \u2192L[\ud835\udd5c] E)) s x v = - (N x).symm \u2218L ((fderivWithin \ud835\udd5c (fderivWithin \ud835\udd5c f s) s x v)) \u2218L (N x).symm",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "ContinuousWithinAt (fderivWithin \ud835\udd5c f s) s x",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hU",
+              "type": "U \u2208 \ud835\udcdd[s] x",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 fderivWithin \ud835\udd5c f s y) s x",
+                  "body": "",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "VectorField",
+          "name": "_root_.exists_continuousLinearEquiv_fderivWithin_symm_eq",
+          "statement": "E \u2192 F} {s : Set E} {x : E} (h'f : ContDiffWithinAt \ud835\udd5c 2 f s x) (hf : (fderivWithin \ud835\udd5c f s x).IsInvertible) (hs : UniqueDiffOn \ud835\udd5c s) (hx : x \u2208 s) : \u2203 N : E \u2192 (E \u2243L[\ud835\udd5c] F), ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 (N y : E \u2192L[\ud835\udd5c] F)) s x \u2227 ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 ((N y).symm : F \u2192L[\ud835\udd5c] E)) s x \u2227 (\u2200\u1da0 y in \ud835\udcdd[s] x, N y = fderivWithin \ud835\udd5c f s y) \u2227 \u2200 v, fderivWithin \ud835\udd5c (fun y \u21a6 ((N y).symm : F \u2192L[\ud835\udd5c] E)) s x v = - (N x).symm \u2218L ((fderivWithin \ud835\udd5c (fderivWithin \ud835\udd5c f s) s x v)) \u2218L (N x).symm",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 fderivWithin \ud835\udd5c f s y) s x",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hU",
+              "type": "U \u2208 \ud835\udcdd[s] x",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "ContinuousWithinAt (fderivWithin \ud835\udd5c f s) s x",
+                  "body": "",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "VectorField",
+          "name": "_root_.exists_continuousLinearEquiv_fderivWithin_symm_eq",
+          "statement": "E \u2192 F} {s : Set E} {x : E} (h'f : ContDiffWithinAt \ud835\udd5c 2 f s x) (hf : (fderivWithin \ud835\udd5c f s x).IsInvertible) (hs : UniqueDiffOn \ud835\udd5c s) (hx : x \u2208 s) : \u2203 N : E \u2192 (E \u2243L[\ud835\udd5c] F), ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 (N y : E \u2192L[\ud835\udd5c] F)) s x \u2227 ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 ((N y).symm : F \u2192L[\ud835\udd5c] E)) s x \u2227 (\u2200\u1da0 y in \ud835\udcdd[s] x, N y = fderivWithin \ud835\udd5c f s y) \u2227 \u2200 v, fderivWithin \ud835\udd5c (fun y \u21a6 ((N y).symm : F \u2192L[\ud835\udd5c] E)) s x v = - (N x).symm \u2218L ((fderivWithin \ud835\udd5c (fderivWithin \ud835\udd5c f s) s x v)) \u2218L (N x).symm",
+          "have_tree": [
+            {
+              "name": "hU",
+              "type": "U \u2208 \ud835\udcdd[s] x",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "ContDiffWithinAt \ud835\udd5c 1 (fun y \u21a6 fderivWithin \ud835\udd5c f s y) s x",
+                  "body": "",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "ContinuousWithinAt (fderivWithin \ud835\udd5c f s) s x",
+                  "body": "",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

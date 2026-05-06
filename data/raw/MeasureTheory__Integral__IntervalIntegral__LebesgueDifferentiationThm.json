@@ -1,0 +1,40 @@
+[
+  {
+    "module": "LebesgueDifferentiationThm",
+    "name": "LocallyIntegrable.ae_hasDerivAt_integral",
+    "statement": "\u211d \u2192 \u211d} (hf : LocallyIntegrable f volume) : \u2200\u1d50 x, \u2200 c, HasDerivAt (fun x => \u222b (t : \u211d) in c..x, f t) (f x) x",
+    "have_tree": [
+      {
+        "name": "LDT",
+        "type": "",
+        "body": "(vitaliFamily volume 1).ae_tendsto_average hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LebesgueDifferentiationThm",
+    "name": "IntervalIntegrable.ae_hasDerivAt_integral",
+    "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hf : IntervalIntegrable f volume a b) : \u2200\u1d50 x, x \u2208 uIcc a b \u2192 \u2200 c \u2208 uIcc a b, HasDerivAt (fun x => \u222b (t : \u211d) in c..x, f t) (f x) x",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "\u2200\u1d50 x, x \u2260 a",
+        "body": "by simp [ae_iff, measure_singleton]",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "\u2200\u1d50 x, x \u2260 b",
+        "body": "by simp [ae_iff, measure_singleton]",
+        "children": []
+      },
+      {
+        "name": "hg",
+        "type": "LocallyIntegrable g volume",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

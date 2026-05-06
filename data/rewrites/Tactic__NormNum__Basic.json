@@ -1,0 +1,956 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "isNat_add",
+      "statement": "\u2200 {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {a' b' c : \u2115}, f = HAdd.hAdd \u2192 IsNat a a' \u2192 IsNat b b' \u2192 Nat.add a' b' = c \u2192 IsNat (f a b) c | _, _, _, _, _, _, rfl, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8(Nat.cast_add _ _).symm\u27e9  -- see note [norm_num lemma function equality] theorem isInt_add {\u03b1} [Ring \u03b1] : \u2200 {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {a' b' c : \u2124}, f = HAdd.hAdd \u2192 IsInt a a' \u2192 IsInt b b' \u2192 Int.add a' b' = c \u2192 IsInt (f a b) c | _, _, _, _, _, _, rfl, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8(Int.cast_add ..).symm\u27e9  -- see note [norm_num lemma function equality] theorem isNNRat_add {\u03b1} [Semiring \u03b1] {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {na nb nc : \u2115} {da db dc k : \u2115} : f = HAdd.hAdd \u2192 IsNNRat a na da \u2192 IsNNRat b nb db \u2192 Nat.add (Nat.mul na db) (Nat.mul nb da) = Nat.mul k nc \u2192 Nat.mul da db = Nat.mul k dc \u2192 IsNNRat (f a b) nc dc",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "invertibleOfMul' (\u03b1 := \u03b1) h\u2082",
+          "children": []
+        },
+        {
+          "name": "H",
+          "type": "",
+          "body": "(Nat.cast_commute (\u03b1 := \u03b1) da db).invOf_left.invOf_right.right_comm",
+          "children": []
+        },
+        {
+          "name": "h\u2081",
+          "type": "",
+          "body": "congr_arg (\u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db : \u03b1)) h\u2081",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "",
+          "body": "congr_arg (\u2191nc * \u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db * \u215f\u2191dc : \u03b1)) h\u2082",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "isNat_add",
+          "statement": "\u2200 {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {a' b' c : \u2115}, f = HAdd.hAdd \u2192 IsNat a a' \u2192 IsNat b b' \u2192 Nat.add a' b' = c \u2192 IsNat (f a b) c | _, _, _, _, _, _, rfl, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8(Nat.cast_add _ _).symm\u27e9  -- see note [norm_num lemma function equality] theorem isInt_add {\u03b1} [Ring \u03b1] : \u2200 {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {a' b' c : \u2124}, f = HAdd.hAdd \u2192 IsInt a a' \u2192 IsInt b b' \u2192 Int.add a' b' = c \u2192 IsInt (f a b) c | _, _, _, _, _, _, rfl, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8(Int.cast_add ..).symm\u27e9  -- see note [norm_num lemma function equality] theorem isNNRat_add {\u03b1} [Semiring \u03b1] {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {na nb nc : \u2115} {da db dc k : \u2115} : f = HAdd.hAdd \u2192 IsNNRat a na da \u2192 IsNNRat b nb db \u2192 Nat.add (Nat.mul na db) (Nat.mul nb da) = Nat.mul k nc \u2192 Nat.mul da db = Nat.mul k dc \u2192 IsNNRat (f a b) nc dc",
+          "have_tree": [
+            {
+              "name": "H",
+              "type": "",
+              "body": "(Nat.cast_commute (\u03b1 := \u03b1) da db).invOf_left.invOf_right.right_comm",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "invertibleOfMul' (\u03b1 := \u03b1) h\u2082",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "congr_arg (\u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db : \u03b1)) h\u2081",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "congr_arg (\u2191nc * \u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db * \u215f\u2191dc : \u03b1)) h\u2082",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "isNat_add",
+          "statement": "\u2200 {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {a' b' c : \u2115}, f = HAdd.hAdd \u2192 IsNat a a' \u2192 IsNat b b' \u2192 Nat.add a' b' = c \u2192 IsNat (f a b) c | _, _, _, _, _, _, rfl, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8(Nat.cast_add _ _).symm\u27e9  -- see note [norm_num lemma function equality] theorem isInt_add {\u03b1} [Ring \u03b1] : \u2200 {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {a' b' c : \u2124}, f = HAdd.hAdd \u2192 IsInt a a' \u2192 IsInt b b' \u2192 Int.add a' b' = c \u2192 IsInt (f a b) c | _, _, _, _, _, _, rfl, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8(Int.cast_add ..).symm\u27e9  -- see note [norm_num lemma function equality] theorem isNNRat_add {\u03b1} [Semiring \u03b1] {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {na nb nc : \u2115} {da db dc k : \u2115} : f = HAdd.hAdd \u2192 IsNNRat a na da \u2192 IsNNRat b nb db \u2192 Nat.add (Nat.mul na db) (Nat.mul nb da) = Nat.mul k nc \u2192 Nat.mul da db = Nat.mul k dc \u2192 IsNNRat (f a b) nc dc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "invertibleOfMul' (\u03b1 := \u03b1) h\u2082",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "congr_arg (\u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db : \u03b1)) h\u2081",
+              "children": []
+            },
+            {
+              "name": "H",
+              "type": "",
+              "body": "(Nat.cast_commute (\u03b1 := \u03b1) da db).invOf_left.invOf_right.right_comm",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "congr_arg (\u2191nc * \u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db * \u215f\u2191dc : \u03b1)) h\u2082",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "isNat_add",
+          "statement": "\u2200 {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {a' b' c : \u2115}, f = HAdd.hAdd \u2192 IsNat a a' \u2192 IsNat b b' \u2192 Nat.add a' b' = c \u2192 IsNat (f a b) c | _, _, _, _, _, _, rfl, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8(Nat.cast_add _ _).symm\u27e9  -- see note [norm_num lemma function equality] theorem isInt_add {\u03b1} [Ring \u03b1] : \u2200 {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {a' b' c : \u2124}, f = HAdd.hAdd \u2192 IsInt a a' \u2192 IsInt b b' \u2192 Int.add a' b' = c \u2192 IsInt (f a b) c | _, _, _, _, _, _, rfl, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8(Int.cast_add ..).symm\u27e9  -- see note [norm_num lemma function equality] theorem isNNRat_add {\u03b1} [Semiring \u03b1] {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {na nb nc : \u2115} {da db dc k : \u2115} : f = HAdd.hAdd \u2192 IsNNRat a na da \u2192 IsNNRat b nb db \u2192 Nat.add (Nat.mul na db) (Nat.mul nb da) = Nat.mul k nc \u2192 Nat.mul da db = Nat.mul k dc \u2192 IsNNRat (f a b) nc dc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "invertibleOfMul' (\u03b1 := \u03b1) h\u2082",
+              "children": []
+            },
+            {
+              "name": "H",
+              "type": "",
+              "body": "(Nat.cast_commute (\u03b1 := \u03b1) da db).invOf_left.invOf_right.right_comm",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "congr_arg (\u2191nc * \u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db * \u215f\u2191dc : \u03b1)) h\u2082",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "congr_arg (\u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db : \u03b1)) h\u2081",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "isRat_add",
+      "statement": "\u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {na nb nc : \u2124} {da db dc k : \u2115} : f = HAdd.hAdd \u2192 IsRat a na da \u2192 IsRat b nb db \u2192 Int.add (Int.mul na db) (Int.mul nb da) = Int.mul k nc \u2192 Nat.mul da db = Nat.mul k dc \u2192 IsRat (f a b) nc dc",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "invertibleOfMul' (\u03b1 := \u03b1) h\u2082",
+          "children": []
+        },
+        {
+          "name": "H",
+          "type": "",
+          "body": "(Nat.cast_commute (\u03b1 := \u03b1) da db).invOf_left.invOf_right.right_comm",
+          "children": []
+        },
+        {
+          "name": "h\u2081",
+          "type": "",
+          "body": "congr_arg (\u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db : \u03b1)) h\u2081",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "",
+          "body": "congr_arg (\u2191nc * \u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db * \u215f\u2191dc : \u03b1)) h\u2082",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "isRat_add",
+          "statement": "\u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {na nb nc : \u2124} {da db dc k : \u2115} : f = HAdd.hAdd \u2192 IsRat a na da \u2192 IsRat b nb db \u2192 Int.add (Int.mul na db) (Int.mul nb da) = Int.mul k nc \u2192 Nat.mul da db = Nat.mul k dc \u2192 IsRat (f a b) nc dc",
+          "have_tree": [
+            {
+              "name": "H",
+              "type": "",
+              "body": "(Nat.cast_commute (\u03b1 := \u03b1) da db).invOf_left.invOf_right.right_comm",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "invertibleOfMul' (\u03b1 := \u03b1) h\u2082",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "congr_arg (\u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db : \u03b1)) h\u2081",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "congr_arg (\u2191nc * \u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db * \u215f\u2191dc : \u03b1)) h\u2082",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "isRat_add",
+          "statement": "\u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {na nb nc : \u2124} {da db dc k : \u2115} : f = HAdd.hAdd \u2192 IsRat a na da \u2192 IsRat b nb db \u2192 Int.add (Int.mul na db) (Int.mul nb da) = Int.mul k nc \u2192 Nat.mul da db = Nat.mul k dc \u2192 IsRat (f a b) nc dc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "invertibleOfMul' (\u03b1 := \u03b1) h\u2082",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "congr_arg (\u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db : \u03b1)) h\u2081",
+              "children": []
+            },
+            {
+              "name": "H",
+              "type": "",
+              "body": "(Nat.cast_commute (\u03b1 := \u03b1) da db).invOf_left.invOf_right.right_comm",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "congr_arg (\u2191nc * \u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db * \u215f\u2191dc : \u03b1)) h\u2082",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "isRat_add",
+          "statement": "\u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {na nb nc : \u2124} {da db dc k : \u2115} : f = HAdd.hAdd \u2192 IsRat a na da \u2192 IsRat b nb db \u2192 Int.add (Int.mul na db) (Int.mul nb da) = Int.mul k nc \u2192 Nat.mul da db = Nat.mul k dc \u2192 IsRat (f a b) nc dc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "invertibleOfMul' (\u03b1 := \u03b1) h\u2082",
+              "children": []
+            },
+            {
+              "name": "H",
+              "type": "",
+              "body": "(Nat.cast_commute (\u03b1 := \u03b1) da db).invOf_left.invOf_right.right_comm",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "congr_arg (\u2191nc * \u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db * \u215f\u2191dc : \u03b1)) h\u2082",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "congr_arg (\u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db : \u03b1)) h\u2081",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "isNat_mul",
+      "statement": "\u2200 {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {a' b' c : \u2115}, f = HMul.hMul \u2192 IsNat a a' \u2192 IsNat b b' \u2192 Nat.mul a' b' = c \u2192 IsNat (a * b) c | _, _, _, _, _, _, rfl, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8(Nat.cast_mul ..).symm\u27e9  -- see note [norm_num lemma function equality] theorem isInt_mul {\u03b1} [Ring \u03b1] : \u2200 {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {a' b' c : \u2124}, f = HMul.hMul \u2192 IsInt a a' \u2192 IsInt b b' \u2192 Int.mul a' b' = c \u2192 IsInt (a * b) c | _, _, _, _, _, _, rfl, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8(Int.cast_mul ..).symm\u27e9  theorem isNNRat_mul {\u03b1} [Semiring \u03b1] {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {na nb nc : \u2115} {da db dc k : \u2115} : f = HMul.hMul \u2192 IsNNRat a na da \u2192 IsNNRat b nb db \u2192 Nat.mul na nb = Nat.mul k nc \u2192 Nat.mul da db = Nat.mul k dc \u2192 IsNNRat (f a b) nc dc",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "invertibleOfMul' (\u03b1 := \u03b1) h\u2082",
+          "children": []
+        },
+        {
+          "name": "H",
+          "type": "",
+          "body": "(Nat.cast_commute (\u03b1 := \u03b1) da db).invOf_left.invOf_right.right_comm",
+          "children": []
+        },
+        {
+          "name": "h\u2081",
+          "type": "",
+          "body": "congr_arg (Nat.cast (R := \u03b1)) h\u2081",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "",
+          "body": "congr_arg (\u2191nc * \u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db * \u215f\u2191dc : \u03b1)) h\u2082",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "isNat_mul",
+          "statement": "\u2200 {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {a' b' c : \u2115}, f = HMul.hMul \u2192 IsNat a a' \u2192 IsNat b b' \u2192 Nat.mul a' b' = c \u2192 IsNat (a * b) c | _, _, _, _, _, _, rfl, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8(Nat.cast_mul ..).symm\u27e9  -- see note [norm_num lemma function equality] theorem isInt_mul {\u03b1} [Ring \u03b1] : \u2200 {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {a' b' c : \u2124}, f = HMul.hMul \u2192 IsInt a a' \u2192 IsInt b b' \u2192 Int.mul a' b' = c \u2192 IsInt (a * b) c | _, _, _, _, _, _, rfl, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8(Int.cast_mul ..).symm\u27e9  theorem isNNRat_mul {\u03b1} [Semiring \u03b1] {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {na nb nc : \u2115} {da db dc k : \u2115} : f = HMul.hMul \u2192 IsNNRat a na da \u2192 IsNNRat b nb db \u2192 Nat.mul na nb = Nat.mul k nc \u2192 Nat.mul da db = Nat.mul k dc \u2192 IsNNRat (f a b) nc dc",
+          "have_tree": [
+            {
+              "name": "H",
+              "type": "",
+              "body": "(Nat.cast_commute (\u03b1 := \u03b1) da db).invOf_left.invOf_right.right_comm",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "invertibleOfMul' (\u03b1 := \u03b1) h\u2082",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "congr_arg (Nat.cast (R := \u03b1)) h\u2081",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "congr_arg (\u2191nc * \u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db * \u215f\u2191dc : \u03b1)) h\u2082",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "isNat_mul",
+          "statement": "\u2200 {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {a' b' c : \u2115}, f = HMul.hMul \u2192 IsNat a a' \u2192 IsNat b b' \u2192 Nat.mul a' b' = c \u2192 IsNat (a * b) c | _, _, _, _, _, _, rfl, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8(Nat.cast_mul ..).symm\u27e9  -- see note [norm_num lemma function equality] theorem isInt_mul {\u03b1} [Ring \u03b1] : \u2200 {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {a' b' c : \u2124}, f = HMul.hMul \u2192 IsInt a a' \u2192 IsInt b b' \u2192 Int.mul a' b' = c \u2192 IsInt (a * b) c | _, _, _, _, _, _, rfl, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8(Int.cast_mul ..).symm\u27e9  theorem isNNRat_mul {\u03b1} [Semiring \u03b1] {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {na nb nc : \u2115} {da db dc k : \u2115} : f = HMul.hMul \u2192 IsNNRat a na da \u2192 IsNNRat b nb db \u2192 Nat.mul na nb = Nat.mul k nc \u2192 Nat.mul da db = Nat.mul k dc \u2192 IsNNRat (f a b) nc dc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "invertibleOfMul' (\u03b1 := \u03b1) h\u2082",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "congr_arg (Nat.cast (R := \u03b1)) h\u2081",
+              "children": []
+            },
+            {
+              "name": "H",
+              "type": "",
+              "body": "(Nat.cast_commute (\u03b1 := \u03b1) da db).invOf_left.invOf_right.right_comm",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "congr_arg (\u2191nc * \u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db * \u215f\u2191dc : \u03b1)) h\u2082",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "isNat_mul",
+          "statement": "\u2200 {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {a' b' c : \u2115}, f = HMul.hMul \u2192 IsNat a a' \u2192 IsNat b b' \u2192 Nat.mul a' b' = c \u2192 IsNat (a * b) c | _, _, _, _, _, _, rfl, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8(Nat.cast_mul ..).symm\u27e9  -- see note [norm_num lemma function equality] theorem isInt_mul {\u03b1} [Ring \u03b1] : \u2200 {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {a' b' c : \u2124}, f = HMul.hMul \u2192 IsInt a a' \u2192 IsInt b b' \u2192 Int.mul a' b' = c \u2192 IsInt (a * b) c | _, _, _, _, _, _, rfl, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8(Int.cast_mul ..).symm\u27e9  theorem isNNRat_mul {\u03b1} [Semiring \u03b1] {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {na nb nc : \u2115} {da db dc k : \u2115} : f = HMul.hMul \u2192 IsNNRat a na da \u2192 IsNNRat b nb db \u2192 Nat.mul na nb = Nat.mul k nc \u2192 Nat.mul da db = Nat.mul k dc \u2192 IsNNRat (f a b) nc dc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "invertibleOfMul' (\u03b1 := \u03b1) h\u2082",
+              "children": []
+            },
+            {
+              "name": "H",
+              "type": "",
+              "body": "(Nat.cast_commute (\u03b1 := \u03b1) da db).invOf_left.invOf_right.right_comm",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "congr_arg (\u2191nc * \u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db * \u215f\u2191dc : \u03b1)) h\u2082",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "congr_arg (Nat.cast (R := \u03b1)) h\u2081",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "isRat_mul",
+      "statement": "\u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {na nb nc : \u2124} {da db dc k : \u2115} : f = HMul.hMul \u2192 IsRat a na da \u2192 IsRat b nb db \u2192 Int.mul na nb = Int.mul k nc \u2192 Nat.mul da db = Nat.mul k dc \u2192 IsRat (f a b) nc dc",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "invertibleOfMul' (\u03b1 := \u03b1) h\u2082",
+          "children": []
+        },
+        {
+          "name": "H",
+          "type": "",
+          "body": "(Nat.cast_commute (\u03b1 := \u03b1) da db).invOf_left.invOf_right.right_comm",
+          "children": []
+        },
+        {
+          "name": "h\u2081",
+          "type": "",
+          "body": "congr_arg (Int.cast (R := \u03b1)) h\u2081",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "",
+          "body": "congr_arg (\u2191nc * \u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db * \u215f\u2191dc : \u03b1)) h\u2082",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "isRat_mul",
+          "statement": "\u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {na nb nc : \u2124} {da db dc k : \u2115} : f = HMul.hMul \u2192 IsRat a na da \u2192 IsRat b nb db \u2192 Int.mul na nb = Int.mul k nc \u2192 Nat.mul da db = Nat.mul k dc \u2192 IsRat (f a b) nc dc",
+          "have_tree": [
+            {
+              "name": "H",
+              "type": "",
+              "body": "(Nat.cast_commute (\u03b1 := \u03b1) da db).invOf_left.invOf_right.right_comm",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "invertibleOfMul' (\u03b1 := \u03b1) h\u2082",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "congr_arg (Int.cast (R := \u03b1)) h\u2081",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "congr_arg (\u2191nc * \u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db * \u215f\u2191dc : \u03b1)) h\u2082",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "isRat_mul",
+          "statement": "\u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {na nb nc : \u2124} {da db dc k : \u2115} : f = HMul.hMul \u2192 IsRat a na da \u2192 IsRat b nb db \u2192 Int.mul na nb = Int.mul k nc \u2192 Nat.mul da db = Nat.mul k dc \u2192 IsRat (f a b) nc dc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "invertibleOfMul' (\u03b1 := \u03b1) h\u2082",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "congr_arg (Int.cast (R := \u03b1)) h\u2081",
+              "children": []
+            },
+            {
+              "name": "H",
+              "type": "",
+              "body": "(Nat.cast_commute (\u03b1 := \u03b1) da db).invOf_left.invOf_right.right_comm",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "congr_arg (\u2191nc * \u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db * \u215f\u2191dc : \u03b1)) h\u2082",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "isRat_mul",
+          "statement": "\u03b1 \u2192 \u03b1 \u2192 \u03b1} {a b : \u03b1} {na nb nc : \u2124} {da db dc k : \u2115} : f = HMul.hMul \u2192 IsRat a na da \u2192 IsRat b nb db \u2192 Int.mul na nb = Int.mul k nc \u2192 Nat.mul da db = Nat.mul k dc \u2192 IsRat (f a b) nc dc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "invertibleOfMul' (\u03b1 := \u03b1) h\u2082",
+              "children": []
+            },
+            {
+              "name": "H",
+              "type": "",
+              "body": "(Nat.cast_commute (\u03b1 := \u03b1) da db).invOf_left.invOf_right.right_comm",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "congr_arg (\u2191nc * \u2191\u00b7 * (\u215f\u2191da * \u215f\u2191db * \u215f\u2191dc : \u03b1)) h\u2082",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "congr_arg (Int.cast (R := \u03b1)) h\u2081",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "Result.mul",
+      "statement": "Level} {\u03b1 : Q(Type u)} {a b : Q($\u03b1)} (ra : Result q($a)) (rb : Result q($b)) (inst : Q(Semiring $\u03b1)",
+      "have_tree": [
+        {
+          "name": "t2",
+          "type": "Q(\u2115)",
+          "body": "mkRawNatLit dd",
+          "children": []
+        },
+        {
+          "name": "nc",
+          "type": "Q(\u2124)",
+          "body": "mkRawIntLit qc.num",
+          "children": []
+        },
+        {
+          "name": "dc",
+          "type": "Q(\u2115)",
+          "body": "mkRawNatLit qc.den",
+          "children": []
+        },
+        {
+          "name": "k",
+          "type": "Q(\u2115)",
+          "body": "mkRawNatLit k",
+          "children": []
+        },
+        {
+          "name": "t2",
+          "type": "Q(\u2115)",
+          "body": "mkRawNatLit dd",
+          "children": []
+        },
+        {
+          "name": "c",
+          "type": "Q(\u2115)",
+          "body": "mkRawNatLit (na.natLit! * nb.natLit!)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "Result.mul",
+          "statement": "Level} {\u03b1 : Q(Type u)} {a b : Q($\u03b1)} (ra : Result q($a)) (rb : Result q($b)) (inst : Q(Semiring $\u03b1)",
+          "have_tree": [
+            {
+              "name": "nc",
+              "type": "Q(\u2124)",
+              "body": "mkRawIntLit qc.num",
+              "children": []
+            },
+            {
+              "name": "t2",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit dd",
+              "children": []
+            },
+            {
+              "name": "dc",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit qc.den",
+              "children": []
+            },
+            {
+              "name": "k",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit k",
+              "children": []
+            },
+            {
+              "name": "t2",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit dd",
+              "children": []
+            },
+            {
+              "name": "c",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit (na.natLit! * nb.natLit!)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "Result.mul",
+          "statement": "Level} {\u03b1 : Q(Type u)} {a b : Q($\u03b1)} (ra : Result q($a)) (rb : Result q($b)) (inst : Q(Semiring $\u03b1)",
+          "have_tree": [
+            {
+              "name": "t2",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit dd",
+              "children": []
+            },
+            {
+              "name": "dc",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit qc.den",
+              "children": []
+            },
+            {
+              "name": "nc",
+              "type": "Q(\u2124)",
+              "body": "mkRawIntLit qc.num",
+              "children": []
+            },
+            {
+              "name": "k",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit k",
+              "children": []
+            },
+            {
+              "name": "t2",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit dd",
+              "children": []
+            },
+            {
+              "name": "c",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit (na.natLit! * nb.natLit!)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "Result.mul",
+          "statement": "Level} {\u03b1 : Q(Type u)} {a b : Q($\u03b1)} (ra : Result q($a)) (rb : Result q($b)) (inst : Q(Semiring $\u03b1)",
+          "have_tree": [
+            {
+              "name": "t2",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit dd",
+              "children": []
+            },
+            {
+              "name": "nc",
+              "type": "Q(\u2124)",
+              "body": "mkRawIntLit qc.num",
+              "children": []
+            },
+            {
+              "name": "k",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit k",
+              "children": []
+            },
+            {
+              "name": "dc",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit qc.den",
+              "children": []
+            },
+            {
+              "name": "t2",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit dd",
+              "children": []
+            },
+            {
+              "name": "c",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit (na.natLit! * nb.natLit!)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "Result.mul",
+          "statement": "Level} {\u03b1 : Q(Type u)} {a b : Q($\u03b1)} (ra : Result q($a)) (rb : Result q($b)) (inst : Q(Semiring $\u03b1)",
+          "have_tree": [
+            {
+              "name": "t2",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit dd",
+              "children": []
+            },
+            {
+              "name": "nc",
+              "type": "Q(\u2124)",
+              "body": "mkRawIntLit qc.num",
+              "children": []
+            },
+            {
+              "name": "dc",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit qc.den",
+              "children": []
+            },
+            {
+              "name": "t2",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit dd",
+              "children": []
+            },
+            {
+              "name": "k",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit k",
+              "children": []
+            },
+            {
+              "name": "c",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit (na.natLit! * nb.natLit!)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "Result.mul",
+          "statement": "Level} {\u03b1 : Q(Type u)} {a b : Q($\u03b1)} (ra : Result q($a)) (rb : Result q($b)) (inst : Q(Semiring $\u03b1)",
+          "have_tree": [
+            {
+              "name": "t2",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit dd",
+              "children": []
+            },
+            {
+              "name": "nc",
+              "type": "Q(\u2124)",
+              "body": "mkRawIntLit qc.num",
+              "children": []
+            },
+            {
+              "name": "dc",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit qc.den",
+              "children": []
+            },
+            {
+              "name": "k",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit k",
+              "children": []
+            },
+            {
+              "name": "c",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit (na.natLit! * nb.natLit!)",
+              "children": []
+            },
+            {
+              "name": "t2",
+              "type": "Q(\u2115)",
+              "body": "mkRawNatLit dd",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

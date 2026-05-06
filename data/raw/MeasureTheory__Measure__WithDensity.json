@@ -1,0 +1,28 @@
+[
+  {
+    "module": "WithDensity",
+    "name": "withDensity_ofReal_mutuallySingular",
+    "statement": "\u03b1 \u2192 \u211d} (hf : Measurable f) : (\u03bc.withDensity fun x => ENNReal.ofReal <| f x) \u27c2\u2098 \u03bc.withDensity fun x => ENNReal.ofReal <| -f x",
+    "have_tree": [
+      {
+        "name": "hS",
+        "type": "MeasurableSet S",
+        "body": "measurableSet_lt hf measurable_const",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WithDensity",
+    "name": "aemeasurable_withDensity_ennreal_iff'",
+    "statement": "\u03b1 \u2192 \u211d\u22650} (hf : AEMeasurable f \u03bc) {g : \u03b1 \u2192 \u211d\u22650\u221e} : AEMeasurable g (\u03bc.withDensity fun x => (f x : \u211d\u22650\u221e)) \u2194 AEMeasurable (fun x => (f x : \u211d\u22650\u221e) * g x) \u03bc",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "MeasurableSet {x | f' x \u2260 0}",
+        "body": "hf'_m (measurableSet_singleton _).compl",
+        "children": []
+      }
+    ]
+  }
+]

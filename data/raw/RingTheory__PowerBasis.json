@@ -1,0 +1,54 @@
+[
+  {
+    "module": "PowerBasis",
+    "name": "exists_smodEq",
+    "statement": "PowerBasis A B) (b : B) : \u2203 a, SModEq (Ideal.span ({pb.gen})) b (algebraMap A B a)",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "pb.basis.sum_repr b",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PowerBasis",
+    "name": "dim_le_natDegree_of_root",
+    "statement": "PowerBasis A S) {p : A[X]} (ne_zero : p \u2260 0) (root : aeval pb.gen p = 0) : pb.dim \u2264 p.natDegree",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.linearIndependent_iff.1 pb.basis.linearIndependent _ root",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PowerBasis",
+    "name": "constr_pow_aeval",
+    "statement": "PowerBasis A S) {y : S'} (hy : aeval y (minpoly A pb.gen) = 0) (f : A[X]) : pb.basis.constr A (fun i => y ^ (i : \u2115)) (aeval pb.gen f) = aeval y f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(f %\u2098 minpoly A pb.gen).natDegree < pb.dim",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PowerBasis",
+    "name": "IsIntegral.mem_span_pow",
+    "statement": "S} (hx : IsIntegral R x) (hy : \u2203 f : R[X], y = aeval x f) : y \u2208 Submodule.span R (Set.range fun i : Fin (minpoly R x).natDegree => x ^ (i : \u2115))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "minpoly.monic hx",
+        "children": []
+      }
+    ]
+  }
+]

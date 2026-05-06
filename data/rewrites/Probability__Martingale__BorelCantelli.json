@@ -1,0 +1,266 @@
+[
+  {
+    "original": {
+      "module": "BorelCantelli",
+      "name": "Submartingale.bddAbove_iff_exists_tendsto",
+      "statement": "Submartingale f \u2131 \u03bc) (hbdd : \u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 i, |f (i + 1) \u03c9 - f i \u03c9| \u2264 R) : \u2200\u1d50 \u03c9 \u2202\u03bc, BddAbove (Set.range fun n => f n \u03c9) \u2194 \u2203 c, Tendsto (fun n => f n \u03c9) atTop (\ud835\udcdd c)",
+      "have_tree": [
+        {
+          "name": "hg",
+          "type": "Submartingale g \u2131 \u03bc",
+          "body": "",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hc.add_const (f 0 \u03c9)",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "BorelCantelli",
+          "name": "Submartingale.bddAbove_iff_exists_tendsto",
+          "statement": "Submartingale f \u2131 \u03bc) (hbdd : \u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 i, |f (i + 1) \u03c9 - f i \u03c9| \u2264 R) : \u2200\u1d50 \u03c9 \u2202\u03bc, BddAbove (Set.range fun n => f n \u03c9) \u2194 \u2203 c, Tendsto (fun n => f n \u03c9) atTop (\ud835\udcdd c)",
+          "have_tree": [
+            {
+              "name": "hg",
+              "type": "Submartingale g \u2131 \u03bc",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "BorelCantelli",
+          "name": "Submartingale.bddAbove_iff_exists_tendsto",
+          "statement": "Submartingale f \u2131 \u03bc) (hbdd : \u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 i, |f (i + 1) \u03c9 - f i \u03c9| \u2264 R) : \u2200\u1d50 \u03c9 \u2202\u03bc, BddAbove (Set.range fun n => f n \u03c9) \u2194 \u2203 c, Tendsto (fun n => f n \u03c9) atTop (\ud835\udcdd c)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hc.add_const (f 0 \u03c9)",
+              "children": []
+            },
+            {
+              "name": "hg",
+              "type": "Submartingale g \u2131 \u03bc",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "BorelCantelli",
+      "name": "Martingale.bddAbove_range_iff_bddBelow_range",
+      "statement": "Martingale f \u2131 \u03bc) (hbdd : \u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 i, |f (i + 1) \u03c9 - f i \u03c9| \u2264 R) : \u2200\u1d50 \u03c9 \u2202\u03bc, BddAbove (Set.range fun n => f n \u03c9) \u2194 BddBelow (Set.range fun n => f n \u03c9)",
+      "have_tree": [
+        {
+          "name": "hbdd'",
+          "type": "\u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 i, |(-f) (i + 1) \u03c9 - (-f) i \u03c9| \u2264 R",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hup",
+          "type": "",
+          "body": "hf.submartingale.bddAbove_iff_exists_tendsto hbdd",
+          "children": []
+        },
+        {
+          "name": "hdown",
+          "type": "",
+          "body": "hf.neg.submartingale.bddAbove_iff_exists_tendsto hbdd'",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "BorelCantelli",
+          "name": "Martingale.bddAbove_range_iff_bddBelow_range",
+          "statement": "Martingale f \u2131 \u03bc) (hbdd : \u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 i, |f (i + 1) \u03c9 - f i \u03c9| \u2264 R) : \u2200\u1d50 \u03c9 \u2202\u03bc, BddAbove (Set.range fun n => f n \u03c9) \u2194 BddBelow (Set.range fun n => f n \u03c9)",
+          "have_tree": [
+            {
+              "name": "hup",
+              "type": "",
+              "body": "hf.submartingale.bddAbove_iff_exists_tendsto hbdd",
+              "children": []
+            },
+            {
+              "name": "hbdd'",
+              "type": "\u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 i, |(-f) (i + 1) \u03c9 - (-f) i \u03c9| \u2264 R",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hdown",
+              "type": "",
+              "body": "hf.neg.submartingale.bddAbove_iff_exists_tendsto hbdd'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "BorelCantelli",
+          "name": "Martingale.bddAbove_range_iff_bddBelow_range",
+          "statement": "Martingale f \u2131 \u03bc) (hbdd : \u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 i, |f (i + 1) \u03c9 - f i \u03c9| \u2264 R) : \u2200\u1d50 \u03c9 \u2202\u03bc, BddAbove (Set.range fun n => f n \u03c9) \u2194 BddBelow (Set.range fun n => f n \u03c9)",
+          "have_tree": [
+            {
+              "name": "hbdd'",
+              "type": "\u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 i, |(-f) (i + 1) \u03c9 - (-f) i \u03c9| \u2264 R",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hdown",
+              "type": "",
+              "body": "hf.neg.submartingale.bddAbove_iff_exists_tendsto hbdd'",
+              "children": []
+            },
+            {
+              "name": "hup",
+              "type": "",
+              "body": "hf.submartingale.bddAbove_iff_exists_tendsto hbdd",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "BorelCantelli",
+      "name": "tendsto_sum_indicator_atTop_iff",
+      "statement": "\u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 n, f n \u03c9 \u2264 f (n + 1) \u03c9) (hf : StronglyAdapted \u2131 f) (hint : \u2200 n, Integrable (f n) \u03bc) (hbdd : \u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 n, |f (n + 1) \u03c9 - f n \u03c9| \u2264 R) : \u2200\u1d50 \u03c9 \u2202\u03bc, Tendsto (fun n => f n \u03c9) atTop atTop \u2194 Tendsto (fun n => predictablePart f \u2131 \u03bc n \u03c9) atTop atTop",
+      "have_tree": [
+        {
+          "name": "h\u2081",
+          "type": "",
+          "body": "(martingale_martingalePart hf hint).ae_not_tendsto_atTop_atTop",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "",
+          "body": "(martingale_martingalePart hf hint).ae_not_tendsto_atTop_atBot",
+          "children": []
+        },
+        {
+          "name": "h\u2083",
+          "type": "\u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 n, 0 \u2264 (\u03bc[f (n + 1) - f n | \u2131 n]) \u03c9",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "BorelCantelli",
+          "name": "tendsto_sum_indicator_atTop_iff",
+          "statement": "\u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 n, f n \u03c9 \u2264 f (n + 1) \u03c9) (hf : StronglyAdapted \u2131 f) (hint : \u2200 n, Integrable (f n) \u03bc) (hbdd : \u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 n, |f (n + 1) \u03c9 - f n \u03c9| \u2264 R) : \u2200\u1d50 \u03c9 \u2202\u03bc, Tendsto (fun n => f n \u03c9) atTop atTop \u2194 Tendsto (fun n => predictablePart f \u2131 \u03bc n \u03c9) atTop atTop",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "(martingale_martingalePart hf hint).ae_not_tendsto_atTop_atBot",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "(martingale_martingalePart hf hint).ae_not_tendsto_atTop_atTop",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "\u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 n, 0 \u2264 (\u03bc[f (n + 1) - f n | \u2131 n]) \u03c9",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "BorelCantelli",
+          "name": "tendsto_sum_indicator_atTop_iff",
+          "statement": "\u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 n, f n \u03c9 \u2264 f (n + 1) \u03c9) (hf : StronglyAdapted \u2131 f) (hint : \u2200 n, Integrable (f n) \u03bc) (hbdd : \u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 n, |f (n + 1) \u03c9 - f n \u03c9| \u2264 R) : \u2200\u1d50 \u03c9 \u2202\u03bc, Tendsto (fun n => f n \u03c9) atTop atTop \u2194 Tendsto (fun n => predictablePart f \u2131 \u03bc n \u03c9) atTop atTop",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "(martingale_martingalePart hf hint).ae_not_tendsto_atTop_atTop",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "\u2200\u1d50 \u03c9 \u2202\u03bc, \u2200 n, 0 \u2264 (\u03bc[f (n + 1) - f n | \u2131 n]) \u03c9",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "(martingale_martingalePart hf hint).ae_not_tendsto_atTop_atBot",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

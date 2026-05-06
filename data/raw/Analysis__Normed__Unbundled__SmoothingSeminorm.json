@@ -1,0 +1,78 @@
+[
+  {
+    "module": "SmoothingSeminorm",
+    "name": "tendsto_smoothingFun_of_ne_zero",
+    "statement": "\u03bc 1 \u2264 1) {x : R} (hx : \u03bc x \u2260 0) : Tendsto (smoothingSeminormSeq \u03bc x) atTop (\ud835\udcdd (smoothingFun \u03bc x))",
+    "have_tree": [
+      {
+        "name": "hL0",
+        "type": "0 \u2264 L",
+        "body": "le_ciInf fun x \u21a6 by positivity",
+        "children": [
+          {
+            "name": "h\u03b52",
+            "type": "0 < \u03b5 / 2",
+            "body": "half_pos h\u03b5",
+            "children": []
+          },
+          {
+            "name": "hL2",
+            "type": "",
+            "body": "smoothingSeminormSeq_tendsto_aux \u03bc hL0 h\u03b52 (PNat.pos m1) hx",
+            "children": []
+          },
+          {
+            "name": "h\u03b4",
+            "type": "0 < \u03b4",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hn0",
+        "type": "0 < n",
+        "body": "lt_of_lt_of_le (lt_of_lt_of_le (PNat.pos m1) (le_max_left (m1 : \u2115) m2)) hn",
+        "children": []
+      },
+      {
+        "name": "hL_le",
+        "type": "L \u2264 smoothingSeminormSeq \u03bc x n",
+        "body": "by",
+        "children": [
+          {
+            "name": "hL\u03b5",
+            "type": "0 < L + \u03b5",
+            "body": "add_pos_of_nonneg_of_pos hL0 h\u03b5",
+            "children": []
+          },
+          {
+            "name": "hxn'",
+            "type": "0 < \u03bc (x ^ (n % \u2191m1))",
+            "body": "lt_of_le_of_ne (apply_nonneg _ _) (Ne.symm hxn)",
+            "children": []
+          },
+          {
+            "name": "hL0'",
+            "type": "0 < L + \u03b5 / 2",
+            "body": "add_pos_of_nonneg_of_pos hL0 (half_pos h\u03b5)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "SmoothingSeminorm",
+    "name": "tendsto_smoothingFun_comp",
+    "statement": "\u03bc 1 \u2264 1) (x : R) {\u03c8 : \u2115 \u2192 \u2115} (h\u03c8_mono : StrictMono \u03c8) : Tendsto (fun n : \u2115 => \u03bc (x ^ \u03c8 n) ^ (1 / \u03c8 n : \u211d)) atTop (\ud835\udcdd (smoothingFun \u03bc x))",
+    "have_tree": [
+      {
+        "name": "h\u03c8_lim'",
+        "type": "Tendsto \u03c8 atTop atTop",
+        "body": "StrictMono.tendsto_atTop h\u03c8_mono",
+        "children": []
+      }
+    ]
+  }
+]

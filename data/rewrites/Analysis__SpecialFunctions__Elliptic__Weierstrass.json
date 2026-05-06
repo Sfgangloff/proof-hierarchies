@@ -1,0 +1,224 @@
+[
+  {
+    "original": {
+      "module": "Weierstrass",
+      "name": "weierstrassP_bound",
+      "statement": "\u211d) (hr : 0 < r) (s : \u2102) (hs : \u2016s\u2016 < r) (l : \u2102) (h : 2 * r \u2264 \u2016l\u2016) : \u20161 / (s - l) ^ 2 - 1 / l ^ 2\u2016 \u2264 10 * r * \u2016l\u2016 ^ (-3 : \u211d)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "s \u2260 \u2191l",
+          "body": "by rintro rfl; linarith",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "0 < \u2016l\u2016",
+          "body": "by linarith",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Weierstrass",
+          "name": "weierstrassP_bound",
+          "statement": "\u211d) (hr : 0 < r) (s : \u2102) (hs : \u2016s\u2016 < r) (l : \u2102) (h : 2 * r \u2264 \u2016l\u2016) : \u20161 / (s - l) ^ 2 - 1 / l ^ 2\u2016 \u2264 10 * r * \u2016l\u2016 ^ (-3 : \u211d)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "0 < \u2016l\u2016",
+              "body": "by linarith",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "s \u2260 \u2191l",
+              "body": "by rintro rfl; linarith",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Weierstrass",
+      "name": "hasSumLocallyUniformly_derivWeierstrassPExcept",
+      "statement": "\u2102) : HasSumLocallyUniformly (fun (l : L.lattice) (z : \u2102) \u21a6 if l.1 = l\u2080 then 0 else -2 / (z - l) ^ 3) \u2118'[L - l\u2080]",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "s \u2260 \u2191l",
+          "body": "by rintro rfl; exfalso; linarith",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "l \u2260 0",
+          "body": "by rintro rfl; simp_all; linarith",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Weierstrass",
+          "name": "hasSumLocallyUniformly_derivWeierstrassPExcept",
+          "statement": "\u2102) : HasSumLocallyUniformly (fun (l : L.lattice) (z : \u2102) \u21a6 if l.1 = l\u2080 then 0 else -2 / (z - l) ^ 3) \u2118'[L - l\u2080]",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "l \u2260 0",
+              "body": "by rintro rfl; simp_all; linarith",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "s \u2260 \u2191l",
+              "body": "by rintro rfl; exfalso; linarith",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Weierstrass",
+      "name": "summable_weierstrassPExceptSummand",
+      "statement": "\u2102) (hx : \u2200 l : L.lattice, l.1 \u2260 l\u2080 \u2192 \u2016z - x\u2016 < \u2016l - x\u2016) : Summable (Function.uncurry fun b c \u21a6 L.weierstrassPExceptSummand l\u2080 x b c * (z - x) ^ b)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "\u2200 l \u2208 L.lattice, l \u2260 l\u2080 \u2192 (\u03ba / 2 + 1) * \u2016z - x\u2016 < dist x l",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "|\u03ba\u207b\u00b9| < 1",
+              "body": "by grind [abs_inv, inv_lt_one_iff\u2080]",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "hpx",
+          "type": "\u2016p.2 - x\u2016 \u2260 0",
+          "body": "fun h \u21a6 by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Weierstrass",
+          "name": "summable_weierstrassPExceptSummand",
+          "statement": "\u2102) (hx : \u2200 l : L.lattice, l.1 \u2260 l\u2080 \u2192 \u2016z - x\u2016 < \u2016l - x\u2016) : Summable (Function.uncurry fun b c \u21a6 L.weierstrassPExceptSummand l\u2080 x b c * (z - x) ^ b)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "\u2200 l \u2208 L.lattice, l \u2260 l\u2080 \u2192 (\u03ba / 2 + 1) * \u2016z - x\u2016 < dist x l",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hpx",
+              "type": "\u2016p.2 - x\u2016 \u2260 0",
+              "body": "fun h \u21a6 by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Weierstrass",
+          "name": "summable_weierstrassPExceptSummand",
+          "statement": "\u2102) (hx : \u2200 l : L.lattice, l.1 \u2260 l\u2080 \u2192 \u2016z - x\u2016 < \u2016l - x\u2016) : Summable (Function.uncurry fun b c \u21a6 L.weierstrassPExceptSummand l\u2080 x b c * (z - x) ^ b)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "|\u03ba\u207b\u00b9| < 1",
+              "body": "by grind [abs_inv, inv_lt_one_iff\u2080]",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2200 l \u2208 L.lattice, l \u2260 l\u2080 \u2192 (\u03ba / 2 + 1) * \u2016z - x\u2016 < dist x l",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hpx",
+              "type": "\u2016p.2 - x\u2016 \u2260 0",
+              "body": "fun h \u21a6 by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Weierstrass",
+          "name": "summable_weierstrassPExceptSummand",
+          "statement": "\u2102) (hx : \u2200 l : L.lattice, l.1 \u2260 l\u2080 \u2192 \u2016z - x\u2016 < \u2016l - x\u2016) : Summable (Function.uncurry fun b c \u21a6 L.weierstrassPExceptSummand l\u2080 x b c * (z - x) ^ b)",
+          "have_tree": [
+            {
+              "name": "hpx",
+              "type": "\u2016p.2 - x\u2016 \u2260 0",
+              "body": "fun h \u21a6 by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2200 l \u2208 L.lattice, l \u2260 l\u2080 \u2192 (\u03ba / 2 + 1) * \u2016z - x\u2016 < dist x l",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "|\u03ba\u207b\u00b9| < 1",
+                  "body": "by grind [abs_inv, inv_lt_one_iff\u2080]",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

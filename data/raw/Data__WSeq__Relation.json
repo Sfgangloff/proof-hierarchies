@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Relation",
+    "name": "liftRel_destruct",
+    "statement": "\u03b1 \u2192 \u03b2 \u2192 Prop} {s : WSeq \u03b1} {t : WSeq \u03b2} : LiftRel R s t \u2192 Computation.LiftRel (LiftRelO R (LiftRel R)) (destruct s) (destruct t) | \u27e8R, h1, h2\u27e9 => by refine Computation.LiftRel.imp ?_ _ _ (h2 h1) apply LiftRelO.imp_right exact fun s' t' h' => \u27e8R, h', @h2\u27e9  theorem liftRel_destruct_iff {R : \u03b1 \u2192 \u03b2 \u2192 Prop} {s : WSeq \u03b1} {t : WSeq \u03b2} : LiftRel R s t \u2194 Computation.LiftRel (LiftRelO R (LiftRel R)) (destruct s) (destruct t)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "Computation.LiftRel (LiftRelO R (LiftRel R)) (destruct s) (destruct t)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Relation",
+    "name": "liftRel_join.lem",
+    "statement": "\u03b1 \u2192 \u03b2 \u2192 Prop) {S T} {U : WSeq \u03b1 \u2192 WSeq \u03b2 \u2192 Prop} (ST : LiftRel (LiftRel R) S T) (HU : \u2200 s1 s2, (\u2203 s t S T, s1 = append s (join S) \u2227 s2 = append t (join T) \u2227 LiftRel R s t \u2227 LiftRel (LiftRel R) S T) \u2192 U s1 s2) {a} (ma : a \u2208 destruct (join S)) : \u2203 b, b \u2208 destruct (join T) \u2227 LiftRelO R U a b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "n1 < n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

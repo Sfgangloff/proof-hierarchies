@@ -1,0 +1,89 @@
+[
+  {
+    "module": "TruncGEHomology",
+    "name": "hasHomology_sc'_of_not_mem_boundary",
+    "statement": "\u00ac e.BoundaryGE j) : ((K.truncGE' e).sc' i j k).HasHomology",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(K.restriction e).HasHomology j",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "ShortComplex.hasHomology_of_iso ((K.restriction e).isoSc' i j k hi hk)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Epi \u03c6.\u03c4\u2081",
+        "body": "by dsimp [\u03c6]; infer_instance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsIso \u03c6.\u03c4\u2082",
+        "body": "K.isIso_restrictionToTruncGE' e j hj",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsIso \u03c6.\u03c4\u2083",
+        "body": "K.isIso_restrictionToTruncGE' e k (e.not_boundaryGE_next' hj hk)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TruncGEHomology",
+    "name": "quasiIsoAt_restrictionToTruncGE'",
+    "statement": "\u00ac e.BoundaryGE j) [(K.restriction e).HasHomology j] [(K.truncGE' e).HasHomology j] : QuasiIsoAt (K.restrictionToTruncGE' e) j",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Epi \u03c6.\u03c4\u2081",
+        "body": "by dsimp [\u03c6]; infer_instance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsIso \u03c6.\u03c4\u2082",
+        "body": "K.isIso_restrictionToTruncGE' e j hj",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsIso \u03c6.\u03c4\u2083",
+        "body": "K.isIso_restrictionToTruncGE' e _ (e.not_boundaryGE_next' hj rfl)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TruncGEHomology",
+    "name": "quasiIsoAt_\u03c0TruncGE",
+    "statement": "\u03b9} {j' : \u03b9'} (hj' : e.f j = j') : QuasiIsoAt (K.\u03c0TruncGE e) j'",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Epi \u03c6.\u03c4\u2081",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsIso \u03c6.\u03c4\u2082",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsIso \u03c6.\u03c4\u2083",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

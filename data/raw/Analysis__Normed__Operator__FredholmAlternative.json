@@ -1,0 +1,71 @@
+[
+  {
+    "module": "FredholmAlternative",
+    "name": "antilipschitz_of_not_hasEigenvalue",
+    "statement": "IsCompactOperator T) (h\u03bc : \u03bc \u2260 0) (h : \u00ac HasEigenvalue (T : End \ud835\udd5c X) \u03bc) : \u2203 K, AntilipschitzWith K (T - \u03bc \u2022 1 : X \u2192L[\ud835\udd5c] X)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x \u2260 0",
+        "body": "by aesop",
+        "children": []
+      },
+      {
+        "name": "hx_lim",
+        "type": "Tendsto (fun n \u21a6 (T - \u03bc \u2022 1) (x n)) atTop (\ud835\udcdd 0)",
+        "body": "squeeze_zero_norm (by grind) h\u03c6",
+        "children": []
+      },
+      {
+        "name": "hy_lower",
+        "type": "\u2203 d > 0, \u2200\u1da0 n in atTop, d \u2264 \u2016y_ n\u2016",
+        "body": "by",
+        "children": [
+          {
+            "name": "h\u2081",
+            "type": "\u2016T (x n) - \u03bc \u2022 x n\u2016 < \u03c6 n",
+            "body": "by simpa using hx_bound n",
+            "children": []
+          },
+          {
+            "name": "h\u2082",
+            "type": "\u2016\u03bc\u2016 * \u2016x n\u2016 \u2264 \u2016T (x n)\u2016 + \u2016T (x n) - \u03bc \u2022 x n\u2016",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hy_lim",
+        "type": "Tendsto (fun n \u21a6 (T - \u03bc \u2022 1) (y_ n)) atTop (\ud835\udcdd 0)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hy_ne",
+        "type": "y \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FredholmAlternative",
+    "name": "hasEigenvalue_or_mem_resolventSet",
+    "statement": "IsCompactOperator T) (h\u03bc : \u03bc \u2260 0) : HasEigenvalue (T : End \ud835\udd5c X) \u03bc \u2228 \u03bc \u2208 resolventSet \ud835\udd5c T",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "Pairwise fun x\u2081 x\u2082 \u21a6 \u2016\u03bc\u2016 \u2264 \u2016T (f x\u2081) - T (f x\u2082)\u2016",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2016T (f (\u03c8 (N + 1))) - T (f (\u03c8 N))\u2016 < \u2016\u03bc\u2016",
+        "body": "by simpa [dist_eq_norm_sub] using hN (N + 1)",
+        "children": []
+      }
+    ]
+  }
+]

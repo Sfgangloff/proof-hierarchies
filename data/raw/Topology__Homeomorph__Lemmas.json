@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Lemmas",
+    "name": "image_connectedComponentIn",
+    "statement": "Set X} (h : X \u2243\u209c Y) {x : X} (hx : x \u2208 s) : h '' connectedComponentIn s x = connectedComponentIn (h '' s) (h x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.symm.continuous.image_connectedComponentIn_subset (mem_image_of_mem h hx)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "continuous_symm_of_equiv_compact_to_t2",
+    "statement": "X \u2243 Y} (hf : Continuous f) : Continuous f.symm",
+    "have_tree": [
+      {
+        "name": "hC'",
+        "type": "IsClosed (f '' C)",
+        "body": "(hC.isCompact.image hf).isClosed",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "Topology.IsCoinducing.connectedComponentsHomeomorph",
+    "statement": "X \u2192 Y} (hf : IsCoinducing f) (hf' : \u2200 y, IsConnected (f \u207b\u00b9' {y})) : ConnectedComponents X \u2243\u209c ConnectedComponents Y",
+    "have_tree": [
+      {
+        "name": "hbij",
+        "type": "",
+        "body": "hf.connectedComponentsMap_bijective hf'",
+        "children": []
+      }
+    ]
+  }
+]

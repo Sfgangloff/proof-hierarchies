@@ -1,0 +1,130 @@
+[
+  {
+    "module": "Real",
+    "name": "rieszMeasure",
+    "statement": "= (rieszContent (toNNRealLinear \u039b)).measure  /-- If `f` assumes values between `0` and `1` and the support is contained in `V`, then `\u039b f \u2264 rieszMeasure V`. -/ lemma le_rieszMeasure_tsupport_subset {f : C_c(X, \u211d)} (hf : \u2200 (x : X), 0 \u2264 f x \u2227 f x \u2264 1) {V : Set X} (hV : tsupport f \u2286 V) : ENNReal.ofReal (\u039b f) \u2264 rieszMeasure \u039b V",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Content.measure_eq_content_of_regular (rieszContent (toNNRealLinear \u039b))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "range_cut_partition",
+    "statement": "C_c(X, \u211d)) (a : \u211d) {\u03b5 : \u211d} (h\u03b5 : 0 < \u03b5) (N : \u2115) (hf : range f \u2286 Ioo a (a + N * \u03b5)) : \u2203 (E : Fin N \u2192 Set X), tsupport f = \u22c3 j, E j \u2227 univ.PairwiseDisjoint E \u2227 (\u2200 n : Fin N, \u2200 x \u2208 E n, a + \u03b5 * n < f x \u2227 f x \u2264 a + \u03b5 * (n + 1)) \u2227 \u2200 n : Fin N, MeasurableSet (E n)",
+    "have_tree": [
+      {
+        "name": "partition_aux",
+        "type": "range f \u2286 \u22c3 n, Ioc (y n - \u03b5) (y n)",
+        "body": "calc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "exists_open_approx",
+    "statement": "C_c(X, \u211d)) {\u03b5 : \u211d} (h\u03b5 : 0 < \u03b5) (E : Set X) {\u03bc : Content X} (h\u03bc : \u03bc.outerMeasure E \u2260 \u221e) (h\u03bc' : MeasurableSet E) {c : \u211d} (hfE : \u2200 x \u2208 E, f x < c) : \u2203 (V : Opens X), E \u2286 V \u2227 (\u2200 x \u2208 V, f x < c) \u2227 \u03bc.measure V \u2264 \u03bc.measure E + ENNReal.ofReal \u03b5",
+    "have_tree": [
+      {
+        "name": "h\u03b5'",
+        "type": "",
+        "body": "ne_of_gt <| Real.toNNReal_pos.mpr h\u03b5",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "exists_nat_large",
+    "statement": "\u211d) {\u03b5 : \u211d} (h\u03b5 : 0 < \u03b5) : \u2203 (N : \u2115), 0 < N \u2227 a' / N * (b' + a' / N) \u2264 \u03b5",
+    "have_tree": [
+      {
+        "name": "B",
+        "type": "",
+        "body": "A.comp tendsto_natCast_atTop_atTop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "integral_riesz_aux",
+    "statement": "C_c(X, \u211d)) : \u039b f \u2264 \u222b x, f x \u2202(rieszMeasure \u039b)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "E n \u2286 tsupport f",
+        "body": "by rw [hE.1]; exact subset_iUnion _ _",
+        "children": []
+      },
+      {
+        "name": "h_\u03b5'",
+        "type": "",
+        "body": "(div_pos h\u03b5'.1 (Nat.cast_pos'.mpr hN))",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "tsupport f \u2286 \u22c3 n, (V n).carrier",
+        "body": "calc",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "\u2200 n, (y n - \u03b5') * \u03bc.real (E n) \u2264 \u222b x in (E n), f x \u2202\u03bc",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2211 n, y n \u2264 \u2211 n, b",
+            "body": "Finset.sum_le_sum (fun n \u21a6 fun _ \u21a6 this n)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "measure_le_of_isCompact_of_integral",
+    "statement": "\u2200 f : C_c(X, \u211d), \u222b x, f x \u2202\u03bc \u2264 \u222b x, f x \u2202\u03bd) \u2983K : Set X\u2984 (hK : IsCompact K) : \u03bc K \u2264 \u03bd K",
+    "have_tree": [
+      {
+        "name": "h\u03bdK",
+        "type": "\u03bd K \u2260 \u22a4",
+        "body": "h\u03bd.ne",
+        "children": []
+      },
+      {
+        "name": "h\u03bcK",
+        "type": "\u03bc K \u2260 \u22a4",
+        "body": "hK.measure_lt_top.ne",
+        "children": []
+      },
+      {
+        "name": "VltTop",
+        "type": "\u03bd V < \u22a4",
+        "body": "pV3.trans_lt <| by finiteness",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "_root_.MeasureTheory.Measure.exists_innerRegular_eq_of_isCompact",
+    "statement": "Measure X) [IsFiniteMeasure \u03bc] {K : Set X} (hK : IsCompact K) (h : \u03bc K\u1d9c = 0) : \u2203 (\u03bd : Measure X), \u03bd.InnerRegular \u2227 IsFiniteMeasure \u03bd \u2227 \u03bd K\u1d9c = 0 \u2227 \u2200 g : X \u2192\u1d47 \u211d, \u222b x, g x \u2202\u03bc = \u222b x, g x \u2202\u03bd",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "CompactSpace K",
+        "body": "isCompact_iff_compactSpace.mp hK",
+        "children": []
+      }
+    ]
+  }
+]

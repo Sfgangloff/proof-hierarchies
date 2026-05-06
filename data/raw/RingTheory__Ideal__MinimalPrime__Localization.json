@@ -1,0 +1,105 @@
+[
+  {
+    "module": "Localization",
+    "name": "Ideal.iUnion_minimalPrimes",
+    "statement": "\u22c3 p \u2208 I.minimalPrimes, p = { x | \u2203 y \u2209 I.radical, x * y \u2208 I.radical }",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "p.map (algebraMap R (Localization.AtPrime p)) \u2264 (I.map (algebraMap _ _)).radical",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "Ideal.exists_mul_mem_of_mem_minimalPrimes",
+    "statement": "Ideal R} (hp : p \u2208 I.minimalPrimes) {x : R} (hx : x \u2208 p) : \u2203 y \u2209 I, x * y \u2208 I",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "\u2203 m, x ^ m * y ^ n \u2208 I",
+        "body": "\u27e8n, mul_pow x y n \u25b8 hx\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nat.find H \u2260 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "Ideal.exists_comap_eq_of_mem_minimalPrimes",
+    "statement": "Ideal S} (f : R \u2192+* S) (p) (H : p \u2208 (I.comap f).minimalPrimes) : \u2203 p' : Ideal S, p'.IsPrime \u2227 I \u2264 p' \u2227 p'.comap f = p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "H.1.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "Ideal.exists_minimalPrimes_comap_eq",
+    "statement": "Ideal S} (f : R \u2192+* S) (p) (H : p \u2208 (I.comap f).minimalPrimes) : \u2203 p' \u2208 I.minimalPrimes, Ideal.comap f p' = p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hq.1.1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Ideal.comap_mono hq').trans_eq h\u2083",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "Ideal.minimalPrimes_comap_of_surjective",
+    "statement": "R \u2192+* S} (hf : Function.Surjective f) {I J : Ideal S} (h : J \u2208 I.minimalPrimes) : J.comap f \u2208 (I.comap f).minimalPrimes",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.1.1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "RingHom.ker f \u2264 K",
+        "body": "(Ideal.comap_mono bot_le).trans e\u2081",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "IsLocalization.AtPrime.radical_map_of_mem_minimalPrimes",
+    "statement": "Ideal R) [hqp : q.IsPrime] [IsLocalization.AtPrime A q] (I : Ideal R) (hIq : q \u2208 I.minimalPrimes) : (I.map (algebraMap R A)).radical = q.map (algebraMap R A)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsLocalRing A",
+        "body": "AtPrime.isLocalRing A q",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hJ.1.1.ne_top",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

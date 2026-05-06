@@ -1,0 +1,150 @@
+[
+  {
+    "module": "Layercake",
+    "name": "countable_meas_le_ne_meas_lt",
+    "statement": "\u03b1 \u2192 R) : {t : R | \u03bc {a : \u03b1 | t \u2264 g a} \u2260 \u03bc {a : \u03b1 | t < g a}}.Countable",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u03bc {a | t < g a} < \u03bc {a | t \u2264 g a}",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Layercake",
+    "name": "lintegral_comp_eq_lintegral_meas_le_mul_of_measurable_of_sigmaFinite",
+    "statement": "Measure \u03b1) [SFinite \u03bc] (f_nn : 0 \u2264 f) (f_mble : Measurable f) (g_intble : \u2200 t > 0, IntervalIntegrable g volume 0 t) (g_mble : Measurable g) (g_nn : \u2200 t > 0, 0 \u2264 g t) : \u222b\u207b \u03c9, ENNReal.ofReal (\u222b t in 0..f \u03c9, g t) \u2202\u03bc = \u222b\u207b t in Ioi 0, \u03bc {a : \u03b1 | t \u2264 f a} * ENNReal.ofReal (g t)",
+    "have_tree": [
+      {
+        "name": "g_ae_nn",
+        "type": "0 \u2264\u1d50[volume.restrict (Ioc 0 (f \u03c9))] g",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Layercake",
+    "name": "lintegral_comp_eq_lintegral_meas_le_mul_of_measurable",
+    "statement": "Measure \u03b1) (f_nn : 0 \u2264 f) (f_mble : Measurable f) (g_intble : \u2200 t > 0, IntervalIntegrable g volume 0 t) (g_mble : Measurable g) (g_nn : \u2200 t > 0, 0 \u2264 g t) : \u222b\u207b \u03c9, ENNReal.ofReal (\u222b t in 0..f \u03c9, g t) \u2202\u03bc = \u222b\u207b t in Ioi 0, \u03bc {a : \u03b1 | t \u2264 f a} * ENNReal.ofReal (g t)",
+    "have_tree": [
+      {
+        "name": "f_nonneg",
+        "type": "\u2200 \u03c9, 0 \u2264 f \u03c9",
+        "body": "fun \u03c9 \u21a6 f_nn \u03c9",
+        "children": []
+      },
+      {
+        "name": "M_nonneg",
+        "type": "0 \u2264 M",
+        "body": "le_csSup M_bdd zero_mem",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "SigmaFinite \u03bd",
+        "body": "by",
+        "children": [
+          {
+            "name": "J",
+            "type": "\u03bc {a | u n < f a} < \u221e",
+            "body": "by",
+            "children": [
+              {
+                "name": "g_nn_ae",
+                "type": "\u2200\u1d50 t \u2202(volume.restrict (Ioc 0 (u n))), 0 \u2264 g t",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "u n \u2264 M",
+                "body": "le_csSup M_bdd J",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "meas",
+            "type": "MeasurableSet {a | M < f a}",
+            "body": "measurableSet_lt measurable_const f_mble",
+            "children": []
+          },
+          {
+            "name": "J",
+            "type": "Disjoint (Ioc 0 M) (Ioi M)",
+            "body": "Ioc_disjoint_Ioi le_rfl",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Layercake",
+    "name": "lintegral_comp_eq_lintegral_meas_le_mul",
+    "statement": "Measure \u03b1) (f_nn : 0 \u2264\u1d50[\u03bc] f) (f_mble : AEMeasurable f \u03bc) (g_intble : \u2200 t > 0, IntervalIntegrable g volume 0 t) (g_nn : \u2200\u1d50 t \u2202volume.restrict (Ioi 0), 0 \u2264 g t) : \u222b\u207b \u03c9, ENNReal.ofReal (\u222b t in 0..f \u03c9, g t) \u2202\u03bc = \u222b\u207b t in Ioi 0, \u03bc {a : \u03b1 | t \u2264 f a} * ENNReal.ofReal (g t)",
+    "have_tree": [
+      {
+        "name": "G_intble",
+        "type": "\u2200 t > 0, IntervalIntegrable G volume 0 t",
+        "body": "by",
+        "children": [
+          {
+            "name": "f\u03c9_nn",
+            "type": "0 \u2264 F \u03c9",
+            "body": "F_nn \u03c9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Layercake",
+    "name": "lintegral_eq_lintegral_meas_le",
+    "statement": "Measure \u03b1) (f_nn : 0 \u2264\u1d50[\u03bc] f) (f_mble : AEMeasurable f \u03bc) : \u222b\u207b \u03c9, ENNReal.ofReal (f \u03c9) \u2202\u03bc = \u222b\u207b t in Ioi 0, \u03bc {a : \u03b1 | t \u2264 f a}",
+    "have_tree": [
+      {
+        "name": "cst_intble",
+        "type": "\u2200 t > 0, IntervalIntegrable cst volume 0 t",
+        "body": "fun _ _ =>",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Layercake",
+    "name": "Integrable.integral_eq_integral_meas_lt",
+    "statement": "Integrable f \u03bc) (f_nn : 0 \u2264\u1d50[\u03bc] f) : \u222b \u03c9, f \u03c9 \u2202\u03bc = \u222b t in Set.Ioi 0, \u03bc.real {a : \u03b1 | t < f a}",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "lintegral_eq_lintegral_meas_lt \u03bc f_nn f_intble.aemeasurable",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Layercake",
+    "name": "Integrable.integral_eq_integral_Ioc_meas_le",
+    "statement": "\u03b1 \u2192 \u211d} {M : \u211d} (f_intble : Integrable f \u03bc) (f_nn : 0 \u2264\u1d50[\u03bc] f) (f_bdd : f \u2264\u1d50[\u03bc] (fun _ \u21a6 M)) : \u222b \u03c9, f \u03c9 \u2202\u03bc = \u222b t in Ioc 0 M, \u03bc.real {a : \u03b1 | t \u2264 f a}",
+    "have_tree": [
+      {
+        "name": "htM",
+        "type": "M < t",
+        "body": "by simp_all only [mem_diff, mem_Ioi, mem_Ioc, not_and, not_le]",
+        "children": []
+      }
+    ]
+  }
+]

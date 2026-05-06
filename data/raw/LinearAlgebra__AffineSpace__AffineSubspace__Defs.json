@@ -1,0 +1,86 @@
+[
+  {
+    "module": "Defs",
+    "name": "vectorSpan_eq_bot_iff_subsingleton",
+    "statement": "Set P} : vectorSpan k s = \u22a5 \u2194 s.Subsingleton",
+    "have_tree": [
+      {
+        "name": "hpq'",
+        "type": "",
+        "body": "vsub_mem_vectorSpan k hp hq",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "vsub_mem_vectorSpan_of_mem_spanPoints_of_mem_spanPoints",
+    "statement": "Set P} {p\u2081 p\u2082 : P} (hp\u2081 : p\u2081 \u2208 spanPoints k s) (hp\u2082 : p\u2082 \u2208 spanPoints k s) : p\u2081 -\u1d65 p\u2082 \u2208 vectorSpan k s",
+    "have_tree": [
+      {
+        "name": "hv\u2081v\u2082",
+        "type": "v\u2081 - v\u2082 \u2208 vectorSpan k s",
+        "body": "(vectorSpan k s).sub_mem hv\u2081 hv\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "ext_of_direction_eq",
+    "statement": "AffineSubspace k P} (hd : s\u2081.direction = s\u2082.direction) (hn : ((s\u2081 : Set P) \u2229 s\u2082).Nonempty) : s\u2081 = s\u2082",
+    "have_tree": [
+      {
+        "name": "hq1",
+        "type": "",
+        "body": "Set.mem_of_mem_inter_left hn.some_mem",
+        "children": []
+      },
+      {
+        "name": "hq2",
+        "type": "",
+        "body": "Set.mem_of_mem_inter_right hn.some_mem",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "spanPoints_subset_coe_of_subset_coe",
+    "statement": "Set P} {s\u2081 : AffineSubspace k P} (h : s \u2286 s\u2081) : spanPoints k s \u2286 s\u2081",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "vectorSpan k s \u2264 s\u2081.direction",
+        "body": "vectorSpan_mono k h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "inter_nonempty_of_nonempty_of_sup_direction_eq_top",
+    "statement": "AffineSubspace k P} (h1 : (s\u2081 : Set P).Nonempty) (h2 : (s\u2082 : Set P).Nonempty) (hd : s\u2081.direction \u2294 s\u2082.direction = \u22a4) : ((s\u2081 : Set P) \u2229 s\u2082).Nonempty",
+    "have_tree": [
+      {
+        "name": "hlt",
+        "type": "",
+        "body": "sup_direction_lt_of_nonempty_of_inter_empty h1 h2 h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "inter_eq_singleton_of_nonempty_of_isCompl",
+    "statement": "AffineSubspace k P} (h1 : (s\u2081 : Set P).Nonempty) (h2 : (s\u2082 : Set P).Nonempty) (hd : IsCompl s\u2081.direction s\u2082.direction) : \u2203 p, (s\u2081 : Set P) \u2229 s\u2082 = {p}",
+    "have_tree": [
+      {
+        "name": "hqp",
+        "type": "q -\u1d65 p \u2208 s\u2081.direction \u2293 s\u2082.direction",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

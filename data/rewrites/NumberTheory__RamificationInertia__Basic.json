@@ -1,0 +1,242 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "FinrankQuotientMap.span_eq_top",
+      "statement": "p \u2260 \u22a4) (b : Set S) (hb' : Submodule.span R b \u2294 (p.map (algebraMap R S)).restrictScalars R = \u22a4) : Submodule.span K (algebraMap S L '' b) = \u22a4",
+      "have_tree": [
+        {
+          "name": "hRL",
+          "type": "Function.Injective (algebraMap R L)",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Ideal.Quotient.nontrivial_iff.mpr hp",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "FinrankQuotientMap.span_eq_top",
+          "statement": "p \u2260 \u22a4) (b : Set S) (hb' : Submodule.span R b \u2294 (p.map (algebraMap R S)).restrictScalars R = \u22a4) : Submodule.span K (algebraMap S L '' b) = \u22a4",
+          "have_tree": [
+            {
+              "name": "hRL",
+              "type": "Function.Injective (algebraMap R L)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Basic",
+          "name": "FinrankQuotientMap.span_eq_top",
+          "statement": "p \u2260 \u22a4) (b : Set S) (hb' : Submodule.span R b \u2294 (p.map (algebraMap R S)).restrictScalars R = \u22a4) : Submodule.span K (algebraMap S L '' b) = \u22a4",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Ideal.Quotient.nontrivial_iff.mpr hp",
+              "children": []
+            },
+            {
+              "name": "hRL",
+              "type": "Function.Injective (algebraMap R L)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "quotientToQuotientRangePowQuotSucc_surjective",
+      "statement": "P \u2260 \u22a5) [hP : P.IsPrime] {i : \u2115} (hi : i < e) {a : S} (a_mem : a \u2208 P ^ i) (a_notMem : a \u2209 P ^ (i + 1)) : Function.Surjective (quotientToQuotientRangePowQuotSucc p P a_mem)",
+      "have_tree": [
+        {
+          "name": "Pe_le_Pi",
+          "type": "P ^ e \u2264 P ^ i",
+          "body": "Ideal.pow_le_pow_right hi.le",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "(P ^ (i + 1)).zero_mem",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "quotientToQuotientRangePowQuotSucc_surjective",
+          "statement": "P \u2260 \u22a5) [hP : P.IsPrime] {i : \u2115} (hi : i < e) {a : S} (a_mem : a \u2208 P ^ i) (a_notMem : a \u2209 P ^ (i + 1)) : Function.Surjective (quotientToQuotientRangePowQuotSucc p P a_mem)",
+          "have_tree": [
+            {
+              "name": "Pe_le_Pi",
+              "type": "P ^ e \u2264 P ^ i",
+              "body": "Ideal.pow_le_pow_right hi.le",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Basic",
+          "name": "quotientToQuotientRangePowQuotSucc_surjective",
+          "statement": "P \u2260 \u22a5) [hP : P.IsPrime] {i : \u2115} (hi : i < e) {a : S} (a_mem : a \u2208 P ^ i) (a_notMem : a \u2209 P ^ (i + 1)) : Function.Surjective (quotientToQuotientRangePowQuotSucc p P a_mem)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "(P ^ (i + 1)).zero_mem",
+              "children": []
+            },
+            {
+              "name": "Pe_le_Pi",
+              "type": "P ^ e \u2264 P ^ i",
+              "body": "Ideal.pow_le_pow_right hi.le",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "finrank_prime_pow_ramificationIdx",
+      "statement": "P \u2260 \u22a5) [p.IsMaximal] [P.IsPrime] (he : e \u2260 0) : finrank (R \u29f8 p) (S \u29f8 P ^ e) = e * @finrank (R \u29f8 p) (S \u29f8 P) _ _ (@Algebra.toModule _ _ _ _ <| @Quotient.algebraQuotientOfRamificationIdxNeZero _ _ _ _ _ _ _ \u27e8he\u27e9)",
+      "have_tree": [
+        {
+          "name": "hdim",
+          "type": "",
+          "body": "rank_prime_pow_ramificationIdx _ _ hP0 he",
+          "children": []
+        },
+        {
+          "name": "hPe",
+          "type": "",
+          "body": "mt (finiteDimensional_iff_of_rank_eq_nsmul he hdim).mp hP",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "finrank_prime_pow_ramificationIdx",
+          "statement": "P \u2260 \u22a5) [p.IsMaximal] [P.IsPrime] (he : e \u2260 0) : finrank (R \u29f8 p) (S \u29f8 P ^ e) = e * @finrank (R \u29f8 p) (S \u29f8 P) _ _ (@Algebra.toModule _ _ _ _ <| @Quotient.algebraQuotientOfRamificationIdxNeZero _ _ _ _ _ _ _ \u27e8he\u27e9)",
+          "have_tree": [
+            {
+              "name": "hPe",
+              "type": "",
+              "body": "mt (finiteDimensional_iff_of_rank_eq_nsmul he hdim).mp hP",
+              "children": []
+            },
+            {
+              "name": "hdim",
+              "type": "",
+              "body": "rank_prime_pow_ramificationIdx _ _ hP0 he",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "card_primesOverFinset_le_finrank",
+      "statement": "Ideal R} [p.IsMaximal] (hp0 : p \u2260 \u22a5) : Finset.card (IsDedekindDomain.primesOverFinset p S) \u2264 Module.finrank K L",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "P.IsPrime",
+          "body": "((IsDedekindDomain.mem_primesOverFinset_iff hp0 _).mp hP).1",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "P.LiesOver p",
+          "body": "((IsDedekindDomain.mem_primesOverFinset_iff hp0 _).mp hP).2",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "card_primesOverFinset_le_finrank",
+          "statement": "Ideal R} [p.IsMaximal] (hp0 : p \u2260 \u22a5) : Finset.card (IsDedekindDomain.primesOverFinset p S) \u2264 Module.finrank K L",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "P.LiesOver p",
+              "body": "((IsDedekindDomain.mem_primesOverFinset_iff hp0 _).mp hP).2",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "P.IsPrime",
+              "body": "((IsDedekindDomain.mem_primesOverFinset_iff hp0 _).mp hP).1",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

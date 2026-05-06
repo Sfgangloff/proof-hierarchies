@@ -1,0 +1,67 @@
+[
+  {
+    "module": "AbsolutelyContinuous",
+    "name": "_root_.LipschitzOnWith.absolutelyContinuousOnInterval",
+    "statement": "\u211d \u2192 X} {K : \u211d\u22650} (hfK : LipschitzOnWith K f (uIcc a b)) : AbsolutelyContinuousOnInterval f a b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hfK (hnI\u2081.left i hi).left (hnI\u2081.left i hi).right",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AbsolutelyContinuous",
+    "name": "boundedVariationOn",
+    "statement": "AbsolutelyContinuousOnInterval f a b) : BoundedVariationOn f (uIcc a b)",
+    "have_tree": [
+      {
+        "name": "hab\u2081",
+        "type": "0 < b - a",
+        "body": "by linarith",
+        "children": []
+      },
+      {
+        "name": "h\u03b4\u2083",
+        "type": "\u03b4' < \u03b4",
+        "body": "by",
+        "children": [
+          {
+            "name": "vf",
+            "type": "\u2211 i \u2208 Finset.range p.1, dist (f (p.2.val i)) (f (p.2.val (i + 1))) < 1",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "not_top",
+            "type": "\u2211 i \u2208 Finset.range p.1, edist (f (p.2.val (i + 1))) (f (p.2.val i)) \u2260 \u22a4",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "AbsolutelyContinuous",
+    "name": "_root_.IntervalIntegrable.absolutelyContinuousOnInterval_intervalIntegral",
+    "statement": "\u211d \u2192 \u211d} {a b c : \u211d} (h : IntervalIntegrable f volume a b) (hc : c \u2208 uIcc a b) : AbsolutelyContinuousOnInterval (fun x \u21a6 \u222b v in c..x, f v) a b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ENNReal.toReal_zero \u25b8 (ENNReal.continuousAt_toReal (by simp)).tendsto.comp this",
+        "children": [
+          {
+            "name": "h_subset",
+            "type": "",
+            "body": "uIoc_subset_of_mem_disjWithin hnI (Finset.mem_range.mp hi)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

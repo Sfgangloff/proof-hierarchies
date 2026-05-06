@@ -1,0 +1,40 @@
+[
+  {
+    "module": "Construction",
+    "name": "adjoin_rootSet",
+    "statement": "\u2115) : \u2200 {K : Type u} [Field K], \u2200 (f : K[X]) (_hfn : f.natDegree = n), Algebra.adjoin K (f.rootSet (SplittingFieldAux n f)) = \u22a4",
+    "have_tree": [
+      {
+        "name": "hndf",
+        "type": "f.natDegree \u2260 0",
+        "body": "by intro h; rw [h] at hfn; cases hfn",
+        "children": []
+      },
+      {
+        "name": "hfn0",
+        "type": "f \u2260 0",
+        "body": "by intro h; rw [h] at hndf; exact hndf rfl",
+        "children": []
+      },
+      {
+        "name": "hmf0",
+        "type": "map (algebraMap K (SplittingFieldAux n.succ f)) f \u2260 0",
+        "body": "map_ne_zero hfn0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Construction",
+    "name": "algEquiv",
+    "statement": "K[X]) [h : IsSplittingField K L f] : L \u2243\u2090[K] SplittingField f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "finiteDimensional L f",
+        "children": []
+      }
+    ]
+  }
+]

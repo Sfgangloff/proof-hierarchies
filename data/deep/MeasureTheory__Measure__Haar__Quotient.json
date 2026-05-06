@@ -1,0 +1,136 @@
+[
+  {
+    "module": "Quotient",
+    "name": "MeasureTheory.QuotientMeasureEqMeasurePreimage.haarMeasure_quotient",
+    "statement": "HasFundamentalDomain \u0393.op G \u03bd] [IsFiniteMeasure \u03bc] : IsHaarMeasure \u03bc",
+    "have_tree": [
+      {
+        "name": "finiteCovol",
+        "type": "covolume \u0393.op G \u03bd \u2260 \u22a4",
+        "body": "",
+        "children": [
+          {
+            "name": "i'",
+            "type": "IsOpenPosMeasure (\u03bd : Measure G)",
+            "body": "inferInstance",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Quotient",
+    "name": "IsFundamentalDomain.QuotientMeasureEqMeasurePreimage_smulHaarMeasure",
+    "statement": "Set G} (h\ud835\udcd5 : IsFundamentalDomain \u0393.op \ud835\udcd5 \u03bd) (h\ud835\udcd5_finite : \u03bd \ud835\udcd5 \u2260 \u22a4) : QuotientMeasureEqMeasurePreimage \u03bd ((\u03bd ((\u03c0 \u207b\u00b9' (K : Set (G \u29f8 \u0393))) \u2229 \ud835\udcd5)) \u2022 haarMeasure K)",
+    "have_tree": [
+      {
+        "name": "c_ne_top",
+        "type": "c \u2260 \u221e",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "c \u2264 \u03bd \ud835\udcd5",
+            "body": "measure_mono (Set.inter_subset_right)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h\u03bcK",
+        "type": "\u03bc K = c",
+        "body": "by simp [\u03bc, haarMeasure_self]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Quotient",
+    "name": "QuotientGroup.integral_mul_eq_integral_automorphize_mul",
+    "statement": "Type*} [NormedField K] [NormedSpace \u211d K] [\u03bc.IsMulRightInvariant] {f : G \u2192 K} (f_\u2112_1 : Integrable f \u03bc) {g : G \u29f8 \u0393 \u2192 K} (hg : AEStronglyMeasurable g \u03bc_\ud835\udcd5) (g_\u2112_infinity : essSup (fun x \u21a6 \u2191\u2016g x\u2016\u2091) \u03bc_\ud835\udcd5 \u2260 \u221e) (F_ae_measurable : AEStronglyMeasurable (QuotientGroup.automorphize f) \u03bc_\ud835\udcd5) : \u222b x : G, g (x : G \u29f8 \u0393) * (f x) \u2202\u03bc = \u222b x : G \u29f8 \u0393, g x * (QuotientGroup.automorphize f x) \u2202\u03bc_\ud835\udcd5",
+    "have_tree": [
+      {
+        "name": "meas_\u03c0",
+        "type": "Measurable \u03c0",
+        "body": "continuous_quotient_mk'.measurable",
+        "children": []
+      },
+      {
+        "name": "H\u2080",
+        "type": "QuotientGroup.automorphize ((g \u2218 \u03c0) * f) = g * (QuotientGroup.automorphize f)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "H\u2081",
+        "type": "Integrable ((g \u2218 \u03c0) * f) \u03bc",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "AEStronglyMeasurable (fun (x : G) \u21a6 g (x : (G \u29f8 \u0393))) \u03bc",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "hg'",
+            "type": "AEStronglyMeasurable (\u2016g \u00b7\u2016\u2091) \u03bc_\ud835\udcd5",
+            "body": "continuous_enorm.comp_aestronglyMeasurable hg",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "H\u2082",
+        "type": "AEStronglyMeasurable (QuotientGroup.automorphize ((g \u2218 \u03c0) * f)) \u03bc_\ud835\udcd5",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Quotient",
+    "name": "QuotientAddGroup.integral_mul_eq_integral_automorphize_mul",
+    "statement": "Type*} [NormedField K] [NormedSpace \u211d K] [\u03bc'.IsAddRightInvariant] {f : G' \u2192 K} (f_\u2112_1 : Integrable f \u03bc') {g : G' \u29f8 \u0393' \u2192 K} (hg : AEStronglyMeasurable g \u03bc_\ud835\udcd5) (g_\u2112_infinity : essSup (\u2016g \u00b7\u2016\u2091) \u03bc_\ud835\udcd5 \u2260 \u221e) (F_ae_measurable : AEStronglyMeasurable (QuotientAddGroup.automorphize f) \u03bc_\ud835\udcd5) : \u222b x : G', g (x : G' \u29f8 \u0393') * (f x) \u2202\u03bc' = \u222b x : G' \u29f8 \u0393', g x * (QuotientAddGroup.automorphize f x) \u2202\u03bc_\ud835\udcd5",
+    "have_tree": [
+      {
+        "name": "meas_\u03c0",
+        "type": "Measurable \u03c0",
+        "body": "continuous_quotient_mk'.measurable",
+        "children": []
+      },
+      {
+        "name": "H\u2080",
+        "type": "QuotientAddGroup.automorphize ((g \u2218 \u03c0) * f) = g * (QuotientAddGroup.automorphize f)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "H\u2081",
+        "type": "Integrable ((g \u2218 \u03c0) * f) \u03bc'",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "AEStronglyMeasurable (fun (x : G') \u21a6 g (x : (G' \u29f8 \u0393'))) \u03bc'",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "hg'",
+            "type": "AEStronglyMeasurable (\u2016g \u00b7\u2016\u2091) \u03bc_\ud835\udcd5",
+            "body": "continuous_enorm.comp_aestronglyMeasurable hg",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "H\u2082",
+        "type": "AEStronglyMeasurable (QuotientAddGroup.automorphize ((g \u2218 \u03c0) * f)) \u03bc_\ud835\udcd5",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

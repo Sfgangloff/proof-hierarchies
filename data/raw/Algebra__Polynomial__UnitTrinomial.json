@@ -1,0 +1,60 @@
+[
+  {
+    "module": "UnitTrinomial",
+    "name": "coeff_isUnit",
+    "statement": "p.IsUnitTrinomial) {k : \u2115} (hk : k \u2208 p.support) : IsUnit (p.coeff k)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "support_trinomial' k m n (u : \u2124) v w hk",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UnitTrinomial",
+    "name": "irreducible_aux1",
+    "statement": "\u2115} (hkm : k < m) (hmn : m < n) (u v w : Units \u2124) (hp : p = trinomial k m n (u : \u2124) v w) : C (v : \u2124) * (C (u : \u2124) * X ^ (m + n) + C (w : \u2124) * X ^ (n - m + k + n)) = \u27e8Finsupp.filter (\u00b7 \u2208 Set.Ioo (k + n) (n + n)) (p * p.mirror).toFinsupp\u27e9",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "n - m + k < n",
+        "body": "by rwa [\u2190 lt_tsub_iff_right, tsub_lt_tsub_iff_left_of_le hmn.le]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UnitTrinomial",
+    "name": "irreducible_aux3",
+    "statement": "\u2115} (hkm : k < m) (hmn : m < n) (hkm' : k < m') (hmn' : m' < n) (u v w x z : Units \u2124) (hp : p = trinomial k m n (u : \u2124) v w) (hq : q = trinomial k m' n (x : \u2124) v z) (h : p * p.mirror = q * q.mirror) : q = p \u2228 q = p.mirror",
+    "have_tree": [
+      {
+        "name": "hmul",
+        "type": "",
+        "body": "congr_arg leadingCoeff h",
+        "children": []
+      },
+      {
+        "name": "hadd",
+        "type": "",
+        "body": "congr_arg (eval 1) h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UnitTrinomial",
+    "name": "irreducible_of_coprime",
+    "statement": "p.IsUnitTrinomial) (h : IsRelPrime p p.mirror) : Irreducible p",
+    "have_tree": [
+      {
+        "name": "hq",
+        "type": "IsUnitTrinomial q",
+        "body": "(isUnitTrinomial_iff'' hpq).mp hp",
+        "children": []
+      }
+    ]
+  }
+]

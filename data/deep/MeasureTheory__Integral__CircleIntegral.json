@@ -1,0 +1,60 @@
+[
+  {
+    "module": "CircleIntegral",
+    "name": "hasSum_two_pi_I_cauchyPowerSeries_integral",
+    "statement": "\u2102 \u2192 E} {c : \u2102} {R : \u211d} {w : \u2102} (hf : CircleIntegrable f c R) (hw : \u2016w\u2016 < R) : HasSum (fun n : \u2115 => \u222e z in C(c, R), (w / (z - c)) ^ n \u2022 (z - c)\u207b\u00b9 \u2022 f z) (\u222e z in C(c, R), (z - (c + w))\u207b\u00b9 \u2022 f z)",
+    "have_tree": [
+      {
+        "name": "hR",
+        "type": "0 < R",
+        "body": "(norm_nonneg w).trans_lt hw",
+        "children": []
+      },
+      {
+        "name": "hwR",
+        "type": "\u2016w\u2016 / R \u2208 Ico (0 : \u211d) 1",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2016w / (circleMap c R \u03b8 - c)\u2016 < 1",
+            "body": "by simpa [abs_of_pos hR] using hwR.2",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "CircleIntegral",
+    "name": "integral_sub_inv_of_mem_ball",
+    "statement": "\u2102} {R : \u211d} (hw : w \u2208 ball c R) : (\u222e z in C(c, R), (z - w)\u207b\u00b9) = 2 * \u03c0 * I",
+    "have_tree": [
+      {
+        "name": "hR",
+        "type": "0 < R",
+        "body": "dist_nonneg.trans_lt hw",
+        "children": [
+          {
+            "name": "A",
+            "type": "CircleIntegrable (fun _ => (1 : \u2102)) c R",
+            "body": "continuousOn_const.circleIntegrable'",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "H",
+        "type": "\u2200 n : \u2115, n \u2260 0 \u2192 (\u222e z in C(c, R), (z - c) ^ (-n - 1 : \u2124)) = 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(\u222e z in C(c, R), ((w - c) / (z - c)) ^ 0 * (z - c)\u207b\u00b9) = 2 * \u03c0 * I",
+        "body": "by simp [hR.ne']",
+        "children": []
+      }
+    ]
+  }
+]

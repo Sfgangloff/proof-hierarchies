@@ -1,0 +1,65 @@
+[
+  {
+    "module": "IsMonicOfDegree",
+    "name": "IsMonicOfDegree.mul",
+    "statement": "R[X]} {m n : \u2115} (hp : IsMonicOfDegree p m) (hq : IsMonicOfDegree q n) : IsMonicOfDegree (p * q) (m + n)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "p.leadingCoeff * q.leadingCoeff \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsMonicOfDegree",
+    "name": "IsMonicOfDegree.of_mul_left",
+    "statement": "R[X]} {m n : \u2115} (hp : IsMonicOfDegree p m) (hpq : IsMonicOfDegree (p * q) (m + n)) : IsMonicOfDegree q n",
+    "have_tree": [
+      {
+        "name": "h\u2082",
+        "type": "q.Monic",
+        "body": "hp.monic.of_mul_monic_left hpq.monic",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hpq.natDegree_eq",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "p.leadingCoeff * q.leadingCoeff \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsMonicOfDegree",
+    "name": "IsMonicOfDegree.of_mul_right",
+    "statement": "R[X]} {m n : \u2115} (hq : IsMonicOfDegree q n) (hpq : IsMonicOfDegree (p * q) (m + n)) : IsMonicOfDegree p m",
+    "have_tree": [
+      {
+        "name": "h\u2082",
+        "type": "p.Monic",
+        "body": "hq.monic.of_mul_monic_right hpq.monic",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hpq.natDegree_eq",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "p.leadingCoeff * q.leadingCoeff \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

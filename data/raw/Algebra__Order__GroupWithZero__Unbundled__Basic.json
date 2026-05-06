@@ -1,0 +1,80 @@
+[
+  {
+    "module": "Basic",
+    "name": "pow_succ_nonneg",
+    "statement": "0 \u2264 a) : \u2200 n, 0 \u2264 a ^ (n + 1) | 0 => (pow_one a).symm \u25b8 ha | _ + 1 => pow_succ a _ \u25b8 mul_nonneg (pow_succ_nonneg ha _) ha  @[simp] lemma pow_nonneg [ZeroLEOneClass M\u2080] [PosMulMono M\u2080] (ha : 0 \u2264 a) : \u2200 n, 0 \u2264 a ^ n | 0 => pow_zero a \u25b8 zero_le_one | n + 1 => pow_succ a n \u25b8 mul_nonneg (pow_nonneg ha _) ha  lemma zero_pow_le_one [ZeroLEOneClass M\u2080] : \u2200 n : \u2115, (0 : M\u2080) ^ n \u2264 1 | 0 => (pow_zero _).le | n + 1 => by rw [zero_pow n.succ_ne_zero]; exact zero_le_one  lemma pow_right_anti\u2080 [PosMulMono M\u2080] (ha\u2080 : 0 \u2264 a) (ha\u2081 : a \u2264 1) : Antitone (fun n : \u2115 \u21a6 a ^ n)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "ZeroLEOneClass M\u2080",
+        "body": "\u27e8ha\u2080.trans ha\u2081\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "pow_right_strictAnti\u2080",
+    "statement": "0 < a) (h\u2081 : a < 1) : StrictAnti (a ^ \u00b7)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "ZeroLEOneClass M\u2080",
+        "body": "\u27e8(h\u2080.trans h\u2081).le\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "inv_neg''",
+    "statement": "a\u207b\u00b9 < 0 \u2194 a < 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "PosMulMono.toPosMulReflectLT (\u03b1 := G\u2080); simp only [\u2190 not_le, inv_nonneg]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "inv_nonpos",
+    "statement": "a\u207b\u00b9 \u2264 0 \u2194 a \u2264 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "PosMulMono.toPosMulReflectLT (\u03b1 := G\u2080); simp only [\u2190 not_lt, inv_pos]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "neg_of_div_neg_right",
+    "statement": "a / b < 0) (ha : 0 \u2264 a) : b < 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "PosMulMono.toPosMulReflectLT (\u03b1 := G\u2080)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "neg_of_div_neg_left",
+    "statement": "a / b < 0) (hb : 0 \u2264 b) : a < 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "PosMulMono.toPosMulReflectLT (\u03b1 := G\u2080)",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,99 @@
+[
+  {
+    "module": "RelSeries",
+    "name": "toList_ne_nil",
+    "statement": "RelSeries r) : x.toList \u2260 []",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.succ_pred_eq_of_pos <| List.length_pos_iff.mpr x.2.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RelSeries",
+    "name": "reverse",
+    "statement": "RelSeries r) : RelSeries r.inv where length",
+    "have_tree": [
+      {
+        "name": "hi",
+        "type": "i.1 + 1 \u2264 p.length",
+        "body": "by lia",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RelSeries",
+    "name": "inductionOn",
+    "statement": "RelSeries r \u2192 Sort*) (singleton : (x : \u03b1) \u2192 motive (RelSeries.singleton r x)) (cons : (p : RelSeries r) \u2192 (x : \u03b1) \u2192 (hx : x ~[r] p.head) \u2192 (hp : motive p) \u2192 motive (p.cons x hx)) (p : RelSeries r) : motive p",
+    "have_tree": [
+      {
+        "name": "lq",
+        "type": "",
+        "body": "p.tail_length (heq \u25b8 d.zero_ne_add_one.symm)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RelSeries",
+    "name": "inductionOn'",
+    "statement": "RelSeries r \u2192 Sort*) (singleton : (x : \u03b1) \u2192 motive (RelSeries.singleton r x)) (snoc : (p : RelSeries r) \u2192 (x : \u03b1) \u2192 (hx : p.last ~[r] x) \u2192 (hp : motive p) \u2192 motive (p.snoc x hx)) (p : RelSeries r) : motive p",
+    "have_tree": [
+      {
+        "name": "ne0",
+        "type": "p.length \u2260 0",
+        "body": "by simp [heq]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RelSeries",
+    "name": "head_le_last",
+    "statement": "LTSeries \u03b1) : x.head \u2264 x.last",
+    "have_tree": [
+      {
+        "name": "leq",
+        "type": "",
+        "body": "congr($(e).length)",
+        "children": []
+      },
+      {
+        "name": "feq",
+        "type": "",
+        "body": "fun i \u21a6 congr($(e).toFun i)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RelSeries",
+    "name": "apply_add_index_le_apply_add_index_nat",
+    "statement": "LTSeries \u2115) (i j : Fin (p.length + 1)) (hij : i \u2264 j) : p i + j \u2264 p j + i",
+    "have_tree": [
+      {
+        "name": "step",
+        "type": "p \u27e8j, _\u27e9 < p \u27e8j + 1, _\u27e9",
+        "body": "p.step \u27e8j, by lia\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RelSeries",
+    "name": "apply_add_index_le_apply_add_index_int",
+    "statement": "LTSeries \u2124) (i j : Fin (p.length + 1)) (hij : i \u2264 j) : p i + j \u2264 p j + i",
+    "have_tree": [
+      {
+        "name": "step",
+        "type": "p \u27e8j, _\u27e9 < p \u27e8j + 1, _\u27e9",
+        "body": "p.step \u27e8j, by lia\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

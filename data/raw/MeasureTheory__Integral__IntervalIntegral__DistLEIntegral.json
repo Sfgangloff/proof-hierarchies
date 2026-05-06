@@ -1,0 +1,111 @@
+[
+  {
+    "module": "DistLEIntegral",
+    "name": "norm_sub_le_integral_of_norm_deriv_le_of_le",
+    "statement": "\u211d \u2192 \u211d} (hab : a \u2264 b) (hfc : ContinuousOn f (Icc a b)) (hfd : DifferentiableOn \u211d f (Ioo a b)) (hfB : \u2200\u1d50 t, t \u2208 Ioo a b \u2192 \u2016deriv f t\u2016 \u2264 B t) (hBi : IntervalIntegrable B volume a b) : \u2016f b - f a\u2016 \u2264 \u222b t in a..b, B t",
+    "have_tree": [
+      {
+        "name": "hgc",
+        "type": "ContinuousOn g (Icc a b)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hgd",
+        "type": "DifferentiableOn \u211d g (Ioo a b)",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "HasFDerivAt (\ud835\udd5c",
+            "body": "\u211d) (\u2191) UniformSpace.Completion.toComplL (f t) := by",
+            "children": []
+          },
+          {
+            "name": "hdft",
+            "type": "HasDerivAt f (deriv f t) t",
+            "body": "hfd.hasDerivAt <| Ioo_mem_nhds ht.1 ht.2",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hgn",
+        "type": "\u2200\u1d50 t, t \u2208 Ioo a b \u2192 \u2016deriv g t\u2016 \u2264 B t",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hfB'",
+        "type": "(\u2016deriv f \u00b7\u2016) \u2264\u1d50[volume.restrict (uIoc a b)] B",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DistLEIntegral",
+    "name": "norm_sub_le_mul_volume_of_norm_deriv_le_of_le",
+    "statement": "\u211d} (hab : a \u2264 b) (hfc : ContinuousOn f (Icc a b)) (hfd : DifferentiableOn \u211d f (Ioo a b)) (hnorm : \u2200\u1d50 t, t \u2208 Ioo a b \u2192 \u2016deriv f t\u2016 \u2264 C) : \u2016f b - f a\u2016 \u2264 C * volume.real {x \u2208 Ioo a b | deriv f x \u2260 0}",
+    "have_tree": [
+      {
+        "name": "hsm",
+        "type": "MeasurableSet s",
+        "body": "by measurability",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DistLEIntegral",
+    "name": "norm_sub_le_mul_volume_of_norm_lineDeriv_le",
+    "statement": "ContinuousOn f (segment \u211d a b)) (hfd : \u2200 t \u2208 Ioo (0 : \u211d) 1, LineDifferentiableAt \u211d f (lineMap a b t) (b - a)) (hf' : \u2200\u1d50 t : \u211d, t \u2208 Ioo (0 : \u211d) 1 \u2192 \u2016lineDeriv \u211d f (lineMap a b t) (b - a)\u2016 \u2264 C) : \u2016f b - f a\u2016 \u2264 C * volume.real {t \u2208 Ioo (0 : \u211d) 1 | lineDeriv \u211d f (lineMap a b t) (b - a) \u2260 0}",
+    "have_tree": [
+      {
+        "name": "hgc",
+        "type": "ContinuousOn g (Icc 0 1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(hfd t ht).hasLineDerivAt.scomp_of_eq (\ud835\udd5c := \u211d) t ((hasDerivAt_id t).sub_const t)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "DistLEIntegral",
+    "name": "norm_sub_le_mul_volume_of_norm_fderiv_le",
+    "statement": "IsOpen s) (hf : DiffContOnCl \u211d f s) (hab : openSegment \u211d a b \u2286 s) (hC : \u2200 x \u2208 s, \u2016fderiv \u211d f x\u2016 \u2264 C) : \u2016f b - f a\u2016 \u2264 C * \u2016b - a\u2016 * volume.real {t \u2208 Ioo (0 : \u211d) 1 | fderiv \u211d f (lineMap a b t) \u2260 0}",
+    "have_tree": [
+      {
+        "name": "hC\u2080",
+        "type": "0 \u2264 C",
+        "body": "(norm_nonneg _).trans <| hC _ <| hmem_s (1 / 2) (by norm_num)",
+        "children": []
+      },
+      {
+        "name": "hfc",
+        "type": "ContinuousOn f (segment \u211d a b)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DistLEIntegral",
+    "name": "sub_isBigO_norm_rpow_add_one_of_fderiv",
+    "statement": "0 \u2264 r) (hdf : \u2200\u1da0 x in \ud835\udcdd a, DifferentiableAt \u211d f x) (hderiv : fderiv \u211d f =O[\ud835\udcdd a] (\u2016\u00b7 - a\u2016 ^ r)) : (f \u00b7 - f a) =O[\ud835\udcdd a] (\u2016\u00b7 - a\u2016 ^ (r + 1))",
+    "have_tree": [
+      {
+        "name": "hsub",
+        "type": "closedBall a \u2016y - a\u2016 \u2286 ball a \u03b5",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

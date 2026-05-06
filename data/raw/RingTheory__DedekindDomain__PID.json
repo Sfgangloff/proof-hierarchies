@@ -1,0 +1,104 @@
+[
+  {
+    "module": "PID",
+    "name": "Ideal.eq_span_singleton_of_mem_of_notMem_sq_of_notMem_prime_ne",
+    "statement": "Ideal R} (hP : P.IsPrime) [IsDedekindDomain R] {x : R} (x_mem : x \u2208 P) (hxP2 : x \u2209 P ^ 2) (hxQ : \u2200 Q : Ideal R, IsPrime Q \u2192 Q \u2260 P \u2192 x \u2209 Q) : P = Ideal.span {x}",
+    "have_tree": [
+      {
+        "name": "hspan0",
+        "type": "span {x} \u2260 \u22a5",
+        "body": "mt Ideal.span_singleton_eq_bot.mp (hxP2 <| \u00b7 \u25b8 zero_mem _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PID",
+    "name": "FractionalIdeal.isPrincipal_of_unit_of_comap_mul_span_singleton_eq_top",
+    "statement": "Type*} [CommRing R] [CommRing A] [Algebra R A] {S : Submonoid R} [IsLocalization S A] (I : (FractionalIdeal S A)\u02e3) {v : A} (hv : v \u2208 (\u2191I\u207b\u00b9 : FractionalIdeal S A)) (h : Submodule.comap (Algebra.linearMap R A) ((I : Submodule R A) * Submodule.span R {v}) = \u22a4) : Submodule.IsPrincipal (I : Submodule R A)",
+    "have_tree": [
+      {
+        "name": "hinv",
+        "type": "",
+        "body": "I.mul_inv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PID",
+    "name": "FractionalIdeal.isPrincipal.of_finite_maximals_of_inv",
+    "statement": "Type*} [CommRing A] [Algebra R A] {S : Submonoid R} [IsLocalization S A] (hS : S \u2264 R\u2070) (hf : {I : Ideal R | I.IsMaximal}.Finite) (I I' : FractionalIdeal S A) (hinv : I * I' = 1) : Submodule.IsPrincipal (I : Submodule R A)",
+    "have_tree": [
+      {
+        "name": "hinv'",
+        "type": "",
+        "body": "hinv",
+        "children": []
+      },
+      {
+        "name": "nle",
+        "type": "\u2200 M \u2208 s, \u00ac\u2a05 M' \u2208 s.erase M, M' \u2264 M",
+        "body": "fun M hM =>",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 M \u2208 s, \u2203 a \u2208 I, \u2203 b \u2208 I', a * b \u2209 IsLocalization.coeSubmodule A M",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hv",
+        "type": "v \u2208 I'",
+        "body": "Submodule.sum_mem _ fun M hM => Submodule.smul_mem _ _ <| hb M hM",
+        "children": []
+      },
+      {
+        "name": "hmem",
+        "type": "a M * v \u2208 IsLocalization.coeSubmodule A M",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Submodule.mul_mem_mul (ha M hM) (Submodule.mem_span_singleton_self v)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PID",
+    "name": "IsLocalization.OverPrime.mem_normalizedFactors_of_isPrime",
+    "statement": "Ideal S\u209a} (hP : IsPrime P) (hP0 : P \u2260 \u22a5) : P \u2208 normalizedFactors (Ideal.map (algebraMap R S\u209a) p)",
+    "have_tree": [
+      {
+        "name": "non_zero_div",
+        "type": "Algebra.algebraMapSubmonoid S p.primeCompl \u2264 S\u2070",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsLocalRing.maximalIdeal (Localization.AtPrime p) \u2260 \u22a5",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PID",
+    "name": "IsPrincipalIdealRing.of_isDedekindDomain_of_uniqueFactorizationMonoid",
+    "statement": "Type*) [CommRing R] [IsDedekindDomain R] [UniqueFactorizationMonoid R] : IsPrincipalIdealRing R",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Ideal.span_singleton_prime hx\u2082.ne_zero).mpr hx\u2082",
+        "children": []
+      }
+    ]
+  }
+]

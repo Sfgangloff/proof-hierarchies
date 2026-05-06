@@ -1,0 +1,251 @@
+[
+  {
+    "module": "Basic",
+    "name": "AnalyticSet.iInter",
+    "statement": "Nonempty \u03b9] [Countable \u03b9] [T2Space \u03b1] {s : \u03b9 \u2192 Set \u03b1} (hs : \u2200 n, AnalyticSet (s n)) : AnalyticSet (\u22c2 n, s n)",
+    "have_tree": [
+      {
+        "name": "t_closed",
+        "type": "IsClosed t",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "F_cont",
+        "type": "Continuous F",
+        "body": "(f_cont i\u2080).comp ((continuous_apply i\u2080).comp continuous_subtype_val)",
+        "children": [
+          {
+            "name": "xt",
+            "type": "x \u2208 t",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "AnalyticSet.iUnion",
+    "statement": "\u03b9 \u2192 Set \u03b1} (hs : \u2200 n, AnalyticSet (s n)) : AnalyticSet (\u22c3 n, s n)",
+    "have_tree": [
+      {
+        "name": "F_cont",
+        "type": "Continuous F",
+        "body": "continuous_sigma f_cont",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.MeasurableSet.analyticSet",
+    "statement": "Type*} [t : TopologicalSpace \u03b1] [PolishSpace \u03b1] [MeasurableSpace \u03b1] [BorelSpace \u03b1] {s : Set \u03b1} (hs : MeasurableSet s) : AnalyticSet s",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "",
+        "body": "@IsClosed.analyticSet \u03b1 t' t'_polish s s_closed",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.Measurable.exists_continuous",
+    "statement": "Type*} [t : TopologicalSpace \u03b1] [PolishSpace \u03b1] [MeasurableSpace \u03b1] [BorelSpace \u03b1] [t\u03b2 : TopologicalSpace \u03b2] [MeasurableSpace \u03b2] [OpensMeasurableSpace \u03b2] {f : \u03b1 \u2192 \u03b2} [SecondCountableTopology (range f)] (hf : Measurable f) : \u2203 t' : TopologicalSpace \u03b1, t' \u2264 t \u2227 @Continuous \u03b1 \u03b2 t' t\u03b2 f \u2227 @PolishSpace \u03b1 t'",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Continuous[t', _] (rangeFactorization f)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.MeasurableSet.analyticSet_image",
+    "statement": "Type*} [MeasurableSpace X] [StandardBorelSpace X] [TopologicalSpace Y] [MeasurableSpace Y] [OpensMeasurableSpace Y] {f : X \u2192 Y} [SecondCountableTopology (range f)] {s : Set X} (hs : MeasurableSet s) (hf : Measurable f) : AnalyticSet (f '' s)",
+    "have_tree": [
+      {
+        "name": "hle",
+        "type": "",
+        "body": "borel_anti hle",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "measurablySeparable_range_of_disjoint",
+    "statement": "(\u2115 \u2192 \u2115) \u2192 \u03b1} (hf : Continuous f) (hg : Continuous g) (h : Disjoint (range f) (range g)) : MeasurablySeparable (range f) (range g)",
+    "have_tree": [
+      {
+        "name": "M",
+        "type": "\u2200 n, \u00acMeasurablySeparable (f '' cylinder x n) (g '' cylinder y n)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "MeasurablySeparable (f '' cylinder x n) (g '' cylinder y n)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "map_measurableSpace_eq_borel",
+    "statement": "X \u2192 Y} (hf : Measurable f) (hsurj : Surjective f) : MeasurableSpace.map f \u2039MeasurableSpace X\u203a = borel Y",
+    "have_tree": [
+      {
+        "name": "d",
+        "type": "",
+        "body": "hf.mono le_rfl OpensMeasurableSpace.borel_le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "measurableSet_preimage_iff_preimage_val",
+    "statement": "X \u2192 Z} [CountablySeparated (range f)] (hf : Measurable f) {s : Set Z} : MeasurableSet (f \u207b\u00b9' s) \u2194 MeasurableSet ((\u2191) \u207b\u00b9' s : Set (range f))",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "Measurable (rangeFactorization f)",
+        "body": "hf.subtype_mk",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "MeasureTheory.measurableSet_range_of_continuous_injective",
+    "statement": "Type*} [TopologicalSpace \u03b3] [PolishSpace \u03b3] [TopologicalSpace \u03b2] [T2Space \u03b2] [MeasurableSpace \u03b2] [OpensMeasurableSpace \u03b2] {f : \u03b3 \u2192 \u03b2} (f_cont : Continuous f) (f_inj : Injective f) : MeasurableSet (range f)",
+    "have_tree": [
+      {
+        "name": "F_meas",
+        "type": "\u2200 n, MeasurableSet (F n)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "diam_s",
+        "type": "diam s \u2264 u n",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "C2",
+        "type": "\u2200 n, (s n).1.Nonempty",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "I",
+        "type": "\u2200 m n, ((s m).1 \u2229 (s n).1).Nonempty",
+        "body": "by",
+        "children": [
+          {
+            "name": "A",
+            "type": "x \u2208 q \u27e8(s m, s n), h\u27e9 \\ q \u27e8(s n, s m), h.symm\u27e9",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "B",
+            "type": "x \u2208 q \u27e8(s n, s m), h.symm\u27e9 \\ q \u27e8(s m, s n), h\u27e9",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "cauchy_y",
+        "type": "CauchySeq y",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "y_lim",
+        "type": "Tendsto y atTop (\ud835\udcdd z)",
+        "body": "cauchy_y.tendsto_limUnder",
+        "children": []
+      },
+      {
+        "name": "fsnv",
+        "type": "f '' s n \u2286 v",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "x \u2208 closure v",
+        "body": "closure_mono fsnv (hxs n).1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "MeasurableSet.image_of_measurable_injOn",
+    "statement": "\u03b3 \u2192 \u03b1} [MeasurableSpace.CountablySeparated \u03b1] [MeasurableSpace \u03b3] [StandardBorelSpace \u03b3] (hs : MeasurableSet s) (f_meas : Measurable f) (f_inj : InjOn f s) : MeasurableSet (f '' s)",
+    "have_tree": [
+      {
+        "name": "M",
+        "type": "MeasurableSet[@borel \u03b3 t'] s",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "MeasureTheory.borel_eq_borel_of_le",
+    "statement": "TopologicalSpace \u03b3} (ht : PolishSpace (h",
+    "have_tree": [
+      {
+        "name": "e",
+        "type": "",
+        "body": "@Continuous.measurableEmbedding",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "MeasurableSet.image_of_monotoneOn_of_continuousOn",
+    "statement": "MeasurableSet t) (hg : MonotoneOn g t) (h'g : ContinuousOn g t) : MeasurableSet (g '' t)",
+    "have_tree": [
+      {
+        "name": "hu",
+        "type": "Set.Countable u",
+        "body": "MonotoneOn.countable_setOf_two_preimages hg",
+        "children": []
+      },
+      {
+        "name": "ht'",
+        "type": "MeasurableSet t'",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "MeasurableSet.image_of_monotoneOn",
+    "statement": "MeasurableSet t) (hg : MonotoneOn g t) : MeasurableSet (g '' t)",
+    "have_tree": [
+      {
+        "name": "ht'",
+        "type": "Set.Countable t'",
+        "body": "hg.countable_not_continuousWithinAt",
+        "children": []
+      }
+    ]
+  }
+]

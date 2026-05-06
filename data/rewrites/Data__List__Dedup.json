@@ -1,0 +1,99 @@
+[
+  {
+    "original": {
+      "module": "Dedup",
+      "name": "dedup_eq_cons",
+      "statement": "List \u03b1) (a : \u03b1) (l' : List \u03b1) : l.dedup = a :: l' \u2194 a \u2208 l \u2227 a \u2209 l' \u2227 l.dedup.tail = l'",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "count_pos_iff.2 ha",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "count a l.dedup \u2264 1",
+          "body": "nodup_iff_count_le_one.1 (nodup_dedup l) a",
+          "children": []
+        },
+        {
+          "name": "hal",
+          "type": "a \u2208 l.dedup",
+          "body": "mem_dedup.2 h.1",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Dedup",
+          "name": "dedup_eq_cons",
+          "statement": "List \u03b1) (a : \u03b1) (l' : List \u03b1) : l.dedup = a :: l' \u2194 a \u2208 l \u2227 a \u2209 l' \u2227 l.dedup.tail = l'",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "count a l.dedup \u2264 1",
+              "body": "nodup_iff_count_le_one.1 (nodup_dedup l) a",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "count_pos_iff.2 ha",
+              "children": []
+            },
+            {
+              "name": "hal",
+              "type": "a \u2208 l.dedup",
+              "body": "mem_dedup.2 h.1",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Dedup",
+          "name": "dedup_eq_cons",
+          "statement": "List \u03b1) (a : \u03b1) (l' : List \u03b1) : l.dedup = a :: l' \u2194 a \u2208 l \u2227 a \u2209 l' \u2227 l.dedup.tail = l'",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "count_pos_iff.2 ha",
+              "children": []
+            },
+            {
+              "name": "hal",
+              "type": "a \u2208 l.dedup",
+              "body": "mem_dedup.2 h.1",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "count a l.dedup \u2264 1",
+              "body": "nodup_iff_count_le_one.1 (nodup_dedup l) a",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

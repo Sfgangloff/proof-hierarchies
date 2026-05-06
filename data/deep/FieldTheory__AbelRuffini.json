@@ -1,0 +1,52 @@
+[
+  {
+    "module": "AbelRuffini",
+    "name": "gal_X_pow_sub_C_isSolvable_aux",
+    "statement": "\u2115) (a : F) (h : ((X ^ n - 1 : F[X]).map (RingHom.id F)).Splits) : IsSolvable (X ^ n - C a).Gal",
+    "have_tree": [
+      {
+        "name": "ha'",
+        "type": "algebraMap F (X ^ n - C a).SplittingField a \u2260 0",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hn'",
+        "type": "0 < n",
+        "body": "pos_iff_ne_zero.mpr hn",
+        "children": []
+      },
+      {
+        "name": "hn''",
+        "type": "X ^ n - C a \u2260 0",
+        "body": "X_pow_sub_C_ne_zero hn' a",
+        "children": []
+      },
+      {
+        "name": "hn'''",
+        "type": "(X ^ n - 1 : F[X]) \u2260 0",
+        "body": "X_pow_sub_C_ne_zero hn' 1",
+        "children": []
+      },
+      {
+        "name": "hb'",
+        "type": "b \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "\u2200 \u03c3 : (X ^ n - C a).Gal, \u2203 c, \u03c3 b = b * algebraMap F _ c",
+        "body": "by",
+        "children": [
+          {
+            "name": "key",
+            "type": "(\u03c3 b / b) ^ n = 1",
+            "body": "by rw [div_pow, \u2190 map_pow, hb, \u03c3.commutes, div_self ha']",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

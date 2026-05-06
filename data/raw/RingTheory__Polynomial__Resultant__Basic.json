@@ -1,0 +1,278 @@
+[
+  {
+    "module": "Basic",
+    "name": "resultant_zero_zero",
+    "statement": "resultant (0 : R[X]) 0 m n = 0 ^ (m + n)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fin.mk (n",
+        "body": "m + n) (\u2191j\u2082 + (k + m)) (by lia) = .natAdd m \u27e8j\u2082 + k, by lia\u27e9 :=",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fin.mk (n",
+        "body": "m + n) (m + \u2191i + (k + m)) (by lia) =",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "resultant_add_mul_right",
+    "statement": "p.natDegree + m \u2264 n) (hf : f.natDegree \u2264 m) : resultant f (g + f * p) m n = resultant f g m n",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "p.support \u2286 Finset.range (n - m + 1)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "resultant_eq_prod_roots_sub",
+    "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+    "have_tree": [
+      {
+        "name": "hr'",
+        "type": "r \u2260 0",
+        "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+        "children": []
+      },
+      {
+        "name": "hr\u2080",
+        "type": "f %\u2098 g \u2260 0",
+        "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+        "children": []
+      },
+      {
+        "name": "hrd",
+        "type": "r.natDegree < g.natDegree",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hr",
+        "type": "r.Monic",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "IH _ (by simp; lia)",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+            "children": []
+          },
+          {
+            "name": "H",
+            "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "resultant_dvd_leadingCoeff_pow",
+    "statement": "R[X]) (H : IsCoprime f g) : \u2203 n, resultant f g \u2223 f.leadingCoeff ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "resultant_mul_right f b g _ le_rfl",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "natDegree_add_eq_left_of_natDegree_lt H",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "resultant_prod_left",
+    "statement": "Type*} (s : Finset \u03b9) (f : \u03b9 \u2192 R[X]) (g : R[X]) (n : \u2115) (hf : \u220f i \u2208 s, (f i).leadingCoeff \u2260 0) (hn : g.natDegree \u2264 n) : (\u220f i \u2208 s, f i).resultant g (\u220f i \u2208 s, f i).natDegree n = \u220f i \u2208 s, (f i).resultant g (f i).natDegree n",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "\u220f i \u2208 s, (f i).leadingCoeff \u2260 0",
+        "body": "by aesop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "resultant_X_pow_right",
+    "statement": "R[X]) (m n : \u2115) (hm : f.natDegree \u2264 m) : f.resultant (X ^ n) m n = (-1) ^ (m * n) * f.coeff 0 ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IH (g.map \u03c6) (\u03c6 r) (by simpa using (map_injective _ h\u03c6).ne hf)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "resultant_integralNormalization",
+    "statement": "R[X]) (hg : g.natDegree \u2260 0) : resultant (f.scaleRoots g.leadingCoeff) g.integralNormalization = g.leadingCoeff ^ (f.natDegree * (g.natDegree - 1)) * resultant f g",
+    "have_tree": [
+      {
+        "name": "h\u03c6",
+        "type": "Function.Surjective \u03c6",
+        "body": "fun x \u21a6 \u27e8.X x, by simp [\u03c6, MvPolynomial.eval\u2082Hom]\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "resultant_scaleRoots f g g.leadingCoeff",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "IH (g.map \u03c6) (\u03c6 r)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "sylveserMap_comp_adjSylvester",
+    "statement": "R[X]) (hf : f.natDegree \u2264 m) (hg : g.natDegree \u2264 n) : sylvesterMap f g hf hg \u2218\u2097 adjSylvester f g = f.resultant g m n \u2022 LinearMap.id",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr(Matrix.toLin b\u2082 b\u2082 $(((sylvesterMap f g hf hg).toMatrix b\u2081 b\u2082).mul_adjugate))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "adjSylvester_comp_sylveserMap",
+    "statement": "R[X]) (hf : f.natDegree \u2264 m) (hg : g.natDegree \u2264 n) : adjSylvester f g \u2218\u2097 sylvesterMap f g hf hg = f.resultant g m n \u2022 LinearMap.id",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr(Matrix.toLin b\u2081 b\u2081 $(((sylvesterMap f g hf hg).toMatrix b\u2081 b\u2082).adjugate_mul))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isUnit_resultant_iff_isCoprime",
+    "statement": "R[X]} (hf : f.Monic) : IsUnit (resultant f g) \u2194 IsCoprime f g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "resultant_mul_right f b g _ le_rfl",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "natDegree_add_eq_left_of_natDegree_lt H",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "resultant_eq_zero_iff",
+    "statement": "Type*} [Field K] {f g : K[X]} : resultant f g = 0 \u2194 (f \u2260 0 \u2228 g \u2260 0) \u2227 \u00ac IsCoprime f g",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isUnit_resultant_iff_isCoprime (f := C f.leadingCoeff\u207b\u00b9 * f) (g := g) H",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "discr_of_degree_eq_one",
+    "statement": "R[X]} (hf : f.degree = 1) : discr f = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero (f.natDegree - 1 + f.natDegree)",
+        "body": "\u27e8by lia\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "sylvesterDeriv_of_natDegree_eq_three",
+    "statement": "R[X]} (hf : f.natDegree = 3) : f.sylvesterDeriv.reindex (finCongr <| by rw [hf]) (finCongr <| by rw [hf]) = !![ f.coeff 0,         0, 1 * f.coeff 1,             0,             0; f.coeff 1, f.coeff 0, 2 * f.coeff 2, 1 * f.coeff 1,             0; f.coeff 2, f.coeff 1, 3 * f.coeff 3, 2 * f.coeff 2, 1 * f.coeff 1; f.coeff 3, f.coeff 2,             0, 3 * f.coeff 3, 2 * f.coeff 2; 0,         1,             0,             0,             3]",
+    "have_tree": [
+      {
+        "name": "hi'",
+        "type": "i \u2208 Finset.range 5",
+        "body": "Finset.mem_range.mpr hi",
+        "children": []
+      },
+      {
+        "name": "hj'",
+        "type": "j \u2208 Finset.range 5",
+        "body": "Finset.mem_range.mpr hj",
+        "children": []
+      }
+    ]
+  }
+]

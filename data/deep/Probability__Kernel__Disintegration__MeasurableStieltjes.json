@@ -1,0 +1,54 @@
+[
+  {
+    "module": "MeasurableStieltjes",
+    "name": "IsMeasurableRatCDF.tendsto_stieltjesFunction_atBot",
+    "statement": "\u03b1) : Tendsto (hf.stieltjesFunction a) atBot (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "h_exists",
+        "type": "\u2200 x : \u211d, \u2203 q : \u211a, x < q \u2227 \u2191q < x + 1",
+        "body": "fun x \u21a6 exists_rat_btwn (lt_add_one x)",
+        "children": []
+      },
+      {
+        "name": "hqs_tendsto",
+        "type": "Tendsto qs atBot atBot",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_le",
+            "type": "\u2191(qs y) \u2264 (q : \u211d) - 1 + 1",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "MeasurableStieltjes",
+    "name": "IsMeasurableRatCDF.tendsto_stieltjesFunction_atTop",
+    "statement": "\u03b1) : Tendsto (hf.stieltjesFunction a) atTop (\ud835\udcdd 1)",
+    "have_tree": [
+      {
+        "name": "h_exists",
+        "type": "\u2200 x : \u211d, \u2203 q : \u211a, x - 1 < q \u2227 \u2191q < x",
+        "body": "fun x \u21a6 exists_rat_btwn (sub_one_lt x)",
+        "children": []
+      },
+      {
+        "name": "hqs_tendsto",
+        "type": "Tendsto qs atTop atTop",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_le",
+            "type": "y - 1 \u2264 qs y",
+            "body": "(h_exists y).choose_spec.1.le",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

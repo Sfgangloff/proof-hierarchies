@@ -1,0 +1,166 @@
+[
+  {
+    "module": "Basic",
+    "name": "isPreconnected_of_forall",
+    "statement": "Set \u03b1} (x : \u03b1) (H : \u2200 y \u2208 s, \u2203 t, t \u2286 s \u2227 x \u2208 t \u2227 y \u2208 t \u2227 IsPreconnected t) : IsPreconnected s",
+    "have_tree": [
+      {
+        "name": "xs",
+        "type": "x \u2208 s",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "ht u v hu hv (ts.trans hs) \u27e8x, xt, xu\u27e9 \u27e8y, yt, yv\u27e9",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "ht v u hv hu (ts.trans <| by rwa [union_comm]) \u27e8x, xt, xv\u27e9 \u27e8z, zt, zu\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsPreconnected.sUnion_directed",
+    "statement": "Set (Set \u03b1)} (K : DirectedOn (\u00b7 \u2286 \u00b7) S) (H : \u2200 s \u2208 S, IsPreconnected s) : IsPreconnected (\u22c3\u2080 S)",
+    "have_tree": [
+      {
+        "name": "Hnuv",
+        "type": "(r \u2229 (u \u2229 v)).Nonempty",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "Kruv",
+        "type": "r \u2229 (u \u2229 v) \u2286 \u22c3\u2080 S \u2229 (u \u2229 v)",
+        "body": "inter_subset_inter_left _ (subset_sUnion_of_mem hrS)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isPreconnected_closed_iff",
+    "statement": "Set \u03b1} : IsPreconnected s \u2194 \u2200 t t', IsClosed t \u2192 IsClosed t' \u2192 s \u2286 t \u222a t' \u2192 (s \u2229 t).Nonempty \u2192 (s \u2229 t').Nonempty \u2192 (s \u2229 (t \u2229 t')).Nonempty",
+    "have_tree": [
+      {
+        "name": "xt'",
+        "type": "x \u2209 t'",
+        "body": "(h' xs).resolve_left (absurd xt)",
+        "children": []
+      },
+      {
+        "name": "yt",
+        "type": "y \u2209 t",
+        "body": "(h' ys).resolve_right (absurd yt')",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h _ _ ht.isOpen_compl ht'.isOpen_compl h' \u27e8y, ys, yt\u27e9 \u27e8x, xs, xt'\u27e9",
+        "children": []
+      },
+      {
+        "name": "xv",
+        "type": "x \u2209 v",
+        "body": "(h' xs).elim (absurd xu) id",
+        "children": []
+      },
+      {
+        "name": "yu",
+        "type": "y \u2209 u",
+        "body": "(h' ys).elim id (absurd yv)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h _ _ hu.isClosed_compl hv.isClosed_compl h' \u27e8y, ys, yu\u27e9 \u27e8x, xs, xv\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsPreconnected.subset_of_closure_inter_subset",
+    "statement": "IsPreconnected s) (hu : IsOpen u) (h'u : (s \u2229 u).Nonempty) (h : closure u \u2229 s \u2286 u) : s \u2286 u",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "s \u2286 u \u222a (closure u)\u1d9c",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isPreconnected_univ_pi",
+    "statement": "\u2200 i, Set (X i)} (hs : \u2200 i, IsPreconnected (s i)) : IsPreconnected (pi univ s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "I.piecewise_mem_set_pi hfs hgs",
+        "children": []
+      },
+      {
+        "name": "hsub",
+        "type": "S \u2286 pi univ s",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hconn",
+        "type": "IsPreconnected S",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hSu",
+        "type": "(S \u2229 u).Nonempty",
+        "body": "\u27e8_, mem_image_of_mem _ (hfs _ trivial), hI\u27e9",
+        "children": []
+      },
+      {
+        "name": "hSv",
+        "type": "(S \u2229 v).Nonempty",
+        "body": "\u27e8_, \u27e8_, this _ trivial, update_eq_self _ _\u27e9, h\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsPreconnected.subset_connectedComponent",
+    "statement": "\u03b1} {s : Set \u03b1} (H1 : IsPreconnected s) (H2 : x \u2208 s) : s \u2286 connectedComponent x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "this.subset_connectedComponent h2xs",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "connectedComponentIn_eq",
+    "statement": "\u03b1} {F : Set \u03b1} (h : y \u2208 connectedComponentIn F x) : connectedComponentIn F x = connectedComponentIn F y",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "x \u2208 F",
+        "body": "connectedComponentIn_nonempty_iff.mp \u27e8y, h\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

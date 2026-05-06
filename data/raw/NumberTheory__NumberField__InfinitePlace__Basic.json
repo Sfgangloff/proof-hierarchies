@@ -1,0 +1,106 @@
+[
+  {
+    "module": "Basic",
+    "name": "pos_iff",
+    "statement": "InfinitePlace K} {x : K} : 0 < w x \u2194 x \u2260 0",
+    "have_tree": [
+      {
+        "name": "hlip",
+        "type": "LipschitzWith 1 (RingHom.comp \u03c8 \u03b9.symm.toRingHom)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "embedding_mk_eq_of_isReal",
+    "statement": "K \u2192+* \u2102} (h : ComplexEmbedding.IsReal \u03c6) : embedding (mk \u03c6) = \u03c6",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "embedding_mk_eq \u03c6",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.NumberField.is_primitive_element_of_infinitePlace_lt",
+    "statement": "\ud835\udcde K} {w : InfinitePlace K} (h\u2081 : x \u2260 0) (h\u2082 : \u2200 \u2983w'\u2984, w' \u2260 w \u2192 w' x < 1) (h\u2083 : IsReal w \u2228 |(w.embedding x).re| < 1) : \u211a\u27ee(x : K)\u27ef = \u22a4",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "1 \u2264 w x",
+        "body": "one_le_of_lt_one h\u2081 h\u2082",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "RingHom.congr_fun h' x",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "nrComplexPlaces_eq_zero_of_finrank_eq_one",
+    "statement": "finrank \u211a K = 1) : nrComplexPlaces K = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "card_add_two_mul_card_eq_rank K",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "nrRealPlaces_eq_zero_of_two_lt",
+    "statement": "2 < k) (h\u03b6 : IsPrimitiveRoot \u03b6 k) : NumberField.InfinitePlace.nrRealPlaces K = 0",
+    "have_tree": [
+      {
+        "name": "h\u03b6'",
+        "type": "IsPrimitiveRoot (f \u03b6) k",
+        "body": "h\u03b6.map_of_injective f.injective",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Complex.norm_eq_one_of_pow_eq_one h\u03b6'.pow_eq_one (by lia)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "denseRange_algebraMap_pi",
+    "statement": "DenseRange <| algebraMap K ((v : InfinitePlace K) \u2192 WithAbs v.1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "u (a u)\u207b\u00b9 < 1",
+        "body": "by simpa [\u2190 inv_pow, inv_lt_one_iff\u2080] using .inr (hx u).1",
+        "children": []
+      },
+      {
+        "name": "hu",
+        "type": "1 < u (a w)\u207b\u00b9",
+        "body": "by simpa [one_lt_inv_iff\u2080] using",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "u.1.tendsto_div_one_add_pow_nhds_zero hu",
+        "children": []
+      }
+    ]
+  }
+]

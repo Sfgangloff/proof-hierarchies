@@ -1,0 +1,251 @@
+[
+  {
+    "module": "Triangle",
+    "name": "sin_angle_mul_norm_eq_sin_angle_mul_norm",
+    "statement": "V) : Real.sin (angle x y) * \u2016x\u2016 = Real.sin (angle y (x - y)) * \u2016x - y\u2016",
+    "have_tree": [
+      {
+        "name": "hsub",
+        "type": "x - y \u2260 0",
+        "body": "sub_ne_zero_of_ne hxy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Triangle",
+    "name": "cos_angle_eq_cos_angle_add_add_angle_add",
+    "statement": "V} (hx : x \u2260 0) (hy : y \u2260 0) : Real.cos (angle x y) = Real.cos (angle x (x + y) + angle y (y + x))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x + y \u2260 0",
+        "body": "by grind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Triangle",
+    "name": "sin_angle_eq_sin_angle_add_add_angle_add",
+    "statement": "V} (hx : x \u2260 0) (hy : y \u2260 0) : Real.sin (angle x y) = Real.sin (angle x (x + y) + angle y (y + x))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x + y \u2260 0",
+        "body": "by grind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Triangle",
+    "name": "angle_eq_angle_add_add_angle_add",
+    "statement": "V) {y : V} (hy : y \u2260 0) : angle x y = angle x (x + y) + angle y (x + y)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "Real.Angle.cos_sin_inj",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "-1 < n",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "n < 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "h'",
+            "type": "",
+            "body": "h.trans_eq (add_comm _ _)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Triangle",
+    "name": "angle_add_angle_sub_add_angle_sub_eq_pi",
+    "statement": "V) {y : V} (hy : y \u2260 0) : angle x y + angle x (x - y) + angle y (y - x) = \u03c0",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "angle_eq_angle_add_add_angle_add (x - y) hy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Triangle",
+    "name": "dist_eq_dist_mul_sin_angle_div_sin_angle",
+    "statement": "P} (h : \u00acCollinear \u211d ({p\u2081, p\u2082, p\u2083} : Set P)) : dist p\u2081 p\u2082 = dist p\u2083 p\u2081 * Real.sin (\u2220 p\u2082 p\u2083 p\u2081) / Real.sin (\u2220 p\u2081 p\u2082 p\u2083)",
+    "have_tree": [
+      {
+        "name": "sin_gt_zero",
+        "type": "0 < Real.sin (\u2220 p\u2081 p\u2082 p\u2083)",
+        "body": "sin_pos_of_not_collinear h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Triangle",
+    "name": "angle_add_of_ne_of_ne",
+    "statement": "P} (hb : a \u2260 b) (hc : a \u2260 c) (hp : Wbtw \u211d b p c) : \u2220 b a p + \u2220 p a c = \u2220 b a c",
+    "have_tree": [
+      {
+        "name": "ea",
+        "type": "",
+        "body": "angle_add_angle_add_angle_eq_pi c hb",
+        "children": []
+      },
+      {
+        "name": "eb",
+        "type": "",
+        "body": "angle_add_angle_add_angle_eq_pi p hb",
+        "children": []
+      },
+      {
+        "name": "ec",
+        "type": "",
+        "body": "angle_add_angle_add_angle_eq_pi p hc.symm",
+        "children": []
+      },
+      {
+        "name": "ep",
+        "type": "",
+        "body": "angle_add_angle_eq_pi_of_angle_eq_pi a hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Triangle",
+    "name": "dist_sq_add_dist_sq_eq_two_mul_dist_midpoint_sq_add_half_dist_sq",
+    "statement": "P) : dist a b ^ 2 + dist a c ^ 2 = 2 * (dist a (midpoint \u211d b c) ^ 2 + (dist b c / 2) ^ 2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "dist b c \u2260 0",
+        "body": "(dist_pos.mpr hbc).ne'",
+        "children": []
+      },
+      {
+        "name": "hm",
+        "type": "",
+        "body": "dist_sq_mul_dist_add_dist_sq_mul_dist a b c m (angle_midpoint_eq_pi b c hbc)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Triangle",
+    "name": "dist_mul_of_eq_angle_of_dist_mul",
+    "statement": "P) (r : \u211d) (h : \u2220 a' b' c' = \u2220 a b c) (hab : dist a' b' = r * dist a b) (hcb : dist c' b' = r * dist c b) : dist a' c' = r * dist a c",
+    "have_tree": [
+      {
+        "name": "h2",
+        "type": "0 \u2264 r",
+        "body": "nonneg_of_mul_nonneg_left h1 (dist_pos.mpr hab\u2081)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Triangle",
+    "name": "dist_lt_of_angle_lt",
+    "statement": "P} (h : \u00acCollinear \u211d ({a, b, c} : Set P)) : \u2220 a c b < \u2220 a b c \u2192 dist a b < dist a c",
+    "have_tree": [
+      {
+        "name": "hsin",
+        "type": "",
+        "body": "law_sin c b a",
+        "children": []
+      },
+      {
+        "name": "hac",
+        "type": "dist a c > 0",
+        "body": "dist_pos.mpr (ne\u2081\u2083_of_not_collinear h)",
+        "children": []
+      },
+      {
+        "name": "hsinabc",
+        "type": "Real.sin (\u2220 a b c) \u2265 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h4",
+            "type": "Real.sin (\u2220 a c b) * dist a c < Real.sin (\u2220 a b c) * dist a b",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h3",
+            "type": "Real.sin (\u2220 a b c) \u2264 Real.sin (\u2220 a c b)",
+            "body": "by",
+            "children": [
+              {
+                "name": "h4",
+                "type": "Real.sin (\u2220 a c b) * dist a c < Real.sin (\u2220 a b c) * dist a b",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "h5",
+            "type": "\u03c0 - \u2220 a b c < \u03c0 / 2",
+            "body": "by linarith",
+            "children": []
+          },
+          {
+            "name": "h6",
+            "type": "\u03c0 - \u2220 a b c \u2264 \u2220 a c b",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "",
+                "body": "Real.sin_lt_sin_of_lt_of_le_pi_div_two (by linarith [angle_nonneg a c b]) h5.le w1",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "h7",
+            "type": "",
+            "body": "angle_add_angle_add_angle_eq_pi c (ne\u2081\u2082_of_not_collinear h).symm",
+            "children": []
+          },
+          {
+            "name": "h8",
+            "type": "\u2220 c a b > 0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Triangle",
+    "name": "angle_lt_iff_dist_lt",
+    "statement": "P} (h : \u00acCollinear \u211d ({a, b, c} : Set P)) : \u2220 a c b < \u2220 a b c \u2194 dist a b < dist a c",
+    "have_tree": [
+      {
+        "name": "h5",
+        "type": "",
+        "body": "dist_lt_of_angle_lt h h3",
+        "children": []
+      }
+    ]
+  }
+]

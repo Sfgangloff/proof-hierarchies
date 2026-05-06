@@ -1,0 +1,122 @@
+[
+  {
+    "module": "LiminfLimsup",
+    "name": "limsInf_eq_of_le_nhds",
+    "statement": "Filter \u03b1} {a : \u03b1} [NeBot f] (h : f \u2264 \ud835\udcdd a) : f.limsInf = a",
+    "have_tree": [
+      {
+        "name": "hb_ge",
+        "type": "IsBounded (\u00b7 \u2265 \u00b7) f",
+        "body": "(isBounded_ge_nhds a).mono h",
+        "children": []
+      },
+      {
+        "name": "hb_le",
+        "type": "IsBounded (\u00b7 \u2264 \u00b7) f",
+        "body": "(isBounded_le_nhds a).mono h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LiminfLimsup",
+    "name": "tendsto_of_no_upcrossings",
+    "statement": "Filter \u03b2} {u : \u03b2 \u2192 \u03b1} {s : Set \u03b1} (hs : Dense s) (H : \u2200 a \u2208 s, \u2200 b \u2208 s, a < b \u2192 \u00ac((\u2203\u1da0 n in f, u n < a) \u2227 \u2203\u1da0 n in f, b < u n)) (h : f.IsBoundedUnder (\u00b7 \u2264 \u00b7) u",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2203\u1da0 n in f, u n < a",
+        "body": "frequently_lt_of_liminf_lt (IsBounded.isCobounded_ge h) la",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "\u2203\u1da0 n in f, b < u n",
+        "body": "frequently_lt_of_lt_limsup (IsBounded.isCobounded_le h') bu",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LiminfLimsup",
+    "name": "tendsto_iSup_of_tendsto_limsup",
+    "statement": "Type*} [ConditionallyCompleteLattice \u03b1] [CompleteLinearOrder \u03b2] [TopologicalSpace \u03b2] [OrderTopology \u03b2] {u : \u03b9 \u2192 \u03b1 \u2192 \u03b2} {c : \u03b2} (h_all : \u2200 i, Tendsto (u i) atTop (\ud835\udcdd c)) (h_limsup : Tendsto (fun r : \u03b1 \u21a6 limsup (fun i \u21a6 u i r) cofinite) atTop (\ud835\udcdd c)) (h_anti : \u2200 i, Antitone (u i)) : Tendsto (fun r : \u03b1 \u21a6 \u2a06 i, u i r) atTop (\ud835\udcdd c)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "c \u2264 u n0 r",
+        "body": "(h_anti n0).le_of_tendsto (h_all n0) r",
+        "children": []
+      },
+      {
+        "name": "hb'b",
+        "type": "b' < b",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200\u1da0 r in atTop, limsup (u \u00b7 r) cofinite \u2264 b'",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_lt",
+            "type": "",
+            "body": "eventually_lt_of_limsup_lt ((hr r le_rfl).trans_lt hb'b)",
+            "children": []
+          },
+          {
+            "name": "h_lt",
+            "type": "",
+            "body": "eventually_lt_of_limsup_lt ((hr r le_rfl).trans_lt hb'b'')",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Finite {n | b'' < u n r}",
+            "body": "by simpa using hb''",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LiminfLimsup",
+    "name": "Antitone.map_limsSup_of_continuousAt",
+    "statement": "Filter R} [NeBot F] {f : R \u2192 S} (f_decr : Antitone f) (f_cont : ContinuousAt f F.limsSup) (bdd_above : F.IsBounded (\u00b7 \u2264 \u00b7)",
+    "have_tree": [
+      {
+        "name": "B",
+        "type": "\u2203\u1da0 n in F, F.limsSup \u2264 n",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(Set.Ioo c F.limsSup).Nonempty",
+            "body": "\u27e8x, \u27e8hx, this\u27e9\u27e9",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "not_bot",
+        "type": "\u00ac IsBot F.limsSup",
+        "body": "fun maybe_bot \u21a6",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "F.liminf f \u2264 f m",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "I",
+        "type": "f m < F.liminf f",
+        "body": "h'l \u27e8l_m, m_lt.le\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

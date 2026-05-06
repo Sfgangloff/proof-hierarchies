@@ -1,0 +1,73 @@
+[
+  {
+    "module": "LevyConvergence",
+    "name": "isTightMeasureSet_of_tendsto_charFun",
+    "statement": "\u2115 \u2192 Measure E} [\u2200 i, IsProbabilityMeasure (\u03bc i)] {f : E \u2192 \u2102} (hf : ContinuousAt f 0) (h : \u2200 t, Tendsto (fun n \u21a6 charFun (\u03bc n) t) atTop (\ud835\udcdd (f t))) : IsTightMeasureSet (Set.range \u03bc)",
+    "have_tree": [
+      {
+        "name": "hr'",
+        "type": "-(2 * r\u207b\u00b9) \u2264 2 * r\u207b\u00b9",
+        "body": "by rw [neg_le_self_iff]; positivity",
+        "children": [
+          {
+            "name": "hr'",
+            "type": "-(2 * r\u207b\u00b9) \u2264 2 * r\u207b\u00b9",
+            "body": "by rw [neg_le_self_iff]; positivity",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hf_tendsto",
+        "type": "",
+        "body": "hf.tendsto",
+        "children": []
+      },
+      {
+        "name": "hr",
+        "type": "0 < r",
+        "body": "lt_of_lt_of_le (by positivity) hr\u03b4",
+        "children": []
+      },
+      {
+        "name": "hr'",
+        "type": "-(2 * r\u207b\u00b9) \u2264 2 * r\u207b\u00b9",
+        "body": "by rw [neg_le_self_iff]; positivity",
+        "children": [
+          {
+            "name": "hf_meas",
+            "type": "Measurable f",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LevyConvergence",
+    "name": "ProbabilityMeasure.tendsto_of_tight_of_separatesPoints",
+    "statement": "Type*) [RCLike \ud835\udd5c] {E : Type*} [MeasurableSpace E] [TopologicalSpace E] [PolishSpace E] [BorelSpace E] {\u03b9 : Type*} {\ud835\udcd5 : Filter \u03b9} {\u03bc : \u03b9 \u2192 ProbabilityMeasure E} (h_tight : IsTightMeasureSet {(\u03bc n : Measure E) | n}) {\u03bc\u2080 : ProbabilityMeasure E} {A : StarSubalgebra \ud835\udd5c (E \u2192\u1d47 \ud835\udd5c)} (hA : (A.map (toContinuousMapStar\u2090 \ud835\udd5c)).SeparatesPoints) (h\u03bc : \u2200 g \u2208 A, Tendsto (fun n \u21a6 \u222b x, g x \u2202(\u03bc n)) \ud835\udcd5 (\ud835\udcdd (\u222b x, g x \u2202\u03bc\u2080))) : Tendsto \u03bc \ud835\udcd5 (\ud835\udcdd \u03bc\u2080)",
+    "have_tree": [
+      {
+        "name": "h_compact",
+        "type": "IsCompact (closure {\u03bc n | n})",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LevyConvergence",
+    "name": "ProbabilityMeasure.tendsto_of_tendsto_charFun",
+    "statement": "\u2200 t : E, Tendsto (fun n \u21a6 charFun (\u03bc n) t) atTop (\ud835\udcdd (charFun \u03bc\u2080 t))) : Tendsto \u03bc atTop (\ud835\udcdd \u03bc\u2080)",
+    "have_tree": [
+      {
+        "name": "h_tight",
+        "type": "IsTightMeasureSet (\ud835\udce7",
+        "body": "E) {\u03bc n | n} :=",
+        "children": []
+      }
+    ]
+  }
+]

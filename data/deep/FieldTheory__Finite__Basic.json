@@ -1,0 +1,98 @@
+[
+  {
+    "module": "Basic",
+    "name": "card_cast_subgroup_card_ne_zero",
+    "statement": "Subgroup K\u02e3) [Fintype G] : (Fintype.card G : K) \u2260 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "CharP.exists K",
+        "children": []
+      },
+      {
+        "name": "hd",
+        "type": "p \u2223 n",
+        "body": "(CharP.cast_eq_zero_iff K p n).mp nzero",
+        "children": [
+          {
+            "name": "fact_pprime",
+            "type": "",
+            "body": "Fact.mk pprime",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "exists_prime_orderOf_dvd_card p hd",
+            "children": []
+          },
+          {
+            "name": "hu",
+            "type": "orderOf u = p",
+            "body": "by rwa [orderOf_units, Subgroup.orderOf_coe]",
+            "children": []
+          },
+          {
+            "name": "h",
+            "type": "u = 1",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "orderOf_frobeniusAlgHom",
+    "statement": "orderOf (frobeniusAlgHom K L) = Module.finrank K L",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite L",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "card_le_degree_of_subset_roots (R := L) (p := X ^ q ^ m - X) (Z := univ) fun x _ \u21a6 by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "DFunLike.congr_fun eq x",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "unit_isSquare_iff",
+    "statement": "ringChar F \u2260 2) (a : F\u02e3) : IsSquare a \u2194 a ^ (Fintype.card F / 2) = 1",
+    "have_tree": [
+      {
+        "name": "hodd",
+        "type": "",
+        "body": "Nat.two_mul_odd_div_two (FiniteField.odd_card_of_char_ne_two hF)",
+        "children": [
+          {
+            "name": "key",
+            "type": "2 * (Nat.card F / 2) \u2223 n * (Nat.card F / 2)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "0 < Nat.card F / 2",
+            "body": "Nat.div_pos Finite.one_lt_card (by simp)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

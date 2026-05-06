@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Equiv",
+    "name": "comp_differentiableWithinAt_iff",
+    "statement": "G \u2192 E} {s : Set G} {x : G} : DifferentiableWithinAt \ud835\udd5c (iso \u2218 f) s x \u2194 DifferentiableWithinAt \ud835\udd5c f s x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "DifferentiableWithinAt \ud835\udd5c (iso.symm \u2218 iso \u2218 f) s x",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Equiv",
+    "name": "comp_right_differentiableWithinAt_iff",
+    "statement": "F \u2192 G} {s : Set F} {x : E} : DifferentiableWithinAt \ud835\udd5c (f \u2218 iso) (iso \u207b\u00b9' s) x \u2194 DifferentiableWithinAt \ud835\udd5c f s (iso x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "DifferentiableWithinAt \ud835\udd5c ((f \u2218 iso) \u2218 iso.symm) s (iso x)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Equiv",
+    "name": "HasFDerivWithinAt.tendsto_nhdsWithin_nhdsNE",
+    "statement": "HasFDerivWithinAt f f' s x) (hf' : \u2203 C, AntilipschitzWith C f') : Tendsto f (\ud835\udcdd[s \\ {x}] x) (\ud835\udcdd[\u2260] f x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(fun z \u21a6 f z - f x) ~[\ud835\udcdd[s] x] fun z \u21a6 f' (z - x)",
+        "body": "h.isLittleO.trans_isBigO A",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Equiv",
+    "name": "fderivWithin_comp_neg",
+    "statement": "\ud835\udd5c \u2192 F} {s : Set \ud835\udd5c} {x : \ud835\udd5c} : fderivWithin \ud835\udd5c (fun a => f (-a)) s x = -fderivWithin \ud835\udd5c f (-s) (-x)",
+    "have_tree": [
+      {
+        "name": "t1",
+        "type": "",
+        "body": "fderivWithin_comp_smul_eq_fderivWithin_smul (-1 : \ud835\udd5c) (f := f) (s := s) (x := x)",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "module": "GCD",
+    "name": "gcd_eq_gcd_ab",
+    "statement": "(gcd x y : \u2124) = x * gcdA x y + y * gcdB x y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "@xgcdAux_P x y x y 1 0 0 1 (by simp [P]) (by simp [P])",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GCD",
+    "name": "exists_mul_mod_eq_gcd",
+    "statement": "\u2115} (hk : gcd n k < k) : \u2203 m < k, n * m % k = gcd n k",
+    "have_tree": [
+      {
+        "name": "hk'",
+        "type": "",
+        "body": "Int.ofNat_ne_zero.2 (Nat.zero_lt_of_lt hk).ne'",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "congr(($(gcd_eq_gcd_ab n k) % k).toNat)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GCD",
+    "name": "dvd_of_dvd_mul_left_of_gcd_one",
+    "statement": "\u2124} (habc : a \u2223 b * c) (hab : gcd a c = 1) : a \u2223 b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "gcd_eq_gcd_ab a c",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,87 @@
+[
+  {
+    "module": "PreVariation",
+    "name": "sum_le_preVariationFun_of_subset",
+    "statement": "Set X} (hs\u2081 : MeasurableSet s\u2081) (hs\u2082 : MeasurableSet s\u2082) (h : s\u2081 \u2286 s\u2082) (P : Finpartition (\u27e8s\u2081, hs\u2081\u27e9 : Subtype MeasurableSet)) : \u2211 p \u2208 P.parts, f p \u2264 preVariationFun f s\u2082",
+    "have_tree": [
+      {
+        "name": "hb",
+        "type": "b \u2260 \u22a5",
+        "body": "fun hc => heq (h.antisymm (Set.diff_eq_empty.mp (congrArg (\u00b7.1) hc)))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PreVariation",
+    "name": "exists_Finpartition_sum_ge",
+    "statement": "Set X} (hs : MeasurableSet s) {\u03b5 : \u211d\u22650} (h\u03b5 : 0 < \u03b5) (h : preVariationFun f s \u2260 \u22a4) : \u2203 P : Finpartition (\u27e8s, hs\u27e9 : Subtype MeasurableSet), preVariationFun f s \u2264 \u2211 p \u2208 P.parts, f p + \u03b5",
+    "have_tree": [
+      {
+        "name": "h\u03b5'",
+        "type": "\u03b5' \u2264 preVariationFun f s",
+        "body": "by simp_all [\u03b5']",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u03b5' \u2264 \u03b5",
+        "body": "by simp_all [\u03b5']",
+        "children": [
+          {
+            "name": "ha",
+            "type": "a < preVariationFun f s",
+            "body": "ENNReal.sub_lt_self h hw (by positivity)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PreVariation",
+    "name": "sum_le_preVariationFun_iUnion'",
+    "statement": "\u2115 \u2192 Set X} (hs : \u2200 i, MeasurableSet (s i)) (hs' : Pairwise (Disjoint on s)) (P : \u2200 (i : \u2115), Finpartition (\u27e8s i, hs i\u27e9 : Subtype MeasurableSet)) (n : \u2115) : \u2211 i \u2208 Finset.range n, \u2211 p \u2208 (P i).parts, f p \u2264 preVariationFun f (\u22c3 i, s i)",
+    "have_tree": [
+      {
+        "name": "hQ_le",
+        "type": "(Finset.range n).sup s' \u2264 \u27e8\u22c3 i, s i, MeasurableSet.iUnion hs\u27e9",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PreVariation",
+    "name": "sum_le_preVariationFun_iUnion",
+    "statement": "\u2115 \u2192 Set X} (hs : \u2200 i, MeasurableSet (s i)) (hs' : Pairwise (Disjoint on s)) : \u2211' i, preVariationFun f (s i) \u2264 preVariationFun f (\u22c3 i, s i)",
+    "have_tree": [
+      {
+        "name": "h\u03b5",
+        "type": "0 < \u03b5",
+        "body": "by positivity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PreVariation",
+    "name": "isSigmaSubadditiveSetFun_zero",
+    "statement": "IsSigmaSubadditiveSetFun (0 : Set X \u2192 \u211d\u22650\u221e)",
+    "have_tree": [
+      {
+        "name": "splitting",
+        "type": "\u2211 q \u2208 Q.parts, f q \u2264 \u2211' i, \u2211 p \u2208 (P i).parts, f p",
+        "body": "by",
+        "children": [
+          {
+            "name": "ht_disj",
+            "type": "Pairwise (Disjoint on (Subtype.val \u2218 t))",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

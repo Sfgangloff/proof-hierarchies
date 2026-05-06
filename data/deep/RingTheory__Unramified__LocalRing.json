@@ -1,0 +1,28 @@
+[
+  {
+    "module": "LocalRing",
+    "name": "FormallyUnramified.of_map_maximalIdeal",
+    "statement": "(maximalIdeal R).map (algebraMap R S) = maximalIdeal S) : Algebra.FormallyUnramified R S",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FormallyUnramified (ResidueField R) (ResidueField S)",
+        "body": ".of_isSeparable _ _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "FormallyUnramified R (ResidueField S)",
+        "body": ".comp _ (ResidueField R) _",
+        "children": [
+          {
+            "name": "_",
+            "type": "residue S x = 0",
+            "body": "by rwa [residue_eq_zero_iff, \u2190 H]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

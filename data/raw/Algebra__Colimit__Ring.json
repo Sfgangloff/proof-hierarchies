@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Ring",
+    "name": "ringEquiv_symm_mk",
+    "statement": "(ringEquiv G f').symm \u27e6g\u27e7 = of _ _ g.1 g.2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nonempty.intro i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ring",
+    "name": "of_injective",
+    "statement": "\u2200 i j hij, Function.Injective (f' i j hij)) (i) : Function.Injective (of G (fun i j h \u21a6 f' i j h) i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nonempty.intro i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ring",
+    "name": "map",
+    "statement": "(i : \u03b9) \u2192 G i \u2192+* G' i) (hg : \u2200 i j h, (g j).comp (f i j h) = (f' i j h).comp (g i)) : DirectLimit G (fun _ _ h \u21a6 f _ _ h) \u2192+* DirectLimit G' fun _ _ h \u21a6 f' _ _ h",
+    "have_tree": [
+      {
+        "name": "eq1",
+        "type": "",
+        "body": "DFunLike.congr_fun (hg i j h) g",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ring",
+    "name": "congr",
+    "statement": "(i : \u03b9) \u2192 G i \u2243+* G' i) (he : \u2200 i j h, (e j).toRingHom.comp (f i j h) = (f' i j h).comp (e i)) : DirectLimit G (fun _ _ h \u21a6 f _ _ h) \u2243+* DirectLimit G' fun _ _ h \u21a6 f' _ _ h",
+    "have_tree": [
+      {
+        "name": "eq1",
+        "type": "",
+        "body": "DFunLike.congr_fun (he i j h) ((e i).symm x)",
+        "children": []
+      }
+    ]
+  }
+]

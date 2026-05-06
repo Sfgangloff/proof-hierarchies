@@ -1,0 +1,22 @@
+[
+  {
+    "module": "Defs",
+    "name": "mem_rec_on",
+    "statement": "Seq \u03b1 \u2192 Prop} {a s} (M : a \u2208 s) (h1 : \u2200 b s', a = b \u2228 C s' \u2192 C (cons b s')) : C s",
+    "have_tree": [
+      {
+        "name": "TH",
+        "type": "s = cons a (tail s)",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_eq",
+            "type": "(cons b s').val (Nat.succ k) = s'.val k",
+            "body": "by cases s' using Subtype.recOn; rfl",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

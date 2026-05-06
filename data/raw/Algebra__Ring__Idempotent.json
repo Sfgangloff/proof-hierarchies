@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Idempotent",
+    "name": "commute_of_anticommute",
+    "statement": "R} [NonUnitalSemiring R] [IsAddTorsionFree R] (ha : IsIdempotentElem a) (hab : a * b + b * a = 0) : Commute a b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mul_eq_zero_of_anticommute ha hab",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Idempotent",
+    "name": "sub_iff",
+    "statement": "R} (hp : IsIdempotentElem p) (hq : IsIdempotentElem q) : IsIdempotentElem (q - p) \u2194 p * q = p \u2227 q * p = p",
+    "have_tree": [
+      {
+        "name": "hpq",
+        "type": "Commute p q",
+        "body": "by",
+        "children": [
+          {
+            "name": "h1",
+            "type": "",
+            "body": "congr_arg (q * \u00b7) hqp",
+            "children": []
+          },
+          {
+            "name": "h2",
+            "type": "",
+            "body": "congr_arg (\u00b7 * q) hqp",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,174 @@
+[
+  {
+    "original": {
+      "module": "Connected",
+      "name": "Unitary.norm_sub_one_sq_eq",
+      "statement": "A} (hu : u \u2208 unitary A) {x : \u211d} (hz : IsLeast (re '' (spectrum \u2102 u)) x) : \u2016u - 1\u2016 ^ 2 = 2 * (1 - x)",
+      "have_tree": [
+        {
+          "name": "h_eqOn",
+          "type": "(spectrum \u2102 u).EqOn (fun z \u21a6 \u2016z - 1\u2016 ^ 2) (fun z \u21a6 2 * (1 - z.re))",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "IsGreatest ((fun z \u21a6 2 * (1 - z.re)) '' (spectrum \u2102 u)) (2 * (1 - x))",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "pow_left_monotoneOn (n := 2) |>.mono (s\u2082 := ((\u2016\u00b7 - 1\u2016) '' spectrum \u2102 u)) (by simp)",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Connected",
+          "name": "Unitary.norm_sub_one_sq_eq",
+          "statement": "A} (hu : u \u2208 unitary A) {x : \u211d} (hz : IsLeast (re '' (spectrum \u2102 u)) x) : \u2016u - 1\u2016 ^ 2 = 2 * (1 - x)",
+          "have_tree": [
+            {
+              "name": "h_eqOn",
+              "type": "(spectrum \u2102 u).EqOn (fun z \u21a6 \u2016z - 1\u2016 ^ 2) (fun z \u21a6 2 * (1 - z.re))",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "IsGreatest ((fun z \u21a6 2 * (1 - z.re)) '' (spectrum \u2102 u)) (2 * (1 - x))",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Connected",
+          "name": "Unitary.norm_sub_one_sq_eq",
+          "statement": "A} (hu : u \u2208 unitary A) {x : \u211d} (hz : IsLeast (re '' (spectrum \u2102 u)) x) : \u2016u - 1\u2016 ^ 2 = 2 * (1 - x)",
+          "have_tree": [
+            {
+              "name": "h_eqOn",
+              "type": "(spectrum \u2102 u).EqOn (fun z \u21a6 \u2016z - 1\u2016 ^ 2) (fun z \u21a6 2 * (1 - z.re))",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "pow_left_monotoneOn (n := 2) |>.mono (s\u2082 := ((\u2016\u00b7 - 1\u2016) '' spectrum \u2102 u)) (by simp)",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "IsGreatest ((fun z \u21a6 2 * (1 - z.re)) '' (spectrum \u2102 u)) (2 * (1 - x))",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Connected",
+          "name": "Unitary.norm_sub_one_sq_eq",
+          "statement": "A} (hu : u \u2208 unitary A) {x : \u211d} (hz : IsLeast (re '' (spectrum \u2102 u)) x) : \u2016u - 1\u2016 ^ 2 = 2 * (1 - x)",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "IsGreatest ((fun z \u21a6 2 * (1 - z.re)) '' (spectrum \u2102 u)) (2 * (1 - x))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "pow_left_monotoneOn (n := 2) |>.mono (s\u2082 := ((\u2016\u00b7 - 1\u2016) '' spectrum \u2102 u)) (by simp)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_eqOn",
+              "type": "(spectrum \u2102 u).EqOn (fun z \u21a6 \u2016z - 1\u2016 ^ 2) (fun z \u21a6 2 * (1 - z.re))",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Connected",
+      "name": "Unitary.continuousOn_argSelfAdjoint",
+      "statement": "ContinuousOn (argSelfAdjoint : unitary A \u2192 selfAdjoint A) (ball (1 : unitary A) 2)",
+      "have_tree": [
+        {
+          "name": "h\u03b5",
+          "type": "0 < \u03b5",
+          "body": "lt_of_le_of_lt (by positivity) hu\u03b5",
+          "children": []
+        },
+        {
+          "name": "hu\u03b5'",
+          "type": "dist u 1 < \u221a\u03b5",
+          "body": "Real.lt_sqrt_of_sq_lt hu\u03b5",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Connected",
+          "name": "Unitary.continuousOn_argSelfAdjoint",
+          "statement": "ContinuousOn (argSelfAdjoint : unitary A \u2192 selfAdjoint A) (ball (1 : unitary A) 2)",
+          "have_tree": [
+            {
+              "name": "hu\u03b5'",
+              "type": "dist u 1 < \u221a\u03b5",
+              "body": "Real.lt_sqrt_of_sq_lt hu\u03b5",
+              "children": []
+            },
+            {
+              "name": "h\u03b5",
+              "type": "0 < \u03b5",
+              "body": "lt_of_le_of_lt (by positivity) hu\u03b5",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

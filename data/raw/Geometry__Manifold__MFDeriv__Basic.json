@@ -1,0 +1,182 @@
+[
+  {
+    "module": "Basic",
+    "name": "mdifferentiableWithinAt_iff_source_of_mem_maximalAtlas",
+    "statement": "e \u2208 maximalAtlas I 1 M) (hx : x \u2208 e.source) : MDifferentiableWithinAt I I' f s x \u2194 MDifferentiableWithinAt \ud835\udcd8(\ud835\udd5c, E) I' (f \u2218 (e.extend I).symm) ((e.extend I).symm \u207b\u00b9' s \u2229 range I) (e.extend I x)",
+    "have_tree": [
+      {
+        "name": "h2x",
+        "type": "",
+        "body": "hx; rw [\u2190 e.extend_source (I := I)] at h2x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mdifferentiableOn_iff",
+    "statement": "MDifferentiableOn I I' f s \u2194 ContinuousOn f s \u2227 \u2200 (x : M) (y : M'), DifferentiableOn \ud835\udd5c (extChartAt I' y \u2218 f \u2218 (extChartAt I x).symm) ((extChartAt I x).target \u2229 (extChartAt I x).symm \u207b\u00b9' (s \u2229 f \u207b\u00b9' (extChartAt I' y).source))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "w \u2208 s",
+        "body": "by simp only [w, hz, mfld_simps]",
+        "children": []
+      },
+      {
+        "name": "w1",
+        "type": "w \u2208 (chartAt H x).source",
+        "body": "by simp only [w, hz, mfld_simps]",
+        "children": []
+      },
+      {
+        "name": "w2",
+        "type": "f w \u2208 (chartAt H' y).source",
+        "body": "by simp only [w, hz, mfld_simps]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mdifferentiableOn_iff_target",
+    "statement": "MDifferentiableOn I I' f s \u2194 ContinuousOn f s \u2227 \u2200 y : M', MDifferentiableOn I \ud835\udcd8(\ud835\udd5c, E') (extChartAt I' y \u2218 f) (s \u2229 f \u207b\u00b9' (extChartAt I' y).source)",
+    "have_tree": [
+      {
+        "name": "h''",
+        "type": "ContinuousOn _ univ",
+        "body": "(ModelWithCorners.continuous I').continuousOn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mfderiv_zero_of_not_mdifferentiableAt",
+    "statement": "\u00acMDifferentiableAt I I' f x) : mfderiv I I' f x = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Subsingleton H",
+        "body": "I.injective.subsingleton",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "DiscreteTopology M",
+        "body": "discreteTopology H M",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mdifferentiableWithinAt_of_mfderivWithin_injective",
+    "statement": "Injective (mfderivWithin I I' f s x)) : MDifferentiableWithinAt I I' f s x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial (TangentSpace I x)",
+        "body": "inferInstanceAs (Nontrivial E)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "hasMFDerivWithinAt_insert",
+    "statement": "M} : HasMFDerivWithinAt I I' f (insert y s) x f' \u2194 HasMFDerivWithinAt I I' f s x f'",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "T1Space M",
+        "body": "I.t1Space M",
+        "children": [
+          {
+            "name": "_",
+            "type": "x \u2208 (extChartAt I x).source",
+            "body": "mem_extChartAt_source x",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mdifferentiableWithinAt_insert",
+    "statement": "M} : MDifferentiableWithinAt I I' f (insert y s) x \u2194 MDifferentiableWithinAt I I' f s x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "T1Space M",
+        "body": "I.t1Space M",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "tangentMap_snd",
+    "statement": "TangentSpace I x} : (tangentMap I I' f X).2 = (mfderiv I I' f x) X",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "T1Space M",
+        "body": "I.t1Space M",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "(extChartAt I x).target \u222a (range I)\u1d9c \u2208 \ud835\udcdd (extChartAt I x x)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "hasMFDerivWithinAt_congr_set'",
+    "statement": "M) (h : s =\u1da0[\ud835\udcdd[{y}\u1d9c] x] t) : HasMFDerivWithinAt I I' f s x f' \u2194 HasMFDerivWithinAt I I' f t x f'",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "T1Space M",
+        "body": "I.t1Space M",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "MDifferentiableWithinAt.comp",
+    "statement": "MDifferentiableWithinAt I' I'' g u (f x)) (hf : MDifferentiableWithinAt I I' f s x) (h : s \u2286 f \u207b\u00b9' u) : MDifferentiableWithinAt I I'' (g \u2218 f) s x",
+    "have_tree": [
+      {
+        "name": "F",
+        "type": "HasMFDerivWithinAt I I' f s x f'",
+        "body": "\u27e8hf.1, hf'\u27e9",
+        "children": []
+      },
+      {
+        "name": "G",
+        "type": "HasMFDerivWithinAt I' I'' g u (f x) g'",
+        "body": "\u27e8hg.1, hg'\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mfderivWithin_comp_of_preimage_mem_nhdsWithin",
+    "statement": "MDifferentiableWithinAt I' I'' g u (f x)) (hf : MDifferentiableWithinAt I I' f s x) (h : f \u207b\u00b9' u \u2208 \ud835\udcdd[s] x) (hxs : UniqueMDiffWithinAt I s x) : mfderivWithin I I'' (g \u2218 f) s x = (mfderivWithin I' I'' g u (f x)).comp (mfderivWithin I I' f s x)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "s \u2229 f \u207b\u00b9' u \u2208 \ud835\udcdd[s] x",
+        "body": "Filter.inter_mem self_mem_nhdsWithin h",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "module": "UniversalFactorizationRing",
+    "name": "finite_universalFactorizationMap",
+    "statement": "(universalFactorizationMap R n m k hn).Finite",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsDomain (MvPolynomial (Fin m) \u2124 \u2297[\u2124] MvPolynomial (Fin k) \u2124)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UniversalFactorizationRing",
+    "name": "UniversalFactorizationRing.homEquiv",
+    "statement": "(\ud835\udce1 \u2192\u2090[R] S) \u2243 { q : MonicDegreeEq S m \u00d7 MonicDegreeEq S k // q.1.1 * q.2.1 = p.1.map (algebraMap R S) } where toFun f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsScalarTower R (MvPolynomial (Fin n) R) S",
+        "body": ".of_algebraMap_eq fun r \u21a6 by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UniversalFactorizationRing",
+    "name": "UniversalCoprimeFactorizationRing.exists_liesOver_residueFieldMap_bijective",
+    "statement": "Ideal R) [P.IsPrime] (f : MonicDegreeEq P.ResidueField m) (g : MonicDegreeEq P.ResidueField k) (H : p.1.map (algebraMap R _) = f.1 * g.1) (Hpq : IsCoprime f.1 g.1) : \u2203 (Q : Ideal \ud835\udce1') (_ : Q.IsPrime) (_ : Q.LiesOver P), Function.Bijective (Ideal.ResidueField.map\u2090 P Q (Algebra.ofId _ _) (Ideal.over_def Q P)) \u2227 f.map (Ideal.ResidueField.map\u2090 P Q (Algebra.ofId _ _) (Ideal.over_def Q P)).toRingHom = (factor\u2081 m k hn p).map (algebraMap _ _) \u2227 g.map (Ideal.ResidueField.map\u2090 P Q (Algebra.ofId _ _) (Ideal.over_def Q P)).toRingHom = (factor\u2082 m k hn p).map (algebraMap _ _)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Q.IsPrime",
+        "body": "RingHom.ker_isPrime _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Q.LiesOver P",
+        "body": "\u27e8by rw [Ideal.under, RingHom.comap_ker, AlgHom.toRingHom_eq_coe,",
+        "children": []
+      }
+    ]
+  }
+]

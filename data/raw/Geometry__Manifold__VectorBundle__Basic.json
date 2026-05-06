@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Basic",
+    "name": "ContMDiffOn.coordChange",
+    "statement": "ContMDiffOn IM IB n f s) (hg : ContMDiffOn IM \ud835\udcd8(\ud835\udd5c, F) n g s) (he : MapsTo f s e.baseSet) (he' : MapsTo f s e'.baseSet) : ContMDiffOn IM \ud835\udcd8(\ud835\udd5c, F) n (fun y \u21a6 e.coordChange e' (f y) (g y)) s",
+    "have_tree": [
+      {
+        "name": "Hmaps",
+        "type": "MapsTo Prod.fst (e.target \u2229 e'.target) (e.baseSet \u2229 e'.baseSet)",
+        "body": "fun x hx \u21a6",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(e.toOpenPartialHomeomorph.symm (b, x)).1 \u2208 e'.baseSet",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "contMDiffOn",
+    "statement": "Trivialization F (\u03c0 F E)) [MemTrivializationAtlas e] : ContMDiffOn (IB.prod \ud835\udcd8(\ud835\udd5c, F)) (IB.prod \ud835\udcd8(\ud835\udd5c, F)) n e e.source",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "ContMDiffOn (IB.prod \ud835\udcd8(\ud835\udd5c, F)) (IB.prod \ud835\udcd8(\ud835\udd5c, F)) n id e.source",
+        "body": "contMDiffOn_id",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "contMDiffOn_section_iff",
+    "statement": "\u2200 x, E x} {a : Set B} (e : Trivialization F (Bundle.TotalSpace.proj : Bundle.TotalSpace F E \u2192 B)) [MemTrivializationAtlas e] (ha : IsOpen a) (ha' : a \u2286 e.baseSet) : ContMDiffOn IB (IB.prod \ud835\udcd8(\ud835\udd5c, F)) n (fun x \u21a6 TotalSpace.mk' F x (s x)) a \u2194 ContMDiffOn IB \ud835\udcd8(\ud835\udd5c, F) n (fun x \u21a6 (e \u27e8x, s x\u27e9).2) a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(h x hx).contMDiffAt <| ha.mem_nhds hx",
+        "children": []
+      }
+    ]
+  }
+]

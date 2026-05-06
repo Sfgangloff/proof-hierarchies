@@ -1,0 +1,68 @@
+[
+  {
+    "module": "PartialEquiv",
+    "name": "FGEquiv",
+    "statement": "= {f : M \u2243\u209a[L] N // f.dom.FG}  /-- Two structures `M` and `N` form an extension pair if the domain of any finitely-generated map from `M` to `N` can be extended to include any element of `M`. -/ def IsExtensionPair : Prop",
+    "have_tree": [
+      {
+        "name": "g_inj",
+        "type": "Function.Injective g",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PartialEquiv",
+    "name": "definedAtLeft",
+    "statement": "L.IsExtensionPair M N) (m : M) : Order.Cofinal (FGEquiv L M N) where carrier",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "X \u2286 F.dom",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Order.sequenceOfCofinals.encode_mem g D \u27e8x, hx\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PartialEquiv",
+    "name": "equiv_between_cg",
+    "statement": "Structure.CG L M) (N_cg : Structure.CG L N) (g : L.FGEquiv M N) (ext_dom : L.IsExtensionPair M N) (ext_cod : L.IsExtensionPair N M) : \u2203 f : M \u2243[L] N, g \u2264 f.toEmbedding.toPartialEquiv",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "X \u2286 F.dom",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Order.sequenceOfCofinals.encode_mem g D (Sum.inl \u27e8x, hx\u27e9)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "Y \u2286 F.cod",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Order.sequenceOfCofinals.encode_mem g D (Sum.inr \u27e8y, hy\u27e9)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

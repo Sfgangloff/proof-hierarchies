@@ -1,0 +1,61 @@
+[
+  {
+    "module": "Altitude",
+    "name": "altitude_map",
+    "statement": "\u2115} (s : Simplex \u211d P n) (f : P \u2192\u1d43\u2071[\u211d] P\u2082) (i : Fin (n + 1)) : (s.map f.toAffineMap f.injective).altitude i = (s.altitude i).map f.toAffineMap",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "Function.Injective f.linear",
+        "body": "f.linearIsometry.injective",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Altitude",
+    "name": "finrank_direction_altitude",
+    "statement": "\u2115} [NeZero n] (s : Simplex \u211d P n) (i : Fin (n + 1)) : finrank \u211d (s.altitude i).direction = 1",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "Submodule.finrank_add_inf_finrank_orthogonal",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "NeZero.ne n",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Altitude",
+    "name": "abs_inner_vsub_altitudeFoot_lt_mul",
+    "statement": "Fin (n + 1)} (hij : i \u2260 j) : |\u27eas.points i -\u1d65 s.altitudeFoot i, s.points j -\u1d65 s.altitudeFoot j\u27eb| < s.height i * s.height j",
+    "have_tree": [
+      {
+        "name": "hk",
+        "type": "\u2203 k, k \u2260 i \u2227 k \u2260 j",
+        "body": "Fin.exists_ne_and_ne_of_two_lt i j",
+        "children": [
+          {
+            "name": "hki'",
+            "type": "s.points k \u2208 Set.range (s.faceOpposite i).points",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hkj'",
+            "type": "s.points k \u2208 Set.range (s.faceOpposite j).points",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

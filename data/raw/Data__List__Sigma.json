@@ -1,0 +1,106 @@
+[
+  {
+    "module": "Sigma",
+    "name": "exists_of_mem_keys",
+    "statement": "List (Sigma \u03b2)} (h : a \u2208 l.keys) : \u2203 b : \u03b2 a, Sigma.mk a b \u2208 l",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "exists_of_mem_map h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sigma",
+    "name": "perm_dlookup",
+    "statement": "\u03b1) {l\u2081 l\u2082 : List (Sigma \u03b2)} (nd\u2081 : l\u2081.NodupKeys) (p : l\u2081 ~ l\u2082) : dlookup a l\u2081 = dlookup a l\u2082",
+    "have_tree": [
+      {
+        "name": "nd\u2082",
+        "type": "",
+        "body": "(perm_nodupKeys p).mp nd\u2081",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sigma",
+    "name": "dlookup_map\u2081",
+    "statement": "Type v} (l : List (\u03a3 _ : \u03b1, \u03b2)) {f : \u03b1 \u2192 \u03b1'} (hf : Function.Injective f) (a : \u03b1) : (l.map (.map f fun _ => id) : List (\u03a3 _ : \u03b1', \u03b2)).dlookup (f a) = l.dlookup a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "dlookup_map (\u03b2' := fun _ => \u03b2) (f := f) (g := fun _ => id)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sigma",
+    "name": "dlookup_map\u2082",
+    "statement": "\u03b1 \u2192 Type*} {l : List (\u03a3 a, \u03b3 a)} {f : \u2200 a, \u03b3 a \u2192 \u03b4 a} (a : \u03b1) : (l.map (.map id f) : List (\u03a3 a, \u03b4 a)).dlookup a = (l.dlookup a).map (f a)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "dlookup_map\u2081 tl hf hd.fst",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sigma",
+    "name": "lookupAll_sublist",
+    "statement": "\u03b1) : \u2200 l : List (Sigma \u03b2), (lookupAll a l).map (Sigma.mk a) <+ l | [] => by simp | \u27e8a', b'\u27e9 :: l => by by_cases h : a = a' \u00b7 subst h simp only [lookupAll_cons_eq, List.map] exact (lookupAll_sublist a l).cons_cons _ \u00b7 simp only [ne_eq, h, not_false_iff, lookupAll_cons_ne] exact (lookupAll_sublist a l).cons _  theorem lookupAll_length_le_one (a : \u03b1) {l : List (Sigma \u03b2)} (h : l.NodupKeys) : length (lookupAll a l) \u2264 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nodup.sublist ((lookupAll_sublist a l).map _) h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sigma",
+    "name": "lookupAll_eq_dlookup",
+    "statement": "\u03b1) {l : List (Sigma \u03b2)} (h : l.NodupKeys) : lookupAll a l = (dlookup a l).toList",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "lookupAll_length_le_one a h; revert h1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sigma",
+    "name": "perm_lookupAll",
+    "statement": "\u03b1) {l\u2081 l\u2082 : List (Sigma \u03b2)} (nd\u2081 : l\u2081.NodupKeys) (p : l\u2081 ~ l\u2082) : lookupAll a l\u2081 = lookupAll a l\u2082",
+    "have_tree": [
+      {
+        "name": "nd\u2082",
+        "type": "",
+        "body": "(perm_nodupKeys p).mp nd\u2081",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sigma",
+    "name": "nodupKeys_dedupKeys",
+    "statement": "List (Sigma \u03b2)) : NodupKeys (dedupKeys l)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NodupKeys l'",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

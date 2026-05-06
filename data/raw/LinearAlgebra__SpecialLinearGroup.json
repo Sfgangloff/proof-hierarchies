@@ -1,0 +1,104 @@
+[
+  {
+    "module": "SpecialLinearGroup",
+    "name": "subsingleton_of_finrank_eq_one",
+    "statement": "Module.finrank R V = 1) : Subsingleton (SpecialLinearGroup R V) where allEq u v",
+    "have_tree": [
+      {
+        "name": "hu",
+        "type": "",
+        "body": "u.prop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SpecialLinearGroup",
+    "name": "center_eq_bot_of_finrank_le_one",
+    "statement": "Module.finrank R V \u2264 1) : Subgroup.center (SpecialLinearGroup R V) = \u22a5",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Subsingleton (Module.Free.ChooseBasisIndex R V)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SpecialLinearGroup",
+    "name": "centerEquivRootsOfUnity_invFun",
+    "statement": "rootsOfUnity (max (Module.finrank R V) 1) R) : Subgroup.center (SpecialLinearGroup R V)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(mem_rootsOfUnity' _ _).mp r.prop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SpecialLinearGroup",
+    "name": "centerEquivRootsOfUnity",
+    "statement": "(Subgroup.center (SpecialLinearGroup R V)) \u2243* \u21a5(rootsOfUnity (max (Module.finrank R V) 1) R) where toFun g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Module.Free.instFaithfulSMulOfNontrivial R V",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "mem_center_iff.mp (Subtype.prop (centerEquivRootsOfUnity_invFun r))",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Module.Free.instFaithfulSMulOfNontrivial R V",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SpecialLinearGroup",
+    "name": "_root_.rootsOfUnity.eq_one",
+    "statement": "\u2115} {r : rootsOfUnity n R} (hn : n = 1) : r.val = 1",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "r.prop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SpecialLinearGroup",
+    "name": "centerCongr_toLin_equiv_trans_centerEquivRootsOfUnity_eq",
+    "statement": "((centerCongr (toLin_equiv b)).trans centerEquivRootsOfUnity g).val = Matrix.SpecialLinearGroup.center_equiv_rootsOfUnity g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Module.Free.instFaithfulSMulOfNontrivial R V",
+        "children": []
+      },
+      {
+        "name": "hgg'",
+        "type": "",
+        "body": "Subgroup.centerCongr_apply_coe (Matrix.SpecialLinearGroup.toLin_equiv b) g",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "centerEquivRootsOfUnity_apply_apply g' x",
+        "children": []
+      }
+    ]
+  }
+]

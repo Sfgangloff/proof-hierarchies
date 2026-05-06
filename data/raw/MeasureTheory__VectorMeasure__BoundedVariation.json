@@ -1,0 +1,125 @@
+[
+  {
+    "module": "BoundedVariation",
+    "name": "vectorMeasure_singleton",
+    "statement": "BoundedVariationOn f univ) : hf.vectorMeasure {a} = f.rightLim a - f.leftLim a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "a \u2264 x",
+        "body": "le_of_tendsto' u_lim fun n => (hx n).1.le",
+        "children": []
+      },
+      {
+        "name": "L1",
+        "type": "Tendsto (fun n \u21a6 hf.vectorMeasure (Ioc (u n) a)) atTop (\ud835\udcdd (hf.vectorMeasure {a}))",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Tendsto u atTop (\ud835\udcdd[<] a)",
+            "body": "tendsto_nhdsWithin_of_tendsto_nhds_of_eventually_within _",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "(\ud835\udcdd[<] a).NeBot",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "vectorMeasure_Ioo",
+    "statement": "BoundedVariationOn f univ) (h : a < b) : hf.vectorMeasure (Ioo a b) = f.leftLim b - f.rightLim a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.vectorMeasure_Ioc h.le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "vectorMeasure_Ici",
+    "statement": "BoundedVariationOn f univ) (a : \u03b1) : hf.vectorMeasure (Ici a) = limUnder atTop f - f.leftLim a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b1",
+        "body": "\u27e8a\u27e9",
+        "children": []
+      },
+      {
+        "name": "hlim",
+        "type": "Tendsto f atTop (\ud835\udcdd (limUnder atTop f))",
+        "body": "hf.tendsto_atTop_limUnder",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200\u1da0 n in atTop, a \u2264 u n",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "vectorMeasure_Ioi",
+    "statement": "BoundedVariationOn f univ) (a : \u03b1) : hf.vectorMeasure (Ioi a) = limUnder atTop f - f.rightLim a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.vectorMeasure_Ici a",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "vectorMeasure_Iic",
+    "statement": "BoundedVariationOn f univ) (a : \u03b1) : hf.vectorMeasure (Iic a) = f.rightLim a - limUnder atBot f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b1",
+        "body": "\u27e8a\u27e9",
+        "children": []
+      },
+      {
+        "name": "hlim",
+        "type": "Tendsto f atBot (\ud835\udcdd (limUnder atBot f))",
+        "body": "hf.tendsto_atBot_limUnder",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200\u1da0 n in atTop, u n \u2264 a",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "vectorMeasure_Iio",
+    "statement": "BoundedVariationOn f univ) (a : \u03b1) : hf.vectorMeasure (Iio a) = f.leftLim a - limUnder atBot f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.vectorMeasure_Iic a",
+        "children": []
+      }
+    ]
+  }
+]

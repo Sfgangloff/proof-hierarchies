@@ -1,0 +1,35 @@
+[
+  {
+    "module": "ExpLog",
+    "name": "Summable.clog_one_sub",
+    "statement": "Type*} {f : \u03b1 \u2192 \u2102} (hsum : Summable f) : Summable fun n \u21a6 log (1 - f n)",
+    "have_tree": [
+      {
+        "name": "hg",
+        "type": "DifferentiableAt \u2102 (fun z \u21a6 log (1 - z)) 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "1 - 0 \u2208 slitPlane",
+            "body": "(sub_zero (1 : \u2102)).symm \u25b8 one_mem_slitPlane",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "ExpLog",
+    "name": "exp_tsum_primes_log_eq_tsum",
+    "statement": "\u2115 \u2192*\u2080 \u2102} (hsum : Summable (\u2016f \u00b7\u2016)) : exp (\u2211' p : Nat.Primes, -log (1 - f p)) = \u2211' n : \u2115, f n",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "hsum.of_norm.clog_one_sub.neg.subtype {p | p.Prime} |>.hasSum.cexp.tprod_eq",
+        "children": []
+      }
+    ]
+  }
+]

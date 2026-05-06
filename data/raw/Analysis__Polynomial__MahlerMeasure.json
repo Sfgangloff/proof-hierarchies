@@ -1,0 +1,73 @@
+[
+  {
+    "module": "MahlerMeasure",
+    "name": "mahlerMeasure_X_sub_C",
+    "statement": "\u2102) : (X - C z).mahlerMeasure = max 1 \u2016z\u2016",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "logMahlerMeasure_X_sub_C z",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MahlerMeasure",
+    "name": "logMahlerMeasure_eq_log_leadingCoeff_add_sum_log_roots",
+    "statement": "\u2102[X]) : p.logMahlerMeasure = log \u2016p.leadingCoeff\u2016 + (p.roots.map (fun a \u21a6 log\u207a \u2016a\u2016)).sum",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 x \u2208 Multiset.map (fun x \u21a6 max 1 \u2016x\u2016) p.roots, x \u2260 0",
+        "body": "by grind [Multiset.mem_map]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MahlerMeasure",
+    "name": "mahlerMeasure_eq_leadingCoeff_mul_prod_roots",
+    "statement": "\u2102[X]) : p.mahlerMeasure = \u2016p.leadingCoeff\u2016 * (p.roots.map (fun a \u21a6 max 1 \u2016a\u2016)).prod",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "logMahlerMeasure_eq_log_leadingCoeff_add_sum_log_roots p",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MahlerMeasure",
+    "name": "mahlerMeasure_le_sum_norm_coeff",
+    "statement": "\u2102[X]) : p.mahlerMeasure \u2264 p.sum fun _ a \u21a6 \u2016a\u2016",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < p.sum fun _ a \u21a6 \u2016a\u2016",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MahlerMeasure",
+    "name": "mahlerMeasure_le_sqrt_sum_sq_norm_coeff",
+    "statement": "Polynomial \u2102) : p.mahlerMeasure \u2264 \u221a(\u2211 i \u2208 p.support, \u2016p.coeff i\u2016 ^ 2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsFiniteMeasure (volume.restrict (uIoc 0 (2 * \u03c0)))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero (volume (uIoc 0 (2 * \u03c0)))",
+        "body": "\u27e8by simp\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,174 @@
+[
+  {
+    "module": "VertexColoring",
+    "name": "colorable_iff_exists_bdd_nat_coloring",
+    "statement": "\u2115) : G.Colorable n \u2194 \u2203 C : G.Coloring \u2115, \u2200 v, C v < n",
+    "have_tree": [
+      {
+        "name": "C",
+        "type": "G.Coloring (Fin n)",
+        "body": "hc.toColoring (by simp)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VertexColoring",
+    "name": "chromaticNumber_le_iff_colorable",
+    "statement": "\u2115} : G.chromaticNumber \u2264 n \u2194 G.Colorable n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "G.chromaticNumber \u2260 \u22a4",
+        "body": "(trans h (WithTop.coe_lt_top n)).ne",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.sInf_mem (\u27e8m, hm\u27e9 : {n' | G.Colorable n'}.Nonempty)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VertexColoring",
+    "name": "chromaticNumber_pos",
+    "statement": "\u2115} (hc : G.Colorable n) : 0 < G.chromaticNumber",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "i < 0",
+        "body": "lt_of_lt_of_le hi (Nat.le_of_lt_succ h')",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VertexColoring",
+    "name": "isEmpty_of_chromaticNumber_eq_zero",
+    "statement": "G.chromaticNumber = 0) : IsEmpty V",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "colorable_of_chromaticNumber_ne_top (h \u25b8 ENat.zero_ne_top)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VertexColoring",
+    "name": "chromaticNumber_le_of_forall_imp",
+    "statement": "Type*} {G' : SimpleGraph V'} (h : \u2200 n, G'.Colorable n \u2192 G.Colorable n) : G.chromaticNumber \u2264 G'.chromaticNumber",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h _ hc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VertexColoring",
+    "name": "eq_top_of_chromaticNumber_eq_card",
+    "statement": "G.chromaticNumber = Fintype.card V) : G = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "G.chromaticNumber \u2264 Fintype.card V - 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.one_lt_card_iff_nontrivial.mpr <| SimpleGraph.nontrivial_iff.mp \u27e8_, _, hh\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VertexColoring",
+    "name": "chromaticNumber_eq_one_iff",
+    "statement": "G.chromaticNumber = 1 \u2194 G = \u22a5 \u2227 Nonempty V",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "two_le_chromaticNumber_of_adj h",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "G.colorable_zero_iff.mpr h |>.chromaticNumber_le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VertexColoring",
+    "name": "CompleteBipartiteGraph.chromaticNumber",
+    "statement": "Type*} [Nonempty V] [Nonempty W] : (completeBipartiteGraph V W).chromaticNumber = 2",
+    "have_tree": [
+      {
+        "name": "v",
+        "type": "",
+        "body": "Classical.arbitrary V",
+        "children": []
+      },
+      {
+        "name": "w",
+        "type": "",
+        "body": "Classical.arbitrary W",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "(completeBipartiteGraph V W).Adj (Sum.inl v) (Sum.inr w)",
+        "body": "by simp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VertexColoring",
+    "name": "cliqueFree_of_chromaticNumber_lt",
+    "statement": "\u2115} (hc : G.chromaticNumber < n) : G.CliqueFree n",
+    "have_tree": [
+      {
+        "name": "hne",
+        "type": "G.chromaticNumber \u2260 \u22a4",
+        "body": "hc.ne_top",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "colorable_chromaticNumber hc'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VertexColoring",
+    "name": "colorable_of_cliqueFree",
+    "statement": "\u2200 (i : \u03b9), V i) (hc : (completeMultipartiteGraph V).CliqueFree n) : (completeMultipartiteGraph V).Colorable (n - 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "fintypeOfNotInfinite",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "not_cliqueFree_of_le_card V f le_rfl",
+        "children": []
+      }
+    ]
+  }
+]

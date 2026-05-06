@@ -1,0 +1,92 @@
+[
+  {
+    "module": "Addition",
+    "name": "order_smul_not_lt",
+    "statement": "R) (x : V\u27e6\u0393\u27e7) (h : r \u2022 x \u2260 0) : \u00ac (r \u2022 x).order < x.order",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "x \u2260 0",
+        "body": "right_ne_zero_of_smul h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Addition",
+    "name": "orderTop_add_eq_left",
+    "statement": "R\u27e6\u0393\u27e7} (hxy : x.orderTop < y.orderTop) : (x + y).orderTop = x.orderTop",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "x \u2260 0",
+        "body": "orderTop_ne_top.1 hxy.ne_top",
+        "children": []
+      },
+      {
+        "name": "hcxyne",
+        "type": "(x + y).coeff g \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hxyx",
+        "type": "(x + y).orderTop \u2264 x.orderTop",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Addition",
+    "name": "leadingCoeff_add_eq_left",
+    "statement": "R\u27e6\u0393\u27e7} (hxy : x.orderTop < y.orderTop) : (x + y).leadingCoeff = x.leadingCoeff",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "x \u2260 0",
+        "body": "orderTop_ne_top.1 hxy.ne_top",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Addition",
+    "name": "order_lt_order_of_eq_add_single",
+    "statement": "R\u27e6\u0393\u27e7} (hxy : x = y + single x.order x.leadingCoeff) (hy : y \u2260 0) : x.order < y.order",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x.order \u2260 y.order",
+        "body": "by",
+        "children": [
+          {
+            "name": "hyne",
+            "type": "single y.order y.leadingCoeff \u2260 0",
+            "body": "single_ne_zero <| leadingCoeff_ne_zero.mpr hy",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Addition",
+    "name": "orderTop_sub_ne",
+    "statement": "R\u27e6\u0393\u27e7} {g : \u0393} (hxg : x.orderTop = g) (hyg : y.orderTop = g) (hxyc : x.leadingCoeff = y.leadingCoeff) : (x - y).orderTop \u2260 g",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "x \u2260 0",
+        "body": "fun h \u21a6 by simp_all [orderTop_zero, WithTop.top_ne_coe]",
+        "children": []
+      },
+      {
+        "name": "hy",
+        "type": "y \u2260 0",
+        "body": "fun h \u21a6 by simp_all [orderTop_zero, WithTop.top_ne_coe]",
+        "children": []
+      }
+    ]
+  }
+]

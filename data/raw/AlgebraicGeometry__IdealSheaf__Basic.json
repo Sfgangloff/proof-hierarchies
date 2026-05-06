@@ -1,0 +1,149 @@
+[
+  {
+    "module": "Basic",
+    "name": "map_ideal",
+    "statement": "X.affineOpens} (h : U \u2264 V) : (I.ideal V).map (X.presheaf.map (homOfLE h).op).hom = I.ideal U",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "I.map_ideal_basicOpen_of_eq (V := X.affineBasicOpen g) f (Subtype.ext hfg.symm)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "le_of_iSup_eq_top",
+    "statement": "X.IdealSheafData} {\u03b9 : Type*} (U : \u03b9 \u2192 X.affineOpens) (hU : \u2a06 i, (U i).1 = \u22a4) (H : \u2200 i, I.ideal (U i) \u2264 J.ideal (U i)) : I \u2264 J",
+    "have_tree": [
+      {
+        "name": "inst",
+        "type": "",
+        "body": "V.2.isLocalization_basicOpen",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "zeroLocus_inter_subset_supportSet",
+    "statement": "IdealSheafData X) (U : X.affineOpens) : X.zeroLocus (U",
+    "have_tree": [
+      {
+        "name": "inst",
+        "type": "",
+        "body": "U.2.isLocalization_basicOpen f",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(I.map_ideal (U := X.affineBasicOpen f) (hfg.trans_le (X.basicOpen_le g))).le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "support_eq_bot_iff",
+    "statement": "support I = \u22a5 \u2194 I = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(U.2.fromSpec_image_zeroLocus _).trans_subset",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "equivOfIsAffine_apply",
+    "statement": "IdealSheafData X) : equivOfIsAffine I = I.ideal \u27e8\u22a4, isAffineOpen_top X\u27e9",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsLocalization.Away f \u0393(X, X.basicOpen f)",
+        "body": "U.2.isLocalization_of_eq_basicOpen _ _ rfl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Hom.ker_apply",
+    "statement": "X.Hom Y) [QuasiCompact f] (U : Y.affineOpens) : f.ker.ideal U = RingHom.ker (f.app U).hom",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "U.2.isLocalization_basicOpen s",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Hom.range_subset_ker_support",
+    "statement": "X \u27f6 Y) : Set.range f \u2286 f.ker.support",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x \u2208 f \u207b\u00b9\u1d41 Y.basicOpen s",
+        "body": "hxs",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "ker_ideal_of_isPullback_of_isOpenImmersion",
+    "statement": "Scheme.{u}} (f : X \u27f6 Y) (f' : U \u27f6 V) (iU : U \u27f6 X) (iV : V \u27f6 Y) [IsOpenImmersion iV] [QuasiCompact f] (H : IsPullback f' iU iV f) (W) : f'.ker.ideal W = (f.ker.ideal \u27e8iV ''\u1d41 W, W.2.image_of_isOpenImmersion _\u27e9).comap (iV.appIso W).inv.hom",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "QuasiCompact f'",
+        "body": "MorphismProperty.of_isPullback H.flip inferInstance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsOpenImmersion iU",
+        "body": "MorphismProperty.of_isPullback H inferInstance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Hom.support_ker",
+    "statement": "X \u27f6 Y) [QuasiCompact f] : f.ker.support = closure (Set.range f)",
+    "have_tree": [
+      {
+        "name": "inst",
+        "type": "QuasiCompact (\ud835\udcb0.pullbackHom f i)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "this (\ud835\udcb0.pullbackHom f i) \u27e8_, rfl\u27e9",
+        "children": []
+      },
+      {
+        "name": "inst",
+        "type": "CompactSpace X",
+        "body": "HasAffineProperty.iff_of_isAffine.mp \u2039QuasiCompact f\u203a",
+        "children": []
+      },
+      {
+        "name": "inst",
+        "type": "QuasiCompact (\ud835\udcb0.f i \u226b f)",
+        "body": "HasAffineProperty.iff_of_isAffine.mpr",
+        "children": []
+      }
+    ]
+  }
+]

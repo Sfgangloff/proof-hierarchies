@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Derivative",
+    "name": "iterate_derivative_eq_zero",
+    "statement": "R[X]} {x : \u2115} (hx : p.natDegree < x) : Polynomial.derivative^[x] p = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "natDegree_derivative_lt hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Derivative",
+    "name": "natDegree_eq_zero_of_derivative_eq_zero",
+    "statement": "R[X]} (h : derivative f = 0) : f.natDegree = 0",
+    "have_tree": [
+      {
+        "name": "h2",
+        "type": "",
+        "body": "coeff_derivative f m",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Derivative",
+    "name": "eval_multiset_prod_X_sub_C_derivative",
+    "statement": "Multiset R} {r : R} (hr : r \u2208 S) : eval r (derivative (Multiset.map (fun a => X - C a) S).prod) = (Multiset.map (fun a => r - a) (S.erase r)).prod",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(evalRingHom r).map_multiset_prod (Multiset.map (fun a => X - C a) (S.erase r))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Derivative",
+    "name": "iterate_derivative_eq_zero_of_degree_lt",
+    "statement": "\u2115} {P : R[X]} (h : P.degree < k) : derivative^[k] P = 0",
+    "have_tree": [
+      {
+        "name": "hP''",
+        "type": "P.natDegree \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

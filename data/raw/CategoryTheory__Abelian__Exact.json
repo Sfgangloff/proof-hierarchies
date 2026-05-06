@@ -1,0 +1,52 @@
+[
+  {
+    "module": "Exact",
+    "name": "exact_iff_of_forks",
+    "statement": "KernelFork S.g} (hg : IsLimit cg) {cf : CokernelCofork S.f} (hf : IsColimit cf) : S.Exact \u2194 cg.\u03b9 \u226b cf.\u03c0 = 0",
+    "have_tree": [
+      {
+        "name": "eq\u2081",
+        "type": "",
+        "body": "IsLimit.conePointUniqueUpToIso_inv_comp (kernelIsKernel S.g) hg (.zero)",
+        "children": []
+      },
+      {
+        "name": "eq\u2082",
+        "type": "",
+        "body": "IsColimit.comp_coconePointUniqueUpToIso_hom (cokernelIsCokernel S.f) hf (.one)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exact",
+    "name": "preservesHomology_of_map_exact",
+    "statement": "L.PreservesHomology where preservesCokernels X Y f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesEpimorphisms_of_map_exact _ hL",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Epi ((ShortComplex.mk _ _ (cokernel.condition f)).map L).g",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesMonomorphisms_of_map_exact _ hL",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Mono ((ShortComplex.mk _ _ (kernel.condition f)).map L).f",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

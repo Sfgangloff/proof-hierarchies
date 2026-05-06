@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "EulerSineProd",
+      "name": "integral_cos_pow_eq",
+      "statement": "\u2115) : (\u222b x in (0 : \u211d)..\u03c0 / 2, cos x ^ n) = 1 / 2 * \u222b x in (0 : \u211d)..\u03c0, sin x ^ n",
+      "have_tree": [
+        {
+          "name": "L",
+          "type": "IntervalIntegrable _ volume 0 (\u03c0 / 2)",
+          "body": "(continuous_sin.pow n).intervalIntegrable _ _",
+          "children": []
+        },
+        {
+          "name": "R",
+          "type": "IntervalIntegrable _ volume (\u03c0 / 2) \u03c0",
+          "body": "(continuous_sin.pow n).intervalIntegrable _ _",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "EulerSineProd",
+          "name": "integral_cos_pow_eq",
+          "statement": "\u2115) : (\u222b x in (0 : \u211d)..\u03c0 / 2, cos x ^ n) = 1 / 2 * \u222b x in (0 : \u211d)..\u03c0, sin x ^ n",
+          "have_tree": [
+            {
+              "name": "R",
+              "type": "IntervalIntegrable _ volume (\u03c0 / 2) \u03c0",
+              "body": "(continuous_sin.pow n).intervalIntegrable _ _",
+              "children": []
+            },
+            {
+              "name": "L",
+              "type": "IntervalIntegrable _ volume 0 (\u03c0 / 2)",
+              "body": "(continuous_sin.pow n).intervalIntegrable _ _",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

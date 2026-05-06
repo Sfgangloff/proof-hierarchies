@@ -1,0 +1,78 @@
+[
+  {
+    "module": "GaussNorm",
+    "name": "aux_bdd",
+    "statement": "BddAbove {x | \u2203 i, v (p.coeff i) * c ^ i = x}",
+    "have_tree": [
+      {
+        "name": "h_fin",
+        "type": "(f '' \u22a4 \u222a {0}).Finite",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GaussNorm",
+    "name": "gaussNorm_mul_le",
+    "statement": "IsNonarchimedean v) (p q : R[X]) (hc : 0 \u2264 c) : (p * q).gaussNorm v c \u2264 p.gaussNorm v c * q.gaussNorm v c",
+    "have_tree": [
+      {
+        "name": "h_supp_p",
+        "type": "p.support.Nonempty",
+        "body": "support_nonempty.mpr <| left_ne_zero_of_mul hpq",
+        "children": []
+      },
+      {
+        "name": "h_supp_q",
+        "type": "q.support.Nonempty",
+        "body": "support_nonempty.mpr <| right_ne_zero_of_mul hpq",
+        "children": [
+          {
+            "name": "hp_le",
+            "type": "",
+            "body": "p.le_gaussNorm v hc j",
+            "children": []
+          },
+          {
+            "name": "hq_le",
+            "type": "",
+            "body": "q.le_gaussNorm v hc (i - j)",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "p.gaussNorm_nonneg v hc",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "GaussNorm",
+    "name": "mul_gaussNorm_le_gaussNorm_mul",
+    "statement": "R[X]) : p.gaussNorm v c * q.gaussNorm v c \u2264 (p * q).gaussNorm v c",
+    "have_tree": [
+      {
+        "name": "hc0",
+        "type": "0 \u2264 c",
+        "body": "le_of_lt hc",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hvpq.1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hvpq.2",
+        "children": []
+      }
+    ]
+  }
+]

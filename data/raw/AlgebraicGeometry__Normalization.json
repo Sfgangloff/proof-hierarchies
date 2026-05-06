@@ -1,0 +1,91 @@
+[
+  {
+    "module": "Normalization",
+    "name": "normalizationDiagram",
+    "statement": "Y.Opens\u1d52\u1d56 \u2964 CommRingCat where obj U",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsScalarTower \u0393(Y, V) \u0393(Y, U) \u0393(X, f \u207b\u00b9\u1d41 U)",
+        "body": ".of_algebraMap_eq' <| by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsScalarTower \u0393(Y, V) \u0393(X, f \u207b\u00b9\u1d41 V) \u0393(X, f \u207b\u00b9\u1d41 U)",
+        "body": ".of_algebraMap_eq' rfl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normalization",
+    "name": "coequifibered_normalizationDiagramMap",
+    "statement": "((toOpensFunctor Y).op.whiskerLeft f.normalizationDiagramMap).Coequifibered",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsLocalization.Away r \u0393(Y, Y.basicOpen r)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsScalarTower \u0393(Y, U.1) \u0393(X, f \u207b\u00b9\u1d41 U.1) \u0393(X, f \u207b\u00b9\u1d41 Y.basicOpen r)",
+        "body": ".of_algebraMap_eq' rfl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsScalarTower \u0393(Y, U.1) \u0393(Y, Y.basicOpen r) \u0393(X, f \u207b\u00b9\u1d41 Y.basicOpen r)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normalization",
+    "name": "fromNormalization_app",
+    "statement": "Y.Opens} (hU : IsAffineOpen U) : f.fromNormalization.app U = CommRingCat.ofHom (algebraMap _ _) \u226b (f.normalizationObjIso hU).inv",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso (((normalizationOpenCover f).f \u27e8U, hU\u27e9).app (f.fromNormalization \u207b\u00b9\u1d41 U))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normalization",
+    "name": "normalizationDesc",
+    "statement": "f = f\u2081 \u226b f\u2082) : f.normalization \u27f6 T",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsScalarTower \u0393(Y, U.1) \u0393(T, f\u2082 \u207b\u00b9\u1d41 U.1) \u0393(X, f \u207b\u00b9\u1d41 U.1)",
+        "body": ".of_algebraMap_eq' <| by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normalization",
+    "name": "normalization.hom_ext",
+    "statement": "f.normalization \u27f6 T) (g : T \u27f6 Y) [IsAffineHom g] (H\u2081 : f.toNormalization \u226b f\u2081 = f.toNormalization \u226b f\u2082) (hf\u2081 : f\u2081 \u226b g = f.fromNormalization) (hf\u2082 : f\u2082 \u226b g = f.fromNormalization) : f\u2081 = f\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsAffineHom f\u2081",
+        "body": "have : IsAffineHom (f\u2081 \u226b g) := hf\u2081 \u25b8 inferInstance; .of_comp _ g",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAffineHom f\u2082",
+        "body": "have : IsAffineHom (f\u2082 \u226b g) := hf\u2082 \u25b8 inferInstance; .of_comp _ g",
+        "children": []
+      }
+    ]
+  }
+]

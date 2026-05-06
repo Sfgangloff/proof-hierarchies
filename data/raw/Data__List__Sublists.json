@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Sublists",
+    "name": "sublists'Aux_eq_array_foldl",
+    "statement": "\u03b1) : \u2200 (r\u2081 r\u2082 : List (List \u03b1)), sublists'Aux a r\u2081 r\u2082 = ((r\u2081.toArray).foldl (init",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "List.foldl_hom Array.toList (g\u2081 := fun r l => r.push (a :: l))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sublists",
+    "name": "sublistsAux_eq_array_foldl",
+    "statement": "sublistsAux = fun (a : \u03b1) (r : List (List \u03b1)) => (r.toArray.foldl (init",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "foldl_hom Array.toList (g\u2081 := fun r l => (r.push l).push (a :: l))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sublists",
+    "name": "Pairwise.sublists'",
+    "statement": "\u2200 {l : List \u03b1}, Pairwise R l \u2192 Pairwise (Lex (swap R)) (sublists' l) | _, Pairwise.nil => pairwise_singleton _ _ | _, @Pairwise.cons _ _ a l H\u2081 H\u2082 => by simp only [sublists'_cons, pairwise_append, pairwise_map, mem_sublists', mem_map, exists_imp, and_imp] refine \u27e8H\u2082.sublists', H\u2082.sublists'.imp fun l\u2081 => Lex.cons l\u2081, ?_\u27e9 rintro l\u2081 sl\u2081 x l\u2082 _ rfl rcases l\u2081 with - | \u27e8b, l\u2081\u27e9; \u00b7 constructor exact Lex.rel (H\u2081 _ <| sl\u2081.subset mem_cons_self)  theorem pairwise_sublists {R} {l : List \u03b1} (H : Pairwise R l) : Pairwise (Lex R on reverse) (sublists l)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(pairwise_reverse.2 H).sublists'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sublists",
+    "name": "nodup_sublistsLen",
+    "statement": "\u2115) {l : List \u03b1} (h : Nodup l) : (sublistsLen n l).Nodup",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Pairwise (\u00b7 \u2260 \u00b7) l.sublists'",
+        "body": "Pairwise.imp",
+        "children": []
+      }
+    ]
+  }
+]

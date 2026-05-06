@@ -1,0 +1,67 @@
+[
+  {
+    "module": "CommShift",
+    "name": "isoZero_isoAdd'_",
+    "statement": "A} (e : shiftFunctor C a \u22d9 F \u2245 F \u22d9 shiftFunctor D a) : isoAdd' (zero_add a) (isoZero F A) e = e",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "e.hom.naturality ((shiftFunctorZero C A).inv.app X)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CommShift",
+    "name": "isoAdd'_assoc",
+    "statement": "A} (ea : shiftFunctor C a \u22d9 F \u2245 F \u22d9 shiftFunctor D a) (eb : shiftFunctor C b \u22d9 F \u2245 F \u22d9 shiftFunctor D b) (ec : shiftFunctor C c \u22d9 F \u2245 F \u22d9 shiftFunctor D c) (hab : a + b = ab) (hbc : b + c = bc) (h : a + b + c = abc) : isoAdd' (show ab + c = abc by rwa [\u2190 hab]) (isoAdd' hab ea eb) ec = isoAdd' (show a + bc = abc by grind) ea (isoAdd' hbc eb ec)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "NatTrans.naturality_2 ec.hom ((shiftFunctorAdd' C a b ab hab).app X)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CommShift",
+    "name": "map_shiftFunctorComm_hom_app",
+    "statement": "C) (a b : B) : F.map ((shiftFunctorComm C a b).hom.app X) = (F.commShiftIso b).hom.app (X\u27e6a\u27e7) \u226b ((F.commShiftIso a).hom.app X)\u27e6b\u27e7' \u226b (shiftFunctorComm D a b).hom.app (F.obj X) \u226b ((F.commShiftIso b).inv.app X)\u27e6a\u27e7' \u226b (F.commShiftIso a).inv.app (X\u27e6b\u27e7)",
+    "have_tree": [
+      {
+        "name": "eq",
+        "type": "",
+        "body": "NatTrans.congr_app (congr_arg Iso.hom (F.commShiftIso_add a b)) X",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CommShift",
+    "name": "map_shiftFunctorCompIsoId_hom_app",
+    "statement": "C) (a b : A) (h : a + b = 0) : F.map ((shiftFunctorCompIsoId C a b h).hom.app X) = (F.commShiftIso b).hom.app (X\u27e6a\u27e7) \u226b ((F.commShiftIso a).hom.app X)\u27e6b\u27e7' \u226b (shiftFunctorCompIsoId D a b h).hom.app (F.obj X)",
+    "have_tree": [
+      {
+        "name": "eq",
+        "type": "",
+        "body": "NatTrans.congr_app (congr_arg Iso.hom (F.commShiftIso_add' h)) X",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CommShift",
+    "name": "add",
+    "statement": "A} (ha : CommShiftCore \u03c4 a) (hb : CommShiftCore \u03c4 b) : CommShiftCore \u03c4 (a + b) where shift_comm",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(shiftFunctorAdd D a b).inv.naturality (\u03c4.app X)",
+        "children": []
+      }
+    ]
+  }
+]

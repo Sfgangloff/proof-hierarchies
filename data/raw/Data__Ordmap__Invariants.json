@@ -1,0 +1,85 @@
+[
+  {
+    "module": "Invariants",
+    "name": "balancedSz_down",
+    "statement": "\u2115} (h\u2081 : r\u2081 \u2264 r\u2082) (h\u2082 : l + r\u2082 \u2264 1 \u2228 l \u2264 delta * r\u2081) (H : BalancedSz l r\u2082) : BalancedSz l r\u2081",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "l + r\u2082 \u2264 1 \u2192 BalancedSz l r\u2081",
+        "body": "fun H => Or.inl (le_trans (Nat.add_le_add_left h\u2081 _) H)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Invariants",
+    "name": "dual_insert",
+    "statement": "\u03b1) : \u2200 t : Ordnode \u03b1, dual (Ordnode.insert x t) = @Ordnode.insert \u03b1\u1d52\u1d48 _ _ x (dual t) | nil => rfl | node _ l y r => by have : @cmpLE \u03b1\u1d52\u1d48 _ _ x y = cmpLE y x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "balancedSz_zero.1 hr.1.symm",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "balancedSz_zero.1 hr.1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "balancedSz_zero.1 hl.1.symm",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "balancedSz_zero.1 hl.1",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "lt_of_le_of_lt (Nat.mul_le_mul_left _ sl.pos) h",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "lt_of_le_of_lt (Nat.mul_le_mul_left _ sr.pos) h_1",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Invariants",
+    "name": "balanceL_eq_balance",
+    "statement": "Sized l) (sr : Sized r) (H1 : size l = 0 \u2192 size r \u2264 1) (H2 : 1 \u2264 size l \u2192 1 \u2264 size r \u2192 size r \u2264 delta * size l) : @balanceL \u03b1 l x r = balance l x r",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "H1 rfl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Invariants",
+    "name": "Bounded",
+    "statement": "Ordnode \u03b1 \u2192 WithBot \u03b1 \u2192 WithTop \u03b1 \u2192 Prop | nil, some a, some b => a < b | nil, _, _ => True | node _ l x r, o\u2081, o\u2082 => Bounded l o\u2081 x \u2227 Bounded r (\u2191x) o\u2082  theorem Bounded.dual : \u2200 {t : Ordnode \u03b1} {o\u2081 o\u2082}, Bounded t o\u2081 o\u2082 \u2192 @Bounded \u03b1\u1d52\u1d48 _ (dual t) o\u2082 o\u2081 | nil, o\u2081, o\u2082, h => by cases o\u2081 <;> cases o\u2082 <;> trivial | node _ _ _ _, _, _, \u27e8ol, Or\u27e9 => \u27e8Or.dual, ol.dual\u27e9  set_option backward.isDefEq.respectTransparency false in theorem Bounded.dual_iff {t : Ordnode \u03b1} {o\u2081 o\u2082} : Bounded t o\u2081 o\u2082 \u2194 @Bounded \u03b1\u1d52\u1d48 _ (.dual t) o\u2082 o\u2081",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Bounded.dual h; rwa [dual_dual, OrderDual.Preorder.dual_dual] at this\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "module": "Behrend",
+    "name": "threeAPFree_frontier",
+    "statement": "Type*} [Field \ud835\udd5c] [LinearOrder \ud835\udd5c] [IsStrictOrderedRing \ud835\udd5c] [TopologicalSpace E] [AddCommMonoid E] [Module \ud835\udd5c E] {s : Set E} (hs\u2080 : IsClosed s) (hs\u2081 : StrictConvex \ud835\udd5c s) : ThreeAPFree (frontier s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Behrend",
+    "name": "map_injOn",
+    "statement": "{x : Fin n \u2192 \u2115 | \u2200 i, x i < d}.InjOn (map d)",
+    "have_tree": [
+      {
+        "name": "x",
+        "type": "",
+        "body": "(map_eq_iff hx\u2081 hx\u2082).1 h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Behrend",
+    "name": "threeAPFree_image_sphere",
+    "statement": "ThreeAPFree ((sphere n d k).image (map (2 * d - 1)) : Set \u2115)",
+    "have_tree": [
+      {
+        "name": "hai",
+        "type": "",
+        "body": "mem_box.1 (sphere_subset_box ha) i",
+        "children": []
+      },
+      {
+        "name": "hbi",
+        "type": "",
+        "body": "mem_box.1 (sphere_subset_box hb) i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Behrend",
+    "name": "sum_sq_le_of_mem_box",
+    "statement": "x \u2208 box n d) : \u2211 i : Fin n, x i ^ 2 \u2264 n * (d - 1) ^ 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 i, x i ^ 2 \u2264 (d - 1) ^ 2",
+        "body": "fun i =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Behrend",
+    "name": "exp_neg_two_mul_le",
+    "statement": "\u211d} (hx : 0 < x) : exp (-2 * x) < exp (2 - \u2308x\u2309\u208a) / \u2308x\u2309\u208a",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "ceil_lt_add_one hx.le",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "1 - x \u2264 2 - \u2308x\u2309\u208a",
+        "body": "by linarith",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Behrend",
+    "name": "div_lt_floor",
+    "statement": "\u211d} (hx : 2 / (1 - 2 / exp 1) \u2264 x) : x / exp 1 < (\u230ax / 2\u230b\u208a : \u211d)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < 1 - 2 / exp 1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Behrend",
+    "name": "le_N",
+    "statement": "2 \u2264 N) : (2 * dValue N - 1) ^ nValue N \u2264 N",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(2 * dValue N - 1) ^ nValue N \u2264 (2 * dValue N) ^ nValue N",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Behrend",
+    "name": "roth_lower_bound_explicit",
+    "statement": "4096 \u2264 N) : (N : \u211d) * exp (-4 * \u221a(log N)) < rothNumberNat N",
+    "have_tree": [
+      {
+        "name": "hd",
+        "type": "0 < dValue N",
+        "body": "dValue_pos (hN.trans' <| by norm_num1)",
+        "children": []
+      },
+      {
+        "name": "hn\u2082",
+        "type": "2 < n",
+        "body": "three_le_nValue <| hN.trans' <| by norm_num1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(2 * dValue N - 1) ^ n \u2264 N",
+        "body": "le_N (hN.trans' <| by norm_num1)",
+        "children": []
+      }
+    ]
+  }
+]

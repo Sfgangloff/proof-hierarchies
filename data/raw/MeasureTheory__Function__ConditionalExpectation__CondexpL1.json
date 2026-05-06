@@ -1,0 +1,59 @@
+[
+  {
+    "module": "CondexpL1",
+    "name": "condExpIndL1_disjoint_union",
+    "statement": "MeasurableSet s) (ht : MeasurableSet t) (h\u03bcs : \u03bc s \u2260 \u221e) (h\u03bct : \u03bc t \u2260 \u221e) (hst : Disjoint s t) (x : G) : condExpIndL1 hm \u03bc (s \u222a t) x = condExpIndL1 hm \u03bc s x + condExpIndL1 hm \u03bc t x",
+    "have_tree": [
+      {
+        "name": "h\u03bcst",
+        "type": "\u03bc (s \u222a t) \u2260 \u221e",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CondexpL1",
+    "name": "setIntegral_condExpL1CLM",
+    "statement": "\u03b1 \u2192\u2081[\u03bc] F') (hs : MeasurableSet[m] s) : \u222b x in s, condExpL1CLM F' hm \u03bc f x \u2202\u03bc = \u222b x in s, f x \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "hS_meas",
+        "type": "\u2200 i, MeasurableSet[m] (S i)",
+        "body": "measurableSet_spanningSets (\u03bc.trim hm)",
+        "children": []
+      },
+      {
+        "name": "hS_meas0",
+        "type": "\u2200 i, MeasurableSet (S i)",
+        "body": "fun i => hm _ (hS_meas i)",
+        "children": []
+      },
+      {
+        "name": "hS_finite",
+        "type": "\u2200 i, \u03bc (S i \u2229 s) < \u221e",
+        "body": "by",
+        "children": [
+          {
+            "name": "hS_finite_trim",
+            "type": "",
+            "body": "measure_spanningSets_lt_top (\u03bc.trim hm) i",
+            "children": []
+          },
+          {
+            "name": "h",
+            "type": "",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "h",
+            "type": "",
+            "body": "tendsto_setIntegral_of_monotone (fun i => (hS_meas0 i).inter (hm s hs)) h_mono",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

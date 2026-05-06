@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Constructions",
+    "name": "measurable_of_measurable_on_compl_finite",
+    "statement": "\u03b1 \u2192 \u03b2} (s : Set \u03b1) (hs : s.Finite) (hf : Measurable (s\u1d9c.restrict f)) : Measurable f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Constructions",
+    "name": "disjoint_measurableAtom_of_notMem",
+    "statement": "\u03b2} (hx : x \u2209 measurableAtom y) : Disjoint (measurableAtom x) (measurableAtom y)",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "measurableAtom_eq_of_mem hzx",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "measurableAtom_eq_of_mem hzy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Constructions",
+    "name": "measurableSet_prod_of_nonempty",
+    "statement": "Set \u03b1} {t : Set \u03b2} (h : (s \u00d7\u02e2 t).Nonempty) : MeasurableSet (s \u00d7\u02e2 t) \u2194 MeasurableSet s \u2227 MeasurableSet t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "MeasurableSet (Prod.mk x \u207b\u00b9' s \u00d7\u02e2 t)",
+        "body": "measurable_prodMk_left hst",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Constructions",
+    "name": "measurable_liftCover",
+    "statement": "\u03b9 \u2192 Set \u03b1) (htm : \u2200 i, MeasurableSet (t i)) (f : \u2200 i, t i \u2192 \u03b2) (hfm : \u2200 i, Measurable (f i)) (hf : \u2200 (i j) (x : \u03b1) (hxi : x \u2208 t i) (hxj : x \u2208 t j), f i \u27e8x, hxi\u27e9 = f j \u27e8x, hxj\u27e9) (htU : \u22c3 i, t i = univ) : Measurable (liftCover t f hf htU)",
+    "have_tree": [
+      {
+        "name": "hfm",
+        "type": "Measurable f",
+        "body": "measurable_iUnionLift _ _ t_meas",
+        "children": []
+      }
+    ]
+  }
+]

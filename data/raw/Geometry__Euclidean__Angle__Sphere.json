@@ -1,0 +1,117 @@
+[
+  {
+    "module": "Sphere",
+    "name": "oangle_eq_two_zsmul_oangle_sub_of_norm_eq",
+    "statement": "V} (hxyne : x \u2260 y) (hxzne : x \u2260 z) (hxy : \u2016x\u2016 = \u2016y\u2016) (hxz : \u2016x\u2016 = \u2016z\u2016) : o.oangle y z = (2 : \u2124) \u2022 o.oangle (y - x) (z - x)",
+    "have_tree": [
+      {
+        "name": "hy",
+        "type": "y \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hx",
+        "type": "x \u2260 0",
+        "body": "norm_ne_zero_iff.1 (hxy.symm \u25b8 norm_ne_zero_iff.2 hy)",
+        "children": []
+      },
+      {
+        "name": "hz",
+        "type": "z \u2260 0",
+        "body": "norm_ne_zero_iff.1 (hxz \u25b8 norm_ne_zero_iff.2 hx)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sphere",
+    "name": "isDiameter_of_angle_eq_pi_div_two",
+    "statement": "P} {s : Sphere P} [Fact (finrank \u211d V = 2)] (hp\u2081 : p\u2081 \u2208 s) (hp\u2082 : p\u2082 \u2208 s) (hp\u2083 : p\u2083 \u2208 s) (hne\u2081\u2082 : p\u2081 \u2260 p\u2082) (hne\u2082\u2083 : p\u2082 \u2260 p\u2083) (hangle : \u2220 p\u2081 p\u2082 p\u2083 = \u03c0 / 2) : s.IsDiameter p\u2081 p\u2083",
+    "have_tree": [
+      {
+        "name": "hne\u2081\u2083",
+        "type": "p\u2081 \u2260 p\u2083",
+        "body": "fun h \u21a6 by",
+        "children": []
+      },
+      {
+        "name": "hd",
+        "type": "",
+        "body": "Sphere.isDiameter_ofDiameter p\u2081 p\u2083",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "eq_of_mem_sphere_of_mem_sphere_of_finrank_eq_two",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Sphere",
+    "name": "IsTangentAt.angle_eq_pi_div_two",
+    "statement": "Sphere P} {p q : P} {as : AffineSubspace \u211d P} (h : s.IsTangentAt p as) (hq_mem : q \u2208 as) : \u2220 q p s.center = \u03c0 / 2",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "IsTangentAt.inner_left_eq_zero_of_mem h hq_mem",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sphere",
+    "name": "IsTangentAt_of_angle_eq_pi_div_two",
+    "statement": "Sphere P} {p q : P} (h : \u2220 q p s.center = \u03c0 / 2) (hp : p \u2208 s) : s.IsTangentAt p line[\u211d, p, q]",
+    "have_tree": [
+      {
+        "name": "hp_mem",
+        "type": "",
+        "body": "left_mem_affineSpan_pair \u211d p q",
+        "children": []
+      },
+      {
+        "name": "hq",
+        "type": "q \u2208 s.orthRadius p",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hp",
+        "type": "p \u2208 s.orthRadius p",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sphere",
+    "name": "mem_circumsphere_of_two_zsmul_oangle_eq",
+    "statement": "Triangle \u211d P} {p : P} {i\u2081 i\u2082 i\u2083 : Fin 3} (h\u2081\u2082 : i\u2081 \u2260 i\u2082) (h\u2081\u2083 : i\u2081 \u2260 i\u2083) (h\u2082\u2083 : i\u2082 \u2260 i\u2083) (h : (2 : \u2124) \u2022 \u2221 (t.points i\u2081) p (t.points i\u2083) = (2 : \u2124) \u2022 \u2221 (t.points i\u2081) (t.points i\u2082) (t.points i\u2083)) : p \u2208 t.circumsphere",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "AffineIndependent \u211d t'p",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sphere",
+    "name": "dist_div_sin_angle_div_two_eq_circumradius",
+    "statement": "Triangle \u211d P) {i\u2081 i\u2082 i\u2083 : Fin 3} (h\u2081\u2082 : i\u2081 \u2260 i\u2082) (h\u2081\u2083 : i\u2081 \u2260 i\u2083) (h\u2082\u2083 : i\u2082 \u2260 i\u2083) : dist (t.points i\u2081) (t.points i\u2083) / Real.sin (\u2220 (t.points i\u2081) (t.points i\u2082) (t.points i\u2083)) / 2 = t.circumradius",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.Oriented \u211d S.direction (Fin 2)",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

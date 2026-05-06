@@ -1,0 +1,144 @@
+[
+  {
+    "module": "HurwitzZetaOdd",
+    "name": "continuousOn_sinKernel",
+    "statement": "UnitAddCircle) : ContinuousOn (sinKernel a) (Ioi 0)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "continuousAt_jacobiTheta\u2082' a (by rwa [I_mul_im, ofReal_re])",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HurwitzZetaOdd",
+    "name": "oddKernel_functional_equation",
+    "statement": "UnitAddCircle) (x : \u211d) : oddKernel a x = 1 / x ^ (3 / 2 : \u211d) * sinKernel a (1 / x)",
+    "have_tree": [
+      {
+        "name": "h4",
+        "type": "arg x \u2260 \u03c0",
+        "body": "by rw [arg_ofReal_of_nonneg hx.le]; exact pi_ne_zero.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HurwitzZetaOdd",
+    "name": "hasSum_int_oddKernel",
+    "statement": "\u211d) {x : \u211d} (hx : 0 < x) : HasSum (fun n : \u2124 \u21a6 (n + a) * rexp (-\u03c0 * (n + a) ^ 2 * x)) (oddKernel \u2191a x)",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "hasSum_jacobiTheta\u2082_term (a * I * x) (by rwa [I_mul_im, ofReal_re])",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "hasSum_jacobiTheta\u2082'_term (a * I * x) (by rwa [I_mul_im, ofReal_re])",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HurwitzZetaOdd",
+    "name": "hasSum_nat_sinKernel",
+    "statement": "\u211d) {t : \u211d} (ht : 0 < t) : HasSum (fun n : \u2115 \u21a6 2 * n * Real.sin (2 * \u03c0 * a * n) * rexp (-\u03c0 * n ^ 2 * t)) (sinKernel \u2191a t)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(hasSum_int_sinKernel a ht).nat_add_neg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HurwitzZetaOdd",
+    "name": "hasSum_int_completedSinZeta",
+    "statement": "\u211d) {s : \u2102} (hs : 1 < re s) : HasSum (fun n : \u2124 \u21a6 Gamma\u211d (s + 1) * (-I) * Int.sign n * cexp (2 * \u03c0 * I * a * n) / (\u2191|n| : \u2102) ^ s / 2) (completedSinZeta a s)",
+    "have_tree": [
+      {
+        "name": "h_sum",
+        "type": "Summable fun i \u21a6 \u2016c i\u2016 / |\u2191i| ^ s.re",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HurwitzZetaOdd",
+    "name": "hasSum_nat_completedSinZeta",
+    "statement": "\u211d) {s : \u2102} (hs : 1 < re s) : HasSum (fun n : \u2115 \u21a6 Gamma\u211d (s + 1) * Real.sin (2 * \u03c0 * a * n) / (n : \u2102) ^ s) (completedSinZeta a s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(hasSum_int_completedSinZeta a hs).nat_add_neg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HurwitzZetaOdd",
+    "name": "hasSum_int_completedHurwitzZetaOdd",
+    "statement": "\u211d) {s : \u2102} (hs : 1 < re s) : HasSum (fun n : \u2124 \u21a6 Gamma\u211d (s + 1) * SignType.sign (n + a) / (\u2191|n + a| : \u2102) ^ s / 2) (completedHurwitzZetaOdd a s)",
+    "have_tree": [
+      {
+        "name": "h_sum",
+        "type": "Summable fun i \u21a6 \u2016c i\u2016 / |r i| ^ s.re",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "mellin_div_const .. \u25b8 hasSum_mellin_pi_mul_sq' (zero_lt_one.trans hs) hF h_sum",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HurwitzZetaOdd",
+    "name": "hasSum_int_hurwitzZetaOdd",
+    "statement": "\u211d) {s : \u2102} (hs : 1 < re s) : HasSum (fun n : \u2124 \u21a6 SignType.sign (n + a) / (\u2191|n + a| : \u2102) ^ s / 2) (hurwitzZetaOdd a s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < re (s + 1)",
+        "body": "by rw [add_re, one_re]; positivity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HurwitzZetaOdd",
+    "name": "hasSum_int_sinZeta",
+    "statement": "\u211d) {s : \u2102} (hs : 1 < re s) : HasSum (fun n : \u2124 \u21a6 -I * n.sign * cexp (2 * \u03c0 * I * a * n) / \u2191|n| ^ s / 2) (sinZeta a s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < re (s + 1)",
+        "body": "by rw [add_re, one_re]; positivity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HurwitzZetaOdd",
+    "name": "hasSum_nat_sinZeta",
+    "statement": "\u211d) {s : \u2102} (hs : 1 < re s) : HasSum (fun n : \u2115 \u21a6 Real.sin (2 * \u03c0 * a * n) / (n : \u2102) ^ s) (sinZeta a s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(hasSum_int_sinZeta a hs).nat_add_neg",
+        "children": []
+      }
+    ]
+  }
+]

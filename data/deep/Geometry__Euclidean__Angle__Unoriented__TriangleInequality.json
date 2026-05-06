@@ -1,0 +1,64 @@
+[
+  {
+    "module": "TriangleInequality",
+    "name": "mem_span_of_linear_combination",
+    "statement": "V} {kx ky kz : \u211d\u22650} (hy : ky \u2260 0) (hlincomb : ky \u2022 y = kx \u2022 x + kz \u2022 z) : y \u2208 Submodule.span \u211d\u22650 {x, z}",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "ky \u2022 y \u2208 Submodule.span \u211d\u22650 {x, z}",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_sin_xz",
+            "type": "Real.sin (angle x z) \u2260 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hnneg\u2081",
+            "type": "0 \u2264 Real.sin (angle y z) / \u2016x\u2016",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hnneg\u2082",
+            "type": "0 \u2264 Real.sin (angle x y) / \u2016z\u2016",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hnneg\u2083",
+            "type": "0 \u2264 Real.sin (angle x z) / \u2016y\u2016",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hnonzero",
+            "type": "(\u27e8Real.sin (angle x z) / \u2016y\u2016, hnneg\u2083\u27e9 : \u211d\u22650) \u2260 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h\u2081",
+            "type": "",
+            "body": "angle_expression_of_angle_eq_angle_sum (norm_normalize_eq_one_iff.mpr hx)",
+            "children": []
+          },
+          {
+            "name": "h\u2082",
+            "type": "",
+            "body": "h\u2081 hxz\u2081 h",
+            "children": []
+          },
+          {
+            "name": "h\u2083",
+            "type": "(\u27e8_, hnneg\u2083\u27e9 : \u211d\u22650) \u2022 y = (\u27e8_, hnneg\u2081\u27e9 : \u211d\u22650) \u2022 x + (\u27e8_, hnneg\u2082\u27e9 : \u211d\u22650) \u2022 z",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

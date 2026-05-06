@@ -1,0 +1,190 @@
+[
+  {
+    "module": "Basic",
+    "name": "approxBounded",
+    "statement": "MeasurableSpace \u03b1} [Norm \u03b2] [SMul \u211d \u03b2] (hf : StronglyMeasurable f) (c : \u211d) : \u2115 \u2192 SimpleFunc \u03b1 \u03b2",
+    "have_tree": [
+      {
+        "name": "h_tendsto",
+        "type": "",
+        "body": "hf.tendsto_approx x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.stronglyMeasurable_bot_iff",
+    "statement": "StronglyMeasurable[\u22a5] f \u2194 \u2203 c, f = fun _ => c",
+    "have_tree": [
+      {
+        "name": "h_tendsto",
+        "type": "Tendsto cs atTop (\ud835\udcdd (f h\u03b1.some))",
+        "body": "h_fs_tendsto h\u03b1.some",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "finStronglyMeasurable_of_set_sigmaFinite",
+    "statement": "MeasurableSpace \u03b1} {\u03bc : Measure \u03b1} (hf_meas : StronglyMeasurable f) {t : Set \u03b1} (ht : MeasurableSet t) (hft_zero : \u2200 x \u2208 t\u1d9c, f x = 0) (ht\u03bc : SigmaFinite (\u03bc.restrict t)) : FinStronglyMeasurable f \u03bc",
+    "have_tree": [
+      {
+        "name": "hS_meas",
+        "type": "\u2200 n, MeasurableSet (S n)",
+        "body": "measurableSet_spanningSets (\u03bc.restrict t)",
+        "children": [
+          {
+            "name": "h_lt_top",
+            "type": "",
+            "body": "measure_spanningSets_lt_top (\u03bc.restrict t) n",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "div",
+    "statement": "StronglyMeasurable f) (hg : StronglyMeasurable g) : StronglyMeasurable (f / g)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "MeasurableSet {x | g x \u2260 0}",
+        "body": "((MeasurableSet.singleton 0).preimage hg.measurable).compl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.Measurable.add_stronglyMeasurable",
+    "statement": "Type*} {_ : MeasurableSpace \u03b1} [AddCancelMonoid E] [TopologicalSpace E] [MeasurableSpace E] [BorelSpace E] [ContinuousAdd E] [PseudoMetrizableSpace E] {g f : \u03b1 \u2192 E} (hg : Measurable g) (hf : StronglyMeasurable f) : Measurable (g + f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Tendsto (fun n x \u21a6 g x + \u03c6 n x) atTop (\ud835\udcdd (g + f))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.Measurable.stronglyMeasurable_add",
+    "statement": "Type*} {_ : MeasurableSpace \u03b1} [AddCancelMonoid E] [TopologicalSpace E] [MeasurableSpace E] [BorelSpace E] [ContinuousAdd E] [PseudoMetrizableSpace E] {g f : \u03b1 \u2192 E} (hg : Measurable g) (hf : StronglyMeasurable f) : Measurable (f + g)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Tendsto (fun n x \u21a6 \u03c6 n x + g x) atTop (\ud835\udcdd (f + g))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isSeparable_range",
+    "statement": "MeasurableSpace \u03b1} [TopologicalSpace \u03b2] (hf : StronglyMeasurable f) : TopologicalSpace.IsSeparable (range f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsSeparable (closure (\u22c3 n, range (hf.approx n)))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.stronglyMeasurable_iff_measurable_separable",
+    "statement": "MeasurableSpace \u03b1} [TopologicalSpace \u03b2] [PseudoMetrizableSpace \u03b2] [MeasurableSpace \u03b2] [BorelSpace \u03b2] : StronglyMeasurable f \u2194 Measurable f \u2227 IsSeparable (range f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Hsep.secondCountableTopology",
+        "children": []
+      },
+      {
+        "name": "Hm'",
+        "type": "StronglyMeasurable (rangeFactorization f)",
+        "body": "Hm.subtype_mk.stronglyMeasurable",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.Embedding.comp_stronglyMeasurable_iff",
+    "statement": "MeasurableSpace \u03b1} [TopologicalSpace \u03b2] [PseudoMetrizableSpace \u03b2] [TopologicalSpace \u03b3] [PseudoMetrizableSpace \u03b3] {g : \u03b2 \u2192 \u03b3} {f : \u03b1 \u2192 \u03b2} (hg : IsEmbedding g) : (StronglyMeasurable fun x => g (f x)) \u2194 StronglyMeasurable f",
+    "have_tree": [
+      {
+        "name": "hG",
+        "type": "IsClosedEmbedding G",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Measurable (G \u2218 f)",
+        "body": "Measurable.subtype_mk H.measurable",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.stronglyMeasurable_of_tendsto",
+    "statement": "Type*} {m : MeasurableSpace \u03b1} [TopologicalSpace \u03b2] [PseudoMetrizableSpace \u03b2] (u : Filter \u03b9) [NeBot u] [IsCountablyGenerated u] {f : \u03b9 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 i, StronglyMeasurable (f i)) (lim : Tendsto f u (\ud835\udcdd g)) : StronglyMeasurable g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsSeparable (closure (\u22c3 i, range (f (v i))))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "stronglyMeasurable_of_measurableSpace_le_on",
+    "statement": "MeasurableSpace \u03b1} [TopologicalSpace E] [Zero E] {s : Set \u03b1} {f : \u03b1 \u2192 E} (hs_m : MeasurableSet[m] s) (hs : \u2200 t, MeasurableSet[m] (s \u2229 t) \u2192 MeasurableSet[m\u2082] (s \u2229 t)) (hf : StronglyMeasurable[m] f) (hf_zero : \u2200 x \u2209 s, f x = 0) : StronglyMeasurable[m\u2082] f",
+    "have_tree": [
+      {
+        "name": "hs_m\u2082",
+        "type": "MeasurableSet[m\u2082] s",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_spanning_measurableSet_norm_le",
+    "statement": "MeasurableSpace \u03b1} (hm : m \u2264 m0) (hf : StronglyMeasurable[m] f) (\u03bc : Measure \u03b1) [SigmaFinite (\u03bc.trim hm)] : \u2203 s : \u2115 \u2192 Set \u03b1, (\u2200 n, MeasurableSet[m] (s n) \u2227 \u03bc (s n) < \u221e \u2227 \u2200 x \u2208 s n, \u2016f x\u2016 \u2264 n) \u2227 \u22c3 i, s i = Set.univ",
+    "have_tree": [
+      {
+        "name": "hx_nnnorm",
+        "type": "\u2016f x\u2016\u208a \u2264 n",
+        "body": "(hs n).2.2 x hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_set_sigmaFinite",
+    "statement": "FinStronglyMeasurable f \u03bc) : \u2203 t, MeasurableSet t \u2227 (\u2200 x \u2208 t\u1d9c, f x = 0) \u2227 SigmaFinite (\u03bc.restrict t)",
+    "have_tree": [
+      {
+        "name": "hT_meas",
+        "type": "\u2200 n, MeasurableSet (T n)",
+        "body": "fun n => SimpleFunc.measurableSet_support (fs n)",
+        "children": []
+      }
+    ]
+  }
+]

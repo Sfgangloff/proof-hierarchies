@@ -1,0 +1,270 @@
+[
+  {
+    "module": "BoundedVariation",
+    "name": "edist_le",
+    "statement": "\u03b1 \u2192 E) {s : Set \u03b1} {x y : \u03b1} (hx : x \u2208 s) (hy : y \u2208 s) : edist (f x) (f y) \u2264 eVariationOn f s",
+    "have_tree": [
+      {
+        "name": "hu",
+        "type": "Monotone u",
+        "body": "monotone_nat_of_le_succ fun",
+        "children": []
+      },
+      {
+        "name": "us",
+        "type": "\u2200 i, u i \u2208 s",
+        "body": "fun",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "add_point",
+    "statement": "\u03b1 \u2192 E) {s : Set \u03b1} {x : \u03b1} (hx : x \u2208 s) (u : \u2115 \u2192 \u03b1) (hu : Monotone u) (us : \u2200 i, u i \u2208 s) (n : \u2115) : \u2203 (v : \u2115 \u2192 \u03b1) (m : \u2115), Monotone v \u2227 (\u2200 i, v i \u2208 s) \u2227 x \u2208 v '' Iio m \u2227 (\u2211 i \u2208 Finset.range n, edist (f (u (i + 1))) (f (u i))) \u2264 \u2211 j \u2208 Finset.range m, edist (f (v (j + 1))) (f (v j))",
+    "have_tree": [
+      {
+        "name": "exists_N",
+        "type": "\u2203 N, N \u2264 n \u2227 x < u N",
+        "body": "\u27e8n, le_rfl, h\u27e9",
+        "children": []
+      },
+      {
+        "name": "hN",
+        "type": "N \u2264 n \u2227 x < u N",
+        "body": "Nat.find_spec exists_N",
+        "children": []
+      },
+      {
+        "name": "hw",
+        "type": "Monotone w",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Nat.find_min exists_N A",
+            "children": [
+              {
+                "name": "B",
+                "type": "N - 1 + 1 < N + 1",
+                "body": "A.symm \u25b8 N.lt_succ_self",
+                "children": []
+              },
+              {
+                "name": "C",
+                "type": "N - 1 < N + 1",
+                "body": "lt_of_le_of_lt N.pred_le N.lt_succ_self",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "Icc_add_Icc",
+    "statement": "\u03b1 \u2192 E) {s : Set \u03b1} {a b c : \u03b1} (hab : a \u2264 b) (hbc : b \u2264 c) (hb : b \u2208 s) : eVariationOn f (s \u2229 Icc a b) + eVariationOn f (s \u2229 Icc b c) = eVariationOn f (s \u2229 Icc a c)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "IsGreatest (s \u2229 Icc a b) b",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "IsLeast (s \u2229 Icc b c) b",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "comp_eq_of_monotoneOn",
+    "statement": "\u03b1 \u2192 E) {t : Set \u03b2} (\u03c6 : \u03b2 \u2192 \u03b1) (h\u03c6 : MonotoneOn \u03c6 t) : eVariationOn (f \u2218 \u03c6) t = eVariationOn f (\u03c6 '' t)",
+    "have_tree": [
+      {
+        "name": "\u03c8\u03c6s",
+        "type": "EqOn (\u03c6 \u2218 \u03c8) id (\u03c6 '' t)",
+        "body": "(surjOn_image \u03c6 t).rightInvOn_invFunOn",
+        "children": []
+      },
+      {
+        "name": "\u03c8ts",
+        "type": "MapsTo \u03c8 (\u03c6 '' t) t",
+        "body": "(surjOn_image \u03c6 t).mapsTo_invFunOn",
+        "children": []
+      },
+      {
+        "name": "h\u03c8",
+        "type": "MonotoneOn \u03c8 (\u03c6 '' t)",
+        "body": "Function.monotoneOn_of_rightInvOn_of_mapsTo h\u03c6 \u03c8\u03c6s \u03c8ts",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "comp_eq_of_antitoneOn",
+    "statement": "\u03b1 \u2192 E) {t : Set \u03b2} (\u03c6 : \u03b2 \u2192 \u03b1) (h\u03c6 : AntitoneOn \u03c6 t) : eVariationOn (f \u2218 \u03c6) t = eVariationOn f (\u03c6 '' t)",
+    "have_tree": [
+      {
+        "name": "\u03c8\u03c6s",
+        "type": "EqOn (\u03c6 \u2218 \u03c8) id (\u03c6 '' t)",
+        "body": "(surjOn_image \u03c6 t).rightInvOn_invFunOn",
+        "children": []
+      },
+      {
+        "name": "\u03c8ts",
+        "type": "",
+        "body": "(surjOn_image \u03c6 t).mapsTo_invFunOn",
+        "children": []
+      },
+      {
+        "name": "h\u03c8",
+        "type": "AntitoneOn \u03c8 (\u03c6 '' t)",
+        "body": "Function.antitoneOn_of_rightInvOn_of_mapsTo h\u03c6 \u03c8\u03c6s \u03c8ts",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "eVariationOn_inter_Iio_eq_inter_Iic_of_continuousWithinAt",
+    "statement": "\u03b1 \u2192 E} {s : Set \u03b1} {a : \u03b1} (h : (\ud835\udcdd[s \u2229 Iio a] a).NeBot) (h' : ContinuousWithinAt f (s \u2229 Iic a) a) : eVariationOn f (s \u2229 Iio a) = eVariationOn f (s \u2229 Iic a)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "u n \u2264 a",
+        "body": "(u_mem n (by simp)).2",
+        "children": [
+          {
+            "name": "_",
+            "type": "s \u2229 Ioo (u n) (u (n + 1)) \u2208 \ud835\udcdd[s \u2229 Iio a] a",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "exists_lt_eVariationOn_inter_Icc",
+    "statement": "\u03b1 \u2192 E} {\u03b5 : \u211d\u22650\u221e} {s : Set \u03b1} (h : \u03b5 < eVariationOn f s) : \u2203 a \u2208 s, \u2203 b \u2208 s, a < b \u2227 \u03b5 < eVariationOn f (s \u2229 Icc a b)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u03b5 < eVariationOn f (s \u2229 Icc (u 0) (u n))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Set.Subsingleton (s \u2229 Icc (u 0) (u n))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "_root_.BoundedVariationOn.tendsto_eVariationOn_Ici_zero_of_filter",
+    "statement": "\u03b1 \u2192 E} {s : Set \u03b1} (hf : BoundedVariationOn f s) (L : Filter \u03b1) (hL : \u2200 y \u2208 s, s \u2229 Ici y \u2208 L) : Tendsto (fun y \u21a6 eVariationOn f (s \u2229 Ici y)) L (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u221e \u2264 eVariationOn f s",
+        "body": "le_of_tendsto this (Eventually.of_forall J)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "_root_.BoundedVariationOn.exists_tendsto_left_of_filter",
+    "statement": "\u03b1 \u2192 E} {s : Set \u03b1} (hf : BoundedVariationOn f s) (L : Filter \u03b1) (hL : \u2200 y \u2208 s, s \u2229 Ici y \u2208 L) (hs : s.Nonempty) : \u2203 l, Tendsto f L (\ud835\udcdd l)",
+    "have_tree": [
+      {
+        "name": "W",
+        "type": "",
+        "body": "hf.tendsto_eVariationOn_Ici_zero_of_filter L hL",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "_root_.BoundedVariationOn.tendsto_eVariationOn_Ico_zero",
+    "statement": "\u03b1 \u2192 E} {s : Set \u03b1} (hf : BoundedVariationOn f s) (x : \u03b1) : Tendsto (fun y \u21a6 eVariationOn f (s \u2229 Ico y x)) (\ud835\udcdd[s] x) (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "Tendsto (fun y \u21a6 eVariationOn f (s \u2229 Ico y x)) (\ud835\udcdd[s \u2229 Iio x] x) (\ud835\udcdd 0)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "Tendsto (fun y \u21a6 eVariationOn f (s \u2229 Ico y x)) (\ud835\udcdd[s \u2229 Ici x] x) (\ud835\udcdd 0)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "_root_.BoundedVariationOn.tendsto_eVariationOn_Icc_zero_left",
+    "statement": "\u03b1 \u2192 E} {s : Set \u03b1} (hf : BoundedVariationOn f s) {x : \u03b1} (h : ContinuousWithinAt f (s \u2229 Iic x) x) : Tendsto (fun y \u21a6 eVariationOn f (s \u2229 Icc y x)) (\ud835\udcdd[s] x) (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "W",
+        "type": "",
+        "body": "eVariationOn_inter_Iio_eq_inter_Iic_of_continuousWithinAt (f := f)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "eVariationOn_le_of_mapClusterPt",
+    "statement": "\u03b1 \u2192 E} {s : Set \u03b1} (hg : \u2200 x \u2208 s, MapClusterPt (g x) (\ud835\udcdd[s] x) f) : eVariationOn g s \u2264 eVariationOn f s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b1",
+        "body": "\u27e8u 0\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "c < \u2211 i \u2208 Finset.range n, edist (f (v (i + 1))) (f (v i))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "v_mono",
+        "type": "StrictMonoOn v (Iic n)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BoundedVariation",
+    "name": "_root_.BoundedVariationOn.continuousWithinAt_leftLim",
+    "statement": "\u03b1 \u2192 E} (hf : BoundedVariationOn f univ) {x : \u03b1} : ContinuousWithinAt f.leftLim (Iic x) x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Tendsto f.leftLim (\ud835\udcdd[<] x) (\ud835\udcdd (f.leftLim.leftLim x))",
+        "body": "hf.leftLim.tendsto_leftLim x",
+        "children": []
+      }
+    ]
+  }
+]

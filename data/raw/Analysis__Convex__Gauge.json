@@ -1,0 +1,117 @@
+[
+  {
+    "module": "Gauge",
+    "name": "gauge_neg",
+    "statement": "\u2200 x \u2208 s, -x \u2208 s) (x : E) : gauge s (-x) = gauge s x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 x, -x \u2208 s \u2194 x \u2208 s",
+        "body": "fun x => \u27e8fun h => by simpa using symmetric _ h, symmetric x\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gauge",
+    "name": "le_gauge_of_notMem",
+    "statement": "StarConvex \u211d 0 s) (hs\u2082 : Absorbs \u211d s {x}) (hx : x \u2209 a \u2022 s) : a \u2264 gauge s x",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "",
+        "body": "hb.trans hba",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gauge",
+    "name": "gauge_smul_of_nonneg",
+    "statement": "Set E} {a : \u03b1} (ha : 0 \u2264 a) (x : E) : gauge s (a \u2022 x) = a \u2022 gauge s x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "smul_pos (inv_pos.2 ha') hr",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "smul_pos ha' hr",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gauge",
+    "name": "comap_gauge_nhds_zero_le",
+    "statement": "Absorbent \u211d s) (hb : Bornology.IsVonNBounded \u211d s) : comap (gauge s) (\ud835\udcdd 0) \u2264 \ud835\udcdd 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "{x}\u1d9c \u2208 comap (gauge s) (\ud835\udcdd 0)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gauge",
+    "name": "gauge_lt_of_mem_smul",
+    "statement": "E) (\u03b5 : \u211d) (h\u03b5 : 0 < \u03b5) (hs\u2082 : IsOpen s) (hx : x \u2208 \u03b5 \u2022 s) : gauge s x < \u03b5",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u03b5\u207b\u00b9 \u2022 x \u2208 s",
+        "body": "by rwa [\u2190 mem_smul_set_iff_inv_smul_mem\u2080 h\u03b5.ne']",
+        "children": []
+      },
+      {
+        "name": "h_gauge_lt",
+        "type": "",
+        "body": "gauge_lt_one_of_mem_of_isOpen hs\u2082 this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gauge",
+    "name": "continuousAt_gauge",
+    "statement": "Convex \u211d s) (hs\u2080 : s \u2208 \ud835\udcdd 0) : ContinuousAt (gauge s) x",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "Absorbent \u211d s",
+        "body": "absorbent_nhds_zero hs\u2080",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u03b5 \u2022 s \u2229 -(\u03b5 \u2022 s) \u2208 \ud835\udcdd 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gauge",
+    "name": "Seminorm.gauge_ball",
+    "statement": "Seminorm \u211d E) : gauge (p.ball 0 1) = p",
+    "have_tree": [
+      {
+        "name": "hpx",
+        "type": "0 < p x",
+        "body": "(apply_nonneg _ _).lt_of_ne h",
+        "children": []
+      },
+      {
+        "name": "hpx\u2082",
+        "type": "0 < 2 * p x",
+        "body": "mul_pos zero_lt_two hpx",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,169 @@
+[
+  {
+    "module": "SpectralNorm",
+    "name": "norm_root_le_spectralValue",
+    "statement": "AlgebraNorm K L} (hf_pm : IsPowMul f) (hf_na : IsNonarchimedean f) {p : K[X]} (hp : p.Monic) {x : L} (hx : aeval x p = 0) : f x \u2264 spectralValue p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2115) (hn : n < p.natDegree) : \u2016p.coeff n\u2016 < f x ^ (p.natDegree - n)",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_base",
+            "type": "\u2016p.coeff n\u2016 ^ (1 / (p.natDegree - n : \u211d)) < f x",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_deg",
+        "type": "0 < p.natDegree",
+        "body": "natDegree_pos_of_monic_of_aeval_eq_zero hp hx",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2115) (hn : n < p.natDegree) : f (p.coeff n \u2022 x ^ n) < f (x ^ p.natDegree)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h0",
+        "type": "f 0 \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_eq",
+            "type": "f 0 = f (x ^ p.natDegree)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "SpectralNorm",
+    "name": "max_norm_root_eq_spectralValue",
+    "statement": "AlgebraNorm K L} (hf_pm : IsPowMul f) (hf_na : IsNonarchimedean f) (hf1 : f 1 = 1) (p : K[X]) (s : Multiset L) (hp : mapAlg K L p = (map (fun a : L \u21a6 X - C a) s).prod) : (\u2a06 x : L, if x \u2208 s then f x else 0) = spectralValue p",
+    "have_tree": [
+      {
+        "name": "h_le",
+        "type": "0 \u2264 \u2a06 x : L, ite (x \u2208 s) (f x) 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "0 < (p.natDegree - m : \u211d)",
+            "body": "by rw [sub_pos, Nat.cast_lt]; exact hm",
+            "children": []
+          },
+          {
+            "name": "hps",
+            "type": "card s = p.natDegree",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hc",
+            "type": "\u2016p.coeff m\u2016 = f (((mapAlg K L) p).coeff m)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h",
+            "type": "f ((-1) ^ (card s - m) * s.esymm (card s - m)) = f (s.esymm (card s - m))",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h_pr",
+            "type": "f t.prod \u2264 (t.map f).prod",
+            "body": "le_prod_of_submultiplicative_of_nonneg f",
+            "children": []
+          },
+          {
+            "name": "hs_ne",
+            "type": "s \u2260 0",
+            "body": "",
+            "children": [
+              {
+                "name": "hpos",
+                "type": "0 < s.toFinset.card",
+                "body": "by",
+                "children": [
+                  {
+                    "name": "hs0",
+                    "type": "0 < s.card",
+                    "body": "hps \u25b8 lt_of_le_of_lt (zero_le _) hm",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "(map f t).prod \u2264 f y ^ (p.natDegree - m)",
+            "body": "by",
+            "children": [
+              {
+                "name": "h_card",
+                "type": "p.natDegree - m = card (t.map g)",
+                "body": "by rw [card_map, ht_card, \u2190 hps]",
+                "children": []
+              },
+              {
+                "name": "hx_le",
+                "type": "\u2200 x : NNReal, x \u2208 map g t \u2192 x \u2264 g y",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "(map g t).prod \u2264 g y ^ (p.natDegree - m)",
+                "body": "h_card \u25b8 prod_le_pow_card _ _ hx_le",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "h_bdd",
+            "type": "BddAbove (Set.range fun x : L \u21a6 ite (x \u2208 s) (f x) 0)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "SpectralNorm",
+    "name": "spectralNorm_eq_iSup_of_finiteDimensional_normal",
+    "statement": "AlgebraNorm K L} (hf_pm : IsPowMul f) (hf_na : IsNonarchimedean f) (hf_ext : \u2200 (x : K), f (algebraMap K L x) = \u2016x\u2016) (x : L) : spectralNorm K L x = \u2a06 \u03c3 : Gal(L/K), f (\u03c3 x)",
+    "have_tree": [
+      {
+        "name": "hf1",
+        "type": "f 1 = 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "hp_sp",
+            "type": "Splits ((minpoly K x).map (algebraMap K L))",
+            "body": "hn.splits x",
+            "children": []
+          },
+          {
+            "name": "h_lc",
+            "type": "(algebraMap K L) (minpoly K x).leadingCoeff = 1",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,192 @@
+[
+  {
+    "module": "FloorPow",
+    "name": "tendsto_div_of_monotone_of_exists_subseq_tendsto_div",
+    "statement": "\u2115 \u2192 \u211d) (l : \u211d) (hmono : Monotone u) (hlim : \u2200 a : \u211d, 1 < a \u2192 \u2203 c : \u2115 \u2192 \u2115, (\u2200\u1da0 n in atTop, (c (n + 1) : \u211d) \u2264 a * c n) \u2227 Tendsto c atTop atTop \u2227 Tendsto (fun n => u (c n) / c n) atTop (\ud835\udcdd l)) : Tendsto (fun n => u n / n) atTop (\ud835\udcdd l)",
+    "have_tree": [
+      {
+        "name": "lnonneg",
+        "type": "0 \u2264 l",
+        "body": "by",
+        "children": [
+          {
+            "name": "L",
+            "type": "\u2200\u1da0 n in atTop, u (c n) - c n * l \u2264 \u03b5 * c n",
+            "body": "by",
+            "children": [
+              {
+                "name": "cnpos",
+                "type": "0 < c n",
+                "body": "cnpos'",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "exN",
+            "type": "\u2203 N, n < c N",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "ncN",
+            "type": "n < c N",
+            "body": "Nat.find_spec exN",
+            "children": []
+          },
+          {
+            "name": "aN",
+            "type": "a + 1 \u2264 N",
+            "body": "by",
+            "children": [
+              {
+                "name": "cNM",
+                "type": "c N \u2264 M",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Npos",
+            "type": "0 < N",
+            "body": "lt_of_lt_of_le Nat.succ_pos' aN",
+            "children": []
+          },
+          {
+            "name": "cNn",
+            "type": "c (N - 1) \u2264 n",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "N - 1 < N",
+                "body": "Nat.pred_lt Npos.ne'",
+                "children": []
+              },
+              {
+                "name": "A",
+                "type": "a \u2264 N - 1",
+                "body": "(Nat.le_sub_one_iff_lt Npos).mpr aN",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "",
+                "body": "(ha _ A).1",
+                "children": []
+              },
+              {
+                "name": "cnpos",
+                "type": "0 < c n",
+                "body": "cnpos'",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "exN",
+            "type": "\u2203 N, n < c N",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "ncN",
+            "type": "n < c N",
+            "body": "Nat.find_spec exN",
+            "children": []
+          },
+          {
+            "name": "aN",
+            "type": "a + 1 \u2264 N",
+            "body": "by",
+            "children": [
+              {
+                "name": "cNM",
+                "type": "c N \u2264 M",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Npos",
+            "type": "0 < N",
+            "body": "lt_of_lt_of_le Nat.succ_pos' aN",
+            "children": []
+          },
+          {
+            "name": "aN'",
+            "type": "a \u2264 N - 1",
+            "body": "(Nat.le_sub_one_iff_lt Npos).mpr aN",
+            "children": []
+          },
+          {
+            "name": "cNn",
+            "type": "c (N - 1) \u2264 n",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "N - 1 < N",
+                "body": "Nat.pred_lt Npos.ne'",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "FloorPow",
+    "name": "sum_div_pow_sq_le_div_sq",
+    "statement": "\u2115) {j : \u211d} (hj : 0 < j) {c : \u211d} (hc : 1 < c) : (\u2211 i \u2208 range N with j < c ^ i, (1 : \u211d) / (c ^ i) ^ 2) \u2264 c ^ 3 * (c - 1)\u207b\u00b9 / j ^ 2",
+    "have_tree": [
+      {
+        "name": "cpos",
+        "type": "0 < c",
+        "body": "zero_lt_one.trans hc",
+        "children": []
+      },
+      {
+        "name": "C",
+        "type": "c\u207b\u00b9 ^ 2 < 1",
+        "body": "pow_lt_one\u2080 (inv_nonneg.2 cpos.le) (inv_lt_one_of_one_lt\u2080 hc) two_ne_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FloorPow",
+    "name": "mul_pow_le_nat_floor_pow",
+    "statement": "\u211d} (hc : 1 < c) (i : \u2115) : (1 - c\u207b\u00b9) * c ^ i \u2264 \u230ac ^ i\u230b\u208a",
+    "have_tree": [
+      {
+        "name": "cpos",
+        "type": "0 < c",
+        "body": "zero_lt_one.trans hc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FloorPow",
+    "name": "sum_div_nat_floor_pow_sq_le_div_sq",
+    "statement": "\u2115) {j : \u211d} (hj : 0 < j) {c : \u211d} (hc : 1 < c) : (\u2211 i \u2208 range N with j < \u230ac ^ i\u230b\u208a, (1 : \u211d) / (\u230ac ^ i\u230b\u208a : \u211d) ^ 2) \u2264 c ^ 5 * (c - 1)\u207b\u00b9 ^ 3 / j ^ 2",
+    "have_tree": [
+      {
+        "name": "cpos",
+        "type": "0 < c",
+        "body": "zero_lt_one.trans hc",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "0 < 1 - c\u207b\u00b9",
+        "body": "sub_pos.2 (inv_lt_one_of_one_lt\u2080 hc)",
+        "children": []
+      }
+    ]
+  }
+]

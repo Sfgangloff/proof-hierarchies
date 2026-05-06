@@ -1,0 +1,53 @@
+[
+  {
+    "module": "Equipartition",
+    "name": "IsEquipartition.card_part_eq_average_iff",
+    "statement": "P.IsEquipartition) (ht : t \u2208 P.parts) : #t = #s / #P.parts \u2194 #t \u2260 #s / #P.parts + 1",
+    "have_tree": [
+      {
+        "name": "a",
+        "type": "",
+        "body": "hP.card_parts_eq_average ht",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Equipartition",
+    "name": "IsEquipartition.card_large_parts_eq_mod",
+    "statement": "P.IsEquipartition) : #{p \u2208 P.parts | #p = #s / #P.parts + 1} = #s % #P.parts",
+    "have_tree": [
+      {
+        "name": "z",
+        "type": "",
+        "body": "P.sum_card_parts",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Equipartition",
+    "name": "IsEquipartition.exists_partPreservingEquiv",
+    "statement": "P.IsEquipartition) : \u2203 f : s \u2243 Fin #s, \u2200 a b : s, P.part a = P.part b \u2194 f a % #P.parts = f b % #P.parts",
+    "have_tree": [
+      {
+        "name": "gl",
+        "type": "",
+        "body": "fun a \u21a6 (g (f a).1).2",
+        "children": []
+      },
+      {
+        "name": "less",
+        "type": "\u2200 a, z a < #s",
+        "body": "fun a \u21a6 by",
+        "children": []
+      },
+      {
+        "name": "bij",
+        "type": "z'.Bijective",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

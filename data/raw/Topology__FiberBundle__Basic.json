@@ -1,0 +1,90 @@
+[
+  {
+    "module": "Basic",
+    "name": "FiberBundle.exists_trivialization_Icc_subset",
+    "statement": "B) : \u2203 e : Trivialization F (\u03c0 F E), Icc a b \u2286 e.baseSet",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "a \u2208 s",
+        "body": "\u27e8left_mem_Icc.2 hab, ea, by simp [hea]\u27e9",
+        "children": []
+      },
+      {
+        "name": "sne",
+        "type": "s.Nonempty",
+        "body": "\u27e8a, ha\u27e9",
+        "children": []
+      },
+      {
+        "name": "hsb",
+        "type": "b \u2208 upperBounds s",
+        "body": "fun x hx => hx.1.2",
+        "children": []
+      },
+      {
+        "name": "sbd",
+        "type": "BddAbove s",
+        "body": "\u27e8b, hsb\u27e9",
+        "children": []
+      },
+      {
+        "name": "hsc",
+        "type": "IsLUB s c",
+        "body": "isLUB_csSup sne sbd",
+        "children": []
+      },
+      {
+        "name": "hc",
+        "type": "c \u2208 Icc a b",
+        "body": "\u27e8hsc.1 ha, hsc.2 hsb\u27e9",
+        "children": []
+      },
+      {
+        "name": "had",
+        "type": "Ico a d \u2286 ec.baseSet",
+        "body": "Ico_subset_Icc_union_Ico.trans (union_subset hec hd)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "localTriv",
+    "statement": "\u03b9) : Trivialization F Z.proj where baseSet",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsOpen (f.source \u2229 f \u207b\u00b9' s)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "continuous_const_section",
+    "statement": "F) (h : \u2200 i j, \u2200 x \u2208 Z.baseSet i \u2229 Z.baseSet j, Z.coordChange i j x v = v) : Continuous (show B \u2192 Z.TotalSpace from fun x => \u27e8x, v\u27e9)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "Z.baseSet (Z.indexAt x) \u2208 \ud835\udcdd x",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "trivializationOfMemPretrivializationAtlas",
+    "statement": "e \u2208 a.pretrivializationAtlas) : @Trivialization B F _ _ _ a.totalSpaceTopology (\u03c0 F E)",
+    "have_tree": [
+      {
+        "name": "hu3",
+        "type": "",
+        "body": "congr_arg (fun s => (fun x : e'.target => (x : B \u00d7 F)) \u207b\u00b9' s) hu2",
+        "children": []
+      }
+    ]
+  }
+]

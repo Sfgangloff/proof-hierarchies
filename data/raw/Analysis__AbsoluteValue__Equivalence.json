@@ -1,0 +1,105 @@
+[
+  {
+    "module": "Equivalence",
+    "name": "exists_one_lt_lt_one_pi_of_eq_one",
+    "statement": "1 < v i a) (haj : \u2200 j \u2260 i, v j a < 1) (haw : w a = 1) (hb : 1 < v i b) (hbw : w b < 1) : \u2203 k : R, 1 < v i k \u2227 (\u2200 j \u2260 i, v j k < 1) \u2227 w k < 1",
+    "have_tree": [
+      {
+        "name": "hc\u1d62",
+        "type": "Tendsto (fun n \u21a6 (v i) (c n)) atTop atTop",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Equivalence",
+    "name": "exists_one_lt_lt_one_pi_of_one_lt",
+    "statement": "1 < v i a) (haj : \u2200 j \u2260 i, v j a < 1) (haw : 1 < w a) (hb : 1 < v i b) (hbw : w b < 1) : \u2203 k : R, 1 < v i k \u2227 (\u2200 j \u2260 i, v j k < 1) \u2227 w k < 1",
+    "have_tree": [
+      {
+        "name": "hc\u1d62",
+        "type": "Tendsto (fun n \u21a6 v i (c n)) atTop (\ud835\udcdd (v i b))",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "v i a\u207b\u00b9 < 1",
+            "body": "map_inv\u2080 (v i) a \u25b8 inv_lt_one_of_one_lt\u2080 ha",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "1 < v j a\u207b\u00b9",
+            "body": "map_inv\u2080 (v j) _ \u25b8",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hc\u2099",
+        "type": "atTop.Tendsto (fun n \u21a6 w (c n)) (\ud835\udcdd (w b))",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "w a\u207b\u00b9 < 1",
+            "body": "map_inv\u2080 w _ \u25b8 inv_lt_one_of_one_lt\u2080 haw",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Equivalence",
+    "name": "exists_one_lt_lt_one_pi_of_not_isEquiv",
+    "statement": "\u2200 i, (v i).IsNontrivial) (hv : Pairwise fun i j \u21a6 \u00ac(v i).IsEquiv (v j)) : \u2200 i, \u2203 (a : R), 1 < v i a \u2227 \u2200 j \u2260 i, v j a < 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": [
+          {
+            "name": "hlt",
+            "type": "2 < card \u03b9",
+            "body": "Nat.lt_of_le_of_ne (one_lt_card_iff_nontrivial.2 \u2039_\u203a) hc.symm",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Equivalence",
+    "name": "IsEquiv.log_div_log_eq_log_div_log",
+    "statement": "v.IsEquiv w) {a : F} (ha\u2080 : a \u2260 0) (ha\u2081 : v a \u2260 1) {b : F} (hb\u2080 : b \u2260 0) (hb\u2081 : v b \u2260 1) : (v b).log / (w b).log = (v a).log / (w a).log",
+    "have_tree": [
+      {
+        "name": "hwa",
+        "type": "",
+        "body": "h.one_lt_iff.1 ha",
+        "children": []
+      },
+      {
+        "name": "hwb",
+        "type": "",
+        "body": "h.one_lt_iff.1 hb",
+        "children": []
+      }
+    ]
+  }
+]

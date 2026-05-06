@@ -1,0 +1,144 @@
+[
+  {
+    "module": "CosetCover",
+    "name": "exists_leftTransversal_of_FiniteIndex",
+    "statement": "Subgroup G} [D.FiniteIndex] (hD_le_H : D \u2264 H) : \u2203 t : Finset H, IsComplement (t : Set H) (D.subgroupOf H) \u2227 \u22c3 g \u2208 t, (g : G) \u2022 (D : Set G) = H",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "t.Finite",
+        "body": "ht.1.finite_left_iff.mpr inferInstance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CosetCover",
+    "name": "finiteIndex_of_leftCoset_cover_const",
+    "statement": "H.FiniteIndex",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Set.finite_univ_iff.mp <| Set.Finite.of_surjOn _ hcovers s.finite_toSet",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CosetCover",
+    "name": "pairwiseDisjoint_leftCoset_cover_const_of_index_eq",
+    "statement": "H.index = s.card) : Set.PairwiseDisjoint s (g \u00b7 \u2022 (H : Set G))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype (G \u29f8 H)",
+        "body": "fintypeOfIndexNeZero fun h => by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CosetCover",
+    "name": "exists_finiteIndex_of_leftCoset_cover_aux",
+    "statement": "\u03b9) (hj : j \u2208 s) (hcovers' : \u22c3 i \u2208 s.filter (H \u00b7 = H j), g i \u2022 (H i : Set G) \u2260 Set.univ) : \u2203 i \u2208 s, H i \u2260 H j \u2227 (H i).FiniteIndex",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Finset.mem_filter.mp k.1.property",
+        "children": []
+      },
+      {
+        "name": "hn'",
+        "type": "(Finset.univ.image K).card < n",
+        "body": "hn \u25b8 by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CosetCover",
+    "name": "leftCoset_cover_filter_FiniteIndex_aux",
+    "statement": "Subgroup G \u2192 Prop)] : (\u22c3 k \u2208 s.filter (fun i => (H i).FiniteIndex), g k \u2022 (H k : Set G) = Set.univ) \u2227 (1 \u2264 \u2211 i \u2208 s, ((H i).index : \u211a)\u207b\u00b9) \u2227 (\u2211 i \u2208 s, ((H i).index : \u211a)\u207b\u00b9 = 1 \u2192 Set.PairwiseDisjoint (s.filter (fun i => (H i).FiniteIndex)) (fun i \u21a6 g i \u2022 (H i : Set G)))",
+    "have_tree": [
+      {
+        "name": "hD",
+        "type": "D.FiniteIndex",
+        "body": "finiteIndex_iInf' _ <| by simp",
+        "children": [
+          {
+            "name": "hdisjoint",
+            "type": "",
+            "body": "pairwiseDisjoint_leftCoset_cover_const_of_index_eq hcovers' h.symm",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "CosetCover",
+    "name": "one_le_sum_inv_index_of_leftCoset_cover",
+    "statement": "1 \u2264 \u2211 i \u2208 s, ((H i).index : \u211a)\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Classical.decPred (FiniteIndex : Subgroup G \u2192 Prop)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CosetCover",
+    "name": "exists_index_le_card_of_leftCoset_cover",
+    "statement": "\u2203 i \u2208 s, (H i).FiniteIndex \u2227 (H i).index \u2264 s.card",
+    "have_tree": [
+      {
+        "name": "hs'",
+        "type": "0 < s.card",
+        "body": "hs.card_pos",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CosetCover",
+    "name": "Subspace.biUnion_ne_univ_of_top_notMem",
+    "statement": "\u22a4 \u2209 s) : \u22c3 p \u2208 s, (p : Set E) \u2260 Set.univ",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite (E \u29f8 p)",
+        "body": "AddSubgroup.finite_quotient_of_finiteIndex",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nontrivial (E \u29f8 p)",
+        "body": "Submodule.Quotient.nontrivial_iff.mpr (ne_of_mem_of_not_mem hp hs)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Infinite (E \u29f8 p)",
+        "body": "Module.Free.infinite k (E \u29f8 p)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CosetCover",
+    "name": "Subspace.exists_eq_top_of_iUnion_eq_univ",
+    "statement": "\u03b9 \u2192 Subspace k E} (hcovers : \u22c3 i, (p i : Set E) = Set.univ) : \u2203 i, p i = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite (Set.range p)",
+        "children": []
+      }
+    ]
+  }
+]

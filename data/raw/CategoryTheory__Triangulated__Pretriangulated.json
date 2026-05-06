@@ -1,0 +1,284 @@
+[
+  {
+    "module": "Pretriangulated",
+    "name": "comp_distTriang_mor_zero\u2083\u2081",
+    "statement": "Triangle C) (H : T \u2208 distTriang C) : T.mor\u2083 \u226b T.mor\u2081\u27e61\u27e7' = 0",
+    "have_tree": [
+      {
+        "name": "H\u2082",
+        "type": "",
+        "body": "rot_of_distTriang T.rotate (rot_of_distTriang T H)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pretriangulated",
+    "name": "mor\u2082_eq_zero_iff_epi\u2081",
+    "statement": "T.mor\u2082 = 0 \u2194 Epi T.mor\u2081",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "mor\u2083_eq_zero_iff_epi\u2082 _ (inv_rot_of_distTriang _ hT)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pretriangulated",
+    "name": "mor\u2081_eq_zero_iff_epi\u2083",
+    "statement": "T.mor\u2081 = 0 \u2194 Epi T.mor\u2083",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "mor\u2083_eq_zero_iff_epi\u2082 _ (rot_of_distTriang _ hT)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pretriangulated",
+    "name": "mor\u2083_eq_zero_iff_mono\u2081",
+    "statement": "T.mor\u2083 = 0 \u2194 Mono T.mor\u2081",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "mor\u2081_eq_zero_iff_mono\u2082 _ (inv_rot_of_distTriang _ hT)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pretriangulated",
+    "name": "isZero\u2081_iff_isIso\u2082",
+    "statement": "IsZero T.obj\u2081 \u2194 IsIso T.mor\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "T.epi\u2082 hT h\u2083",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pretriangulated",
+    "name": "isZero\u2081_of_isIso\u2082",
+    "statement": "IsIso T.mor\u2082) : IsZero T.obj\u2081",
+    "have_tree": [
+      {
+        "name": "H_zero",
+        "type": "H 0",
+        "body": "fun T hT =>",
+        "children": []
+      },
+      {
+        "name": "H_one",
+        "type": "H 1",
+        "body": "fun T hT =>",
+        "children": []
+      },
+      {
+        "name": "H_neg_one",
+        "type": "H (-1)",
+        "body": "fun T hT =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pretriangulated",
+    "name": "isIso\u2082_of_isIso\u2081\u2083",
+    "statement": "Triangle C} (\u03c6 : T \u27f6 T') (hT : T \u2208 distTriang C) (hT' : T' \u2208 distTriang C) (h\u2081 : IsIso \u03c6.hom\u2081) (h\u2083 : IsIso \u03c6.hom\u2083) : IsIso \u03c6.hom\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Mono \u03c6.hom\u2082",
+        "body": "by",
+        "children": [
+          {
+            "name": "eq",
+            "type": "",
+            "body": "((invRotate C).map \u03c6).comm\u2081",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Pretriangulated",
+    "name": "binaryBiproductData",
+    "statement": "Triangle C) (hT : T \u2208 distTriang C) (hT\u2080 : T.mor\u2083 = 0) (inr : T.obj\u2083 \u27f6 T.obj\u2082) (inr_snd : inr \u226b T.mor\u2082 = \ud835\udfd9 _) (fst : T.obj\u2082 \u27f6 T.obj\u2081) (total : fst \u226b T.mor\u2081 + T.mor\u2082 \u226b inr = \ud835\udfd9 T.obj\u2082) : BinaryBiproductData T.obj\u2081 T.obj\u2083",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Mono T.mor\u2081",
+        "body": "T.mono\u2081 hT hT\u2080",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pretriangulated",
+    "name": "exists_iso_binaryBiproduct_of_distTriang",
+    "statement": "Triangle C) (hT : T \u2208 distTriang C) (zero : T.mor\u2083 = 0) : \u2203 (e : T.obj\u2082 \u2245 T.obj\u2081 \u229e T.obj\u2083), T.mor\u2081 \u226b e.hom = biprod.inl \u2227 T.mor\u2082 = e.hom \u226b biprod.snd",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "T.epi\u2082 hT zero",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isSplitEpi_of_epi T.mor\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pretriangulated",
+    "name": "completeDistinguishedTriangleMorphism",
+    "statement": "Triangle C) (hT\u2081 : T\u2081 \u2208 distTriang C) (hT\u2082 : T\u2082 \u2208 distTriang C) (a : T\u2081.obj\u2081 \u27f6 T\u2082.obj\u2081) (b : T\u2081.obj\u2082 \u27f6 T\u2082.obj\u2082) (comm : T\u2081.mor\u2081 \u226b b = a \u226b T\u2082.mor\u2081) : T\u2081 \u27f6 T\u2082",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "complete_distinguished_triangle_morphism _ _ hT\u2081 hT\u2082 a b comm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pretriangulated",
+    "name": "productTriangle_distinguished",
+    "statement": "Type*} (T : J \u2192 Triangle C) (hT : \u2200 j, T j \u2208 distTriang C) [HasProduct (fun j => (T j).obj\u2081)] [HasProduct (fun j => (T j).obj\u2082)] [HasProduct (fun j => (T j).obj\u2083)] [HasProduct (fun j => (T j).obj\u2081\u27e6(1 : \u2124)\u27e7)] : productTriangle T \u2208 distTriang C",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso \u03c6'.hom\u2081",
+        "body": "by rw [h\u2081]; infer_instance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsIso \u03c6'.hom\u2082",
+        "body": "by rw [h\u2082]; infer_instance",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsIso \u03c6'",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hg''",
+            "type": "",
+            "body": "fun j => (T j).coyoneda_exact\u2082 (hT j) _ (hg' j)",
+            "children": []
+          },
+          {
+            "name": "ha''",
+            "type": "",
+            "body": "fun (j : J) => (T j).coyoneda_exact\u2083 (hT j) ((a - a' \u226b \u03c6'.hom\u2083) \u226b Pi.\u03c0 _ j) (by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Pretriangulated",
+    "name": "exists_iso_of_arrow_iso",
+    "statement": "Triangle C) (hT\u2081 : T\u2081 \u2208 distTriang C) (hT\u2082 : T\u2082 \u2208 distTriang C) (e : Arrow.mk T\u2081.mor\u2081 \u2245 Arrow.mk T\u2082.mor\u2081) : \u2203 (e' : T\u2081 \u2245 T\u2082), e'.hom.hom\u2081 = e.hom.left \u2227 e'.hom.hom\u2082 = e.hom.right",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso \u03c6.hom\u2081",
+        "body": "by dsimp [\u03c6]; infer_instance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsIso \u03c6.hom\u2082",
+        "body": "by dsimp [\u03c6]; infer_instance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsIso \u03c6.hom\u2083",
+        "body": "isIso\u2083_of_isIso\u2081\u2082 \u03c6 hT\u2081 hT\u2082 inferInstance inferInstance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsIso \u03c6",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pretriangulated",
+    "name": "isoTriangleOfIso\u2081\u2082",
+    "statement": "Triangle C) (hT\u2081 : T\u2081 \u2208 distTriang C) (hT\u2082 : T\u2082 \u2208 distTriang C) (e\u2081 : T\u2081.obj\u2081 \u2245 T\u2082.obj\u2081) (e\u2082 : T\u2081.obj\u2082 \u2245 T\u2082.obj\u2082) (comm : T\u2081.mor\u2081 \u226b e\u2082.hom = e\u2081.hom \u226b T\u2082.mor\u2081) : T\u2081 \u2245 T\u2082",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "exists_iso_of_arrow_iso T\u2081 T\u2082 hT\u2081 hT\u2082 (Arrow.isoMk e\u2081 e\u2082 comm.symm)",
+        "children": [
+          {
+            "name": "eq",
+            "type": "",
+            "body": "h.choose_spec.2",
+            "children": []
+          },
+          {
+            "name": "eq",
+            "type": "",
+            "body": "h.choose_spec.1",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Pretriangulated",
+    "name": "isoTriangleOfIso\u2081\u2083",
+    "statement": "Triangle C) (hT\u2081 : T\u2081 \u2208 distTriang C) (hT\u2082 : T\u2082 \u2208 distTriang C) (e\u2081 : T\u2081.obj\u2081 \u2245 T\u2082.obj\u2081) (e\u2083 : T\u2081.obj\u2083 \u2245 T\u2082.obj\u2083) (comm : T\u2081.mor\u2083 \u226b (shiftFunctor C 1).map e\u2081.hom = e\u2083.hom \u226b T\u2082.mor\u2083) : T\u2081 \u2245 T\u2082",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "exists_iso_of_arrow_iso _ _ (inv_rot_of_distTriang _ hT\u2081)",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(shiftFunctorCompIsoId C (1 : \u2124) (-1) (by simp)).hom.naturality e\u2081.hom",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h\u2083",
+        "type": "",
+        "body": "e.hom.comm\u2083",
+        "children": []
+      },
+      {
+        "name": "h\u2084",
+        "type": "",
+        "body": "(shiftFunctorCompIsoId C (-1 : \u2124) 1 (by simp)).inv.naturality e\u2083.hom",
+        "children": []
+      }
+    ]
+  }
+]

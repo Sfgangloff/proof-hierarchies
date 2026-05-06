@@ -1,0 +1,47 @@
+[
+  {
+    "module": "StdSimplex",
+    "name": "nonDegenerateEquiv",
+    "statement": "\u2115} : (\u0394[n] : SSet.{u}).nonDegenerate d \u2243 (Fin (d + 1) \u21aao Fin (n + 1)) where toFun s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Mono (objEquiv x)",
+        "body": "by rwa [\u2190 mem_nonDegenerate_iff_mono]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "SimplexCategory.len_le_of_mono (objEquiv x)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StdSimplex",
+    "name": "orderIsoOfNonDegenerate",
+    "statement": "\u2115} (x : (\u0394[n] : SSet.{u}).nonDegenerate d) : Fin (d + 1) \u2243o nonDegenerateEquiv' x where toEquiv",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(mem_nonDegenerate_iff_mono x.val).1 x.property",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StdSimplex",
+    "name": "nonDegenerate_top_dim",
+    "statement": "\u2115) : (\u0394[n] : SSet.{u}).nonDegenerate n = {(objEquiv (m",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Mono f",
+        "body": "by simpa using (mem_nonDegenerate_iff_mono _).mp h",
+        "children": []
+      }
+    ]
+  }
+]

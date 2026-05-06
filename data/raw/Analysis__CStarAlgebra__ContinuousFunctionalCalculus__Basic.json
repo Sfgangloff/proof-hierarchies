@@ -1,0 +1,59 @@
+[
+  {
+    "module": "Basic",
+    "name": "bijective_characterSpaceToSpectrum",
+    "statement": "Function.Bijective (characterSpaceToSpectrum a)",
+    "have_tree": [
+      {
+        "name": "hz'",
+        "type": "",
+        "body": "(StarSubalgebra.spectrum_eq (hS := isClosed \u2102 a)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "SpectrumRestricts.nnreal_iff_nnnorm",
+    "statement": "A} {t : \u211d\u22650} (ha : IsSelfAdjoint a) (ht : \u2016a\u2016\u208a \u2264 t) : SpectrumRestricts a ContinuousMap.realToNNReal \u2194 \u2016algebraMap \u211d A t - a\u2016\u208a \u2264 t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsSelfAdjoint (algebraMap \u211d A t - a)",
+        "body": "IsSelfAdjoint.algebraMap A (.all (t : \u211d)) |>.sub ha",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "spectrum_star_mul_self_nonneg",
+    "statement": "A} : \u2200 x \u2208 spectrum \u211d (star b * b), 0 \u2264 x",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "IsSelfAdjoint a",
+        "body": "by simp [a_def]",
+        "children": []
+      },
+      {
+        "name": "h_c_spec\u2080",
+        "type": "SpectrumRestricts (-(star c * c)) (ContinuousMap.realToNNReal \u00b7)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_c_spec\u2081",
+        "type": "SpectrumRestricts (c * star c) ContinuousMap.realToNNReal",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_eqOn",
+        "type": "",
+        "body": "eqOn_of_cfc_eq_cfc (ha := ha) h_eq_negPart_a",
+        "children": []
+      }
+    ]
+  }
+]

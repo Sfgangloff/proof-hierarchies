@@ -1,0 +1,118 @@
+[
+  {
+    "module": "Lemmas",
+    "name": "tendsto_const_sub_nhds_zero_iff",
+    "statement": "Filter \u03b1} {f : \u03b1 \u2192 \u211d\u22650\u221e} {a : \u211d\u22650\u221e} (ha : a \u2260 \u221e) (hfa : \u2200 n, f n \u2264 a) : Tendsto (fun n \u21a6 a - f n) l (\ud835\udcdd 0) \u2194 Tendsto (fun n \u21a6 f n) l (\ud835\udcdd a)",
+    "have_tree": [
+      {
+        "name": "hN_left",
+        "type": "",
+        "body": "hn.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "le_of_forall_lt_one_mul_le",
+    "statement": "\u211d\u22650\u221e} (h : \u2200 a < 1, a * x \u2264 y) : x \u2264 y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Tendsto (\u00b7 * x) (\ud835\udcdd[<] 1) (\ud835\udcdd (1 * x))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "Metric.ediam_closure",
+    "statement": "Set \u03b1) : ediam (closure s) = ediam s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "edist x y \u2208 closure (Iic (ediam s))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "LipschitzOnWith.closure",
+    "statement": "\u03b1 \u2192 \u03b2} {s : Set \u03b1} {K : \u211d\u22650} (hcont : ContinuousOn f (closure s)) (hf : LipschitzOnWith K f s) : LipschitzOnWith K f (closure s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ENNReal.continuous_const_mul (ENNReal.coe_ne_top (r := K))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "truncateToReal",
+    "statement": "\u211d\u22650\u221e) : \u211d",
+    "have_tree": [
+      {
+        "name": "x_lt_top",
+        "type": "x < \u221e",
+        "body": "lt_of_le_of_lt x_le t_ne_top.lt_top",
+        "children": []
+      },
+      {
+        "name": "obs",
+        "type": "min t x \u2260 \u221e",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "liminf_toReal_eq",
+    "statement": "\u211d\u22650\u221e} (b_ne_top : b \u2260 \u221e) (le_b : \u2200\u1da0 i in f, u i \u2264 b) : f.liminf (fun i \u21a6 (u i).toReal) = (f.liminf u).toReal",
+    "have_tree": [
+      {
+        "name": "liminf_le",
+        "type": "f.liminf u \u2264 b",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "Monotone.map_liminf_of_continuousAt (F := f) (monotone_truncateToReal b_ne_top) u",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "limsup_toReal_eq",
+    "statement": "\u211d\u22650\u221e} (b_ne_top : b \u2260 \u221e) (le_b : \u2200\u1da0 i in f, u i \u2264 b) : f.limsup (fun i \u21a6 (u i).toReal) = (f.limsup u).toReal",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "Monotone.map_limsup_of_continuousAt (F := f) (monotone_truncateToReal b_ne_top) u",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "Dense.lipschitzWith_extend",
+    "statement": "Type*} [PseudoEMetricSpace \u03b1] [EMetricSpace \u03b2] [CompleteSpace \u03b2] {s : Set \u03b1} (hs : Dense s) {f : s \u2192 \u03b2} {K : \u211d\u22650} (hf : LipschitzWith K f) : LipschitzWith K (hs.extend f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Continuous (hs.extend f)",
+        "body": "(hs.uniformContinuous_extend hf.uniformContinuous).continuous",
+        "children": []
+      }
+    ]
+  }
+]

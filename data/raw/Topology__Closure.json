@@ -1,0 +1,72 @@
+[
+  {
+    "module": "Closure",
+    "name": "interior_union_isClosed_of_interior_empty",
+    "statement": "IsClosed s) (h\u2082 : interior t = \u2205) : interior (s \u222a t) = interior s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "interior (s \u222a t) \u2286 s",
+        "body": "fun x \u27e8u, \u27e8(hu\u2081 : IsOpen u), (hu\u2082 : u \u2286 s \u222a t)\u27e9, (hx\u2081 : x \u2208 u)\u27e9 =>",
+        "children": [
+          {
+            "name": "_",
+            "type": "u \\ s \u2286 t",
+            "body": "fun _ \u27e8h\u2081, h\u2082\u27e9 => Or.resolve_left (hu\u2082 h\u2081) h\u2082",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "u \\ s \u2286 interior t",
+            "body": "by rwa [(IsOpen.sdiff hu\u2081 h\u2081).subset_interior_iff]",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "u \\ s \u2286 \u2205",
+            "body": "by rwa [h\u2082] at this",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Closure",
+    "name": "mem_closure_iff",
+    "statement": "x \u2208 closure s \u2194 \u2200 o, IsOpen o \u2192 x \u2208 o \u2192 (o \u2229 s).Nonempty",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "s \u2286 o\u1d9c",
+        "body": "fun x xs xo => os \u27e8x, xo, xs\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Closure",
+    "name": "interior_frontier",
+    "statement": "IsClosed s) : interior (frontier s) = \u2205",
+    "have_tree": [
+      {
+        "name": "B",
+        "type": "interior (frontier s) \u2286 interior s",
+        "body": "by rw [A]; exact interior_mono diff_subset",
+        "children": []
+      },
+      {
+        "name": "C",
+        "type": "interior (frontier s) \u2286 frontier s",
+        "body": "interior_subset",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "interior (frontier s) \u2286 interior s \u2229 (s \\ interior s)",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

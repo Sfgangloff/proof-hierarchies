@@ -1,0 +1,136 @@
+[
+  {
+    "module": "LucasLehmer",
+    "name": "mersenne_zero",
+    "statement": "mersenne 0 = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.one_le_pow n 2 two_pos",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LucasLehmer",
+    "name": "legendreSym_mersenne_two",
+    "statement": "\u2115} [Fact (mersenne p).Prime] (hp : 3 \u2264 p) : legendreSym (mersenne p) 2 = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mersenne_mod_eight hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LucasLehmer",
+    "name": "pow_\u03c9",
+    "statement": "Odd q) (leg3 : legendreSym q 3 = -1) (leg2 : legendreSym q 2 = 1) : (\u03c9 : X q) ^ ((q + 1) / 2) = -1",
+    "have_tree": [
+      {
+        "name": "leg",
+        "type": "",
+        "body": "legendreSym.eq_pow q 2",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "two_mul_\u03c9_pow odd leg3",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LucasLehmer",
+    "name": "\u03c9_pow_formula",
+    "statement": "\u2115) (h : lucasLehmerResidue (p' + 2) = 0) : \u2203 k : \u2124, (\u03c9 : X (q (p' + 2))) ^ 2 ^ (p' + 1) = k * mersenne (p' + 2) * (\u03c9 : X (q (p' + 2))) ^ 2 ^ p' - 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "1 \u2264 2 ^ (p' + 2)",
+        "body": "Nat.one_le_pow _ _ (by decide)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LucasLehmer",
+    "name": "order_\u03c9",
+    "statement": "\u2115) (h : lucasLehmerResidue (p' + 2) = 0) : orderOf (\u03c9Unit (p' + 2)) = 2 ^ (p' + 2)",
+    "have_tree": [
+      {
+        "name": "\u03c9_pow",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LucasLehmer",
+    "name": "lucas_lehmer_sufficiency",
+    "statement": "\u2115) (w : 1 < p) : LucasLehmerTest p \u2192 (mersenne p).Prime",
+    "have_tree": [
+      {
+        "name": "w",
+        "type": "1 < p' + 2",
+        "body": "Nat.lt_of_sub_eq_succ rfl",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "order_ineq p' t",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "Nat.minFac_sq_le_self (mersenne_pos.2 (Nat.lt_of_succ_lt w)) a",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "lt_of_lt_of_le h\u2081 h\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LucasLehmer",
+    "name": "lucas_lehmer_necessity",
+    "statement": "\u2115) (w : 3 \u2264 p) (hp : (mersenne p).Prime) : LucasLehmerTest p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (mersenne p).Prime",
+        "body": "\u27e8\u2039_\u203a\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "X.\u03c9_pow_trace (q := mersenne (p' + 2)) (by simp)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LucasLehmer",
+    "name": "sModNat",
+    "statement": "\u2115) : \u2115 \u2192 \u2115 | 0 => 4 % q | i + 1 => (sModNat q i ^ 2 + (q - 2)) % q  theorem sModNat_eq_sMod (p k : \u2115) (hp : 2 \u2264 p) : (sModNat (2 ^ p - 1) k : \u2124) = sMod p k",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "2 ^ 2 \u2264 2 ^ p",
+        "body": "Nat.pow_le_pow_right (by lia) hp",
+        "children": []
+      }
+    ]
+  }
+]

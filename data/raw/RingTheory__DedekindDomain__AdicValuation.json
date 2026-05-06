@@ -1,0 +1,161 @@
+[
+  {
+    "module": "AdicValuation",
+    "name": "intValuation.map_add_le_max'",
+    "statement": "R) : v.intValuationDef (x + y) \u2264 max (v.intValuationDef x) (v.intValuationDef y)",
+    "have_tree": [
+      {
+        "name": "h_dvd_x",
+        "type": "x \u2208 v.asIdeal ^ nmin",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_dvd_y",
+        "type": "y \u2208 v.asIdeal ^ nmin",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_dvd_xy",
+        "type": "Associates.mk v.asIdeal ^ nmin \u2264 Associates.mk (Ideal.span {x + y})",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AdicValuation",
+    "name": "intValuation_exists_uniformizer",
+    "statement": "\u2203 \u03c0 : R, v.intValuation \u03c0 = WithZero.exp (-1 : \u2124)",
+    "have_tree": [
+      {
+        "name": "hv",
+        "type": "Irreducible (Associates.mk v.asIdeal)",
+        "body": "v.associates_irreducible",
+        "children": []
+      },
+      {
+        "name": "hlt",
+        "type": "v.asIdeal ^ 2 < v.asIdeal",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u03c0",
+        "type": "Associates.mk (Ideal.span {\u03c0}) \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AdicValuation",
+    "name": "valuation_div_le_one_iff",
+    "statement": "R) {b : R} (hb : b \u2260 0) (h : b \u2208 v.asIdeal \u2192 a \u2209 v.asIdeal) : v.valuation K (a / b) \u2264 1 \u2194 b \u2209 v.asIdeal",
+    "have_tree": [
+      {
+        "name": "ha\u2080",
+        "type": "a \u2260 0",
+        "body": "fun _ \u21a6 by simp_all",
+        "children": []
+      },
+      {
+        "name": "hva",
+        "type": "v.valuation K a \u2260 0",
+        "body": "(Valuation.ne_zero_iff _).2 (by simp [ha\u2080])",
+        "children": []
+      },
+      {
+        "name": "hvb",
+        "type": "v.valuation K b \u2260 0",
+        "body": "(Valuation.ne_zero_iff _).2 (by simp [hb])",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AdicValuation",
+    "name": "mem_integers_of_valuation_le_one",
+    "statement": "K) (h : \u2200 v : HeightOneSpectrum R, v.valuation K x \u2264 1) : x \u2208 (algebraMap R K).range",
+    "have_tree": [
+      {
+        "name": "hd0",
+        "type": "",
+        "body": "nonZeroDivisors.ne_zero hd",
+        "children": []
+      },
+      {
+        "name": "hv'",
+        "type": "",
+        "body": "hv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AdicValuation",
+    "name": "exists_primeCompl_mul_eq_or_mul_eq",
+    "statement": "K) : \u2203 (n : R) (d : v.asIdeal.primeCompl), x * (algebraMap R K d) = (algebraMap R K n) \u2228 x * (algebraMap R K n) = (algebraMap R K d)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsFractionRing (Localization v.asIdeal.primeCompl) K",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AdicValuation",
+    "name": "adicCompletion.mul_nonZeroDivisor_mem_adicCompletionIntegers",
+    "statement": "HeightOneSpectrum R) (a : v.adicCompletion K) : \u2203 b \u2208 R\u2070, a * b \u2208 v.adicCompletionIntegers K",
+    "have_tree": [
+      {
+        "name": "h\u03d60",
+        "type": "\u03d6 \u2260 0",
+        "body": "by rintro rfl; simp [exp_ne_zero.symm] at h\u03d6",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AdicValuation",
+    "name": "intAdicAbvDef",
+    "statement": "R) : \u211d\u22650",
+    "have_tree": [
+      {
+        "name": "h_mono",
+        "type": "",
+        "body": "(toNNReal_strictMono hb).monotone",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AdicValuation",
+    "name": "adicAbvDef",
+    "statement": "K) : \u211d\u22650",
+    "have_tree": [
+      {
+        "name": "h_mono",
+        "type": "",
+        "body": "(toNNReal_strictMono hb).monotone",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AdicValuation",
+    "name": "valuation_le_one_iff_den",
+    "statement": "HeightOneSpectrum R} {x : \u211a} : \ud835\udd2d.valuation \u211a x \u2264 1 \u2194 \u2191x.den \u2209 \ud835\udd2d.asIdeal",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "CharZero R",
+        "body": "\u27e8.of_comp (f := algebraMap R \u211a) (by simpa using Nat.cast_injective)\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,105 @@
+[
+  {
+    "module": "SetToL1",
+    "name": "norm_eq_sum_mul",
+    "statement": "\u03b1 \u2192\u2081\u209b[\u03bc] G) : \u2016f\u2016 = \u2211 x \u2208 (toSimpleFunc f).range, \u03bc.real (toSimpleFunc f \u207b\u00b9' {x}) * \u2016x\u2016",
+    "have_tree": [
+      {
+        "name": "h_eq",
+        "type": "",
+        "body": "SimpleFunc.map_apply (\u2016\u00b7\u2016\u2091) (toSimpleFunc f)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SetToL1",
+    "name": "setToL1_eq_setToL1'",
+    "statement": "DominatedFinMeasAdditive \u03bc T C) (h_smul : \u2200 c : \ud835\udd5c, \u2200 s x, T s (c \u2022 x) = c \u2022 T s x) (f : \u03b1 \u2192\u2081[\u03bc] E) : setToL1 hT f = setToL1' \ud835\udd5c hT h_smul f",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "Dense (Set.range (coeToLp \u03b1 E \u211d))",
+        "body": "simpleFunc.denseRange (\u03bc := \u03bc) one_ne_top",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SetToL1",
+    "name": "tendsto_setToFun_of_L1",
+    "statement": "DominatedFinMeasAdditive \u03bc T C) {\u03b9} (f : \u03b1 \u2192 E) (hfi : Integrable f \u03bc) {fs : \u03b9 \u2192 \u03b1 \u2192 E} {l : Filter \u03b9} (hfsi : \u2200\u1da0 i in l, Integrable (fs i) \u03bc) (hfs : Tendsto (fun i => \u222b\u207b x, \u2016fs i x - f x\u2016\u2091 \u2202\u03bc) l (\ud835\udcdd 0)) : Tendsto (fun i => setToFun \u03bc T hT (fs i)) l (\ud835\udcdd <| setToFun \u03bc T hT f)",
+    "have_tree": [
+      {
+        "name": "tendsto_L1",
+        "type": "Tendsto F_lp l (\ud835\udcdd f_lp)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SetToL1",
+    "name": "continuous_L1_toL1",
+    "statement": "Measure \u03b1} (c' : \u211d\u22650\u221e) (hc' : c' \u2260 \u221e) (h\u03bc'_le : \u03bc' \u2264 c' \u2022 \u03bc) : Continuous fun f : \u03b1 \u2192\u2081[\u03bc] G => (Integrable.of_measure_le_smul hc' h\u03bc'_le (L1.integrable_coeFn f)).toL1 f",
+    "have_tree": [
+      {
+        "name": "h_eLpNorm_ne_top",
+        "type": "eLpNorm (\u21d1g - \u21d1f) 1 \u03bc \u2260 \u221e",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SetToL1",
+    "name": "setToFun_congr_measure_of_integrable",
+    "statement": "Measure \u03b1} (c' : \u211d\u22650\u221e) (hc' : c' \u2260 \u221e) (h\u03bc'_le : \u03bc' \u2264 c' \u2022 \u03bc) (hT : DominatedFinMeasAdditive \u03bc T C) (hT' : DominatedFinMeasAdditive \u03bc' T C') (f : \u03b1 \u2192 E) (hf\u03bc : Integrable f \u03bc) : setToFun \u03bc T hT f = setToFun \u03bc' T hT' f",
+    "have_tree": [
+      {
+        "name": "h\u03bc's",
+        "type": "\u03bc' s \u2260 \u221e",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SetToL1",
+    "name": "tendsto_setToFun_of_dominated_convergence",
+    "statement": "DominatedFinMeasAdditive \u03bc T C) {fs : \u2115 \u2192 \u03b1 \u2192 E} {f : \u03b1 \u2192 E} (bound : \u03b1 \u2192 \u211d) (fs_measurable : \u2200 n, AEStronglyMeasurable (fs n) \u03bc) (bound_integrable : Integrable bound \u03bc) (h_bound : \u2200 n, \u2200\u1d50 a \u2202\u03bc, \u2016fs n a\u2016 \u2264 bound a) (h_lim : \u2200\u1d50 a \u2202\u03bc, Tendsto (fun n => fs n a) atTop (\ud835\udcdd (f a))) : Tendsto (fun n => setToFun \u03bc T hT (fs n)) atTop (\ud835\udcdd <| setToFun \u03bc T hT f)",
+    "have_tree": [
+      {
+        "name": "f_measurable",
+        "type": "AEStronglyMeasurable f \u03bc",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "fs_int",
+        "type": "\u2200 n, Integrable (fs n) \u03bc",
+        "body": "fun n =>",
+        "children": []
+      },
+      {
+        "name": "f_int",
+        "type": "Integrable f \u03bc",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SetToL1",
+    "name": "tendsto_setToFun_filter_of_dominated_convergence",
+    "statement": "DominatedFinMeasAdditive \u03bc T C) {\u03b9} {l : Filter \u03b9} [l.IsCountablyGenerated] {fs : \u03b9 \u2192 \u03b1 \u2192 E} {f : \u03b1 \u2192 E} (bound : \u03b1 \u2192 \u211d) (hfs_meas : \u2200\u1da0 n in l, AEStronglyMeasurable (fs n) \u03bc) (h_bound : \u2200\u1da0 n in l, \u2200\u1d50 a \u2202\u03bc, \u2016fs n a\u2016 \u2264 bound a) (bound_integrable : Integrable bound \u03bc) (h_lim : \u2200\u1d50 a \u2202\u03bc, Tendsto (fun n => fs n a) l (\ud835\udcdd (f a))) : Tendsto (fun n => setToFun \u03bc T hT (fs n)) l (\ud835\udcdd <| setToFun \u03bc T hT f)",
+    "have_tree": [
+      {
+        "name": "hxl",
+        "type": "\u2200 s \u2208 l, \u2203 a, \u2200 b \u2265 a, x b \u2208 s",
+        "body": "by rwa [tendsto_atTop'] at xl",
+        "children": []
+      }
+    ]
+  }
+]

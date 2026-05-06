@@ -1,0 +1,547 @@
+[
+  {
+    "module": "IsSimple",
+    "name": "chi_in_q_aux",
+    "statement": "\u2191\u03c7 \u2208 q) : \u2045x_\u03c7, m_\u03b1\u2046 \u2208 \u2a06 \u03b1 : {\u03b1 : Weight K H L // \u2191\u03b1 \u2208 q \u2227 \u03b1.IsNonZero}, sl2SubmoduleOfRoot \u03b1.2.2",
+    "have_tree": [
+      {
+        "name": "h_h_containment",
+        "type": "\u2045x_\u03c7, (y : L)\u2046 \u2208 genWeightSpace L \u03c7",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_zero_weight",
+            "type": "H.toLieSubmodule.incl y \u2208 genWeightSpace L (0 : H \u2192 K)",
+            "body": "by",
+            "children": [
+              {
+                "name": "h\u03b2_nonzero",
+                "type": "\u03b2.IsNonZero",
+                "body": "Weight.coe_toLinear_ne_zero_iff.mp h\u03b2_ne_zero",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "h_plus_contain",
+        "type": "genWeightSpace L (\u03c7.toLinear + \u03b1.toLinear) \u2264 I",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h_minus_contain",
+        "type": "genWeightSpace L (\u03c7.toLinear - \u03b1.toLinear) \u2264 I",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "-\u03b1.toLinear = (-1 : K) \u2022 \u03b1.toLinear",
+            "body": "by simp",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_chi_contain",
+        "type": "genWeightSpace L \u03c7.toLinear \u2264 I",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsSimple",
+    "name": "chi_not_in_q_aux",
+    "statement": "\u2191\u03c7 \u2209 q) : \u2045x_\u03c7, m_\u03b1\u2046 \u2208 \u2a06 \u03b1 : {\u03b1 : Weight K H L // \u2191\u03b1 \u2208 q \u2227 \u03b1.IsNonZero}, sl2SubmoduleOfRoot \u03b1.2.2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Weight K H L) (h\u03b3 : \u03b3.IsNonZero) : \u2203 i, S.root i = \u2191\u03b3",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h_plus_bot",
+        "type": "genWeightSpace L (\u03c7.toLinear + \u03b1.toLinear) = \u22a5",
+        "body": "by",
+        "children": [
+          {
+            "name": "h\u03b3_nonzero",
+            "type": "\u03b3.IsNonZero",
+            "body": "Weight.coe_toLinear_ne_zero_iff.mp w_plus",
+            "children": []
+          },
+          {
+            "name": "h_sum_in_range",
+            "type": "S.root i + S.root j \u2208 Set.range S.root",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h_equiv",
+            "type": "",
+            "body": "RootPairing.root_mem_submodule_iff_of_add_mem_invtSubmodule",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_minus_bot",
+        "type": "genWeightSpace L (\u03c7.toLinear - \u03b1.toLinear) = \u22a5",
+        "body": "by",
+        "children": [
+          {
+            "name": "h\u03b3_nonzero",
+            "type": "\u03b3.IsNonZero",
+            "body": "Weight.coe_toLinear_ne_zero_iff.mp w_minus",
+            "children": []
+          },
+          {
+            "name": "h_sum_in_range",
+            "type": "S.root i + S.root j \u2208 Set.range S.root",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h_equiv",
+            "type": "",
+            "body": "RootPairing.root_mem_submodule_iff_of_add_mem_invtSubmodule",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_pairing_zero",
+        "type": "S.pairing i j = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "genWeightSpace L (S.root idx) \u2260 \u22a5",
+            "body": "idx.val.genWeightSpace_ne_bot",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "genWeightSpace L (S.root idx) \u2260 \u22a5",
+            "body": "idx.val.genWeightSpace_ne_bot",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_pos_zero",
+        "type": "\u2045x_\u03c7, m_pos\u2046 = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_in_bot",
+            "type": "\u2045x_\u03c7, m_pos\u2046 \u2208 (\u22a5 : LieSubmodule K H L)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_neg_zero",
+        "type": "\u2045x_\u03c7, m_neg\u2046 = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_in_bot",
+            "type": "\u2045x_\u03c7, m_neg\u2046 \u2208 (\u22a5 : LieSubmodule K H L)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_bracket_zero",
+        "type": "\u2045x_\u03c7, (y : L)\u2046 = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_chi_coroot_zero",
+            "type": "\u03c7 (coroot \u03b1) = 0",
+            "body": "by",
+            "children": [
+              {
+                "name": "h_pairing_eq",
+                "type": "S.pairing i j = i.1 (coroot j.1)",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "Weight K H L} (h : w\u2081.toLinear = w\u2082.toLinear) : w\u2081 = w\u2082",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "hi_val",
+                "type": "i.1 = \u03c7",
+                "body": "w_eq (by rw [\u2190 hi]; rfl)",
+                "children": []
+              },
+              {
+                "name": "hj_val",
+                "type": "j.1 = \u03b1",
+                "body": "w_eq (by rw [\u2190 hj]; rfl)",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "h_lie_eq_smul",
+            "type": "\u2045(y : L), x_\u03c7\u2046 = \u03c7 y \u2022 x_\u03c7",
+            "body": "lie_eq_smul_of_mem_rootSpace hx_\u03c7 y",
+            "children": []
+          },
+          {
+            "name": "h_chi_h_zero",
+            "type": "\u03c7 y = 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h_bracket_elem",
+            "type": "\u2045x_\u03c7, (y : L)\u2046 = 0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "IsSimple",
+    "name": "invtSubmoduleToLieIdeal_aux",
+    "statement": "m_\u03b1 \u2208 sl2SubmoduleOfRoot h\u03b1\u2080) : \u2045x_\u03c7, m_\u03b1\u2046 \u2208 \u2a06 \u03b1 : {\u03b1 : Weight K H L // \u2191\u03b1 \u2208 q \u2227 \u03b1.IsNonZero}, sl2SubmoduleOfRoot \u03b1.2.2",
+    "have_tree": [
+      {
+        "name": "hm_\u03b1_original",
+        "type": "m_\u03b1 \u2208 sl2SubmoduleOfRoot h\u03b1\u2080",
+        "body": "hm_\u03b1",
+        "children": []
+      },
+      {
+        "name": "hm_\u03b1_decomp",
+        "type": "m_\u03b1 = m_pos + m_neg + m_h",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_bracket_sum",
+        "type": "\u2045x_\u03c7, m_\u03b1\u2046 = \u2045x_\u03c7, m_pos\u2046 + \u2045x_\u03c7, m_neg\u2046 + \u2045x_\u03c7, m_h\u2046",
+        "body": "by",
+        "children": [
+          {
+            "name": "hx_\u03c7_in_sl2",
+            "type": "x_\u03c7 \u2208 sl2SubalgebraOfRoot h\u03b1\u2080",
+            "body": "by",
+            "children": [
+              {
+                "name": "hx_\u03c7_neg",
+                "type": "x_\u03c7 \u2208 genWeightSpace L (-\u03b1.toLinear)",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "hx_\u03c7_in_sl2",
+            "type": "x_\u03c7 \u2208 sl2SubalgebraOfRoot h\u03b1\u2080",
+            "body": "by",
+            "children": [
+              {
+                "name": "hx_\u03c7_pos",
+                "type": "x_\u03c7 \u2208 genWeightSpace L \u03b1.toLinear",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "h_apply",
+                "type": "(\u03c7.toLinear : H \u2192 K) h = 0",
+                "body": "by rw [w_chi, LinearMap.zero_apply]",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "h_pos_containment",
+        "type": "\u2045x_\u03c7, m_pos\u2046 \u2208 genWeightSpace L (\u03c7.toLinear + \u03b1.toLinear)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h_neg_containment",
+        "type": "\u2045x_\u03c7, m_neg\u2046 \u2208 genWeightSpace L (\u03c7.toLinear - \u03b1.toLinear)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsSimple",
+    "name": "eq_top_of_invtSubmodule_ne_bot",
+    "statement": "Submodule K (Dual K H)) (h\u2080 : \u2200 (i : H.root), q \u2208 End.invtSubmodule ((rootSystem H).reflection i)) (h\u2081 : q \u2260 \u22a5) : q = \u22a4",
+    "have_tree": [
+      {
+        "name": "_i",
+        "type": "",
+        "body": "nontrivial_of_isIrreducible K L L",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(S.eq_top_of_mem_invtSubmodule_of_forall_eq_univ q h\u2081 h\u2080) h\u2082",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h\u03a6\u2082'",
+        "type": "\u2200 i \u2208 \u03a6, (S.root i) \u2208 q",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "H.root) (h\u2081 : i \u2208 \u03a6) (h\u2082 : j \u2209 \u03a6) : S.root i (S.coroot j) = 0",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "H.root) (h\u2081 : i \u2208 \u03a6) (h\u2082 : j \u2209 \u03a6) : S.root j (S.coroot i) = 0",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "H.root) (h\u2081 : i \u2208 \u03a6) (h\u2082 : j \u2209 \u03a6) : i.1 (coroot j) = 0",
+        "body": "s\u2081 i j h\u2081 h\u2082",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "H.root) (h\u2081 : i \u2208 \u03a6) (h\u2082 : j \u2209 \u03a6) : j.1 (coroot i) = 0",
+        "body": "s\u2081' i j h\u2081 h\u2082",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "H.root) (h\u2081 : i \u2208 \u03a6) (h\u2082 : j \u2209 \u03a6) : genWeightSpace L (i.1.1 + j.1.1) = \u22a5",
+        "body": "by",
+        "children": [
+          {
+            "name": "i_non_zero",
+            "type": "i.1.IsNonZero",
+            "body": "by grind",
+            "children": []
+          },
+          {
+            "name": "j_non_zero",
+            "type": "j.1.IsNonZero",
+            "body": "by grind",
+            "children": []
+          },
+          {
+            "name": "r\u2081",
+            "type": "r \u2260 0",
+            "body": "by",
+            "children": [
+              {
+                "name": "h_eq",
+                "type": "i.1 = -j.1",
+                "body": "Weight.ext <| congrFun (eq_neg_of_add_eq_zero_left",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "",
+                "body": "s\u2082 i j h\u2081 h\u2082",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "r\u2082",
+            "type": "r \u2208 H.root",
+            "body": "by simp [isNonZero_iff_ne_zero, r\u2081]",
+            "children": [
+              {
+                "name": "e\u2081",
+                "type": "i.1.1 (coroot j) = 0",
+                "body": "s\u2082 i j h\u2081 h\u2082",
+                "children": []
+              },
+              {
+                "name": "e\u2082",
+                "type": "j.1.1 (coroot j) = 2",
+                "body": "root_apply_coroot j_non_zero",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "(0 : K) = 2",
+                "body": "calc",
+                "children": []
+              },
+              {
+                "name": "e\u2081",
+                "type": "j.1.1 (coroot i) = 0",
+                "body": "s\u2082' i j h\u2081 h\u2082",
+                "children": []
+              },
+              {
+                "name": "e\u2082",
+                "type": "i.1.1 (coroot i) = 2",
+                "body": "root_apply_coroot i_non_zero",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "(0 : K) = 2",
+                "body": "calc",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "h\u2083",
+            "type": "",
+            "body": "lie_mem_genWeightSpace_of_mem_genWeightSpace li.2 lj.2",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "s\u2085",
+        "type": "I \u2260 \u22a4",
+        "body": "by",
+        "children": [
+          {
+            "name": "center_element",
+            "type": "z \u2208 center K L",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "L) : \u2045x, z\u2046 = 0",
+                "body": "by",
+                "children": [
+                  {
+                    "name": "x_mem_I",
+                    "type": "x \u2208 I",
+                    "body": "by rw [hI]; exact trivial",
+                    "children": [
+                      {
+                        "name": "_",
+                        "type": "",
+                        "body": "s\u2084 i j hi hj",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "s\u2086",
+        "type": "I \u2260 \u22a5",
+        "body": "by",
+        "children": [
+          {
+            "name": "x_in_g",
+            "type": "x \u2208 g",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "x_mem_I",
+            "type": "x \u2208 I",
+            "body": "LieSubalgebra.mem_lieSpan.mpr (fun _ a \u21a6 a x_in_g)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "s\u2087",
+        "type": "\u2200 x y : L, y \u2208 I \u2192 \u2045x, y\u2046 \u2208 I",
+        "body": "by",
+        "children": [
+          {
+            "name": "gen",
+            "type": "\u2a06 \u03c7 : Weight K H L, (genWeightSpace L \u03c7).toSubmodule = \u22a4",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hx",
+            "type": "x \u2208 \u2a06 \u03c7 : Weight K H L, (genWeightSpace L \u03c7).toSubmodule",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "Weight K H L) : j = 0 \u2228 j \u2208 H.root",
+                "body": "by",
+                "children": [
+                  {
+                    "name": "h\u2082",
+                    "type": "",
+                    "body": "lie_mem_genWeightSpace_of_mem_genWeightSpace hx x\u2081_mem",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "_",
+                "type": "\u2045x, x\u2081\u2046 = 0",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "\u2045x, \u2045a, b\u2046\u2046 = \u2045\u2045x, a\u2046, b\u2046 + \u2045a, \u2045x, b\u2046\u2046",
+                "body": "by",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "IsSimple K L",
+        "body": "inferInstance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "I' = \u22a5 \u2228 I' = \u22a4",
+        "body": "this.eq_bot_or_eq_top I'",
+        "children": []
+      },
+      {
+        "name": "c\u2081",
+        "type": "I' \u2260 \u22a4",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "c\u2082",
+        "type": "I' \u2260 \u22a5",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,161 @@
+[
+  {
+    "module": "Approximations",
+    "name": "succ_nth_stream_b_le_nth_stream_fr_inv",
+    "statement": "IntFractPair K} (nth_stream_eq : IntFractPair.stream v n = some ifp_n) (succ_nth_stream_eq : IntFractPair.stream v (n + 1) = some ifp_succ_n) : (ifp_succ_n.b : K) \u2264 ifp_n.fr\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "ifp_n_fr \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Approximations",
+    "name": "fib_le_of_contsAux_b",
+    "statement": "n \u2264 1 \u2228 \u00ac(of v).TerminatedAt (n - 2) \u2192 (fib n : K) \u2264 ((of v).contsAux n).b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u00acn + 2 \u2264 1",
+        "body": "by lia",
+        "children": []
+      },
+      {
+        "name": "not_terminatedAt_n",
+        "type": "\u00acg.TerminatedAt n",
+        "body": "Or.resolve_left hyp this",
+        "children": []
+      },
+      {
+        "name": "not_terminatedAt_pred_n",
+        "type": "\u00acg.TerminatedAt (n - 1)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "not_terminatedAt_ppred_n",
+        "type": "\u00acTerminatedAt g (n - 2)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Approximations",
+    "name": "succ_nth_fib_le_of_nth_den",
+    "statement": "n = 0 \u2228 \u00ac(of v).TerminatedAt (n - 1)) : (fib (n + 1) : K) \u2264 (of v).dens n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "n + 1 \u2264 1 \u2228 \u00ac(of v).TerminatedAt (n - 1)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Approximations",
+    "name": "of_den_mono",
+    "statement": "(of v).dens n \u2264 (of v).dens (n + 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "g.TerminatedAt n",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "1 \u2264 b",
+        "body": "of_one_le_get?_partDen nth_partDen_eq",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Approximations",
+    "name": "sub_convs_eq",
+    "statement": "IntFractPair K} (stream_nth_eq : IntFractPair.stream v n = some ifp) : let g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u00acg.TerminatedAt n'",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "zero_lt_B",
+        "type": "0 < B",
+        "body": "B_ineq.trans_lt' <| cast_pos.2 <| fib_pos.2 n.succ_pos",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 \u2264 pB",
+        "body": "(Nat.cast_nonneg _).trans pB_ineq",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 < ifp.fr",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "pB + ifp.fr\u207b\u00b9 * B \u2260 0",
+        "body": "by positivity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Approximations",
+    "name": "abs_sub_convs_le",
+    "statement": "\u00ac(of v).TerminatedAt n) : |v - (of v).convs n| \u2264 1 / ((of v).dens n * ((of v).dens <| n + 1))",
+    "have_tree": [
+      {
+        "name": "zero_lt_conts_b",
+        "type": "0 < conts.b",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 < den'",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "0 \u2264 pred_conts.b",
+                "body": "",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "0 < ifp_n.fr\u207b\u00b9",
+                "body": "",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Approximations",
+    "name": "abs_sub_convergents_le'",
+    "statement": "K} (nth_partDen_eq : (of v).partDens.get? n = some b) : |v - (of v).convs n| \u2264 1 / (b * (of v).dens n * (of v).dens n)",
+    "have_tree": [
+      {
+        "name": "not_terminatedAt_n",
+        "type": "\u00ac(of v).TerminatedAt n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

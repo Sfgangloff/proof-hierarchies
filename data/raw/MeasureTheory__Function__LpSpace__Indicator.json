@@ -1,0 +1,112 @@
+[
+  {
+    "module": "Indicator",
+    "name": "exists_eLpNorm_indicator_le",
+    "statement": "p \u2260 \u221e) (c : E) {\u03b5 : \u211d\u22650\u221e} (h\u03b5 : \u03b5 \u2260 0) : \u2203 \u03b7 : \u211d\u22650, 0 < \u03b7 \u2227 \u2200 s : Set \u03b1, \u03bc s \u2264 \u03b7 \u2192 eLpNorm (s.indicator fun _ => c) p \u03bc \u2264 \u03b5",
+    "have_tree": [
+      {
+        "name": "hp\u2080",
+        "type": "0 < p",
+        "body": "bot_lt_iff_ne_bot.2 h'p",
+        "children": []
+      },
+      {
+        "name": "hp\u2080'",
+        "type": "0 \u2264 1 / p.toReal",
+        "body": "div_nonneg zero_le_one ENNReal.toReal_nonneg",
+        "children": []
+      },
+      {
+        "name": "hp\u2080''",
+        "type": "0 < p.toReal",
+        "body": "ENNReal.toReal_pos hp\u2080.ne' hp",
+        "children": [
+          {
+            "name": "h\u03b5'",
+            "type": "0 < \u03b5",
+            "body": "h\u03b5.bot_lt",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Indicator",
+    "name": "_root_.HasCompactSupport.memLp_of_bound",
+    "statement": "X \u2192 E} (hf : HasCompactSupport f) (h2f : AEStronglyMeasurable f \u03bc) (C : \u211d) (hfC : \u2200\u1d50 x \u2202\u03bc, \u2016f x\u2016 \u2264 C) : MemLp f p \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "memLp_top_of_bound h2f C hfC",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Indicator",
+    "name": "_root_.HasCompactSupport.memLp_of_enorm_bound",
+    "statement": "X \u2192 E} (hf : HasCompactSupport f) (h2f : AEStronglyMeasurable f \u03bc) {C : \u211d\u22650\u221e} (hfC : \u2200\u1d50 x \u2202\u03bc, \u2016f x\u2016\u2091 \u2264 C) (hC : C \u2260 \u22a4) : MemLp f p \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "MemLp f \u221e \u03bc",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Indicator",
+    "name": "_root_.Continuous.memLp_of_hasCompactSupport",
+    "statement": "X \u2192 E} (hf : Continuous f) (h'f : HasCompactSupport f) : MemLp f p \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.memLp_top_of_hasCompactSupport h'f \u03bc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Indicator",
+    "name": "tendsto_indicatorConstLp_set",
+    "statement": "Fact (1 \u2264 p)] {\u03b2 : Type*} {l : Filter \u03b2} {t : \u03b2 \u2192 Set \u03b1} {ht : \u2200 b, MeasurableSet (t b)} {h\u03bct : \u2200 b, \u03bc (t b) \u2260 \u221e} (hp : p \u2260 \u221e) (h : Tendsto (fun b \u21a6 \u03bc (t b \u2206 s)) l (\ud835\udcdd 0)) : Tendsto (fun b \u21a6 indicatorConstLp p (ht b) (h\u03bct b) c) l (\ud835\udcdd (indicatorConstLp p hs h\u03bcs c))",
+    "have_tree": [
+      {
+        "name": "hp\u2080",
+        "type": "p \u2260 0",
+        "body": "(one_pos.trans_le hp\u2081.out).ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Indicator",
+    "name": "Lp.norm_const",
+    "statement": "p \u2260 0) : \u2016Lp.const p \u03bc c\u2016 = \u2016c\u2016 * \u03bc.real Set.univ ^ (1 / p.toReal)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "NeZero.ne \u03bc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Indicator",
+    "name": "indicatorConstLp_eq_toSpanSingleton_compLp",
+    "statement": "Set \u03b1} [NormedSpace \u211d E] (hs : MeasurableSet s) (h\u03bcs : \u03bc s \u2260 \u221e) (x : E) : indicatorConstLp 2 hs h\u03bcs x = (ContinuousLinearMap.toSpanSingleton \u211d x).compLp (indicatorConstLp 2 hs h\u03bcs (1 : \u211d))",
+    "have_tree": [
+      {
+        "name": "h_compLp",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,171 @@
+[
+  {
+    "module": "FiniteExtension",
+    "name": "norm_mul_le_const_mul_norm",
+    "statement": "\u03b9} (hBi : B i = (1 : L)) (hna : IsNonarchimedean (Norm.norm : K \u2192 \u211d)) : \u2203 (c : \u211d) (_ : 0 < c), \u2200 x y : L, B.norm (x * y) \u2264 c * B.norm x * B.norm y",
+    "have_tree": [
+      {
+        "name": "hna'",
+        "type": "IsNonarchimedean (NormedField.toMulRingNorm K)",
+        "body": "hna",
+        "children": [
+          {
+            "name": "h1",
+            "type": "(1 : L) = (algebraMap K L) 1",
+            "body": "by rw [map_one]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "FiniteExtension",
+    "name": "norm_smul",
+    "statement": "Type*} [Fintype \u03b9] [Nonempty \u03b9] {B : Basis \u03b9 K L} {i : \u03b9} (hBi : B i = (1 : L)) (k : K) (y : L) : B.norm ((algebraMap K L) k * y) = B.norm ((algebraMap K L) k) * B.norm y",
+    "have_tree": [
+      {
+        "name": "hij",
+        "type": "\u2016B.repr y i\u2016 = \u2016B.repr y j\u2016",
+        "body": "by",
+        "children": [
+          {
+            "name": "hj'",
+            "type": "",
+            "body": "Finset.le_sup' (fun i \u21a6 \u2016B.repr ((algebraMap K L) k * y) i\u2016) (mem_univ i)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "FiniteExtension",
+    "name": "exists_nonarchimedean_pow_mul_seminorm_of_finiteDimensional",
+    "statement": "FiniteDimensional K L) (hna : IsNonarchimedean (norm : K \u2192 \u211d)) : \u2203 f : AlgebraNorm K L, IsPowMul f \u2227 (\u2200 (x : K), f ((algebraMap K L) x) = \u2016x\u2016) \u2227 IsNonarchimedean f",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "LinearIndepOn K id ({1} : Set L)",
+        "body": ".singleton one_ne_zero",
+        "children": []
+      },
+      {
+        "name": "h1L",
+        "type": "(1 : L) \u2208 LinearIndepOn.extend h1 _",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hB1",
+        "type": "B \u27e81, h1L\u27e9 = (1 : L)",
+        "body": "by rw [Basis.coe_extend, Subtype.coe_mk]",
+        "children": []
+      },
+      {
+        "name": "hg0",
+        "type": "g 0 = 0",
+        "body": "B.norm_zero",
+        "children": []
+      },
+      {
+        "name": "hg_nonneg",
+        "type": "\u2200 x : L, 0 \u2264 g x",
+        "body": "fun x \u21a6 by simp only [g, Basis.norm]; simp",
+        "children": []
+      },
+      {
+        "name": "hg_ext",
+        "type": "\u2200 (x : K), g ((algebraMap K L) x) = \u2016x\u2016",
+        "body": "Basis.norm_extends hB1",
+        "children": []
+      },
+      {
+        "name": "hg_na",
+        "type": "IsNonarchimedean g",
+        "body": "Basis.norm_isNonarchimedean hna",
+        "children": []
+      },
+      {
+        "name": "hg_add",
+        "type": "\u2200 a b : L, g (a + b) \u2264 g a + g b",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hg_neg",
+        "type": "\u2200 a : L, g (-a) = g a",
+        "body": "B.norm_neg",
+        "children": []
+      },
+      {
+        "name": "hg_mul",
+        "type": "\u2200 (k : K) (y : L), g ((algebraMap K L) k * y) = g ((algebraMap K L) k) * g y",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hf_na",
+        "type": "IsNonarchimedean f",
+        "body": "seminormFromBounded_isNonarchimedean hg_nonneg hg_bdd hg_na",
+        "children": []
+      },
+      {
+        "name": "hf_1",
+        "type": "f 1 \u2264 1",
+        "body": "seminormFromBounded_one_le hg_nonneg hg_bdd",
+        "children": []
+      },
+      {
+        "name": "hf_ext",
+        "type": "\u2200 (x : K), f ((algebraMap K L) x) = \u2016x\u2016",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hF'_ext",
+        "type": "\u2200 k : K, F' ((algebraMap K L) k) = \u2016k\u2016",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hF'_1",
+        "type": "F' 1 = 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "h1",
+            "type": "(1 : L) = (algebraMap K L) 1",
+            "body": "by rw [map_one]",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hF'_0",
+        "type": "F' \u2260 0",
+        "body": "DFunLike.ne_iff.mpr \u27e8(1 : L), by rw [hF'_1]; exact one_ne_zero\u27e9",
+        "children": [
+          {
+            "name": "hk",
+            "type": "\u2200 y : L, f (algebraMap K L k * y) = f (algebraMap K L k) * f y",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "hfk",
+            "type": "\u2016k\u2016 = (smoothingSeminorm f hf_1 hf_na) ((algebraMap K L) k)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "K) : F ((algebraMap K L) k) = \u2016k\u2016",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

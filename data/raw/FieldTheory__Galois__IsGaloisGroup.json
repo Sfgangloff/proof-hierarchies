@@ -1,0 +1,118 @@
+[
+  {
+    "module": "IsGaloisGroup",
+    "name": "IsGaloisGroup.to_isFractionRing",
+    "statement": "IsGaloisGroup G A B] : IsGaloisGroup G K L",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial A",
+        "body": "(IsFractionRing.nontrivial_iff_nontrivial A K).mpr inferInstance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nontrivial B",
+        "body": "(IsFractionRing.nontrivial_iff_nontrivial B L).mpr inferInstance",
+        "children": []
+      },
+      {
+        "name": "hy'",
+        "type": "algebraMap B L y \u2260 0",
+        "body": "by simpa using nonZeroDivisors.ne_zero hy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsGaloisGroup",
+    "name": "IsGaloisGroup.of_isFractionRing",
+    "statement": "IsGaloisGroup G K L] [IsIntegrallyClosed A] [Algebra.IsIntegral A B] : IsGaloisGroup G A B",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "IsIntegral A (algebraMap B L x)",
+        "body": "(Algebra.IsIntegral.isIntegral x).algebraMap",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsGaloisGroup",
+    "name": "IsGaloisGroup.toFractionRing",
+    "statement": "letI",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "SMulDistribClass G B (FractionRing B)",
+        "body": "\u27e8fun g b x \u21a6 by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsGaloisGroup",
+    "name": "card_eq_finrank",
+    "statement": "Nat.card G = Module.finrank K L",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional K L",
+        "body": "FiniteDimensional.of_finrank_pos (Nat.zero_lt_of_ne_zero hG)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsGaloisGroup",
+    "name": "fixingSubgroup_top",
+    "statement": "fixingSubgroup G ((\u22a4 : IntermediateField K L) : Set L) = \u22a5",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hGKL.faithful",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsGaloisGroup",
+    "name": "intermediateFieldEquivSubgroup",
+    "statement": "IntermediateField K L \u2243o (Subgroup G)\u1d52\u1d48",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isGalois G K L",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "finiteDimensional G K L",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsGaloisGroup",
+    "name": "quotientMap",
+    "statement": "E \u2264 F) : letI : Algebra E F",
+    "have_tree": [
+      {
+        "name": "hFN",
+        "type": "IsGaloisGroup (G \u29f8 N) K F",
+        "body": "inferInstance",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsScalarTower E F L",
+            "body": "IsScalarTower.of_algebraMap_eq' rfl",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

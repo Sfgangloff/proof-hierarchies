@@ -1,0 +1,76 @@
+[
+  {
+    "module": "IsLUB",
+    "name": "ConditionallyCompleteLinearOrder.isCompact_Icc",
+    "statement": "\u03b1) : IsCompact (Icc a b)",
+    "have_tree": [
+      {
+        "name": "hpt",
+        "type": "\u2200 x \u2208 Icc a b, {x} \u2209 f",
+        "body": "fun x hx _ \u21a6 hf x hx (le_trans (by simpa) (pure_le_nhds x))",
+        "children": []
+      },
+      {
+        "name": "hsb",
+        "type": "b \u2208 upperBounds s",
+        "body": "fun x hx \u21a6 hx.1.2",
+        "children": []
+      },
+      {
+        "name": "ha",
+        "type": "a \u2208 s",
+        "body": "by simp [s, *]",
+        "children": []
+      },
+      {
+        "name": "hsc",
+        "type": "IsLUB s c",
+        "body": "isLUB_csSup \u27e8a, ha\u27e9 \u27e8b, hsb\u27e9",
+        "children": []
+      },
+      {
+        "name": "hc",
+        "type": "c \u2208 Icc a b",
+        "body": "\u27e8hsc.1 ha, hsc.2 hsb\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "_) (hic : i < c) : Ioi i \u2208 f",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hsc.exists_between hic",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u2203 x, c < x \u2227 Iio x \u2209 f",
+        "body": "by simpa [nhds_eq_order, eq_true this] using hf c hc",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Icc a c \u2209 f",
+        "body": "mt (mem_of_superset \u00b7 (by grind)) hxf",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "x \u2208 Icc a b",
+        "body": "\u27e8by grind, le_of_not_gt fun h \u21a6 hxf (mem_of_superset hfab (by grind))\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Icc a x \u2208 f",
+        "body": "by simpa [s, this.1, this.2] using notMem_of_csSup_lt hx \u27e8b, hsb\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

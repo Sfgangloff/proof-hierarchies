@@ -1,0 +1,193 @@
+[
+  {
+    "module": "Ramification",
+    "name": "ramificationIdx_spec",
+    "statement": "\u2115} (hle : map f p \u2264 P ^ n) (hgt : \u00acmap f p \u2264 P ^ (n + 1)) : ramificationIdx p P = n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Q n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ramification",
+    "name": "ramificationIdx_lt",
+    "statement": "\u2115} (hgt : \u00acmap f p \u2264 P ^ n) : ramificationIdx p P < n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 k, map f p \u2264 P ^ k \u2192 k \u2264 n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ramification",
+    "name": "ramificationIdx_ne_one_iff",
+    "statement": "map f p \u2264 P) : ramificationIdx p P \u2260 1 \u2194 p.map f \u2264 P ^ 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "1 \u2264 Nat.find H",
+        "body": "Nat.find_spec H 1 (by simpa)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.find_min H (m := 1) (by lia)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.find_spec H 2 he",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ramification",
+    "name": "ramificationIdx_eq_one_of_map_localization",
+    "statement": "Ideal R} {P : Ideal S} [P.IsPrime] [IsNoetherianRing S] (hpP : map (algebraMap R S) p \u2264 P) (hp : P \u2260 \u22a5) (hp' : P.primeCompl \u2264 nonZeroDivisors S) (H : p.map (algebraMap R (Localization.AtPrime P)) = maximalIdeal (Localization.AtPrime P)) : ramificationIdx p P = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Submodule.eq_bot_of_le_smul_of_le_jacobson_bot _ _ (IsNoetherian.noetherian _) h\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ramification",
+    "name": "ramificationIdx_map_self_eq_one",
+    "statement": "map f p \u2260 \u22a4) (h\u2082 : map f p \u2260 \u22a5) : ramificationIdx p (map f p) = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsMulTorsionFree.pow_right_injective\u2080 (by rwa [one_eq_top]) h\u2082 this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ramification",
+    "name": "ramificationIdx_eq_normalizedFactors_count",
+    "statement": "map f p \u2260 \u22a5) (hP : P.IsPrime) (hP0 : P \u2260 \u22a5) : ramificationIdx p P = (normalizedFactors (map f p)).count P",
+    "have_tree": [
+      {
+        "name": "hPirr",
+        "type": "",
+        "body": "(Ideal.prime_of_isPrime hP0 hP).irreducible",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ramification",
+    "name": "ramificationIdx_ne_zero",
+    "statement": "map f p \u2260 \u22a5) (hP : P.IsPrime) (le : map f p \u2264 P) : ramificationIdx p P \u2260 0",
+    "have_tree": [
+      {
+        "name": "hP0",
+        "type": "P \u2260 \u22a5",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hPirr",
+        "type": "",
+        "body": "(Ideal.prime_of_isPrime hP0 hP).irreducible",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ramification",
+    "name": "ramificationIdx_eq_one_iff",
+    "statement": "Ideal R} {P : Ideal S} [P.IsPrime] (hp : P \u2260 \u22a5) (hpP : p.map (algebraMap R S) \u2264 P) : ramificationIdx p P = 1 \u2194 p.map (algebraMap R (Localization.AtPrime P)) = maximalIdeal (Localization.AtPrime P)",
+    "have_tree": [
+      {
+        "name": "ha'",
+        "type": "\u00ac a \u2264 P",
+        "body": "fun h \u21a6 H\u2081 (ha.trans_le (Ideal.mul_mono_right h))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ramification",
+    "name": "emultiplicity_map_eq_ramificationIdx_mul_of_prime",
+    "statement": "Ideal R} {w : Ideal S} {p : Ideal R} (hv : Irreducible v) (hp : Prime p) (hw : Irreducible w) (hw_bot : w \u2260 \u22a5) [w.LiesOver v] : emultiplicity w (p.map (algebraMap R S)) = v.ramificationIdx w * emultiplicity v p",
+    "have_tree": [
+      {
+        "name": "hp_bot",
+        "type": "p.map (algebraMap R S) \u2260 \u22a5",
+        "body": "map_ne_bot_of_ne_bot hp.ne_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ramification",
+    "name": "ramificationIdx_algebra_tower",
+    "statement": "Ideal R} {P : Ideal S} {Q : Ideal T} [hpm : P.IsPrime] [hqm : Q.IsPrime] (hg0 : map (algebraMap S T) P \u2260 \u22a5) (hfg : map (algebraMap R T) p \u2260 \u22a5) (hg : map (algebraMap S T) P \u2264 Q) : ramificationIdx p Q = ramificationIdx p P * ramificationIdx P Q",
+    "have_tree": [
+      {
+        "name": "hf0",
+        "type": "map (algebraMap R S) p \u2260 \u22a5",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hp0",
+        "type": "P \u2260 \u22a5",
+        "body": "ne_bot_of_map_ne_bot hg0",
+        "children": []
+      },
+      {
+        "name": "hq0",
+        "type": "Q \u2260 \u22a5",
+        "body": "ne_bot_of_le_ne_bot hg0 hg",
+        "children": []
+      },
+      {
+        "name": "hntq",
+        "type": "\u00ac \u22a4 \u2264 Q",
+        "body": "fun ht \u21a6 IsPrime.ne_top hqm (Iff.mpr (eq_top_iff_one Q) (ht trivial))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ramification",
+    "name": "ramificationIdx_algebra_tower'",
+    "statement": "Ideal R) (P : Ideal S) (Q : Ideal T) [Q.IsPrime] [Q.LiesOver P] [P.LiesOver p] : ramificationIdx p Q = ramificationIdx p P * ramificationIdx P Q",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "P.IsPrime",
+        "body": "isPrime_of_liesOver Q P",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.IsTorsionFree R T",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hP",
+        "type": "P \u2260 \u22a5",
+        "body": "ne_bot_of_liesOver_of_ne_bot hp _",
+        "children": []
+      }
+    ]
+  }
+]

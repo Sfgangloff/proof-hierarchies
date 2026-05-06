@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Sum",
+    "name": "add_pow",
+    "statement": "Commute x y) (n : \u2115) : (x + y) ^ n = \u2211 m \u2208 range (n + 1), x ^ m * y ^ (n - m) * n.choose m",
+    "have_tree": [
+      {
+        "name": "h_le",
+        "type": "i \u2264 n",
+        "body": "le_of_lt_succ (mem_range.mp h_mem)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sum",
+    "name": "sum_range_choose",
+    "statement": "\u2115) : (\u2211 m \u2208 range (n + 1), n.choose m) = 2 ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(add_pow 1 1 n).symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sum",
+    "name": "choose_middle_le_pow",
+    "statement": "\u2115) : (2 * n + 1).choose n \u2264 4 ^ n",
+    "have_tree": [
+      {
+        "name": "t",
+        "type": "(2 * n + 1).choose n \u2264 \u2211 i \u2208 range (n + 1), (2 * n + 1).choose i",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sum",
+    "name": "prod_antidiagonal_pow_choose_succ",
+    "statement": "Type*} [CommMonoid M] (f : \u2115 \u2192 \u2115 \u2192 M) (n : \u2115) : (\u220f ij \u2208 antidiagonal (n + 1), f ij.1 ij.2 ^ (n + 1).choose ij.1) = (\u220f ij \u2208 antidiagonal n, f ij.1 (ij.2 + 1) ^ n.choose ij.1) * \u220f ij \u2208 antidiagonal n, f (ij.1 + 1) ij.2 ^ n.choose ij.2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 i \u2208 range (n + 1), i \u2264 n",
+        "body": "fun i hi \u21a6 by simpa [Nat.lt_succ_iff] using hi",
+        "children": []
+      }
+    ]
+  }
+]

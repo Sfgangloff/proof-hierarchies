@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Basic",
+    "name": "mkOfPoint",
+    "statement": "P) : Simplex k P 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Subsingleton (Fin (1 + 0))",
+        "body": "by rw [add_zero]; infer_instance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "affineCombination_mem_affineSpan_faceOpposite_iff",
+    "statement": "\u2115} [NeZero n] {s : Simplex k P n} {w : Fin (n + 1) \u2192 k} (hw : \u2211 i, w i = 1) {i : Fin (n + 1)} : Finset.univ.affineCombination k s.points w \u2208 affineSpan k (Set.range (s.faceOpposite i).points) \u2194 w i = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Subsingleton P",
+        "body": "(AddTorsor.subsingleton_iff V P).1 inferInstance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "affineCombination_mem_setInterior_face_iff_mem",
+    "statement": "Set k) {n : \u2115} (s : Simplex k P n) {fs : Finset (Fin (n + 1))} {m : \u2115} (h : #fs = m + 1) {w : Fin (n + 1) \u2192 k} (hw : \u2211 i, w i = 1) : Finset.univ.affineCombination k s.points w \u2208 (s.face h).setInterior I \u2194 (\u2200 i \u2208 fs, w i \u2208 I) \u2227 (\u2200 i \u2209 fs, w i = 0)",
+    "have_tree": [
+      {
+        "name": "he'",
+        "type": "",
+        "body": "s.independent.indicator_extend_eq_of_affineCombination_comp_embedding_eq_of_fintype",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,149 @@
+[
+  {
+    "module": "EverywherePos",
+    "name": "isEverywherePos_everywherePosSubset",
+    "statement": "MeasurableSet s) : \u03bc.IsEverywherePos (\u03bc.everywherePosSubset s)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "0 < \u03bc (u \u2229 s)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "u \u2229 s \u2208 \ud835\udcdd[s] x",
+            "body": "by rw [inter_comm]; exact inter_mem_nhdsWithin s u_mem",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "B",
+        "type": "(u \u2229 \u03bc.everywherePosSubset s : Set \u03b1) =\u1d50[\u03bc] (u \u2229 s : Set \u03b1)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EverywherePos",
+    "name": "isEverywherePos_everywherePosSubset_of_measure_ne_top",
+    "statement": "MeasurableSet s) (h's : \u03bc s \u2260 \u221e) : \u03bc.IsEverywherePos (\u03bc.everywherePosSubset s)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "0 < \u03bc (u \u2229 s)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "u \u2229 s \u2208 \ud835\udcdd[s] x",
+            "body": "by rw [inter_comm]; exact inter_mem_nhdsWithin s u_mem",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "B",
+        "type": "(u \u2229 \u03bc.everywherePosSubset s : Set \u03b1) =\u1d50[\u03bc] (u \u2229 s : Set \u03b1)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EverywherePos",
+    "name": "IsEverywherePos.IsGdelta_of_isMulLeftInvariant",
+    "statement": "Set G} (h : \u03bc.IsEverywherePos k) (hk : IsCompact k) (h'k : IsClosed k) : IsG\u03b4 k",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 n, \u2203 (W : Set G), IsOpen W \u2227 1 \u2208 W \u2227 \u2200 g \u2208 W * W, \u03bc ((g \u2022 k) \\ k) < u n",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u03bc (((x * z\u207b\u00b9) \u2022 k) \\ k) \u2264 u n",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "W n * {z} \u2208 \ud835\udcdd z",
+            "body": "(IsOpen.mul_right (W_open n)).mem_nhds (by simp [mem_W])",
+            "children": []
+          },
+          {
+            "name": "I",
+            "type": "V i \u2286 W n",
+            "body": "iInter\u2082_subset n (by simp [ni])",
+            "children": []
+          },
+          {
+            "name": "J",
+            "type": "x * (y i)\u207b\u00b9 \u2208 V i",
+            "body": "by simpa [\u2190 hvy i] using hv i",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "B",
+        "type": "\u03bc (((x * z\u207b\u00b9) \u2022 k) \\ k) = 0",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "C",
+        "type": "\u03bc (k \\ (z * x\u207b\u00b9) \u2022 k) = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u03bc ((z * x\u207b\u00b9) \u2022 (((x * z\u207b\u00b9) \u2022 k) \\ k)) = 0",
+            "body": "by rwa [measure_smul]",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "k \u2229 ((z * x\u207b\u00b9) \u2022 k)\u1d9c \u2208 \ud835\udcdd[k] z",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 < \u03bc (k \\ ((z * x\u207b\u00b9) \u2022 k))",
+        "body": "h z zk _ this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EverywherePos",
+    "name": "innerRegularWRT_preimage_one_hasCompactSupport_measure_ne_top_of_group",
+    "statement": "InnerRegularWRT \u03bc (fun s \u21a6 \u2203 (f : G \u2192 \u211d), Continuous f \u2227 HasCompactSupport f \u2227 s = f \u207b\u00b9' {1}) (fun s \u21a6 MeasurableSet s \u2227 \u03bc s \u2260 \u221e)",
+    "have_tree": [
+      {
+        "name": "L_comp",
+        "type": "IsCompact L",
+        "body": "K_comp.everywherePosSubset",
+        "children": []
+      },
+      {
+        "name": "L_closed",
+        "type": "IsClosed L",
+        "body": "K_closed.everywherePosSubset",
+        "children": [
+          {
+            "name": "L_G\u03b4",
+            "type": "IsG\u03b4 L",
+            "body": "this.IsGdelta_of_isMulLeftInvariant L_comp L_closed",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

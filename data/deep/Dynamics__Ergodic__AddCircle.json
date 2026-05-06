@@ -1,0 +1,76 @@
+[
+  {
+    "module": "AddCircle",
+    "name": "ae_empty_or_univ_of_forall_vadd_ae_eq_self",
+    "statement": "Set <| AddCircle T} (hs : NullMeasurableSet s volume) {\u03b9 : Type*} {l : Filter \u03b9} [l.NeBot] {u : \u03b9 \u2192 AddCircle T} (hu\u2081 : \u2200 i, (u i +\u1d65 s : Set _) =\u1d50[volume] s) (hu\u2082 : Tendsto (addOrderOf \u2218 u) l atTop) : s =\u1d50[volume] (\u2205 : Set <| AddCircle T) \u2228 s =\u1d50[volume] univ",
+    "have_tree": [
+      {
+        "name": "hT\u2080",
+        "type": "0 < T",
+        "body": "hT.out",
+        "children": []
+      },
+      {
+        "name": "hT\u2081",
+        "type": "ENNReal.ofReal T \u2260 0",
+        "body": "by simpa",
+        "children": [
+          {
+            "name": "h\u03b4\u2080",
+            "type": "\u2200\u1da0 j in l, 0 < \u03b4 j",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "h\u03b4\u2081",
+            "type": "Tendsto \u03b4 l (\ud835\udcdd[>] 0)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hw",
+            "type": "\u2200\u1da0 j in l, d \u2208 closedBall d (1 * \u03b4 j)",
+            "body": "h\u03b4\u2080.mono fun j hj => by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "addOrderOf (u j) = n j",
+        "body": "rfl",
+        "children": []
+      },
+      {
+        "name": "huj",
+        "type": "IsOfFinAddOrder (u j)",
+        "body": "addOrderOf_pos_iff.mp hj",
+        "children": []
+      },
+      {
+        "name": "huj'",
+        "type": "1 \u2264 (\u2191(n j) : \u211d)",
+        "body": "by norm_cast",
+        "children": []
+      },
+      {
+        "name": "hI\u2080",
+        "type": "\u03bc (I j) \u2260 0",
+        "body": "(measure_closedBall_pos _ d <| by positivity).ne.symm",
+        "children": []
+      },
+      {
+        "name": "hI\u2081",
+        "type": "\u03bc (I j) \u2260 \u22a4",
+        "body": "measure_ne_top _ _",
+        "children": []
+      },
+      {
+        "name": "hI\u2082",
+        "type": "\u03bc (I j) * \u2191(n j) = ENNReal.ofReal T",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

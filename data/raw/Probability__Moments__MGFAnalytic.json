@@ -1,0 +1,67 @@
+[
+  {
+    "module": "MGFAnalytic",
+    "name": "hasDerivAt_iteratedDeriv_mgf",
+    "statement": "t \u2208 interior (integrableExpSet X \u03bc)) (n : \u2115) : HasDerivAt (iteratedDeriv n (mgf X \u03bc)) \u03bc[fun \u03c9 \u21a6 X \u03c9 ^ (n + 1) * exp (t * X \u03c9)] t",
+    "have_tree": [
+      {
+        "name": "h_mem",
+        "type": "\u2200\u1da0 y in \ud835\udcdd t, y \u2208 interior (integrableExpSet X \u03bc)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MGFAnalytic",
+    "name": "deriv_cgf",
+    "statement": "v \u2208 interior (integrableExpSet X \u03bc)) : deriv (cgf X \u03bc) v = \u03bc[fun \u03c9 \u21a6 X \u03c9 * exp (v * X \u03c9)] / mgf X \u03bc v",
+    "have_tree": [
+      {
+        "name": "hv",
+        "type": "Integrable (fun \u03c9 \u21a6 exp (v * X \u03c9)) \u03bc",
+        "body": "interior_subset (s := integrableExpSet X \u03bc) h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MGFAnalytic",
+    "name": "deriv_cgf_zero",
+    "statement": "0 \u2208 interior (integrableExpSet X \u03bc)) : deriv (cgf X \u03bc) 0 = \u03bc[X] / \u03bc.real Set.univ",
+    "have_tree": [
+      {
+        "name": "h_mem",
+        "type": "\u2200\u1da0 y in \ud835\udcdd v, y \u2208 interior (integrableExpSet X \u03bc)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MGFAnalytic",
+    "name": "iteratedDeriv_two_cgf_eq_integral",
+    "statement": "v \u2208 interior (integrableExpSet X \u03bc)) : iteratedDeriv 2 (cgf X \u03bc) v = \u03bc[fun \u03c9 \u21a6 (X \u03c9 - deriv (cgf X \u03bc) v) ^ 2 * exp (v * X \u03c9)] / mgf X \u03bc v",
+    "have_tree": [
+      {
+        "name": "h_int",
+        "type": "Integrable (fun \u03c9 \u21a6 2 * X \u03c9 * deriv (cgf X \u03bc) v * exp (v * X \u03c9)) \u03bc",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MGFAnalytic",
+    "name": "exists_cgf_eq_iteratedDeriv_two_cgf_mul",
+    "statement": "0 < t) (hc : \u03bc[X] = 0) (hs : Set.Icc 0 t \u2286 interior (integrableExpSet X \u03bc)) : \u2203 u \u2208 Set.Ioo 0 t, cgf X \u03bc t = (iteratedDeriv 2 (cgf X \u03bc) u) * t ^ 2 / 2",
+    "have_tree": [
+      {
+        "name": "hu",
+        "type": "UniqueDiffOn \u211d (Set.Icc 0 t)",
+        "body": "uniqueDiffOn_Icc ht",
+        "children": []
+      }
+    ]
+  }
+]

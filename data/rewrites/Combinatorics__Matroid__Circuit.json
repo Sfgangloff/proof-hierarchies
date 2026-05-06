@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Circuit",
+      "name": "IsCircuit.eq_fundCircuit_of_subset",
+      "statement": "M.IsCircuit C) (hI : M.Indep I) (hCs : C \u2286 insert e I) : C = M.fundCircuit e I",
+      "have_tree": [
+        {
+          "name": "heCcl",
+          "type": "",
+          "body": "(hC.diff_singleton_isBasis heC).subset_closure heC",
+          "children": []
+        },
+        {
+          "name": "heI",
+          "type": "e \u2208 M.closure I",
+          "body": "M.closure_subset_closure hCeI heCcl",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Circuit",
+          "name": "IsCircuit.eq_fundCircuit_of_subset",
+          "statement": "M.IsCircuit C) (hI : M.Indep I) (hCs : C \u2286 insert e I) : C = M.fundCircuit e I",
+          "have_tree": [
+            {
+              "name": "heI",
+              "type": "e \u2208 M.closure I",
+              "body": "M.closure_subset_closure hCeI heCcl",
+              "children": []
+            },
+            {
+              "name": "heCcl",
+              "type": "",
+              "body": "(hC.diff_singleton_isBasis heC).subset_closure heC",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Circuit",
+      "name": "IsBase.mem_fundCocircuit_iff_mem_fundCircuit",
+      "statement": "\u03b1} (hB : M.IsBase B) : e \u2208 M.fundCocircuit f B \u2194 f \u2208 M.fundCircuit e B",
+      "have_tree": [
+        {
+          "name": "hB'",
+          "type": "M\u2736.IsBase (M\u2736.E \\ B)",
+          "body": "hB.compl_isBase_dual",
+          "children": []
+        },
+        {
+          "name": "hB'",
+          "type": "M.IsBase (M.E \\ (insert f (M\u2736.E \\ B) \\ {e}))",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Circuit",
+          "name": "IsBase.mem_fundCocircuit_iff_mem_fundCircuit",
+          "statement": "\u03b1} (hB : M.IsBase B) : e \u2208 M.fundCocircuit f B \u2194 f \u2208 M.fundCircuit e B",
+          "have_tree": [
+            {
+              "name": "hB'",
+              "type": "M.IsBase (M.E \\ (insert f (M\u2736.E \\ B) \\ {e}))",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hB'",
+              "type": "M\u2736.IsBase (M\u2736.E \\ B)",
+              "body": "hB.compl_isBase_dual",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

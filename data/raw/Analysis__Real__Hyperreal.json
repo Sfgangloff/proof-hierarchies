@@ -1,0 +1,66 @@
+[
+  {
+    "module": "Hyperreal",
+    "name": "archimedeanClassMk_neg_of_tendsto_atTop",
+    "statement": "\u211d*} (hx : x.Tendsto atTop) : mk x < 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < x",
+        "body": "lt_of_tendsto_atTop 0 hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hyperreal",
+    "name": "archimedeanClassMk_neg_of_tendsto_atBot",
+    "statement": "\u211d*} (hx : x.Tendsto atBot) : mk x < 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x < 0",
+        "body": "lt_of_tendsto_atBot 0 hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hyperreal",
+    "name": "IsSt.st_eq",
+    "statement": "\u211d*} {r : \u211d} (hxr : IsSt x r) : st x = r",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "\u2203 r, IsSt x r",
+        "body": "\u27e8r, hxr\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hyperreal",
+    "name": "st_mul",
+    "statement": "\u211d*} (hx : \u00acInfinite x) (hy : \u00acInfinite y) : st (x * y) = st x * st y",
+    "have_tree": [
+      {
+        "name": "hx'",
+        "type": "",
+        "body": "isSt_st' hx",
+        "children": []
+      },
+      {
+        "name": "hy'",
+        "type": "",
+        "body": "isSt_st' hy",
+        "children": []
+      },
+      {
+        "name": "hxy",
+        "type": "",
+        "body": "isSt_st' (not_infinite_mul hx hy)",
+        "children": []
+      }
+    ]
+  }
+]

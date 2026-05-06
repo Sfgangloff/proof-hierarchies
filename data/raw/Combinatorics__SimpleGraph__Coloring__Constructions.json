@@ -1,0 +1,61 @@
+[
+  {
+    "module": "Constructions",
+    "name": "chromaticNumber_pathGraph",
+    "statement": "\u2115) (h : 2 \u2264 n) : (pathGraph n).chromaticNumber = 2",
+    "have_tree": [
+      {
+        "name": "hc",
+        "type": "",
+        "body": "(pathGraph.bicoloring n).colorable",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Constructions",
+    "name": "chromaticNumber_cycleGraph_of_even",
+    "statement": "\u2115) (h : 2 \u2264 n) (hEven : Even n) : (cycleGraph n).chromaticNumber = 2",
+    "have_tree": [
+      {
+        "name": "hc",
+        "type": "",
+        "body": "(cycleGraph.bicoloring_of_even n hEven).colorable",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Constructions",
+    "name": "chromaticNumber_cycleGraph_of_odd",
+    "statement": "\u2115) (h : 2 \u2264 n) (hOdd : Odd n) : (cycleGraph n).chromaticNumber = 3",
+    "have_tree": [
+      {
+        "name": "hc",
+        "type": "",
+        "body": "(cycleGraph.tricoloring n h).colorable",
+        "children": [
+          {
+            "name": "hOdd'",
+            "type": "Odd w.length",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Constructions",
+    "name": "Coloring.completeEquipartiteGraph",
+    "statement": "(completeEquipartiteGraph r t).Coloring (Fin r)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(w.three_le_chromaticNumber_of_odd_loop ho).trans h.chromaticNumber_le",
+        "children": []
+      }
+    ]
+  }
+]

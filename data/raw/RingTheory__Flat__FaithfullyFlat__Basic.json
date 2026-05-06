@@ -1,0 +1,86 @@
+[
+  {
+    "module": "Basic",
+    "name": "iff_flat_and_rTensor_faithful",
+    "statement": "FaithfullyFlat R M \u2194 (Flat R M \u2227 \u2200 (N : Type max u v) [AddCommGroup N] [Module R N], Nontrivial N \u2192 Nontrivial (N \u2297[R] M))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(quotTensorEquivQuotSMul M m).toEquiv.symm.nontrivial",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "range_le_ker_of_exact_rTensor",
+    "statement": "FaithfullyFlat R M] (ex : Function.Exact (l12.rTensor M) (l23.rTensor M)) : LinearMap.range l12 \u2264 LinearMap.ker l23",
+    "have_tree": [
+      {
+        "name": "hE",
+        "type": "Nontrivial E",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Subsingleton (E \u2297[R] M)",
+        "body": "subsingleton_iff_forall_eq 0 |>.2 fun x =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "zero_iff_lTensor_zero",
+    "statement": "FaithfullyFlat R M] {N : Type*} [AddCommGroup N] [Module R N] {N' : Type*} [AddCommGroup N'] [Module R N'] (f : N \u2192\u2097[R] N') : f = 0 \u2194 LinearMap.lTensor M f = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "lTensor_reflects_exact R M f LinearMap.id (by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "iff_zero_iff_lTensor_zero",
+    "statement": "FaithfullyFlat R M \u2194 (Module.Flat R M \u2227 (\u2200 {N : Type max u v} [AddCommGroup N] [Module R N] {N' : Type max u v} [AddCommGroup N'] [Module R N'] (f : N \u2192\u2097[R] N'), f.lTensor M = 0 \u2194 f = 0))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Z (LinearMap.id : N \u2192\u2097[R] N) |>.1 (by ext; exact Subsingleton.elim _ _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "iff_zero_iff_rTensor_zero",
+    "statement": "FaithfullyFlat R M \u2194 (Module.Flat R M \u2227 (\u2200 {N : Type max u v} [AddCommGroup N] [Module R N] {N' : Type max u v} [AddCommGroup N'] [Module R N'] (f : N \u2192\u2097[R] N'), f.rTensor M = 0 \u2194 (f = 0)))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Z (LinearMap.id : N \u2192\u2097[R] N) |>.1 (by ext; exact Subsingleton.elim _ _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Flat.of_flat_tensorProduct",
+    "statement": "Type*) [CommRing S] [Algebra R S] [Module.FaithfullyFlat R S] [Module.Flat S (S \u2297[R] M)] : Module.Flat R M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Flat R (S \u2297[R] M)",
+        "body": "Flat.trans _ S _",
+        "children": []
+      }
+    ]
+  }
+]

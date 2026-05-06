@@ -1,0 +1,66 @@
+[
+  {
+    "module": "LTSeries",
+    "name": "exist_mem_one_of_mem_maximal_ideal",
+    "statement": "PrimeSpectrum R} (h\u2080 : p\u2080 < p\u2081) (h\u2081 : p\u2081 < closedPoint R) {x : R} (hx : x \u2208 \ud835\udd2a) : \u2203 q : PrimeSpectrum R, x \u2208 q.asIdeal \u2227 p\u2080 < q \u2227 q.asIdeal < \ud835\udd2a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "q.1.IsPrime",
+        "body": "q.2",
+        "children": []
+      },
+      {
+        "name": "hxq",
+        "type": "x \u2208 q.1",
+        "body": "le_sup_right.trans hq.1.2 (mem_span_singleton_self x)",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "(e \u27e8q, le_sup_left.trans hq.1.2\u27e9).1.height \u2264 1",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hph",
+        "type": "(e \u27e8p\u2081, h\u2080.le\u27e9).1.height \u2264 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LTSeries",
+    "name": "exist_mem_one_of_mem_two",
+    "statement": "PrimeSpectrum R} (h\u2080 : p\u2080 < p\u2081) (h\u2081 : p\u2081 < p\u2082) {x : R} (hx : x \u2208 p\u2082.asIdeal) : \u2203 q : (PrimeSpectrum R), x \u2208 q.asIdeal \u2227 p\u2080 < q \u2227 q < p\u2082",
+    "have_tree": [
+      {
+        "name": "hq",
+        "type": "(e q).1 < p\u2082",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "e.symm (e q) < e.symm \u27e8p\u2082, le_refl p\u2082\u27e9",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LTSeries",
+    "name": "exist_ltSeries_mem_one_of_mem_last",
+    "statement": "LTSeries (PrimeSpectrum R)) {x : R} (hx : x \u2208 p.last.asIdeal) : \u2203 q : LTSeries (PrimeSpectrum R), x \u2208 (q 1).asIdeal \u2227 p.length = q.length \u2227 p.head = q.head \u2227 p.last = q.last",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "1 < Q.length + 1",
+        "body": "Nat.lt_of_sub_ne_zero (hQ.symm.trans_ne h0)",
+        "children": []
+      }
+    ]
+  }
+]

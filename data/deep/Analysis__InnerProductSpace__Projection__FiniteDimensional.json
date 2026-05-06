@@ -1,0 +1,165 @@
+[
+  {
+    "module": "FiniteDimensional",
+    "name": "LinearIsometryEquiv.reflections_generate_dim_aux",
+    "statement": "\u2115} (\u03c6 : F \u2243\u2097\u1d62[\u211d] F) (hn : finrank \u211d (ContinuousLinearMap.id \u211d F - \u03c6).ker\u15ee \u2264 n) : \u2203 l : List F, l.length \u2264 n \u2227 \u03c6 = (l.map fun v => (\u211d \u2219 v)\u15ee.reflection).prod",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(ContinuousLinearMap.id \u211d F - \u03c6).ker = \u22a4",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "LinearMap.congr_fun (LinearMap.ker_eq_top.mp this) x",
+        "children": []
+      },
+      {
+        "name": "hW",
+        "type": "\u2200 w \u2208 W, \u03c6 w = w",
+        "body": "fun w hw => (sub_eq_zero.mp hw).symm",
+        "children": []
+      },
+      {
+        "name": "h\u03c6v",
+        "type": "\u03c6 v \u2208 W\u15ee",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hv'",
+        "type": "(v : F) \u2209 W",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hV",
+        "type": "\u2200 w, \u03c1 (\u03c6 w) = w \u2192 w \u2208 V",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "H\u2082V",
+        "type": "W \u2264 V",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "H\u2081V",
+        "type": "(v : F) \u2208 V",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u03c1 v = \u03c6 v",
+            "body": "reflection_sub (\u03c6.norm_map v).symm",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "finrank \u211d V\u15ee \u2264 n",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "finrank \u211d W + 1 \u2264 finrank \u211d V",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "finrank \u211d V + finrank \u211d V\u15ee = finrank \u211d F",
+            "body": "V.finrank_add_finrank_orthogonal",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "finrank \u211d W + finrank \u211d W\u15ee = finrank \u211d F",
+            "body": "W.finrank_add_finrank_orthogonal",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_arg (\u03c1 * \u00b7) h\u03c6l",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimensional",
+    "name": "maximal_orthonormal_iff_orthogonalComplement_eq_bot",
+    "statement": "Orthonormal \ud835\udd5c ((\u2191) : v \u2192 E)) : (\u2200 u \u2287 v, Orthonormal \ud835\udd5c ((\u2191) : u \u2192 E) \u2192 u = v) \u2194 (span \ud835\udd5c v)\u15ee = \u22a5",
+    "have_tree": [
+      {
+        "name": "he",
+        "type": "\u2016e\u2016 = 1",
+        "body": "by simp [e, norm_smul_inv_norm hx]",
+        "children": []
+      },
+      {
+        "name": "he'",
+        "type": "e \u2208 (span \ud835\udd5c v)\u15ee",
+        "body": "smul_mem' _ _ hx'",
+        "children": []
+      },
+      {
+        "name": "he''",
+        "type": "e \u2209 v",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "e = 0",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "e \u2208 span \ud835\udd5c v \u2293 (span \ud835\udd5c v)\u15ee",
+                "body": "\u27e8subset_span hev, he'\u27e9",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "e \u2260 0",
+            "body": "hv.ne_zero \u27e8e, hev\u27e9",
+            "children": []
+          },
+          {
+            "name": "h_end",
+            "type": "\u2200 a \u2208 v, \u27eaa, e\u27eb = 0",
+            "body": "by",
+            "children": [
+              {
+                "name": "hb",
+                "type": "b \u2208 v",
+                "body": "by grind",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "(\u27e8a, ha\u27e9 : v) \u2260 \u27e8b, hb\u27e9",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hxv'",
+        "type": "(\u27e8x, hxu\u27e9 : u) \u2209 ((\u2191) \u207b\u00b9' v : Set u)",
+        "body": "by simp [hxv]",
+        "children": []
+      }
+    ]
+  }
+]

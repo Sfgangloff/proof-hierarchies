@@ -1,0 +1,97 @@
+[
+  {
+    "module": "ComplexMGF",
+    "name": "hasDerivAt_integral_pow_mul_exp",
+    "statement": "z.re \u2208 interior (integrableExpSet X \u03bc)) (n : \u2115) : HasDerivAt (fun z \u21a6 \u03bc[fun \u03c9 \u21a6 X \u03c9 ^ n * cexp (z * X \u03c9)]) \u03bc[fun \u03c9 \u21a6 X \u03c9 ^ (n + 1) * cexp (z * X \u03c9)] z",
+    "have_tree": [
+      {
+        "name": "hX",
+        "type": "AEMeasurable X \u03bc",
+        "body": "aemeasurable_of_mem_interior_integrableExpSet hz",
+        "children": []
+      },
+      {
+        "name": "hz'",
+        "type": "",
+        "body": "hz",
+        "children": []
+      },
+      {
+        "name": "h_pos",
+        "type": "0 < (z.re - l) \u2293 (u - z.re)",
+        "body": "by simp [hlu.1, hlu.2]",
+        "children": []
+      },
+      {
+        "name": "ht",
+        "type": "0 < t",
+        "body": "half_pos h_pos",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ComplexMGF",
+    "name": "differentiableOn_complexMGF",
+    "statement": "DifferentiableOn \u2102 (complexMGF X \u03bc) {z | z.re \u2208 interior (integrableExpSet X \u03bc)}",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "hasDerivAt_complexMGF hz",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ComplexMGF",
+    "name": "hasDerivAt_iteratedDeriv_complexMGF",
+    "statement": "z.re \u2208 interior (integrableExpSet X \u03bc)) (n : \u2115) : HasDerivAt (iteratedDeriv n (complexMGF X \u03bc)) \u03bc[fun \u03c9 \u21a6 X \u03c9 ^ (n + 1) * cexp (z * X \u03c9)] z",
+    "have_tree": [
+      {
+        "name": "h_mem",
+        "type": "\u2200\u1da0 y in \ud835\udcdd z, y.re \u2208 interior (integrableExpSet X \u03bc)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ComplexMGF",
+    "name": "integrableExpSet_eq_of_mgf'",
+    "statement": "mgf X \u03bc = mgf Y \u03bc') (h\u03bc\u03bc' : \u03bc = 0 \u2194 \u03bc' = 0) : integrableExpSet X \u03bc = integrableExpSet Y \u03bc'",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero \u03bc",
+        "body": "\u27e8h\u03bc\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero \u03bc'",
+        "body": "\u27e8(not_iff_not.mpr h\u03bc\u03bc').mp h\u03bc\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ComplexMGF",
+    "name": "eqOn_complexMGF_of_mgf'",
+    "statement": "mgf X \u03bc = mgf Y \u03bc') (h\u03bc\u03bc' : \u03bc = 0 \u2194 \u03bc' = 0) : Set.EqOn (complexMGF X \u03bc) (complexMGF Y \u03bc') {z | z.re \u2208 interior (integrableExpSet X \u03bc)}",
+    "have_tree": [
+      {
+        "name": "hX",
+        "type": "AnalyticOnNhd \u2102 (complexMGF X \u03bc) {z | z.re \u2208 interior (integrableExpSet X \u03bc)}",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hY",
+        "type": "AnalyticOnNhd \u2102 (complexMGF Y \u03bc') {z | z.re \u2208 interior (integrableExpSet Y \u03bc')}",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

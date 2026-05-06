@@ -1,0 +1,79 @@
+[
+  {
+    "module": "StrongGenerator",
+    "name": "IsCardinalFilteredGenerator.of_isDense",
+    "statement": "Type u'} [Category.{v'} J] [EssentiallySmall.{w} J] (F : J \u2964 C) [F.IsDense] (\u03ba : Cardinal.{w}) [Fact \u03ba.IsRegular] [\u2200 j, IsCardinalPresentable (F.obj j) \u03ba] [\u2200 (X : C), IsCardinalFiltered (CostructuredArrow F X) \u03ba] : ((\u22a4 : ObjectProperty J).map F).IsCardinalFilteredGenerator \u03ba where le_isCardinalPresentable",
+    "have_tree": [
+      {
+        "name": "ip",
+        "type": "",
+        "body": "F.denseAt X",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongGenerator",
+    "name": "ObjectProperty.IsStrongGenerator.isDense_colimitsCardinalClosure_\u03b9",
+    "statement": "ObjectProperty C} [ObjectProperty.Small.{w} P] (hS\u2081 : P.IsStrongGenerator) (hS\u2082 : P \u2264 isCardinalPresentable C \u03ba) : (P.colimitsCardinalClosure \u03ba).\u03b9.IsDense where isDenseAt X",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "HasColimitsOfShape (CostructuredArrow (P.colimitsCardinalClosure \u03ba).\u03b9 X) C",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Mono (colimit.desc _ (E.coconeAt X))",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsCardinalPresentable G \u03ba",
+            "body": "hS\u2082 _ hG",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "(P.colimitsCardinalClosure \u03ba).IsClosedUnderColimitsOfShape WalkingParallelPair",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "IsIso (colimit.desc _ (E.coconeAt X))",
+        "body": "hS\u2081.isIso_of_mono _ (fun Y hY g \u21a6 by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongGenerator",
+    "name": "IsStrongGenerator.colimitsCardinalClosure_eq_isCardinalPresentable",
+    "statement": "ObjectProperty C} [ObjectProperty.Small.{w} P] (hS\u2081 : P.IsStrongGenerator) (hS\u2082 : P \u2264 isCardinalPresentable C \u03ba) : isCardinalPresentable C \u03ba = P.colimitsCardinalClosure \u03ba",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hS\u2081.isDense_colimitsCardinalClosure_\u03b9 hS\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongGenerator",
+    "name": "iff_exists_isStrongGenerator",
+    "statement": "IsCardinalLocallyPresentable C \u03ba \u2194 \u2203 (P : ObjectProperty C) (_ : ObjectProperty.Small.{w} P), P.IsStrongGenerator \u2227 P \u2264 isCardinalPresentable C \u03ba",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "HasCardinalFilteredGenerator C \u03ba",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

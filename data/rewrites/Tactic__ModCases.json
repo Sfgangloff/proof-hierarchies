@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "ModCases",
+      "name": "onModCases_start",
+      "statement": "Sort*) (a : \u2124) (n : \u2115) (hn : Nat.ble 1 n = true) (H : OnModCases n a (nat_lit 0) p) : p",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "natCast_pos.2 <| Nat.le_of_ble_eq_true hn",
+          "children": []
+        },
+        {
+          "name": "nonneg",
+          "type": "",
+          "body": "emod_nonneg a <| Int.ne_of_gt this",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "ModCases",
+          "name": "onModCases_start",
+          "statement": "Sort*) (a : \u2124) (n : \u2115) (hn : Nat.ble 1 n = true) (H : OnModCases n a (nat_lit 0) p) : p",
+          "have_tree": [
+            {
+              "name": "nonneg",
+              "type": "",
+              "body": "emod_nonneg a <| Int.ne_of_gt this",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "natCast_pos.2 <| Nat.le_of_ble_eq_true hn",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

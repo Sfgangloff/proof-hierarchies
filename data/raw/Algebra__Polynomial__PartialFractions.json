@@ -1,0 +1,92 @@
+[
+  {
+    "module": "PartialFractions",
+    "name": "quo_mul_prod_add_sum_rem_mul_prod_unique",
+    "statement": "Type*} [DecidableEq \u03b9] {s : Finset \u03b9} {g : \u03b9 \u2192 R[X]} (hg : \u2200 i \u2208 s, (g i).Monic) (hgg : Set.Pairwise s fun i j => IsCoprime (g i) (g j)) {q\u2081 q\u2082 : R[X]} {r\u2081 r\u2082 : \u03b9 \u2192 R[X]} (hr\u2081 : \u2200 i \u2208 s, (r\u2081 i).degree < (g i).degree) (hr\u2082 : \u2200 i \u2208 s, (r\u2082 i).degree < (g i).degree) (hf : q\u2081 * (\u220f i \u2208 s, g i) + \u2211 i \u2208 s, r\u2081 i * (\u220f k \u2208 s.erase i, g k) = q\u2082 * (\u220f i \u2208 s, g i) + \u2211 i \u2208 s, r\u2082 i * (\u220f k \u2208 s.erase i, g k)) : q\u2081 = q\u2082 \u2227 \u2200 i \u2208 s, r\u2081 i = r\u2082 i",
+    "have_tree": [
+      {
+        "name": "cop",
+        "type": "IsCoprime (g i) (\u220f i \u2208 s, g i)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hgid",
+        "type": "g i \u2223 r\u2082 i - r\u2081 i",
+        "body": "cop.dvd_of_dvd_mul_right (hf \u25b8 dvd_mul_right _ _)",
+        "children": []
+      },
+      {
+        "name": "hpgd",
+        "type": "\u220f i \u2208 s, g i \u2223 _",
+        "body": "cop.symm.dvd_of_dvd_mul_left (hf.symm \u25b8 dvd_mul_left _ _)",
+        "children": []
+      },
+      {
+        "name": "hdr",
+        "type": "(r\u2082 i - r\u2081 i).degree < (g i).degree",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hpm",
+        "type": "(\u220f i \u2208 s, g i).Monic",
+        "body": "monic_prod_of_monic s g hg.2",
+        "children": []
+      },
+      {
+        "name": "hdp",
+        "type": "(\u2211 i \u2208 s, (r\u2081 i - r\u2082 i) * \u220f k \u2208 s.erase i, g k).degree < (\u220f i \u2208 s, g i).degree",
+        "body": "by",
+        "children": [
+          {
+            "name": "dnb",
+            "type": "(\u220f k \u2208 s.erase j, g k).degree \u2260 \u22a5",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PartialFractions",
+    "name": "div_prod_eq_quo_add_sum_rem_div",
+    "statement": "R[X]) {\u03b9 : Type*} {g : \u03b9 \u2192 R[X]} {s : Finset \u03b9} (hg : \u2200 i \u2208 s, (g i).Monic) (hcop : Set.Pairwise \u2191s fun i j => IsCoprime (g i) (g j)) : \u2203 (q : R[X]) (r : \u03b9 \u2192 R[X]), (\u2200 i \u2208 s, (r i).degree < (g i).degree) \u2227 ((\u2191f : K) / \u220f i \u2208 s, \u2191(g i)) = \u2191q + \u2211 i \u2208 s, (r i : K) / (g i : K)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial R",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "Nontrivial R[X]",
+            "body": "Module.nontrivial R[X] K",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PartialFractions",
+    "name": "quo_add_sum_rem_div_unique",
+    "statement": "Type*} {g : \u03b9 \u2192 R[X]} {s : Finset \u03b9} (hg : \u2200 i \u2208 s, (g i).Monic) (hcop : Set.Pairwise \u2191s fun i j => IsCoprime (g i) (g j)) {q\u2081 q\u2082 : R[X]} {r\u2081 r\u2082 : \u03b9 \u2192 R[X]} (hr\u2081 : \u2200 i \u2208 s, (r\u2081 i).degree < (g i).degree) (hr\u2082 : \u2200 i \u2208 s, (r\u2082 i).degree < (g i).degree) (hf : \u2191q\u2081 + \u2211 i \u2208 s, (r\u2081 i : K) / (g i : K) = \u2191q\u2082 + \u2211 i \u2208 s, (r\u2082 i : K) / (g i : K)) : q\u2081 = q\u2082 \u2227 \u2200 i \u2208 s, r\u2081 i = r\u2082 i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial R",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "Nontrivial R[X]",
+            "body": "Module.nontrivial R[X] K",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

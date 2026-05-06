@@ -1,0 +1,186 @@
+[
+  {
+    "module": "UnitsCyclic",
+    "name": "isCyclic_units_prime",
+    "statement": "\u2115} (hp : p.Prime) : IsCyclic (ZMod p)\u02e3",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (p.Prime)",
+        "body": "\u27e8hp\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UnitsCyclic",
+    "name": "not_isCyclic_units_eight",
+    "statement": "\u00ac IsCyclic (ZMod 8)\u02e3",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "Monoid.exponent (ZMod 8)\u02e3 \u2223 2",
+        "body": "Monoid.exponent_dvd_of_forall_pow_eq_one (by decide)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UnitsCyclic",
+    "name": "exists_one_add_mul_pow_prime_eq",
+    "statement": "p.Prime) (hvu : v \u2223 u) (hpuv : p * u * v \u2223 u ^ p) (x : R) : \u2203 y, (1 + u * x) ^ p = 1 + p * u * (x + v * y)",
+    "have_tree": [
+      {
+        "name": "hi'",
+        "type": "2 \u2264 i",
+        "body": "by lia",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UnitsCyclic",
+    "name": "orderOf_one_add_mul_prime_pow",
+    "statement": "\u2115} (hp : p.Prime) (m : \u2115) (hm0 : m \u2260 0) (hpm : m + 2 \u2264 p * m) (a : \u2124) (ha : \u00ac (p : \u2124) \u2223 a) (n : \u2115) : orderOf (1 + p ^ m * a : ZMod (p ^ (n + m))) = p ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk hp",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "exists_one_add_mul_pow_prime_pow_eq",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UnitsCyclic",
+    "name": "isCyclic_units_of_prime_pow",
+    "statement": "\u2115) (hp : p.Prime) (hp2 : p \u2260 2) (n : \u2115) : IsCyclic (ZMod (p ^ n))\u02e3",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero (p ^ n)",
+        "body": "\u27e8pow_ne_zero n hp.ne_zero\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk hp",
+        "children": []
+      },
+      {
+        "name": "ha",
+        "type": "IsUnit a",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "p - 1 \u2223 orderOf b",
+        "body": "hc \u25b8 orderOf_map_dvd _ b",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UnitsCyclic",
+    "name": "isCyclic_units_two_pow_iff",
+    "statement": "\u2115) : IsCyclic (ZMod (2 ^ n))\u02e3 \u2194 n \u2264 2",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "2 ^ 3 \u2223 2 ^ (n + 3)",
+        "body": "pow_dvd_pow _ (by lia)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UnitsCyclic",
+    "name": "isCyclic_units_four_mul_iff",
+    "statement": "\u2115) : IsCyclic (ZMod (4 * n))\u02e3 \u2194 n = 0 \u2228 n = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero n",
+        "body": "\u27e8by simpa using hn0\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nat.Coprime 4 n",
+        "body": "(Nat.prime_two.coprime_iff_not_dvd.mpr h2n).pow_left 2",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero n",
+        "body": "\u27e8hn0\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Odd (\u03c6 n)",
+        "body": "by simpa [show \u03c6 4 = 2 from rfl] using h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UnitsCyclic",
+    "name": "not_isCyclic_units_of_mul_coprime",
+    "statement": "\u2115) (hm : Odd m) (hm1 : m \u2260 1) (hn : Odd n) (hn1 : n \u2260 1) (hmn : m.Coprime n) : \u00ac IsCyclic (ZMod (m * n))\u02e3",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero m",
+        "body": "\u27e8Nat.ne_of_odd_add hm\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero n",
+        "body": "\u27e8Nat.ne_of_odd_add hn\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UnitsCyclic",
+    "name": "isCyclic_units_iff_of_odd",
+    "statement": "\u2115} (hn : Odd n) : IsCyclic (ZMod n)\u02e3 \u2194 \u2203 (p m : \u2115), p.Prime \u2227 Odd p \u2227 n = p ^ m",
+    "have_tree": [
+      {
+        "name": "hn0",
+        "type": "n \u2260 0",
+        "body": "by rintro rfl; exact Nat.not_odd_zero hn",
+        "children": []
+      },
+      {
+        "name": "odd",
+        "type": "",
+        "body": "hn.of_dvd_nat dvd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UnitsCyclic",
+    "name": "isCyclic_units_iff",
+    "statement": "\u2115) : IsCyclic (ZMod n)\u02e3 \u2194 n = 0 \u2228 n = 1 \u2228 n = 2 \u2228 n = 4 \u2228 \u2203 (p m : \u2115), p.Prime \u2227 Odd p \u2227 1 \u2264 m \u2227 (n = p ^ m \u2228 n = 2 * p ^ m)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "eq \u25b8 odd.pow",
+        "children": []
+      }
+    ]
+  }
+]

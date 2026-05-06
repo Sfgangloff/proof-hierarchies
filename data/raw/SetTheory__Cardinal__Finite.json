@@ -1,0 +1,98 @@
+[
+  {
+    "module": "Finite",
+    "name": "card_le_card_of_surjective",
+    "statement": "Type u} {\u03b2 : Type v} [Finite \u03b1] (f : \u03b1 \u2192 \u03b2) (hf : Surjective f) : Nat.card \u03b2 \u2264 Nat.card \u03b1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "lift.{u} #\u03b2 \u2264 lift.{v} #\u03b1",
+        "body": "mk_le_of_surjective (ULift.map_surjective.2 hf)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finite",
+    "name": "bijective_iff_injective_and_card",
+    "statement": "\u03b1 \u2192 \u03b2) : Bijective f \u2194 Injective f \u2227 Nat.card \u03b1 = Nat.card \u03b2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite \u03b2",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofInjective f h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finite",
+    "name": "bijective_iff_surjective_and_card",
+    "statement": "\u03b1 \u2192 \u03b2) : Bijective f \u2194 Surjective f \u2227 Nat.card \u03b1 = Nat.card \u03b2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite \u03b1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofSurjective f h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finite",
+    "name": "card_image_le",
+    "statement": "\u03b1 \u2192 \u03b2} (hs : s.Finite) : Nat.card (f '' s) \u2264 Nat.card s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finite",
+    "name": "card_image_of_injOn",
+    "statement": "\u03b1 \u2192 \u03b2} (hf : s.InjOn f) : Nat.card (f '' s) = Nat.card s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(hs.image hf).to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finite",
+    "name": "card_sum",
+    "statement": "Nat.card (\u03b1 \u2295 \u03b2) = Nat.card \u03b1 + Nat.card \u03b2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite \u03b1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite \u03b2",
+        "children": []
+      }
+    ]
+  }
+]

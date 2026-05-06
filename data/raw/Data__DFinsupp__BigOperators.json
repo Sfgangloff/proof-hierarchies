@@ -1,0 +1,47 @@
+[
+  {
+    "module": "BigOperators",
+    "name": "prod_eq_zero_iff",
+    "statement": "f.prod g = 0 \u2194 \u2203 i \u2208 f.support, g i (f i) = 0",
+    "have_tree": [
+      {
+        "name": "H1",
+        "type": "sx.toFinset \u2229 sy.toFinset \u2286 sx.toFinset",
+        "body": "Finset.inter_subset_left",
+        "children": []
+      },
+      {
+        "name": "H2",
+        "type": "sx.toFinset \u2229 sy.toFinset \u2286 sy.toFinset",
+        "body": "Finset.inter_subset_right",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BigOperators",
+    "name": "sum_sub_index",
+    "statement": "\u03b2 i), Decidable (x \u2260 0)] [AddCommGroup \u03b3] {f g : \u03a0\u2080 i, \u03b2 i} {h : \u2200 i, \u03b2 i \u2192 \u03b3} (h_sub : \u2200 i b\u2081 b\u2082, h i (b\u2081 - b\u2082) = h i b\u2081 - h i b\u2082) : (f - g).sum h = f.sum h - g.sum h",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(liftAddHom fun a => AddMonoidHom.ofMapSub (h a) (h_sub a)).map_sub f g",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BigOperators",
+    "name": "sum_single",
+    "statement": "\u03b2 i), Decidable (x \u2260 0)] {f : \u03a0\u2080 i, \u03b2 i} : f.sum single = f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "DFunLike.congr_fun (liftAddHom_singleAddHom (\u03b2 := \u03b2)) f",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,144 @@
+[
+  {
+    "module": "Arithmetic",
+    "name": "mul_eq_self",
+    "statement": "Cardinal} (hc : \u2135\u2080 \u2264 c) : c * c = c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NoMaxOrder \u03b1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsWellOrder _ s",
+        "body": "(RelEmbedding.preimage ..).isWellOrder",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arithmetic",
+    "name": "mul_eq_max_of_aleph0_le_left",
+    "statement": "Cardinal} (h : \u2135\u2080 \u2264 a) (h' : b \u2260 0) : a * b = max a b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "b \u2264 a",
+        "body": "hb.le.trans h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arithmetic",
+    "name": "mul_eq_left_iff",
+    "statement": "Cardinal} : a * b = a \u2194 max \u2135\u2080 b \u2264 a \u2227 b \u2260 0 \u2228 b = 1 \u2228 a = 0",
+    "have_tree": [
+      {
+        "name": "hb",
+        "type": "b \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arithmetic",
+    "name": "eq_of_add_eq_of_aleph0_le",
+    "statement": "Cardinal} (h : a + b = c) (ha : a < c) (hc : \u2135\u2080 \u2264 c) : b = c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "a + b < c",
+        "body": "add_lt_of_lt hc ha hb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arithmetic",
+    "name": "ciSup_add",
+    "statement": "BddAbove (range f)) (c : Cardinal.{v}) : (\u2a06 i, f i) + c = \u2a06 i, f i + c",
+    "have_tree": [
+      {
+        "name": "bdd",
+        "type": "BddAbove (range (f \u00b7 + c))",
+        "body": "\u27e8_, forall_mem_range.mpr this\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arithmetic",
+    "name": "ciSup_mul",
+    "statement": "Cardinal.{v}) : (\u2a06 i, f i) * c = \u2a06 i, f i * c",
+    "have_tree": [
+      {
+        "name": "bdd",
+        "type": "BddAbove (range (f \u00b7 * c))",
+        "body": "\u27e8_, forall_mem_range.mpr this\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arithmetic",
+    "name": "mk_equiv_eq_arrow_of_lift_eq",
+    "statement": "lift.{v} #\u03b1 = lift.{u} #\u03b2') : #(\u03b1 \u2243 \u03b2') = #(\u03b1 \u2192 \u03b2')",
+    "have_tree": [
+      {
+        "name": "e\u2081",
+        "type": "",
+        "body": "lift_mk_eq'.mpr \u27e8.equivCongr (.refl \u03b1) e\u27e9",
+        "children": []
+      },
+      {
+        "name": "e\u2082",
+        "type": "",
+        "body": "lift_mk_eq'.mpr \u27e8.arrowCongr (.refl \u03b1) e\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arithmetic",
+    "name": "mk_list_eq_mk",
+    "statement": "Type u) [Infinite \u03b1] : #(List \u03b1) = #\u03b1",
+    "have_tree": [
+      {
+        "name": "H1",
+        "type": "\u2135\u2080 \u2264 #\u03b1",
+        "body": "aleph0_le_mk \u03b1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arithmetic",
+    "name": "sum_pow_eq_max_aleph0",
+    "statement": "Cardinal} (h : x \u2260 0) : sum (fun n \u21a6 x ^ n) = max \u2135\u2080 x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "nonempty_out h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arithmetic",
+    "name": "extend_function",
+    "statement": "Type*} {s : Set \u03b1} (f : s \u21aa \u03b2) (h : Nonempty ((s\u1d9c : Set \u03b1) \u2243 ((range f)\u1d9c : Set \u03b2))) : \u2203 g : \u03b1 \u2243 \u03b2, \u2200 x : s, g x = f x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h; obtain \u27e8g\u27e9 := this",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,287 @@
+[
+  {
+    "module": "Portmanteau",
+    "name": "le_measure_compl_liminf_of_limsup_measure_le",
+    "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure \u03a9} {\u03bcs : \u03b9 \u2192 Measure \u03a9} [IsProbabilityMeasure \u03bc] [\u2200 i, IsProbabilityMeasure (\u03bcs i)] {E : Set \u03a9} (E_mble : MeasurableSet E) (h : (L.limsup fun i \u21a6 \u03bcs i E) \u2264 \u03bc E) : \u03bc E\u1d9c \u2264 L.liminf fun i \u21a6 \u03bcs i E\u1d9c",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "antitone_const_tsub.map_limsup_of_continuousAt (F := L)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Portmanteau",
+    "name": "limsup_measure_compl_le_of_le_liminf_measure",
+    "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure \u03a9} {\u03bcs : \u03b9 \u2192 Measure \u03a9} [IsProbabilityMeasure \u03bc] [\u2200 i, IsProbabilityMeasure (\u03bcs i)] {E : Set \u03a9} (E_mble : MeasurableSet E) (h : \u03bc E \u2264 L.liminf fun i \u21a6 \u03bcs i E) : (L.limsup fun i \u21a6 \u03bcs i E\u1d9c) \u2264 \u03bc E\u1d9c",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "antitone_const_tsub.map_liminf_of_continuousAt (F := L)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Portmanteau",
+    "name": "FiniteMeasure.limsup_measure_closed_le_of_tendsto",
+    "statement": "Type*} {L : Filter \u03b9} [MeasurableSpace \u03a9] [TopologicalSpace \u03a9] [HasOuterApproxClosed \u03a9] [OpensMeasurableSpace \u03a9] {\u03bc : FiniteMeasure \u03a9} {\u03bcs : \u03b9 \u2192 FiniteMeasure \u03a9} (\u03bcs_lim : Tendsto \u03bcs L (\ud835\udcdd \u03bc)) {F : Set \u03a9} (F_closed : IsClosed F) : (L.limsup fun i \u21a6 (\u03bcs i : Measure \u03a9) F) \u2264 (\u03bc : Measure \u03a9) F",
+    "have_tree": [
+      {
+        "name": "\u03b5_pos'",
+        "type": "",
+        "body": "(ENNReal.half_pos (ENNReal.coe_ne_zero.mpr \u03b5_pos.ne.symm)).ne.symm",
+        "children": []
+      },
+      {
+        "name": "key\u2082",
+        "type": "",
+        "body": "FiniteMeasure.tendsto_iff_forall_lintegral_tendsto.mp \u03bcs_lim (fs M)",
+        "children": []
+      },
+      {
+        "name": "ev_near",
+        "type": "",
+        "body": "key\u2082.eventually_le_const room\u2082",
+        "children": []
+      },
+      {
+        "name": "ev_near'",
+        "type": "",
+        "body": "ev_near.mono",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Portmanteau",
+    "name": "ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto",
+    "statement": "Type*} {L : Filter \u03b9} [MeasurableSpace \u03a9] [TopologicalSpace \u03a9] [OpensMeasurableSpace \u03a9] [HasOuterApproxClosed \u03a9] {\u03bc : ProbabilityMeasure \u03a9} {\u03bcs : \u03b9 \u2192 ProbabilityMeasure \u03a9} (\u03bcs_lim : Tendsto \u03bcs L (\ud835\udcdd \u03bc)) {E : Set \u03a9} (E_nullbdry : \u03bc (frontier E) = 0) : Tendsto (fun i \u21a6 \u03bcs i E) L (\ud835\udcdd (\u03bc E))",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "tendsto_measure_of_null_frontier_of_tendsto' \u03bcs_lim (by simpa using E_nullbdry)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Portmanteau",
+    "name": "exists_null_frontier_thickening",
+    "statement": "Measure \u03a9) [SFinite \u03bc] (s : Set \u03a9) {a b : \u211d} (hab : a < b) : \u2203 r \u2208 Ioo a b, \u03bc (frontier (Metric.thickening r s)) = 0",
+    "have_tree": [
+      {
+        "name": "disjs",
+        "type": "",
+        "body": "Metric.frontier_thickening_disjoint s",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "Measure.countable_meas_pos_of_disjoint_iUnion (\u03bc := \u03bc) mbles disjs",
+        "children": []
+      },
+      {
+        "name": "aux",
+        "type": "",
+        "body": "measure_diff_null (s := Ioo a b) (Set.Countable.measure_zero key volume)",
+        "children": []
+      },
+      {
+        "name": "len_pos",
+        "type": "0 < ENNReal.ofReal (b - a)",
+        "body": "by simp only [hab, ENNReal.ofReal_pos, sub_pos]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Portmanteau",
+    "name": "exists_null_frontiers_thickening",
+    "statement": "Measure \u03a9) [SFinite \u03bc] (s : Set \u03a9) : \u2203 rs : \u2115 \u2192 \u211d, Tendsto rs atTop (\ud835\udcdd 0) \u2227 \u2200 n, 0 < rs n \u2227 \u03bc (frontier (Metric.thickening (rs n) s)) = 0",
+    "have_tree": [
+      {
+        "name": "obs",
+        "type": "",
+        "body": "fun n : \u2115 => exists_null_frontier_thickening \u03bc s (Rs_pos n)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Portmanteau",
+    "name": "limsup_measure_closed_le_of_forall_tendsto_measure",
+    "statement": "Type*} {L : Filter \u03b9} [MeasurableSpace \u03a9] [TopologicalSpace \u03a9] [PseudoMetrizableSpace \u03a9] [OpensMeasurableSpace \u03a9] {\u03bc : Measure \u03a9} [IsFiniteMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure \u03a9} (h : \u2200 {E : Set \u03a9}, MeasurableSet E \u2192 \u03bc (frontier E) = 0 \u2192 Tendsto (fun i \u21a6 \u03bcs i E) L (\ud835\udcdd (\u03bc E))) (F : Set \u03a9) (F_closed : IsClosed F) : L.limsup (fun i \u21a6 \u03bcs i F) \u2264 \u03bc F",
+    "have_tree": [
+      {
+        "name": "ex",
+        "type": "",
+        "body": "exists_null_frontiers_thickening \u03bc F",
+        "children": []
+      },
+      {
+        "name": "rs_lim",
+        "type": "Tendsto rs atTop (\ud835\udcdd 0)",
+        "body": "(Classical.choose_spec ex).1",
+        "children": []
+      },
+      {
+        "name": "rs_pos",
+        "type": "\u2200 n, 0 < rs n",
+        "body": "fun n \u21a6 ((Classical.choose_spec ex).2 n).1",
+        "children": []
+      },
+      {
+        "name": "Fthicks_open",
+        "type": "\u2200 n, IsOpen (Metric.thickening (rs n) F)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "fun (n : \u2115) \u21a6 h (Fthicks_open n).measurableSet (rs_null n)",
+        "children": []
+      },
+      {
+        "name": "keyB",
+        "type": "",
+        "body": "tendsto_measure_cthickening_of_isClosed (\u03bc := \u03bc) (s := F)",
+        "children": []
+      },
+      {
+        "name": "nhds",
+        "type": "Iio (\u03bc F + \u03b5) \u2208 \ud835\udcdd (\u03bc F)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "aux",
+        "type": "(fun i \u21a6 (\u03bcs i F)) \u2264\u1da0[L] (fun i \u21a6 \u03bcs i (Metric.thickening (rs m) F))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Portmanteau",
+    "name": "integral_le_liminf_integral_of_forall_isOpen_measure_le_liminf_measure",
+    "statement": "Measure \u03a9} {\u03bcs : \u2115 \u2192 Measure \u03a9} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] {f : \u03a9 \u2192\u1d47 \u211d} (f_nn : 0 \u2264 f) (h_opens : \u2200 G, IsOpen G \u2192 \u03bc G \u2264 atTop.liminf (fun i \u21a6 \u03bcs i G)) : \u222b x, (f x) \u2202\u03bc \u2264 atTop.liminf (fun i \u21a6 \u222b x, (f x) \u2202(\u03bcs i))",
+    "have_tree": [
+      {
+        "name": "same",
+        "type": "",
+        "body": "lintegral_le_liminf_lintegral_of_forall_isOpen_measure_le_liminf_measure",
+        "children": [
+          {
+            "name": "bound",
+            "type": "\u2200 i, \u222b\u207b x, ENNReal.ofReal (f x) \u2202(\u03bcs i) \u2264 nndist 0 g",
+            "body": "fun i \u21a6 by",
+            "children": []
+          },
+          {
+            "name": "obs",
+            "type": "",
+            "body": "fun (i : \u2115) \u21a6 @BoundedContinuousFunction.lintegral_nnnorm_le \u03a9 _ _ (\u03bcs i) \u211d _ f",
+            "children": [
+              {
+                "name": "aux",
+                "type": "",
+                "body": "ENNReal.ofReal_eq_coe_nnreal (f_nn x)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Portmanteau",
+    "name": "tendsto_of_forall_isOpen_le_liminf_nat",
+    "statement": "ProbabilityMeasure \u03a9} {\u03bcs : \u2115 \u2192 ProbabilityMeasure \u03a9} (h_opens : \u2200 G, IsOpen G \u2192 \u03bc G \u2264 atTop.liminf (fun i \u21a6 \u03bcs i G)) : atTop.Tendsto (fun i \u21a6 \u03bcs i) (\ud835\udcdd \u03bc)",
+    "have_tree": [
+      {
+        "name": "obs",
+        "type": "",
+        "body": "ENNReal.coe_mono h_opens",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Portmanteau",
+    "name": "tendsto_of_forall_isClosed_limsup_le_nat",
+    "statement": "\u2115 \u2192 ProbabilityMeasure \u03a9} (h : \u2200 F : Set \u03a9, IsClosed F \u2192 limsup (fun i \u21a6 \u03bcs i F) atTop \u2264 \u03bc F) : Tendsto \u03bcs atTop (\ud835\udcdd \u03bc)",
+    "have_tree": [
+      {
+        "name": "obs",
+        "type": "",
+        "body": "ENNReal.coe_mono h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Portmanteau",
+    "name": "tendsto_of_forall_isClosed_limsup_real_le'",
+    "statement": "Filter \u03b9} [L.IsCountablyGenerated] (h : \u2200 F : Set \u03a9, IsClosed F \u2192 limsup (fun i \u21a6 (\u03bcs i : Measure \u03a9).real F) L \u2264 (\u03bc : Measure \u03a9).real F) : Tendsto \u03bcs L (\ud835\udcdd \u03bc)",
+    "have_tree": [
+      {
+        "name": "key\u2082",
+        "type": "Tendsto (fun i \u21a6 \u222b \u03c9, fs M \u03c9 \u2202(\u03bcs i)) F (\ud835\udcdd (\u222b \u03c9, fs M \u03c9 \u2202\u03bc))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "room\u2082",
+        "type": "\u222b a, fs M a \u2202\u03bc < \u222b a, fs M a \u2202\u03bc + \u03b5 / 2",
+        "body": "by simp [\u03b5_pos]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Portmanteau",
+    "name": "ProbabilityMeasure.exists_lt_measure_biUnion_of_isOpen",
+    "statement": "Set (Set \u03a9)} (\u03bd : ProbabilityMeasure \u03a9) (h : \u2200 (u : Set \u03a9), IsOpen u \u2192 \u2200 x \u2208 u, \u2203 s \u2208 S, s \u2208 \ud835\udcdd x \u2227 s \u2286 u) {G : Set \u03a9} (hG : IsOpen G) {r : \u211d\u22650} (hr : r < \u03bd G) : \u2203 T : Finset (Set \u03a9), (\u2200 t \u2208 T, t \u2208 S) \u2227 (r < \u03bd (\u22c3 t \u2208 T, t)) \u2227 (\u22c3 t \u2208 T, t) \u2286 G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "G \u2286 \u22c3 i, interior (s i)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "T.Nonempty",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Tendsto (fun i \u21a6 \u03bd (accumulate f i)) atTop (\ud835\udcdd (\u03bd (\u22c3 i, f i)))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Portmanteau",
+    "name": "_root_.IsPiSystem.tendsto_probabilityMeasure_of_tendsto_of_mem",
+    "statement": "Set (Set \u03a9)} (hS : IsPiSystem S) {\u03bc : \u03b9 \u2192 ProbabilityMeasure \u03a9} {\u03bd : ProbabilityMeasure \u03a9} {l : Filter \u03b9} [l.IsCountablyGenerated] (hmeas : \u2200 s \u2208 S, MeasurableSet s) (h : \u2200 (u : Set \u03a9), IsOpen u \u2192 \u2200 x \u2208 u, \u2203 s \u2208 S, s \u2208 \ud835\udcdd x \u2227 s \u2286 u) (h' : \u2200 s \u2208 S, Tendsto (fun i \u21a6 \u03bc i s) l (\ud835\udcdd (\u03bd s))) : Tendsto \u03bc l (\ud835\udcdd \u03bd)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Tendsto (fun i \u21a6 \u03bc i (\u22c3 t \u2208 T, t)) l (\ud835\udcdd (\u03bd (\u22c3 t \u2208 T, t)))",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

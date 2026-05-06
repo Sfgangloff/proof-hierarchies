@@ -1,0 +1,52 @@
+[
+  {
+    "module": "MeanInequalitiesPow",
+    "name": "rpow_arith_mean_le_arith_mean_rpow",
+    "statement": "\u03b9 \u2192 \u211d\u22650\u221e) (hw' : \u2211 i \u2208 s, w i = 1) {p : \u211d} (hp : 1 \u2264 p) : (\u2211 i \u2208 s, w i * z i) ^ p \u2264 \u2211 i \u2208 s, w i * z i ^ p",
+    "have_tree": [
+      {
+        "name": "hp_pos",
+        "type": "0 < p",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "hp_nonneg",
+        "type": "0 \u2264 p",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "hp_not_neg",
+        "type": "\u00acp < 0",
+        "body": "by simp [hp_nonneg]",
+        "children": []
+      },
+      {
+        "name": "h_top_iff_rpow_top",
+        "type": "\u2200 (i : \u03b9), i \u2208 s \u2192 (w i * z i = \u22a4 \u2194 w i * z i ^ p = \u22a4)",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_top",
+            "type": "\u2200 a : \u03b9, a \u2208 s \u2192 w a * z a \u2260 \u22a4",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "h_top_rpow",
+            "type": "\u2200 a : \u03b9, a \u2208 s \u2192 w a * z a ^ p \u2260 \u22a4",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h_sum_nnreal",
+            "type": "\u2211 i \u2208 s, w i = \u2191(\u2211 i \u2208 s, (w i).toNNReal)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

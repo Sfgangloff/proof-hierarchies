@@ -1,0 +1,83 @@
+[
+  {
+    "module": "GaussSum",
+    "name": "Char.card_pow_char_pow",
+    "statement": "MulChar R R'} (h\u03c7 : IsQuadratic \u03c7) (\u03c8 : AddChar R R') (p n : \u2115) [fp : Fact p.Prime] [hch : CharP R' p] (hp : IsUnit (p : R)) (hp' : p \u2260 2) (hg : gaussSum \u03c7 \u03c8 ^ 2 = \u03c7 (-1) * Fintype.card R) : (\u03c7 (-1) * Fintype.card R) ^ (p ^ n / 2) = \u03c7 ((p : R) ^ n)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "gaussSum \u03c7 \u03c8 \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GaussSum",
+    "name": "Char.card_pow_card",
+    "statement": "Type*} [Field F] [Fintype F] {F' : Type*} [Field F'] [Fintype F'] {\u03c7 : MulChar F F'} (h\u03c7\u2081 : \u03c7 \u2260 1) (h\u03c7\u2082 : IsQuadratic \u03c7) (hch\u2081 : ringChar F' \u2260 ringChar F) (hch\u2082 : ringChar F' \u2260 2) : (\u03c7 (-1) * Fintype.card F) ^ (Fintype.card F' / 2) = \u03c7 (Fintype.card F')",
+    "have_tree": [
+      {
+        "name": "hchar",
+        "type": "",
+        "body": "Algebra.ringChar_eq F' FF'",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk hp'",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk (hchar.subst hp')",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GaussSum",
+    "name": "FiniteField.two_pow_card",
+    "statement": "Type*} [Fintype F] [Field F] (hF : ringChar F \u2260 2) : (2 : F) ^ (Fintype.card F / 2) = \u03c7\u2088 (Fintype.card F)",
+    "have_tree": [
+      {
+        "name": "hchar",
+        "type": "",
+        "body": "Algebra.ringChar_eq F FF",
+        "children": []
+      },
+      {
+        "name": "FFp",
+        "type": "",
+        "body": "hchar.subst hp",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk FFp",
+        "children": []
+      },
+      {
+        "name": "hFF",
+        "type": "",
+        "body": "hchar \u25b8 hF -- `ringChar FF \u2260 2`",
+        "children": []
+      },
+      {
+        "name": "hq",
+        "type": "IsQuadratic \u03c7",
+        "body": "isQuadratic_\u03c7\u2088.comp _",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "Char.card_pow_char_pow (R := ZMod 8) hq \u03c8\u2088char (ringChar FF) n hu hFF hg",
+        "children": []
+      }
+    ]
+  }
+]

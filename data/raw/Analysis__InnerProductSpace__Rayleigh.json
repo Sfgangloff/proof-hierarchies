@@ -1,0 +1,113 @@
+[
+  {
+    "module": "Rayleigh",
+    "name": "image_rayleigh_eq_image_rayleigh_sphere",
+    "statement": "\u211d} (hr : 0 < r) : rayleighQuotient T '' {0}\u1d9c = rayleighQuotient T '' sphere 0 r",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "c \u2260 0",
+        "body": "by simp [c, hx, hr.ne']",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rayleigh",
+    "name": "norm_eq_iSup_rayleighQuotient",
+    "statement": "T.IsSymmetric) : \u2016T\u2016 = \u2a06 x, |T.rayleighQuotient x|",
+    "have_tree": [
+      {
+        "name": "nonneg",
+        "type": "0 \u2264 M",
+        "body": "le_ciSup_of_le T.bddAbove_rayleighQuotient 0 (abs_nonneg _)",
+        "children": [
+          {
+            "name": "hM",
+            "type": "|T.rayleighQuotient x| \u2264 M",
+            "body": "le_ciSup T.bddAbove_rayleighQuotient x",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Rayleigh",
+    "name": "hasEigenvector_of_isMaxOn",
+    "statement": "IsSelfAdjoint T) {x\u2080 : E} (hx\u2080 : x\u2080 \u2260 0) (hextr : IsMaxOn T.reApplyInnerSelf (sphere (0 : E) \u2016x\u2080\u2016) x\u2080) : HasEigenvector (T : E \u2192\u2097[\ud835\udd5c] E) (\u2a06 x : { x : E // x \u2260 0 }, T.rayleighQuotient x : \u211d) x\u2080",
+    "have_tree": [
+      {
+        "name": "hx\u2080'",
+        "type": "0 < \u2016x\u2080\u2016",
+        "body": "by simp [hx\u2080]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rayleigh",
+    "name": "hasEigenvector_of_isMinOn",
+    "statement": "IsSelfAdjoint T) {x\u2080 : E} (hx\u2080 : x\u2080 \u2260 0) (hextr : IsMinOn T.reApplyInnerSelf (sphere (0 : E) \u2016x\u2080\u2016) x\u2080) : HasEigenvector (T : E \u2192\u2097[\ud835\udd5c] E) (\u2a05 x : { x : E // x \u2260 0 }, T.rayleighQuotient x : \u211d) x\u2080",
+    "have_tree": [
+      {
+        "name": "hx\u2080'",
+        "type": "0 < \u2016x\u2080\u2016",
+        "body": "by simp [hx\u2080]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rayleigh",
+    "name": "hasEigenvalue_iSup_of_finiteDimensional",
+    "statement": "T.IsSymmetric) : HasEigenvalue T (\u2a06 x : { x : E // x \u2260 0 }, RCLike.re \u27eaT x, x\u27eb / \u2016(x : E)\u2016 ^ 2 : \u211d)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsMaxOn T'.val.reApplyInnerSelf (sphere 0 \u2016x\u2080\u2016) x\u2080",
+        "body": "by simpa only [\u2190 hx\u2080] using hTx\u2080",
+        "children": []
+      },
+      {
+        "name": "hx\u2080_ne",
+        "type": "x\u2080 \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2016x\u2080\u2016 \u2260 0",
+            "body": "by simp only [hx\u2080, norm_eq_zero, hx, Ne, not_false_iff]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Rayleigh",
+    "name": "hasEigenvalue_iInf_of_finiteDimensional",
+    "statement": "T.IsSymmetric) : HasEigenvalue T (\u2a05 x : { x : E // x \u2260 0 }, RCLike.re \u27eaT x, x\u27eb / \u2016(x : E)\u2016 ^ 2 : \u211d)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsMinOn T'.val.reApplyInnerSelf (sphere 0 \u2016x\u2080\u2016) x\u2080",
+        "body": "by simpa only [\u2190 hx\u2080] using hTx\u2080",
+        "children": []
+      },
+      {
+        "name": "hx\u2080_ne",
+        "type": "x\u2080 \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2016x\u2080\u2016 \u2260 0",
+            "body": "by simp only [hx\u2080, norm_eq_zero, hx, Ne, not_false_iff]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

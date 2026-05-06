@@ -1,0 +1,64 @@
+[
+  {
+    "module": "MasonStothers",
+    "name": "Polynomial.abc",
+    "statement": "k[X]} (ha : a \u2260 0) (hb : b \u2260 0) (hc : c \u2260 0) (hab : IsCoprime a b) (hsum : a + b + c = 0) : (natDegree a + 1 \u2264 (radical (a * b * c)).natDegree \u2227 natDegree b + 1 \u2264 (radical (a * b * c)).natDegree \u2227 natDegree c + 1 \u2264 (radical (a * b * c)).natDegree) \u2228 derivative a = 0 \u2227 derivative b = 0 \u2227 derivative c = 0",
+    "have_tree": [
+      {
+        "name": "hbc",
+        "type": "IsCoprime b c",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hsum'",
+        "type": "b + c + a = 0",
+        "body": "by rwa [add_rotate] at hsum",
+        "children": []
+      },
+      {
+        "name": "hca",
+        "type": "IsCoprime c a",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "wbc",
+        "type": "w = wronskian b c",
+        "body": "wronskian_eq_of_sum_zero hsum",
+        "children": []
+      },
+      {
+        "name": "wca",
+        "type": "w = wronskian c a",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "abc_dr_dvd_w",
+        "type": "divRadical (a * b * c) \u2223 w",
+        "body": "by",
+        "children": [
+          {
+            "name": "adr_dvd_w",
+            "type": "",
+            "body": "divRadical_dvd_wronskian_left a b",
+            "children": []
+          },
+          {
+            "name": "bdr_dvd_w",
+            "type": "",
+            "body": "divRadical_dvd_wronskian_right a b",
+            "children": []
+          },
+          {
+            "name": "cdr_dvd_w",
+            "type": "",
+            "body": "divRadical_dvd_wronskian_right b c",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

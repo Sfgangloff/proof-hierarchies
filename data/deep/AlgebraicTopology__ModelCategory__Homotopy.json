@@ -1,0 +1,142 @@
+[
+  {
+    "module": "Homotopy",
+    "name": "rightHomotopy",
+    "statement": "LeftHomotopyRel f g) (Q : PathObject Y) [Q.IsGood] : Q.RightHomotopy f g",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "h.exists_good_cylinder.choose_spec.2.some",
+        "children": []
+      },
+      {
+        "name": "h'",
+        "type": "",
+        "body": "h.exists_good_cylinder.choose_spec.1",
+        "children": []
+      },
+      {
+        "name": "sq",
+        "type": "CommSq (f \u226b Q.\u03b9) P.i\u2080 Q.p (prod.lift (P.\u03c0 \u226b f) h.h)",
+        "body": "{ }",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "sq.fac_right =\u226b prod.fst",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "sq.fac_right =\u226b prod.snd",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Homotopy",
+    "name": "leftHomotopy",
+    "statement": "RightHomotopyRel f g) (Q : Cylinder X) [Q.IsGood] : Q.LeftHomotopy f g",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "h.exists_good_pathObject.choose_spec.2.some",
+        "children": []
+      },
+      {
+        "name": "h'",
+        "type": "",
+        "body": "h.exists_good_pathObject.choose_spec.1",
+        "children": []
+      },
+      {
+        "name": "sq",
+        "type": "CommSq (coprod.desc (f \u226b P.\u03b9) h.h) Q.i P.p\u2080 (Q.\u03c0 \u226b f)",
+        "body": "{ }",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "coprod.inl \u226b= sq.fac_left",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "coprod.inr \u226b= sq.fac_left",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Homotopy",
+    "name": "postcomp_bijective_of_fibration_of_weakEquivalence",
+    "statement": "Y \u27f6 Z) [Fibration g] [WeakEquivalence g] : Function.Bijective (fun (f : LeftHomotopyClass X Y) \u21a6 f.postcomp g)",
+    "have_tree": [
+      {
+        "name": "sq",
+        "type": "CommSq (coprod.desc f\u2080 f\u2081) P.i g h.h",
+        "body": "{ }",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "coprod.inl \u226b= sq.fac_left",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "coprod.inr \u226b= sq.fac_left",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "sq",
+        "type": "CommSq (initial.to Y) (initial.to X) g \u03c6",
+        "body": "{ }",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Homotopy",
+    "name": "precomp_bijective_of_cofibration_of_weakEquivalence",
+    "statement": "X \u27f6 Y) [Cofibration f] [WeakEquivalence f] : Function.Bijective (fun (g : RightHomotopyClass Y Z) \u21a6 g.precomp f)",
+    "have_tree": [
+      {
+        "name": "sq",
+        "type": "CommSq h.h f P.p (prod.lift f\u2080 f\u2081)",
+        "body": "{ }",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "sq.fac_right =\u226b prod.fst",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "sq.fac_right =\u226b prod.snd",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "sq",
+        "type": "CommSq \u03c6 f (terminal.from _) (terminal.from _)",
+        "body": "{ }",
+        "children": []
+      }
+    ]
+  }
+]

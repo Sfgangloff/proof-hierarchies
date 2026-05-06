@@ -1,0 +1,124 @@
+[
+  {
+    "module": "Basic",
+    "name": "comp_add_right",
+    "statement": "IntervalIntegrable f volume a b) (c : \u211d) (h : \u2016f (min a b)\u2016\u2091 \u2260 \u221e",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "\u2016f (min (a - c) (b - c) + c)\u2016\u2091 \u2260 \u22a4",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "comp_add_right_iff",
+    "statement": "\u211d} (h : \u2016f (min a b + c)\u2016\u2091 \u2260 \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2016f (min (a + c) (b + c))\u2016\u2091 \u2260 \u22a4",
+        "body": "by rwa [min_add_add_right]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Filter.Tendsto.eventually_intervalIntegrable_ae",
+    "statement": "\u211d \u2192 E} {\u03bc : Measure \u211d} {l l' : Filter \u211d} (hfm : StronglyMeasurableAtFilter f l' \u03bc) [TendstoIxxClass Ioc l l'] [IsMeasurablyGenerated l'] (h\u03bc : \u03bc.FiniteAtFilter l') {c : E} (hf : Tendsto f (l' \u2293 ae \u03bc) (\ud835\udcdd c)) {u v : \u03b9 \u2192 \u211d} {lt : Filter \u03b9} (hu : Tendsto u lt l) (hv : Tendsto v lt l) : \u2200\u1da0 t in lt, IntervalIntegrable f \u03bc (u t) (v t)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(hf.integrableAtFilter_ae hfm h\u03bc).eventually",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_add_adjacent_intervals_cancel",
+    "statement": "IntervalIntegrable f \u03bc a b) (hbc : IntervalIntegrable f \u03bc b c) : (((\u222b x in a..b, f x \u2202\u03bc) + \u222b x in b..c, f x \u2202\u03bc) + \u222b x in c..a, f x \u2202\u03bc) = 0",
+    "have_tree": [
+      {
+        "name": "hac",
+        "type": "",
+        "body": "hab.trans hbc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_Iio_sub_Iio",
+    "statement": "IntegrableOn f (Iio b) \u03bc) (hab : a \u2264 b) : \u222b x in Iio b, f x \u2202\u03bc - \u222b x in Iio a, f x \u2202\u03bc = \u222b x in Ico a b, f x \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "IntegrableOn f (Iio a) \u03bc",
+        "body": "hf.mono_set (Iio_subset_Iio hab)",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "IntegrableOn f (Ico a b) \u03bc",
+        "body": "hf.mono_set Ico_subset_Iio_self",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_Ici_sub_Ici",
+    "statement": "IntegrableOn f (Ici a) \u03bc) (hab : a \u2264 b) : \u222b x in Ici a, f x \u2202\u03bc - \u222b x in Ici b, f x \u2202\u03bc = \u222b x in Ico a b, f x \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "IntegrableOn f (Ici b) \u03bc",
+        "body": "hf.mono_set (Ici_subset_Ici.2 hab)",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "IntegrableOn f (Ico a b) \u03bc",
+        "body": "hf.mono_set Ico_subset_Ici_self",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "intervalIntegral_pos_of_pos_on",
+    "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hfi : IntervalIntegrable f volume a b) (hpos : \u2200 x : \u211d, x \u2208 Ioo a b \u2192 0 < f x) (hab : a < b) : 0 < \u222b x : \u211d in a..b, f x",
+    "have_tree": [
+      {
+        "name": "hsupp",
+        "type": "Ioo a b \u2286 support f \u2229 Ioc a b",
+        "body": "fun x hx =>",
+        "children": []
+      },
+      {
+        "name": "h\u2080",
+        "type": "0 \u2264\u1d50[volume.restrict (uIoc a b)] f",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "abs_integral_mono_interval",
+    "statement": "\u0399 a b \u2286 \u0399 c d) (hf : 0 \u2264\u1d50[\u03bc.restrict (\u0399 c d)] f) (hfi : IntervalIntegrable f \u03bc c d) : |\u222b x in a..b, f x \u2202\u03bc| \u2264 |\u222b x in c..d, f x \u2202\u03bc|",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "0 \u2264\u1d50[\u03bc.restrict (\u0399 a b)] f",
+        "body": "ae_mono (Measure.restrict_mono h le_rfl) hf",
+        "children": []
+      }
+    ]
+  }
+]

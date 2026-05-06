@@ -1,0 +1,258 @@
+[
+  {
+    "module": "Stieltjes",
+    "name": "zero_apply",
+    "statement": "R) : (0 : StieltjesFunction R) x = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "z \u2208 Ioo x y",
+        "body": "\u27e8h''z, hz.2\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stieltjes",
+    "name": "length_Ioc",
+    "statement": "R) : f.length (Ioc a b) = ofReal (f b - f a)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty R",
+        "body": "\u27e8a\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stieltjes",
+    "name": "outer_Ioc",
+    "statement": "R) : f.outer (Ioc a b) = ofReal (f b - f a)",
+    "have_tree": [
+      {
+        "name": "B",
+        "type": "f a - f a < \u03b4",
+        "body": "by rwa [sub_self, NNReal.coe_pos, \u2190 ENNReal.coe_pos]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(\ud835\udcdd[>] a).NeBot",
+        "body": "nhdsGT_neBot_of_exists_gt \u27e8b, hab\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nonempty R",
+        "body": "\u27e8a\u27e9",
+        "children": [
+          {
+            "name": "hl",
+            "type": "",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "A",
+            "type": "Icc a' b \u2229 s i \u2286 Ioc p q'",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "(\ud835\udcdd[>] q').NeBot",
+            "body": "by simp [Filter.neBot_iff, nhdsGT_eq_bot_iff, htq', not_covBy]",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "I_subset",
+        "type": "Icc a' b \u2286 \u22c3 i, Iotop (g i).1 (g i).2",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stieltjes",
+    "name": "measurableSet_Ioi",
+    "statement": "R} : MeasurableSet[f.outer.caratheodory] (Ioi c)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty R",
+        "body": "\u27e8c\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stieltjes",
+    "name": "outer_trim",
+    "statement": "f.outer.trim = f.outer",
+    "have_tree": [
+      {
+        "name": "hl",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stieltjes",
+    "name": "measure_singleton",
+    "statement": "R) : f.measure {a} = ofReal (f a - leftLim f a)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "a \u2264 x",
+        "body": "le_of_tendsto' u_lim fun n => (hx n).1.le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stieltjes",
+    "name": "measure_Ioo",
+    "statement": "R} : f.measure (Ioo a b) = ofReal (leftLim f b - f a)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "f.measure_Ioc a b",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stieltjes",
+    "name": "measure_Iic",
+    "statement": "\u211d} (hf : Tendsto f atBot (\ud835\udcdd l)) (x : R) : f.measure (Iic x) = ofReal (f x - l)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty R",
+        "body": "\u27e8x\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NoMinOrder R",
+        "body": "NoBotOrder.to_noMinOrder R",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stieltjes",
+    "name": "measure_Iio",
+    "statement": "\u211d} (hf : Tendsto f atBot (\ud835\udcdd l)) (x : R) : f.measure (Iio x) = ofReal (leftLim f x - l)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty R",
+        "body": "\u27e8x\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stieltjes",
+    "name": "measure_Ici",
+    "statement": "\u211d} (hf : Tendsto f atTop (\ud835\udcdd l)) (x : R) : f.measure (Ici x) = ofReal (l - leftLim f x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty R",
+        "body": "\u27e8x\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NoMaxOrder R",
+        "body": "NoTopOrder.to_noMaxOrder R",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stieltjes",
+    "name": "measure_Ioi_of_tendsto_atTop_atTop",
+    "statement": "Tendsto f atTop atTop) (x : R) : f.measure (Ioi x) = \u221e",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty R",
+        "body": "\u27e8x\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stieltjes",
+    "name": "measure_Iic_of_tendsto_atBot_atBot",
+    "statement": "Tendsto f atBot atBot) (x : R) : f.measure (Iic x) = \u221e",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty R",
+        "body": "\u27e8x\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stieltjes",
+    "name": "measure_Iio_of_tendsto_atBot_atBot",
+    "statement": "Tendsto f atBot atBot) (x : R) : f.measure (Iio x) = \u221e",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty R",
+        "body": "\u27e8x\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NoMinOrder R",
+        "body": "NoBotOrder.to_noMinOrder R",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stieltjes",
+    "name": "eq_of_measure_of_tendsto_atBot",
+    "statement": "StieltjesFunction R) {l : \u211d} (hfg : f.measure = g.measure) (hfl : Tendsto f atBot (\ud835\udcdd l)) (hgl : Tendsto g atBot (\ud835\udcdd l)) : f = g",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "",
+        "body": "measure_Iic f hfl x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stieltjes",
+    "name": "eq_of_measure_of_eq",
+    "statement": "StieltjesFunction R) {y : R} (hfg : f.measure = g.measure) (hy : f y = g y) : f = g",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "",
+        "body": "measure_Ioc f x y",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "",
+        "body": "measure_Ioc f y x",
+        "children": []
+      }
+    ]
+  }
+]

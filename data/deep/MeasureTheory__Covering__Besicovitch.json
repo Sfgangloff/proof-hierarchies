@@ -1,0 +1,393 @@
+[
+  {
+    "module": "Besicovitch",
+    "name": "mem_iUnionUpTo_lastStep",
+    "statement": "\u03b2) : p.c x \u2208 p.iUnionUpTo p.lastStep",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2200 z : \u03b2, p.c z \u2208 p.iUnionUpTo p.lastStep \u2228 p.\u03c4 * p.r z < p.R p.lastStep",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "p.lastStep \u2208 {i | \u00ac\u2203 b : \u03b2, p.c b \u2209 p.iUnionUpTo i \u2227 p.R i \u2264 p.\u03c4 * p.r b}",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Rpos",
+        "type": "0 < p.R p.lastStep",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "p.\u03c4\u207b\u00b9 * p.R p.lastStep < p.R p.lastStep",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "exists_lt_of_lt_csSup ?_ B",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "(div_le_iff\u2080' (_root_.zero_lt_one.trans p.one_lt_tau)).1 hy2.le",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Besicovitch",
+    "name": "color_lt",
+    "statement": "Ordinal.{u}} (hi : i < p.lastStep) {N : \u2115} (hN : IsEmpty (SatelliteConfig \u03b1 N p.\u03c4)) : p.color i < N",
+    "have_tree": [
+      {
+        "name": "color_i",
+        "type": "p.color i = sInf (univ \\ A)",
+        "body": "by rw [color]",
+        "children": []
+      },
+      {
+        "name": "N_mem",
+        "type": "N \u2208 univ \\ A",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "k \u2208 A",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "color_G",
+        "type": "\u2200 n, n \u2264 N \u2192 p.color (G n) = n",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "G_lt_last",
+        "type": "\u2200 n, n \u2264 N \u2192 G n < p.lastStep",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2203 t, p.c t \u2209 p.iUnionUpTo (G n) \u2227 p.R (G n) \u2264 p.\u03c4 * p.r t",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "ha",
+            "type": "(a : \u2115) \u2264 N",
+            "body": "Nat.lt_succ_iff.1 a.2",
+            "children": []
+          },
+          {
+            "name": "hb",
+            "type": "(b : \u2115) \u2264 N",
+            "body": "Nat.lt_succ_iff.1 b.2",
+            "children": [
+              {
+                "name": "B",
+                "type": "p.c (p.index (G b)) \u2209 p.iUnionUpTo (G a)",
+                "body": "by",
+                "children": [
+                  {
+                    "name": "G_lt",
+                    "type": "G a < G b",
+                    "body": "by",
+                    "children": [
+                      {
+                        "name": "A",
+                        "type": "(a : \u2115) \u2260 b",
+                        "body": "Fin.val_injective.ne a_ne_b",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "I",
+                    "type": "(a : \u2115) < N",
+                    "body": "ha",
+                    "children": []
+                  },
+                  {
+                    "name": "_",
+                    "type": "G a < G (Fin.last N)",
+                    "body": "by simp [G, I.ne, (hg a I).1]",
+                    "children": []
+                  },
+                  {
+                    "name": "I",
+                    "type": "(a : \u2115) < N",
+                    "body": "ha",
+                    "children": []
+                  },
+                  {
+                    "name": "J",
+                    "type": "G (Fin.last N) = i",
+                    "body": "by dsimp; simp only [G, if_true]",
+                    "children": []
+                  },
+                  {
+                    "name": "K",
+                    "type": "G a = g a",
+                    "body": "by simp [G, I.ne]",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Besicovitch",
+    "name": "exist_finset_disjoint_balls_large_measure",
+    "statement": "Measure \u03b1) [IsFiniteMeasure \u03bc] {N : \u2115} {\u03c4 : \u211d} (h\u03c4 : 1 < \u03c4) (hN : IsEmpty (SatelliteConfig \u03b1 N \u03c4)) (s : Set \u03b1) (r : \u03b1 \u2192 \u211d) (rpos : \u2200 x \u2208 s, 0 < r x) (rle : \u2200 x \u2208 s, r x \u2264 1) : \u2203 t : Finset \u03b1, \u2191t \u2286 s \u2227 \u03bc (s \\ \u22c3 x \u2208 t, closedBall x (r x)) \u2264 N / (N + 1) * \u03bc s \u2227 (t : Set \u03b1).PairwiseDisjoint fun x => closedBall x (r x)",
+    "have_tree": [
+      {
+        "name": "Npos",
+        "type": "N \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "u_count",
+        "type": "\u2200 i, (u i).Countable",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(ball (j : \u03b1) (r j)).Nonempty",
+            "body": "nonempty_ball.2 (a.rpos _)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "A",
+        "type": "s = \u22c3 i : Fin N, s \u2229 v i",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "x \u2208 range a.c",
+            "body": "by simpa only [a, Subtype.range_coe_subtype, setOf_mem_eq]",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "S",
+        "type": "\u2211 _i : Fin N, \u03bc s / N \u2264 \u2211 i, \u03bc (s \u2229 v i)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "\u03bc (o \u2229 v i) = \u2211' x : u i, \u03bc (o \u2229 closedBall x (r x))",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "o \u2229 v i = \u22c3 (x : s) (_ : x \u2208 u i), o \u2229 closedBall x (r x)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "C",
+            "type": "HasSum (fun x : u i => \u03bc (o \u2229 closedBall x (r x))) (\u03bc (o \u2229 v i))",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u03bc s / (N + 1) < \u03bc (o \u2229 v i)",
+            "body": "hi.trans_le (measure_mono (inter_subset_inter_left _ so))",
+            "children": []
+          },
+          {
+            "name": "k'nel'",
+            "type": "(k' : s) \u2260 l'",
+            "body": "by intro h; rw [h] at hkl; exact hkl rfl",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Besicovitch",
+    "name": "exists_disjoint_closedBall_covering_ae_of_finiteMeasure_aux",
+    "statement": "Measure \u03b1) [IsFiniteMeasure \u03bc] (f : \u03b1 \u2192 Set \u211d) (s : Set \u03b1) (hf : \u2200 x \u2208 s, \u2200 \u03b4 > 0, (f x \u2229 Ioo 0 \u03b4).Nonempty) : \u2203 t : Set (\u03b1 \u00d7 \u211d), t.Countable \u2227 (\u2200 p \u2208 t, p.1 \u2208 s) \u2227 (\u2200 p \u2208 t, p.2 \u2208 f p.1) \u2227 \u03bc (s \\ \u22c3 (p : \u03b1 \u00d7 \u211d) (_ : p \u2208 t), closedBall p.1 p.2) = 0 \u2227 t.PairwiseDisjoint fun p => closedBall p.1 p.2",
+    "have_tree": [
+      {
+        "name": "B_closed",
+        "type": "IsClosed B",
+        "body": "isClosed_biUnion_finset fun i _ => isClosed_closedBall",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 x \u2208 s', \u2203 r \u2208 f x \u2229 Ioo 0 1, Disjoint B (closedBall x r)",
+        "body": "by",
+        "children": [
+          {
+            "name": "xs",
+            "type": "x \u2208 s",
+            "body": "((mem_diff x).1 hx).1",
+            "children": [
+              {
+                "name": "_",
+                "type": "0 < min r 1",
+                "body": "",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "u_succ",
+        "type": "\u2200 n : \u2115, u n.succ = F (u n)",
+        "body": "fun n => by",
+        "children": []
+      },
+      {
+        "name": "Pu",
+        "type": "\u2200 n, P (u n)",
+        "body": "by",
+        "children": [
+          {
+            "name": "C",
+            "type": "Tendsto (fun n : \u2115 => ((N : \u211d\u22650\u221e) / (N + 1)) ^ n * \u03bc s) atTop (\ud835\udcdd (0 * \u03bc s))",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Besicovitch",
+    "name": "exists_disjoint_closedBall_covering_ae",
+    "statement": "Measure \u03b1) [SFinite \u03bc] (f : \u03b1 \u2192 Set \u211d) (s : Set \u03b1) (hf : \u2200 x \u2208 s, \u2200 \u03b4 > 0, (f x \u2229 Ioo 0 \u03b4).Nonempty) (R : \u03b1 \u2192 \u211d) (hR : \u2200 x \u2208 s, 0 < R x) : \u2203 (t : Set \u03b1) (r : \u03b1 \u2192 \u211d), t.Countable \u2227 t \u2286 s \u2227 (\u2200 x \u2208 t, r x \u2208 f x \u2229 Ioo 0 (R x)) \u2227 \u03bc (s \\ \u22c3 x \u2208 t, closedBall x (r x)) = 0 \u2227 t.PairwiseDisjoint fun x => closedBall x (r x)",
+    "have_tree": [
+      {
+        "name": "hg",
+        "type": "\u2200 x \u2208 s, \u2200 \u03b4 > 0, (g x \u2229 Ioo 0 \u03b4).Nonempty",
+        "body": "fun x hx \u03b4 \u03b4pos \u21a6 by",
+        "children": [
+          {
+            "name": "I",
+            "type": "\u2200 p \u2208 v, 0 \u2264 p.2",
+            "body": "fun p hp => (vg p hp).2.1.le",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hinj",
+        "type": "InjOn (fun x \u21a6 (x, r x)) t",
+        "body": "LeftInvOn.injOn (f\u2081' := Prod.fst) fun _ _ \u21a6 rfl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Besicovitch",
+    "name": "exists_closedBall_covering_tsum_measure_le",
+    "statement": "Measure \u03b1) [SFinite \u03bc] [Measure.OuterRegular \u03bc] {\u03b5 : \u211d\u22650\u221e} (h\u03b5 : \u03b5 \u2260 0) (f : \u03b1 \u2192 Set \u211d) (s : Set \u03b1) (hf : \u2200 x \u2208 s, \u2200 \u03b4 > 0, (f x \u2229 Ioo 0 \u03b4).Nonempty) : \u2203 (t : Set \u03b1) (r : \u03b1 \u2192 \u211d), t.Countable \u2227 t \u2286 s \u2227 (\u2200 x \u2208 t, r x \u2208 f x) \u2227 (s \u2286 \u22c3 x \u2208 t, closedBall x (r x)) \u2227 (\u2211' x : t, \u03bc (closedBall x (r x))) \u2264 \u03bc s + \u03b5",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 x \u2208 s, \u2203 R > 0, ball x R \u2286 u",
+        "body": "fun x hx =>",
+        "children": []
+      },
+      {
+        "name": "s's",
+        "type": "s' \u2286 s",
+        "body": "diff_subset",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 x \u2208 s', \u2203 r1 \u2208 f x \u2229 Ioo (0 : \u211d) 1, closedBall x r1 \u2286 v",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "S_count",
+        "type": "\u2200 i, (S i).Countable",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(ball (j : \u03b1) (r1 j)).Nonempty",
+            "body": "nonempty_ball.2 (q.rpos _)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "r_t0",
+        "type": "\u2200 x \u2208 t0, r x = r0 x",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "x \u2209 s'",
+            "body": "by",
+            "children": [
+              {
+                "name": "h'x",
+                "type": "x \u2208 s'",
+                "body": "by",
+                "children": [
+                  {
+                    "name": "A",
+                    "type": "x \u2208 range q.c",
+                    "body": "by",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "A",
+            "type": "(\u2211' x : t0, \u03bc (closedBall x (r x))) \u2264 \u03bc s + \u03b5 / 2",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "B",
+            "type": "\u2200 i : Fin N, (\u2211' x : ((\u2191) : s' \u2192 \u03b1) '' S i, \u03bc (closedBall x (r x))) \u2264 \u03b5 / 2 / N",
+            "body": "",
+            "children": [
+              {
+                "name": "_",
+                "type": "InjOn ((\u2191) : s' \u2192 \u03b1) (S i)",
+                "body": "Subtype.val_injective.injOn",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

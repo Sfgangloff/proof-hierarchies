@@ -1,0 +1,47 @@
+[
+  {
+    "module": "FiniteLength",
+    "name": "LinearEquiv.isFiniteLength",
+    "statement": "M \u2243\u2097[R] N) (h : IsFiniteLength R M) : IsFiniteLength R N",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "e.symm.toEquiv.subsingleton; exact .of_subsingleton",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteLength",
+    "name": "isFiniteLength_of_exists_compositionSeries",
+    "statement": "\u2203 s : CompositionSeries (Submodule R M), s.head = \u22a5 \u2227 s.last = \u22a4) : IsFiniteLength R M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(covBy_iff_quot_is_simple cov.le).mp cov",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "((s i.castSucc).comap (s i.succ).subtype).equivMapOfInjective",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteLength",
+    "name": "IsSemisimpleModule.finite_tfae",
+    "statement": "List.TFAE [Module.Finite R M, IsNoetherian R M, IsArtinian R M, IsFiniteLength R M, \u2203 s : Set (Submodule R M), s.Finite \u2227 sSupIndep s \u2227 sSup s = \u22a4 \u2227 \u2200 m \u2208 s, IsSimpleModule R m]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "fin.to_subtype",
+        "children": []
+      }
+    ]
+  }
+]

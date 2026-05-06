@@ -1,0 +1,108 @@
+[
+  {
+    "module": "Basic",
+    "name": "adjoin_minpoly_coeff_of_exists_primitive_element",
+    "statement": "adjoin F {\u03b1} = \u22a4) (K : IntermediateField F E) : adjoin F ((minpoly K \u03b1).map (algebraMap K E)).coeffs = K",
+    "have_tree": [
+      {
+        "name": "hsub",
+        "type": "K' \u2264 K",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "dvd_g",
+        "type": "minpoly K' \u03b1 \u2223 g.toSubring K'.toSubring (subset_adjoin F _)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "finrank_eq",
+        "type": "\u2200 K : IntermediateField F E, finrank K E = natDegree (minpoly K \u03b1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "adjoin.finrank (.of_finite K \u03b1)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.Polynomial.irreducible_comp",
+    "statement": "K[X]} (hfm : f.Monic) (hgm : g.Monic) (hf : Irreducible f) (hg : \u2200 (E : Type u) [Field E] [Algebra K E] (x : E) (_ : minpoly K x = f), Irreducible (g.map (algebraMap _ _) - C (AdjoinSimple.gen K x))) : Irreducible (f.comp g)",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "natDegree f \u2260 0",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hg'",
+        "type": "natDegree g \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Fact.mk hf",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "H\u2081",
+        "type": "f.comp g \u2260 0",
+        "body": "fun h \u21a6 by simpa [hf', hg', natDegree_comp] using congr_arg natDegree h",
+        "children": []
+      },
+      {
+        "name": "H\u2082",
+        "type": "\u00ac IsUnit (f.comp g)",
+        "body": "fun h \u21a6",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "WfDvdMonoid.exists_irreducible_factor H\u2082 H\u2081",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk hp\u2081",
+        "children": []
+      },
+      {
+        "name": "key\u2081",
+        "type": "f = minpoly K (aeval (root p) g)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "key\u2081'",
+        "type": "finrank K K\u27eeaeval (root p) g\u27ef = natDegree f",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "key\u2082'",
+        "type": "finrank K\u27eeaeval (root p) g\u27ef Kx = natDegree g",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Module.finrank_mul_finrank K K\u27eeaeval (root p) g\u27ef Kx",
+        "children": []
+      }
+    ]
+  }
+]

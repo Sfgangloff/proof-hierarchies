@@ -1,0 +1,706 @@
+[
+  {
+    "original": {
+      "module": "BoundedContinuousFunction",
+      "name": "tendsto_integral_of_forall_limsup_integral_le_integral",
+      "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure X} [IsProbabilityMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure X} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] (h : \u2200 f : X \u2192\u1d47 \u211d, 0 \u2264 f \u2192 L.limsup (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2264 \u222b x, f x \u2202\u03bc) (f : X \u2192\u1d47 \u211d) : Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) L (\ud835\udcdd (\u222b x, f x \u2202\u03bc))",
+      "have_tree": [
+        {
+          "name": "obs",
+          "type": "",
+          "body": "BoundedContinuousFunction.isBounded_range_integral \u03bcs f",
+          "children": []
+        },
+        {
+          "name": "bdd_above",
+          "type": "",
+          "body": "BddAbove.isBoundedUnder L.univ_mem (by simpa using obs.bddAbove)",
+          "children": []
+        },
+        {
+          "name": "bdd_below",
+          "type": "",
+          "body": "BddBelow.isBoundedUnder L.univ_mem (by simpa using obs.bddBelow)",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "limsup_const_sub L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above.isCobounded_ge bdd_below",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "limsup_add_const L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above bdd_below.isCobounded_le",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          2,
+          0
+        ],
+        "result": {
+          "module": "BoundedContinuousFunction",
+          "name": "tendsto_integral_of_forall_limsup_integral_le_integral",
+          "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure X} [IsProbabilityMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure X} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] (h : \u2200 f : X \u2192\u1d47 \u211d, 0 \u2264 f \u2192 L.limsup (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2264 \u222b x, f x \u2202\u03bc) (f : X \u2192\u1d47 \u211d) : Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) L (\ud835\udcdd (\u222b x, f x \u2202\u03bc))",
+          "have_tree": [
+            {
+              "name": "obs",
+              "type": "",
+              "body": "BoundedContinuousFunction.isBounded_range_integral \u03bcs f",
+              "children": []
+            },
+            {
+              "name": "bdd_above",
+              "type": "",
+              "body": "BddAbove.isBoundedUnder L.univ_mem (by simpa using obs.bddAbove)",
+              "children": []
+            },
+            {
+              "name": "bdd_below",
+              "type": "",
+              "body": "BddBelow.isBoundedUnder L.univ_mem (by simpa using obs.bddBelow)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "limsup_add_const L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above bdd_below.isCobounded_le",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          2,
+          1
+        ],
+        "result": {
+          "module": "BoundedContinuousFunction",
+          "name": "tendsto_integral_of_forall_limsup_integral_le_integral",
+          "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure X} [IsProbabilityMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure X} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] (h : \u2200 f : X \u2192\u1d47 \u211d, 0 \u2264 f \u2192 L.limsup (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2264 \u222b x, f x \u2202\u03bc) (f : X \u2192\u1d47 \u211d) : Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) L (\ud835\udcdd (\u222b x, f x \u2202\u03bc))",
+          "have_tree": [
+            {
+              "name": "obs",
+              "type": "",
+              "body": "BoundedContinuousFunction.isBounded_range_integral \u03bcs f",
+              "children": []
+            },
+            {
+              "name": "bdd_above",
+              "type": "",
+              "body": "BddAbove.isBoundedUnder L.univ_mem (by simpa using obs.bddAbove)",
+              "children": []
+            },
+            {
+              "name": "bdd_below",
+              "type": "",
+              "body": "BddBelow.isBoundedUnder L.univ_mem (by simpa using obs.bddBelow)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "limsup_const_sub L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above.isCobounded_ge bdd_below",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "BoundedContinuousFunction",
+          "name": "tendsto_integral_of_forall_limsup_integral_le_integral",
+          "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure X} [IsProbabilityMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure X} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] (h : \u2200 f : X \u2192\u1d47 \u211d, 0 \u2264 f \u2192 L.limsup (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2264 \u222b x, f x \u2202\u03bc) (f : X \u2192\u1d47 \u211d) : Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) L (\ud835\udcdd (\u222b x, f x \u2202\u03bc))",
+          "have_tree": [
+            {
+              "name": "obs",
+              "type": "",
+              "body": "BoundedContinuousFunction.isBounded_range_integral \u03bcs f",
+              "children": []
+            },
+            {
+              "name": "bdd_above",
+              "type": "",
+              "body": "BddAbove.isBoundedUnder L.univ_mem (by simpa using obs.bddAbove)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "limsup_const_sub L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above.isCobounded_ge bdd_below",
+              "children": []
+            },
+            {
+              "name": "bdd_below",
+              "type": "",
+              "body": "BddBelow.isBoundedUnder L.univ_mem (by simpa using obs.bddBelow)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "limsup_add_const L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above bdd_below.isCobounded_le",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "BoundedContinuousFunction",
+          "name": "tendsto_integral_of_forall_limsup_integral_le_integral",
+          "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure X} [IsProbabilityMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure X} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] (h : \u2200 f : X \u2192\u1d47 \u211d, 0 \u2264 f \u2192 L.limsup (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2264 \u222b x, f x \u2202\u03bc) (f : X \u2192\u1d47 \u211d) : Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) L (\ud835\udcdd (\u222b x, f x \u2202\u03bc))",
+          "have_tree": [
+            {
+              "name": "obs",
+              "type": "",
+              "body": "BoundedContinuousFunction.isBounded_range_integral \u03bcs f",
+              "children": []
+            },
+            {
+              "name": "bdd_above",
+              "type": "",
+              "body": "BddAbove.isBoundedUnder L.univ_mem (by simpa using obs.bddAbove)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "limsup_add_const L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above bdd_below.isCobounded_le",
+              "children": []
+            },
+            {
+              "name": "bdd_below",
+              "type": "",
+              "body": "BddBelow.isBoundedUnder L.univ_mem (by simpa using obs.bddBelow)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "limsup_const_sub L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above.isCobounded_ge bdd_below",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "BoundedContinuousFunction",
+          "name": "tendsto_integral_of_forall_limsup_integral_le_integral",
+          "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure X} [IsProbabilityMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure X} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] (h : \u2200 f : X \u2192\u1d47 \u211d, 0 \u2264 f \u2192 L.limsup (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2264 \u222b x, f x \u2202\u03bc) (f : X \u2192\u1d47 \u211d) : Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) L (\ud835\udcdd (\u222b x, f x \u2202\u03bc))",
+          "have_tree": [
+            {
+              "name": "bdd_above",
+              "type": "",
+              "body": "BddAbove.isBoundedUnder L.univ_mem (by simpa using obs.bddAbove)",
+              "children": []
+            },
+            {
+              "name": "obs",
+              "type": "",
+              "body": "BoundedContinuousFunction.isBounded_range_integral \u03bcs f",
+              "children": []
+            },
+            {
+              "name": "bdd_below",
+              "type": "",
+              "body": "BddBelow.isBoundedUnder L.univ_mem (by simpa using obs.bddBelow)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "limsup_const_sub L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above.isCobounded_ge bdd_below",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "limsup_add_const L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above bdd_below.isCobounded_le",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "BoundedContinuousFunction",
+          "name": "tendsto_integral_of_forall_limsup_integral_le_integral",
+          "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure X} [IsProbabilityMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure X} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] (h : \u2200 f : X \u2192\u1d47 \u211d, 0 \u2264 f \u2192 L.limsup (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2264 \u222b x, f x \u2202\u03bc) (f : X \u2192\u1d47 \u211d) : Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) L (\ud835\udcdd (\u222b x, f x \u2202\u03bc))",
+          "have_tree": [
+            {
+              "name": "obs",
+              "type": "",
+              "body": "BoundedContinuousFunction.isBounded_range_integral \u03bcs f",
+              "children": []
+            },
+            {
+              "name": "bdd_below",
+              "type": "",
+              "body": "BddBelow.isBoundedUnder L.univ_mem (by simpa using obs.bddBelow)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "limsup_const_sub L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above.isCobounded_ge bdd_below",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "limsup_add_const L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above bdd_below.isCobounded_le",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "bdd_above",
+              "type": "",
+              "body": "BddAbove.isBoundedUnder L.univ_mem (by simpa using obs.bddAbove)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          2
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "BoundedContinuousFunction",
+          "name": "tendsto_integral_of_forall_limsup_integral_le_integral",
+          "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure X} [IsProbabilityMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure X} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] (h : \u2200 f : X \u2192\u1d47 \u211d, 0 \u2264 f \u2192 L.limsup (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2264 \u222b x, f x \u2202\u03bc) (f : X \u2192\u1d47 \u211d) : Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) L (\ud835\udcdd (\u222b x, f x \u2202\u03bc))",
+          "have_tree": [
+            {
+              "name": "obs",
+              "type": "",
+              "body": "BoundedContinuousFunction.isBounded_range_integral \u03bcs f",
+              "children": []
+            },
+            {
+              "name": "bdd_above",
+              "type": "",
+              "body": "BddAbove.isBoundedUnder L.univ_mem (by simpa using obs.bddAbove)",
+              "children": []
+            },
+            {
+              "name": "bdd_below",
+              "type": "",
+              "body": "BddBelow.isBoundedUnder L.univ_mem (by simpa using obs.bddBelow)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "limsup_add_const L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above bdd_below.isCobounded_le",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "limsup_const_sub L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above.isCobounded_ge bdd_below",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "BoundedContinuousFunction",
+      "name": "tendsto_integral_of_forall_integral_le_liminf_integral",
+      "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure X} [IsProbabilityMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure X} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] (h : \u2200 f : X \u2192\u1d47 \u211d, 0 \u2264 f \u2192 \u222b x, f x \u2202\u03bc \u2264 L.liminf (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i))) (f : X \u2192\u1d47 \u211d) : Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) L (\ud835\udcdd (\u222b x, f x \u2202\u03bc))",
+      "have_tree": [
+        {
+          "name": "obs",
+          "type": "",
+          "body": "BoundedContinuousFunction.isBounded_range_integral \u03bcs f",
+          "children": []
+        },
+        {
+          "name": "bdd_above",
+          "type": "",
+          "body": "BddAbove.isBoundedUnder L.univ_mem (by simpa using obs.bddAbove)",
+          "children": []
+        },
+        {
+          "name": "bdd_below",
+          "type": "",
+          "body": "BddBelow.isBoundedUnder L.univ_mem (by simpa using obs.bddBelow)",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "liminf_add_const L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above.isCobounded_ge bdd_below",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "liminf_const_sub L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above bdd_below.isCobounded_le",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          2,
+          0
+        ],
+        "result": {
+          "module": "BoundedContinuousFunction",
+          "name": "tendsto_integral_of_forall_integral_le_liminf_integral",
+          "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure X} [IsProbabilityMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure X} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] (h : \u2200 f : X \u2192\u1d47 \u211d, 0 \u2264 f \u2192 \u222b x, f x \u2202\u03bc \u2264 L.liminf (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i))) (f : X \u2192\u1d47 \u211d) : Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) L (\ud835\udcdd (\u222b x, f x \u2202\u03bc))",
+          "have_tree": [
+            {
+              "name": "obs",
+              "type": "",
+              "body": "BoundedContinuousFunction.isBounded_range_integral \u03bcs f",
+              "children": []
+            },
+            {
+              "name": "bdd_above",
+              "type": "",
+              "body": "BddAbove.isBoundedUnder L.univ_mem (by simpa using obs.bddAbove)",
+              "children": []
+            },
+            {
+              "name": "bdd_below",
+              "type": "",
+              "body": "BddBelow.isBoundedUnder L.univ_mem (by simpa using obs.bddBelow)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "liminf_const_sub L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above bdd_below.isCobounded_le",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          2,
+          1
+        ],
+        "result": {
+          "module": "BoundedContinuousFunction",
+          "name": "tendsto_integral_of_forall_integral_le_liminf_integral",
+          "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure X} [IsProbabilityMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure X} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] (h : \u2200 f : X \u2192\u1d47 \u211d, 0 \u2264 f \u2192 \u222b x, f x \u2202\u03bc \u2264 L.liminf (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i))) (f : X \u2192\u1d47 \u211d) : Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) L (\ud835\udcdd (\u222b x, f x \u2202\u03bc))",
+          "have_tree": [
+            {
+              "name": "obs",
+              "type": "",
+              "body": "BoundedContinuousFunction.isBounded_range_integral \u03bcs f",
+              "children": []
+            },
+            {
+              "name": "bdd_above",
+              "type": "",
+              "body": "BddAbove.isBoundedUnder L.univ_mem (by simpa using obs.bddAbove)",
+              "children": []
+            },
+            {
+              "name": "bdd_below",
+              "type": "",
+              "body": "BddBelow.isBoundedUnder L.univ_mem (by simpa using obs.bddBelow)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "liminf_add_const L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above.isCobounded_ge bdd_below",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "BoundedContinuousFunction",
+          "name": "tendsto_integral_of_forall_integral_le_liminf_integral",
+          "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure X} [IsProbabilityMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure X} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] (h : \u2200 f : X \u2192\u1d47 \u211d, 0 \u2264 f \u2192 \u222b x, f x \u2202\u03bc \u2264 L.liminf (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i))) (f : X \u2192\u1d47 \u211d) : Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) L (\ud835\udcdd (\u222b x, f x \u2202\u03bc))",
+          "have_tree": [
+            {
+              "name": "obs",
+              "type": "",
+              "body": "BoundedContinuousFunction.isBounded_range_integral \u03bcs f",
+              "children": []
+            },
+            {
+              "name": "bdd_above",
+              "type": "",
+              "body": "BddAbove.isBoundedUnder L.univ_mem (by simpa using obs.bddAbove)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "liminf_add_const L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above.isCobounded_ge bdd_below",
+              "children": []
+            },
+            {
+              "name": "bdd_below",
+              "type": "",
+              "body": "BddBelow.isBoundedUnder L.univ_mem (by simpa using obs.bddBelow)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "liminf_const_sub L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above bdd_below.isCobounded_le",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "BoundedContinuousFunction",
+          "name": "tendsto_integral_of_forall_integral_le_liminf_integral",
+          "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure X} [IsProbabilityMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure X} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] (h : \u2200 f : X \u2192\u1d47 \u211d, 0 \u2264 f \u2192 \u222b x, f x \u2202\u03bc \u2264 L.liminf (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i))) (f : X \u2192\u1d47 \u211d) : Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) L (\ud835\udcdd (\u222b x, f x \u2202\u03bc))",
+          "have_tree": [
+            {
+              "name": "obs",
+              "type": "",
+              "body": "BoundedContinuousFunction.isBounded_range_integral \u03bcs f",
+              "children": []
+            },
+            {
+              "name": "bdd_above",
+              "type": "",
+              "body": "BddAbove.isBoundedUnder L.univ_mem (by simpa using obs.bddAbove)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "liminf_const_sub L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above bdd_below.isCobounded_le",
+              "children": []
+            },
+            {
+              "name": "bdd_below",
+              "type": "",
+              "body": "BddBelow.isBoundedUnder L.univ_mem (by simpa using obs.bddBelow)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "liminf_add_const L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above.isCobounded_ge bdd_below",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "BoundedContinuousFunction",
+          "name": "tendsto_integral_of_forall_integral_le_liminf_integral",
+          "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure X} [IsProbabilityMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure X} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] (h : \u2200 f : X \u2192\u1d47 \u211d, 0 \u2264 f \u2192 \u222b x, f x \u2202\u03bc \u2264 L.liminf (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i))) (f : X \u2192\u1d47 \u211d) : Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) L (\ud835\udcdd (\u222b x, f x \u2202\u03bc))",
+          "have_tree": [
+            {
+              "name": "bdd_above",
+              "type": "",
+              "body": "BddAbove.isBoundedUnder L.univ_mem (by simpa using obs.bddAbove)",
+              "children": []
+            },
+            {
+              "name": "obs",
+              "type": "",
+              "body": "BoundedContinuousFunction.isBounded_range_integral \u03bcs f",
+              "children": []
+            },
+            {
+              "name": "bdd_below",
+              "type": "",
+              "body": "BddBelow.isBoundedUnder L.univ_mem (by simpa using obs.bddBelow)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "liminf_add_const L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above.isCobounded_ge bdd_below",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "liminf_const_sub L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above bdd_below.isCobounded_le",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "BoundedContinuousFunction",
+          "name": "tendsto_integral_of_forall_integral_le_liminf_integral",
+          "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure X} [IsProbabilityMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure X} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] (h : \u2200 f : X \u2192\u1d47 \u211d, 0 \u2264 f \u2192 \u222b x, f x \u2202\u03bc \u2264 L.liminf (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i))) (f : X \u2192\u1d47 \u211d) : Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) L (\ud835\udcdd (\u222b x, f x \u2202\u03bc))",
+          "have_tree": [
+            {
+              "name": "obs",
+              "type": "",
+              "body": "BoundedContinuousFunction.isBounded_range_integral \u03bcs f",
+              "children": []
+            },
+            {
+              "name": "bdd_below",
+              "type": "",
+              "body": "BddBelow.isBoundedUnder L.univ_mem (by simpa using obs.bddBelow)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "liminf_add_const L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above.isCobounded_ge bdd_below",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "liminf_const_sub L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above bdd_below.isCobounded_le",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "bdd_above",
+              "type": "",
+              "body": "BddAbove.isBoundedUnder L.univ_mem (by simpa using obs.bddAbove)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          2
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "BoundedContinuousFunction",
+          "name": "tendsto_integral_of_forall_integral_le_liminf_integral",
+          "statement": "Type*} {L : Filter \u03b9} {\u03bc : Measure X} [IsProbabilityMeasure \u03bc] {\u03bcs : \u03b9 \u2192 Measure X} [\u2200 i, IsProbabilityMeasure (\u03bcs i)] (h : \u2200 f : X \u2192\u1d47 \u211d, 0 \u2264 f \u2192 \u222b x, f x \u2202\u03bc \u2264 L.liminf (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i))) (f : X \u2192\u1d47 \u211d) : Tendsto (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) L (\ud835\udcdd (\u222b x, f x \u2202\u03bc))",
+          "have_tree": [
+            {
+              "name": "obs",
+              "type": "",
+              "body": "BoundedContinuousFunction.isBounded_range_integral \u03bcs f",
+              "children": []
+            },
+            {
+              "name": "bdd_above",
+              "type": "",
+              "body": "BddAbove.isBoundedUnder L.univ_mem (by simpa using obs.bddAbove)",
+              "children": []
+            },
+            {
+              "name": "bdd_below",
+              "type": "",
+              "body": "BddBelow.isBoundedUnder L.univ_mem (by simpa using obs.bddBelow)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "liminf_const_sub L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above bdd_below.isCobounded_le",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "liminf_add_const L (fun i \u21a6 \u222b x, f x \u2202(\u03bcs i)) \u2016f\u2016 bdd_above.isCobounded_ge bdd_below",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

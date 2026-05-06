@@ -1,0 +1,146 @@
+[
+  {
+    "module": "DivergenceTheorem",
+    "name": "integral_divergence_of_hasFDerivWithinAt_off_countable_aux\u2081",
+    "statement": "Box (Fin (n + 1))) (f : \u211d\u207f\u207a\u00b9 \u2192 E\u207f\u207a\u00b9) (f' : \u211d\u207f\u207a\u00b9 \u2192 \u211d\u207f\u207a\u00b9 \u2192L[\u211d] E\u207f\u207a\u00b9) (s : Set \u211d\u207f\u207a\u00b9) (hs : s.Countable) (Hc : ContinuousOn f (Box.Icc I)) (Hd : \u2200 x \u2208 (Box.Icc I) \\ s, HasFDerivWithinAt f (f' x) (Box.Icc I) x) (Hi : IntegrableOn (fun x => \u2211 i, f' x (e i) i) (Box.Icc I)) : (\u222b x in Box.Icc I, \u2211 i, f' x (e i) i) = \u2211 i : Fin (n + 1), ((\u222b x in Box.Icc (I.face i), f (i.insertNth (I.upper i) x) i) - \u222b x in Box.Icc (I.face i), f (i.insertNth (I.lower i) x) i)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "",
+        "body": "(Hi.mono_set Box.coe_subset_Icc).hasBoxIntegral \u22a5 rfl",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(this.integrableOn_compact (\u03bc := volume) (Box.isCompact_Icc _)).mono_set",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "(this.integrableOn_compact (\u03bc := volume) (Box.isCompact_Icc _)).mono_set",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "DivergenceTheorem",
+    "name": "integral_divergence_of_hasFDerivAt_off_countable_aux\u2082",
+    "statement": "Box (Fin (n + 1))) (f : \u211d\u207f\u207a\u00b9 \u2192 E\u207f\u207a\u00b9) (f' : \u211d\u207f\u207a\u00b9 \u2192 \u211d\u207f\u207a\u00b9 \u2192L[\u211d] E\u207f\u207a\u00b9) (s : Set \u211d\u207f\u207a\u00b9) (hs : s.Countable) (Hc : ContinuousOn f (Box.Icc I)) (Hd : \u2200 x \u2208 Box.Ioo I \\ s, HasFDerivAt f (f' x) x) (Hi : IntegrableOn (\u2211 i, f' \u00b7 (e i) i) (Box.Icc I)) : (\u222b x in Box.Icc I, \u2211 i, f' x (e i) i) = \u2211 i : Fin (n + 1), ((\u222b x in Box.Icc (I.face i), f (i.insertNth (I.upper i) x) i) - \u222b x in Box.Icc (I.face i), f (i.insertNth (I.lower i) x) i)",
+    "have_tree": [
+      {
+        "name": "hJ_sub'",
+        "type": "\u2200 k, Box.Icc (J k) \u2286 Box.Icc I",
+        "body": "fun k => (hJ_sub k).trans I.Ioo_subset_Icc",
+        "children": []
+      },
+      {
+        "name": "hJ_le",
+        "type": "\u2200 k, J k \u2264 I",
+        "body": "fun k => Box.le_iff_Icc.2 (hJ_sub' k)",
+        "children": []
+      },
+      {
+        "name": "HcJ",
+        "type": "\u2200 k, ContinuousOn f (Box.Icc (J k))",
+        "body": "fun k => Hc.mono (hJ_sub' k)",
+        "children": []
+      },
+      {
+        "name": "HdJ",
+        "type": "\u2200 (k), \u2200 x \u2208 (Box.Icc (J k)) \\ s, HasFDerivWithinAt f (f' x) (Box.Icc (J k)) x",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "HiJ",
+        "type": "\u2200 k, IntegrableOn (\u2211 i, f' \u00b7 (e i) i) (Box.Icc (J k)) volume",
+        "body": "fun k =>",
+        "children": []
+      },
+      {
+        "name": "HJ_eq",
+        "type": "",
+        "body": "fun k =>",
+        "children": []
+      },
+      {
+        "name": "hd",
+        "type": "d \u2208 Icc (I.lower i) (I.upper i)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "Hic",
+        "type": "\u2200 k, IntegrableOn (fun x => f (i.insertNth (c k) x) i) (Box.Icc (I.face i))",
+        "body": "fun k =>",
+        "children": []
+      },
+      {
+        "name": "Hid",
+        "type": "IntegrableOn (fun x => f (i.insertNth d x) i) (Box.Icc (I.face i))",
+        "body": "",
+        "children": [
+          {
+            "name": "hIoo",
+            "type": "(\u22c3 k, Box.Ioo ((J k).face i)) = Box.Ioo (I.face i)",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hvol_pos",
+        "type": "\u2200 J : Box (Fin n), 0 < \u220f j, (J.upper j - J.lower j)",
+        "body": "fun J =>",
+        "children": []
+      },
+      {
+        "name": "Hsub",
+        "type": "Box.Icc ((J k).face i) \u2286 Box.Icc (I.face i)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DivergenceTheorem",
+    "name": "integral_divergence_of_hasFDerivAt_off_countable",
+    "statement": "a \u2264 b) (f : \u211d\u207f\u207a\u00b9 \u2192 E\u207f\u207a\u00b9) (f' : \u211d\u207f\u207a\u00b9 \u2192 \u211d\u207f\u207a\u00b9 \u2192L[\u211d] E\u207f\u207a\u00b9) (s : Set \u211d\u207f\u207a\u00b9) (hs : s.Countable) (Hc : ContinuousOn f (Icc a b)) (Hd : \u2200 x \u2208 (Set.pi univ fun i => Ioo (a i) (b i)) \\ s, HasFDerivAt f (f' x) x) (Hi : IntegrableOn (fun x => \u2211 i, f' x (e i) i) (Icc a b)) : (\u222b x in Icc a b, \u2211 i, f' x (e i) i) = \u2211 i : Fin (n + 1), ((\u222b x in face i, f (frontFace i x) i) - \u222b x in face i, f (backFace i x) i)",
+    "have_tree": [
+      {
+        "name": "hi'",
+        "type": "Ioc (a i) (b i) = \u2205",
+        "body": "Ioc_eq_empty hi.not_lt",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(pi Set.univ fun j => Ioc (a j) (b j)) = \u2205",
+        "body": "univ_pi_eq_empty hi'",
+        "children": [
+          {
+            "name": "_",
+            "type": "Icc (a \u2218 j.succAbove) (b \u2218 j.succAbove) =\u1d50[volume] (\u2205 : Set \u211d\u207f)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hlt",
+        "type": "\u2200 i, a i < b i",
+        "body": "fun i => (hle i).lt_of_ne fun hi => hne \u27e8i, hi\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

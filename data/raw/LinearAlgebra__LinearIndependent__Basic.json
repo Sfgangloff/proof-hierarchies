@@ -1,0 +1,99 @@
+[
+  {
+    "module": "Basic",
+    "name": "LinearIndependent.restrict_scalars",
+    "statement": "Injective fun r : R \u21a6 r \u2022 (1 : K)) (li : LinearIndependent K v) : LinearIndependent R v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "@li (x.mapRange f (by simp [f])) (y.mapRange f (by simp [f])) ?_",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "LinearIndepOn.image_of_comp",
+    "statement": "\u03b9 \u2192 \u03b9') (g : \u03b9' \u2192 M) (hs : LinearIndepOn R (g \u2218 f) s) : LinearIndepOn R g (f '' s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "InjOn f s",
+        "body": "injOn_iff_injective.2 hs.injective.of_comp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "LinearIndependent.notMem_span_image",
+    "statement": "LinearIndependent R v) {s : Set \u03b9} {x : \u03b9} (h : x \u2209 s) : v x \u2209 Submodule.span R (v '' s)",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "v x \u2208 Submodule.span R (v '' {x})",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "eq_of_linearIndepOn_id_of_span_subtype",
+    "statement": "Set M} (hs : LinearIndepOn R id s) (h : t \u2286 s) (hst : s \u2286 span R t) : s = t",
+    "have_tree": [
+      {
+        "name": "h_surj",
+        "type": "Surjective f",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "le_of_span_le_span",
+    "statement": "Set M} (hl : LinearIndepOn R id u) (hsu : s \u2286 u) (htu : t \u2286 u) (hst : span R s \u2264 span R t) : s \u2286 t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "linearIndependent_sum",
+    "statement": "\u03b9 \u2295 \u03b9' \u2192 M} : LinearIndependent R v \u2194 LinearIndependent R (v \u2218 Sum.inl) \u2227 LinearIndependent R (v \u2218 Sum.inr) \u2227 Disjoint (Submodule.span R (range (v \u2218 Sum.inl))) (Submodule.span R (range (v \u2218 Sum.inr)))",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "LinearIndepOn.union",
+    "statement": "Set \u03b9} (hs : LinearIndepOn R v s) (ht : LinearIndepOn R v t) (hdj : Disjoint (span R (v '' s)) (span R (v '' t))) : LinearIndepOn R v (s \u222a t)",
+    "have_tree": [
+      {
+        "name": "hli",
+        "type": "",
+        "body": "LinearIndependent.sum_type hs ht (by rwa [\u2190 image_eq_range, \u2190 image_eq_range])",
+        "children": []
+      },
+      {
+        "name": "hdj",
+        "type": "",
+        "body": "(hdj.of_span\u2080 hs.zero_notMem_image).of_image",
+        "children": []
+      }
+    ]
+  }
+]

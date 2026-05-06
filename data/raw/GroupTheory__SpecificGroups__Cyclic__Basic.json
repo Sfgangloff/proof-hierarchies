@@ -1,0 +1,105 @@
+[
+  {
+    "module": "Basic",
+    "name": "Subgroup.eq_bot_or_eq_top_of_prime_card",
+    "statement": "Subgroup G) [hp : Fact (Nat.card G).Prime] : H = \u22a5 \u2228 H = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite G",
+        "body": "Nat.finite_of_card_ne_zero hp.1.ne_zero",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "card_subgroup_dvd_card H",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "zpowers_eq_top_of_prime_card",
+    "statement": "\u2115} [hp : Fact p.Prime] (h : Nat.card G = p) {g : G} (hg : g \u2260 1) : zpowers g = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(zpowers g).eq_bot_or_eq_top_of_prime_card",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mem_powers_of_prime_card",
+    "statement": "\u2115} [hp : Fact p.Prime] (h : Nat.card G = p) {g g' : G} (hg : g \u2260 1) : g' \u2208 Submonoid.powers g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite G",
+        "body": "Nat.finite_of_card_ne_zero (h \u25b8 hp.1.ne_zero)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isCyclic_of_prime_card",
+    "statement": "\u2115} [hp : Fact p.Prime] (h : Nat.card \u03b1 = p) : IsCyclic \u03b1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite \u03b1",
+        "body": "Nat.finite_of_card_ne_zero (h \u25b8 hp.1.ne_zero)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nontrivial \u03b1",
+        "body": "Finite.one_lt_card_iff_nontrivial.mp (h \u25b8 hp.1.one_lt)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_pow_ne_one_of_isCyclic",
+    "statement": "IsCyclic G] {k : \u2115} (k_pos : k \u2260 0) (k_lt_card_G : k < Nat.card G) : \u2203 a : G, a ^ k \u2260 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite G",
+        "body": "Nat.finite_of_card_ne_zero (Nat.ne_zero_of_lt k_lt_card_G)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsCyclic.card_pow_eq_one_le",
+    "statement": "\u2115} (hn0 : 0 < n) : #{a : \u03b1 | a ^ n = 1} \u2264 n",
+    "have_tree": [
+      {
+        "name": "hm0",
+        "type": "0 < m",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsCyclic.ext",
+    "statement": "\u2115} {a b : ZMod d} (hGcard : Nat.card G = d) (h : \u2200 t : G, t ^ a.val = t ^ b.val) : a = b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero (Nat.card G)",
+        "body": "\u27e8Nat.card_pos.ne'\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

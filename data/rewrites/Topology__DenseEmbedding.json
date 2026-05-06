@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "DenseEmbedding",
+      "name": "tendsto_comap_nhds_nhds",
+      "statement": "\u03b4} {a : \u03b1} (di : IsDenseInducing i) (H : Tendsto h (\ud835\udcdd d) (\ud835\udcdd (i a))) (comm : h \u2218 g = i \u2218 f) : Tendsto f (comap g (\ud835\udcdd d)) (\ud835\udcdd a)",
+      "have_tree": [
+        {
+          "name": "lim1",
+          "type": "map g (comap g (\ud835\udcdd d)) \u2264 \ud835\udcdd d",
+          "body": "map_comap_le",
+          "children": []
+        },
+        {
+          "name": "lim2",
+          "type": "comap i (map h (\ud835\udcdd d)) \u2264 comap i (\ud835\udcdd (i a))",
+          "body": "comap_mono H",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "DenseEmbedding",
+          "name": "tendsto_comap_nhds_nhds",
+          "statement": "\u03b4} {a : \u03b1} (di : IsDenseInducing i) (H : Tendsto h (\ud835\udcdd d) (\ud835\udcdd (i a))) (comm : h \u2218 g = i \u2218 f) : Tendsto f (comap g (\ud835\udcdd d)) (\ud835\udcdd a)",
+          "have_tree": [
+            {
+              "name": "lim2",
+              "type": "comap i (map h (\ud835\udcdd d)) \u2264 comap i (\ud835\udcdd (i a))",
+              "body": "comap_mono H",
+              "children": []
+            },
+            {
+              "name": "lim1",
+              "type": "map g (comap g (\ud835\udcdd d)) \u2264 \ud835\udcdd d",
+              "body": "map_comap_le",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "DenseEmbedding",
+      "name": "continuousAt_extend",
+      "statement": "\u03b2} {f : \u03b1 \u2192 \u03b3} (di : IsDenseInducing i) (hf : \u2200\u1da0 x in \ud835\udcdd b, \u2203 c, Tendsto f (comap i <| \ud835\udcdd x) (\ud835\udcdd c)) : ContinuousAt (di.extend f) b",
+      "have_tree": [
+        {
+          "name": "V\u2081_in",
+          "type": "V\u2081 \u2208 \ud835\udcdd b",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hV\u2082x",
+          "type": "V\u2082 \u2208 \ud835\udcdd x",
+          "body": "IsOpen.mem_nhds V\u2082_op x_in\u2082",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "DenseEmbedding",
+          "name": "continuousAt_extend",
+          "statement": "\u03b2} {f : \u03b1 \u2192 \u03b3} (di : IsDenseInducing i) (hf : \u2200\u1da0 x in \ud835\udcdd b, \u2203 c, Tendsto f (comap i <| \ud835\udcdd x) (\ud835\udcdd c)) : ContinuousAt (di.extend f) b",
+          "have_tree": [
+            {
+              "name": "hV\u2082x",
+              "type": "V\u2082 \u2208 \ud835\udcdd x",
+              "body": "IsOpen.mem_nhds V\u2082_op x_in\u2082",
+              "children": []
+            },
+            {
+              "name": "V\u2081_in",
+              "type": "V\u2081 \u2208 \ud835\udcdd b",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

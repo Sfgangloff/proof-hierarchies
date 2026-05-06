@@ -1,0 +1,28 @@
+[
+  {
+    "module": "PadicNorm",
+    "name": "nonarchimedean_aux",
+    "statement": "\u211a} (h : padicValRat p q \u2264 padicValRat p r) : padicNorm p (q + r) \u2264 max (padicNorm p q) (padicNorm p r)",
+    "have_tree": [
+      {
+        "name": "hnqp",
+        "type": "padicNorm p q \u2265 0",
+        "body": "padicNorm.nonneg _",
+        "children": []
+      },
+      {
+        "name": "hnrp",
+        "type": "padicNorm p r \u2265 0",
+        "body": "padicNorm.nonneg _",
+        "children": [
+          {
+            "name": "_",
+            "type": "padicValRat p q = min (padicValRat p q) (padicValRat p r)",
+            "body": "(min_eq_left h).symm",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

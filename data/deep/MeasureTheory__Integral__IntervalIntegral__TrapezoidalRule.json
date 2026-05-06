@@ -1,0 +1,71 @@
+[
+  {
+    "module": "TrapezoidalRule",
+    "name": "trapezoidal_error_le_of_lt'",
+    "statement": "\u211d \u2192 \u211d} {\u03b6 : \u211d} {a b : \u211d} (a_lt_b : a < b) (h_df : DifferentiableOn \u211d f (Icc a b)) (h_ddf : DifferentiableOn \u211d (derivWithin f (Icc a b)) (Icc a b)) (h_ddf_integrable : IntervalIntegrable (iteratedDerivWithin 2 f (Icc a b)) volume a b) (fpp_bound : \u2200 x, |iteratedDerivWithin 2 f (Icc a b) x| \u2264 \u03b6) : |trapezoidal_error f 1 a b| \u2264 (b - a) ^ 3 * \u03b6 / 12",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u211d) (hy : y \u2208 Icc a b) : HasDerivWithinAt g (dg y) (Icc a b) y",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Fact.mk hy -- Needed for integral_hasDerivWithinAt_right",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u211d) (hx : y \u2208 Icc a b) : HasDerivWithinAt dg (ddg y) (Icc a b) y",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u211d) (hx : x \u2208 Icc a b) : |ddg x| \u2264 (\u03b6 / 2) * ((x - a) ^ 1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "hs",
+            "type": "Icc a t \u2286 Icc a b",
+            "body": "Icc_subset_Icc_right ht.2",
+            "children": []
+          },
+          {
+            "name": "hs'",
+            "type": "Ioo a t \u2286 Ioo a b",
+            "body": "Ioo_subset_Ioo_right ht.2",
+            "children": []
+          },
+          {
+            "name": "hs''",
+            "type": "uIcc a t \u2286 uIcc a b",
+            "body": "by rwa [uIcc_of_lt a_lt_b, uIcc_of_le ht.1]",
+            "children": []
+          },
+          {
+            "name": "key",
+            "type": "",
+            "body": "integral_eq_sub_of_hasDerivAt_of_le (f := \u03c6) (f' := \u03c6') ht.1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "bound_dg",
+        "type": "",
+        "body": "key h_ddg (by ring) bound_ddg (h_ddf_integrable.continuousOn_mul (by fun_prop))",
+        "children": []
+      },
+      {
+        "name": "bound_g",
+        "type": "",
+        "body": "key h_dg (trapezoidal_error_eq f 1 a) bound_dg",
+        "children": []
+      }
+    ]
+  }
+]

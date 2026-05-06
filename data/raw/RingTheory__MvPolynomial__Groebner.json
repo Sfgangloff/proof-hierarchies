@@ -1,0 +1,35 @@
+[
+  {
+    "module": "Groebner",
+    "name": "degree_sub_LTerm_lt",
+    "statement": "MvPolynomial \u03c3 R} (hf : m.degree f \u2260 0) : m.degree (m.subLTerm f) \u227a[m] m.degree f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "m.subLTerm f \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Groebner",
+    "name": "div",
+    "statement": "Type*} {b : \u03b9 \u2192 MvPolynomial \u03c3 R} (hb : \u2200 i, IsUnit (m.leadingCoeff (b i))) (f : MvPolynomial \u03c3 R) : \u2203 (g : \u03b9 \u2192\u2080 (MvPolynomial \u03c3 R)) (r : MvPolynomial \u03c3 R), f = Finsupp.linearCombination _ b g + r \u2227 (\u2200 i, m.degree (b i * (g i)) \u227c[m] m.degree f) \u2227 (\u2200 c \u2208 r.support, \u2200 i, \u00ac (m.degree (b i) \u2264 c))",
+    "have_tree": [
+      {
+        "name": "deg_reduce",
+        "type": "m.degree (m.reduce (hb i) f) \u227a[m] m.degree f",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "MvPolynomial.support_add hc",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

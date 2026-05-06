@@ -1,0 +1,249 @@
+[
+  {
+    "original": {
+      "module": "PrimitiveRoots",
+      "name": "neZero'",
+      "statement": "\u2115} [NeZero n] (h\u03b6 : IsPrimitiveRoot \u03b6 n) : NeZero ((n : \u2115) : R)",
+      "have_tree": [
+        {
+          "name": "h",
+          "type": "p \u2260 0 \u2227 n \u2260 0",
+          "body": "by aesop",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "NeZero p",
+          "body": ".mk h.1",
+          "children": []
+        },
+        {
+          "name": "hp",
+          "type": "Fact p.Prime",
+          "body": "CharP.char_is_prime_of_pos R p",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "PrimitiveRoots",
+          "name": "neZero'",
+          "statement": "\u2115} [NeZero n] (h\u03b6 : IsPrimitiveRoot \u03b6 n) : NeZero ((n : \u2115) : R)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "NeZero p",
+              "body": ".mk h.1",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "p \u2260 0 \u2227 n \u2260 0",
+              "body": "by aesop",
+              "children": []
+            },
+            {
+              "name": "hp",
+              "type": "Fact p.Prime",
+              "body": "CharP.char_is_prime_of_pos R p",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "PrimitiveRoots",
+          "name": "neZero'",
+          "statement": "\u2115} [NeZero n] (h\u03b6 : IsPrimitiveRoot \u03b6 n) : NeZero ((n : \u2115) : R)",
+          "have_tree": [
+            {
+              "name": "h",
+              "type": "p \u2260 0 \u2227 n \u2260 0",
+              "body": "by aesop",
+              "children": []
+            },
+            {
+              "name": "hp",
+              "type": "Fact p.Prime",
+              "body": "CharP.char_is_prime_of_pos R p",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "NeZero p",
+              "body": ".mk h.1",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "PrimitiveRoots",
+      "name": "primitiveRootsPowEquiv",
+      "statement": "\u2115} (h : a * b \u2261 1 [MOD n]) : primitiveRoots n R \u2243 primitiveRoots n R where toFun x",
+      "have_tree": [
+        {
+          "name": "hr",
+          "type": "0 < n",
+          "body": "by by_contra! h; cases x; simp_all",
+          "children": []
+        },
+        {
+          "name": "hr'",
+          "type": "b.Coprime n",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "PrimitiveRoots",
+          "name": "primitiveRootsPowEquiv",
+          "statement": "\u2115} (h : a * b \u2261 1 [MOD n]) : primitiveRoots n R \u2243 primitiveRoots n R where toFun x",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "b.Coprime n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "0 < n",
+              "body": "by by_contra! h; cases x; simp_all",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "PrimitiveRoots",
+      "name": "autToPow",
+      "statement": "(S \u2243\u2090[R] S) \u2192* (ZMod n)\u02e3",
+      "have_tree": [
+        {
+          "name": "h",
+          "type": "",
+          "body": "h1.choose_spec",
+          "children": []
+        },
+        {
+          "name": "hxy",
+          "type": "",
+          "body": "hxy'.choose_spec",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "PrimitiveRoots",
+          "name": "autToPow",
+          "statement": "(S \u2243\u2090[R] S) \u2192* (ZMod n)\u02e3",
+          "have_tree": [
+            {
+              "name": "hxy",
+              "type": "",
+              "body": "hxy'.choose_spec",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "",
+              "body": "h1.choose_spec",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "PrimitiveRoots",
+      "name": "IsCyclic.exists_apply_ne_one",
+      "statement": "Type*} [Group G] [IsCyclic G] [Finite G] [CommGroup G'] (hG' : \u2203 \u03b6 : G', IsPrimitiveRoot \u03b6 (Nat.card G)) \u2983a : G\u2984 (ha : a \u2260 1) : \u2203 \u03c6 : G \u2192* G', \u03c6 a \u2260 1",
+      "have_tree": [
+        {
+          "name": "h\u03b6g",
+          "type": "orderOf \u03b6 \u2223 orderOf g",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "h\u03c6g",
+          "type": "IsPrimitiveRoot (\u03c6 g) (Nat.card G)",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "PrimitiveRoots",
+          "name": "IsCyclic.exists_apply_ne_one",
+          "statement": "Type*} [Group G] [IsCyclic G] [Finite G] [CommGroup G'] (hG' : \u2203 \u03b6 : G', IsPrimitiveRoot \u03b6 (Nat.card G)) \u2983a : G\u2984 (ha : a \u2260 1) : \u2203 \u03c6 : G \u2192* G', \u03c6 a \u2260 1",
+          "have_tree": [
+            {
+              "name": "h\u03c6g",
+              "type": "IsPrimitiveRoot (\u03c6 g) (Nat.card G)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h\u03b6g",
+              "type": "orderOf \u03b6 \u2223 orderOf g",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

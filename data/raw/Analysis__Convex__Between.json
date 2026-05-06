@@ -1,0 +1,181 @@
+[
+  {
+    "module": "Between",
+    "name": "AffineEquiv.wbtw_map_iff",
+    "statement": "P} (f : P \u2243\u1d43[R] P') : Wbtw R (f x) (f y) (f z) \u2194 Wbtw R x y z",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Function.Injective f.toAffineMap",
+        "body": "f.injective",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Between",
+    "name": "AffineEquiv.sbtw_map_iff",
+    "statement": "P} (f : P \u2243\u1d43[R] P') : Sbtw R (f x) (f y) (f z) \u2194 Sbtw R x y z",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Function.Injective f.toAffineMap",
+        "body": "f.injective",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Between",
+    "name": "Sbtw.affineCombination_of_mem_affineSpan_pair",
+    "statement": "Type*} {p : \u03b9 \u2192 P} (ha : AffineIndependent R p) {w w\u2081 w\u2082 : \u03b9 \u2192 R} {s : Finset \u03b9} (hw : \u2211 i \u2208 s, w i = 1) (hw\u2081 : \u2211 i \u2208 s, w\u2081 i = 1) (hw\u2082 : \u2211 i \u2208 s, w\u2082 i = 1) (h : s.affineCombination R p w \u2208 line[R, s.affineCombination R p w\u2081, s.affineCombination R p w\u2082]) {i : \u03b9} (his : i \u2208 s) (hs : Sbtw R (w\u2081 i) (w i) (w\u2082 i)) : Sbtw R (s.affineCombination R p w\u2081) (s.affineCombination R p w) (s.affineCombination R p w\u2082)",
+    "have_tree": [
+      {
+        "name": "ha'",
+        "type": "",
+        "body": "ha s (w\u2081 - w\u2082) hw\u2081w\u2082 hz i his",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Between",
+    "name": "sbtw_of_sbtw_of_sbtw_of_mem_affineSpan_pair",
+    "statement": "Affine.Triangle R P} {i\u2081 i\u2082 i\u2083 : Fin 3} (h\u2081\u2082 : i\u2081 \u2260 i\u2082) {p\u2081 p\u2082 p : P} (h\u2081 : Sbtw R (t.points i\u2082) p\u2081 (t.points i\u2083)) (h\u2082 : Sbtw R (t.points i\u2081) p\u2082 (t.points i\u2083)) (h\u2081' : p \u2208 line[R, t.points i\u2081, p\u2081]) (h\u2082' : p \u2208 line[R, t.points i\u2082, p\u2082]) : Sbtw R (t.points i\u2081) p p\u2081",
+    "have_tree": [
+      {
+        "name": "h\u2081\u2083",
+        "type": "i\u2081 \u2260 i\u2083",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2082\u2083",
+        "type": "i\u2082 \u2260 i\u2083",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hp",
+        "type": "p \u2208 affineSpan R (Set.range t.points)",
+        "body": "by",
+        "children": [
+          {
+            "name": "hle",
+            "type": "line[R, t.points i\u2081, p\u2081] \u2264 affineSpan R (Set.range t.points)",
+            "body": "by",
+            "children": [
+              {
+                "name": "hle",
+                "type": "line[R, t.points i\u2082, t.points i\u2083] \u2264 affineSpan R (Set.range t.points)",
+                "body": "by",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "h\u2081i",
+        "type": "",
+        "body": "h\u2081.mem_image_Ioo",
+        "children": []
+      },
+      {
+        "name": "h\u2082i",
+        "type": "",
+        "body": "h\u2082.mem_image_Ioo",
+        "children": []
+      },
+      {
+        "name": "h\u2081s",
+        "type": "",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u2082s",
+        "type": "",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hs'",
+        "type": "",
+        "body": "sign_sum Finset.univ_nonempty (SignType.sign (w i\u2083)) fun i _ => hs i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Between",
+    "name": "wbtw_iff_of_le",
+    "statement": "R} (hxz : x \u2264 z) : Wbtw R x y z \u2194 x \u2264 y \u2227 y \u2264 z",
+    "have_tree": [
+      {
+        "name": "hxz'",
+        "type": "0 < z - x",
+        "body": "sub_pos.mpr hxz",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Between",
+    "name": "AffineSubspace.right_mem_of_wbtw",
+    "statement": "AffineSubspace R P} (hxyz : Wbtw R x y z) (hx : x \u2208 s) (hy : y \u2208 s) (hxy : x \u2260 y) : z \u2208 s",
+    "have_tree": [
+      {
+        "name": "h\u03b5",
+        "type": "\u03b5 \u2260 0",
+        "body": "by rintro rfl; simp at hxy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Between",
+    "name": "Wbtw.trans_expand_left",
+    "statement": "P} (h\u2081 : Wbtw R w x y) (h\u2082 : Wbtw R x y z) (h_ne : x \u2260 y) : Wbtw R w x z",
+    "have_tree": [
+      {
+        "name": "h_denom",
+        "type": "1 - t\u2081 + t\u2081 * t\u2082 \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Between",
+    "name": "Collinear.wbtw_or_wbtw_or_wbtw",
+    "statement": "P} (h : Collinear R ({x, y, z} : Set P)) : Wbtw R x y z \u2228 Wbtw R y z x \u2228 Wbtw R z x y",
+    "have_tree": [
+      {
+        "name": "hy",
+        "type": "",
+        "body": "h y (Or.inr (Or.inl rfl))",
+        "children": []
+      },
+      {
+        "name": "hz",
+        "type": "",
+        "body": "h z (Or.inr (Or.inr rfl))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Between",
+    "name": "sbtw_midpoint_of_ne",
+    "statement": "P} (h : x \u2260 y) : Sbtw R x (midpoint R x y) y",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "midpoint R x y \u2260 x",
+        "body": "by simp [h]",
+        "children": []
+      }
+    ]
+  }
+]

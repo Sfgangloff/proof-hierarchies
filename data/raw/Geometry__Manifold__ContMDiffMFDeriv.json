@@ -1,0 +1,148 @@
+[
+  {
+    "module": "ContMDiffMFDeriv",
+    "name": "ContMDiffWithinAt.mfderivWithin",
+    "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : CMDiffAt[t \u00d7\u02e2 u] n (Function.uncurry f) (x\u2080, g x\u2080)) (hg : CMDiffAt[t] m g x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : CMDiffAt[t] m (inTangentCoordinates I I' g (fun x \u21a6 f x (g x)) (fun x \u21a6 mfderiv[u] (f x) (g x)) x\u2080) x\u2080",
+    "have_tree": [
+      {
+        "name": "ht't",
+        "type": "t' \u2286 t",
+        "body": "inter_subset_left",
+        "children": []
+      },
+      {
+        "name": "hx\u2080gx\u2080",
+        "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+        "body": "by simp [hx\u2080, hu hx\u2080]",
+        "children": []
+      },
+      {
+        "name": "h4f",
+        "type": "ContinuousWithinAt (fun x \u21a6 f x (g x)) t x\u2080",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h4f",
+        "type": "",
+        "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+        "children": []
+      },
+      {
+        "name": "h3f",
+        "type": "",
+        "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+        "children": []
+      },
+      {
+        "name": "h2f",
+        "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, CMDiffAt[u] 1 (f x\u2082) (g x\u2082)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "MapsTo (fun x \u21a6 (x, g x)) t (t \u00d7\u02e2 u)",
+            "body": "fun y hy \u21a6 by simp [hy, hu hy]",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h2g",
+        "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+        "body": "",
+        "children": [
+          {
+            "name": "hf'",
+            "type": "",
+            "body": "hf.mono (prod_mono_left ht't)",
+            "children": []
+          },
+          {
+            "name": "hg'",
+            "type": "",
+            "body": "hg.mono (show t' \u2286 t from inter_subset_left)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h1",
+        "type": "g x \u2208 u",
+        "body": "hu hxt",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ContMDiffMFDeriv",
+    "name": "ContMDiffOn.contMDiffOn_tangentMapWithin",
+    "statement": "CMDiff[s] n f) (hmn : m + 1 \u2264 n) (hs : UniqueMDiffOn I s) : CMDiff[(\u03c0 E (TangentSpace I) \u207b\u00b9' s)] m (tangentMapWithin I I' f s)",
+    "have_tree": [
+      {
+        "name": "hb\u2082",
+        "type": "CMDiffAt[s'] m b\u2082 x\u2080",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u03d5",
+        "type": "CMDiffAt[s'] m (fun y \u21a6 ContinuousLinearMap.inCoordinates E (TangentSpace I (M",
+        "body": "M)) E'",
+        "children": [
+          {
+            "name": "A",
+            "type": "CMDiffAt[s] m (fun y \u21a6 ContinuousLinearMap.inCoordinates E (TangentSpace I (M",
+            "body": "M)) E'",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "ContMDiffMFDeriv",
+    "name": "ContMDiffOn.continuousOn_tangentMapWithin",
+    "statement": "CMDiff[s] n f) (hmn : 1 \u2264 n) (hs : UniqueMDiffOn I s) : ContinuousOn (tangentMapWithin I I' f s) (\u03c0 E (TangentSpace I) \u207b\u00b9' s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "CMDiff[\u03c0 E (TangentSpace I) \u207b\u00b9' s] 0 (tangentMapWithin I I' f s)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ContMDiffMFDeriv",
+    "name": "tangentMap_tangentBundle_pure",
+    "statement": "IsManifold I 1 M] (p : TangentBundle I M) : tangentMap I I.tangent (zeroSection E (TangentSpace I)) p = \u27e8\u27e8p.proj, 0\u27e9, \u27e8p.2, 0\u27e9\u27e9",
+    "have_tree": [
+      {
+        "name": "N",
+        "type": "I.symm \u207b\u00b9' (chartAt H x).target \u2208 \ud835\udcdd (I ((chartAt H x) x))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ContMDiffMFDeriv",
+    "name": "contMDiff_equivTangentBundleProd_symm",
+    "statement": "CMDiff n (equivTangentBundleProd I M I' M').symm",
+    "have_tree": [
+      {
+        "name": "D0",
+        "type": "DifferentiableWithinAt \ud835\udd5c \u03c6 (Set.range I) (I ((chartAt H p.1.proj) p.1.proj))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "D0",
+        "type": "DifferentiableWithinAt \ud835\udd5c \u03c6 (Set.range I') (I' ((chartAt H' p.2.proj) p.2.proj))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,91 @@
+[
+  {
+    "module": "IntegrationByParts",
+    "name": "integral_bilinear_hasLineDerivAt_right_eq_neg_left_of_integrable_aux1",
+    "statement": "E \u00d7 \u211d \u2192 F} {g g' : E \u00d7 \u211d \u2192 G} {B : F \u2192L[\u211d] G \u2192L[\u211d] W} (hf'g : Integrable (fun x \u21a6 B (f' x) (g x)) (\u03bc.prod volume)) (hfg' : Integrable (fun x \u21a6 B (f x) (g' x)) (\u03bc.prod volume)) (hfg : Integrable (fun x \u21a6 B (f x) (g x)) (\u03bc.prod volume)) (hf : \u2200 x \u2208 tsupport g, HasLineDerivAt \u211d f (f' x) x (0, 1)) (hg : \u2200 x \u2208 tsupport f, HasLineDerivAt \u211d g (g' x) x (0, 1)) : \u222b x, B (f x) (g' x) \u2202(\u03bc.prod volume) = - \u222b x, B (f' x) (g x) \u2202(\u03bc.prod volume)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(x, t) \u2208 tsupport g",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(x, t) \u2208 tsupport f",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrationByParts",
+    "name": "integral_bilinear_hasLineDerivAt_right_eq_neg_left_of_integrable_aux2",
+    "statement": "Measure (E \u00d7 \u211d)} [IsAddHaarMeasure \u03bc] {f f' : E \u00d7 \u211d \u2192 F} {g g' : E \u00d7 \u211d \u2192 G} {B : F \u2192L[\u211d] G \u2192L[\u211d] W} (hf'g : Integrable (fun x \u21a6 B (f' x) (g x)) \u03bc) (hfg' : Integrable (fun x \u21a6 B (f x) (g' x)) \u03bc) (hfg : Integrable (fun x \u21a6 B (f x) (g x)) \u03bc) (hf : \u2200 x \u2208 tsupport g, HasLineDerivAt \u211d f (f' x) x (0, 1)) (hg : \u2200 x \u2208 tsupport f, HasLineDerivAt \u211d g (g' x) x (0, 1)) : \u222b x, B (f x) (g' x) \u2202\u03bc = - \u222b x, B (f' x) (g x) \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "Hf'g",
+        "type": "Integrable (fun x \u21a6 B (f' x) (g x)) (\u03bd.prod volume)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "Hfg'",
+        "type": "Integrable (fun x \u21a6 B (f x) (g' x)) (\u03bd.prod volume)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "Hfg",
+        "type": "Integrable (fun x \u21a6 B (f x) (g x)) (\u03bd.prod volume)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrationByParts",
+    "name": "integral_bilinear_hasLineDerivAt_right_eq_neg_left_of_integrable",
+    "statement": "E \u2192 F} {g g' : E \u2192 G} {v : E} {B : F \u2192L[\u211d] G \u2192L[\u211d] W} (hf'g : Integrable (fun x \u21a6 B (f' x) (g x)) \u03bc) (hfg' : Integrable (fun x \u21a6 B (f x) (g' x)) \u03bc) (hfg : Integrable (fun x \u21a6 B (f x) (g x)) \u03bc) (hf : \u2200 x \u2208 tsupport g, HasLineDerivAt \u211d f (f' x) x v) (hg : \u2200 x \u2208 tsupport f, HasLineDerivAt \u211d g (g' x) x v) : \u222b x, B (f x) (g' x) \u2202\u03bc = - \u222b x, B (f' x) (g x) \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial E",
+        "body": "nontrivial_iff.2 \u27e8v, 0, hv\u27e9",
+        "children": [
+          {
+            "name": "L\u2080",
+            "type": "E \u2243L[\u211d] (E' \u00d7 \u211d)",
+            "body": "(ContinuousLinearEquiv.ofFinrankEq this).symm",
+            "children": []
+          },
+          {
+            "name": "hL",
+            "type": "IsClosedEmbedding L.symm",
+            "body": "L.symm.toHomeomorph.isClosedEmbedding",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "L_emb",
+        "type": "MeasurableEmbedding L",
+        "body": "L.toHomeomorph.measurableEmbedding",
+        "children": [
+          {
+            "name": "h2x",
+            "type": "L.symm x \u2208 tsupport g",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "h2x",
+            "type": "L.symm x \u2208 tsupport f",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

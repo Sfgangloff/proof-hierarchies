@@ -1,0 +1,122 @@
+[
+  {
+    "module": "AdmissibleCardPowDegree",
+    "name": "exists_eq_polynomial",
+    "statement": "\u2115} {m : \u2115} (hm : Fintype.card Fq ^ d \u2264 m) (b : Fq[X]) (hb : natDegree b \u2264 d) (A : Fin m.succ \u2192 Fq[X]) (hA : \u2200 i, degree (A i) < degree b) : \u2203 i\u2080 i\u2081, i\u2080 \u2260 i\u2081 \u2227 A i\u2081 = A i\u2080",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype.card (Fin d \u2192 Fq) < Fintype.card (Fin m.succ)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AdmissibleCardPowDegree",
+    "name": "exists_approx_polynomial_aux",
+    "statement": "\u2115} {m : \u2115} (hm : Fintype.card Fq ^ d \u2264 m) (b : Fq[X]) (A : Fin m.succ \u2192 Fq[X]) (hA : \u2200 i, degree (A i) < degree b) : \u2203 i\u2080 i\u2081, i\u2080 \u2260 i\u2081 \u2227 degree (A i\u2081 - A i\u2080) < \u2191(natDegree b - d)",
+    "have_tree": [
+      {
+        "name": "hb",
+        "type": "b \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fintype.card (Fin d \u2192 Fq) < Fintype.card (Fin m.succ)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hbj",
+        "type": "j < natDegree b",
+        "body": "(@WithBot.coe_lt_coe _ _ _).mp hbj",
+        "children": []
+      },
+      {
+        "name": "hj",
+        "type": "natDegree b - j.succ < d",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AdmissibleCardPowDegree",
+    "name": "exists_approx_polynomial",
+    "statement": "Fq[X]} (hb : b \u2260 0) {\u03b5 : \u211d} (h\u03b5 : 0 < \u03b5) (A : Fin (Fintype.card Fq ^ \u2308-log \u03b5 / log (Fintype.card Fq)\u2309\u208a).succ \u2192 Fq[X]) : \u2203 i\u2080 i\u2081, i\u2080 \u2260 i\u2081 \u2227 (cardPowDegree (A i\u2081 % b - A i\u2080 % b) : \u211d) < cardPowDegree b \u2022 \u03b5",
+    "have_tree": [
+      {
+        "name": "hb\u03b5",
+        "type": "0 < cardPowDegree b \u2022 \u03b5",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "one_lt_q",
+        "type": "1 < Fintype.card Fq",
+        "body": "Fintype.one_lt_card",
+        "children": []
+      },
+      {
+        "name": "q_pos",
+        "type": "0 < Fintype.card Fq",
+        "body": "by lia",
+        "children": []
+      },
+      {
+        "name": "h'",
+        "type": "A i\u2081 % b - A i\u2080 % b \u2260 0",
+        "body": "mt sub_eq_zero.mp h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AdmissibleCardPowDegree",
+    "name": "cardPowDegree_anti_archimedean",
+    "statement": "Fq[X]} {a : \u2124} (hxy : cardPowDegree (x - y) < a) (hyz : cardPowDegree (y - z) < a) : cardPowDegree (x - z) < a",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "0 < a",
+        "body": "lt_of_le_of_lt (AbsoluteValue.nonneg _ _) hxy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AdmissibleCardPowDegree",
+    "name": "exists_partition_polynomial_aux",
+    "statement": "\u2115) {\u03b5 : \u211d} (h\u03b5 : 0 < \u03b5) {b : Fq[X]} (hb : b \u2260 0) (A : Fin n \u2192 Fq[X]) : \u2203 t : Fin n \u2192 Fin (Fintype.card Fq ^ \u2308-log \u03b5 / log (Fintype.card Fq)\u2309\u208a), \u2200 i\u2080 i\u2081 : Fin n, t i\u2080 = t i\u2081 \u2194 (cardPowDegree (A i\u2081 % b - A i\u2080 % b) : \u211d) < cardPowDegree b \u2022 \u03b5",
+    "have_tree": [
+      {
+        "name": "hb\u03b5",
+        "type": "0 < cardPowDegree b \u2022 \u03b5",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(Classical.choose_spec (hg j\u2081)).2",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "(Classical.choose_spec (hg j\u2080)).2",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "exists_nonempty_j \u27e8t' i, \u27e8i, rfl\u27e9, fun i' hi' => anti_archim' hi ((ht' _ _).mp hi')\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

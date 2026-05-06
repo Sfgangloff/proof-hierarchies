@@ -1,0 +1,153 @@
+[
+  {
+    "module": "SeparablyGenerated",
+    "name": "irreducible_of_forall_totalDegree_le",
+    "statement": "F \u2260 0) (hFa : F.aeval a = 0) : Irreducible F",
+    "have_tree": [
+      {
+        "name": "ne",
+        "type": "",
+        "body": "mul_ne_zero_iff.mp (e \u25b8 hF0)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "HF q\u2081 ne.1 h\u2081",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SeparablyGenerated",
+    "name": "coeff_toPolynomialAdjoinImageCompl_ne_zero",
+    "statement": "\u03b9 \u2192\u2080 \u2115) (h\u03c3 : \u03c3 \u2208 F.support) (i : \u03b9) (h\u03c3i : \u03c3 i \u2260 0) : (toPolynomialAdjoinImageCompl F a i).coeff (\u03c3 i) \u2260 0",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "HF (rename (\u2191) (F\u2080.coeff (\u03c3 i))) ?_ ?_",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SeparablyGenerated",
+    "name": "exists_mem_support_not_dvd_of_forall_totalDegree_le",
+    "statement": "F \u2260 0) (hFa : F.aeval a = 0) : \u2203 i, \u2203 \u03c3 \u2208 F.support, \u00ac p \u2223 \u03c3 i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mt (H F.support inferInstance (fun s \u21a6 aeval a (monomial (\u03c3' s) (1 : k)))) (by",
+        "children": []
+      },
+      {
+        "name": "hF''0",
+        "type": "F'' \u2260 0",
+        "body": "ne_of_ne_of_eq ((Finsupp.mapDomain_injective fun s t h \u21a6 Subtype.ext",
+        "children": [
+          {
+            "name": "hF''0'",
+            "type": "F''.totalDegree \u2260 0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "SeparablyGenerated",
+    "name": "exists_isTranscendenceBasis_and_isSeparable_of_linearIndepOn_pow",
+    "statement": "IsTranscendenceBasis k fun i : {i // i \u2260 n} \u21a6 a i) : \u2203 i : \u03b9, IsTranscendenceBasis k (fun j : {j // j \u2260 i} \u21a6 a j) \u2227 IsSeparable (adjoin k (a '' {i}\u1d9c)) (a i)",
+    "have_tree": [
+      {
+        "name": "hFirr",
+        "type": "Irreducible F",
+        "body": "irreducible_of_forall_totalDegree_le hFmin hF\u2080 hFa",
+        "children": []
+      },
+      {
+        "name": "h\u03c3i",
+        "type": "\u03c3 i \u2260 0",
+        "body": "by aesop",
+        "children": []
+      },
+      {
+        "name": "alg",
+        "type": "",
+        "body": "isAlgebraic_of_mem_vars_of_forall_totalDegree_le hFmin hFa i <|",
+        "children": []
+      },
+      {
+        "name": "Hi",
+        "type": "",
+        "body": "ha'.of_isAlgebraic_adjoin_image_compl _ i _ alg",
+        "children": []
+      },
+      {
+        "name": "hF\u2081irr",
+        "type": "",
+        "body": "irreducible_toPolynomialAdjoinImageCompl hFirr i Hi.1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(AlgebraicIndepOn.aevalEquiv (s := {i}\u1d9c) Hi.1).uniqueFactorizationMonoid inferInstance",
+        "children": []
+      },
+      {
+        "name": "coeff_ne",
+        "type": "",
+        "body": "coeff_toPolynomialAdjoinImageCompl_ne_zero hFmin \u03c3 h\u03c3 i h\u03c3i",
+        "children": []
+      },
+      {
+        "name": "hF\u2082irr",
+        "type": "",
+        "body": "(hF\u2081irr.isPrimitive fun h \u21a6 coeff_ne <| Polynomial.coeff_eq_zero_of_natDegree_lt <|",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "CharP k' p",
+        "body": "(expChar_of_injective_algebraMap (algebraMap k k').injective p).casesOn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SeparablyGenerated",
+    "name": "exists_isTranscendenceBasis_and_isSeparable_of_linearIndepOn_pow_of_essFiniteType",
+    "statement": "\u2203 s : Finset K, IsTranscendenceBasis k ((\u2191) : s \u2192 K) \u2227 Algebra.IsSeparable (adjoin k (s : Set K)) K",
+    "have_tree": [
+      {
+        "name": "hns",
+        "type": "n \u2209 s",
+        "body": "fun h \u21a6 hn (le_restrictScalars_separableClosure _ (subset_adjoin _ _ h))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SeparablyGenerated",
+    "name": "exists_isTranscendenceBasis_and_isSeparable_of_perfectField",
+    "statement": "\u2203 s : Finset K, IsTranscendenceBasis k ((\u2191) : s \u2192 K) \u2227 Algebra.IsSeparable (IntermediateField.adjoin k (s : Set K)) K",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "ExpChar k p",
+        "body": ".prime hp.out",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "CharP K p",
+        "body": ".of_ringHom_of_ne_zero (algebraMap k K) p hp.out.ne_zero",
+        "children": []
+      }
+    ]
+  }
+]

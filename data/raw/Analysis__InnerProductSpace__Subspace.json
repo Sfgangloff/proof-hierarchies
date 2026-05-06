@@ -1,0 +1,91 @@
+[
+  {
+    "module": "Subspace",
+    "name": "OrthogonalFamily.orthonormal_sigma_orthonormal",
+    "statement": "\u03b9 \u2192 Type*} {v_family : \u2200 i, \u03b1 i \u2192 G i} (hv_family : \u2200 i, Orthonormal \ud835\udd5c (v_family i)) : Orthonormal \ud835\udd5c fun a : \u03a3 i, \u03b1 i => V a.1 (v_family a.1 a.2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "v \u2260 w",
+        "body": "fun h => by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Subspace",
+    "name": "OrthogonalFamily.norm_sq_diff_sum",
+    "statement": "\u2200 i, G i) (s\u2081 s\u2082 : Finset \u03b9) : \u2016(\u2211 i \u2208 s\u2081, V i (f i)) - \u2211 i \u2208 s\u2082, V i (f i)\u2016 ^ 2 = (\u2211 i \u2208 s\u2081 \\ s\u2082, \u2016f i\u2016 ^ 2) + \u2211 i \u2208 s\u2082 \\ s\u2081, \u2016f i\u2016 ^ 2",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "Disjoint (s\u2081 \\ s\u2082) (s\u2082 \\ s\u2081)",
+        "body": "disjoint_sdiff_sdiff",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Subspace",
+    "name": "OrthogonalFamily.summable_iff_norm_sq_summable",
+    "statement": "\u2200 i, G i) : (Summable fun i => V i (f i)) \u2194 Summable fun i => \u2016f i\u2016 ^ 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 i, 0 \u2264 \u2016f i\u2016 ^ 2",
+        "body": "fun i : \u03b9 => sq_nonneg _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "((\u2211 i \u2208 s\u2081 \\ s\u2082, \u2016f i\u2016 ^ 2) + \u2211 i \u2208 s\u2082 \\ s\u2081, \u2016f i\u2016 ^ 2) < \u221a\u03b5 ^ 2",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u03b7",
+        "type": "",
+        "body": "sq_sqrt (le_of_lt h\u03b5)",
+        "children": []
+      },
+      {
+        "name": "h\u03b5'",
+        "type": "0 < \u03b5 ^ 2 / 2",
+        "body": "half_pos (sq_pos_of_pos h\u03b5)",
+        "children": []
+      },
+      {
+        "name": "has",
+        "type": "a \u2264 s\u2081 \u2293 s\u2082",
+        "body": "le_inf hs\u2081 hs\u2082",
+        "children": []
+      },
+      {
+        "name": "Hs\u2081",
+        "type": "\u2211 x \u2208 s\u2081 \\ s\u2082, \u2016f x\u2016 ^ 2 < \u03b5 ^ 2 / 2",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "s\u2081 \u2293 s\u2082 \u2286 s\u2081",
+            "body": "Finset.inter_subset_left",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Hs\u2082",
+        "type": "\u2211 x \u2208 s\u2082 \\ s\u2081, \u2016f x\u2016 ^ 2 < \u03b5 ^ 2 / 2",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "s\u2081 \u2293 s\u2082 \u2286 s\u2082",
+            "body": "Finset.inter_subset_right",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

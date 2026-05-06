@@ -1,0 +1,171 @@
+[
+  {
+    "module": "RootSystem",
+    "name": "chainLength_aux",
+    "statement": "\u03b1.IsNonZero) {x} (hx : x \u2208 rootSpace H (chainTop \u03b1 \u03b2)) : \u2203 n : \u2115, n \u2022 x = \u2045coroot \u03b1, x\u2046",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "isSl2.HasPrimitiveVectorWith x (chainTop \u03b1 \u03b2 (coroot \u03b1))",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "lie_mem_genWeightSpace_of_mem_genWeightSpace he hx",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "RootSystem",
+    "name": "chainLength_of_isZero",
+    "statement": "\u03b1.IsZero) : chainLength \u03b1 \u03b2 = 0",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "x' \u2208 rootSpace H (chainTop \u03b1 \u03b2) \u2227 x' \u2260 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RootSystem",
+    "name": "apply_coroot_eq_cast'",
+    "statement": "\u03b2 (coroot \u03b1) = \u2191(chainLength \u03b1 \u03b2 - 2 * chainTopCoeff \u03b1 \u03b2 : \u2124)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "chainLength_smul _ _ hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RootSystem",
+    "name": "rootSpace_neg_nsmul_add_chainTop_of_le",
+    "statement": "\u2115} (hn : n \u2264 chainLength \u03b1 \u03b2) : rootSpace H (-(n \u2022 \u03b1) + chainTop \u03b1 \u03b2) \u2260 \u22a5",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "lie_mem_genWeightSpace_of_mem_genWeightSpace he hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RootSystem",
+    "name": "rootSpace_neg_nsmul_add_chainTop_of_lt",
+    "statement": "\u03b1.IsNonZero) {n : \u2115} (hn : chainLength \u03b1 \u03b2 < n) : rootSpace H (-(n \u2022 \u03b1) + chainTop \u03b1 \u03b2) = \u22a5",
+    "have_tree": [
+      {
+        "name": "H\u2081",
+        "type": "1 + n + chainTopCoeff (-\u03b1) W \u2264 chainLength (-\u03b1) W",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "apply_coroot_eq_cast' (-\u03b1) W",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "rootSpace_neg_nsmul_add_chainTop_of_le (-\u03b1) W H\u2081",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RootSystem",
+    "name": "le_chainBotCoeff_of_rootSpace_ne_top",
+    "statement": "\u03b1.IsNonZero) (n : \u2124) (hn : rootSpace H (-n \u2022 \u03b1 + \u03b2) \u2260 \u22a5) : n \u2264 chainBotCoeff \u03b1 \u03b2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "rootSpace_neg_nsmul_add_chainTop_of_lt \u03b1 \u03b2 h\u03b1 hn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RootSystem",
+    "name": "rootSpace_zsmul_add_ne_bot_iff",
+    "statement": "\u03b1.IsNonZero) (n : \u2124) : rootSpace H (n \u2022 \u03b1 + \u03b2) \u2260 \u22a5 \u2194 n \u2264 chainTopCoeff \u03b1 \u03b2 \u2227 -n \u2264 chainBotCoeff \u03b1 \u03b2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "rootSpace_neg_nsmul_add_chainTop_of_le \u03b1 \u03b2 h\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RootSystem",
+    "name": "chainTopCoeff_zero_right",
+    "statement": "\u03b1.IsNonZero) : chainTopCoeff \u03b1 (0 : Weight K H L) = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "lie_mem_genWeightSpace_of_mem_genWeightSpace he hx",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(apply_coroot_eq_cast' \u03b1 0).symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RootSystem",
+    "name": "rootSpace_one_div_two_smul",
+    "statement": "\u03b1.IsNonZero) : rootSpace H ((2\u207b\u00b9 : K) \u2022 \u03b1) = \u22a5",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "rootSpace_two_smul W (fun (e : (W : H \u2192 K) = 0) \u21a6 h\u03b1 <| by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RootSystem",
+    "name": "eq_neg_one_or_eq_zero_or_eq_one_of_eq_smul",
+    "statement": "\u03b1.IsNonZero) (k : K) (h : (\u03b2 : H \u2192 K) = k \u2022 \u03b1) : k = -1 \u2228 k = 0 \u2228 k = 1",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "apply_coroot_eq_cast' \u03b1 \u03b2",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(rootSpace_zsmul_add_ne_bot_iff_mem \u03b1 0 h\u03b1 (n - chainTopCoeff \u03b1 \u03b2)).mp",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "(rootSpace_zsmul_add_ne_bot_iff \u03b1 \u03b2 h\u03b1 (chainTopCoeff \u03b1 \u03b2 - n)).mpr ?_",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

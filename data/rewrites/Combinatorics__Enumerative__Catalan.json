@@ -1,0 +1,238 @@
+[
+  {
+    "original": {
+      "module": "Catalan",
+      "name": "gosper_trick",
+      "statement": "\u2115} (h : i \u2264 n) : gosperCatalan (n + 1) (i + 1) - gosperCatalan (n + 1) i = Nat.centralBinom i / (i + 1) * Nat.centralBinom (n - i) / (n - i + 1)",
+      "have_tree": [
+        {
+          "name": "h\u2081",
+          "type": "",
+          "body": "(mul_div_cancel_left\u2080 (\u2191(Nat.centralBinom (i + 1))) l\u2081).symm",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "",
+          "body": "(mul_div_cancel_left\u2080 (\u2191(Nat.centralBinom (n - i + 1))) l\u2082).symm",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Catalan",
+          "name": "gosper_trick",
+          "statement": "\u2115} (h : i \u2264 n) : gosperCatalan (n + 1) (i + 1) - gosperCatalan (n + 1) i = Nat.centralBinom i / (i + 1) * Nat.centralBinom (n - i) / (n - i + 1)",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "(mul_div_cancel_left\u2080 (\u2191(Nat.centralBinom (n - i + 1))) l\u2082).symm",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "(mul_div_cancel_left\u2080 (\u2191(Nat.centralBinom (i + 1))) l\u2081).symm",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Catalan",
+      "name": "catalan_eq_centralBinom_div",
+      "statement": "\u2115) : catalan n = n.centralBinom / (n + 1)",
+      "have_tree": [
+        {
+          "name": "h",
+          "type": "",
+          "body": "Nat.succ_dvd_centralBinom n",
+          "children": [
+            {
+              "name": "m_le_d",
+              "type": "x.val \u2264 d",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "d_minus_x_le_d",
+              "type": "(d - x.val) \u2264 d",
+              "body": "tsub_le_self",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Catalan",
+          "name": "catalan_eq_centralBinom_div",
+          "statement": "\u2115) : catalan n = n.centralBinom / (n + 1)",
+          "have_tree": [
+            {
+              "name": "h",
+              "type": "",
+              "body": "Nat.succ_dvd_centralBinom n",
+              "children": [
+                {
+                  "name": "d_minus_x_le_d",
+                  "type": "(d - x.val) \u2264 d",
+                  "body": "tsub_le_self",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          1
+        ],
+        "result": {
+          "module": "Catalan",
+          "name": "catalan_eq_centralBinom_div",
+          "statement": "\u2115) : catalan n = n.centralBinom / (n + 1)",
+          "have_tree": [
+            {
+              "name": "h",
+              "type": "",
+              "body": "Nat.succ_dvd_centralBinom n",
+              "children": [
+                {
+                  "name": "m_le_d",
+                  "type": "x.val \u2264 d",
+                  "body": "by lia",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Catalan",
+          "name": "catalan_eq_centralBinom_div",
+          "statement": "\u2115) : catalan n = n.centralBinom / (n + 1)",
+          "have_tree": [
+            {
+              "name": "m_le_d",
+              "type": "x.val \u2264 d",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "",
+              "body": "Nat.succ_dvd_centralBinom n",
+              "children": [
+                {
+                  "name": "d_minus_x_le_d",
+                  "type": "(d - x.val) \u2264 d",
+                  "body": "tsub_le_self",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Catalan",
+          "name": "catalan_eq_centralBinom_div",
+          "statement": "\u2115) : catalan n = n.centralBinom / (n + 1)",
+          "have_tree": [
+            {
+              "name": "d_minus_x_le_d",
+              "type": "(d - x.val) \u2264 d",
+              "body": "tsub_le_self",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "",
+              "body": "Nat.succ_dvd_centralBinom n",
+              "children": [
+                {
+                  "name": "m_le_d",
+                  "type": "x.val \u2264 d",
+                  "body": "by lia",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Catalan",
+          "name": "catalan_eq_centralBinom_div",
+          "statement": "\u2115) : catalan n = n.centralBinom / (n + 1)",
+          "have_tree": [
+            {
+              "name": "h",
+              "type": "",
+              "body": "Nat.succ_dvd_centralBinom n",
+              "children": [
+                {
+                  "name": "d_minus_x_le_d",
+                  "type": "(d - x.val) \u2264 d",
+                  "body": "tsub_le_self",
+                  "children": []
+                },
+                {
+                  "name": "m_le_d",
+                  "type": "x.val \u2264 d",
+                  "body": "by lia",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

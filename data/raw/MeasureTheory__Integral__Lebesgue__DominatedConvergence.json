@@ -1,0 +1,108 @@
+[
+  {
+    "module": "DominatedConvergence",
+    "name": "tendsto_lintegral_filter_of_dominated_convergence",
+    "statement": "Filter \u03b9} [l.IsCountablyGenerated] {F : \u03b9 \u2192 \u03b1 \u2192 \u211d\u22650\u221e} {f : \u03b1 \u2192 \u211d\u22650\u221e} (bound : \u03b1 \u2192 \u211d\u22650\u221e) (hF_meas : \u2200\u1da0 n in l, Measurable (F n)) (h_bound : \u2200\u1da0 n in l, \u2200\u1d50 a \u2202\u03bc, F n a \u2264 bound a) (h_fin : \u222b\u207b a, bound a \u2202\u03bc \u2260 \u221e) (h_lim : \u2200\u1d50 a \u2202\u03bc, Tendsto (fun n => F n a) l (\ud835\udcdd (f a))) : Tendsto (fun n => \u222b\u207b a, F n a \u2202\u03bc) l (\ud835\udcdd <| \u222b\u207b a, f a \u2202\u03bc)",
+    "have_tree": [
+      {
+        "name": "hxl",
+        "type": "",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "inter_mem hF_meas h_bound",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DominatedConvergence",
+    "name": "tendsto_of_lintegral_tendsto_of_monotone_aux",
+    "statement": "Type*} {m\u03b1 : MeasurableSpace \u03b1} {f : \u2115 \u2192 \u03b1 \u2192 \u211d\u22650\u221e} {F : \u03b1 \u2192 \u211d\u22650\u221e} {\u03bc : Measure \u03b1} (hf_meas : \u2200 n, AEMeasurable (f n) \u03bc) (hF_meas : AEMeasurable F \u03bc) (hf_tendsto : Tendsto (fun i \u21a6 \u222b\u207b a, f i a \u2202\u03bc) atTop (\ud835\udcdd (\u222b\u207b a, F a \u2202\u03bc))) (hf_mono : \u2200\u1d50 a \u2202\u03bc, Monotone (fun i \u21a6 f i a)) (h_bound : \u2200\u1d50 a \u2202\u03bc, \u2200 i, f i a \u2264 F a) (h_int_finite : \u222b\u207b a, F a \u2202\u03bc \u2260 \u221e) : \u2200\u1d50 a \u2202\u03bc, Tendsto (fun i \u21a6 f i a) atTop (\ud835\udcdd (F a))",
+    "have_tree": [
+      {
+        "name": "h_bound_finite",
+        "type": "\u2200\u1d50 a \u2202\u03bc, F a \u2260 \u221e",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_exists",
+        "type": "\u2200\u1d50 a \u2202\u03bc, \u2203 l, Tendsto (fun i \u21a6 f i a) atTop (\ud835\udcdd l)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hF'_tendsto",
+        "type": "\u2200\u1d50 a \u2202\u03bc, Tendsto (fun i \u21a6 f i a) atTop (\ud835\udcdd (F' a))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hF'_le",
+        "type": "F' \u2264\u1d50[\u03bc] F",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DominatedConvergence",
+    "name": "tendsto_of_lintegral_tendsto_of_monotone",
+    "statement": "Type*} {m\u03b1 : MeasurableSpace \u03b1} {f : \u2115 \u2192 \u03b1 \u2192 \u211d\u22650\u221e} {F : \u03b1 \u2192 \u211d\u22650\u221e} {\u03bc : Measure \u03b1} (hF_meas : AEMeasurable F \u03bc) (hf_tendsto : Tendsto (fun i \u21a6 \u222b\u207b a, f i a \u2202\u03bc) atTop (\ud835\udcdd (\u222b\u207b a, F a \u2202\u03bc))) (hf_mono : \u2200\u1d50 a \u2202\u03bc, Monotone (fun i \u21a6 f i a)) (h_bound : \u2200\u1d50 a \u2202\u03bc, \u2200 i, f i a \u2264 F a) (h_int_finite : \u222b\u207b a, F a \u2202\u03bc \u2260 \u221e) : \u2200\u1d50 a \u2202\u03bc, Tendsto (fun i \u21a6 f i a) atTop (\ud835\udcdd (F a))",
+    "have_tree": [
+      {
+        "name": "I",
+        "type": "\u2200 n x, g n x \u2264 g' n x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "I'",
+        "type": "\u2200\u1d50 x \u2202\u03bc, \u2200 n, g' n x \u2264 f n x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200\u1d50 a \u2202\u03bc, Tendsto (fun i \u21a6 g' i a) atTop (\ud835\udcdd (F a))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DominatedConvergence",
+    "name": "tendsto_of_lintegral_tendsto_of_antitone",
+    "statement": "Type*} {m\u03b1 : MeasurableSpace \u03b1} {f : \u2115 \u2192 \u03b1 \u2192 \u211d\u22650\u221e} {F : \u03b1 \u2192 \u211d\u22650\u221e} {\u03bc : Measure \u03b1} (hf_meas : \u2200 n, AEMeasurable (f n) \u03bc) (hf_tendsto : Tendsto (fun i \u21a6 \u222b\u207b a, f i a \u2202\u03bc) atTop (\ud835\udcdd (\u222b\u207b a, F a \u2202\u03bc))) (hf_mono : \u2200\u1d50 a \u2202\u03bc, Antitone (fun i \u21a6 f i a)) (h_bound : \u2200\u1d50 a \u2202\u03bc, \u2200 i, F a \u2264 f i a) (h0 : \u222b\u207b a, f 0 a \u2202\u03bc \u2260 \u221e) : \u2200\u1d50 a \u2202\u03bc, Tendsto (fun i \u21a6 f i a) atTop (\ud835\udcdd (F a))",
+    "have_tree": [
+      {
+        "name": "h_int_finite",
+        "type": "\u222b\u207b a, F a \u2202\u03bc \u2260 \u221e",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_exists",
+        "type": "\u2200\u1d50 a \u2202\u03bc, \u2203 l, Tendsto (fun i \u21a6 f i a) atTop (\ud835\udcdd l)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hF'_tendsto",
+        "type": "\u2200\u1d50 a \u2202\u03bc, Tendsto (fun i \u21a6 f i a) atTop (\ud835\udcdd (F' a))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hF'_le",
+        "type": "F \u2264\u1d50[\u03bc] F'",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

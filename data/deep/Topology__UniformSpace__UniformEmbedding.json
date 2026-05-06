@@ -1,0 +1,152 @@
+[
+  {
+    "module": "UniformEmbedding",
+    "name": "completeSpace_extension",
+    "statement": "\u03b2 \u2192 \u03b1} (hm : IsUniformInducing m) (dense : DenseRange m) (h : \u2200 f : Filter \u03b2, Cauchy f \u2192 \u2203 x : \u03b1, map m f \u2264 \ud835\udcdd x) : CompleteSpace \u03b1",
+    "have_tree": [
+      {
+        "name": "mp\u2080",
+        "type": "Monotone p",
+        "body": "fun _ _ h _ _ \u27e8x, xs, xa\u27e9 => \u27e8x, xs, h xa\u27e9",
+        "children": []
+      },
+      {
+        "name": "mp\u2081",
+        "type": "\u2200 {s}, Monotone (p s)",
+        "body": "fun h _ \u27e8y, ya, yxs\u27e9 => \u27e8y, h ya, yxs\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "f \u2264 g",
+        "body": "le_iInf\u2082 fun _ hs => le_iInf\u2082 fun _ ht =>",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeBot g",
+        "body": "hf.left.mono this",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeBot (comap m g)",
+        "body": "",
+        "children": [
+          {
+            "name": "h\u2080",
+            "type": "NeBot (\ud835\udcdd[range m] x)",
+            "body": "dense.nhdsWithin_neBot x",
+            "children": []
+          },
+          {
+            "name": "h\u2081",
+            "type": "{ y | (x, y) \u2208 t' } \u2208 \ud835\udcdd[range m] x",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "h\u2082",
+            "type": "range m \u2208 \ud835\udcdd[range m] x",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "{ y | (x, y) \u2208 t' } \u2229 range m \u2208 \ud835\udcdd[range m] x",
+            "body": "@inter_mem \u03b1 (\ud835\udcdd[range m] x) _ _ h\u2081 h\u2082",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "Cauchy g",
+        "body": "",
+        "children": [
+          {
+            "name": "hg\u2081",
+            "type": "p (preimage Prod.swap s\u2081) t \u2208 g",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "hg\u2082",
+            "type": "p s\u2082 t \u2208 g",
+            "body": "mem_lift hs\u2082 <| @mem_lift' \u03b1 \u03b1 f _ t ht",
+            "children": []
+          },
+          {
+            "name": "hg",
+            "type": "p (Prod.swap \u207b\u00b9' s\u2081) t \u00d7\u02e2 p s\u2082 t \u2208 g \u00d7\u02e2 g",
+            "body": "@prod_mem_prod \u03b1 \u03b1 _ _ g g hg\u2081 hg\u2082",
+            "children": [
+              {
+                "name": "_",
+                "type": "(c\u2081, c\u2082) \u2208 t \u00d7\u02e2 t",
+                "body": "\u27e8c\u2081t, c\u2082t\u27e9",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "Cauchy (Filter.comap m g)",
+        "body": "\u2039Cauchy g\u203a.comap' (le_of_eq hm.comap_uniformity) \u2039_\u203a",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "ClusterPt x (map m (Filter.comap m g))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "ClusterPt x g",
+        "body": "this.mono map_comap_le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UniformEmbedding",
+    "name": "uniformContinuous_uniformly_extend",
+    "statement": "UniformContinuous \u03c8",
+    "have_tree": [
+      {
+        "name": "nb",
+        "type": "NeBot (map f (comap e (\ud835\udcdd a)))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(Prod.map f f) \u207b\u00b9' s \u2208 \ud835\udce4 \u03b2",
+        "body": "h_f hs",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(Prod.map f f) \u207b\u00b9' s \u2208 comap (Prod.map e e) (\ud835\udce4 \u03b1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "interior t \u2208 \ud835\udcdd (x\u2081, x\u2082)",
+            "body": "isOpen_interior.mem_nhds hx_t",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Prod.map f f (a, b) \u2208 s",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

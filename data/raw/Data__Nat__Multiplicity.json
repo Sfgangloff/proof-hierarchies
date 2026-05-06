@@ -1,0 +1,123 @@
+[
+  {
+    "module": "Multiplicity",
+    "name": "emultiplicity_eq_card_pow_dvd",
+    "statement": "\u2115} (hm : m \u2260 1) (hn : 0 < n) (hb : log m n < b) : emultiplicity m n = #{i \u2208 Ico 1 b | m ^ i \u2223 n}",
+    "have_tree": [
+      {
+        "name": "fin",
+        "type": "",
+        "body": "Nat.finiteMultiplicity_iff.2 \u27e8hm, hn\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplicity",
+    "name": "emultiplicity_factorial_mul_succ",
+    "statement": "\u2115} (hp : p.Prime) : emultiplicity p (p * (n + 1))! = emultiplicity p (p * n)! + emultiplicity p (n + 1) + 1",
+    "have_tree": [
+      {
+        "name": "hp'",
+        "type": "",
+        "body": "hp.prime",
+        "children": []
+      },
+      {
+        "name": "h0",
+        "type": "2 \u2264 p",
+        "body": "hp.two_le",
+        "children": []
+      },
+      {
+        "name": "h1",
+        "type": "1 \u2264 p * n + 1",
+        "body": "Nat.le_add_left _ _",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "p * n + 1 \u2264 p * (n + 1)",
+        "body": "by linarith",
+        "children": []
+      },
+      {
+        "name": "h3",
+        "type": "p * n + 1 \u2264 p * (n + 1) + 1",
+        "body": "by lia",
+        "children": []
+      },
+      {
+        "name": "hm",
+        "type": "emultiplicity p (p * n)! \u2260 \u22a4",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplicity",
+    "name": "emultiplicity_choose'",
+    "statement": "\u2115} (hp : p.Prime) (hnb : log p (n + k) < b) : emultiplicity p (choose (n + k) k) = #{i \u2208 Ico 1 b | p ^ i \u2264 k % p ^ i + n % p ^ i}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(add_tsub_cancel_right n k) \u25b8 choose_mul_factorial_mul_factorial (le_add_left k n)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplicity",
+    "name": "emultiplicity_choose",
+    "statement": "\u2115} (hp : p.Prime) (hkn : k \u2264 n) (hnb : log p n < b) : emultiplicity p (choose n k) = #{i \u2208 Ico 1 b | p ^ i \u2264 k % p ^ i + (n - k) % p ^ i}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.sub_add_cancel hkn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplicity",
+    "name": "emultiplicity_le_emultiplicity_choose_add",
+    "statement": "\u2115} (hp : p.Prime) : \u2200 n k : \u2115, emultiplicity p n \u2264 emultiplicity p (choose n k) + emultiplicity p k | _, 0 => by simp | 0, _ + 1 => by simp | n + 1, k + 1 => by rw [\u2190 hp.emultiplicity_mul] refine emultiplicity_le_emultiplicity_of_dvd_right ?_ rw [\u2190 add_one_mul_choose_eq] exact dvd_mul_right _ _  variable {p n k : \u2115}  theorem emultiplicity_choose_prime_pow_add_emultiplicity (hp : p.Prime) (hkn : k \u2264 p ^ n) (hk0 : k \u2260 0) : emultiplicity p (choose (p ^ n) k) + emultiplicity p k = n",
+    "have_tree": [
+      {
+        "name": "filter_le_Ico",
+        "type": "",
+        "body": "(Ico 1 n.succ).card_filter_le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplicity",
+    "name": "dvd_choose_pow",
+    "statement": "Prime p) (hk : k \u2260 0) (hkp : k \u2260 p ^ n) : p \u2223 (p ^ n).choose k",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "hp.emultiplicity_choose_prime_pow_add_emultiplicity hkp.le hk",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplicity",
+    "name": "emultiplicity_two_factorial_lt",
+    "statement": "\u2200 {n : \u2115} (_ : n \u2260 0), emultiplicity 2 n ! < n",
+    "have_tree": [
+      {
+        "name": "h2",
+        "type": "",
+        "body": "prime_two.prime",
+        "children": []
+      }
+    ]
+  }
+]

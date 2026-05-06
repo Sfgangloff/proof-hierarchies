@@ -1,0 +1,242 @@
+[
+  {
+    "module": "ZariskisMainTheorem",
+    "name": "exists_etale_isCompl_of_quasiFiniteAt",
+    "statement": "X} {s : S} (h : f x = s) (hx : f.QuasiFiniteAt x) : \u2203 (U : Scheme) (g : U \u27f6 S), Etale g \u2227 s \u2208 Set.range g \u2227 \u2203 (V W : (pullback f g).Opens) (v : V), IsCompl V W \u2227 IsFinite (V.\u03b9 \u226b pullback.snd f g) \u2227 pullback.fst f g v.1 = x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(f.appLE U V hUV).hom.FiniteType",
+        "body": "f.finiteType_appLE hU hV hUV",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(hV.primeIdealOf \u27e8x, hxV\u27e9).asIdeal.LiesOver (hU.primeIdealOf \u27e8f x, hxU\u27e9).asIdeal",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.QuasiFiniteAt \u0393(S, U) (hV.primeIdealOf \u27e8x, hxV\u27e9).asIdeal",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(algebraMap R (Localization.Away e)).Finite",
+        "body": "RingHom.finite_algebraMap.mpr \u2039_\u203a",
+        "children": []
+      },
+      {
+        "name": "h\u03c6",
+        "type": "\u03c6.hom.Etale",
+        "body": "RingHom.etale_algebraMap.mpr \u2039_\u203a",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Etale (Spec.map \u03c6)",
+        "body": "HasRingHomProperty.Spec_iff.mpr h\u03c6",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsFinite (W\u2081.\u03b9 \u226b pullback.snd f _)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsFinite W\u2081.\u03b9",
+        "body": ".of_comp _ (pullback.snd f _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZariskisMainTheorem",
+    "name": "Scheme.Hom.exists_mem_and_isIso_morphismRestrict_toNormalization",
+    "statement": "X) (hx : f.QuasiFiniteAt x) : \u2203 V, f.toNormalization x \u2208 V \u2227 IsIso (f.toNormalization \u2223_ V)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsClosedImmersion V.\u03b9",
+        "body": ".of_isPreimmersion _ (by simp [eq_compl_comm.mp hVW', W.isOpen])",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsClosedImmersion W.\u03b9",
+        "body": ".of_isPreimmersion _ (by simpa [hVW'] using V.2)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Surjective fTnU",
+        "body": "\u27e8fun \u27e8x, a, ha, e\u27e9 \u21a6 \u27e8\u27e8a, ha\u27e9, Subtype.ext <| by simpa [fTnU] using e\u27e9\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZariskisMainTheorem",
+    "name": "Scheme.Hom.exists_isIso_morphismRestrict_toNormalization",
+    "statement": "\u2203 U : f.normalization.Opens, IsIso (f.toNormalization \u2223_ U) \u2227 (f.toNormalization \u207b\u00b9\u1d41 U).1 = { x | f.QuasiFiniteAt x }",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso (f.toNormalization \u2223_ \u2a06 x, V x)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsAffine W",
+            "body": "hW",
+            "children": []
+          },
+          {
+            "name": "hV'",
+            "type": "IsAffineOpen V'",
+            "body": "isAffineOpen_opensRange _",
+            "children": []
+          },
+          {
+            "name": "hV'V",
+            "type": "V' \u2264 V y",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "H",
+        "type": "W \u2264 f \u207b\u00b9\u1d41 U",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsIso ((toNormalization f).app ((normalization f).basicOpen r))",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(inferInstance : IsIso ((toNormalization f \u2223_ V y).app",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "(f.appLE U W H).hom.QuasiFinite",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(f.appLE U W H).hom.FiniteType",
+            "body": "f.finiteType_appLE hU hr H",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hxU",
+        "type": "f x \u2208 U",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hr.isLocalization_stalk \u27e8x, hxV\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZariskisMainTheorem",
+    "name": "Scheme.Hom.isOpen_quasiFiniteAt",
+    "statement": "IsOpen { x | f.QuasiFiniteAt x }",
+    "have_tree": [
+      {
+        "name": "inst",
+        "type": "IsAffineHom (f.resLE U V hVU)",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsAffine _",
+            "body": "hU",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "IsAffine _",
+            "body": "hV",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "ZariskisMainTheorem",
+    "name": "IsFinite.of_isProper_of_locallyQuasiFinite",
+    "statement": "IsFinite f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso f.toNormalization",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZariskisMainTheorem",
+    "name": "exists_isFinite_morphismRestrict_of_finite_preimage_singleton",
+    "statement": "Y) (hx : (f \u207b\u00b9' {y}).Finite) : \u2203 V : Y.Opens, y \u2208 V \u2227 IsFinite (f \u2223_ V)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite (f.fiber (f x))",
+        "body": "(f.fiberHomeo (f x)).finite_iff.mpr \u2039_\u203a",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "f.QuasiFiniteAt ((f \u207b\u00b9\u1d41 V).\u03b9 x)",
+        "body": "by by_contra H; exact x.2 \u27e8_, H, by simp\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZariskisMainTheorem",
+    "name": "exists_finite_image\u03b9_comp_morphismRestrict_of_finite_image_preimage",
+    "statement": "Scheme} (f : X \u27f6 Y) (g : Y \u27f6 S) (s : S) (H : (f '' ((f \u226b g) \u207b\u00b9' {s})).Finite) [IsProper (f \u226b g)] [IsSeparated g] [LocallyOfFiniteType g] : \u2203 U : S.Opens, s \u2208 U \u2227 IsFinite ((f.image\u03b9 \u226b g) \u2223_ U)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsProper f",
+        "body": ".of_comp f g",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsProper (f.image\u03b9 \u226b g)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "UniversallyClosed (f.toImage \u226b f.image\u03b9 \u226b g)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

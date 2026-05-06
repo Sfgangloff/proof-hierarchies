@@ -1,0 +1,200 @@
+[
+  {
+    "module": "StoneWeierstrass",
+    "name": "comp_attachBound_mem_closure",
+    "statement": "Subalgebra \u211d C(X, \u211d)) (f : A) (p : C(Set.Icc (-\u2016f\u2016) \u2016f\u2016, \u211d)) : p.comp (attachBound (f : C(X, \u211d))) \u2208 A.topologicalClosure",
+    "have_tree": [
+      {
+        "name": "mem_closure",
+        "type": "p \u2208 (polynomialFunctions (Set.Icc (-\u2016f\u2016) \u2016f\u2016)).topologicalClosure",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "frequently_mem_polynomials",
+        "type": "",
+        "body": "mem_closure_iff_frequently.mp mem_closure",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StoneWeierstrass",
+    "name": "sublattice_closure_eq_top",
+    "statement": "Set C(X, \u211d)) (nA : L.Nonempty) (inf_mem : \u2200\u1d49 (f \u2208 L) (g \u2208 L), f \u2293 g \u2208 L) (sup_mem : \u2200\u1d49 (f \u2208 L) (g \u2208 L), f \u2294 g \u2208 L) (sep : L.SeparatesPointsStrongly) : closure L = \u22a4",
+    "have_tree": [
+      {
+        "name": "U_nhds_y",
+        "type": "\u2200 x y, U x y \u2208 \ud835\udcdd y",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "ys_nonempty",
+        "type": "\u2200 x, (ys x).Nonempty",
+        "body": "fun x =>",
+        "children": []
+      },
+      {
+        "name": "W_nhds",
+        "type": "\u2200 x, W x \u2208 \ud835\udcdd x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "xs_nonempty",
+        "type": "xs.Nonempty",
+        "body": "Set.nonempty_of_union_eq_top_of_nonempty _ _ nX xs_w",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StoneWeierstrass",
+    "name": "exists_mem_subalgebra_near_continuousMap_of_separatesPoints",
+    "statement": "Subalgebra \u211d C(X, \u211d)) (w : A.SeparatesPoints) (f : C(X, \u211d)) (\u03b5 : \u211d) (pos : 0 < \u03b5) : \u2203 g : A, \u2016(g : C(X, \u211d)) - f\u2016 < \u03b5",
+    "have_tree": [
+      {
+        "name": "w",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StoneWeierstrass",
+    "name": "exists_mem_subalgebra_near_continuous_of_isCompact_of_separatesPoints",
+    "statement": "Type*} [TopologicalSpace X] {A : Subalgebra \u211d C(X, \u211d)} (hA : A.SeparatesPoints) (f : C(X, \u211d)) {K : Set X} (hK : IsCompact K) {\u03b5 : \u211d} (pos : 0 < \u03b5) : \u2203 g \u2208 A, \u2200 x \u2208 K, \u2016(g : X \u2192 \u211d) x - f x\u2016 < \u03b5",
+    "have_tree": [
+      {
+        "name": "hsep",
+        "type": "AK.SeparatesPoints",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StoneWeierstrass",
+    "name": "Subalgebra.SeparatesPoints.rclike_to_real",
+    "statement": "StarSubalgebra \ud835\udd5c C(X, \ud835\udd5c)} (hA : A.SeparatesPoints) : ((A.restrictScalars \u211d).comap (ofRealAm.compLeftContinuous \u211d continuous_ofReal)).SeparatesPoints",
+    "have_tree": [
+      {
+        "name": "hFA",
+        "type": "F \u2208 A",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StoneWeierstrass",
+    "name": "ContinuousMap.starSubalgebra_topologicalClosure_eq_top_of_separatesPoints",
+    "statement": "StarSubalgebra \ud835\udd5c C(X, \ud835\udd5c)) (hA : A.SeparatesPoints) : A.topologicalClosure = \u22a4",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "I.range \u2264 (A.toSubmodule.restrictScalars \u211d).topologicalClosure",
+        "body": "by",
+        "children": [
+          {
+            "name": "h\u2081",
+            "type": "",
+            "body": "A\u2080.topologicalClosure_map I",
+            "children": []
+          },
+          {
+            "name": "h\u2082",
+            "type": "",
+            "body": "(A.toSubmodule.restrictScalars \u211d).map_comap_le I.toLinearMap",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_f_re",
+        "type": "I f_re \u2208 A.topologicalClosure",
+        "body": "key \u27e8f_re, rfl\u27e9",
+        "children": []
+      },
+      {
+        "name": "h_f_im",
+        "type": "I f_im \u2208 A.topologicalClosure",
+        "body": "key \u27e8f_im, rfl\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "A.topologicalClosure.add_mem h_f_re (A.topologicalClosure.smul_mem h_f_im RCLike.I)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StoneWeierstrass",
+    "name": "ContinuousMap.induction_on_of_compact",
+    "statement": "Type*} [RCLike \ud835\udd5c] {s : Set \ud835\udd5c} [CompactSpace s] {p : C(s, \ud835\udd5c) \u2192 Prop} (const : \u2200 r, p (.const s r)) (id : p (.restrict s <| .id \ud835\udd5c)) (star_id : p (star (.restrict s <| .id \ud835\udd5c))) (add : \u2200 f g, p f \u2192 p g \u2192 p (f + g)) (mul : \u2200 f g, p f \u2192 p g \u2192 p (f * g)) (frequently : \u2200 f, (\u2203\u1da0 g in \ud835\udcdd f, p g) \u2192 p f) (f : C(s, \ud835\udd5c)) : p f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "polynomialFunctions.starClosure_topologicalClosure s \u25b8 mem_top (x := f)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StoneWeierstrass",
+    "name": "ker_evalStarAlgHom_inter_adjoin_id",
+    "statement": "Set \ud835\udd5c) (h0 : 0 \u2208 s) : (StarAlgebra.adjoin \ud835\udd5c {restrict s (.id \ud835\udd5c)} : Set C(s, \ud835\udd5c)) \u2229 RingHom.ker (evalStarAlgHom \ud835\udd5c \ud835\udd5c (\u27e80, h0\u27e9 : s)) = adjoin \ud835\udd5c {restrict s (.id \ud835\udd5c)}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "nonUnitalStarAlgebraAdjoin_id_subset_ker_evalStarAlgHom h0 hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StoneWeierstrass",
+    "name": "AlgHom.closure_ker_inter",
+    "statement": "Type*} [CommRing K] [Ring A] [Algebra K A] [TopologicalSpace K] [T1Space K] [TopologicalSpace A] [ContinuousSub A] [ContinuousSMul K A] [FunLike F A K] [AlgHomClass F K A K] [SetLike S A] [OneMemClass S A] [AddSubgroupClass S A] [SMulMemClass S K A] (\u03c6 : F) (h\u03c6 : Continuous \u03c6) (s : S) : closure (s \u2229 RingHom.ker \u03c6) = closure s \u2229 (ker \u03c6 : Set A)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Tendsto (fun y \u21a6 y - \u03c6 y \u2022 1) (\ud835\udcdd x \u2293 \ud835\udcdf s) (\ud835\udcdd x)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StoneWeierstrass",
+    "name": "ContinuousMapZero.adjoin_id_dense",
+    "statement": "Set \ud835\udd5c) [Fact (0 \u2208 s)] [CompactSpace s] : Dense (adjoin \ud835\udd5c {(.id s : C(s, \ud835\udd5c)\u2080)} : Set C(s, \ud835\udd5c)\u2080)",
+    "have_tree": [
+      {
+        "name": "h0'",
+        "type": "0 \u2208 s",
+        "body": "Fact.out",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StoneWeierstrass",
+    "name": "ContinuousMapZero.induction_on_of_compact",
+    "statement": "Set \ud835\udd5c} [Fact (0 \u2208 s)] [CompactSpace s] {p : C(s, \ud835\udd5c)\u2080 \u2192 Prop} (zero : p 0) (id : p (.id s)) (star_id : p (star (.id s))) (add : \u2200 f g, p f \u2192 p g \u2192 p (f + g)) (mul : \u2200 f g, p f \u2192 p g \u2192 p (f * g)) (smul : \u2200 (r : \ud835\udd5c) f, p f \u2192 p (r \u2022 f)) (frequently : \u2200 f, (\u2203\u1da0 g in \ud835\udcdd f, p g) \u2192 p f) (f : C(s, \ud835\udd5c)\u2080) : p f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(ContinuousMapZero.adjoin_id_dense s).closure_eq \u25b8 Set.mem_univ (x := f)",
+        "children": []
+      }
+    ]
+  }
+]

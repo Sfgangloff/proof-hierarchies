@@ -1,0 +1,172 @@
+[
+  {
+    "original": {
+      "module": "Rank",
+      "name": "cRank_toNat_eq_finrank",
+      "statement": "Matrix m n R) : A.cRank.toNat = Module.finrank R (span R (range A.col))",
+      "have_tree": [
+        {
+          "name": "h",
+          "type": "((A.submatrix r id).submatrix id c).cRank \u2264 (A.submatrix r id).cRank",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "hwin",
+          "type": "",
+          "body": "lift_rank_map_le f (span R (range A\u1d40))",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Rank",
+          "name": "cRank_toNat_eq_finrank",
+          "statement": "Matrix m n R) : A.cRank.toNat = Module.finrank R (span R (range A.col))",
+          "have_tree": [
+            {
+              "name": "hwin",
+              "type": "",
+              "body": "lift_rank_map_le f (span R (range A\u1d40))",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "((A.submatrix r id).submatrix id c).cRank \u2264 (A.submatrix r id).cRank",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Rank",
+      "name": "rank_eq_finrank_range_toLin",
+      "statement": "Type*} [AddCommGroup M\u2081] [AddCommGroup M\u2082] [Module R M\u2081] [Module R M\u2082] (A : Matrix m n R) (v\u2081 : Basis m R M\u2081) (v\u2082 : Basis n R M\u2082) : A.rank = finrank R (LinearMap.range (toLin v\u2082 v\u2081 A))",
+      "have_tree": [
+        {
+          "name": "aux\u2081",
+          "type": "",
+          "body": "toLin_self (Pi.basisFun R n) (Pi.basisFun R m) A i",
+          "children": []
+        },
+        {
+          "name": "aux\u2082",
+          "type": "",
+          "body": "Basis.equiv_apply (Pi.basisFun R n) i v\u2082",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Rank",
+          "name": "rank_eq_finrank_range_toLin",
+          "statement": "Type*} [AddCommGroup M\u2081] [AddCommGroup M\u2082] [Module R M\u2081] [Module R M\u2082] (A : Matrix m n R) (v\u2081 : Basis m R M\u2081) (v\u2082 : Basis n R M\u2082) : A.rank = finrank R (LinearMap.range (toLin v\u2082 v\u2081 A))",
+          "have_tree": [
+            {
+              "name": "aux\u2082",
+              "type": "",
+              "body": "Basis.equiv_apply (Pi.basisFun R n) i v\u2082",
+              "children": []
+            },
+            {
+              "name": "aux\u2081",
+              "type": "",
+              "body": "toLin_self (Pi.basisFun R n) (Pi.basisFun R m) A i",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Rank",
+      "name": "cRank_diagonal",
+      "statement": "m \u2192 R) : (diagonal w).cRank = lift.{uR} #{i // (w i) \u2260 0}",
+      "have_tree": [
+        {
+          "name": "h",
+          "type": "LinearIndependent R w'",
+          "body": "by",
+          "children": [
+            {
+              "name": "hli'",
+              "type": "",
+              "body": "Pi.linearIndependent_single_of_ne_zero (R := R)",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Rank",
+          "name": "cRank_diagonal",
+          "statement": "m \u2192 R) : (diagonal w).cRank = lift.{uR} #{i // (w i) \u2260 0}",
+          "have_tree": [
+            {
+              "name": "h",
+              "type": "LinearIndependent R w'",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Rank",
+          "name": "cRank_diagonal",
+          "statement": "m \u2192 R) : (diagonal w).cRank = lift.{uR} #{i // (w i) \u2260 0}",
+          "have_tree": [
+            {
+              "name": "hli'",
+              "type": "",
+              "body": "Pi.linearIndependent_single_of_ne_zero (R := R)",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "LinearIndependent R w'",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

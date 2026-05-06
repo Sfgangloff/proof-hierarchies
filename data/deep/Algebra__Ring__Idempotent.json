@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Idempotent",
+    "name": "mul_eq_zero_of_anticommute",
+    "statement": "R} [NonUnitalSemiring R] [IsAddTorsionFree R] (ha : IsIdempotentElem a) (hab : a * b + b * a = 0) : a * b = 0",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "a * b * a = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "a * (a * b + b * a) * a = 0",
+            "body": "by rw [hab, mul_zero, zero_mul]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Idempotent",
+    "name": "sub_iff",
+    "statement": "R} (hp : IsIdempotentElem p) (hq : IsIdempotentElem q) : IsIdempotentElem (q - p) \u2194 p * q = p \u2227 q * p = p",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "p * (q - p) + (q - p) * p = 0",
+        "body": "hp.add_iff hqp |>.mp ((add_sub_cancel p q).symm \u25b8 hq)",
+        "children": []
+      },
+      {
+        "name": "hpq",
+        "type": "Commute p q",
+        "body": "by",
+        "children": [
+          {
+            "name": "h1",
+            "type": "",
+            "body": "congr_arg (q * \u00b7) hqp",
+            "children": []
+          },
+          {
+            "name": "h2",
+            "type": "",
+            "body": "congr_arg (\u00b7 * q) hqp",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

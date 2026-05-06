@@ -1,0 +1,93 @@
+[
+  {
+    "module": "Arctan",
+    "name": "tan_two_mul",
+    "statement": "tan (2 * x) = 2 * tan x / (1 - tan x ^ 2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "@Complex.tan_two_mul x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arctan",
+    "name": "continuousOn_tan_Ioo",
+    "statement": "ContinuousOn tan (Ioo (-(\u03c0 / 2)) (\u03c0 / 2))",
+    "have_tree": [
+      {
+        "name": "hr_le",
+        "type": "r \u2264 -1",
+        "body": "by rwa [Int.lt_iff_add_one_le, \u2190 le_neg_iff_add_nonpos_right] at h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arctan",
+    "name": "surjOn_tan",
+    "statement": "SurjOn tan (Ioo (-(\u03c0 / 2)) (\u03c0 / 2)) univ",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "neg_lt_self pi_div_two_pos",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arctan",
+    "name": "arctan_inv_of_neg",
+    "statement": "x < 0) : arctan x\u207b\u00b9 = -(\u03c0 / 2) - arctan x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "arctan_inv_of_pos (neg_pos.mpr h)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arctan",
+    "name": "arctan_add_eq_add_pi",
+    "statement": "1 < x * y) (hx : 0 < x) : arctan x + arctan y = arctan ((x + y) / (1 - x * y)) + \u03c0",
+    "have_tree": [
+      {
+        "name": "hy",
+        "type": "0 < y",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "mul_pos_iff.mp (zero_lt_one.trans h)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "k",
+        "type": "",
+        "body": "arctan_add (mul_inv x y \u25b8 inv_lt_one_of_one_lt\u2080 h)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arctan",
+    "name": "arctan_add_eq_sub_pi",
+    "statement": "1 < x * y) (hx : x < 0) : arctan x + arctan y = arctan ((x + y) / (1 - x * y)) - \u03c0",
+    "have_tree": [
+      {
+        "name": "k",
+        "type": "",
+        "body": "arctan_add_eq_add_pi h (neg_pos.mpr hx)",
+        "children": []
+      }
+    ]
+  }
+]

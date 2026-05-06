@@ -1,0 +1,28 @@
+[
+  {
+    "module": "SecondInter",
+    "name": "Sphere.secondInter_secondInter",
+    "statement": "Sphere P) (p : P) (v : V) : s.secondInter (s.secondInter p v) v = p",
+    "have_tree": [
+      {
+        "name": "hv'",
+        "type": "\u27eav, v\u27eb \u2260 0",
+        "body": "inner_self_ne_zero.2 hv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SecondInter",
+    "name": "Sphere.sOppSide_faceOpposite_secondInter_of_mem_interior",
+    "statement": "Sphere P} {n : \u2115} [Nat.AtLeastTwo n] {sx : Affine.Simplex \u211d P n} {i : Fin (n + 1)} (hi : sx.points i \u2208 s) (hsx : \u2200 j, dist (sx.points j) s.center \u2264 s.radius) {p : P} (hp : p \u2208 sx.interior) : (affineSpan \u211d (Set.range (sx.faceOpposite i).points)).SOppSide (sx.points i) (s.secondInter (sx.points i) (p -\u1d65 (sx.points i)))",
+    "have_tree": [
+      {
+        "name": "hrpos",
+        "type": "0 < r",
+        "body": "by simp [inv_pos, sub_pos, r, (hw01 i).2]",
+        "children": []
+      }
+    ]
+  }
+]

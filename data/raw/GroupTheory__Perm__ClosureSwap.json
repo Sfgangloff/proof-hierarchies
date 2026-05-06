@@ -1,0 +1,48 @@
+[
+  {
+    "module": "ClosureSwap",
+    "name": "exists_smul_notMem_of_subset_orbit_closure",
+    "statement": "Set G) (T : Set \u03b1) {a : \u03b1} (hS : \u2200 g \u2208 S, g\u207b\u00b9 \u2208 S) (subset : T \u2286 orbit (closure S) a) (notMem : a \u2209 T) (nonempty : T.Nonempty) : \u2203 \u03c3 \u2208 S, \u2203 a \u2208 T, \u03c3 \u2022 a \u2209 T",
+    "have_tree": [
+      {
+        "name": "key0",
+        "type": "\u00ac closure S \u2264 stabilizer G T",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ClosureSwap",
+    "name": "swap_mem_closure_isSwap",
+    "statement": "Set (Perm \u03b1)} (hS : \u2200 f \u2208 S, f.IsSwap) {x y : \u03b1} : swap x y \u2208 closure S \u2194 x \u2208 orbit (closure S) y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "exists_smul_notMem_of_subset_orbit_closure S {x | swap x y \u2208 closure S}",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "ne_of_mem_of_not_mem ha h\u03c3a",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "ClosureSwap",
+    "name": "surjective_of_isSwap_of_isPretransitive'",
+    "statement": "Set G) (hS1 : \u2200 \u03c3 \u2208 S, MulAction.toPermHom G \u03b1 \u03c3 = 1 \u2228 Perm.IsSwap (MulAction.toPermHom G \u03b1 \u03c3)) (hS2 : Subgroup.closure S = \u22a4) [h : MulAction.IsPretransitive G \u03b1] : Function.Surjective (MulAction.toPermHom G \u03b1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsPretransitive.of_compHom (\u03b1 := \u03b1) (toPermHom G \u03b1).rangeRestrict",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,157 @@
+[
+  {
+    "module": "Basic",
+    "name": "nnrpow",
+    "statement": "A) (y : \u211d\u22650) : A",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 \u2264 x",
+        "body": "by grind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "rpow_add",
+    "statement": "A} {x y : \u211d} (ha : IsUnit a) : a ^ (x + y) = a ^ x * a ^ y",
+    "have_tree": [
+      {
+        "name": "ha'",
+        "type": "0 \u2209 spectrum \u211d\u22650 a",
+        "body": "spectrum.zero_notMem _ ha",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "z \u2260 0",
+        "body": "by aesop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "rpow_rpow",
+    "statement": "A) (x y : \u211d) (hx : x \u2260 0) (ha : IsStrictlyPositive a",
+    "have_tree": [
+      {
+        "name": "ha\u2081'",
+        "type": "0 \u2209 spectrum \u211d\u22650 a",
+        "body": "spectrum.zero_notMem _ ha.isUnit",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "rpow_map_prod",
+    "statement": "A} {b : B} {x : \u211d} (ha : IsUnit a) (hb : IsUnit b) (ha' : 0 \u2264 a",
+    "have_tree": [
+      {
+        "name": "ha''",
+        "type": "0 \u2209 spectrum \u211d\u22650 a",
+        "body": "spectrum.zero_notMem _ ha",
+        "children": []
+      },
+      {
+        "name": "hb''",
+        "type": "0 \u2209 spectrum \u211d\u22650 b",
+        "body": "spectrum.zero_notMem _ hb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "rpow_map_pi",
+    "statement": "\u2200 i, C i} {x : \u211d} (hc : \u2200 i, IsUnit (c i)) (hc' : \u2200 i, 0 \u2264 c i",
+    "have_tree": [
+      {
+        "name": "hc''",
+        "type": "\u2200 i, 0 \u2209 spectrum \u211d\u22650 (c i)",
+        "body": "fun i => spectrum.zero_notMem _ (hc i)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "sqrt_rpow",
+    "statement": "A} {x : \u211d} (h : IsUnit a) (hx : x \u2260 0) : sqrt (a ^ x) = a ^ (x / 2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsStrictlyPositive a",
+        "body": "by grind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "rpow_sqrt",
+    "statement": "A) (x : \u211d) (h : IsUnit a) (ha : 0 \u2264 a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsStrictlyPositive a",
+        "body": "by grind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "sqrt_rpow_nnreal",
+    "statement": "A} {x : \u211d\u22650} : sqrt (a ^ (x : \u211d)) = a ^ (x / 2 : \u211d)",
+    "have_tree": [
+      {
+        "name": "h\u2083",
+        "type": "0 < x / 2",
+        "body": "by positivity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "rpow_sqrt_nnreal",
+    "statement": "A} {x : \u211d\u22650} (ha : 0 \u2264 a",
+    "have_tree": [
+      {
+        "name": "ha'",
+        "type": "0 \u2264 sqrt a",
+        "body": "sqrt_nonneg _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isUnit_sqrt_iff_isStrictlyPositive",
+    "statement": "A} : IsUnit (sqrt a) \u2194 IsStrictlyPositive a",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "0 \u2264 a",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.isStrictlyPositive_ringInverse_iff",
+    "statement": "A} : IsStrictlyPositive a\u207b\u00b9\u02b3 \u2194 IsStrictlyPositive a",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "IsUnit a",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "module": "CountableCover",
+    "name": "mk_subtype_le_of_countable_eventually_mem_aux",
+    "statement": "Type u} {a : Cardinal} [Countable \u03b9] {f : \u03b9 \u2192 Set \u03b1} {l : Filter \u03b9} [NeBot l] {t : Set \u03b1} (ht : \u2200 x \u2208 t, \u2200\u1da0 i in l, x \u2208 f i) (h'f : \u2200 i, #(f i) \u2264 a) : #t \u2264 a",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2200 x \u2208 s, \u2200\u1da0 i in l, x \u2208 f i",
+        "body": "fun x hx \u21a6 ht x (hs hx)",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "\u2200\u1da0 i in l, \u2200 x \u2208 s, x \u2208 f i",
+        "body": "(s.eventually_all).2 A",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 i, Fintype (f i)",
+        "body": "fun i \u21a6 (lt_aleph0_iff_fintype.1 ((h'f i).trans_lt ha)).some",
+        "children": []
+      },
+      {
+        "name": "I1",
+        "type": "s.card \u2264 u.card",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "s \u2286 u",
+            "body": "fun x hx \u21a6 by simpa only [u, Set.mem_toFinset] using hi x hx",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,147 @@
+[
+  {
+    "module": "Traj",
+    "name": "le_lmarginalPartialTraj_succ",
+    "statement": "\u2115 \u2192 (\u03a0 n, X n) \u2192 \u211d\u22650\u221e} {a : \u2115 \u2192 \u2115} (hcte : \u2200 n, DependsOn (f n) (Iic (a n))) (mf : \u2200 n, Measurable (f n)) {bound : \u211d\u22650\u221e} (fin_bound : bound \u2260 \u221e) (le_bound : \u2200 n x, f n x \u2264 bound) {k : \u2115} (anti : \u2200 x, Antitone (fun n \u21a6 lmarginalPartialTraj \u03ba (k + 1) (a n) (f n) x)) {l : (\u03a0 n, X n) \u2192 \u211d\u22650\u221e} (htendsto : \u2200 x, Tendsto (fun n \u21a6 lmarginalPartialTraj \u03ba (k + 1) (a n) (f n) x) atTop (\ud835\udcdd (l x))) (\u03b5 : \u211d\u22650\u221e) (y : \u03a0 i : Iic k, X i) (hpos : \u2200 x n, \u03b5 \u2264 lmarginalPartialTraj \u03ba k (a n) (f n) (updateFinset x (Iic k) y)) : \u2203 z, \u2200 x n, \u03b5 \u2264 lmarginalPartialTraj \u03ba (k + 1) (a n) (f n) (update (updateFinset x (Iic k) y) (k + 1) z)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty (X n)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Nonempty (\u03a0 i : Iic m, X i)",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "Tendsto (F \u00b7 x) atTop (\ud835\udcdd (l x))",
+        "body": "htendsto x",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "F n x \u2264 bound",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u03b5 \u2264 lmarginalPartialTraj \u03ba k (k + 1) l (updateFinset x _ y)",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u222b\u207b x, l (update (updateFinset x_ _ y) (k + 1) x) \u2202(\u03ba k y) \u2260 \u221e",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "le_trans hx ((anti _).le_of_tendsto (tendstoF _) n)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Traj",
+    "name": "trajContent_tendsto_zero",
+    "statement": "\u2115 \u2192 Set (\u03a0 n, X n)} (A_mem : \u2200 n, A n \u2208 measurableCylinders X) (A_anti : Antitone A) (A_inter : \u22c2 n, A n = \u2205) {p : \u2115} (x\u2080 : \u03a0 i : Iic p, X i) : Tendsto (fun n \u21a6 trajContent \u03ba x\u2080 (A n)) atTop (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty (X n)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Nonempty (\u03a0 i : Iic m, X i)",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u2203 a S, MeasurableSet S \u2227 A n = cylinder (Iic a) S",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Measurable (\u03c7 n)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "DependsOn (\u03c7 n) (Iic (a n))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "\u03c7_anti",
+        "type": "Antitone \u03c7",
+        "body": "fun m n hmn y \u21a6 by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Antitone fun n \u21a6 lmarginalPartialTraj \u03ba k (a n) (\u03c7 n) x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2203 l, Tendsto (fun n \u21a6 lmarginalPartialTraj \u03ba k (a n) (\u03c7 n) x) atTop (\ud835\udcdd l)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "l p (updateFinset x _ x\u2080) = l p (updateFinset y _ x\u2080)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hl p (updateFinset x _ x\u2080)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u03b5 \u2264 lmarginalPartialTraj \u03ba p (a n) (\u03c7 n) (updateFinset x _ x\u2080)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u03c7 n x \u2264 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "z \u2208 A n",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 < \u03c7 n z",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

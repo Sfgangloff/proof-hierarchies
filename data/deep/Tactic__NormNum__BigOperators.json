@@ -1,0 +1,74 @@
+[
+  {
+    "module": "BigOperators",
+    "name": "List.ProveNilOrConsResult.uncheckedCast",
+    "statement": "Q(Type u)} {\u03b2 : Q(Type v)} (s : Q(List $\u03b1)) (t : Q(List $\u03b2)) : List.ProveNilOrConsResult s \u2192 List.ProveNilOrConsResult t | .nil pf => .nil pf | .cons a s' pf => .cons a s' pf  /-- If `s = t` and we can get the result for `t`, then we can get the result for `s`. -/ def List.ProveNilOrConsResult.eq_trans {\u03b1 : Q(Type u)} {s t : Q(List $\u03b1)} (eq : Q($s = $t)) : List.ProveNilOrConsResult t \u2192 List.ProveNilOrConsResult s | .nil pf => .nil q(Eq.trans $eq $pf) | .cons a s' pf => .cons a s' q(Eq.trans $eq $pf)  lemma List.range_zero' {n : \u2115} (pn : NormNum.IsNat n 0) : List.range n = []",
+    "have_tree": [
+      {
+        "name": "s",
+        "type": "Q(List \u2115)",
+        "body": "s; .uncheckedCast _ _ <$> show MetaM (ProveNilOrConsResult s) from do",
+        "children": [
+          {
+            "name": "n'",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit (nnL - 1)",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "$nn =Q .succ $n'",
+            "body": "\u27e8\u27e9",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "s",
+        "type": "Q(List (Fin $n))",
+        "body": "s",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BigOperators",
+    "name": "Multiset.range_zero'",
+    "statement": "\u2115} (pn : NormNum.IsNat n 0) : Multiset.range n = 0",
+    "have_tree": [
+      {
+        "name": "s",
+        "type": "Q(Multiset \u2115)",
+        "body": "s; .uncheckedCast _ _ <$> show MetaM (ProveZeroOrConsResult s) from do",
+        "children": [
+          {
+            "name": "n'",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit (nnL - 1)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "BigOperators",
+    "name": "Finset.univ_eq_elems",
+    "statement": "Type*} [Fintype \u03b1] (elems : Finset \u03b1) (complete : \u2200 x : \u03b1, x \u2208 elems) : Finset.univ = elems",
+    "have_tree": [
+      {
+        "name": "s",
+        "type": "Q(Finset \u2115)",
+        "body": "s; .uncheckedCast _ _ <$> show MetaM (ProveEmptyOrConsResult s) from do",
+        "children": [
+          {
+            "name": "n'",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit (nnL - 1)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

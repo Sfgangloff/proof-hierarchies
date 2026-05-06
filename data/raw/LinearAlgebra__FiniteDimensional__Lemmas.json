@@ -1,0 +1,117 @@
+[
+  {
+    "module": "Lemmas",
+    "name": "sup_span_singleton_eq_top_iff",
+    "statement": "Submodule K V} {v : V} (hv : v \u2209 W) : W \u2294 span K {v} = \u22a4 \u2194 finrank K (V \u29f8 W) = 1",
+    "have_tree": [
+      {
+        "name": "hv\u2080",
+        "type": "v \u2260 0",
+        "body": "by aesop",
+        "children": []
+      },
+      {
+        "name": "aux",
+        "type": "",
+        "body": "finrank_sup_add_finrank_inf_eq W (span K {v})",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "ker_ne_bot_of_finrank_lt",
+    "statement": "V \u2192\u2097[K] V\u2082} (h : finrank K V\u2082 < finrank K V) : LinearMap.ker f \u2260 \u22a5",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "f.finrank_range_add_finrank_ker",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "finrank K (LinearMap.range f) \u2264 finrank K V\u2082",
+        "body": "(LinearMap.range f).finrank_le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "injective_iff_surjective_of_finrank_eq_finrank",
+    "statement": "finrank K V = finrank K V\u2082) {f : V \u2192\u2097[K] V\u2082} : Function.Injective f \u2194 Function.Surjective f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "finrank_range_add_finrank_ker f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "LinearIndependent.span_eq_top_of_card_eq_finrank",
+    "statement": "Type*} [Nonempty \u03b9] [Fintype \u03b9] {b : \u03b9 \u2192 V} (lin_ind : LinearIndependent K b) (card_eq : Fintype.card \u03b9 = finrank K V) : span K (Set.range b) = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional K V",
+        "body": ".of_finrank_pos <| card_eq \u25b8 Fintype.card_pos",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "basisOfPiSpaceOfLinearIndependent",
+    "statement": "Type*} [Fintype \u03b9] [Decidable (Nonempty \u03b9)] {b : \u03b9 \u2192 (\u03b9 \u2192 K)} (hb : LinearIndependent K b) : Basis \u03b9 K (\u03b9 \u2192 K)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsEmpty \u03b9",
+        "body": "not_nonempty_iff.mp h\u03b9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "Subalgebra.isSimpleOrder_of_finrank",
+    "statement": "finrank F E = 2) : IsSimpleOrder (Subalgebra F E)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "finrank F S \u2264 2",
+        "body": "hr \u25b8 S.toSubmodule.finrank_le",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 < finrank F S",
+        "body": "finrank_pos_iff.mpr inferInstance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "exists_ker_pow_eq_ker_pow_succ",
+    "statement": "End K V) : \u2203 k : \u2115, k \u2264 finrank K V \u2227 LinearMap.ker (f ^ k) = LinearMap.ker (f ^ k.succ)",
+    "have_tree": [
+      {
+        "name": "h_ker_lt_ker",
+        "type": "LinearMap.ker (f ^ n) < LinearMap.ker (f ^ n.succ)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_any_n_lt",
+        "type": "\u2200 n, n \u2264 (finrank K V).succ \u2192 n \u2264 finrank K V",
+        "body": "fun n hn =>",
+        "children": []
+      }
+    ]
+  }
+]

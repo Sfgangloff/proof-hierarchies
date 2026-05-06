@@ -1,0 +1,123 @@
+[
+  {
+    "module": "Basic",
+    "name": "card_aut_eq_finrank",
+    "statement": "Nat.card Gal(E/F) = finrank F E",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "IsIntegral F \u03b1",
+        "body": "IsGalois.integral F \u03b1",
+        "children": []
+      },
+      {
+        "name": "h_sep",
+        "type": "IsSeparable F \u03b1",
+        "body": "IsGalois.separable F \u03b1",
+        "children": []
+      },
+      {
+        "name": "h_splits",
+        "type": "((minpoly F \u03b1).map (algebraMap F E)).Splits",
+        "body": "IsGalois.splits F \u03b1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "finiteDimensional_of_finite",
+    "statement": "FiniteDimensional F E",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsGalois F K'",
+        "body": "\u27e8\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.card_le_card_of_surjective _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "finrank_fixedField_eq_card",
+    "statement": "finrank (fixedField H) E = Nat.card H",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite H",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "fixingSubgroupEquiv",
+    "statement": "fixingSubgroup K \u2243* Gal(E/K) where toFun \u03d5",
+    "have_tree": [
+      {
+        "name": "H_le",
+        "type": "H \u2264 fixingSubgroup (fixedField H)",
+        "body": "(le_iff_le _ _).mp le_rfl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "fixedField_fixingSubgroup",
+    "statement": "IsGalois F E] : IntermediateField.fixedField (IntermediateField.fixingSubgroup K) = K",
+    "have_tree": [
+      {
+        "name": "K_le",
+        "type": "K \u2264 IntermediateField.fixedField (IntermediateField.fixingSubgroup K)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "of_separable_splitting_field_aux",
+    "statement": "FiniteDimensional F E] [sp : p.IsSplittingField F E] (hp : p.Separable) (K : Type*) [Field K] [Algebra F K] [Algebra K E] [IsScalarTower F K E] {x : E} (hx : x \u2208 p.aroots E) : Nat.card (K\u27eex\u27ef.restrictScalars F \u2192\u2090[F] E) = Nat.card (K \u2192\u2090[F] E) * finrank K K\u27eex\u27ef",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "IsIntegral K x",
+        "body": "(isIntegral_of_noetherian (IsNoetherian.iff_fg.2 hFE) x).tower_top",
+        "children": []
+      },
+      {
+        "name": "h1",
+        "type": "p \u2260 0",
+        "body": "fun hp => by",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "minpoly K x \u2223 p.map (algebraMap F K)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Finite.of_equiv _ key_equiv",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "FiniteDimensional F K",
+        "body": "FiniteDimensional.left F K E",
+        "children": []
+      }
+    ]
+  }
+]

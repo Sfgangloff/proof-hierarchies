@@ -1,0 +1,1837 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "resultant_zero_zero",
+      "statement": "resultant (0 : R[X]) 0 m n = 0 ^ (m + n)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Fin.mk (n",
+          "body": "m + n) (\u2191j\u2082 + (k + m)) (by lia) = .natAdd m \u27e8j\u2082 + k, by lia\u27e9 :=",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Fin.mk (n",
+          "body": "m + n) (m + \u2191i + (k + m)) (by lia) =",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_zero_zero",
+          "statement": "resultant (0 : R[X]) 0 m n = 0 ^ (m + n)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Fin.mk (n",
+              "body": "m + n) (m + \u2191i + (k + m)) (by lia) =",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Fin.mk (n",
+              "body": "m + n) (\u2191j\u2082 + (k + m)) (by lia) = .natAdd m \u27e8j\u2082 + k, by lia\u27e9 :=",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "resultant_eq_prod_roots_sub",
+      "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+      "have_tree": [
+        {
+          "name": "hr'",
+          "type": "r \u2260 0",
+          "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+          "children": []
+        },
+        {
+          "name": "hr\u2080",
+          "type": "f %\u2098 g \u2260 0",
+          "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+          "children": []
+        },
+        {
+          "name": "hrd",
+          "type": "r.natDegree < g.natDegree",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hr",
+          "type": "r.Monic",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "IH _ (by simp; lia)",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+              "children": []
+            },
+            {
+              "name": "H",
+              "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          4,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "H",
+                  "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          4,
+          1
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "I(by) _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          4,
+          2
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+                  "children": []
+                },
+                {
+                  "name": "H",
+                  "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          4,
+          3
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+                  "children": []
+                },
+                {
+                  "name": "H",
+                  "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          5,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+                  "children": []
+                },
+                {
+                  "name": "H",
+                  "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          4
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "H",
+                  "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          4
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "H",
+              "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          4
+        ],
+        "child_index": 2,
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+                  "children": []
+                },
+                {
+                  "name": "H",
+                  "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          4
+        ],
+        "child_index": 3,
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+                  "children": []
+                },
+                {
+                  "name": "H",
+                  "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          5
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+                  "children": []
+                },
+                {
+                  "name": "H",
+                  "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+                  "children": []
+                },
+                {
+                  "name": "H",
+                  "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+                  "children": []
+                },
+                {
+                  "name": "H",
+                  "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+                  "children": []
+                },
+                {
+                  "name": "H",
+                  "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+                  "children": []
+                },
+                {
+                  "name": "H",
+                  "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+                  "children": []
+                },
+                {
+                  "name": "H",
+                  "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          4
+        ],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "H",
+                  "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          4
+        ],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+                  "children": []
+                },
+                {
+                  "name": "H",
+                  "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          4
+        ],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_prod_roots_sub",
+          "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r \u2260 0",
+              "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "f %\u2098 g \u2260 0",
+              "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+              "children": []
+            },
+            {
+              "name": "hrd",
+              "type": "r.natDegree < g.natDegree",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "r.Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH _ (by simp; lia)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+                  "children": []
+                },
+                {
+                  "name": "H",
+                  "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "resultant_integralNormalization",
+      "statement": "R[X]) (hg : g.natDegree \u2260 0) : resultant (f.scaleRoots g.leadingCoeff) g.integralNormalization = g.leadingCoeff ^ (f.natDegree * (g.natDegree - 1)) * resultant f g",
+      "have_tree": [
+        {
+          "name": "h\u03c6",
+          "type": "Function.Surjective \u03c6",
+          "body": "fun x \u21a6 \u27e8.X x, by simp [\u03c6, MvPolynomial.eval\u2082Hom]\u27e9",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "resultant_scaleRoots f g g.leadingCoeff",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH (g.map \u03c6) (\u03c6 r)",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_integralNormalization",
+          "statement": "R[X]) (hg : g.natDegree \u2260 0) : resultant (f.scaleRoots g.leadingCoeff) g.integralNormalization = g.leadingCoeff ^ (f.natDegree * (g.natDegree - 1)) * resultant f g",
+          "have_tree": [
+            {
+              "name": "h\u03c6",
+              "type": "Function.Surjective \u03c6",
+              "body": "fun x \u21a6 \u27e8.X x, by simp [\u03c6, MvPolynomial.eval\u2082Hom]\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_scaleRoots f g g.leadingCoeff",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Basic",
+          "name": "resultant_integralNormalization",
+          "statement": "R[X]) (hg : g.natDegree \u2260 0) : resultant (f.scaleRoots g.leadingCoeff) g.integralNormalization = g.leadingCoeff ^ (f.natDegree * (g.natDegree - 1)) * resultant f g",
+          "have_tree": [
+            {
+              "name": "h\u03c6",
+              "type": "Function.Surjective \u03c6",
+              "body": "fun x \u21a6 \u27e8.X x, by simp [\u03c6, MvPolynomial.eval\u2082Hom]\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH (g.map \u03c6) (\u03c6 r)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_scaleRoots f g g.leadingCoeff",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_integralNormalization",
+          "statement": "R[X]) (hg : g.natDegree \u2260 0) : resultant (f.scaleRoots g.leadingCoeff) g.integralNormalization = g.leadingCoeff ^ (f.natDegree * (g.natDegree - 1)) * resultant f g",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "resultant_scaleRoots f g g.leadingCoeff",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "IH (g.map \u03c6) (\u03c6 r)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h\u03c6",
+              "type": "Function.Surjective \u03c6",
+              "body": "fun x \u21a6 \u27e8.X x, by simp [\u03c6, MvPolynomial.eval\u2082Hom]\u27e9",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "resultant_eq_zero_iff",
+      "statement": "Type*} [Field K] {f g : K[X]} : resultant f g = 0 \u2194 (f \u2260 0 \u2228 g \u2260 0) \u2227 \u00ac IsCoprime f g",
+      "have_tree": [
+        {
+          "name": "H",
+          "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "isUnit_resultant_iff_isCoprime (f := C f.leadingCoeff\u207b\u00b9 * f) (g := g) H",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "resultant_eq_zero_iff",
+          "statement": "Type*} [Field K] {f g : K[X]} : resultant f g = 0 \u2194 (f \u2260 0 \u2228 g \u2260 0) \u2227 \u00ac IsCoprime f g",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "isUnit_resultant_iff_isCoprime (f := C f.leadingCoeff\u207b\u00b9 * f) (g := g) H",
+              "children": []
+            },
+            {
+              "name": "H",
+              "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "sylvesterDeriv_of_natDegree_eq_three",
+      "statement": "R[X]} (hf : f.natDegree = 3) : f.sylvesterDeriv.reindex (finCongr <| by rw [hf]) (finCongr <| by rw [hf]) = !![ f.coeff 0,         0, 1 * f.coeff 1,             0,             0; f.coeff 1, f.coeff 0, 2 * f.coeff 2, 1 * f.coeff 1,             0; f.coeff 2, f.coeff 1, 3 * f.coeff 3, 2 * f.coeff 2, 1 * f.coeff 1; f.coeff 3, f.coeff 2,             0, 3 * f.coeff 3, 2 * f.coeff 2; 0,         1,             0,             0,             3]",
+      "have_tree": [
+        {
+          "name": "hi'",
+          "type": "i \u2208 Finset.range 5",
+          "body": "Finset.mem_range.mpr hi",
+          "children": []
+        },
+        {
+          "name": "hj'",
+          "type": "j \u2208 Finset.range 5",
+          "body": "Finset.mem_range.mpr hj",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "sylvesterDeriv_of_natDegree_eq_three",
+          "statement": "R[X]} (hf : f.natDegree = 3) : f.sylvesterDeriv.reindex (finCongr <| by rw [hf]) (finCongr <| by rw [hf]) = !![ f.coeff 0,         0, 1 * f.coeff 1,             0,             0; f.coeff 1, f.coeff 0, 2 * f.coeff 2, 1 * f.coeff 1,             0; f.coeff 2, f.coeff 1, 3 * f.coeff 3, 2 * f.coeff 2, 1 * f.coeff 1; f.coeff 3, f.coeff 2,             0, 3 * f.coeff 3, 2 * f.coeff 2; 0,         1,             0,             0,             3]",
+          "have_tree": [
+            {
+              "name": "hj'",
+              "type": "j \u2208 Finset.range 5",
+              "body": "Finset.mem_range.mpr hj",
+              "children": []
+            },
+            {
+              "name": "hi'",
+              "type": "i \u2208 Finset.range 5",
+              "body": "Finset.mem_range.mpr hi",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Expand",
+    "name": "cyclotomic_expand_eq_cyclotomic_mul",
+    "statement": "\u2115} (hp : Nat.Prime p) (hdiv : \u00acp \u2223 n) (R : Type*) [CommRing R] : expand R p (cyclotomic n R) = cyclotomic (n * p) R * cyclotomic n R",
+    "have_tree": [
+      {
+        "name": "hprim",
+        "type": "",
+        "body": "Complex.isPrimitiveRoot_exp _ hpos.ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Expand",
+    "name": "cyclotomic_expand_eq_cyclotomic",
+    "statement": "\u2115} (hp : Nat.Prime p) (hdiv : p \u2223 n) (R : Type*) [CommRing R] : expand R p (cyclotomic n R) = cyclotomic (n * p) R",
+    "have_tree": [
+      {
+        "name": "hprim",
+        "type": "",
+        "body": "Complex.isPrimitiveRoot_exp _ hpos.ne.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Expand",
+    "name": "cyclotomic_irreducible_pow_of_irreducible_pow",
+    "statement": "\u2115} (hp : Nat.Prime p) {R} [CommRing R] [IsDomain R] {n m : \u2115} (hmn : m \u2264 n) (h : Irreducible (cyclotomic (p ^ n) R)) : Irreducible (cyclotomic (p ^ m) R)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "m + k \u2260 0",
+        "body": "(add_pos_of_pos_of_nonneg hm k.zero_le).ne'",
+        "children": []
+      }
+    ]
+  }
+]

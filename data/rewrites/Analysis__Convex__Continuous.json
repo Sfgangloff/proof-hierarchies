@@ -1,0 +1,270 @@
+[
+  {
+    "original": {
+      "module": "Continuous",
+      "name": "ConvexOn.lipschitzOnWith_of_abs_le",
+      "statement": "ConvexOn \u211d (ball x\u2080 r) f) (h\u03b5 : 0 < \u03b5) (hM : \u2200 a, dist a x\u2080 < r \u2192 |f a| \u2264 M) : LipschitzOnWith (2 * M / \u03b5).toNNReal f (ball x\u2080 (r - \u03b5))",
+      "have_tree": [
+        {
+          "name": "hx\u2080r",
+          "type": "ball x\u2080 (r - \u03b5) \u2286 ball x\u2080 r",
+          "body": "ball_subset_ball <| by linarith",
+          "children": []
+        },
+        {
+          "name": "hx'",
+          "type": "x \u2208 ball x\u2080 r",
+          "body": "hx\u2080r hx",
+          "children": []
+        },
+        {
+          "name": "hy'",
+          "type": "y \u2208 ball x\u2080 r",
+          "body": "hx\u2080r hy",
+          "children": []
+        },
+        {
+          "name": "hz",
+          "type": "z \u2208 ball x\u2080 r",
+          "body": "mem_ball_iff_norm.2 <| by",
+          "children": [
+            {
+              "name": "h",
+              "type": "",
+              "body": "hf.2 hy' hz (by positivity) (by positivity) hab",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          3,
+          0
+        ],
+        "result": {
+          "module": "Continuous",
+          "name": "ConvexOn.lipschitzOnWith_of_abs_le",
+          "statement": "ConvexOn \u211d (ball x\u2080 r) f) (h\u03b5 : 0 < \u03b5) (hM : \u2200 a, dist a x\u2080 < r \u2192 |f a| \u2264 M) : LipschitzOnWith (2 * M / \u03b5).toNNReal f (ball x\u2080 (r - \u03b5))",
+          "have_tree": [
+            {
+              "name": "hx\u2080r",
+              "type": "ball x\u2080 (r - \u03b5) \u2286 ball x\u2080 r",
+              "body": "ball_subset_ball <| by linarith",
+              "children": []
+            },
+            {
+              "name": "hx'",
+              "type": "x \u2208 ball x\u2080 r",
+              "body": "hx\u2080r hx",
+              "children": []
+            },
+            {
+              "name": "hy'",
+              "type": "y \u2208 ball x\u2080 r",
+              "body": "hx\u2080r hy",
+              "children": []
+            },
+            {
+              "name": "hz",
+              "type": "z \u2208 ball x\u2080 r",
+              "body": "mem_ball_iff_norm.2 <| by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          3
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Continuous",
+          "name": "ConvexOn.lipschitzOnWith_of_abs_le",
+          "statement": "ConvexOn \u211d (ball x\u2080 r) f) (h\u03b5 : 0 < \u03b5) (hM : \u2200 a, dist a x\u2080 < r \u2192 |f a| \u2264 M) : LipschitzOnWith (2 * M / \u03b5).toNNReal f (ball x\u2080 (r - \u03b5))",
+          "have_tree": [
+            {
+              "name": "hx\u2080r",
+              "type": "ball x\u2080 (r - \u03b5) \u2286 ball x\u2080 r",
+              "body": "ball_subset_ball <| by linarith",
+              "children": []
+            },
+            {
+              "name": "hx'",
+              "type": "x \u2208 ball x\u2080 r",
+              "body": "hx\u2080r hx",
+              "children": []
+            },
+            {
+              "name": "hy'",
+              "type": "y \u2208 ball x\u2080 r",
+              "body": "hx\u2080r hy",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "",
+              "body": "hf.2 hy' hz (by positivity) (by positivity) hab",
+              "children": []
+            },
+            {
+              "name": "hz",
+              "type": "z \u2208 ball x\u2080 r",
+              "body": "mem_ball_iff_norm.2 <| by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Continuous",
+          "name": "ConvexOn.lipschitzOnWith_of_abs_le",
+          "statement": "ConvexOn \u211d (ball x\u2080 r) f) (h\u03b5 : 0 < \u03b5) (hM : \u2200 a, dist a x\u2080 < r \u2192 |f a| \u2264 M) : LipschitzOnWith (2 * M / \u03b5).toNNReal f (ball x\u2080 (r - \u03b5))",
+          "have_tree": [
+            {
+              "name": "hx'",
+              "type": "x \u2208 ball x\u2080 r",
+              "body": "hx\u2080r hx",
+              "children": []
+            },
+            {
+              "name": "hx\u2080r",
+              "type": "ball x\u2080 (r - \u03b5) \u2286 ball x\u2080 r",
+              "body": "ball_subset_ball <| by linarith",
+              "children": []
+            },
+            {
+              "name": "hy'",
+              "type": "y \u2208 ball x\u2080 r",
+              "body": "hx\u2080r hy",
+              "children": []
+            },
+            {
+              "name": "hz",
+              "type": "z \u2208 ball x\u2080 r",
+              "body": "mem_ball_iff_norm.2 <| by",
+              "children": [
+                {
+                  "name": "h",
+                  "type": "",
+                  "body": "hf.2 hy' hz (by positivity) (by positivity) hab",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Continuous",
+          "name": "ConvexOn.lipschitzOnWith_of_abs_le",
+          "statement": "ConvexOn \u211d (ball x\u2080 r) f) (h\u03b5 : 0 < \u03b5) (hM : \u2200 a, dist a x\u2080 < r \u2192 |f a| \u2264 M) : LipschitzOnWith (2 * M / \u03b5).toNNReal f (ball x\u2080 (r - \u03b5))",
+          "have_tree": [
+            {
+              "name": "hx\u2080r",
+              "type": "ball x\u2080 (r - \u03b5) \u2286 ball x\u2080 r",
+              "body": "ball_subset_ball <| by linarith",
+              "children": []
+            },
+            {
+              "name": "hy'",
+              "type": "y \u2208 ball x\u2080 r",
+              "body": "hx\u2080r hy",
+              "children": []
+            },
+            {
+              "name": "hx'",
+              "type": "x \u2208 ball x\u2080 r",
+              "body": "hx\u2080r hx",
+              "children": []
+            },
+            {
+              "name": "hz",
+              "type": "z \u2208 ball x\u2080 r",
+              "body": "mem_ball_iff_norm.2 <| by",
+              "children": [
+                {
+                  "name": "h",
+                  "type": "",
+                  "body": "hf.2 hy' hz (by positivity) (by positivity) hab",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Continuous",
+          "name": "ConvexOn.lipschitzOnWith_of_abs_le",
+          "statement": "ConvexOn \u211d (ball x\u2080 r) f) (h\u03b5 : 0 < \u03b5) (hM : \u2200 a, dist a x\u2080 < r \u2192 |f a| \u2264 M) : LipschitzOnWith (2 * M / \u03b5).toNNReal f (ball x\u2080 (r - \u03b5))",
+          "have_tree": [
+            {
+              "name": "hx\u2080r",
+              "type": "ball x\u2080 (r - \u03b5) \u2286 ball x\u2080 r",
+              "body": "ball_subset_ball <| by linarith",
+              "children": []
+            },
+            {
+              "name": "hx'",
+              "type": "x \u2208 ball x\u2080 r",
+              "body": "hx\u2080r hx",
+              "children": []
+            },
+            {
+              "name": "hz",
+              "type": "z \u2208 ball x\u2080 r",
+              "body": "mem_ball_iff_norm.2 <| by",
+              "children": [
+                {
+                  "name": "h",
+                  "type": "",
+                  "body": "hf.2 hy' hz (by positivity) (by positivity) hab",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hy'",
+              "type": "y \u2208 ball x\u2080 r",
+              "body": "hx\u2080r hy",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

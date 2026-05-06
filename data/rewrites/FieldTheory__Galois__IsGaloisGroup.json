@@ -1,0 +1,219 @@
+[
+  {
+    "original": {
+      "module": "IsGaloisGroup",
+      "name": "IsGaloisGroup.to_isFractionRing",
+      "statement": "IsGaloisGroup G A B] : IsGaloisGroup G K L",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Nontrivial A",
+          "body": "(IsFractionRing.nontrivial_iff_nontrivial A K).mpr inferInstance",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Nontrivial B",
+          "body": "(IsFractionRing.nontrivial_iff_nontrivial B L).mpr inferInstance",
+          "children": []
+        },
+        {
+          "name": "hy'",
+          "type": "algebraMap B L y \u2260 0",
+          "body": "by simpa using nonZeroDivisors.ne_zero hy",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "IsGaloisGroup",
+          "name": "IsGaloisGroup.to_isFractionRing",
+          "statement": "IsGaloisGroup G A B] : IsGaloisGroup G K L",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Nontrivial B",
+              "body": "(IsFractionRing.nontrivial_iff_nontrivial B L).mpr inferInstance",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Nontrivial A",
+              "body": "(IsFractionRing.nontrivial_iff_nontrivial A K).mpr inferInstance",
+              "children": []
+            },
+            {
+              "name": "hy'",
+              "type": "algebraMap B L y \u2260 0",
+              "body": "by simpa using nonZeroDivisors.ne_zero hy",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "IsGaloisGroup",
+          "name": "IsGaloisGroup.to_isFractionRing",
+          "statement": "IsGaloisGroup G A B] : IsGaloisGroup G K L",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Nontrivial A",
+              "body": "(IsFractionRing.nontrivial_iff_nontrivial A K).mpr inferInstance",
+              "children": []
+            },
+            {
+              "name": "hy'",
+              "type": "algebraMap B L y \u2260 0",
+              "body": "by simpa using nonZeroDivisors.ne_zero hy",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Nontrivial B",
+              "body": "(IsFractionRing.nontrivial_iff_nontrivial B L).mpr inferInstance",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "IsGaloisGroup",
+      "name": "intermediateFieldEquivSubgroup",
+      "statement": "IntermediateField K L \u2243o (Subgroup G)\u1d52\u1d48",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "isGalois G K L",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "finiteDimensional G K L",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "IsGaloisGroup",
+          "name": "intermediateFieldEquivSubgroup",
+          "statement": "IntermediateField K L \u2243o (Subgroup G)\u1d52\u1d48",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "finiteDimensional G K L",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "isGalois G K L",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "IsGaloisGroup",
+      "name": "quotientMap",
+      "statement": "E \u2264 F) : letI : Algebra E F",
+      "have_tree": [
+        {
+          "name": "hFN",
+          "type": "IsGaloisGroup (G \u29f8 N) K F",
+          "body": "inferInstance",
+          "children": [
+            {
+              "name": "_",
+              "type": "IsScalarTower E F L",
+              "body": "IsScalarTower.of_algebraMap_eq' rfl",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "IsGaloisGroup",
+          "name": "quotientMap",
+          "statement": "E \u2264 F) : letI : Algebra E F",
+          "have_tree": [
+            {
+              "name": "hFN",
+              "type": "IsGaloisGroup (G \u29f8 N) K F",
+              "body": "inferInstance",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "IsGaloisGroup",
+          "name": "quotientMap",
+          "statement": "E \u2264 F) : letI : Algebra E F",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsScalarTower E F L",
+              "body": "IsScalarTower.of_algebraMap_eq' rfl",
+              "children": []
+            },
+            {
+              "name": "hFN",
+              "type": "IsGaloisGroup (G \u29f8 N) K F",
+              "body": "inferInstance",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "module": "M",
+    "name": "children",
+    "statement": "M F) (i : F.B (head x)) : M F",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "fun n : \u2115 => @head_succ' _ n 0 x.1 x.2",
+        "children": [
+          {
+            "name": "P'",
+            "type": "",
+            "body": "x.2 (succ n)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "M",
+    "name": "agree_iff_agree'",
+    "statement": "\u2115} (x y : M F) : Agree (x.approx n) (y.approx <| n + 1) \u2194 Agree' n x y",
+    "have_tree": [
+      {
+        "name": "h_a_1",
+        "type": "",
+        "body": "mk_inj \u2039M.mk \u27e8x_a, x_f\u27e9 = M.mk \u27e8a, x'\u27e9\u203a",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "M",
+    "name": "ext_aux",
+    "statement": "\u2115} (x y z : M F) (hx : Agree' n z x) (hy : Agree' n z y) (hrec : \u2200 ps : Path F, n = ps.length \u2192 iselect ps x = iselect ps y) : x.approx (n + 1) = y.approx (n + 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mk_inj h\u2081",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "mk_inj h\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "M",
+    "name": "nth_of_bisim",
+    "statement": "IsBisimulation R) (s\u2081 s\u2082) (ps : Path F) : (R s\u2081 s\u2082) \u2192 IsPath ps s\u2081 \u2228 IsPath ps s\u2082 \u2192 iselect ps s\u2081 = iselect ps s\u2082 \u2227 \u2203 (a : _) (f f' : F.B a \u2192 M F), isubtree ps s\u2081 = M.mk \u27e8a, f\u27e9 \u2227 isubtree ps s\u2082 = M.mk \u27e8a, f'\u27e9 \u2227 \u2200 i : F.B a, f i ~ f' i",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "bisim.tail h\u2080 i",
+        "children": []
+      }
+    ]
+  }
+]

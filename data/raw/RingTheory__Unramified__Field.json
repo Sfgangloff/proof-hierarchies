@@ -1,0 +1,208 @@
+[
+  {
+    "module": "Field",
+    "name": "of_isSeparable",
+    "statement": "FormallyUnramified K L",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "f\u2081 x - f\u2082 x \u2208 I",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Polynomial.eval_add_of_sq_eq_zero ((minpoly K x).map (algebraMap K B)) (f\u2082 x)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "bijective_of_isAlgClosed_of_isLocalRing",
+    "statement": "Function.Bijective (algebraMap K A)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "finite_of_free (R := K) (S := A)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsArtinianRing A",
+        "body": "isArtinian_of_tower K inferInstance",
+        "children": []
+      },
+      {
+        "name": "hA",
+        "type": "IsNilpotent (IsLocalRing.maximalIdeal A)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf\u2082",
+        "type": "1 - f 1 \u2208 IsLocalRing.maximalIdeal A",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf\u2083",
+        "type": "IsIdempotentElem (1 - f 1)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "isReduced_of_field",
+    "statement": "IsReduced A",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Function.Injective f",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hy",
+        "type": "",
+        "body": "(hx.map f).map (algebraMap _ (Localization.AtPrime M))",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "EssFiniteType.of_isLocalization (Localization.AtPrime M) M.primeCompl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "of_isLocalization (R\u2098 := Localization.AtPrime M) M.primeCompl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "EssFiniteType.comp (AlgebraicClosure K) (AlgebraicClosure K \u2297[K] A)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "comp (AlgebraicClosure K) (AlgebraicClosure K \u2297[K] A)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "range_eq_top_of_isPurelyInseparable",
+    "statement": "(algebraMap K L).range = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial (L \u2297[K] L)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "ExpChar (L \u2297[K] L) (ringExpChar K)",
+        "body": "by",
+        "children": [
+          {
+            "name": "inst",
+            "type": "IsReduced (L \u2297[K] L)",
+            "body": "isReduced_of_field L _",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "DFunLike.congr_fun",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "IsUnit b",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "isSeparable",
+    "statement": "Algebra.IsSeparable K L",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "finite_of_free (R := K) (S := L)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "of_restrictScalars K (separableClosure K L) L",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "EssFiniteType.of_comp K (separableClosure K L) L",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Field",
+    "name": "Algebra.IsUnramifiedAt.not_minpoly_sq_dvd",
+    "statement": "Ideal A) [Q.IsPrime] [Algebra.IsUnramifiedAt K Q] (x : A) (p : K[X]) (hp\u2081 : Ideal.span {p} = RingHom.ker (aeval x).toRingHom) (hp\u2082 : Function.Surjective (aeval (R",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Algebra.FiniteType K A",
+        "body": ".of_surjective _ hp\u2082",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Algebra.FormallyUnramified.finite_of_free K (Localization.AtPrime Q)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsField (Localization.AtPrime Q)",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "IsArtinianRing.of_finite K (Localization.AtPrime Q)",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "Algebra.FormallyUnramified.isReduced_of_field K (Localization.AtPrime Q)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(mul_dvd_mul_iff_right (minpoly.ne_zero (Algebra.IsIntegral.isIntegral _))).mp",
+        "children": []
+      }
+    ]
+  }
+]

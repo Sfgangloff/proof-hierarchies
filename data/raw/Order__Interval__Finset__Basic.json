@@ -1,0 +1,66 @@
+[
+  {
+    "module": "Basic",
+    "name": "transGen_wcovBy_of_le",
+    "statement": "\u03b1} (hxy : x \u2264 y) : TransGen (\u00b7 \u2a7f \u00b7) x y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "#(Ico x y) < #(Icc x y)",
+        "body": "card_lt_card <|",
+        "children": [
+          {
+            "name": "z_card",
+            "type": "",
+            "body": "calc",
+            "children": []
+          },
+          {
+            "name": "h\u2081",
+            "type": "",
+            "body": "transGen_wcovBy_of_le hz.1.1",
+            "children": []
+          },
+          {
+            "name": "h\u2082",
+            "type": "z \u2a7f y",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "transGen_covBy_of_lt",
+    "statement": "\u03b1} (hxy : x < y) : TransGen (\u00b7 \u22d6 \u00b7) x y",
+    "have_tree": [
+      {
+        "name": "z_card",
+        "type": "#(Ico x z) < #(Ico x y)",
+        "body": "card_lt_card <| ssubset_iff_of_subset",
+        "children": []
+      },
+      {
+        "name": "hzy",
+        "type": "z \u22d6 y",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "strictMono_iff_forall_covBy",
+    "statement": "\u03b1 \u2192 \u03b2) : StrictMono f \u2194 \u2200 a b : \u03b1, a \u22d6 b \u2192 f a < f b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Relation.TransGen.lift f h (a := a) (b := b)",
+        "children": []
+      }
+    ]
+  }
+]

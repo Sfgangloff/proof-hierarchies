@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Colex",
+    "name": "trans_aux",
+    "statement": "toColex s \u2264 toColex t) (htu : toColex t \u2264 toColex u) (has : a \u2208 s) (hat : a \u2209 t) : \u2203 b, b \u2208 u \u2227 b \u2209 s \u2227 a \u2264 b",
+    "have_tree": [
+      {
+        "name": "had",
+        "type": "a \u2264 d",
+        "body": "hb.2.2.trans <| hbc.trans hcd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Colex",
+    "name": "toColex_le_toColex_iff_max'_mem",
+    "statement": "toColex s \u2264 toColex t \u2194 \u2200 hst : s \u2260 t, (s \u2206 t).max' (symmDiff_nonempty.2 hst) \u2208 t",
+    "have_tree": [
+      {
+        "name": "hms",
+        "type": "m \u2208 s",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Colex",
+    "name": "lt_iff_exists_filter_lt",
+    "statement": "toColex s < toColex t \u2194 \u2203 w \u2208 t \\ s, {a \u2208 s | w < a} = {a \u2208 t | w < a}",
+    "have_tree": [
+      {
+        "name": "hu",
+        "type": "u.Nonempty",
+        "body": "h.imp fun _ \u21a6 mem_u.2",
+        "children": []
+      },
+      {
+        "name": "hau",
+        "type": "a \u2208 u",
+        "body": "mem_u.2 \u27e8hat, has, fun b hbs hbt \u21a6 (hm _ hbs hbt).trans hma\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Colex",
+    "name": "IsInitSeg.exists_initSeg",
+    "statement": "IsInitSeg \ud835\udc9c r) (h\ud835\udc9c\u2080 : \ud835\udc9c.Nonempty) : \u2203 s : Finset \u03b1, #s = r \u2227 \ud835\udc9c = initSeg s",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "",
+        "body": "sup'_mem (ofColex \u207b\u00b9' \ud835\udc9c) (LinearOrder.supClosed _) \ud835\udc9c h\ud835\udc9c\u2080 toColex",
+        "children": []
+      }
+    ]
+  }
+]

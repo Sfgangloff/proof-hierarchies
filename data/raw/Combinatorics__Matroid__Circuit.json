@@ -1,0 +1,131 @@
+[
+  {
+    "module": "Circuit",
+    "name": "Indep.fundCircuit_isCircuit",
+    "statement": "M.Indep I) (hecl : e \u2208 M.closure I) (heI : e \u2209 I) : M.IsCircuit (M.fundCircuit e I)",
+    "have_tree": [
+      {
+        "name": "aux",
+        "type": "\u22c2\u2080 {J | J \u2286 I \u2227 e \u2208 M.closure J} \u2286 I",
+        "body": "sInter_subset_of_mem (by simpa)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Circuit",
+    "name": "IsCircuit.eq_fundCircuit_of_subset",
+    "statement": "M.IsCircuit C) (hI : M.Indep I) (hCs : C \u2286 insert e I) : C = M.fundCircuit e I",
+    "have_tree": [
+      {
+        "name": "heCcl",
+        "type": "",
+        "body": "(hC.diff_singleton_isBasis heC).subset_closure heC",
+        "children": []
+      },
+      {
+        "name": "heI",
+        "type": "e \u2208 M.closure I",
+        "body": "M.closure_subset_closure hCeI heCcl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Circuit",
+    "name": "IsCircuit.strong_multi_elimination",
+    "statement": "M.IsCircuit C\u2080) (x : \u03b9 \u2192 \u03b1) (C : \u03b9 \u2192 Set \u03b1) (z : \u03b1) (hC : \u2200 i, M.IsCircuit (C i)) (h_mem_C\u2080 : \u2200 i, x i \u2208 C\u2080) (h_mem : \u2200 i, x i \u2208 C i) (h_unique : \u2200 \u2983i i'\u2984, x i \u2208 C i' \u2192 i = i') (hzC\u2080 : z \u2208 C\u2080) (hzC : \u2200 i, z \u2209 C i) : \u2203 C' \u2286 (C\u2080 \u222a \u22c3 i, C i) \\ range x, M.IsCircuit C' \u2227 z \u2208 C'",
+    "have_tree": [
+      {
+        "name": "hwin",
+        "type": "",
+        "body": "IsCircuit.strong_multi_elimination_insert (M := M) x (fun i \u21a6 (C i \\ {x i}))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Circuit",
+    "name": "IsCircuit.strong_multi_elimination_set",
+    "statement": "M.IsCircuit C\u2080) (X : Set \u03b1) (S : Set (Set \u03b1)) (z : \u03b1) (hCS : \u2200 C \u2208 S, M.IsCircuit C) (hXC\u2080 : X \u2286 C\u2080) (hX : \u2200 x \u2208 X, \u2203 C \u2208 S, C \u2229 X = {x}) (hzC\u2080 : z \u2208 C\u2080) (hz : \u2200 C \u2208 S, z \u2209 C) : \u2203 C' \u2286 (C\u2080 \u222a \u22c3\u2080 S) \\ X, M.IsCircuit C' \u2227 z \u2208 C'",
+    "have_tree": [
+      {
+        "name": "hwin",
+        "type": "",
+        "body": "hC\u2080.strong_multi_elimination (fun x : X \u21a6 x) (fun x \u21a6 C x) z ?_ ?_ ?_ ?_ hzC\u2080 ?_",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Circuit",
+    "name": "IsCircuit.elimination",
+    "statement": "M.IsCircuit C\u2081) (hC\u2082 : M.IsCircuit C\u2082) (h : C\u2081 \u2260 C\u2082) (e : \u03b1) : \u2203 C \u2286 (C\u2081 \u222a C\u2082) \\ {e}, M.IsCircuit C",
+    "have_tree": [
+      {
+        "name": "hnss",
+        "type": "\u00ac (C\u2081 \u2286 C\u2082)",
+        "body": "fun hss \u21a6 h <| hC\u2081.eq_of_subset_isCircuit hC\u2082 hss",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Circuit",
+    "name": "IsCircuit.finite",
+    "statement": "M.IsCircuit C) : C.Finite",
+    "have_tree": [
+      {
+        "name": "hi",
+        "type": "",
+        "body": "hC.dep.not_indep",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Circuit",
+    "name": "IsBase.compl_closure_diff_singleton_isCocircuit",
+    "statement": "M.IsBase B) (he : e \u2208 B) : M.IsCocircuit (M.E \\ M.closure (B \\ {e}))",
+    "have_tree": [
+      {
+        "name": "hB'",
+        "type": "",
+        "body": "(isBase_iff_minimal_spanning.1 hB)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Circuit",
+    "name": "IsCircuit.inter_isCocircuit_ne_singleton",
+    "statement": "M.IsCircuit C) (hK : M.IsCocircuit K) : C \u2229 K \u2260 {e}",
+    "have_tree": [
+      {
+        "name": "heC",
+        "type": "e \u2208 C",
+        "body": "(he.symm.subset rfl).1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Circuit",
+    "name": "IsBase.mem_fundCocircuit_iff_mem_fundCircuit",
+    "statement": "\u03b1} (hB : M.IsBase B) : e \u2208 M.fundCocircuit f B \u2194 f \u2208 M.fundCircuit e B",
+    "have_tree": [
+      {
+        "name": "hB'",
+        "type": "M\u2736.IsBase (M\u2736.E \\ B)",
+        "body": "hB.compl_isBase_dual",
+        "children": []
+      },
+      {
+        "name": "hB'",
+        "type": "M.IsBase (M.E \\ (insert f (M\u2736.E \\ B) \\ {e}))",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

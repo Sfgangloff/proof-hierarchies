@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Density",
+      "name": "indepFun_iff_pdf_prod_eq_pdf_mul_pdf",
+      "statement": "IndepFun X Y \u2119 \u2194 pdf (fun \u03c9 \u21a6 (X \u03c9, Y \u03c9)) \u2119 (\u03bc.prod \u03bd) =\u1d50[\u03bc.prod \u03bd] fun z \u21a6 pdf X \u2119 \u03bc z.1 * pdf Y \u2119 \u03bd z.2",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "HasPDF X \u2119 \u03bc",
+          "body": "quasiMeasurePreserving_hasPDF' (\u03bc := \u03bc.prod \u03bd) (fun \u03c9 \u21a6 (X \u03c9, Y \u03c9))",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "HasPDF Y \u2119 \u03bd",
+          "body": "quasiMeasurePreserving_hasPDF' (\u03bc := \u03bc.prod \u03bd) (fun \u03c9 \u21a6 (X \u03c9, Y \u03c9))",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Density",
+          "name": "indepFun_iff_pdf_prod_eq_pdf_mul_pdf",
+          "statement": "IndepFun X Y \u2119 \u2194 pdf (fun \u03c9 \u21a6 (X \u03c9, Y \u03c9)) \u2119 (\u03bc.prod \u03bd) =\u1d50[\u03bc.prod \u03bd] fun z \u21a6 pdf X \u2119 \u03bc z.1 * pdf Y \u2119 \u03bd z.2",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "HasPDF Y \u2119 \u03bd",
+              "body": "quasiMeasurePreserving_hasPDF' (\u03bc := \u03bc.prod \u03bd) (fun \u03c9 \u21a6 (X \u03c9, Y \u03c9))",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "HasPDF X \u2119 \u03bc",
+              "body": "quasiMeasurePreserving_hasPDF' (\u03bc := \u03bc.prod \u03bd) (fun \u03c9 \u21a6 (X \u03c9, Y \u03c9))",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Density",
+      "name": "IndepFun.mul_hasPDF'",
+      "statement": "SigmaFinite (\u2119.map X)) (\u03c3Y : SigmaFinite (\u2119.map Y)) (hXY : IndepFun X Y \u2119) : HasPDF (X * Y) \u2119 \u03bc",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "AEMeasurable X \u2119",
+          "body": "HasPDF.aemeasurable' \u03bc",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "AEMeasurable Y \u2119",
+          "body": "HasPDF.aemeasurable' \u03bc",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Density",
+          "name": "IndepFun.mul_hasPDF'",
+          "statement": "SigmaFinite (\u2119.map X)) (\u03c3Y : SigmaFinite (\u2119.map Y)) (hXY : IndepFun X Y \u2119) : HasPDF (X * Y) \u2119 \u03bc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "AEMeasurable Y \u2119",
+              "body": "HasPDF.aemeasurable' \u03bc",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "AEMeasurable X \u2119",
+              "body": "HasPDF.aemeasurable' \u03bc",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

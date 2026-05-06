@@ -1,0 +1,46 @@
+[
+  {
+    "module": "DerivIntegrable",
+    "name": "MonotoneOn.exists_tendsto_deriv_liminf_lintegral_enorm_le",
+    "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hab : a \u2264 b) (hf : MonotoneOn f (Icc a b)) : \u2203 G : (\u2115 \u2192 \u211d \u2192 \u211d), (\u2200\u1d50 x \u2202volume.restrict (Icc a b), Filter.Tendsto (fun (n : \u2115) \u21a6 G n x) Filter.atTop (\ud835\udcdd (deriv f x))) \u2227 (\u2200 (n : \u2115), AEStronglyMeasurable (G n) (volume.restrict (Icc a b))) \u2227 liminf (fun (n : \u2115) \u21a6 \u222b\u207b (x : \u211d) in Icc a b, \u2016G n x\u2016\u2091) atTop \u2264 ENNReal.ofReal (f b - f a)",
+    "have_tree": [
+      {
+        "name": "hg",
+        "type": "Monotone g",
+        "body": "monotoneOn_univ.mp <| hf.comp (by grind [MonotoneOn]) (by grind [MapsTo])",
+        "children": []
+      },
+      {
+        "name": "hfg",
+        "type": "EqOn f g (Ioo a b)",
+        "body": "by grind [EqOn]",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "\u2200\u1d50 x, x \u2260 a",
+        "body": "by simp [ae_iff, measure_singleton]",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "\u2200\u1d50 x, x \u2260 b",
+        "body": "by simp [ae_iff, measure_singleton]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2115) : Integrable (G (\u2191n)\u207b\u00b9) (volume.restrict (Icc a b))",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hg.monotoneOn (Icc a (b + (n : \u211d)\u207b\u00b9)) |>.intervalIntegrable_slope hab (by simp)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

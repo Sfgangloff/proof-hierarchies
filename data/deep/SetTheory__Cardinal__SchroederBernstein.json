@@ -1,0 +1,78 @@
+[
+  {
+    "module": "SchroederBernstein",
+    "name": "schroeder_bernstein_of_rel",
+    "statement": "\u03b1 \u2192 \u03b2} {g : \u03b2 \u2192 \u03b1} (hf : Function.Injective f) (hg : Function.Injective g) (R : \u03b1 \u2192 \u03b2 \u2192 Prop) (hp\u2081 : \u2200 a : \u03b1, R a (f a)) (hp\u2082 : \u2200 b : \u03b2, R (g b) b) : \u2203 h : \u03b1 \u2192 \u03b2, Bijective h \u2227 \u2200 a : \u03b1, R a (h a)",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "(g '' (f '' s)\u1d9c)\u1d9c = s",
+        "body": "F.map_lfp",
+        "children": []
+      },
+      {
+        "name": "hns",
+        "type": "g '' (f '' s)\u1d9c = s\u1d9c",
+        "body": "compl_injective (by simp [hs])",
+        "children": []
+      },
+      {
+        "name": "g'g",
+        "type": "LeftInverse g' g",
+        "body": "leftInverse_invFun hg",
+        "children": []
+      },
+      {
+        "name": "hg'ns",
+        "type": "g' '' s\u1d9c = (f '' s)\u1d9c",
+        "body": "by rw [\u2190 hns, g'g.image_image]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Surjective h",
+        "body": "by rw [\u2190 range_eq_univ, range_piecewise, hg'ns, union_compl_self]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Injective h",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "a \u2208 g '' (f '' s)\u1d9c",
+            "body": "by grind",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "SchroederBernstein",
+    "name": "min_injective",
+    "statement": "Nonempty \u03b9] : \u2203 i, Nonempty (\u2200 j, \u03b2 i \u21aa \u03b2 j)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "\u2200 i, \u2203 y, \u2200 x \u2208 s, (x : \u2200 i, \u03b2 i) i \u2260 y",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "f \u2208 s",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "insert f s \u2208 sets \u03b2",
+            "body": "fun i x hx y hy => by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

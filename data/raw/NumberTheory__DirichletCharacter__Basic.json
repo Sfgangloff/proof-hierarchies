@@ -1,0 +1,73 @@
+[
+  {
+    "module": "Basic",
+    "name": "factorsThrough_gcd",
+    "statement": "\u2115} [NeZero n] (\u03c8 : DirichletCharacter R m) (h : \u03c7.changeLevel (n.dvd_mul_right m) = \u03c8.changeLevel (m.dvd_mul_left n)) : \u03c7.FactorsThrough (n.gcd m)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "changeLevel_eq_cast_of_dvd \u03c7 (n.dvd_mul_right m) (ZMod.unitOfCoprime z hz\u2080)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "changeLevel_eq_cast_of_dvd \u03c8 (m.dvd_mul_left n) (ZMod.unitOfCoprime z hz\u2080)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "map_zero'",
+    "statement": "n \u2260 1) : \u03c7 0 = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ZMod.nontrivial_iff.mpr hn; \u03c7.map_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "conductor_dvd_of_mem_conductorSet",
+    "statement": "\u2115} [NeZero n] (hd : d \u2208 \u03c7.conductorSet) : \u03c7.conductor \u2223 d",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero d",
+        "body": "\u27e8by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u03c7.conductor \u2264 d.gcd \u03c7.conductor",
+            "body": "Nat.sInf_le this",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "NeZero (d * \u03c7.conductor * n)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "conductor_mul_dvd_lcm_conductor",
+    "statement": "DirichletCharacter R n) : (\u03c7 * \u03c8).conductor \u2223 \u03c7.conductor.lcm \u03c8.conductor",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "Nat.lcm_dvd \u03c7.conductor_dvd_level \u03c8.conductor_dvd_level",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "original": {
+      "module": "Discriminant",
+      "name": "discr_powerBasis_eq_prod''",
+      "statement": "Fin pb.dim \u2243 (L \u2192\u2090[K] E)) : algebraMap K E (discr K pb.basis) = (-1) ^ (n * (n - 1) / 2) * \u220f i : Fin pb.dim, \u220f j \u2208 Ioi i, (e j pb.gen - e i pb.gen) * (e i pb.gen - e j pb.gen)",
+      "have_tree": [
+        {
+          "name": "h\u2082",
+          "type": "2 \u2223 pb.dim * (pb.dim - 1)",
+          "body": "pb.dim.even_mul_pred_self.two_dvd",
+          "children": []
+        },
+        {
+          "name": "hle",
+          "type": "1 \u2264 pb.dim",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Discriminant",
+          "name": "discr_powerBasis_eq_prod''",
+          "statement": "Fin pb.dim \u2243 (L \u2192\u2090[K] E)) : algebraMap K E (discr K pb.basis) = (-1) ^ (n * (n - 1) / 2) * \u220f i : Fin pb.dim, \u220f j \u2208 Ioi i, (e j pb.gen - e i pb.gen) * (e i pb.gen - e j pb.gen)",
+          "have_tree": [
+            {
+              "name": "hle",
+              "type": "1 \u2264 pb.dim",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "2 \u2223 pb.dim * (pb.dim - 1)",
+              "body": "pb.dim.even_mul_pred_self.two_dvd",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Discriminant",
+      "name": "discr_powerBasis_eq_norm",
+      "statement": "discr K pb.basis = (-1) ^ (n * (n - 1) / 2) * norm K (aeval pb.gen (minpoly K pb.gen).derivative)",
+      "have_tree": [
+        {
+          "name": "e",
+          "type": "Fin pb.dim \u2243 (L \u2192\u2090[K] E)",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hnodup",
+          "type": "((minpoly K pb.gen).aroots E).Nodup",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Discriminant",
+          "name": "discr_powerBasis_eq_norm",
+          "statement": "discr K pb.basis = (-1) ^ (n * (n - 1) / 2) * norm K (aeval pb.gen (minpoly K pb.gen).derivative)",
+          "have_tree": [
+            {
+              "name": "hnodup",
+              "type": "((minpoly K pb.gen).aroots E).Nodup",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "e",
+              "type": "Fin pb.dim \u2243 (L \u2192\u2090[K] E)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Discriminant",
+      "name": "discr_mul_isIntegral_mem_adjoin",
+      "statement": "PowerBasis K L} (hint : IsIntegral R B.gen) {z : L} (hz : IsIntegral R z) : discr K B.basis \u2022 z \u2208 adjoin R ({B.gen} : Set L)",
+      "have_tree": [
+        {
+          "name": "hinv",
+          "type": "IsUnit (traceMatrix K B.basis).det",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "cramer",
+          "type": "",
+          "body": "mulVec_cramer (traceMatrix K B.basis) fun i => trace K L (z * B.basis i)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Discriminant",
+          "name": "discr_mul_isIntegral_mem_adjoin",
+          "statement": "PowerBasis K L} (hint : IsIntegral R B.gen) {z : L} (hz : IsIntegral R z) : discr K B.basis \u2022 z \u2208 adjoin R ({B.gen} : Set L)",
+          "have_tree": [
+            {
+              "name": "cramer",
+              "type": "",
+              "body": "mulVec_cramer (traceMatrix K B.basis) fun i => trace K L (z * B.basis i)",
+              "children": []
+            },
+            {
+              "name": "hinv",
+              "type": "IsUnit (traceMatrix K B.basis).det",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "module": "PrimitiveElement",
+    "name": "primitive_element_inf_aux",
+    "statement": "\u2203 \u03b3 : E, F\u27ee\u03b1, \u03b2\u27ef = F\u27ee\u03b3\u27ef",
+    "have_tree": [
+      {
+        "name": "h\u03b1",
+        "type": "",
+        "body": "Algebra.IsSeparable.isIntegral F \u03b1",
+        "children": []
+      },
+      {
+        "name": "h\u03b2",
+        "type": "",
+        "body": "Algebra.IsSeparable.isIntegral F \u03b2",
+        "children": [
+          {
+            "name": "\u03b1_in_F\u03b3",
+            "type": "\u03b1 \u2208 F\u27ee\u03b3\u27ef",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "\u03b1_in_F\u03b1\u03b2",
+            "type": "\u03b1 \u2208 F\u27ee\u03b1, \u03b2\u27ef",
+            "body": "subset_adjoin F {\u03b1, \u03b2} (Set.mem_insert \u03b1 {\u03b2})",
+            "children": []
+          },
+          {
+            "name": "\u03b2_in_F\u03b1\u03b2",
+            "type": "\u03b2 \u2208 F\u27ee\u03b1, \u03b2\u27ef",
+            "body": "subset_adjoin F {\u03b1, \u03b2} (Set.mem_insert_of_mem \u03b1 rfl)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "map_g_ne_zero",
+        "type": "g.map \u03b9FE \u2260 0",
+        "body": "map_ne_zero (minpoly.ne_zero h\u03b2)",
+        "children": []
+      },
+      {
+        "name": "h_ne_zero",
+        "type": "h \u2260 0",
+        "body": "",
+        "children": [
+          {
+            "name": "finale",
+            "type": "\u03b2 = algebraMap F\u27ee\u03b3\u27ef E (-p.coeff 0 / p.coeff 1)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_sep",
+        "type": "h.Separable",
+        "body": "separable_gcd_right _ (.map (Algebra.IsSeparable.isSeparable F \u03b2))",
+        "children": []
+      },
+      {
+        "name": "h_root",
+        "type": "h.eval \u03b2 = 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_splits",
+        "type": "Splits (h.map \u03b9EE')",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_roots",
+        "type": "\u2200 x \u2208 (h.map \u03b9EE').roots, x = \u03b9EE' \u03b2",
+        "body": "by",
+        "children": [
+          {
+            "name": "f_root",
+            "type": "",
+            "body": "root_left_of_root_gcd hx",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

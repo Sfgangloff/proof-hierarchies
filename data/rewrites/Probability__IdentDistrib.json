@@ -1,0 +1,99 @@
+[
+  {
+    "original": {
+      "module": "IdentDistrib",
+      "name": "MemLp.uniformIntegrable_of_identDistrib",
+      "statement": "Type*} {f : \u03b9 \u2192 \u03b1 \u2192 E} {j : \u03b9} {p : \u211d\u22650\u221e} (hp : 1 \u2264 p) (hp' : p \u2260 \u221e) (h\u2112p : MemLp (f j) p \u03bc) (hf : \u2200 i, IdentDistrib (f i) (f j) \u03bc \u03bc) : UniformIntegrable f p \u03bc",
+      "have_tree": [
+        {
+          "name": "hfmeas",
+          "type": "\u2200 i, AEStronglyMeasurable (f i) \u03bc",
+          "body": "fun i =>",
+          "children": []
+        },
+        {
+          "name": "hgmeas",
+          "type": "\u2200 i, StronglyMeasurable (g i)",
+          "body": "fun i => (Exists.choose_spec <| hfmeas i).1",
+          "children": []
+        },
+        {
+          "name": "hg\u2112p",
+          "type": "MemLp (g j) p \u03bc",
+          "body": "h\u2112p.ae_eq (hgeq j).symm",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "IdentDistrib",
+          "name": "MemLp.uniformIntegrable_of_identDistrib",
+          "statement": "Type*} {f : \u03b9 \u2192 \u03b1 \u2192 E} {j : \u03b9} {p : \u211d\u22650\u221e} (hp : 1 \u2264 p) (hp' : p \u2260 \u221e) (h\u2112p : MemLp (f j) p \u03bc) (hf : \u2200 i, IdentDistrib (f i) (f j) \u03bc \u03bc) : UniformIntegrable f p \u03bc",
+          "have_tree": [
+            {
+              "name": "hgmeas",
+              "type": "\u2200 i, StronglyMeasurable (g i)",
+              "body": "fun i => (Exists.choose_spec <| hfmeas i).1",
+              "children": []
+            },
+            {
+              "name": "hfmeas",
+              "type": "\u2200 i, AEStronglyMeasurable (f i) \u03bc",
+              "body": "fun i =>",
+              "children": []
+            },
+            {
+              "name": "hg\u2112p",
+              "type": "MemLp (g j) p \u03bc",
+              "body": "h\u2112p.ae_eq (hgeq j).symm",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "IdentDistrib",
+          "name": "MemLp.uniformIntegrable_of_identDistrib",
+          "statement": "Type*} {f : \u03b9 \u2192 \u03b1 \u2192 E} {j : \u03b9} {p : \u211d\u22650\u221e} (hp : 1 \u2264 p) (hp' : p \u2260 \u221e) (h\u2112p : MemLp (f j) p \u03bc) (hf : \u2200 i, IdentDistrib (f i) (f j) \u03bc \u03bc) : UniformIntegrable f p \u03bc",
+          "have_tree": [
+            {
+              "name": "hfmeas",
+              "type": "\u2200 i, AEStronglyMeasurable (f i) \u03bc",
+              "body": "fun i =>",
+              "children": []
+            },
+            {
+              "name": "hg\u2112p",
+              "type": "MemLp (g j) p \u03bc",
+              "body": "h\u2112p.ae_eq (hgeq j).symm",
+              "children": []
+            },
+            {
+              "name": "hgmeas",
+              "type": "\u2200 i, StronglyMeasurable (g i)",
+              "body": "fun i => (Exists.choose_spec <| hfmeas i).1",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "module": "Module",
+    "name": "exists_basis_of_basis_baseChange",
+    "statement": "Type*} (v : \u03b9 \u2192 M) (hli : LinearIndependent k (TensorProduct.mk R k M 1 \u2218 v)) (hsp : Submodule.span k (Set.range (TensorProduct.mk R k M 1 \u2218 v)) = \u22a4) (H : Function.Injective ((\ud835\udd2a).subtype.rTensor M)) : \u2203 (b : Basis \u03b9 R M), \u2200 i, b i = v i",
+    "have_tree": [
+      {
+        "name": "hi",
+        "type": "Surjective i",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite R (LinearMap.ker i)",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "Function.Surjective (i.baseChange k)",
+            "body": "i.lTensor_surjective _ hi",
+            "children": []
+          },
+          {
+            "name": "hi'",
+            "type": "Function.Bijective (i.baseChange k)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Module",
+    "name": "IsLocalRing.split_injective_iff_lTensor_residueField_injective",
+    "statement": "M \u2192\u2097[R] N) : (\u2203 l', l' \u2218\u2097 l = LinearMap.id) \u2194 Function.Injective (l.lTensor (ResidueField R))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "l'.lTensor (ResidueField R) \u2218\u2097 l.lTensor (ResidueField R) = .id",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Module.free_of_lTensor_residueField_injective l (LinearMap.range l).mkQ",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.Projective R (LinearMap.range l)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(Exact.split_tfae (LinearMap.exact_subtype_mkQ (LinearMap.range l))",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "(Exact.split_tfae this",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite R (LinearMap.ker l)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "Function.Injective ((LinearMap.ker l).subtype.lTensor k)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Subsingleton (k \u2297[R] LinearMap.ker l)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Function.Injective l",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Exact.split_tfae l.exact_map_mkQ_range this (Submodule.mkQ_surjective _)).out 0 1",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "module": "StackTuringMachine",
+    "name": "tr_respects_aux\u2082",
+    "statement": "K} {q : TM1.Stmt (\u0393' K \u0393) (\u039b' K \u0393 \u039b \u03c3) \u03c3} {v : \u03c3} {S : \u2200 k, List (\u0393 k)} {L : ListBlank (\u2200 k, Option (\u0393 k))} (hL : \u2200 k, L.map (proj k) = ListBlank.mk ((S k).map some).reverse) (o : StAct K \u0393 \u03c3 k) : let v'",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Tape.write_move_right_n fun a : \u0393' K \u0393 \u21a6 (a.1, update a.2 k (some (f v)))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StackTuringMachine",
+    "name": "tr_respects_aux",
+    "statement": "\u2200 k, List (\u0393 k)} (hT : \u2200 k, ListBlank.map (proj k) T = ListBlank.mk ((S k).map some).reverse) (o : StAct K \u0393 \u03c3 k) (IH : \u2200 {v : \u03c3} {S : \u2200 k : K, List (\u0393 k)} {T : ListBlank (\u2200 k, Option (\u0393 k))}, (\u2200 k, ListBlank.map (proj k) T = ListBlank.mk ((S k).map some).reverse) \u2192 \u2203 b, TrCfg (TM2.stepAux q v S) b \u2227 Reaches (TM1.step (tr M)) (TM1.stepAux (trNormal q) v (Tape.mk' \u2205 (addBottom T))) b) : \u2203 b, TrCfg (TM2.stepAux (stRun o q) v S) b \u2227 Reaches (TM1.step (tr M)) (TM1.stepAux (trNormal (stRun o q)) v (Tape.mk' \u2205 (addBottom T))) b",
+    "have_tree": [
+      {
+        "name": "hgo",
+        "type": "",
+        "body": "tr_respects_aux\u2081 M o q v (hT k) _ le_rfl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hgo.tail' rfl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StackTuringMachine",
+    "name": "tr_supports",
+    "statement": "TM2.Supports M S) : TM1.Supports (tr M) (trSupp M S)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hgo",
+        "type": "",
+        "body": "sub _ (Or.inl <| Or.inl rfl)",
+        "children": []
+      },
+      {
+        "name": "hret",
+        "type": "",
+        "body": "sub _ (Or.inl <| Or.inr rfl)",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "module": "Real",
+    "name": "eLpNorm_one_condExp_le_eLpNorm",
+    "statement": "\u03b1 \u2192 \u211d) : eLpNorm (\u03bc[f | m]) 1 \u03bc \u2264 eLpNorm f 1 \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 \u2264\u1d50[\u03bc] \u03bc[(|f|) | m]",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Real",
+    "name": "Integrable.uniformIntegrable_condExp",
+    "statement": "Type*} [IsFiniteMeasure \u03bc] {g : \u03b1 \u2192 \u211d} (hint : Integrable g \u03bc) {\u2131 : \u03b9 \u2192 MeasurableSpace \u03b1} (h\u2131 : \u2200 i, \u2131 i \u2264 m0) : UniformIntegrable (fun i => \u03bc[g | \u2131 i]) 1 \u03bc",
+    "have_tree": [
+      {
+        "name": "hmeas",
+        "type": "\u2200 n, \u2200 C, MeasurableSet {x | C \u2264 \u2016(\u03bc[g|\u2131 n]) x\u2016\u208a}",
+        "body": "fun n C =>",
+        "children": []
+      },
+      {
+        "name": "hg",
+        "type": "MemLp g 1 \u03bc",
+        "body": "memLp_one_iff_integrable.2 hint",
+        "children": []
+      },
+      {
+        "name": "hCpos",
+        "type": "0 < C",
+        "body": "mul_pos (inv_pos.2 h\u03b4) (ENNReal.toNNReal_pos hne hg.eLpNorm_lt_top.ne)",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Extensive",
+    "name": "finitaryExtensive_of_reflective",
+    "statement": "C \u2964 D} {Gr : D \u2964 C} (adj : Gl \u22a3 Gr) [Gr.Full] [Gr.Faithful] [\u2200 X Y (f : X \u27f6 Gl.obj Y), HasPullback (Gr.map f) (adj.unit.app Y)] [\u2200 X Y (f : X \u27f6 Gl.obj Y), PreservesLimit (cospan (Gr.map f) (adj.unit.app Y)) Gl] [PreservesPullbacksOfInclusions Gl] : FinitaryExtensive D",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "PreservesColimitsOfSize Gl",
+        "body": "adj.leftAdjoint_preservesColimits",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extensive",
+    "name": "FinitaryPreExtensive.hasPullbacks_of_is_coproduct",
+    "statement": "Type*} [Finite \u03b9] {F : Discrete \u03b9 \u2964 C} {c : Cocone F} (hc : IsColimit c) (i : Discrete \u03b9) {X : C} (g : X \u27f6 _) : HasPullback g (c.\u03b9.app i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsPullback (\ud835\udfd9 _) (g \u226b e'.hom) g e'.inv",
+        "body": "IsPullback.of_horiz_isIso \u27e8by simp\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extensive",
+    "name": "FinitaryPreExtensive.isIso_sigmaDesc_fst",
+    "statement": "Type} [Finite \u03b1] {X : C} {Z : \u03b1 \u2192 C} (\u03c0 : (a : \u03b1) \u2192 Z a \u27f6 X) {Y : C} (f : Y \u27f6 X) (h\u03c0 : IsIso (Sigma.desc \u03c0)) : IsIso (Sigma.desc ((fun _ \u21a6 pullback.fst _ _) : (a : \u03b1) \u2192 pullback f (\u03c0 a) \u27f6 _))",
+    "have_tree": [
+      {
+        "name": "hau",
+        "type": "IsUniversalColimit (Cofan.mk X \u03c0)",
+        "body": "FinitaryPreExtensive.isUniversal_finiteCoproducts",
+        "children": []
+      }
+    ]
+  }
+]

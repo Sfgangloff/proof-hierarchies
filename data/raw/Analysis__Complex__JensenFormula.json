@@ -1,0 +1,78 @@
+[
+  {
+    "module": "JensenFormula",
+    "name": "circleAverage_log_norm_factorizedRational",
+    "statement": "\u211d} {c : \u2102} (D : Function.locallyFinsuppWithin (closedBall c |R|) \u2124) : circleAverage (\u2211\u1da0 u, (D u * log \u2016\u00b7 - u\u2016)) c R = \u2211\u1da0 u, D u * log R",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "D.finiteSupport (isCompact_closedBall c |R|)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "JensenFormula",
+    "name": "MeromorphicOn.circleAverage_log_norm",
+    "statement": "\u2102} {R : \u211d} {f : \u2102 \u2192 \u2102} (hR : R \u2260 0) (h\u2081f : MeromorphicOn f (closedBall c |R|)) : circleAverage (log \u2016f \u00b7\u2016) c R = \u2211\u1da0 u, divisor f (closedBall c |R|) u * log (R * \u2016c - u\u2016\u207b\u00b9) + divisor f (closedBall c |R|) c * log R + log \u2016meromorphicTrailingCoeffAt f c\u2016",
+    "have_tree": [
+      {
+        "name": "h\u2084g",
+        "type": "",
+        "body": "extract_zeros_poles_log h\u2082g h\u2083g",
+        "children": []
+      },
+      {
+        "name": "t\u2080",
+        "type": "c \u2208 CB",
+        "body": "by simp [CB]",
+        "children": []
+      },
+      {
+        "name": "t\u2081",
+        "type": "AccPt c (\ud835\udcdf CB)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "JensenFormula",
+    "name": "AnalyticOnNhd.sum_divisor_le",
+    "statement": "\u2102} {r R M : \u211d} {f : \u2102 \u2192 \u2102} (r_pos : 0 < |r|) (r_lt_R : |r| < |R|) (hM : 1 \u2264 M) (h\u2081f : AnalyticOnNhd \u2102 f (closedBall c |R|)) (h\u2082f : f c \u2260 0) (f_bound : \u2200 z \u2208 sphere c |R|, \u2016f z\u2016 \u2264 M) : \u2211\u1da0 u, divisor f (closedBall c |r|) u \u2264 Real.log (M / \u2016f c\u2016) / Real.log (R / r)",
+    "have_tree": [
+      {
+        "name": "hrR",
+        "type": "1 < |R / r|",
+        "body": "by simpa [abs_div, one_lt_div r_pos]",
+        "children": []
+      },
+      {
+        "name": "jensen",
+        "type": "",
+        "body": "h\u2081f.circleAverage_log_norm (abs_ne_zero.mp (by linarith)) h\u2082f",
+        "children": []
+      },
+      {
+        "name": "integral_bound",
+        "type": "circleAverage (fun x \u21a6 Real.log \u2016f x\u2016) c R \u2264 Real.log M",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2016c - u\u2016 \u2260 0",
+            "body": "(r_pos.trans h2).ne'",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "u \u2209 closedBall c |r|",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

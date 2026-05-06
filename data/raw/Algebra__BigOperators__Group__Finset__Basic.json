@@ -1,0 +1,105 @@
+[
+  {
+    "module": "Basic",
+    "name": "prod_filter_mul_prod_filter_not",
+    "statement": "Finset \u03b9) (p : \u03b9 \u2192 Prop) [DecidablePred p] [\u2200 x, Decidable (\u00acp x)] (f : \u03b9 \u2192 M) : (\u220f x \u2208 s with p x, f x) * \u220f x \u2208 s with \u00acp x, f x = \u220f x \u2208 s, f x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Classical.decEq \u03b9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "prod_eq_mul_of_mem",
+    "statement": "Finset \u03b9} {f : \u03b9 \u2192 M} (a b : \u03b9) (ha : a \u2208 s) (hb : b \u2208 s) (hn : a \u2260 b) (h\u2080 : \u2200 c \u2208 s, c \u2260 a \u2227 c \u2260 b \u2192 f c = 1) : \u220f x \u2208 s, f x = f a * f b",
+    "have_tree": [
+      {
+        "name": "hu",
+        "type": "s' \u2286 s",
+        "body": "by grind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "prod_subtype_eq_prod_filter",
+    "statement": "\u03b9 \u2192 M) {p : \u03b9 \u2192 Prop} [DecidablePred p] : \u220f x \u2208 s.subtype p, f x = \u220f x \u2208 s with p x, f x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "prod_map (s.subtype p) (Function.Embedding.subtype _) f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "prod_involution",
+    "statement": "\u2200 a \u2208 s, \u03b9) (hg\u2081 : \u2200 a ha, f a * f (g a ha) = 1) (hg\u2083 : \u2200 a ha, f a \u2260 1 \u2192 g a ha \u2260 a) (g_mem : \u2200 a ha, g a ha \u2208 s) (hg\u2084 : \u2200 a ha, g (g a ha) (g_mem a ha) = a) : \u220f x \u2208 s, f x = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "{x, g x hx} \u2286 s",
+        "body": "by simp [insert_subset_iff, hx, g_mem]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "prod_biUnion_of_pairwise_eq_one",
+    "statement": "Finset \u03ba} {t : \u03ba \u2192 Finset \u03b9} (hs : (s : Set \u03ba).Pairwise fun i j \u21a6 \u2200 k \u2208 t i \u2229 t j, f k = 1) : \u220f x \u2208 s.biUnion t, f x = \u220f x \u2208 s, \u220f i \u2208 t x, f i",
+    "have_tree": [
+      {
+        "name": "hki",
+        "type": "k \u2208 t' i",
+        "body": "hai hk",
+        "children": []
+      },
+      {
+        "name": "hkj",
+        "type": "k \u2208 t' j",
+        "body": "haj hk",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "sum_range_tsub",
+    "statement": "\u2115 \u2192 M} (h : Monotone f) (n : \u2115) : \u2211 i \u2208 range n, (f (i + 1) - f i) = f n - f 0",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "f n \u2264 f (n + 1)",
+        "body": "h (Nat.le_succ _)",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "f 0 \u2264 f n",
+        "body": "h (Nat.zero_le _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "prod_subsingleton",
+    "statement": "\u03b9 \u2192 M) (a : \u03b9) : \u220f x : \u03b9, f x = f a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Unique \u03b9",
+        "body": "uniqueOfSubsingleton a",
+        "children": []
+      }
+    ]
+  }
+]

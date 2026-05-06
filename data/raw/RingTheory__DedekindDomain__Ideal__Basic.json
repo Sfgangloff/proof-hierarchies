@@ -1,0 +1,104 @@
+[
+  {
+    "module": "Basic",
+    "name": "FractionalIdeal.adjoinIntegral_eq_one_of_isUnit",
+    "statement": "K) (hx : IsIntegral A x) (hI : IsUnit (adjoinIntegral A\u2070 x hx)) : adjoinIntegral A\u2070 x hx = 1",
+    "have_tree": [
+      {
+        "name": "mul_self",
+        "type": "IsIdempotentElem I",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "dimensionLEOne",
+    "statement": "DimensionLEOne A",
+    "have_tree": [
+      {
+        "name": "zy_mem",
+        "type": "",
+        "body": "mul_mem_mul (mem_coeIdeal_of_mem A\u2070 hzM) hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "PrimeSpectrum.exists_multiset_prod_cons_le_and_prod_not_le",
+    "statement": "\u00acIsField A) {I M : Ideal A} (hI0 : I \u2260 \u22a5) (hIM : I \u2264 M) [hM : M.IsMaximal] : \u2203 Z : Multiset (PrimeSpectrum A), (M ::\u2098 Z.map asIdeal).prod \u2264 I \u2227 \u00acMultiset.prod (Z.map asIdeal) \u2264 I",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Multiset.map_erase asIdeal (fun _ _ => PrimeSpectrum.ext) P Z",
+        "children": []
+      },
+      {
+        "name": "hPM'",
+        "type": "",
+        "body": "(P.isPrime.isMaximal hP0).eq_of_le hM.ne_top hPM",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "not_inv_le_one_of_ne_bot",
+    "statement": "I \u2260 \u22a5) (hI1 : I \u2260 \u22a4) : \u00ac(I\u207b\u00b9 : FractionalIdeal A\u2070 K) \u2264 1",
+    "have_tree": [
+      {
+        "name": "hNF",
+        "type": "\u00acIsField A",
+        "body": "fun h \u21a6 letI := h.toField; (eq_bot_or_eq_top I).elim hI0 hI1",
+        "children": [
+          {
+            "name": "hMbot",
+            "type": "M \u2260 \u22a5",
+            "body": "(M.bot_lt_of_maximal hNF).ne'",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hI0",
+        "type": "\u22a5 < I",
+        "body": "I.bot_lt_of_maximal hNF",
+        "children": []
+      },
+      {
+        "name": "hJ0",
+        "type": "J \u2260 \u22a5",
+        "body": "mt Ideal.span_singleton_eq_bot.mp ha0",
+        "children": []
+      },
+      {
+        "name": "hJI",
+        "type": "J \u2264 I",
+        "body": "I.span_singleton_le_iff_mem.2 haI",
+        "children": []
+      },
+      {
+        "name": "hnz_fa",
+        "type": "algebraMap A K a \u2260 0",
+        "body": "",
+        "children": [
+          {
+            "name": "h_yb",
+            "type": "y * b \u2208 J",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "Ideal.mem_span_singleton'.mpr \u27e8x', IsFractionRing.injective A K h\u2082_abs\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

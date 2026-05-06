@@ -1,0 +1,53 @@
+[
+  {
+    "module": "Basic",
+    "name": "Normal.of_isSplittingField",
+    "statement": "F[X]) [hFEp : IsSplittingField F E p] : Normal F E",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "",
+        "body": "IsIntegral.of_finite F x",
+        "children": []
+      },
+      {
+        "name": "hL",
+        "type": "",
+        "body": "SplittingField.splits (p * minpoly F x)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "splits_of_mem_adjoin",
+    "statement": "Set K} (splits : \u2200 x \u2208 S, IsIntegral F x \u2227 ((minpoly F x).map (algebraMap F L)).Splits) {x : K} (hx : x \u2208 adjoin F S) : ((minpoly F x).map (algebraMap F L)).Splits",
+    "have_tree": [
+      {
+        "name": "normal",
+        "type": "Normal F E",
+        "body": "normal_iSup (h := fun x \u21a6",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 x \u2208 S, ((minpoly F x).map (algebraMap F E)).Splits",
+        "body": "fun x hx \u21a6 splits_of_splits",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_algEquiv_of_root",
+    "statement": "L} (hy : IsAlgebraic K y) (h_ev : (Polynomial.aeval x) (minpoly K y) = 0) : \u2203 \u03c3 : Gal(L/K), \u03c3 x = y",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "IsAlgebraic K x",
+        "body": "\u27e8minpoly K y, ne_zero hy.isIntegral, h_ev\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

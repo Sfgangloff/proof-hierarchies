@@ -1,0 +1,80 @@
+[
+  {
+    "module": "FinMeasAdditive",
+    "name": "map_empty_eq_zero",
+    "statement": "Set \u03b1 \u2192 \u03b2} (hT : FinMeasAdditive \u03bc T) : T \u2205 = 0",
+    "have_tree": [
+      {
+        "name": "h_empty",
+        "type": "\u03bc \u2205 \u2260 \u221e",
+        "body": "(measure_empty.le.trans_lt ENNReal.coe_lt_top).ne",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FinMeasAdditive",
+    "name": "of_measure_le",
+    "statement": "Measure \u03b1} (h : \u03bc \u2264 \u03bc') (hT : DominatedFinMeasAdditive \u03bc T C) (hC : 0 \u2264 C) : DominatedFinMeasAdditive \u03bc' T C",
+    "have_tree": [
+      {
+        "name": "h\u03bcs",
+        "type": "\u03bc s < \u221e",
+        "body": "(h s).trans_lt h\u03bc's",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FinMeasAdditive",
+    "name": "of_smul_measure",
+    "statement": "\u211d\u22650\u221e} (hc_ne_top : c \u2260 \u221e) (hT : DominatedFinMeasAdditive (c \u2022 \u03bc) T C) : DominatedFinMeasAdditive \u03bc T (c.toReal * C)",
+    "have_tree": [
+      {
+        "name": "hc\u03bcs",
+        "type": "c \u2022 \u03bc s \u2260 \u221e",
+        "body": "mt (h s hs) h\u03bcs.ne",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FinMeasAdditive",
+    "name": "map_setToSimpleFunc",
+    "statement": "Set \u03b1 \u2192 F \u2192L[\u211d] F') (h_add : FinMeasAdditive \u03bc T) {f : \u03b1 \u2192\u209b G} (hf : Integrable f \u03bc) {g : G \u2192 F} (hg : g 0 = 0) : (f.map g).setToSimpleFunc T = \u2211 x \u2208 f.range, T (f \u207b\u00b9' {x}) (g x)",
+    "have_tree": [
+      {
+        "name": "hfp",
+        "type": "\u2200 x \u2208 f.range, x \u2260 0 \u2192 \u03bc (f \u207b\u00b9' {x}) \u2260 \u221e",
+        "body": "fun x _ hx0 =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FinMeasAdditive",
+    "name": "setToSimpleFunc_congr'",
+    "statement": "Set \u03b1 \u2192 E \u2192L[\u211d] F) (h_add : FinMeasAdditive \u03bc T) {f g : \u03b1 \u2192\u209b E} (hf : Integrable f \u03bc) (hg : Integrable g \u03bc) (h : Pairwise fun x y => T (f \u207b\u00b9' {x} \u2229 g \u207b\u00b9' {y}) = 0) : f.setToSimpleFunc T = g.setToSimpleFunc T",
+    "have_tree": [
+      {
+        "name": "h_pair",
+        "type": "Integrable (f.pair g) \u03bc",
+        "body": "integrable_pair hf hg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FinMeasAdditive",
+    "name": "setToSimpleFunc_add",
+    "statement": "Set \u03b1 \u2192 E \u2192L[\u211d] F) (h_add : FinMeasAdditive \u03bc T) {f g : \u03b1 \u2192\u209b E} (hf : Integrable f \u03bc) (hg : Integrable g \u03bc) : setToSimpleFunc T (f + g) = setToSimpleFunc T f + setToSimpleFunc T g",
+    "have_tree": [
+      {
+        "name": "hp_pair",
+        "type": "Integrable (f.pair g) \u03bc",
+        "body": "integrable_pair hf hg",
+        "children": []
+      }
+    ]
+  }
+]

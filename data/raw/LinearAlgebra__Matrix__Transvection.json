@@ -1,0 +1,138 @@
+[
+  {
+    "module": "Transvection",
+    "name": "listTransvecCol_mul_last_row_drop",
+    "statement": "Fin r \u2295 Unit) {k : \u2115} (hk : k \u2264 r) : (((listTransvecCol M).drop k).prod * M) (inr unit) i = M (inr unit) i",
+    "have_tree": [
+      {
+        "name": "hn'",
+        "type": "n < (listTransvecCol M).length",
+        "body": "by simpa [listTransvecCol] using hn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Transvection",
+    "name": "listTransvecCol_mul_last_col",
+    "statement": "M (inr unit) (inr unit) \u2260 0) (i : Fin r) : ((listTransvecCol M).prod * M) (inl i) (inr unit) = 0",
+    "have_tree": [
+      {
+        "name": "hn'",
+        "type": "n < (listTransvecCol M).length",
+        "body": "by simpa [listTransvecCol] using hn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Transvection",
+    "name": "mul_listTransvecRow_last_col_take",
+    "statement": "Fin r \u2295 Unit) {k : \u2115} (hk : k \u2264 r) : (M * ((listTransvecRow M).take k).prod) i (inr unit) = M i (inr unit)",
+    "have_tree": [
+      {
+        "name": "hkr",
+        "type": "k < r",
+        "body": "hk",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Transvection",
+    "name": "mul_listTransvecRow_last_row",
+    "statement": "M (inr unit) (inr unit) \u2260 0) (i : Fin r) : (M * (listTransvecRow M).prod) (inr unit) (inl i) = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u00acr \u2264 i",
+        "body": "by simp",
+        "children": []
+      },
+      {
+        "name": "hnr",
+        "type": "n < r",
+        "body": "hk",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u00acn.succ \u2264 i",
+            "body": "by simp only [\u2190 hni, n.lt_succ_self, not_le]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Transvection",
+    "name": "exists_isTwoBlockDiagonal_list_transvec_mul_mul_list_transvec",
+    "statement": "Matrix (Fin r \u2295 Unit) (Fin r \u2295 Unit) \ud835\udd5c) : \u2203 L L' : List (TransvectionStruct (Fin r \u2295 Unit) \ud835\udd5c), IsTwoBlockDiagonal ((L.map toMatrix).prod * M * (L'.map toMatrix).prod)",
+    "have_tree": [
+      {
+        "name": "hM'",
+        "type": "M' (inr unit) (inr unit) \u2260 0",
+        "body": "by simpa [M', hM]",
+        "children": []
+      },
+      {
+        "name": "hM'",
+        "type": "M' (inr unit) (inr unit) \u2260 0",
+        "body": "by simpa [M', hM]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Transvection",
+    "name": "exists_list_transvec_mul_mul_list_transvec_eq_diagonal_aux",
+    "statement": "Type) [Fintype n] [DecidableEq n] (M : Matrix n n \ud835\udd5c) : \u2203 (L L' : List (TransvectionStruct n \ud835\udd5c)) (D : n \u2192 \ud835\udd5c), (L.map toMatrix).prod * M * (L'.map toMatrix).prod = diagonal D",
+    "have_tree": [
+      {
+        "name": "e",
+        "type": "n \u2243 Fin r \u2295 Unit",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Transvection",
+    "name": "exists_list_transvec_mul_mul_list_transvec_eq_diagonal",
+    "statement": "Matrix n n \ud835\udd5c) : \u2203 (L L' : List (TransvectionStruct n \ud835\udd5c)) (D : n \u2192 \ud835\udd5c), (L.map toMatrix).prod * M * (L'.map toMatrix).prod = diagonal D",
+    "have_tree": [
+      {
+        "name": "e",
+        "type": "n \u2243 Fin (Fintype.card n)",
+        "body": "Fintype.equivOfCardEq (by simp)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Transvection",
+    "name": "diagonal_transvection_induction",
+    "statement": "Matrix n n \ud835\udd5c \u2192 Prop) (M : Matrix n n \ud835\udd5c) (hdiag : \u2200 D : n \u2192 \ud835\udd5c, det (diagonal D) = det M \u2192 P (diagonal D)) (htransvec : \u2200 t : TransvectionStruct n \ud835\udd5c, P t.toMatrix) (hmul : \u2200 A B, P A \u2192 P B \u2192 P (A * B)) : P M",
+    "have_tree": [
+      {
+        "name": "PD",
+        "type": "P (diagonal D)",
+        "body": "hdiag D (by simp [h])",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Transvection",
+    "name": "diagonal_transvection_induction_of_det_ne_zero",
+    "statement": "Matrix n n \ud835\udd5c \u2192 Prop) (M : Matrix n n \ud835\udd5c) (hMdet : det M \u2260 0) (hdiag : \u2200 D : n \u2192 \ud835\udd5c, det (diagonal D) \u2260 0 \u2192 P (diagonal D)) (htransvec : \u2200 t : TransvectionStruct n \ud835\udd5c, P t.toMatrix) (hmul : \u2200 A B, det A \u2260 0 \u2192 det B \u2260 0 \u2192 P A \u2192 P B \u2192 P (A * B)) : P M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Q M",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

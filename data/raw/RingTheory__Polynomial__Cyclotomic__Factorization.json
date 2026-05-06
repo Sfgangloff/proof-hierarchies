@@ -1,0 +1,116 @@
+[
+  {
+    "module": "Factorization",
+    "name": "f_ne_zero",
+    "statement": "f \u2260 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (Irreducible P)",
+        "body": "\u27e8hPirr\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hPmo.finite_adjoinRoot",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Finite (AdjoinRoot P)",
+        "body": "Module.finite_of_finite K",
+        "children": []
+      },
+      {
+        "name": "h\u03b6",
+        "type": "IsPrimitiveRoot (root P) n",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "charP_of_card_eq_prime_pow hK",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h\u03b6'",
+        "type": "",
+        "body": "isOfFinOrder_iff_pow_eq_one.mpr",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Factorization",
+    "name": "natDegree_of_dvd_cyclotomic_of_irreducible",
+    "statement": "P \u2223 cyclotomic n K) (hPirr : Irreducible P) : P.natDegree = orderOf (unitOfCoprime _ (hn.pow_left f))",
+    "have_tree": [
+      {
+        "name": "hQ",
+        "type": "P * C P.leadingCoeff\u207b\u00b9 \u2223 cyclotomic n K",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Factorization",
+    "name": "irreducible_of_dvd_cyclotomic_of_natDegree",
+    "statement": "P \u2223 cyclotomic n K) (hPdeg : P.natDegree = orderOf (unitOfCoprime _ (hn.pow_left f))) : Irreducible P",
+    "have_tree": [
+      {
+        "name": "hP0",
+        "type": "P \u2260 0",
+        "body": "ne_zero_of_dvd_ne_zero (cyclotomic_ne_zero n K) hP",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Factorization",
+    "name": "normalizedFactors_cyclotomic_card",
+    "statement": "(normalizedFactors (cyclotomic n K)).toFinset.card = \u03c6 n / orderOf (unitOfCoprime _ (hn.pow_left f))",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "prod_normalizedFactors (cyclotomic_ne_zero n K)",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "natDegree_eq_of_degree_eq <| degree_eq_degree_of_associated h",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "charP_of_card_eq_prime_pow hK",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hP",
+        "type": "P \u2208 normalizedFactors (cyclotomic n K)",
+        "body": "count_pos.mp (by lia)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "{P, P} \u2264 normalizedFactors (cyclotomic n K)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "prod_dvd_prod_of_le this",
+        "children": []
+      }
+    ]
+  }
+]

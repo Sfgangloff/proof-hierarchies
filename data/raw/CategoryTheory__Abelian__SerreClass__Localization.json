@@ -1,0 +1,413 @@
+[
+  {
+    "module": "Localization",
+    "name": "exists_epiModSerre_comp_eq_zero_iff",
+    "statement": "C} (f : X \u27f6 Y) : (\u2203 (X' : C) (s : X' \u27f6 X) (_ : P.epiModSerre s), s \u226b f = 0) \u2194 P (Abelian.image f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "P.epiModSerre.comp_mem s (Abelian.factorThruImage f) hs",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "exists_comp_monoModSerre_eq_zero_iff",
+    "statement": "C} (f : X \u27f6 Y) : (\u2203 (Y' : C) (s : Y \u27f6 Y') (_ : P.monoModSerre s), f \u226b s = 0) \u2194 P (Abelian.image f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "P.monoModSerre.comp_mem (Abelian.factorThruCoimage f) s",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "map_comp_eq_zero_iff_of_epi_mono",
+    "statement": "C} (f : X \u27f6 Z) (g : Z \u27f6 Y) [Epi f] [Mono g] : L.map f \u226b L.map g = 0 \u2194 P Z",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "strongEpi_of_epi f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "mono_map_tfae",
+    "statement": "C} (f : X \u27f6 Y) : List.TFAE [Mono (L.map f), P.monoModSerre f, \u2200 \u2983Z : C\u2984 (z : Z \u27f6 X), L.map z \u226b L.map f = 0 \u2192 L.map z = 0]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Localization.essSurj L P.isoModSerre",
+        "children": [
+          {
+            "name": "hs",
+            "type": "",
+            "body": "Localization.inverts L P.isoModSerre \u03c6.s \u03c6.hs",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "epi_map_tfae",
+    "statement": "C} (f : X \u27f6 Y) : List.TFAE [Epi (L.map f), P.epiModSerre f, \u2200 \u2983Z : C\u2984 (z : Y \u27f6 Z), L.map f \u226b L.map z = 0 \u2192 L.map z = 0]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Localization.essSurj L P.isoModSerre",
+        "children": [
+          {
+            "name": "hs",
+            "type": "",
+            "body": "Localization.inverts L P.isoModSerre \u03c6.s \u03c6.hs",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "preservesMonomorphisms",
+    "statement": "L.PreservesMonomorphisms where preserves f _",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesMonomorphisms L P",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Localization.essSurj_mapArrow L P.isoModSerre",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Localization.inverts L P.isoModSerre _ hf.isoModSerre_factorThruImage",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "epi_iff",
+    "statement": "D} (f : X \u27f6 Y) : Epi f \u2194 \u2203 (X' Y' : C) (f' : X' \u27f6 Y') (_ : Epi f'), Nonempty (Arrow.mk (L.map f') \u2245 Arrow.mk f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesEpimorphisms L P",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Localization.essSurj_mapArrow L P.isoModSerre",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Localization.inverts L P.isoModSerre _ hf.isoModSerre_image_\u03b9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "preservesKernel",
+    "statement": "C} (f : X \u27f6 Y) : PreservesLimit (parallelPair f 0) L",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesMonomorphisms L P",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Localization.essSurj L P.isoModSerre",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Localization.inverts L P.isoModSerre \u03c6.s \u03c6.hs",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Localization.inverts L P.isoModSerre t ht",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "preservesCokernel",
+    "statement": "C} (f : X \u27f6 Y) : PreservesColimit (parallelPair f 0) L",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesEpimorphisms L P",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Localization.essSurj L P.isoModSerre",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Localization.inverts L P.isoModSerre \u03c6.s \u03c6.hs",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Localization.inverts L P.isoModSerre t ht",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "hasKernels",
+    "statement": "HasKernels D where has_limit f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesKernel L P g.hom",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasLimit (parallelPair (L.map g.hom) 0)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "hasCokernels",
+    "statement": "HasCokernels D where has_colimit f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesCokernel L P g.hom",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasColimit (parallelPair (L.map g.hom) 0)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "hasEqualizers",
+    "statement": "HasEqualizers D",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasKernels L P",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "hasCoequalizers",
+    "statement": "HasCoequalizers D",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasCokernels L P",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "hasBinaryProducts",
+    "statement": "HasBinaryProducts D",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Localization.essSurj L P.isoModSerre",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "hasFiniteProducts",
+    "statement": "HasFiniteProducts D",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasZeroObject L P",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasBinaryProducts L P",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "isNormalMonoCategory",
+    "statement": "IsNormalMonoCategory D where normalMonoOfMono f hf",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesKernel L P hf'.g",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "isNormalEpiCategory",
+    "statement": "IsNormalEpiCategory D where normalEpiOfEpi f hf",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesCokernel L P hf'.g",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "abelian",
+    "statement": "Abelian D",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasFiniteProducts L P",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasKernels L P",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasCokernels L P",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isNormalMonoCategory L P",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isNormalEpiCategory L P",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "preservesFiniteLimits_comp_iff",
+    "statement": "PreservesFiniteLimits (L \u22d9 G) \u2194 PreservesFiniteLimits G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesFiniteLimits L P",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Localization.functor_additive_iff L P.isoModSerre G).mpr",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "PreservesLimit (parallelPair (L.map f'.hom) 0) G",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Localization",
+    "name": "preservesFiniteColimits_comp_iff",
+    "statement": "PreservesFiniteColimits (L \u22d9 G) \u2194 PreservesFiniteColimits G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesFiniteColimits L P",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Localization.functor_additive_iff L P.isoModSerre G).mpr (by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "preservesBinaryBiproducts_of_preservesBinaryCoproducts (L \u22d9 G)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "PreservesColimit (parallelPair (L.map f'.hom) 0) G",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

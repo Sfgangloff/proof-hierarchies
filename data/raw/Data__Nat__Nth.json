@@ -1,0 +1,67 @@
+[
+  {
+    "module": "Nth",
+    "name": "nth_le_of_strictMonoOn_of_mapsTo",
+    "statement": "\u2115 \u2192 Prop} (f : \u2115 \u2192 \u2115) (hmaps : Set.MapsTo f { n : \u2115 | \u2200 hf : Set.Finite (setOf p), n < hf.toFinset.card } (setOf p)) (hmono : StrictMonoOn f { n : \u2115 | \u2200 hf : Set.Finite (setOf p), n < hf.toFinset.card }) {n : \u2115} : nth p n \u2264 f n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "f k < f n",
+        "body": "by apply hmono <;> grind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nth",
+    "name": "nth_comp_of_strictMono",
+    "statement": "\u2115} {f : \u2115 \u2192 \u2115} (hf : StrictMono f) (h0 : \u2200 k, p k \u2192 k \u2208 Set.range f) (h : \u2200 hfi : (setOf p).Finite, n < hfi.toFinset.card) : f (nth (fun i \u21a6 p (f i)) n) = nth p n",
+    "have_tree": [
+      {
+        "name": "h0'",
+        "type": "\u2200 k', (p k' \u2227 \u2200 k < n + 1, nth p k < k') \u2192 k' \u2208 Set.range f",
+        "body": "fun _ h \u21a6 h0 _ h.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nth",
+    "name": "filter_range_nth_eq_insert",
+    "statement": "\u2115} (hlt : \u2200 hf : (setOf p).Finite, k + 1 < #hf.toFinset) : {n \u2208 range (nth p (k + 1)) | p n} = insert (nth p k) {n \u2208 range (nth p k) | p n}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "nth p k < nth p (k + 1)",
+        "body": "nth_lt_nth' k.lt_succ_self hlt",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nth",
+    "name": "nth_count_eq_sInf",
+    "statement": "\u2115) : nth p (count p n) = sInf {i : \u2115 | p i \u2227 n \u2264 i}",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "nth p (count p a) < a",
+        "body": "h _ (count_strict_mono hpa ha)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nth",
+    "name": "nth_true",
+    "statement": "\u2115) : nth (fun _ \u21a6 True) n = n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "setOf p \u2286 Finset.range n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

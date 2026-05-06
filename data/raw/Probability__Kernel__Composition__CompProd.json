@@ -1,0 +1,53 @@
+[
+  {
+    "module": "CompProd",
+    "name": "compProd_deterministic_apply",
+    "statement": "\u03b1 \u00d7 \u03b2 \u2192 \u03b3} (hf : Measurable f) {s : Set (\u03b2 \u00d7 \u03b3)} (hs : MeasurableSet s) (\u03ba : Kernel \u03b1 \u03b2) [IsSFiniteKernel \u03ba] (x : \u03b1) : (\u03ba \u2297\u2096 deterministic f hf) x s = \u03ba x {b | (b, f (x, b)) \u2208 s}",
+    "have_tree": [
+      {
+        "name": "ht",
+        "type": "MeasurableSet t",
+        "body": "(measurable_id.prodMk (hf.comp measurable_prodMk_left)) hs",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CompProd",
+    "name": "ae_kernel_lt_top",
+    "statement": "\u03b1) (h2s : (\u03ba \u2297\u2096 \u03b7) a s \u2260 \u221e) : \u2200\u1d50 b \u2202\u03ba a, \u03b7 (a, b) (Prod.mk b \u207b\u00b9' s) < \u221e",
+    "have_tree": [
+      {
+        "name": "ht",
+        "type": "MeasurableSet t",
+        "body": "measurableSet_toMeasurable _ _",
+        "children": []
+      },
+      {
+        "name": "h2t",
+        "type": "(\u03ba \u2297\u2096 \u03b7) a t \u2260 \u221e",
+        "body": "by rwa [measure_toMeasurable]",
+        "children": []
+      },
+      {
+        "name": "ht_lt_top",
+        "type": "\u2200\u1d50 b \u2202\u03ba a, \u03b7 (a, b) (Prod.mk b \u207b\u00b9' t) < \u221e",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CompProd",
+    "name": "lintegral_compProd'",
+    "statement": "Kernel \u03b1 \u03b2) [IsSFiniteKernel \u03ba] (\u03b7 : Kernel (\u03b1 \u00d7 \u03b2) \u03b3) [IsSFiniteKernel \u03b7] (a : \u03b1) {f : \u03b2 \u2192 \u03b3 \u2192 \u211d\u22650\u221e} (hf : Measurable (Function.uncurry f)) : \u222b\u207b bc, f bc.1 bc.2 \u2202(\u03ba \u2297\u2096 \u03b7) a = \u222b\u207b b, \u222b\u207b c, f b c \u2202\u03b7 (a, b) \u2202\u03ba a",
+    "have_tree": [
+      {
+        "name": "h_mono",
+        "type": "Monotone F",
+        "body": "fun i j hij b =>",
+        "children": []
+      }
+    ]
+  }
+]

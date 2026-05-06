@@ -1,0 +1,132 @@
+[
+  {
+    "module": "NormalForm",
+    "name": "meromorphicNFAt_iff_analyticAt_or",
+    "statement": "MeromorphicNFAt f x \u2194 AnalyticAt \ud835\udd5c f x \u2228 (MeromorphicAt f x \u2227 meromorphicOrderAt f x < 0 \u2227 f x = 0)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "analyticOrderAt f x \u2260 \u22a4",
+        "body": "h\u2082f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalForm",
+    "name": "MeromorphicNFAt.meromorphicOrderAt_eq_zero_iff",
+    "statement": "MeromorphicNFAt f x) : meromorphicOrderAt f x = 0 \u2194 f x \u2260 0",
+    "have_tree": [
+      {
+        "name": "h\u2082f",
+        "type": "",
+        "body": "hf.meromorphicOrderAt_nonneg_iff_analyticAt.1 (le_of_eq h\u2081f.symm)",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "h\u2083g.eq_of_nhds",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "NormalForm",
+    "name": "MeromorphicNFAt.eventuallyEq_nhdsNE_iff_eventuallyEq_nhds",
+    "statement": "\ud835\udd5c \u2192 E} (hf : MeromorphicNFAt f x) (hg : MeromorphicNFAt g x) : f =\u1da0[\ud835\udcdd[\u2260] x] g \u2194 f =\u1da0[\ud835\udcdd x] g",
+    "have_tree": [
+      {
+        "name": "t\u2080",
+        "type": "",
+        "body": "meromorphicOrderAt_congr h",
+        "children": [
+          {
+            "name": "Z",
+            "type": "",
+            "body": "(hf.meromorphicOrderAt_nonneg_iff_analyticAt.1 (le_of_eq cs.symm)).continuousAt",
+            "children": []
+          },
+          {
+            "name": "W",
+            "type": "",
+            "body": "(hg.meromorphicOrderAt_nonneg_iff_analyticAt.1 (le_of_eq t\u2080)).continuousAt",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "NormalForm",
+    "name": "meromorphicNFAt_inv",
+    "statement": "\ud835\udd5c \u2192 \ud835\udd5c} : MeromorphicNFAt f\u207b\u00b9 x \u2194 MeromorphicNFAt f x where mp hf",
+    "have_tree": [
+      {
+        "name": "hgAnalytic",
+        "type": "AnalyticAt \ud835\udd5c g x",
+        "body": "by grind [meromorphicNFAt_iff_analyticAt_or]",
+        "children": []
+      },
+      {
+        "name": "hgInvAnalytic",
+        "type": "AnalyticAt \ud835\udd5c g\u207b\u00b9 x",
+        "body": "hgAnalytic.inv hgne",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalForm",
+    "name": "toMeromorphicNFAt_eq_self",
+    "statement": "toMeromorphicNFAt f x = f \u2194 MeromorphicNFAt f x where mp hf",
+    "have_tree": [
+      {
+        "name": "h\u2080f",
+        "type": "",
+        "body": "hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalForm",
+    "name": "MeromorphicNFOn",
+    "statement": "\ud835\udd5c \u2192 E) (U : Set \ud835\udd5c)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalForm",
+    "name": "AnalyticOnNhd.meromorphicNFOn",
+    "statement": "AnalyticOnNhd \ud835\udd5c f U) : MeromorphicNFOn f U",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h\u2081f ((MeromorphicOn.divisor f U).supportWithinDomain hu)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalForm",
+    "name": "toMeromorphicNFOn_eqOn_codiscrete",
+    "statement": "MeromorphicOn f U) : f =\u1da0[Filter.codiscreteWithin U] toMeromorphicNFOn f U",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "U \u2208 Filter.codiscreteWithin U",
+        "body": "by simp",
+        "children": []
+      }
+    ]
+  }
+]

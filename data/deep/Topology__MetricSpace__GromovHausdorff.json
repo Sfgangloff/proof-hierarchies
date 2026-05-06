@@ -1,0 +1,378 @@
+[
+  {
+    "module": "GromovHausdorff",
+    "name": "hausdorffDist_optimal",
+    "statement": "Type u} [MetricSpace X] [CompactSpace X] [Nonempty X] {Y : Type v} [MetricSpace Y] [CompactSpace Y] [Nonempty Y] : hausdorffDist (range (optimalGHInjl X Y)) (range (optimalGHInjr X Y)) = ghDist X Y",
+    "have_tree": [
+      {
+        "name": "I",
+        "type": "diam (range \u03a6 \u222a range \u03a8) \u2264 2 * diam (univ : Set X) + 1 + 2 * diam (univ : Set Y)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2203 y \u2208 range \u03a8, dist (\u03a6 xX) y < diam (univ : Set X) + 1 + diam (univ : Set Y)",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "\u03a6 xX \u2208 (p : Set _)",
+                "body": "\u03a6range \u25b8 (mem_range_self _)",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "D\u03a6",
+            "type": "diam (range \u03a6) = diam (univ : Set X)",
+            "body": "\u03a6isom.diam_range",
+            "children": []
+          },
+          {
+            "name": "D\u03a8",
+            "type": "diam (range \u03a8) = diam (univ : Set Y)",
+            "body": "\u03a8isom.diam_range",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Fgood",
+        "type": "F \u2208 candidates X Y",
+        "body": "by",
+        "children": [
+          {
+            "name": "A",
+            "type": "\u2200 z : X \u2295 Y, f z \u2208 range \u03a6 \u222a range \u03a8",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "hausdorffDist (range (optimalGHInjl X Y)) (range (optimalGHInjr X Y)) \u2264 HD Fb",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "I1",
+        "type": "\u2200 x : X, (\u2a05 y, Fb (inl x, inr y)) \u2264 r",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "f (inl x) \u2208 (p : Set _)",
+            "body": "\u03a6range \u25b8 (mem_range_self _)",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "z \u2208 range \u03a8",
+            "body": "by rwa [\u2190 \u03a8range] at zq",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "I2",
+        "type": "\u2200 y : Y, (\u2a05 x, Fb (inl x, inr y)) \u2264 r",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "f (inr y) \u2208 (q : Set _)",
+            "body": "\u03a8range \u25b8 (mem_range_self _)",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "z \u2208 range \u03a6",
+            "body": "by rwa [\u2190 \u03a6range] at zq",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "GromovHausdorff",
+    "name": "ghDist_le_of_approx_subsets",
+    "statement": "Set X} (\u03a6 : s \u2192 Y) {\u03b5\u2081 \u03b5\u2082 \u03b5\u2083 : \u211d} (hs : \u2200 x : X, \u2203 y \u2208 s, dist x y \u2264 \u03b5\u2081) (hs' : \u2200 x : Y, \u2203 y : s, dist x (\u03a6 y) \u2264 \u03b5\u2083) (H : \u2200 x y : s, |dist x y - dist (\u03a6 x) (\u03a6 y)| \u2264 \u03b5\u2082) : ghDist X Y \u2264 \u03b5\u2081 + \u03b5\u2082 / 2 + \u03b5\u2083",
+    "have_tree": [
+      {
+        "name": "sne",
+        "type": "s.Nonempty",
+        "body": "\u27e8xs, hxs\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 \u2264 \u03b5\u2082",
+        "body": "le_trans (abs_nonneg _) (H \u27e8xs, hxs\u27e9 \u27e8xs, hxs\u27e9)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 p q : s, |dist p q - dist (\u03a6 p) (\u03a6 q)| \u2264 2 * (\u03b5\u2082 / 2 + \u03b4)",
+        "body": "fun p q =>",
+        "children": []
+      },
+      {
+        "name": "Il",
+        "type": "Isometry Fl",
+        "body": "Isometry.of_dist_eq fun x y => rfl",
+        "children": []
+      },
+      {
+        "name": "Ir",
+        "type": "Isometry Fr",
+        "body": "Isometry.of_dist_eq fun x y => rfl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "ghDist X Y \u2264 hausdorffDist (range Fl) (range Fr)",
+        "body": "ghDist_le_hausdorffDist Il Ir",
+        "children": [
+          {
+            "name": "B",
+            "type": "IsBounded (range Fl)",
+            "body": "(isCompact_range Il.continuous).isBounded",
+            "children": []
+          },
+          {
+            "name": "B",
+            "type": "IsBounded (range Fr)",
+            "body": "(isCompact_range Ir.continuous).isBounded",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "hausdorffDist (range Fl) (Fl '' s) \u2264 \u03b5\u2081",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 \u2264 \u03b5\u2081",
+            "body": "le_trans dist_nonneg Dxs",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "hausdorffDist (Fl '' s) (Fr '' range \u03a6) \u2264 \u03b5\u2082 / 2 + \u03b4",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "hausdorffDist (Fr '' range \u03a6) (range Fr) \u2264 \u03b5\u2083",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 \u2264 \u03b5\u2083",
+            "body": "le_trans dist_nonneg Dxs'",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "GromovHausdorff",
+    "name": "totallyBounded",
+    "statement": "Set GHSpace} {C : \u211d} {u : \u2115 \u2192 \u211d} {K : \u2115 \u2192 \u2115} (ulim : Tendsto u atTop (\ud835\udcdd 0)) (hdiam : \u2200 p \u2208 t, diam (univ : Set (GHSpace.Rep p)) \u2264 C) (hcov : \u2200 p \u2208 t, \u2200 n : \u2115, \u2203 s : Set (GHSpace.Rep p), (#s) \u2264 K n \u2227 univ \u2286 \u22c3 x \u2208 s, ball x (u n)) : TotallyBounded t",
+    "have_tree": [
+      {
+        "name": "\u03b5pos",
+        "type": "0 < \u03b5",
+        "body": "mul_pos (by simp) \u03b4pos",
+        "children": []
+      },
+      {
+        "name": "u_le_\u03b5",
+        "type": "u n \u2264 \u03b5",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hn n le_rfl",
+            "children": [
+              {
+                "name": "_",
+                "type": "#s = #(Fin N)",
+                "body": "by rw [hN, Cardinal.mk_fin]",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Npq",
+        "type": "N p = N q",
+        "body": "Fin.ext_iff.1 (Sigma.mk.inj_iff.1 hpq).1",
+        "children": []
+      },
+      {
+        "name": "main",
+        "type": "ghDist p.Rep q.Rep \u2264 \u03b5 + \u03b5 / 2 + \u03b5",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "x \u2208 \u22c3 y \u2208 s p, ball y (u n)",
+            "body": "(hs p pt) (mem_univ _)",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "x \u2208 \u22c3 y \u2208 s q, ball y (u n)",
+            "body": "(hs q qt) (mem_univ _)",
+            "children": []
+          },
+          {
+            "name": "ihi_eq",
+            "type": "(\u27e8i, hi\u27e9 : Fin (N q)) = (E q) \u27e8y, ys\u27e9",
+            "body": "by rw [Fin.ext_iff, Fin.val_mk]",
+            "children": []
+          },
+          {
+            "name": "hiq",
+            "type": "i < N q",
+            "body": "hi",
+            "children": []
+          },
+          {
+            "name": "hip",
+            "type": "i < N p",
+            "body": "by rwa [Npq.symm] at hiq",
+            "children": []
+          },
+          {
+            "name": "C1",
+            "type": "(E p) z = \u27e8i, hip\u27e9",
+            "body": "(E p).apply_symm_apply \u27e8i, hip\u27e9",
+            "children": []
+          },
+          {
+            "name": "C2",
+            "type": "Fin.cast Npq \u27e8i, hip\u27e9 = \u27e8i, hi\u27e9",
+            "body": "rfl",
+            "children": []
+          },
+          {
+            "name": "C3",
+            "type": "(E q).symm \u27e8i, hi\u27e9 = \u27e8y, ys\u27e9",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u03a6 z = y",
+            "body": "by simp only [\u03a8, \u03a6]; rw [C1, C2, C3]",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "dist (\u03a6 x) (\u03a6 y) = dist (\u03a8 x) (\u03a8 y)",
+            "body": "rfl",
+            "children": []
+          },
+          {
+            "name": "hip",
+            "type": "i < N p",
+            "body": "((E p) x).2",
+            "children": []
+          },
+          {
+            "name": "hiq",
+            "type": "i < N q",
+            "body": "by rwa [Npq] at hip",
+            "children": []
+          },
+          {
+            "name": "i'",
+            "type": "i = (E q) (\u03a8 x)",
+            "body": "by simp only [i, \u03a8, Equiv.apply_symm_apply, Fin.val_cast]",
+            "children": []
+          },
+          {
+            "name": "hjp",
+            "type": "j < N p",
+            "body": "((E p) y).2",
+            "children": []
+          },
+          {
+            "name": "hjq",
+            "type": "j < N q",
+            "body": "by rwa [Npq] at hjp",
+            "children": []
+          },
+          {
+            "name": "j'",
+            "type": "j = (E q) (\u03a8 y)",
+            "body": "by simp only [j, \u03a8, Equiv.apply_symm_apply, Fin.val_cast]",
+            "children": []
+          },
+          {
+            "name": "Ap",
+            "type": "((F p).2 \u27e8i, hip\u27e9 \u27e8j, hjp\u27e9).1 = \u230a\u03b5\u207b\u00b9 * dist x y\u230b\u208a",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "Aq",
+            "type": "((F q).2 \u27e8i, hiq\u27e9 \u27e8j, hjq\u27e9).1 = \u230a\u03b5\u207b\u00b9 * dist (\u03a8 x) (\u03a8 y)\u230b\u208a",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "((F p).2 \u27e8i, hip\u27e9 \u27e8j, hjp\u27e9).1 = ((F q).2 \u27e8i, hiq\u27e9 \u27e8j, hjq\u27e9).1",
+            "body": "by",
+            "children": [
+              {
+                "name": "hpq'",
+                "type": "(F p).snd \u224d (F q).snd",
+                "body": "(Sigma.mk.inj_iff.1 hpq).2",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "\u230a\u03b5\u207b\u00b9 * dist x y\u230b = \u230a\u03b5\u207b\u00b9 * dist (\u03a8 x) (\u03a8 y)\u230b",
+            "body": "by",
+            "children": [
+              {
+                "name": "D",
+                "type": "0 \u2264 \u230a\u03b5\u207b\u00b9 * dist x y\u230b",
+                "body": "",
+                "children": []
+              },
+              {
+                "name": "D'",
+                "type": "0 \u2264 \u230a\u03b5\u207b\u00b9 * dist (\u03a8 x) (\u03a8 y)\u230b",
+                "body": "",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "I",
+            "type": "",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

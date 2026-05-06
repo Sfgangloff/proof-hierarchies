@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Matrix",
+      "name": "hasEigenvalue_toLin_diagonal_iff",
+      "statement": "n \u2192 R) {\u03bc : R} [IsDomain R] [IsTorsionFree R M] (b : Basis n R M) : HasEigenvalue (toLin b b (diagonal d)) \u03bc \u2194 \u2203 i, d i = \u03bc",
+      "have_tree": [
+        {
+          "name": "h\u03bc_notMem",
+          "type": "\u03bc \u2209 Set.range d",
+          "body": "by simpa using fun i \u21a6 (h\u03bc i)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "eigenspaces_iSupIndep (toLin b b (diagonal d)) |>.disjoint_biSup h\u03bc_notMem",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Matrix",
+          "name": "hasEigenvalue_toLin_diagonal_iff",
+          "statement": "n \u2192 R) {\u03bc : R} [IsDomain R] [IsTorsionFree R M] (b : Basis n R M) : HasEigenvalue (toLin b b (diagonal d)) \u03bc \u2194 \u2203 i, d i = \u03bc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "eigenspaces_iSupIndep (toLin b b (diagonal d)) |>.disjoint_biSup h\u03bc_notMem",
+              "children": []
+            },
+            {
+              "name": "h\u03bc_notMem",
+              "type": "\u03bc \u2209 Set.range d",
+              "body": "by simpa using fun i \u21a6 (h\u03bc i)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

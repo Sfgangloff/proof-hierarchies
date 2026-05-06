@@ -1,0 +1,143 @@
+[
+  {
+    "module": "lpSpace",
+    "name": "of_exponent_ge",
+    "statement": "\u211d\u22650\u221e} {f : \u2200 i, E i} (hfq : Mem\u2113p f q) (hpq : q \u2264 p) : Mem\u2113p f p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 i \u2209 hfq.finite_dsupport.toFinset, \u2016f i\u2016 ^ p.toReal = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "f i = 0",
+            "body": "by simpa using hi",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "0 \u2264 \u2016f i\u2016 ^ q.toReal",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "hf'",
+        "type": "",
+        "body": "hfq.summable hq",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 \u2264 \u2016f i\u2016 ^ p.toReal",
+            "body": "Real.rpow_nonneg (norm_nonneg _) p.toReal",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "lpSpace",
+    "name": "norm_eq_zero_iff",
+    "statement": "lp E p} : \u2016f\u2016 = 0 \u2194 f = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "{ i : \u03b1 | \u00acf i = 0 } = \u2205",
+        "body": "by simpa [lp.norm_eq_card_dsupport f] using h",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(\u00acf i = 0) = False",
+        "body": "congr_fun this i",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "IsLUB (Set.range fun i => \u2016f i\u2016) 0",
+        "body": "by simpa [h] using lp.isLUB_norm f",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2016f i\u2016 = 0",
+        "body": "le_antisymm (H.1 \u27e8i, rfl\u27e9) (norm_nonneg _)",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "lp.hasSum_norm hp f",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u2200 i, 0 \u2264 \u2016f i\u2016 ^ p.toReal",
+        "body": "fun i => Real.rpow_nonneg (norm_nonneg _) _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "f i = 0 \u2227 p.toReal \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "lpSpace",
+    "name": "sum_rpow_le_of_tendsto",
+    "statement": "p \u2260 \u221e) {C : \u211d} {F : \u03b9 \u2192 lp E p} (hCF : \u2200\u1da0 k in l, \u2016F k\u2016 \u2264 C) {f : \u2200 a, E a} (hf : Tendsto (id fun i => F i : \u03b9 \u2192 \u2200 a, E a) l (\ud835\udcdd f)) (s : Finset \u03b1) : \u2211 i \u2208 s, \u2016f i\u2016 ^ p.toReal \u2264 C ^ p.toReal",
+    "have_tree": [
+      {
+        "name": "hp'",
+        "type": "p \u2260 0",
+        "body": "(zero_lt_one.trans_le _i.elim).ne'",
+        "children": []
+      },
+      {
+        "name": "hp''",
+        "type": "0 < p.toReal",
+        "body": "ENNReal.toReal_pos hp' hp",
+        "children": []
+      },
+      {
+        "name": "hG",
+        "type": "Continuous G",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Continuous fun f : \u2200 a, E a => f a",
+            "body": "continuous_apply a",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "lpSpace",
+    "name": "norm_le_of_tendsto",
+    "statement": "\u211d} {F : \u03b9 \u2192 lp E p} (hCF : \u2200\u1da0 k in l, \u2016F k\u2016 \u2264 C) {f : lp E p} (hf : Tendsto (id fun i => F i : \u03b9 \u2192 \u2200 a, E a) l (\ud835\udcdd f)) : \u2016f\u2016 \u2264 C",
+    "have_tree": [
+      {
+        "name": "hC",
+        "type": "0 \u2264 C",
+        "body": "(norm_nonneg _).trans hi",
+        "children": [
+          {
+            "name": "hp'",
+            "type": "0 < p.toReal",
+            "body": "ENNReal.toReal_pos this.ne' hp.ne",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

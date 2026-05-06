@@ -1,0 +1,34 @@
+[
+  {
+    "module": "StandardEtale",
+    "name": "homEquiv",
+    "statement": "(P.Ring \u2192\u2090[R] S) \u2243 { x : S // P.HasMap x } where toFun f",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "",
+        "body": "Ideal.Quotient.eq_zero_iff_mem.mp",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "aeval x P.f ^ 2 = 0",
+        "body": "hI.le (Ideal.pow_mem_pow hf 2)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "aeval x P.f * \u03b5 = 0",
+        "body": "((pow_two _).symm.trans hI).le (Ideal.mul_mem_mul hf h\u03b5I)",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u03b5 * \u03b5' = 0",
+            "body": "((pow_two _).symm.trans hI).le (Ideal.mul_mem_mul h\u03b5I h\u03b5'I)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

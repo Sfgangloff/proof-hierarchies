@@ -1,0 +1,99 @@
+[
+  {
+    "original": {
+      "module": "Extremal",
+      "name": "zero_lt_prod_node_sub_node",
+      "statement": "\u2115} (hi : i \u2264 n) : 0 < (-1) ^ i * \u220f j \u2208 (Finset.range (n + 1)).erase i, (node n i - node n j)",
+      "have_tree": [
+        {
+          "name": "h\u2081",
+          "type": "0 < \u220f j \u2208 Finset.range i, ((-1) * (node n i - node n j))",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "0 < \u220f j \u2208 Finset.Ioc i n, (node n i - node n j)",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "disjoint",
+          "type": "Disjoint (Finset.range i) (Finset.Ioc i n)",
+          "body": "by grind [Finset.disjoint_iff_ne]",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Extremal",
+          "name": "zero_lt_prod_node_sub_node",
+          "statement": "\u2115} (hi : i \u2264 n) : 0 < (-1) ^ i * \u220f j \u2208 (Finset.range (n + 1)).erase i, (node n i - node n j)",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "0 < \u220f j \u2208 Finset.Ioc i n, (node n i - node n j)",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "0 < \u220f j \u2208 Finset.range i, ((-1) * (node n i - node n j))",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "disjoint",
+              "type": "Disjoint (Finset.range i) (Finset.Ioc i n)",
+              "body": "by grind [Finset.disjoint_iff_ne]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Extremal",
+          "name": "zero_lt_prod_node_sub_node",
+          "statement": "\u2115} (hi : i \u2264 n) : 0 < (-1) ^ i * \u220f j \u2208 (Finset.range (n + 1)).erase i, (node n i - node n j)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "0 < \u220f j \u2208 Finset.range i, ((-1) * (node n i - node n j))",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "disjoint",
+              "type": "Disjoint (Finset.range i) (Finset.Ioc i n)",
+              "body": "by grind [Finset.disjoint_iff_ne]",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "0 < \u220f j \u2208 Finset.Ioc i n, (node n i - node n j)",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

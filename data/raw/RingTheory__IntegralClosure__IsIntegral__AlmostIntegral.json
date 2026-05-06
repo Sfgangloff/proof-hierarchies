@@ -1,0 +1,54 @@
+[
+  {
+    "module": "AlmostIntegral",
+    "name": "mem_completeIntegralClosure",
+    "statement": "S} : x \u2208 completeIntegralClosure R S \u2194 IsAlmostIntegral R x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "minpoly.aeval R s",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AlmostIntegral",
+    "name": "IsAlmostIntegral.isIntegral_of_nonZeroDivisors_le_comap",
+    "statement": "S} (H : IsAlmostIntegral R s) [IsNoetherianRing R] (H' : R\u2070 \u2264 S\u2070.comap (algebraMap R S)) : IsIntegral R s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Function.Injective f",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Function.Injective (algebraMap S (Localization.Away (algebraMap R S r)))",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "(Algebra.adjoin R {s}).toSubmodule.FG",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AlmostIntegral",
+    "name": "IsAlmostIntegral.isIntegral",
+    "statement": "S} (H : IsAlmostIntegral R s) : IsIntegral R s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsDomain.of_faithfulSMul R S",
+        "children": []
+      }
+    ]
+  }
+]

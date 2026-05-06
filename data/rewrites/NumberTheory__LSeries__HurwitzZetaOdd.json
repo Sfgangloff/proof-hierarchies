@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "HurwitzZetaOdd",
+      "name": "hasSum_int_oddKernel",
+      "statement": "\u211d) {x : \u211d} (hx : 0 < x) : HasSum (fun n : \u2124 \u21a6 (n + a) * rexp (-\u03c0 * (n + a) ^ 2 * x)) (oddKernel \u2191a x)",
+      "have_tree": [
+        {
+          "name": "h1",
+          "type": "",
+          "body": "hasSum_jacobiTheta\u2082_term (a * I * x) (by rwa [I_mul_im, ofReal_re])",
+          "children": []
+        },
+        {
+          "name": "h2",
+          "type": "",
+          "body": "hasSum_jacobiTheta\u2082'_term (a * I * x) (by rwa [I_mul_im, ofReal_re])",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "HurwitzZetaOdd",
+          "name": "hasSum_int_oddKernel",
+          "statement": "\u211d) {x : \u211d} (hx : 0 < x) : HasSum (fun n : \u2124 \u21a6 (n + a) * rexp (-\u03c0 * (n + a) ^ 2 * x)) (oddKernel \u2191a x)",
+          "have_tree": [
+            {
+              "name": "h2",
+              "type": "",
+              "body": "hasSum_jacobiTheta\u2082'_term (a * I * x) (by rwa [I_mul_im, ofReal_re])",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "",
+              "body": "hasSum_jacobiTheta\u2082_term (a * I * x) (by rwa [I_mul_im, ofReal_re])",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "HurwitzZetaOdd",
+      "name": "hasSum_int_completedHurwitzZetaOdd",
+      "statement": "\u211d) {s : \u2102} (hs : 1 < re s) : HasSum (fun n : \u2124 \u21a6 Gamma\u211d (s + 1) * SignType.sign (n + a) / (\u2191|n + a| : \u2102) ^ s / 2) (completedHurwitzZetaOdd a s)",
+      "have_tree": [
+        {
+          "name": "h_sum",
+          "type": "Summable fun i \u21a6 \u2016c i\u2016 / |r i| ^ s.re",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "mellin_div_const .. \u25b8 hasSum_mellin_pi_mul_sq' (zero_lt_one.trans hs) hF h_sum",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "HurwitzZetaOdd",
+          "name": "hasSum_int_completedHurwitzZetaOdd",
+          "statement": "\u211d) {s : \u2102} (hs : 1 < re s) : HasSum (fun n : \u2124 \u21a6 Gamma\u211d (s + 1) * SignType.sign (n + a) / (\u2191|n + a| : \u2102) ^ s / 2) (completedHurwitzZetaOdd a s)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "mellin_div_const .. \u25b8 hasSum_mellin_pi_mul_sq' (zero_lt_one.trans hs) hF h_sum",
+              "children": []
+            },
+            {
+              "name": "h_sum",
+              "type": "Summable fun i \u21a6 \u2016c i\u2016 / |r i| ^ s.re",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,174 @@
+[
+  {
+    "module": "OrthRadius",
+    "name": "orthRadius_le_orthRadius_iff",
+    "statement": "Sphere P} {p q : P} : s.orthRadius p \u2264 s.orthRadius q \u2194 p = q \u2228 q = s.center",
+    "have_tree": [
+      {
+        "name": "h''",
+        "type": "",
+        "body": "Submodule.orthogonal_le h'",
+        "children": []
+      },
+      {
+        "name": "hp",
+        "type": "p \u2208 s.orthRadius q",
+        "body": "h (s.self_mem_orthRadius p)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OrthRadius",
+    "name": "orthRadius_eq_orthRadius_iff",
+    "statement": "Sphere P} {p q : P} : s.orthRadius p = s.orthRadius q \u2194 p = q",
+    "have_tree": [
+      {
+        "name": "hpq",
+        "type": "",
+        "body": "orthRadius_le_orthRadius_iff.1 h.le",
+        "children": []
+      },
+      {
+        "name": "hqp",
+        "type": "",
+        "body": "orthRadius_le_orthRadius_iff.1 h.symm.le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OrthRadius",
+    "name": "inter_orthRadius_eq_singleton_of_dist_eq_radius",
+    "statement": "Sphere P} {p : P} (hp : dist p s.center = s.radius) : (s \u2229 s.orthRadius p : Set P) = {p}",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "dist_sq_eq_of_mem_orthRadius hp'i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OrthRadius",
+    "name": "inter_orthRadius_eq_singleton_iff",
+    "statement": "Sphere P} {p q : P} : (s \u2229 s.orthRadius p : Set P) = {q} \u2194 q = p \u2227 dist p s.center = s.radius",
+    "have_tree": [
+      {
+        "name": "hr",
+        "type": "0 \u2264 s.radius",
+        "body": "radius_nonneg_of_mem hq.1",
+        "children": []
+      },
+      {
+        "name": "hq'",
+        "type": "",
+        "body": "(h' q).2 rfl",
+        "children": []
+      },
+      {
+        "name": "hqq",
+        "type": "",
+        "body": "(h' _).1 hq''",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OrthRadius",
+    "name": "inter_orthRadius_eq_empty_of_finrank_eq_one",
+    "statement": "Sphere P} {p : P} (hpc : p \u2260 s.center) (hp : dist p s.center \u2260 s.radius) (hf : Module.finrank \u211d V = 1) : (s \u2229 s.orthRadius p : Set P) = \u2205",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional \u211d V",
+        "body": "Module.finite_of_finrank_eq_succ hf",
+        "children": []
+      },
+      {
+        "name": "ha",
+        "type": "",
+        "body": "(\u211d \u2219 (p -\u1d65 s.center)).finrank_add_finrank_orthogonal",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OrthRadius",
+    "name": "inter_orthRadius_eq_empty_iff",
+    "statement": "Sphere P} {p : P} : (s \u2229 s.orthRadius p : Set P) = \u2205 \u2194 s.radius < dist p s.center \u2228 (Module.finrank \u211d V = 1 \u2227 dist p s.center < s.radius \u2227 p \u2260 s.center) \u2228 (Subsingleton V \u2227 s.radius \u2260 0)",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "",
+        "body": "finrank_eq_one_iff'.2 \u27e8p -\u1d65 s.center, vsub_ne_zero.2 hp, hb'\u27e9",
+        "children": []
+      },
+      {
+        "name": "hnf",
+        "type": "Module.finrank \u211d V \u2260 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "hc0",
+            "type": "c \u2260 0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "OrthRadius",
+    "name": "inter_orthRadius_eq_of_dist_le_radius_of_norm_eq_one",
+    "statement": "Fact (Module.finrank \u211d V = 2)] {s : Sphere P} {p : P} (hp : dist p s.center \u2264 s.radius) (hpc : p \u2260 s.center) {v : V} (hv : v \u2208 (\u211d \u2219 (p -\u1d65 s.center))\u15ee) (hv1 : \u2016v\u2016 = 1) : (s \u2229 s.orthRadius p : Set P) = {\u221a(s.radius ^ 2 - (dist p s.center) ^ 2) \u2022 v +\u1d65 p, -\u221a(s.radius ^ 2 - (dist p s.center) ^ 2) \u2022 v +\u1d65 p}",
+    "have_tree": [
+      {
+        "name": "hr",
+        "type": "0 \u2264 s.radius",
+        "body": "dist_nonneg.trans hp",
+        "children": []
+      },
+      {
+        "name": "hv0",
+        "type": "v \u2260 0",
+        "body": "by rw [\u2190 norm_ne_zero_iff, hv1]; simp",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "",
+        "body": "finrank_orthRadius hpc",
+        "children": []
+      },
+      {
+        "name": "hvp",
+        "type": "0 \u2264 s.radius ^ 2 - (dist p s.center) ^ 2",
+        "body": "by",
+        "children": [
+          {
+            "name": "h'",
+            "type": "p' -\u1d65 p \u2208 (\u211d \u2219 (p -\u1d65 s.center))\u15ee",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "OrthRadius",
+    "name": "ncard_inter_orthRadius_eq_two_of_dist_lt_radius",
+    "statement": "Fact (Module.finrank \u211d V = 2)] {s : Sphere P} {p : P} (hp : dist p s.center < s.radius) (hpc : p \u2260 s.center) : (s \u2229 s.orthRadius p : Set P).ncard = 2",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "",
+        "body": "finrank_orthRadius hpc",
+        "children": []
+      }
+    ]
+  }
+]

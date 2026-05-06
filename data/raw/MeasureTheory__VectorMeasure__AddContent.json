@@ -1,0 +1,102 @@
+[
+  {
+    "module": "AddContent",
+    "name": "exists_extension_of_isSetRing_of_le_measure_of_dense",
+    "statement": "Set (Set \u03b1)} {m : AddContent E C} (hC : IsSetRing C) (hCmeas : \u2200 s \u2208 C, MeasurableSet s) (hm : \u2200 s \u2208 C, \u2016m s\u2016\u2091 \u2264 \u03bc s) (h'C : \u2200 t \u03b5, MeasurableSet t \u2192 0 < \u03b5 \u2192 \u2203 s \u2208 C, \u03bc (s \u2206 t) < \u03b5) : \u2203 m' : VectorMeasure \u03b1 E, (\u2200 s \u2208 C, m' s = m s) \u2227 \u2200 s, \u2016m' s\u2016\u2091 \u2264 \u03bc s",
+    "have_tree": [
+      {
+        "name": "C'_dense",
+        "type": "Dense C'",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "lip",
+        "type": "LipschitzWith 1 m\u2080",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "m\u2081_lip",
+        "type": "LipschitzWith 1 m\u2081",
+        "body": "C'_dense.lipschitzWith_extend lip",
+        "children": []
+      },
+      {
+        "name": "hBound",
+        "type": "\u2200 s, \u2016m\u2081 s\u2016\u2091 \u2264 \u03bc s",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsClosed {s | \u2016m\u2081 s\u2016\u2091 \u2264 \u03bc s}",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Dense {s | \u2016m\u2081 s\u2016\u2091 \u2264 \u03bc s}",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "It",
+            "type": "\u2016m t' - m\u2081 t\u2016\u2091 < \u03b4",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h\u03bc'",
+            "type": "\u03bc (s' \u2229 t') < 2 * \u03b4",
+            "body": "calc",
+            "children": []
+          },
+          {
+            "name": "s''C",
+            "type": "s'' \u2208 C",
+            "body": "hC.diff_mem s'C t'C",
+            "children": []
+          },
+          {
+            "name": "hs''",
+            "type": "\u03bc (s'' \u2206 s) < 3 * \u03b4",
+            "body": "calc",
+            "children": []
+          },
+          {
+            "name": "Is",
+            "type": "\u2016m s'' - m\u2081 s\u2016\u2091 < 3 * \u03b4",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "Ist",
+            "type": "\u2016m (s'' \u222a t') - m\u2081 \u27e8s \u222a t, s.2.union t.2\u27e9\u2016\u2091 < 4 * \u03b4",
+            "body": "by",
+            "children": [
+              {
+                "name": "s''t'C",
+                "type": "s'' \u222a t' \u2208 C",
+                "body": "hC.union_mem s''C t'C",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "AddContent",
+    "name": "exists_extension_of_isSetSemiring_of_le_measure_of_generateFrom",
+    "statement": "Set (Set \u03b1)} {m : AddContent E C} (hC : IsSetSemiring C) (hm : \u2200 s \u2208 C, \u2016m s\u2016\u2091 \u2264 \u03bc s) (h'C : h\u03b1 = generateFrom C) : \u2203 m' : VectorMeasure \u03b1 E, (\u2200 s \u2208 C, m' s = m s) \u2227 \u2200 s, \u2016m' s\u2016\u2091 \u2264 \u03bc s",
+    "have_tree": [
+      {
+        "name": "MD",
+        "type": "MeasurableSet (\u22c3\u2080 D)",
+        "body": "MeasurableSet.sUnion D_count (fun t ht \u21a6 M _ (DC ht))",
+        "children": []
+      }
+    ]
+  }
+]

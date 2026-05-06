@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Condexp",
+    "name": "compProd_trim_condExpKernel",
+    "statement": "m \u2264 m\u03a9) : (\u03bc.trim hm) \u2297\u2098 condExpKernel \u03bc m = @Measure.map \u03a9 (\u03a9 \u00d7 \u03a9) m\u03a9 (m.prod m\u03a9) (fun \u03c9 \u21a6 (id \u03c9, id \u03c9)) \u03bc",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "compProd_map_condDistrib (m\u03b2 := m) (\u03bc := \u03bc) (X := id) measurable_id.aemeasurable",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Condexp",
+    "name": "aestronglyMeasurable_integral_condExpKernel",
+    "statement": "AEStronglyMeasurable f \u03bc) : AEStronglyMeasurable[m] (fun \u03c9 => \u222b y, f y \u2202condExpKernel \u03bc m \u03c9) \u03bc",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "aestronglyMeasurable_integral_condDistrib",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Condexp",
+    "name": "condExpKernel_ae_eq_condExp'",
+    "statement": "Set \u03a9} (hs : MeasurableSet s) : (fun \u03c9 \u21a6 (condExpKernel \u03bc m \u03c9).real s) =\u1d50[\u03bc] \u03bc\u27e6s | m \u2293 m\u03a9\u27e7",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "condDistrib_ae_eq_condExp (\u03bc := \u03bc)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Condexp",
+    "name": "condExp_ae_eq_integral_condExpKernel'",
+    "statement": "\u03a9 \u2192 F} [NormedSpace \u211d F] [CompleteSpace F] (hf_int : Integrable f \u03bc) : \u03bc[f | m \u2293 m\u03a9] =\u1d50[\u03bc] fun \u03c9 => \u222b y, f y \u2202condExpKernel \u03bc m \u03c9",
+    "have_tree": [
+      {
+        "name": "hX",
+        "type": "@Measurable \u03a9 \u03a9 m\u03a9 (m \u2293 m\u03a9) id",
+        "body": "measurable_id.mono le_rfl (inf_le_right : m \u2293 m\u03a9 \u2264 m\u03a9)",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "condExp_ae_eq_integral_condDistrib_id hX hf_int",
+        "children": []
+      }
+    ]
+  }
+]

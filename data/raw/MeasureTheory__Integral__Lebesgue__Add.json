@@ -1,0 +1,86 @@
+[
+  {
+    "module": "Add",
+    "name": "lintegral_iSup",
+    "statement": "\u2115 \u2192 \u03b1 \u2192 \u211d\u22650\u221e} (hf : \u2200 n, Measurable (f n)) (h_mono : Monotone f) : \u222b\u207b a, \u2a06 n, f n a \u2202\u03bc = \u2a06 n, \u222b\u207b a, f n a \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "r < 1",
+        "body": "ENNReal.coe_lt_coe.1 ha",
+        "children": [
+          {
+            "name": "_",
+            "type": "r * s x \u2260 0",
+            "body": "by rwa [Ne, \u2190 ENNReal.coe_eq_zero]",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "s x \u2260 0",
+            "body": "right_ne_zero_of_mul this",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Add",
+    "name": "lintegral_iSup'",
+    "statement": "\u2115 \u2192 \u03b1 \u2192 \u211d\u22650\u221e} (hf : \u2200 n, AEMeasurable (f n) \u03bc) (h_mono : \u2200\u1d50 x \u2202\u03bc, Monotone fun n => f n x) : \u222b\u207b a, \u2a06 n, f n a \u2202\u03bc = \u2a06 n, \u222b\u207b a, f n a \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "h_ae_seq_mono",
+        "type": "Monotone (aeSeq hf p)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Add",
+    "name": "lintegral_iSup_directed",
+    "statement": "\u03b2 \u2192 \u03b1 \u2192 \u211d\u22650\u221e} (hf : \u2200 b, AEMeasurable (f b) \u03bc) (h_directed : Directed (\u00b7 \u2264 \u00b7) f) : \u222b\u207b a, \u2a06 b, f b a \u2202\u03bc = \u2a06 b, \u222b\u207b a, f b a \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "h_ae_seq_directed",
+        "type": "Directed LE.le (aeSeq hf p)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Add",
+    "name": "lintegral_const_mul'",
+    "statement": "\u211d\u22650\u221e) (f : \u03b1 \u2192 \u211d\u22650\u221e) (hr : r \u2260 \u221e) : \u222b\u207b a, r * f a \u2202\u03bc = r * \u222b\u207b a, f a \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "lintegral_const_mul_le (\u03bc := \u03bc) r\u207b\u00b9 fun x => r * f x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Add",
+    "name": "lintegral_trim",
+    "statement": "Measure \u03b1} (hm : m \u2264 m0) {f : \u03b1 \u2192 \u211d\u22650\u221e} (hf : Measurable[m] f) : \u222b\u207b a, f a \u2202\u03bc.trim hm = \u222b\u207b a, f a \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "h_m",
+        "type": "",
+        "body": "lintegral_add_left (\u03bc := Measure.trim \u03bc hm) hf g",
+        "children": []
+      },
+      {
+        "name": "h_m0",
+        "type": "",
+        "body": "lintegral_add_left (\u03bc := \u03bc) (Measurable.mono hf hm le_rfl) g",
+        "children": []
+      }
+    ]
+  }
+]

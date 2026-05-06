@@ -1,0 +1,224 @@
+[
+  {
+    "module": "Layercake",
+    "name": "lintegral_comp_eq_lintegral_meas_le_mul_of_measurable_of_sigmaFinite",
+    "statement": "Measure \u03b1) [SFinite \u03bc] (f_nn : 0 \u2264 f) (f_mble : Measurable f) (g_intble : \u2200 t > 0, IntervalIntegrable g volume 0 t) (g_mble : Measurable g) (g_nn : \u2200 t > 0, 0 \u2264 g t) : \u222b\u207b \u03c9, ENNReal.ofReal (\u222b t in 0..f \u03c9, g t) \u2202\u03bc = \u222b\u207b t in Ioi 0, \u03bc {a : \u03b1 | t \u2264 f a} * ENNReal.ofReal (g t)",
+    "have_tree": [
+      {
+        "name": "g_intble'",
+        "type": "\u2200 t : \u211d, 0 \u2264 t \u2192 IntervalIntegrable g volume 0 t",
+        "body": "by",
+        "children": [
+          {
+            "name": "g_ae_nn",
+            "type": "0 \u2264\u1d50[volume.restrict (Ioc 0 (f \u03c9))] g",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "mble\u2080",
+        "type": "MeasurableSet {p : \u03b1 \u00d7 \u211d | p.snd \u2208 Ioc 0 (f p.fst)}",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Layercake",
+    "name": "lintegral_comp_eq_lintegral_meas_le_mul_of_measurable",
+    "statement": "Measure \u03b1) (f_nn : 0 \u2264 f) (f_mble : Measurable f) (g_intble : \u2200 t > 0, IntervalIntegrable g volume 0 t) (g_mble : Measurable g) (g_nn : \u2200 t > 0, 0 \u2264 g t) : \u222b\u207b \u03c9, ENNReal.ofReal (\u222b t in 0..f \u03c9, g t) \u2202\u03bc = \u222b\u207b t in Ioi 0, \u03bc {a : \u03b1 | t \u2264 f a} * ENNReal.ofReal (g t)",
+    "have_tree": [
+      {
+        "name": "f_nonneg",
+        "type": "\u2200 \u03c9, 0 \u2264 f \u03c9",
+        "body": "fun \u03c9 \u21a6 f_nn \u03c9",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200 \u03c9, \u222b t in 0..f \u03c9, g t = \u222b t in 0..f \u03c9, 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "B",
+            "type": "\u222b\u207b t in Ioi 0, \u03bc {a : \u03b1 | t \u2264 f a} * ENNReal.ofReal (g t) = 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "A",
+            "type": "\u222b\u207b t in Ioi 0, \u03bc {a : \u03b1 | t \u2264 f a} * ENNReal.ofReal (g t) = \u221e",
+            "body": "by",
+            "children": [
+              {
+                "name": "I_pos",
+                "type": "\u222b\u207b (a : \u211d) in Ioc 0 s, ENNReal.ofReal (g a) \u2260 0",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "B",
+            "type": "\u222b\u207b \u03c9, ENNReal.ofReal (\u222b t in 0..f \u03c9, g t) \u2202\u03bc = \u221e",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "M_bdd",
+        "type": "BddAbove {s : \u211d | g =\u1d50[volume.restrict (Ioc (0 : \u211d) s)] 0}",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200 (n : \u2115), g =\u1d50[volume.restrict (Ioc (0 : \u211d) n)] 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "Hg",
+            "type": "g =\u1d50[volume.restrict (\u22c3 (n : \u2115), (Ioc (0 : \u211d) n))] 0",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "(\u22c3 (n : \u2115), (Ioc (0 : \u211d) n)) = Ioi 0",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "zero_mem",
+        "type": "0 \u2208 {s : \u211d | g =\u1d50[volume.restrict (Ioc (0 : \u211d) s)] 0}",
+        "body": "by simpa using trivial",
+        "children": []
+      },
+      {
+        "name": "M_nonneg",
+        "type": "0 \u2264 M",
+        "body": "le_csSup M_bdd zero_mem",
+        "children": []
+      },
+      {
+        "name": "hgM",
+        "type": "g =\u1d50[volume.restrict (Ioc (0 : \u211d) M)] 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "I",
+            "type": "\u2200 n, g =\u1d50[volume.restrict (Ioc (0 : \u211d) (u n))] 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "g =\u1d50[volume.restrict (\u22c3 n, Ioc (0 : \u211d) (u n))] 0",
+            "body": "(ae_restrict_iUnion_iff _ _).2 I",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "SigmaFinite \u03bd",
+        "body": "by",
+        "children": [
+          {
+            "name": "I",
+            "type": "\u03bd {a | f a \u2264 M} = 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "J",
+            "type": "\u03bc {a | u n < f a} < \u221e",
+            "body": "by",
+            "children": [
+              {
+                "name": "g_nn_ae",
+                "type": "\u2200\u1d50 t \u2202(volume.restrict (Ioc 0 (u n))), 0 \u2264 g t",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "Ig",
+                "type": "\u222b (t : \u211d) in Ioc 0 (u n), g t = 0",
+                "body": "",
+                "children": []
+              },
+              {
+                "name": "J",
+                "type": "\u2200\u1d50 t \u2202(volume.restrict (Ioc 0 (u n))), g t = 0",
+                "body": "",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "u n \u2264 M",
+                "body": "le_csSup M_bdd J",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "meas",
+            "type": "MeasurableSet {a | M < f a}",
+            "body": "measurableSet_lt measurable_const f_mble",
+            "children": [
+              {
+                "name": "_",
+                "type": "\u222b (t : \u211d) in 0..f s, g t = \u222b (t : \u211d) in 0..f s, 0",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "I",
+            "type": "Ioi (0 : \u211d) = Ioc (0 : \u211d) M \u222a Ioi M",
+            "body": "(Ioc_union_Ioi_eq_Ioi M_nonneg).symm",
+            "children": []
+          },
+          {
+            "name": "J",
+            "type": "Disjoint (Ioc 0 M) (Ioi M)",
+            "body": "Ioc_disjoint_Ioi le_rfl",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Layercake",
+    "name": "lintegral_comp_eq_lintegral_meas_le_mul",
+    "statement": "Measure \u03b1) (f_nn : 0 \u2264\u1d50[\u03bc] f) (f_mble : AEMeasurable f \u03bc) (g_intble : \u2200 t > 0, IntervalIntegrable g volume 0 t) (g_nn : \u2200\u1d50 t \u2202volume.restrict (Ioi 0), 0 \u2264 g t) : \u222b\u207b \u03c9, ENNReal.ofReal (\u222b t in 0..f \u03c9, g t) \u2202\u03bc = \u222b\u207b t in Ioi 0, \u03bc {a : \u03b1 | t \u2264 f a} * ENNReal.ofReal (g t)",
+    "have_tree": [
+      {
+        "name": "g_eq_G_on",
+        "type": "\u2200 t, g =\u1d50[volume.restrict (Ioc 0 t)] G",
+        "body": "fun t =>",
+        "children": []
+      },
+      {
+        "name": "G_intble",
+        "type": "\u2200 t > 0, IntervalIntegrable G volume 0 t",
+        "body": "by",
+        "children": [
+          {
+            "name": "f\u03c9_nn",
+            "type": "0 \u2264 F \u03c9",
+            "body": "F_nn \u03c9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

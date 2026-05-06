@@ -1,0 +1,93 @@
+[
+  {
+    "module": "Lifting",
+    "name": "exists_lift_nhds",
+    "statement": "C(I \u00d7 A, X)} {g : I \u00d7 A \u2192 E} (g_lifts : p \u2218 g = f) (cont_0 : Continuous (g \u27e80, \u00b7\u27e9)) (a : A) (cont_a : Continuous (g \u27e8\u00b7, a\u27e9)) : \u2203 N \u2208 \ud835\udcdd a, \u2203 g' : I \u00d7 A \u2192 E, ContinuousOn g' (Set.univ \u00d7\u02e2 N) \u2227 p \u2218 g' = f \u2227 (\u2200 a, g' (0, a) = g (0, a)) \u2227 \u2200 t, g' (t, a) = g (t, a)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Set.Icc (t n) (t (n + 1)) \u00d7\u02e2 {a} \u2286 f \u207b\u00b9' (q e).target",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "f ta \u2208 (q e).target",
+            "body": "huv \u27e8hu (by rw [ht]; exact \u27e8le_rfl, t_mono n.le_succ\u27e9), hav\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Lifting",
+    "name": "monodromy_theorem",
+    "statement": "C(I, X)} (\u03b3 : \u03b3\u2080.HomotopyRel \u03b3\u2081 {0,1}) (\u0393 : I \u2192 C(I, E)) (\u0393_lifts : \u2200 t s, p (\u0393 t s) = \u03b3 (t, s)) (\u0393_0 : \u2200 t, \u0393 t 0 = \u0393 0 0) (t : I) : \u0393 t 1 = \u0393 0 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "homeo.continuous_lift sep (.comp \u03b3 .prodSwap) (g := fun st \u21a6 \u0393 st.2 st.1) ?_ ?_ ?_",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lifting",
+    "name": "existsUnique_continuousMap_lifts",
+    "statement": "C(A, X)) (a\u2080 : A) (e\u2080 : E) (he : p e\u2080 = f a\u2080) (ex : \u2200 \u03b3 : C(I, A), \u03b3 0 = a\u2080 \u2192 \u2203 \u0393 : C(I, E), \u0393 0 = e\u2080 \u2227 p \u2218 \u0393 = f.comp \u03b3) (uniq : \u2200 \u03b3 \u03b3' : C(I, A), \u2200 \u0393 \u0393' : C(I, E), \u03b3 0 = a\u2080 \u2192 \u03b3' 0 = a\u2080 \u2192 \u0393 0 = e\u2080 \u2192 \u0393' 0 = e\u2080 \u2192 p \u2218 \u0393 = f.comp \u03b3 \u2192 p \u2218 \u0393' = f.comp \u03b3' \u2192 \u03b3 1 = \u03b3' 1 \u2192 \u0393 1 = \u0393' 1) : \u2203! F : C(A, E), F a\u2080 = e\u2080 \u2227 p \u2218 F = f",
+    "have_tree": [
+      {
+        "name": "hfap",
+        "type": "f a \u2208 p.target",
+        "body": "by rw [\u2190 this]; exact p.map_source hep",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lifting",
+    "name": "exists_path_lifts",
+    "statement": "\u2203 \u0393 : C(I, E), p \u2218 \u0393 = \u03b3 \u2227 \u0393 0 = e",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty (p \u207b\u00b9' {x})",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lifting",
+    "name": "liftPath",
+    "statement": "C(I, E)",
+    "have_tree": [
+      {
+        "name": "lifts",
+        "type": "",
+        "body": "cov.liftPath_lifts \u03b3 e \u03b3_0",
+        "children": []
+      },
+      {
+        "name": "zero",
+        "type": "",
+        "body": "cov.liftPath_zero \u03b3 e \u03b3_0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lifting",
+    "name": "liftPath_apply_one_eq_of_homotopicRel",
+    "statement": "C(I, X)} (h : \u03b3\u2080.HomotopicRel \u03b3\u2081 {0,1}) (e : E) (h\u2080 : \u03b3\u2080 0 = p e) (h\u2081 : \u03b3\u2081 0 = p e) : cov.liftPath \u03b3\u2080 e h\u2080 1 = cov.liftPath \u03b3\u2081 e h\u2081 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "cov.liftHomotopyRel (f\u2080' := cov.liftPath \u03b3\u2080 e h\u2080) (f\u2081' := cov.liftPath \u03b3\u2081 e h\u2081) H",
+        "children": []
+      }
+    ]
+  }
+]

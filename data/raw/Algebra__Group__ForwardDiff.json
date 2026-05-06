@@ -1,0 +1,28 @@
+[
+  {
+    "module": "ForwardDiff",
+    "name": "fwdDiff_iter_eq_sum_shift",
+    "statement": "M \u2192 G) (n : \u2115) (y : M) : \u0394_[h]^[n] f y = \u2211 k \u2208 range (n + 1), ((-1 : \u2124) ^ (n - k) * n.choose k) \u2022 f (y + k \u2022 h)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Commute (shift\u2097 M G h) (-1)",
+        "body": "(Commute.one_right _).neg_right",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ForwardDiff",
+    "name": "Polynomial.fwdDiff_iter_degree_eq_factorial",
+    "statement": "R[X]) : \u0394_[1]^[P.natDegree] P.eval = P.leadingCoeff \u2022 P.natDegree !",
+    "have_tree": [
+      {
+        "name": "hP",
+        "type": "P.natDegree < P.natDegree + 1",
+        "body": "Nat.lt_succ_self P.natDegree",
+        "children": []
+      }
+    ]
+  }
+]

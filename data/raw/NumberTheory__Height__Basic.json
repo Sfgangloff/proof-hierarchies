@@ -1,0 +1,157 @@
+[
+  {
+    "module": "Basic",
+    "name": "logHeight\u2081_eq",
+    "statement": "K) : logHeight\u2081 x = (archAbsVal.map fun v \u21a6 log\u207a (v x)).sum + \u2211\u1da0 v : nonarchAbsVal, log\u207a (v.val x)",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "mulHeight\u2081 x \u2260 0",
+        "body": "mulHeight\u2081_ne_zero x",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 a \u2208 archAbsVal.map (fun v \u21a6 max (v x) 1), a \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "hasFiniteMulSupport_iSup_nonarchAbsVal",
+    "statement": "\u03b9 \u2192 K} (hx : x \u2260 0) : (fun v : nonarchAbsVal \u21a6 \u2a06 i, v.val (x i)).HasFiniteMulSupport",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty {j // x j \u2260 0}",
+        "body": "nonempty_subtype.mpr <| ne_iff.mp hx",
+        "children": [
+          {
+            "name": "_",
+            "type": "Nonempty \u03b9",
+            "body": ".intro i",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mulHeight_smul_eq_mulHeight",
+    "statement": "\u03b9 \u2192 K) {c : K} (hc : c \u2260 0) : mulHeight (c \u2022 x) = mulHeight x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b9",
+        "body": "(ne_iff.mp hx).nonempty",
+        "children": []
+      },
+      {
+        "name": "hcx",
+        "type": "c \u2022 x \u2260 0",
+        "body": "by simp [hc, hx]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "one_le_mulHeight",
+    "statement": "\u03b9 \u2192 K) : 1 \u2264 mulHeight x",
+    "have_tree": [
+      {
+        "name": "hx'",
+        "type": "(x i)\u207b\u00b9 \u2022 x \u2260 0",
+        "body": "by simp [hi, hx]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mulHeight_comp_le",
+    "statement": "\u03b9 \u2192 \u03b9') (x : \u03b9' \u2192 K) : mulHeight (x \u2218 f) \u2264 mulHeight x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b9",
+        "body": ".intro (ne_iff.mp h\u2080).choose",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mulHeight_sumElim_zero_eq",
+    "statement": "\u03b9 \u2192 K) : mulHeight (Sum.elim x (0 : \u03b9' \u2192 K)) = mulHeight x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b9",
+        "body": ".intro i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mulHeight_eq_one_of_subsingleton",
+    "statement": "Type*} [Subsingleton \u03b9] (x : \u03b9 \u2192 K) : mulHeight x = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b9",
+        "body": ".intro i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mulHeight\u2081_eq_mulHeight",
+    "statement": "K) : mulHeight\u2081 x = mulHeight ![x, 1]",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "![x, 1] \u2260 0",
+        "body": "by simp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mulHeight_pow",
+    "statement": "\u03b9 \u2192 K) (n : \u2115) : mulHeight (x ^ n) = mulHeight x ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b9",
+        "body": "(ne_iff.mp hx).nonempty",
+        "children": []
+      },
+      {
+        "name": "hxn",
+        "type": "x ^ n \u2260 0",
+        "body": "by simp [hx]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "logHeight\u2081_sum_le",
+    "statement": "Type*} (s : Finset \u03b1) (x : \u03b1 \u2192 K) : logHeight\u2081 (\u2211 a \u2208 s, x a) \u2264 (totalWeight K) * log #s + \u2211 a \u2208 s, logHeight\u2081 (x a)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 a \u2208 s, mulHeight\u2081 (x a) \u2260 0",
+        "body": "fun _ _ \u21a6 by positivity",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,740 @@
+[
+  {
+    "original": {
+      "module": "DominatedConvergence",
+      "name": "hasSum_integral_of_dominated_convergence",
+      "statement": "\u03b9 \u2192 \u03b1 \u2192 G} {f : \u03b1 \u2192 G} (bound : \u03b9 \u2192 \u03b1 \u2192 \u211d) (hF_meas : \u2200 n, AEStronglyMeasurable (F n) \u03bc) (h_bound : \u2200 n, \u2200\u1d50 a \u2202\u03bc, \u2016F n a\u2016 \u2264 bound n a) (bound_summable : \u2200\u1d50 a \u2202\u03bc, Summable fun n => bound n a) (bound_integrable : Integrable (fun a => \u2211' n, bound n a) \u03bc) (h_lim : \u2200\u1d50 a \u2202\u03bc, HasSum (fun n => F n a) (f a)) : HasSum (fun n => \u222b a, F n a \u2202\u03bc) (\u222b a, f a \u2202\u03bc)",
+      "have_tree": [
+        {
+          "name": "hb_nonneg",
+          "type": "\u2200\u1d50 a \u2202\u03bc, \u2200 n, 0 \u2264 bound n a",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "hF_integrable",
+          "type": "\u2200 n, Integrable (F n) \u03bc",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "DominatedConvergence",
+          "name": "hasSum_integral_of_dominated_convergence",
+          "statement": "\u03b9 \u2192 \u03b1 \u2192 G} {f : \u03b1 \u2192 G} (bound : \u03b9 \u2192 \u03b1 \u2192 \u211d) (hF_meas : \u2200 n, AEStronglyMeasurable (F n) \u03bc) (h_bound : \u2200 n, \u2200\u1d50 a \u2202\u03bc, \u2016F n a\u2016 \u2264 bound n a) (bound_summable : \u2200\u1d50 a \u2202\u03bc, Summable fun n => bound n a) (bound_integrable : Integrable (fun a => \u2211' n, bound n a) \u03bc) (h_lim : \u2200\u1d50 a \u2202\u03bc, HasSum (fun n => F n a) (f a)) : HasSum (fun n => \u222b a, F n a \u2202\u03bc) (\u222b a, f a \u2202\u03bc)",
+          "have_tree": [
+            {
+              "name": "hF_integrable",
+              "type": "\u2200 n, Integrable (F n) \u03bc",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hb_nonneg",
+              "type": "\u2200\u1d50 a \u2202\u03bc, \u2200 n, 0 \u2264 bound n a",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "DominatedConvergence",
+      "name": "continuousAt_parametric_primitive_of_dominated",
+      "statement": "X \u2192 \u211d \u2192 E} (bound : \u211d \u2192 \u211d) (a b : \u211d) {a\u2080 b\u2080 : \u211d} {x\u2080 : X} (hF_meas : \u2200 x, AEStronglyMeasurable (F x) (\u03bc.restrict <| \u0399 a b)) (h_bound : \u2200\u1da0 x in \ud835\udcdd x\u2080, \u2200\u1d50 t \u2202\u03bc.restrict <| \u0399 a b, \u2016F x t\u2016 \u2264 bound t) (bound_integrable : IntervalIntegrable bound \u03bc a b) (h_cont : \u2200\u1d50 t \u2202\u03bc.restrict <| \u0399 a b, ContinuousAt (fun x \u21a6 F x t) x\u2080) (ha\u2080 : a\u2080 \u2208 Ioo a b) (hb\u2080 : b\u2080 \u2208 Ioo a b) (h\u03bcb\u2080 : \u03bc {b\u2080} = 0) : ContinuousAt (fun p : X \u00d7 \u211d \u21a6 \u222b t : \u211d in a\u2080..p.2, F p.1 t \u2202\u03bc) (x\u2080, b\u2080)",
+      "have_tree": [
+        {
+          "name": "hsub",
+          "type": "\u2200 {a\u2080 b\u2080}, a\u2080 \u2208 Ioo a b \u2192 b\u2080 \u2208 Ioo a b \u2192 \u0399 a\u2080 b\u2080 \u2286 \u0399 a b",
+          "body": "fun ha\u2080 hb\u2080 \u21a6",
+          "children": []
+        },
+        {
+          "name": "Ioo_nhds",
+          "type": "Ioo a b \u2208 \ud835\udcdd b\u2080",
+          "body": "Ioo_mem_nhds hb\u2080.1 hb\u2080.2",
+          "children": []
+        },
+        {
+          "name": "Icc_nhds",
+          "type": "Icc a b \u2208 \ud835\udcdd b\u2080",
+          "body": "Icc_mem_nhds hb\u2080.1 hb\u2080.2",
+          "children": [
+            {
+              "name": "_",
+              "type": "Tendsto (fun t \u21a6 \u222b s in b\u2080..t, 2 * bound s \u2202\u03bc) (\ud835\udcdd b\u2080) (\ud835\udcdd 0)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          2,
+          0
+        ],
+        "result": {
+          "module": "DominatedConvergence",
+          "name": "continuousAt_parametric_primitive_of_dominated",
+          "statement": "X \u2192 \u211d \u2192 E} (bound : \u211d \u2192 \u211d) (a b : \u211d) {a\u2080 b\u2080 : \u211d} {x\u2080 : X} (hF_meas : \u2200 x, AEStronglyMeasurable (F x) (\u03bc.restrict <| \u0399 a b)) (h_bound : \u2200\u1da0 x in \ud835\udcdd x\u2080, \u2200\u1d50 t \u2202\u03bc.restrict <| \u0399 a b, \u2016F x t\u2016 \u2264 bound t) (bound_integrable : IntervalIntegrable bound \u03bc a b) (h_cont : \u2200\u1d50 t \u2202\u03bc.restrict <| \u0399 a b, ContinuousAt (fun x \u21a6 F x t) x\u2080) (ha\u2080 : a\u2080 \u2208 Ioo a b) (hb\u2080 : b\u2080 \u2208 Ioo a b) (h\u03bcb\u2080 : \u03bc {b\u2080} = 0) : ContinuousAt (fun p : X \u00d7 \u211d \u21a6 \u222b t : \u211d in a\u2080..p.2, F p.1 t \u2202\u03bc) (x\u2080, b\u2080)",
+          "have_tree": [
+            {
+              "name": "hsub",
+              "type": "\u2200 {a\u2080 b\u2080}, a\u2080 \u2208 Ioo a b \u2192 b\u2080 \u2208 Ioo a b \u2192 \u0399 a\u2080 b\u2080 \u2286 \u0399 a b",
+              "body": "fun ha\u2080 hb\u2080 \u21a6",
+              "children": []
+            },
+            {
+              "name": "Ioo_nhds",
+              "type": "Ioo a b \u2208 \ud835\udcdd b\u2080",
+              "body": "Ioo_mem_nhds hb\u2080.1 hb\u2080.2",
+              "children": []
+            },
+            {
+              "name": "Icc_nhds",
+              "type": "Icc a b \u2208 \ud835\udcdd b\u2080",
+              "body": "Icc_mem_nhds hb\u2080.1 hb\u2080.2",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "DominatedConvergence",
+          "name": "continuousAt_parametric_primitive_of_dominated",
+          "statement": "X \u2192 \u211d \u2192 E} (bound : \u211d \u2192 \u211d) (a b : \u211d) {a\u2080 b\u2080 : \u211d} {x\u2080 : X} (hF_meas : \u2200 x, AEStronglyMeasurable (F x) (\u03bc.restrict <| \u0399 a b)) (h_bound : \u2200\u1da0 x in \ud835\udcdd x\u2080, \u2200\u1d50 t \u2202\u03bc.restrict <| \u0399 a b, \u2016F x t\u2016 \u2264 bound t) (bound_integrable : IntervalIntegrable bound \u03bc a b) (h_cont : \u2200\u1d50 t \u2202\u03bc.restrict <| \u0399 a b, ContinuousAt (fun x \u21a6 F x t) x\u2080) (ha\u2080 : a\u2080 \u2208 Ioo a b) (hb\u2080 : b\u2080 \u2208 Ioo a b) (h\u03bcb\u2080 : \u03bc {b\u2080} = 0) : ContinuousAt (fun p : X \u00d7 \u211d \u21a6 \u222b t : \u211d in a\u2080..p.2, F p.1 t \u2202\u03bc) (x\u2080, b\u2080)",
+          "have_tree": [
+            {
+              "name": "hsub",
+              "type": "\u2200 {a\u2080 b\u2080}, a\u2080 \u2208 Ioo a b \u2192 b\u2080 \u2208 Ioo a b \u2192 \u0399 a\u2080 b\u2080 \u2286 \u0399 a b",
+              "body": "fun ha\u2080 hb\u2080 \u21a6",
+              "children": []
+            },
+            {
+              "name": "Ioo_nhds",
+              "type": "Ioo a b \u2208 \ud835\udcdd b\u2080",
+              "body": "Ioo_mem_nhds hb\u2080.1 hb\u2080.2",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Tendsto (fun t \u21a6 \u222b s in b\u2080..t, 2 * bound s \u2202\u03bc) (\ud835\udcdd b\u2080) (\ud835\udcdd 0)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "Icc_nhds",
+              "type": "Icc a b \u2208 \ud835\udcdd b\u2080",
+              "body": "Icc_mem_nhds hb\u2080.1 hb\u2080.2",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "DominatedConvergence",
+          "name": "continuousAt_parametric_primitive_of_dominated",
+          "statement": "X \u2192 \u211d \u2192 E} (bound : \u211d \u2192 \u211d) (a b : \u211d) {a\u2080 b\u2080 : \u211d} {x\u2080 : X} (hF_meas : \u2200 x, AEStronglyMeasurable (F x) (\u03bc.restrict <| \u0399 a b)) (h_bound : \u2200\u1da0 x in \ud835\udcdd x\u2080, \u2200\u1d50 t \u2202\u03bc.restrict <| \u0399 a b, \u2016F x t\u2016 \u2264 bound t) (bound_integrable : IntervalIntegrable bound \u03bc a b) (h_cont : \u2200\u1d50 t \u2202\u03bc.restrict <| \u0399 a b, ContinuousAt (fun x \u21a6 F x t) x\u2080) (ha\u2080 : a\u2080 \u2208 Ioo a b) (hb\u2080 : b\u2080 \u2208 Ioo a b) (h\u03bcb\u2080 : \u03bc {b\u2080} = 0) : ContinuousAt (fun p : X \u00d7 \u211d \u21a6 \u222b t : \u211d in a\u2080..p.2, F p.1 t \u2202\u03bc) (x\u2080, b\u2080)",
+          "have_tree": [
+            {
+              "name": "Ioo_nhds",
+              "type": "Ioo a b \u2208 \ud835\udcdd b\u2080",
+              "body": "Ioo_mem_nhds hb\u2080.1 hb\u2080.2",
+              "children": []
+            },
+            {
+              "name": "hsub",
+              "type": "\u2200 {a\u2080 b\u2080}, a\u2080 \u2208 Ioo a b \u2192 b\u2080 \u2208 Ioo a b \u2192 \u0399 a\u2080 b\u2080 \u2286 \u0399 a b",
+              "body": "fun ha\u2080 hb\u2080 \u21a6",
+              "children": []
+            },
+            {
+              "name": "Icc_nhds",
+              "type": "Icc a b \u2208 \ud835\udcdd b\u2080",
+              "body": "Icc_mem_nhds hb\u2080.1 hb\u2080.2",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Tendsto (fun t \u21a6 \u222b s in b\u2080..t, 2 * bound s \u2202\u03bc) (\ud835\udcdd b\u2080) (\ud835\udcdd 0)",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "DominatedConvergence",
+          "name": "continuousAt_parametric_primitive_of_dominated",
+          "statement": "X \u2192 \u211d \u2192 E} (bound : \u211d \u2192 \u211d) (a b : \u211d) {a\u2080 b\u2080 : \u211d} {x\u2080 : X} (hF_meas : \u2200 x, AEStronglyMeasurable (F x) (\u03bc.restrict <| \u0399 a b)) (h_bound : \u2200\u1da0 x in \ud835\udcdd x\u2080, \u2200\u1d50 t \u2202\u03bc.restrict <| \u0399 a b, \u2016F x t\u2016 \u2264 bound t) (bound_integrable : IntervalIntegrable bound \u03bc a b) (h_cont : \u2200\u1d50 t \u2202\u03bc.restrict <| \u0399 a b, ContinuousAt (fun x \u21a6 F x t) x\u2080) (ha\u2080 : a\u2080 \u2208 Ioo a b) (hb\u2080 : b\u2080 \u2208 Ioo a b) (h\u03bcb\u2080 : \u03bc {b\u2080} = 0) : ContinuousAt (fun p : X \u00d7 \u211d \u21a6 \u222b t : \u211d in a\u2080..p.2, F p.1 t \u2202\u03bc) (x\u2080, b\u2080)",
+          "have_tree": [
+            {
+              "name": "hsub",
+              "type": "\u2200 {a\u2080 b\u2080}, a\u2080 \u2208 Ioo a b \u2192 b\u2080 \u2208 Ioo a b \u2192 \u0399 a\u2080 b\u2080 \u2286 \u0399 a b",
+              "body": "fun ha\u2080 hb\u2080 \u21a6",
+              "children": []
+            },
+            {
+              "name": "Icc_nhds",
+              "type": "Icc a b \u2208 \ud835\udcdd b\u2080",
+              "body": "Icc_mem_nhds hb\u2080.1 hb\u2080.2",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Tendsto (fun t \u21a6 \u222b s in b\u2080..t, 2 * bound s \u2202\u03bc) (\ud835\udcdd b\u2080) (\ud835\udcdd 0)",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "Ioo_nhds",
+              "type": "Ioo a b \u2208 \ud835\udcdd b\u2080",
+              "body": "Ioo_mem_nhds hb\u2080.1 hb\u2080.2",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "DominatedConvergence",
+      "name": "continuous_parametric_primitive_of_continuous",
+      "statement": "\u211d} (hf : Continuous f.uncurry) : Continuous fun p : X \u00d7 \u211d \u21a6 \u222b t in a\u2080..p.2, f p.1 t \u2202\u03bc",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "IsCompact ({q} \u00d7\u02e2 (Icc a b))",
+          "body": "isCompact_singleton.prod isCompact_Icc",
+          "children": [
+            {
+              "name": "B",
+              "type": "\u2200\u1da0 \u03b4 in \ud835\udcdd 0, Icc (b\u2080 - \u03b4) (b\u2080 + \u03b4) \u2286 Icc a b",
+              "body": "by",
+              "children": [
+                {
+                  "name": "I",
+                  "type": "Tendsto (fun \u03b4 \u21a6 b\u2080 - \u03b4) (\ud835\udcdd 0) (\ud835\udcdd (b\u2080 - 0))",
+                  "body": "tendsto_const_nhds.sub tendsto_id",
+                  "children": []
+                },
+                {
+                  "name": "J",
+                  "type": "Tendsto (fun \u03b4 \u21a6 b\u2080 + \u03b4) (\ud835\udcdd 0) (\ud835\udcdd (b\u2080 + 0))",
+                  "body": "tendsto_const_nhds.add tendsto_id",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "_",
+          "type": "v \u00d7\u02e2 (Ioo (b\u2080 - \u03b4) (b\u2080 + \u03b4)) \u2208 \ud835\udcdd (q, b\u2080)",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "DominatedConvergence",
+          "name": "continuous_parametric_primitive_of_continuous",
+          "statement": "\u211d} (hf : Continuous f.uncurry) : Continuous fun p : X \u00d7 \u211d \u21a6 \u222b t in a\u2080..p.2, f p.1 t \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsCompact ({q} \u00d7\u02e2 (Icc a b))",
+              "body": "isCompact_singleton.prod isCompact_Icc",
+              "children": [
+                {
+                  "name": "I",
+                  "type": "Tendsto (fun \u03b4 \u21a6 b\u2080 - \u03b4) (\ud835\udcdd 0) (\ud835\udcdd (b\u2080 - 0))",
+                  "body": "tendsto_const_nhds.sub tendsto_id",
+                  "children": []
+                },
+                {
+                  "name": "J",
+                  "type": "Tendsto (fun \u03b4 \u21a6 b\u2080 + \u03b4) (\ud835\udcdd 0) (\ud835\udcdd (b\u2080 + 0))",
+                  "body": "tendsto_const_nhds.add tendsto_id",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "v \u00d7\u02e2 (Ioo (b\u2080 - \u03b4) (b\u2080 + \u03b4)) \u2208 \ud835\udcdd (q, b\u2080)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "result": {
+          "module": "DominatedConvergence",
+          "name": "continuous_parametric_primitive_of_continuous",
+          "statement": "\u211d} (hf : Continuous f.uncurry) : Continuous fun p : X \u00d7 \u211d \u21a6 \u222b t in a\u2080..p.2, f p.1 t \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsCompact ({q} \u00d7\u02e2 (Icc a b))",
+              "body": "isCompact_singleton.prod isCompact_Icc",
+              "children": [
+                {
+                  "name": "B",
+                  "type": "\u2200\u1da0 \u03b4 in \ud835\udcdd 0, Icc (b\u2080 - \u03b4) (b\u2080 + \u03b4) \u2286 Icc a b",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "J",
+                      "type": "Tendsto (fun \u03b4 \u21a6 b\u2080 + \u03b4) (\ud835\udcdd 0) (\ud835\udcdd (b\u2080 + 0))",
+                      "body": "tendsto_const_nhds.add tendsto_id",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "v \u00d7\u02e2 (Ioo (b\u2080 - \u03b4) (b\u2080 + \u03b4)) \u2208 \ud835\udcdd (q, b\u2080)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0,
+          1
+        ],
+        "result": {
+          "module": "DominatedConvergence",
+          "name": "continuous_parametric_primitive_of_continuous",
+          "statement": "\u211d} (hf : Continuous f.uncurry) : Continuous fun p : X \u00d7 \u211d \u21a6 \u222b t in a\u2080..p.2, f p.1 t \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsCompact ({q} \u00d7\u02e2 (Icc a b))",
+              "body": "isCompact_singleton.prod isCompact_Icc",
+              "children": [
+                {
+                  "name": "B",
+                  "type": "\u2200\u1da0 \u03b4 in \ud835\udcdd 0, Icc (b\u2080 - \u03b4) (b\u2080 + \u03b4) \u2286 Icc a b",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "I",
+                      "type": "Tendsto (fun \u03b4 \u21a6 b\u2080 - \u03b4) (\ud835\udcdd 0) (\ud835\udcdd (b\u2080 - 0))",
+                      "body": "tendsto_const_nhds.sub tendsto_id",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "v \u00d7\u02e2 (Ioo (b\u2080 - \u03b4) (b\u2080 + \u03b4)) \u2208 \ud835\udcdd (q, b\u2080)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "DominatedConvergence",
+          "name": "continuous_parametric_primitive_of_continuous",
+          "statement": "\u211d} (hf : Continuous f.uncurry) : Continuous fun p : X \u00d7 \u211d \u21a6 \u222b t in a\u2080..p.2, f p.1 t \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "B",
+              "type": "\u2200\u1da0 \u03b4 in \ud835\udcdd 0, Icc (b\u2080 - \u03b4) (b\u2080 + \u03b4) \u2286 Icc a b",
+              "body": "by",
+              "children": [
+                {
+                  "name": "I",
+                  "type": "Tendsto (fun \u03b4 \u21a6 b\u2080 - \u03b4) (\ud835\udcdd 0) (\ud835\udcdd (b\u2080 - 0))",
+                  "body": "tendsto_const_nhds.sub tendsto_id",
+                  "children": []
+                },
+                {
+                  "name": "J",
+                  "type": "Tendsto (fun \u03b4 \u21a6 b\u2080 + \u03b4) (\ud835\udcdd 0) (\ud835\udcdd (b\u2080 + 0))",
+                  "body": "tendsto_const_nhds.add tendsto_id",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "IsCompact ({q} \u00d7\u02e2 (Icc a b))",
+              "body": "isCompact_singleton.prod isCompact_Icc",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "v \u00d7\u02e2 (Ioo (b\u2080 - \u03b4) (b\u2080 + \u03b4)) \u2208 \ud835\udcdd (q, b\u2080)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0,
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "DominatedConvergence",
+          "name": "continuous_parametric_primitive_of_continuous",
+          "statement": "\u211d} (hf : Continuous f.uncurry) : Continuous fun p : X \u00d7 \u211d \u21a6 \u222b t in a\u2080..p.2, f p.1 t \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsCompact ({q} \u00d7\u02e2 (Icc a b))",
+              "body": "isCompact_singleton.prod isCompact_Icc",
+              "children": [
+                {
+                  "name": "I",
+                  "type": "Tendsto (fun \u03b4 \u21a6 b\u2080 - \u03b4) (\ud835\udcdd 0) (\ud835\udcdd (b\u2080 - 0))",
+                  "body": "tendsto_const_nhds.sub tendsto_id",
+                  "children": []
+                },
+                {
+                  "name": "B",
+                  "type": "\u2200\u1da0 \u03b4 in \ud835\udcdd 0, Icc (b\u2080 - \u03b4) (b\u2080 + \u03b4) \u2286 Icc a b",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "J",
+                      "type": "Tendsto (fun \u03b4 \u21a6 b\u2080 + \u03b4) (\ud835\udcdd 0) (\ud835\udcdd (b\u2080 + 0))",
+                      "body": "tendsto_const_nhds.add tendsto_id",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "v \u00d7\u02e2 (Ioo (b\u2080 - \u03b4) (b\u2080 + \u03b4)) \u2208 \ud835\udcdd (q, b\u2080)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0,
+          0
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "DominatedConvergence",
+          "name": "continuous_parametric_primitive_of_continuous",
+          "statement": "\u211d} (hf : Continuous f.uncurry) : Continuous fun p : X \u00d7 \u211d \u21a6 \u222b t in a\u2080..p.2, f p.1 t \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsCompact ({q} \u00d7\u02e2 (Icc a b))",
+              "body": "isCompact_singleton.prod isCompact_Icc",
+              "children": [
+                {
+                  "name": "J",
+                  "type": "Tendsto (fun \u03b4 \u21a6 b\u2080 + \u03b4) (\ud835\udcdd 0) (\ud835\udcdd (b\u2080 + 0))",
+                  "body": "tendsto_const_nhds.add tendsto_id",
+                  "children": []
+                },
+                {
+                  "name": "B",
+                  "type": "\u2200\u1da0 \u03b4 in \ud835\udcdd 0, Icc (b\u2080 - \u03b4) (b\u2080 + \u03b4) \u2286 Icc a b",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "I",
+                      "type": "Tendsto (fun \u03b4 \u21a6 b\u2080 - \u03b4) (\ud835\udcdd 0) (\ud835\udcdd (b\u2080 - 0))",
+                      "body": "tendsto_const_nhds.sub tendsto_id",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "v \u00d7\u02e2 (Ioo (b\u2080 - \u03b4) (b\u2080 + \u03b4)) \u2208 \ud835\udcdd (q, b\u2080)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "DominatedConvergence",
+          "name": "continuous_parametric_primitive_of_continuous",
+          "statement": "\u211d} (hf : Continuous f.uncurry) : Continuous fun p : X \u00d7 \u211d \u21a6 \u222b t in a\u2080..p.2, f p.1 t \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "v \u00d7\u02e2 (Ioo (b\u2080 - \u03b4) (b\u2080 + \u03b4)) \u2208 \ud835\udcdd (q, b\u2080)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsCompact ({q} \u00d7\u02e2 (Icc a b))",
+              "body": "isCompact_singleton.prod isCompact_Icc",
+              "children": [
+                {
+                  "name": "B",
+                  "type": "\u2200\u1da0 \u03b4 in \ud835\udcdd 0, Icc (b\u2080 - \u03b4) (b\u2080 + \u03b4) \u2286 Icc a b",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "I",
+                      "type": "Tendsto (fun \u03b4 \u21a6 b\u2080 - \u03b4) (\ud835\udcdd 0) (\ud835\udcdd (b\u2080 - 0))",
+                      "body": "tendsto_const_nhds.sub tendsto_id",
+                      "children": []
+                    },
+                    {
+                      "name": "J",
+                      "type": "Tendsto (fun \u03b4 \u21a6 b\u2080 + \u03b4) (\ud835\udcdd 0) (\ud835\udcdd (b\u2080 + 0))",
+                      "body": "tendsto_const_nhds.add tendsto_id",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0,
+          0
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "DominatedConvergence",
+          "name": "continuous_parametric_primitive_of_continuous",
+          "statement": "\u211d} (hf : Continuous f.uncurry) : Continuous fun p : X \u00d7 \u211d \u21a6 \u222b t in a\u2080..p.2, f p.1 t \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsCompact ({q} \u00d7\u02e2 (Icc a b))",
+              "body": "isCompact_singleton.prod isCompact_Icc",
+              "children": [
+                {
+                  "name": "B",
+                  "type": "\u2200\u1da0 \u03b4 in \ud835\udcdd 0, Icc (b\u2080 - \u03b4) (b\u2080 + \u03b4) \u2286 Icc a b",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "J",
+                      "type": "Tendsto (fun \u03b4 \u21a6 b\u2080 + \u03b4) (\ud835\udcdd 0) (\ud835\udcdd (b\u2080 + 0))",
+                      "body": "tendsto_const_nhds.add tendsto_id",
+                      "children": []
+                    },
+                    {
+                      "name": "I",
+                      "type": "Tendsto (fun \u03b4 \u21a6 b\u2080 - \u03b4) (\ud835\udcdd 0) (\ud835\udcdd (b\u2080 - 0))",
+                      "body": "tendsto_const_nhds.sub tendsto_id",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "v \u00d7\u02e2 (Ioo (b\u2080 - \u03b4) (b\u2080 + \u03b4)) \u2208 \ud835\udcdd (q, b\u2080)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "DominatedConvergence",
+      "name": "continuousOn_Ici_primitive_Ioi",
+      "statement": "\u211d} (hf : IntegrableOn f (Ioi a\u2080) \u03bc) : ContinuousOn (fun b \u21a6 \u222b x in Ioi b, f x \u2202\u03bc) (Ici a\u2080)",
+      "have_tree": [
+        {
+          "name": "h_int",
+          "type": "IntervalIntegrable f \u03bc a\u2080 a",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "h_cwa",
+          "type": "ContinuousWithinAt (fun b \u21a6 \u222b x in a\u2080..b, f x \u2202\u03bc) (Icc a\u2080 a) a",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "DominatedConvergence",
+          "name": "continuousOn_Ici_primitive_Ioi",
+          "statement": "\u211d} (hf : IntegrableOn f (Ioi a\u2080) \u03bc) : ContinuousOn (fun b \u21a6 \u222b x in Ioi b, f x \u2202\u03bc) (Ici a\u2080)",
+          "have_tree": [
+            {
+              "name": "h_cwa",
+              "type": "ContinuousWithinAt (fun b \u21a6 \u222b x in a\u2080..b, f x \u2202\u03bc) (Icc a\u2080 a) a",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "h_int",
+              "type": "IntervalIntegrable f \u03bc a\u2080 a",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "DominatedConvergence",
+      "name": "continuousOn_Iic_primitive_Iio",
+      "statement": "\u211d} (hf : IntegrableOn f (Iio a\u2080) \u03bc) : ContinuousOn (fun b \u21a6 \u222b x in Iio b, f x \u2202\u03bc) (Iic a\u2080)",
+      "have_tree": [
+        {
+          "name": "h_int",
+          "type": "IntervalIntegrable f \u03bc a a\u2080",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "h_cwa",
+          "type": "ContinuousWithinAt (fun b \u21a6 \u222b x in a\u2080..b, f x \u2202\u03bc) (Icc a a\u2080) a",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "DominatedConvergence",
+          "name": "continuousOn_Iic_primitive_Iio",
+          "statement": "\u211d} (hf : IntegrableOn f (Iio a\u2080) \u03bc) : ContinuousOn (fun b \u21a6 \u222b x in Iio b, f x \u2202\u03bc) (Iic a\u2080)",
+          "have_tree": [
+            {
+              "name": "h_cwa",
+              "type": "ContinuousWithinAt (fun b \u21a6 \u222b x in a\u2080..b, f x \u2202\u03bc) (Icc a a\u2080) a",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "h_int",
+              "type": "IntervalIntegrable f \u03bc a a\u2080",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

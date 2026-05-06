@@ -1,0 +1,73 @@
+[
+  {
+    "module": "SetSemiring",
+    "name": "notMem_disjointOfDiff",
+    "statement": "IsSetSemiring C) (hs : s \u2208 C) (ht : t \u2208 C) : t \u2209 hC.disjointOfDiff hs ht",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "@disjoint_sdiff_self_right _ t s _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SetSemiring",
+    "name": "pairwiseDisjoint_insert_disjointOfDiff",
+    "statement": "IsSetSemiring C) (hs : s \u2208 C) (ht : t \u2208 C) : PairwiseDisjoint (insert t (hC.disjointOfDiff hs ht) : Set (Set \u03b1)) id",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "hC.pairwiseDisjoint_disjointOfDiff hs ht",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SetSemiring",
+    "name": "exists_disjoint_finset_diff_eq",
+    "statement": "IsSetSemiring C) (hs : s \u2208 C) (hI : \u2191I \u2286 C) : \u2203 J : Finset (Set \u03b1), \u2191J \u2286 C \u2227 PairwiseDisjoint (J : Set (Set \u03b1)) id \u2227 s \\ \u22c3\u2080 I = \u22c3\u2080 J",
+    "have_tree": [
+      {
+        "name": "ht",
+        "type": "t \u2208 C",
+        "body": "hI (Set.mem_insert _ _)",
+        "children": []
+      },
+      {
+        "name": "hJ'_subset",
+        "type": "\u2191J' \u2286 C",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SetSemiring",
+    "name": "disjoint_disjointOfDiffUnion",
+    "statement": "IsSetSemiring C) (hs : s \u2208 C) (hI : \u2191I \u2286 C) : Disjoint I (hC.disjointOfDiffUnion hs hI)",
+    "have_tree": [
+      {
+        "name": "h_disj",
+        "type": "u \u2264 \u22a5",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SetSemiring",
+    "name": "disjointOfUnion_props",
+    "statement": "IsSetSemiring C) (h1 : \u2191J \u2286 C) : \u2203 K : Set \u03b1 \u2192 Finset (Set \u03b1), PairwiseDisjoint J K \u2227 (\u2200 i \u2208 J, \u2191(K i) \u2286 C) \u2227 PairwiseDisjoint (\u22c3 x \u2208 J, (K x : Set (Set \u03b1))) id \u2227 (\u2200 j \u2208 J, \u22c3\u2080 K j \u2286 j) \u2227 (\u2200 j \u2208 J, \u2205 \u2209 K j) \u2227 \u22c3\u2080 J = \u22c3\u2080 (\u22c3 x \u2208 J, (K x : Set (Set \u03b1)))",
+    "have_tree": [
+      {
+        "name": "h8",
+        "type": "Function.onFun Disjoint K1 s i",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

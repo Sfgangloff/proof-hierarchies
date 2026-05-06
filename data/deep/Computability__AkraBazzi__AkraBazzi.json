@@ -1,0 +1,253 @@
+[
+  {
+    "module": "AkraBazzi",
+    "name": "rpow_p_mul_one_sub_smoothingFn_le",
+    "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (r i n) ^ (p a b) * (1 - \u03b5 (r i n)) \u2264 (b i) ^ (p a b) * n ^ (p a b) * (1 - \u03b5 n)",
+    "have_tree": [
+      {
+        "name": "h_diff_q",
+        "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_deriv_q",
+        "type": "deriv q =O[atTop] fun x => x ^ ((p a b) - 1)",
+        "body": "calc deriv q",
+        "children": [
+          {
+            "name": "hn'",
+            "type": "(n : \u211d) \u2260 0",
+            "body": "by positivity",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "R.b_pos i; positivity",
+            "children": []
+          },
+          {
+            "name": "h\u2081",
+            "type": "",
+            "body": "R.b_pos i",
+            "children": []
+          },
+          {
+            "name": "h\u2082",
+            "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "R.b_pos i",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "AkraBazzi",
+    "name": "rpow_p_mul_one_add_smoothingFn_ge",
+    "statement": "\u2200\u1da0 (n : \u2115) in atTop, \u2200 i, (b i) ^ (p a b) * n ^ (p a b) * (1 + \u03b5 n) \u2264 (r i n) ^ (p a b) * (1 + \u03b5 (r i n))",
+    "have_tree": [
+      {
+        "name": "h_diff_q",
+        "type": "DifferentiableOn \u211d q (Set.Ioi 1)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_deriv_q",
+        "type": "deriv q =O[atTop] fun x => x ^ ((p a b) - 1)",
+        "body": "",
+        "children": [
+          {
+            "name": "hn'",
+            "type": "(n : \u211d) \u2260 0",
+            "body": "by positivity",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "R.b_pos i; positivity",
+            "children": []
+          },
+          {
+            "name": "h\u2081",
+            "type": "",
+            "body": "R.b_pos i",
+            "children": []
+          },
+          {
+            "name": "h\u2082",
+            "type": "0 \u2264 \u03b5 (b i * n) - \u03b5 n",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "R.b_pos i",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "AkraBazzi",
+    "name": "T_isBigO_smoothingFn_mul_asympBound",
+    "statement": "T =O[atTop] (fun n => (1 - \u03b5 n) * asympBound g a b n)",
+    "have_tree": [
+      {
+        "name": "hb_pos",
+        "type": "0 < b'",
+        "body": "R.bi_min_div_two_pos",
+        "children": []
+      },
+      {
+        "name": "h_base_nonempty",
+        "type": "",
+        "body": "R.base_nonempty n\u2080_pos",
+        "children": []
+      },
+      {
+        "name": "h_base",
+        "type": "\u2200 n \u2208 Finset.Ico (\u230ab' * n\u2080\u230b\u208a) n\u2080, T n \u2264 C * ((1 - \u03b5 n) * asympBound g a b n)",
+        "body": "by",
+        "children": [
+          {
+            "name": "htmp1",
+            "type": "0 < 1 - \u03b5 n",
+            "body": "h_smoothingFn_floor n hn.1",
+            "children": []
+          },
+          {
+            "name": "htmp2",
+            "type": "0 < asympBound g a b n",
+            "body": "h_asympBound_floor n hn.1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_asympBound_pos'",
+        "type": "0 < asympBound g a b n",
+        "body": "h_asympBound_pos n hn",
+        "children": []
+      },
+      {
+        "name": "h_one_sub_smoothingFn_pos'",
+        "type": "0 < 1 - \u03b5 n",
+        "body": "h_smoothing_pos n hn",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u230ab' * \u2191n\u2080\u230b\u208a \u2264 r i n",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "g_pos",
+            "type": "0 \u2264 g n",
+            "body": "R.g_nonneg n (by positivity)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "AkraBazzi",
+    "name": "smoothingFn_mul_asympBound_isBigO_T",
+    "statement": "(fun (n : \u2115) => (1 + \u03b5 n) * asympBound g a b n) =O[atTop] T",
+    "have_tree": [
+      {
+        "name": "hb_pos",
+        "type": "0 < b'",
+        "body": "R.bi_min_div_two_pos",
+        "children": []
+      },
+      {
+        "name": "h_base_nonempty",
+        "type": "",
+        "body": "R.base_nonempty n\u2080_pos",
+        "children": []
+      },
+      {
+        "name": "hC_pos",
+        "type": "0 < C",
+        "body": "by",
+        "children": [
+          {
+            "name": "H\u2081",
+            "type": "0 < T m",
+            "body": "R.T_pos _",
+            "children": []
+          },
+          {
+            "name": "H\u2082",
+            "type": "0 < 1 + \u03b5 m",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "H\u2083",
+            "type": "0 < asympBound g a b m",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_base",
+        "type": "\u2200 n \u2208 Finset.Ico (\u230ab' * n\u2080\u230b\u208a) n\u2080, C * ((1 + \u03b5 n) * asympBound g a b n) \u2264 T n",
+        "body": "by",
+        "children": [
+          {
+            "name": "htmp1",
+            "type": "0 < 1 + \u03b5 n",
+            "body": "h_smoothingFn_floor n hn.1",
+            "children": []
+          },
+          {
+            "name": "htmp2",
+            "type": "0 < asympBound g a b n",
+            "body": "h_asympBound_floor n hn.1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_asympBound_pos'",
+        "type": "0 < asympBound g a b n",
+        "body": "h_asympBound_pos n hn",
+        "children": []
+      },
+      {
+        "name": "h_one_sub_smoothingFn_pos'",
+        "type": "0 < 1 + \u03b5 n",
+        "body": "h_smoothing_pos n hn",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u230ab' * \u2191n\u2080\u230b\u208a \u2264 r i n",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "g_pos",
+            "type": "0 \u2264 g n",
+            "body": "R.g_nonneg n (by positivity)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

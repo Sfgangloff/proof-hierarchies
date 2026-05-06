@@ -1,0 +1,80 @@
+[
+  {
+    "module": "Basic",
+    "name": "mul_mem_connectedComponent_one",
+    "statement": "Type*} [TopologicalSpace G] [MulOneClass G] [ContinuousMul G] {g h : G} (hg : g \u2208 connectedComponent (1 : G)) (hh : h \u2208 connectedComponent (1 : G)) : g * h \u2208 connectedComponent (1 : G)",
+    "have_tree": [
+      {
+        "name": "hmul",
+        "type": "g \u2208 connectedComponent (g * h)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsTopologicalGroup.exists_antitone_basis_nhds_one",
+    "statement": "\u2203 u : \u2115 \u2192 Set G, (\ud835\udcdd 1).HasAntitoneBasis u \u2227 \u2200 n, u (n + 1) * u (n + 1) \u2286 u n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Subgroup.properlyDiscontinuousSMul_of_tendsto_cofinite",
+    "statement": "Subgroup G) (hS : Tendsto S.subtype cofinite (cocompact G)) : ProperlyDiscontinuousSMul S G",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "Set.Finite _",
+        "body": "hS ((hL.prod hK).image continuous_div').compl_mem_cocompact",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Subgroup.properlyDiscontinuousSMul_opposite_of_tendsto_cofinite",
+    "statement": "Subgroup G) (hS : Tendsto S.subtype cofinite (cocompact G)) : ProperlyDiscontinuousSMul S.op G",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "Set.Finite _",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "compact_open_separated_mul_right",
+    "statement": "Set G} (hK : IsCompact K) (hU : IsOpen U) (hKU : K \u2286 U) : \u2203 V \u2208 \ud835\udcdd (1 : G), K * V \u2286 U",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "tendsto_mul (show U \u2208 \ud835\udcdd (x * 1) by simpa using hU.mem_nhds (hKU hx))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.Submonoid.units_isCompact",
+    "statement": "Submonoid \u03b1} (hS : IsCompact (S : Set \u03b1)) : IsCompact (S.units : Set \u03b1\u02e3)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsCompact (S \u00d7\u02e2 S.op)",
+        "body": "hS.prod (opHomeomorph.isCompact_preimage.mp hS)",
+        "children": []
+      }
+    ]
+  }
+]

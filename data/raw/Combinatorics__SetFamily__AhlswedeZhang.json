@@ -1,0 +1,78 @@
+[
+  {
+    "module": "AhlswedeZhang",
+    "name": "binomial_sum_eq",
+    "statement": "n < m) : \u2211 i \u2208 range (n + 1), (n.choose i * (m - n) / ((m - i) * m.choose i) : \u211a) = 1",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "le_of_lt_succ h\u2081",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "h\u2081.trans_lt h",
+        "children": []
+      },
+      {
+        "name": "h\u2083",
+        "type": "",
+        "body": "h\u2082.le",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_arg ((\u2191) : \u2115 \u2192 \u211a) (choose_succ_right_eq m i)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_arg ((\u2191) : \u2115 \u2192 \u211a) (choose_succ_right_eq n i)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AhlswedeZhang",
+    "name": "map_truncatedInf",
+    "statement": "\u03b1 \u2243o \u03b2) (s : Finset \u03b1) (a : \u03b1) : e (truncatedInf s a) = truncatedInf (s.map e.toEquiv.toEmbedding) (e a)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "e a \u2208 upperClosure (s.map e.toEquiv.toEmbedding) \u2194 a \u2208 upperClosure s",
+        "body": "by simp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AhlswedeZhang",
+    "name": "IsAntichain.le_infSum",
+    "statement": "IsAntichain (\u00b7 \u2286 \u00b7) (\ud835\udc9c : Set (Finset \u03b1))) (h\ud835\udc9c\u2080 : \u2205 \u2209 \ud835\udc9c) : \u2211 s \u2208 \ud835\udc9c, ((card \u03b1).choose #s : \u211a)\u207b\u00b9 \u2264 infSum \ud835\udc9c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(nonempty_iff_ne_empty.2 <| ne_of_mem_of_not_mem hs h\ud835\udc9c\u2080).card_pos",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AhlswedeZhang",
+    "name": "supSum_of_univ_notMem",
+    "statement": "\ud835\udc9c.Nonempty) (h\ud835\udc9c\u2082 : univ \u2209 \ud835\udc9c) : supSum \ud835\udc9c = card \u03b1 * \u2211 k \u2208 range (card \u03b1), (k : \u211a)\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "h\ud835\udc9c",
+        "type": "\ud835\udc9c.Nonempty",
+        "body": "by by_contra! rfl; simp at h\ud835\udc9c\u2083",
+        "children": []
+      }
+    ]
+  }
+]

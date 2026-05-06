@@ -1,0 +1,158 @@
+[
+  {
+    "module": "AbsolutelyContinuousFun",
+    "name": "exists_dist_slope_lt_pairwiseDisjoint_hasSum",
+    "statement": "\u211d \u2192 F} {d b \u03b7 : \u211d} (hdb : d \u2264 b) (hf : \u2200\u1d50 x, x \u2208 Ioo d b \u2192 HasDerivAt f (f' x) x) (h\u03b7 : 0 < \u03b7) : \u2203 u : Set (\u211d \u00d7 \u211d), (\u2200 z \u2208 u, (d < z.1 \u2227 z.1 < z.2 \u2227 z.2 < b) \u2227 dist (slope f z.1 z.2) (f' z.1) < \u03b7) \u2227 u.PairwiseDisjoint (fun z \u21a6 Icc z.1 z.2) \u2227 HasSum (fun (z : u) \u21a6 z.val.2 - z.val.1) (b - d)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasDerivAt_iff_tendsto_slope.mp hx.right",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Countable u",
+        "body": "by simp [hu\u2082]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AbsolutelyContinuousFun",
+    "name": "AbsolutelyContinuousOnInterval.dist_le_of_pairwiseDisjoint_hasSum",
+    "statement": "\u211d \u2192 X} {d b y : \u211d} (hdb : d \u2264 b) (hf : AbsolutelyContinuousOnInterval f d b) {u : Set (\u211d \u00d7 \u211d)} (hu\u2081 : \u2200 z \u2208 u, d < z.1 \u2227 z.1 < z.2 \u2227 z.2 < b) (hu\u2082 : u.PairwiseDisjoint (fun z \u21a6 Icc z.1 z.2)) (hu\u2083 : HasSum (fun (z : u) \u21a6 z.val.2 - z.val.1) (b - d)) (hu\u2084 : HasSum (fun (z : u) \u21a6 dist (f z.val.1) (f z.val.2)) y) : dist (f d) (f b) \u2264 y",
+    "have_tree": [
+      {
+        "name": "hT",
+        "type": "univ.MapsTo T (disjWithin d b)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "sum_tendsto",
+        "type": "",
+        "body": "hf.comp hu\u2083 |>.add hu\u2084",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AbsolutelyContinuousFun",
+    "name": "AbsolutelyContinuousOnInterval.const_of_ae_hasDerivAt_zero",
+    "statement": "\u211d \u2192 F} {a b : \u211d} (hf : AbsolutelyContinuousOnInterval f a b) (hf\u2080 : \u2200\u1d50 x, x \u2208 uIcc a b \u2192 HasDerivAt f 0 x) : \u2203 C, \u2200 x \u2208 uIcc a b, f x = C",
+    "have_tree": [
+      {
+        "name": "had",
+        "type": "a \u2264 d",
+        "body": "by linarith",
+        "children": []
+      },
+      {
+        "name": "hfdb'",
+        "type": "0 < r / (b - d)",
+        "body": "by apply div_pos <;> linarith",
+        "children": []
+      },
+      {
+        "name": "g_nonneg",
+        "type": "0 \u2264 g",
+        "body": "by intro; simp [g]",
+        "children": [
+          {
+            "name": "slope_bound",
+            "type": "",
+            "body": "hu\u2081 z (by simp) |>.right |>.le",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "0 < z.val.2 - z.val.1",
+            "body": "by linarith [hu\u2081 z (by simp)]",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u2211 z \u2208 s, (z.val.2 - z.val.1) \u2264 b - d",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hu\u2084",
+        "type": "",
+        "body": "summable_of_sum_le g_nonneg g_finsum_bound |>.hasSum",
+        "children": []
+      },
+      {
+        "name": "g_sum_bound",
+        "type": "",
+        "body": "Real.tsum_le_of_sum_le g_nonneg g_finsum_bound",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(hf.mono (by grind [uIcc_of_le])).dist_le_of_pairwiseDisjoint_hasSum hd.right",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AbsolutelyContinuousFun",
+    "name": "AbsolutelyContinuousOnInterval.integral_deriv_eq_sub",
+    "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hf : AbsolutelyContinuousOnInterval f a b) : \u222b (x : \u211d) in a..b, deriv f x = f b - f a",
+    "have_tree": [
+      {
+        "name": "f_deriv_integral_ac",
+        "type": "",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "g_ac",
+        "type": "AbsolutelyContinuousOnInterval g a b",
+        "body": "hf.sub (f_deriv_integral_ac)",
+        "children": []
+      },
+      {
+        "name": "g_ae_deriv_zero",
+        "type": "\u2200\u1d50 x, x \u2208 uIcc a b \u2192 HasDerivAt g 0 x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hC a (by simp)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hC b (by simp)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AbsolutelyContinuousFun",
+    "name": "AbsolutelyContinuousOnInterval.integral_deriv_mul_eq_sub",
+    "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hf : AbsolutelyContinuousOnInterval f a b) (hg : AbsolutelyContinuousOnInterval g a b) : \u222b x in a..b, deriv f x * g x + f x * deriv g x = f b * g b - f a * g a",
+    "have_tree": [
+      {
+        "name": "hx\u2084",
+        "type": "x \u2208 uIcc a b",
+        "body": "by grind [uIcc, uIoc]",
+        "children": []
+      },
+      {
+        "name": "hx\u2085",
+        "type": "",
+        "body": "(hx\u2081 hx\u2084).hasDerivAt.mul (hx\u2082 hx\u2084).hasDerivAt",
+        "children": []
+      }
+    ]
+  }
+]

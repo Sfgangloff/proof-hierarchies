@@ -1,0 +1,78 @@
+[
+  {
+    "module": "Combination",
+    "name": "map_affineCombination",
+    "statement": "Type*} [AddCommGroup V\u2082] [Module k V\u2082] [AffineSpace V\u2082 P\u2082] (p : \u03b9 \u2192 P) (w : \u03b9 \u2192 k) (hw : s.sum w = 1) (f : P \u2192\u1d43[k] P\u2082) : f (s.affineCombination k p w) = s.affineCombination k (f \u2218 p) w",
+    "have_tree": [
+      {
+        "name": "b",
+        "type": "",
+        "body": "Classical.choice (inferInstance : AffineSpace V P).nonempty",
+        "children": []
+      },
+      {
+        "name": "b\u2082",
+        "type": "",
+        "body": "Classical.choice (inferInstance : AffineSpace V\u2082 P\u2082).nonempty",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Combination",
+    "name": "weightedVSub_mem_vectorSpan",
+    "statement": "Finset \u03b9} {w : \u03b9 \u2192 k} (h : \u2211 i \u2208 s, w i = 0) (p : \u03b9 \u2192 P) : s.weightedVSub p w \u2208 vectorSpan k (Set.range p)",
+    "have_tree": [
+      {
+        "name": "hwx",
+        "type": "\u2200 i, w' i \u2260 0 \u2192 i \u2208 s",
+        "body": "fun i => Set.mem_of_indicator_ne_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Combination",
+    "name": "affineCombination_mem_affineSpan",
+    "statement": "Finset \u03b9} {w : \u03b9 \u2192 k} (h : \u2211 i \u2208 s, w i = 1) (p : \u03b9 \u2192 P) : s.affineCombination k p w \u2208 affineSpan k (Set.range p)",
+    "have_tree": [
+      {
+        "name": "hnz",
+        "type": "\u2211 i \u2208 s, w i \u2260 0",
+        "body": "h.symm \u25b8 one_ne_zero",
+        "children": []
+      },
+      {
+        "name": "hn",
+        "type": "s.Nonempty",
+        "body": "Finset.nonempty_of_sum_ne_zero hnz",
+        "children": []
+      },
+      {
+        "name": "hv",
+        "type": "s.affineCombination k p w -\u1d65 p i1 \u2208 (affineSpan k (Set.range p)).direction",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Combination",
+    "name": "eq_affineCombination_of_mem_affineSpan",
+    "statement": "P} {p : \u03b9 \u2192 P} (h : p1 \u2208 affineSpan k (Set.range p)) : \u2203 (s : Finset \u03b9) (w : \u03b9 \u2192 k), \u2211 i \u2208 s, w i = 1 \u2227 p1 = s.affineCombination k p w",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "p i0 \u2208 affineSpan k (Set.range p)",
+        "body": "mem_affineSpan k (Set.mem_range_self i0)",
+        "children": []
+      },
+      {
+        "name": "hd",
+        "type": "p1 -\u1d65 p i0 \u2208 (affineSpan k (Set.range p)).direction",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

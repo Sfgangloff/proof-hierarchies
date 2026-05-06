@@ -1,0 +1,118 @@
+[
+  {
+    "module": "Operations",
+    "name": "natDegree_lt_natDegree_iff",
+    "statement": "p \u2260 0) : natDegree p < natDegree q \u2194 degree p < degree q",
+    "have_tree": [
+      {
+        "name": "hq",
+        "type": "q \u2260 0",
+        "body": "ne_zero_of_degree_gt h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Operations",
+    "name": "degree_mul'",
+    "statement": "leadingCoeff p * leadingCoeff q \u2260 0) : degree (p * q) = degree p + degree q",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "p \u2260 0",
+        "body": "by refine mt ?_ h; exact fun hp => by rw [hp, leadingCoeff_zero, zero_mul]",
+        "children": []
+      },
+      {
+        "name": "hq",
+        "type": "q \u2260 0",
+        "body": "by refine mt ?_ h; exact fun hq => by rw [hq, leadingCoeff_zero, mul_zero]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Operations",
+    "name": "natDegree_mul'",
+    "statement": "leadingCoeff p * leadingCoeff q \u2260 0) : natDegree (p * q) = natDegree p + natDegree q",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "p \u2260 0",
+        "body": "mt leadingCoeff_eq_zero.2 fun h\u2081 => h <| by rw [h\u2081, zero_mul]",
+        "children": []
+      },
+      {
+        "name": "hq",
+        "type": "q \u2260 0",
+        "body": "mt leadingCoeff_eq_zero.2 fun h\u2081 => h <| by rw [h\u2081, mul_zero]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Operations",
+    "name": "leadingCoeff_pow'",
+    "statement": "leadingCoeff p ^ n \u2260 0 \u2192 leadingCoeff (p ^ n) = leadingCoeff p ^ n",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "leadingCoeff p ^ n \u2260 0",
+        "body": "fun h\u2081 => h <| by rw [pow_succ, h\u2081, zero_mul]",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "leadingCoeff p * leadingCoeff (p ^ n) \u2260 0",
+        "body": "by rwa [pow_succ', \u2190 ih h\u2081] at h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Operations",
+    "name": "natDegree_pow'",
+    "statement": "\u2115} (h : leadingCoeff p ^ n \u2260 0) : natDegree (p ^ n) = n * natDegree p",
+    "have_tree": [
+      {
+        "name": "hpn",
+        "type": "p ^ n \u2260 0",
+        "body": "fun hpn0 => by",
+        "children": [
+          {
+            "name": "h1",
+            "type": "",
+            "body": "h",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Operations",
+    "name": "coeff_pow_mul_natDegree",
+    "statement": "R[X]) (n : \u2115) : (p ^ n).coeff (n * p.natDegree) = p.leadingCoeff ^ n",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "(p ^ i).natDegree < i * p.natDegree",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Operations",
+    "name": "degree_lt_degree_mul_X",
+    "statement": "p \u2260 0) : p.degree < (p * X).degree",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "leadingCoeff p * leadingCoeff X \u2260 0",
+        "body": "by simpa",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "module": "DyckWord",
+    "name": "firstReturn_add",
+    "statement": "(p + q).firstReturn = if p = 0 then q.firstReturn else p.firstReturn",
+    "have_tree": [
+      {
+        "name": "u",
+        "type": "(p + q).toList = p.toList ++ q.toList",
+        "body": "rfl",
+        "children": [
+          {
+            "name": "v",
+            "type": "",
+            "body": "firstReturn_lt_length h",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "DyckWord",
+    "name": "firstReturn_nest",
+    "statement": "p.nest.firstReturn = p.toList.length + 1",
+    "have_tree": [
+      {
+        "name": "u",
+        "type": "p.nest.toList = U :: p.toList ++ [D]",
+        "body": "rfl",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "p.count_D_le_count_U j",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

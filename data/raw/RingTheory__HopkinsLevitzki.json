@@ -1,0 +1,71 @@
+[
+  {
+    "module": "HopkinsLevitzki",
+    "name": "induction",
+    "statement": "\u2200 (M : Type u) [AddCommGroup M] [Module R\u2080 M] [Module R M], Prop} (h0 : \u2200 (M) [AddCommGroup M] [Module R\u2080 M] [Module R M] [IsScalarTower R\u2080 R M] [IsSemisimpleModule R M], Module.IsTorsionBySet R M (Ring.jacobson R) \u2192 P M) (h1 : \u2200 (M) [AddCommGroup M] [Module R\u2080 M] [Module R M] [IsScalarTower R\u2080 R M], let N",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(h.semilinearMap.isSemisimpleModule_iff_of_bijective Function.bijective_id).2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HopkinsLevitzki",
+    "name": "finite_of_isNoetherian_or_isArtinian",
+    "statement": "IsNoetherian R M \u2228 IsArtinian R M \u2192 Module.Finite R\u2080 M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsSemisimpleModule.finite_tfae (R := R) (M := M)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite R\u2080 N",
+        "body": "by refine hs (h.imp ?_ ?_) <;> (intro; infer_instance)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite R\u2080 (M \u29f8 N)",
+        "body": "by refine hq (h.imp ?_ ?_) <;> (intro; infer_instance)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HopkinsLevitzki",
+    "name": "IsNoetherianRing.isArtinianRing_of_krullDimLE_zero",
+    "statement": "IsArtinianRing R",
+    "have_tree": [
+      {
+        "name": "eq",
+        "type": "",
+        "body": "Ring.jacobson_eq_nilradical_of_krullDimLE_zero R",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Finite Spec",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsSemisimpleRing (R \u29f8 Ring.jacobson R)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsSemiprimaryRing R",
+        "body": "\u27e8this, eq \u25b8 IsNoetherianRing.isNilpotent_nilradical R\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

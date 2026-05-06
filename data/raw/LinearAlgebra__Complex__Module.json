@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Module",
+    "name": "realPart_smul",
+    "statement": "\u2102) (a : A) : \u211c (z \u2022 a) = z.re \u2022 \u211c a - z.im \u2022 \u2111 a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "by congrm (\u211c ($((re_add_im z).symm) \u2022 a))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Module",
+    "name": "imaginaryPart_smul",
+    "statement": "\u2102) (a : A) : \u2111 (z \u2022 a) = z.re \u2022 \u2111 a + z.im \u2022 \u211c a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "by congrm (\u2111 ($((re_add_im z).symm) \u2022 a))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Module",
+    "name": "star_mul_self_add_self_mul_star",
+    "statement": "A) : star a * a + a * star a = 2 \u2022 (\u211c a * \u211c a + \u2111 a * \u2111 a)",
+    "have_tree": [
+      {
+        "name": "a_eq",
+        "type": "",
+        "body": "(realPart_add_I_smul_imaginaryPart a).symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Module",
+    "name": "star_mul_self_sub_self_mul_star",
+    "statement": "A) : star a * a - a * star a = 2 \u2022 I \u2022 (\u211c a * \u2111 a - \u2111 a * \u211c a)",
+    "have_tree": [
+      {
+        "name": "a_eq",
+        "type": "",
+        "body": "(realPart_add_I_smul_imaginaryPart a).symm",
+        "children": []
+      }
+    ]
+  }
+]

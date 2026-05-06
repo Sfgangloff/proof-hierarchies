@@ -1,0 +1,249 @@
+[
+  {
+    "original": {
+      "module": "Partrec",
+      "name": "rfindOpt_dom",
+      "statement": "\u2115 \u2192 Option \u03b1} : (rfindOpt f).Dom \u2194 \u2203 n a, a \u2208 f n",
+      "have_tree": [
+        {
+          "name": "h'",
+          "type": "\u2203 n, (f n).isSome",
+          "body": "h.imp fun n => Option.isSome_iff_exists.2",
+          "children": []
+        },
+        {
+          "name": "s",
+          "type": "",
+          "body": "Nat.find_spec h'",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "rfind_spec (get_mem fd)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Partrec",
+          "name": "rfindOpt_dom",
+          "statement": "\u2115 \u2192 Option \u03b1} : (rfindOpt f).Dom \u2194 \u2203 n a, a \u2208 f n",
+          "have_tree": [
+            {
+              "name": "s",
+              "type": "",
+              "body": "Nat.find_spec h'",
+              "children": []
+            },
+            {
+              "name": "h'",
+              "type": "\u2203 n, (f n).isSome",
+              "body": "h.imp fun n => Option.isSome_iff_exists.2",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "rfind_spec (get_mem fd)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Partrec",
+          "name": "rfindOpt_dom",
+          "statement": "\u2115 \u2192 Option \u03b1} : (rfindOpt f).Dom \u2194 \u2203 n a, a \u2208 f n",
+          "have_tree": [
+            {
+              "name": "h'",
+              "type": "\u2203 n, (f n).isSome",
+              "body": "h.imp fun n => Option.isSome_iff_exists.2",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "rfind_spec (get_mem fd)",
+              "children": []
+            },
+            {
+              "name": "s",
+              "type": "",
+              "body": "Nat.find_spec h'",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Partrec",
+      "name": "rfindOpt_mono",
+      "statement": "\u2115 \u2192 Option \u03b1} (H : \u2200 {a m n}, m \u2264 n \u2192 a \u2208 f m \u2192 a \u2208 f n) {a} : a \u2208 rfindOpt f \u2194 \u2203 n, a \u2208 f n",
+      "have_tree": [
+        {
+          "name": "h'",
+          "type": "",
+          "body": "rfindOpt_dom.2 \u27e8_, _, h\u27e9",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "(H (le_max_left _ _) h).symm.trans (H (le_max_right _ _) hk)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Partrec",
+          "name": "rfindOpt_mono",
+          "statement": "\u2115 \u2192 Option \u03b1} (H : \u2200 {a m n}, m \u2264 n \u2192 a \u2208 f m \u2192 a \u2208 f n) {a} : a \u2208 rfindOpt f \u2194 \u2203 n, a \u2208 f n",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "(H (le_max_left _ _) h).symm.trans (H (le_max_right _ _) hk)",
+              "children": []
+            },
+            {
+              "name": "h'",
+              "type": "",
+              "body": "rfindOpt_dom.2 \u27e8_, _, h\u27e9",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Partrec",
+      "name": "fix_aux",
+      "statement": "\u03b1 \u2192. \u03c3 \u2295 \u03b1) (a : \u03b1) (b : \u03c3) : let F : \u03b1 \u2192 \u2115 \u2192. \u03c3 \u2295 \u03b1",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "\u2200 m a', Sum.inr a' \u2208 F a m \u2192 b \u2208 PFun.fix f a' \u2192 b \u2208 PFun.fix f a",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "h\u2081 (Nat.lt_succ_self _)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Partrec",
+          "name": "fix_aux",
+          "statement": "\u03b1 \u2192. \u03c3 \u2295 \u03b1) (a : \u03b1) (b : \u03c3) : let F : \u03b1 \u2192 \u2115 \u2192. \u03c3 \u2295 \u03b1",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "h\u2081 (Nat.lt_succ_self _)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2200 m a', Sum.inr a' \u2208 F a m \u2192 b \u2208 PFun.fix f a' \u2192 b \u2208 PFun.fix f a",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Partrec",
+      "name": "fix",
+      "statement": "\u03b1 \u2192. \u03c3 \u2295 \u03b1} (hf : Partrec f) : Partrec (PFun.fix f)",
+      "have_tree": [
+        {
+          "name": "hF",
+          "type": "Partrec\u2082 F",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "hp",
+          "type": "Partrec\u2082 p",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Partrec",
+          "name": "fix",
+          "statement": "\u03b1 \u2192. \u03c3 \u2295 \u03b1} (hf : Partrec f) : Partrec (PFun.fix f)",
+          "have_tree": [
+            {
+              "name": "hp",
+              "type": "Partrec\u2082 p",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hF",
+              "type": "Partrec\u2082 F",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

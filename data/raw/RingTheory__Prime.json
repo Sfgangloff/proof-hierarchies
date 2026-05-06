@@ -1,0 +1,27 @@
+[
+  {
+    "module": "Prime",
+    "name": "mul_eq_mul_prime_prod",
+    "statement": "Type*} [DecidableEq \u03b1] {x y a : R} {s : Finset \u03b1} {p : \u03b1 \u2192 R} (hp : \u2200 i \u2208 s, Prime (p i)) (hx : x * y = a * \u220f i \u2208 s, p i) : \u2203 (t u : Finset \u03b1) (b c : R), t \u222a u = s \u2227 Disjoint t u \u2227 a = b * c \u2227 (x = b * \u220f i \u2208 t, p i) \u2227 y = c * \u220f i \u2208 u, p i",
+    "have_tree": [
+      {
+        "name": "hpi",
+        "type": "Prime (p i)",
+        "body": "hp i (mem_insert_self _ _)",
+        "children": []
+      },
+      {
+        "name": "hit",
+        "type": "i \u2209 t",
+        "body": "fun hit \u21a6 his (htus \u25b8 mem_union_left _ hit)",
+        "children": []
+      },
+      {
+        "name": "hiu",
+        "type": "i \u2209 u",
+        "body": "fun hiu \u21a6 his (htus \u25b8 mem_union_right _ hiu)",
+        "children": []
+      }
+    ]
+  }
+]

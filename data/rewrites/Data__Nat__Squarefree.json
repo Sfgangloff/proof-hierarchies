@@ -1,0 +1,1607 @@
+[
+  {
+    "original": {
+      "module": "Squarefree",
+      "name": "Squarefree.ext_iff",
+      "statement": "\u2115} (hn : Squarefree n) (hm : Squarefree m) : n = m \u2194 \u2200 p, Prime p \u2192 (p \u2223 n \u2194 p \u2223 m)",
+      "have_tree": [
+        {
+          "name": "h\u2082",
+          "type": "",
+          "body": "hn.natFactorization_le_one p",
+          "children": []
+        },
+        {
+          "name": "h\u2083",
+          "type": "",
+          "body": "hm.natFactorization_le_one p",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "Squarefree.ext_iff",
+          "statement": "\u2115} (hn : Squarefree n) (hm : Squarefree m) : n = m \u2194 \u2200 p, Prime p \u2192 (p \u2223 n \u2194 p \u2223 m)",
+          "have_tree": [
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "hm.natFactorization_le_one p",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "hn.natFactorization_le_one p",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Squarefree",
+      "name": "minSqFacAux_has_prop",
+      "statement": "\u2115} (k) (n0 : 0 < n) (i) (e : k = 2 * i + 3) (ih : \u2200 m, Prime m \u2192 m \u2223 n \u2192 k \u2264 m) : MinSqFacProp n (minSqFacAux n k)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "ih p pp (dvd_trans \u27e8_, rfl\u27e9 d)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "Nat.mul_le_mul this this",
+          "children": []
+        },
+        {
+          "name": "k2",
+          "type": "2 \u2264 k",
+          "body": "by lia",
+          "children": []
+        },
+        {
+          "name": "k0",
+          "type": "0 < k",
+          "body": "lt_of_lt_of_le (by decide) k2",
+          "children": []
+        },
+        {
+          "name": "IH",
+          "type": "\u2200 n', n' \u2223 n \u2192 \u00ack \u2223 n' \u2192 MinSqFacProp n' (n'.minSqFacAux (k + 2))",
+          "body": "by",
+          "children": [
+            {
+              "name": "hn'",
+              "type": "",
+              "body": "le_of_dvd n0 nd'",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Nat.sqrt n' - k < Nat.sqrt n + 2 - k",
+                  "body": "",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "ih _ prime_two (dvd_trans (dvd_of_mul_right_dvd d) nd')",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "pk",
+          "type": "k \u2223 n \u2192 Prime k",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          4,
+          0
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "minSqFacAux_has_prop",
+          "statement": "\u2115} (k) (n0 : 0 < n) (i) (e : k = 2 * i + 3) (ih : \u2200 m, Prime m \u2192 m \u2223 n \u2192 k \u2264 m) : MinSqFacProp n (minSqFacAux n k)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "ih p pp (dvd_trans \u27e8_, rfl\u27e9 d)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.mul_le_mul this this",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 k",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "k0",
+              "type": "0 < k",
+              "body": "lt_of_lt_of_le (by decide) k2",
+              "children": []
+            },
+            {
+              "name": "IH",
+              "type": "\u2200 n', n' \u2223 n \u2192 \u00ack \u2223 n' \u2192 MinSqFacProp n' (n'.minSqFacAux (k + 2))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Nat.sqrt n' - k < Nat.sqrt n + 2 - k",
+                  "body": "",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "ih _ prime_two (dvd_trans (dvd_of_mul_right_dvd d) nd')",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "pk",
+              "type": "k \u2223 n \u2192 Prime k",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          4,
+          0,
+          0
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "minSqFacAux_has_prop",
+          "statement": "\u2115} (k) (n0 : 0 < n) (i) (e : k = 2 * i + 3) (ih : \u2200 m, Prime m \u2192 m \u2223 n \u2192 k \u2264 m) : MinSqFacProp n (minSqFacAux n k)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "ih p pp (dvd_trans \u27e8_, rfl\u27e9 d)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.mul_le_mul this this",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 k",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "k0",
+              "type": "0 < k",
+              "body": "lt_of_lt_of_le (by decide) k2",
+              "children": []
+            },
+            {
+              "name": "IH",
+              "type": "\u2200 n', n' \u2223 n \u2192 \u00ack \u2223 n' \u2192 MinSqFacProp n' (n'.minSqFacAux (k + 2))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hn'",
+                  "type": "",
+                  "body": "le_of_dvd n0 nd'",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "ih _ prime_two (dvd_trans (dvd_of_mul_right_dvd d) nd')",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "pk",
+              "type": "k \u2223 n \u2192 Prime k",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          4,
+          1
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "minSqFacAux_has_prop",
+          "statement": "\u2115} (k) (n0 : 0 < n) (i) (e : k = 2 * i + 3) (ih : \u2200 m, Prime m \u2192 m \u2223 n \u2192 k \u2264 m) : MinSqFacProp n (minSqFacAux n k)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "ih p pp (dvd_trans \u27e8_, rfl\u27e9 d)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.mul_le_mul this this",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 k",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "k0",
+              "type": "0 < k",
+              "body": "lt_of_lt_of_le (by decide) k2",
+              "children": []
+            },
+            {
+              "name": "IH",
+              "type": "\u2200 n', n' \u2223 n \u2192 \u00ack \u2223 n' \u2192 MinSqFacProp n' (n'.minSqFacAux (k + 2))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hn'",
+                  "type": "",
+                  "body": "le_of_dvd n0 nd'",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "Nat.sqrt n' - k < Nat.sqrt n + 2 - k",
+                      "body": "",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "pk",
+              "type": "k \u2223 n \u2192 Prime k",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          4,
+          0,
+          0
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "minSqFacAux_has_prop",
+          "statement": "\u2115} (k) (n0 : 0 < n) (i) (e : k = 2 * i + 3) (ih : \u2200 m, Prime m \u2192 m \u2223 n \u2192 k \u2264 m) : MinSqFacProp n (minSqFacAux n k)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "ih p pp (dvd_trans \u27e8_, rfl\u27e9 d)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.mul_le_mul this this",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 k",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "k0",
+              "type": "0 < k",
+              "body": "lt_of_lt_of_le (by decide) k2",
+              "children": []
+            },
+            {
+              "name": "IH",
+              "type": "\u2200 n', n' \u2223 n \u2192 \u00ack \u2223 n' \u2192 MinSqFacProp n' (n'.minSqFacAux (k + 2))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hn'",
+                  "type": "",
+                  "body": "le_of_dvd n0 nd'",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "ih _ prime_two (dvd_trans (dvd_of_mul_right_dvd d) nd')",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "pk",
+              "type": "k \u2223 n \u2192 Prime k",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          4
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Squarefree",
+          "name": "minSqFacAux_has_prop",
+          "statement": "\u2115} (k) (n0 : 0 < n) (i) (e : k = 2 * i + 3) (ih : \u2200 m, Prime m \u2192 m \u2223 n \u2192 k \u2264 m) : MinSqFacProp n (minSqFacAux n k)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "ih p pp (dvd_trans \u27e8_, rfl\u27e9 d)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.mul_le_mul this this",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 k",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "k0",
+              "type": "0 < k",
+              "body": "lt_of_lt_of_le (by decide) k2",
+              "children": []
+            },
+            {
+              "name": "hn'",
+              "type": "",
+              "body": "le_of_dvd n0 nd'",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Nat.sqrt n' - k < Nat.sqrt n + 2 - k",
+                  "body": "",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "IH",
+              "type": "\u2200 n', n' \u2223 n \u2192 \u00ack \u2223 n' \u2192 MinSqFacProp n' (n'.minSqFacAux (k + 2))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "ih _ prime_two (dvd_trans (dvd_of_mul_right_dvd d) nd')",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "pk",
+              "type": "k \u2223 n \u2192 Prime k",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          4
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Squarefree",
+          "name": "minSqFacAux_has_prop",
+          "statement": "\u2115} (k) (n0 : 0 < n) (i) (e : k = 2 * i + 3) (ih : \u2200 m, Prime m \u2192 m \u2223 n \u2192 k \u2264 m) : MinSqFacProp n (minSqFacAux n k)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "ih p pp (dvd_trans \u27e8_, rfl\u27e9 d)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.mul_le_mul this this",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 k",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "k0",
+              "type": "0 < k",
+              "body": "lt_of_lt_of_le (by decide) k2",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "ih _ prime_two (dvd_trans (dvd_of_mul_right_dvd d) nd')",
+              "children": []
+            },
+            {
+              "name": "IH",
+              "type": "\u2200 n', n' \u2223 n \u2192 \u00ack \u2223 n' \u2192 MinSqFacProp n' (n'.minSqFacAux (k + 2))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hn'",
+                  "type": "",
+                  "body": "le_of_dvd n0 nd'",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "Nat.sqrt n' - k < Nat.sqrt n + 2 - k",
+                      "body": "",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "pk",
+              "type": "k \u2223 n \u2192 Prime k",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          4,
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Squarefree",
+          "name": "minSqFacAux_has_prop",
+          "statement": "\u2115} (k) (n0 : 0 < n) (i) (e : k = 2 * i + 3) (ih : \u2200 m, Prime m \u2192 m \u2223 n \u2192 k \u2264 m) : MinSqFacProp n (minSqFacAux n k)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "ih p pp (dvd_trans \u27e8_, rfl\u27e9 d)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.mul_le_mul this this",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 k",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "k0",
+              "type": "0 < k",
+              "body": "lt_of_lt_of_le (by decide) k2",
+              "children": []
+            },
+            {
+              "name": "IH",
+              "type": "\u2200 n', n' \u2223 n \u2192 \u00ack \u2223 n' \u2192 MinSqFacProp n' (n'.minSqFacAux (k + 2))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Nat.sqrt n' - k < Nat.sqrt n + 2 - k",
+                  "body": "",
+                  "children": []
+                },
+                {
+                  "name": "hn'",
+                  "type": "",
+                  "body": "le_of_dvd n0 nd'",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "ih _ prime_two (dvd_trans (dvd_of_mul_right_dvd d) nd')",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "pk",
+              "type": "k \u2223 n \u2192 Prime k",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "minSqFacAux_has_prop",
+          "statement": "\u2115} (k) (n0 : 0 < n) (i) (e : k = 2 * i + 3) (ih : \u2200 m, Prime m \u2192 m \u2223 n \u2192 k \u2264 m) : MinSqFacProp n (minSqFacAux n k)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.mul_le_mul this this",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "ih p pp (dvd_trans \u27e8_, rfl\u27e9 d)",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 k",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "k0",
+              "type": "0 < k",
+              "body": "lt_of_lt_of_le (by decide) k2",
+              "children": []
+            },
+            {
+              "name": "IH",
+              "type": "\u2200 n', n' \u2223 n \u2192 \u00ack \u2223 n' \u2192 MinSqFacProp n' (n'.minSqFacAux (k + 2))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hn'",
+                  "type": "",
+                  "body": "le_of_dvd n0 nd'",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "Nat.sqrt n' - k < Nat.sqrt n + 2 - k",
+                      "body": "",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "ih _ prime_two (dvd_trans (dvd_of_mul_right_dvd d) nd')",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "pk",
+              "type": "k \u2223 n \u2192 Prime k",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "minSqFacAux_has_prop",
+          "statement": "\u2115} (k) (n0 : 0 < n) (i) (e : k = 2 * i + 3) (ih : \u2200 m, Prime m \u2192 m \u2223 n \u2192 k \u2264 m) : MinSqFacProp n (minSqFacAux n k)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "ih p pp (dvd_trans \u27e8_, rfl\u27e9 d)",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 k",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.mul_le_mul this this",
+              "children": []
+            },
+            {
+              "name": "k0",
+              "type": "0 < k",
+              "body": "lt_of_lt_of_le (by decide) k2",
+              "children": []
+            },
+            {
+              "name": "IH",
+              "type": "\u2200 n', n' \u2223 n \u2192 \u00ack \u2223 n' \u2192 MinSqFacProp n' (n'.minSqFacAux (k + 2))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hn'",
+                  "type": "",
+                  "body": "le_of_dvd n0 nd'",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "Nat.sqrt n' - k < Nat.sqrt n + 2 - k",
+                      "body": "",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "ih _ prime_two (dvd_trans (dvd_of_mul_right_dvd d) nd')",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "pk",
+              "type": "k \u2223 n \u2192 Prime k",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "minSqFacAux_has_prop",
+          "statement": "\u2115} (k) (n0 : 0 < n) (i) (e : k = 2 * i + 3) (ih : \u2200 m, Prime m \u2192 m \u2223 n \u2192 k \u2264 m) : MinSqFacProp n (minSqFacAux n k)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "ih p pp (dvd_trans \u27e8_, rfl\u27e9 d)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.mul_le_mul this this",
+              "children": []
+            },
+            {
+              "name": "k0",
+              "type": "0 < k",
+              "body": "lt_of_lt_of_le (by decide) k2",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 k",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "IH",
+              "type": "\u2200 n', n' \u2223 n \u2192 \u00ack \u2223 n' \u2192 MinSqFacProp n' (n'.minSqFacAux (k + 2))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hn'",
+                  "type": "",
+                  "body": "le_of_dvd n0 nd'",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "Nat.sqrt n' - k < Nat.sqrt n + 2 - k",
+                      "body": "",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "ih _ prime_two (dvd_trans (dvd_of_mul_right_dvd d) nd')",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "pk",
+              "type": "k \u2223 n \u2192 Prime k",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "minSqFacAux_has_prop",
+          "statement": "\u2115} (k) (n0 : 0 < n) (i) (e : k = 2 * i + 3) (ih : \u2200 m, Prime m \u2192 m \u2223 n \u2192 k \u2264 m) : MinSqFacProp n (minSqFacAux n k)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "ih p pp (dvd_trans \u27e8_, rfl\u27e9 d)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.mul_le_mul this this",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 k",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "IH",
+              "type": "\u2200 n', n' \u2223 n \u2192 \u00ack \u2223 n' \u2192 MinSqFacProp n' (n'.minSqFacAux (k + 2))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hn'",
+                  "type": "",
+                  "body": "le_of_dvd n0 nd'",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "Nat.sqrt n' - k < Nat.sqrt n + 2 - k",
+                      "body": "",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "ih _ prime_two (dvd_trans (dvd_of_mul_right_dvd d) nd')",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "k0",
+              "type": "0 < k",
+              "body": "lt_of_lt_of_le (by decide) k2",
+              "children": []
+            },
+            {
+              "name": "pk",
+              "type": "k \u2223 n \u2192 Prime k",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "minSqFacAux_has_prop",
+          "statement": "\u2115} (k) (n0 : 0 < n) (i) (e : k = 2 * i + 3) (ih : \u2200 m, Prime m \u2192 m \u2223 n \u2192 k \u2264 m) : MinSqFacProp n (minSqFacAux n k)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "ih p pp (dvd_trans \u27e8_, rfl\u27e9 d)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.mul_le_mul this this",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 k",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "k0",
+              "type": "0 < k",
+              "body": "lt_of_lt_of_le (by decide) k2",
+              "children": []
+            },
+            {
+              "name": "pk",
+              "type": "k \u2223 n \u2192 Prime k",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "IH",
+              "type": "\u2200 n', n' \u2223 n \u2192 \u00ack \u2223 n' \u2192 MinSqFacProp n' (n'.minSqFacAux (k + 2))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hn'",
+                  "type": "",
+                  "body": "le_of_dvd n0 nd'",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "Nat.sqrt n' - k < Nat.sqrt n + 2 - k",
+                      "body": "",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "ih _ prime_two (dvd_trans (dvd_of_mul_right_dvd d) nd')",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          4
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "minSqFacAux_has_prop",
+          "statement": "\u2115} (k) (n0 : 0 < n) (i) (e : k = 2 * i + 3) (ih : \u2200 m, Prime m \u2192 m \u2223 n \u2192 k \u2264 m) : MinSqFacProp n (minSqFacAux n k)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "ih p pp (dvd_trans \u27e8_, rfl\u27e9 d)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.mul_le_mul this this",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 k",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "k0",
+              "type": "0 < k",
+              "body": "lt_of_lt_of_le (by decide) k2",
+              "children": []
+            },
+            {
+              "name": "IH",
+              "type": "\u2200 n', n' \u2223 n \u2192 \u00ack \u2223 n' \u2192 MinSqFacProp n' (n'.minSqFacAux (k + 2))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "ih _ prime_two (dvd_trans (dvd_of_mul_right_dvd d) nd')",
+                  "children": []
+                },
+                {
+                  "name": "hn'",
+                  "type": "",
+                  "body": "le_of_dvd n0 nd'",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "Nat.sqrt n' - k < Nat.sqrt n + 2 - k",
+                      "body": "",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "pk",
+              "type": "k \u2223 n \u2192 Prime k",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Squarefree",
+      "name": "minSqFac_le_of_dvd",
+      "statement": "\u2115} (h : n.minSqFac = some d) {m} (m2 : 2 \u2264 m) (md : m * m \u2223 n) : d \u2264 m",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "minSqFac_has_prop n; rw [h] at this",
+          "children": []
+        },
+        {
+          "name": "fd",
+          "type": "",
+          "body": "minFac_dvd m",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "minSqFac_le_of_dvd",
+          "statement": "\u2115} (h : n.minSqFac = some d) {m} (m2 : 2 \u2264 m) (md : m * m \u2223 n) : d \u2264 m",
+          "have_tree": [
+            {
+              "name": "fd",
+              "type": "",
+              "body": "minFac_dvd m",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "minSqFac_has_prop n; rw [h] at this",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Squarefree",
+      "name": "divisors_filter_squarefree",
+      "statement": "\u2115} (h0 : n \u2260 0) : {d \u2208 n.divisors | Squarefree d}.val = (UniqueFactorizationMonoid.normalizedFactors n).toFinset.powerset.val.map fun x => x.val.prod",
+      "have_tree": [
+        {
+          "name": "hs0",
+          "type": "s.val.prod \u2260 0",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "h",
+          "type": "",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "divisors_filter_squarefree",
+          "statement": "\u2115} (h0 : n \u2260 0) : {d \u2208 n.divisors | Squarefree d}.val = (UniqueFactorizationMonoid.normalizedFactors n).toFinset.powerset.val.map fun x => x.val.prod",
+          "have_tree": [
+            {
+              "name": "h",
+              "type": "",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hs0",
+              "type": "s.val.prod \u2260 0",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Squarefree",
+      "name": "sq_mul_squarefree_of_pos",
+      "statement": "\u2115} (hn : 0 < n) : \u2203 a b : \u2115, 0 < a \u2227 0 < b \u2227 b ^ 2 * a = n \u2227 Squarefree a",
+      "have_tree": [
+        {
+          "name": "hSne",
+          "type": "S.Nonempty",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hs",
+          "type": "s \u2208 S",
+          "body": "Finset.max'_mem S hSne",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "sq_mul_squarefree_of_pos",
+          "statement": "\u2115} (hn : 0 < n) : \u2203 a b : \u2115, 0 < a \u2227 0 < b \u2227 b ^ 2 * a = n \u2227 Squarefree a",
+          "have_tree": [
+            {
+              "name": "hs",
+              "type": "s \u2208 S",
+              "body": "Finset.max'_mem S hSne",
+              "children": []
+            },
+            {
+              "name": "hSne",
+              "type": "S.Nonempty",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Squarefree",
+      "name": "squarefreeHelper_3",
+      "statement": "\u2115) (e : k + 1 = k') (hn' : bit1 n' * bit1 k = bit1 n) (hc : bit1 n' % bit1 k = c) (c0 : 0 < c) (H : SquarefreeHelper n' k') : SquarefreeHelper n k",
+      "have_tree": [
+        {
+          "name": "k0'",
+          "type": "0 < bit1 k",
+          "body": "bit1_pos (Nat.zero_le _)",
+          "children": []
+        },
+        {
+          "name": "dn'",
+          "type": "bit1 n' \u2223 bit1 n",
+          "body": "\u27e8_, hn'.symm\u27e9",
+          "children": []
+        },
+        {
+          "name": "dk",
+          "type": "bit1 k \u2223 bit1 n",
+          "body": "\u27e8_, ((mul_comm _ _).trans hn').symm\u27e9",
+          "children": []
+        },
+        {
+          "name": "k2",
+          "type": "2 \u2264 bit1 k",
+          "body": "Nat.succ_le_succ (bit0_pos k0)",
+          "children": []
+        },
+        {
+          "name": "pk",
+          "type": "(bit1 k).Prime",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "dkk'",
+          "type": "\u00acbit1 k \u2223 bit1 n'",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "dkk",
+          "type": "\u00acbit1 k * bit1 k \u2223 bit1 n",
+          "body": "by rwa [\u2190 Nat.dvd_div_iff_mul_dvd dk, this]",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "squarefreeHelper_3",
+          "statement": "\u2115) (e : k + 1 = k') (hn' : bit1 n' * bit1 k = bit1 n) (hc : bit1 n' % bit1 k = c) (c0 : 0 < c) (H : SquarefreeHelper n' k') : SquarefreeHelper n k",
+          "have_tree": [
+            {
+              "name": "dn'",
+              "type": "bit1 n' \u2223 bit1 n",
+              "body": "\u27e8_, hn'.symm\u27e9",
+              "children": []
+            },
+            {
+              "name": "k0'",
+              "type": "0 < bit1 k",
+              "body": "bit1_pos (Nat.zero_le _)",
+              "children": []
+            },
+            {
+              "name": "dk",
+              "type": "bit1 k \u2223 bit1 n",
+              "body": "\u27e8_, ((mul_comm _ _).trans hn').symm\u27e9",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 bit1 k",
+              "body": "Nat.succ_le_succ (bit0_pos k0)",
+              "children": []
+            },
+            {
+              "name": "pk",
+              "type": "(bit1 k).Prime",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "dkk'",
+              "type": "\u00acbit1 k \u2223 bit1 n'",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "dkk",
+              "type": "\u00acbit1 k * bit1 k \u2223 bit1 n",
+              "body": "by rwa [\u2190 Nat.dvd_div_iff_mul_dvd dk, this]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "squarefreeHelper_3",
+          "statement": "\u2115) (e : k + 1 = k') (hn' : bit1 n' * bit1 k = bit1 n) (hc : bit1 n' % bit1 k = c) (c0 : 0 < c) (H : SquarefreeHelper n' k') : SquarefreeHelper n k",
+          "have_tree": [
+            {
+              "name": "k0'",
+              "type": "0 < bit1 k",
+              "body": "bit1_pos (Nat.zero_le _)",
+              "children": []
+            },
+            {
+              "name": "dk",
+              "type": "bit1 k \u2223 bit1 n",
+              "body": "\u27e8_, ((mul_comm _ _).trans hn').symm\u27e9",
+              "children": []
+            },
+            {
+              "name": "dn'",
+              "type": "bit1 n' \u2223 bit1 n",
+              "body": "\u27e8_, hn'.symm\u27e9",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 bit1 k",
+              "body": "Nat.succ_le_succ (bit0_pos k0)",
+              "children": []
+            },
+            {
+              "name": "pk",
+              "type": "(bit1 k).Prime",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "dkk'",
+              "type": "\u00acbit1 k \u2223 bit1 n'",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "dkk",
+              "type": "\u00acbit1 k * bit1 k \u2223 bit1 n",
+              "body": "by rwa [\u2190 Nat.dvd_div_iff_mul_dvd dk, this]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "squarefreeHelper_3",
+          "statement": "\u2115) (e : k + 1 = k') (hn' : bit1 n' * bit1 k = bit1 n) (hc : bit1 n' % bit1 k = c) (c0 : 0 < c) (H : SquarefreeHelper n' k') : SquarefreeHelper n k",
+          "have_tree": [
+            {
+              "name": "k0'",
+              "type": "0 < bit1 k",
+              "body": "bit1_pos (Nat.zero_le _)",
+              "children": []
+            },
+            {
+              "name": "dn'",
+              "type": "bit1 n' \u2223 bit1 n",
+              "body": "\u27e8_, hn'.symm\u27e9",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 bit1 k",
+              "body": "Nat.succ_le_succ (bit0_pos k0)",
+              "children": []
+            },
+            {
+              "name": "dk",
+              "type": "bit1 k \u2223 bit1 n",
+              "body": "\u27e8_, ((mul_comm _ _).trans hn').symm\u27e9",
+              "children": []
+            },
+            {
+              "name": "pk",
+              "type": "(bit1 k).Prime",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "dkk'",
+              "type": "\u00acbit1 k \u2223 bit1 n'",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "dkk",
+              "type": "\u00acbit1 k * bit1 k \u2223 bit1 n",
+              "body": "by rwa [\u2190 Nat.dvd_div_iff_mul_dvd dk, this]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5,
+          6
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "squarefreeHelper_3",
+          "statement": "\u2115) (e : k + 1 = k') (hn' : bit1 n' * bit1 k = bit1 n) (hc : bit1 n' % bit1 k = c) (c0 : 0 < c) (H : SquarefreeHelper n' k') : SquarefreeHelper n k",
+          "have_tree": [
+            {
+              "name": "k0'",
+              "type": "0 < bit1 k",
+              "body": "bit1_pos (Nat.zero_le _)",
+              "children": []
+            },
+            {
+              "name": "dn'",
+              "type": "bit1 n' \u2223 bit1 n",
+              "body": "\u27e8_, hn'.symm\u27e9",
+              "children": []
+            },
+            {
+              "name": "dk",
+              "type": "bit1 k \u2223 bit1 n",
+              "body": "\u27e8_, ((mul_comm _ _).trans hn').symm\u27e9",
+              "children": []
+            },
+            {
+              "name": "pk",
+              "type": "(bit1 k).Prime",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 bit1 k",
+              "body": "Nat.succ_le_succ (bit0_pos k0)",
+              "children": []
+            },
+            {
+              "name": "dkk'",
+              "type": "\u00acbit1 k \u2223 bit1 n'",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "dkk",
+              "type": "\u00acbit1 k * bit1 k \u2223 bit1 n",
+              "body": "by rwa [\u2190 Nat.dvd_div_iff_mul_dvd dk, this]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4,
+          6
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "squarefreeHelper_3",
+          "statement": "\u2115) (e : k + 1 = k') (hn' : bit1 n' * bit1 k = bit1 n) (hc : bit1 n' % bit1 k = c) (c0 : 0 < c) (H : SquarefreeHelper n' k') : SquarefreeHelper n k",
+          "have_tree": [
+            {
+              "name": "k0'",
+              "type": "0 < bit1 k",
+              "body": "bit1_pos (Nat.zero_le _)",
+              "children": []
+            },
+            {
+              "name": "dn'",
+              "type": "bit1 n' \u2223 bit1 n",
+              "body": "\u27e8_, hn'.symm\u27e9",
+              "children": []
+            },
+            {
+              "name": "dk",
+              "type": "bit1 k \u2223 bit1 n",
+              "body": "\u27e8_, ((mul_comm _ _).trans hn').symm\u27e9",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 bit1 k",
+              "body": "Nat.succ_le_succ (bit0_pos k0)",
+              "children": []
+            },
+            {
+              "name": "dkk'",
+              "type": "\u00acbit1 k \u2223 bit1 n'",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "pk",
+              "type": "(bit1 k).Prime",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "dkk",
+              "type": "\u00acbit1 k * bit1 k \u2223 bit1 n",
+              "body": "by rwa [\u2190 Nat.dvd_div_iff_mul_dvd dk, this]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          5
+        ],
+        "result": {
+          "module": "Squarefree",
+          "name": "squarefreeHelper_3",
+          "statement": "\u2115) (e : k + 1 = k') (hn' : bit1 n' * bit1 k = bit1 n) (hc : bit1 n' % bit1 k = c) (c0 : 0 < c) (H : SquarefreeHelper n' k') : SquarefreeHelper n k",
+          "have_tree": [
+            {
+              "name": "k0'",
+              "type": "0 < bit1 k",
+              "body": "bit1_pos (Nat.zero_le _)",
+              "children": []
+            },
+            {
+              "name": "dn'",
+              "type": "bit1 n' \u2223 bit1 n",
+              "body": "\u27e8_, hn'.symm\u27e9",
+              "children": []
+            },
+            {
+              "name": "dk",
+              "type": "bit1 k \u2223 bit1 n",
+              "body": "\u27e8_, ((mul_comm _ _).trans hn').symm\u27e9",
+              "children": []
+            },
+            {
+              "name": "k2",
+              "type": "2 \u2264 bit1 k",
+              "body": "Nat.succ_le_succ (bit0_pos k0)",
+              "children": []
+            },
+            {
+              "name": "pk",
+              "type": "(bit1 k).Prime",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "dkk",
+              "type": "\u00acbit1 k * bit1 k \u2223 bit1 n",
+              "body": "by rwa [\u2190 Nat.dvd_div_iff_mul_dvd dk, this]",
+              "children": []
+            },
+            {
+              "name": "dkk'",
+              "type": "\u00acbit1 k \u2223 bit1 n'",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Parallel",
+    "name": "terminates_parallel.aux",
+    "statement": "\u2200 {l : List (Computation \u03b1)} {S c}, c \u2208 l \u2192 Terminates c \u2192 Terminates (corec parallel.aux1 (l, S))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "corec parallel.aux1 (l, S) = return a",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "parallel.aux2 l = Sum.inr l') : s \u2208 l'",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "IH' m _ e",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "H1 _ h",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Parallel",
+    "name": "terminates_parallel",
+    "statement": "WSeq (Computation \u03b1)} {c} (h : c \u2208 S) [T : Terminates c] : Terminates (parallel S)",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "Seq.destruct S = some (some c, Seq.tail S)",
+        "body": "by simp [Seq.destruct, (\u00b7 <$> \u00b7), \u2190 a]",
+        "children": [
+          {
+            "name": "TT",
+            "type": "\u2200 l', Terminates (corec parallel.aux1 (l', S.tail))",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

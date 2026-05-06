@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Defs",
+    "name": "ofDigits_inj_of_len_eq",
+    "statement": "\u2115} (hb : 1 < b) {L1 L2 : List \u2115} (len : L1.length = L2.length) (w1 : \u2200 l \u2208 L1, l < b) (w2 : \u2200 l \u2208 L2, l < b) (h : ofDigits b L1 = ofDigits b L2) : L1 = L2",
+    "have_tree": [
+      {
+        "name": "eqd",
+        "type": "D = d",
+        "body": "by",
+        "children": [
+          {
+            "name": "H",
+            "type": "(D + b * ofDigits b L) % b = (d + b * ofDigits b l) % b",
+            "body": "by rw [h]",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "ih len (fun a ha \u21a6 w1 a <| List.mem_cons_of_mem D ha)",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "module": "HNNExtension",
+    "name": "unitsSMul",
+    "statement": "\u2124\u02e3) (w : NormalWord d) : NormalWord d",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "w.head \u2208 toSubgroup A B u",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(d.compl u).rightCosetEquivalence_equiv_snd w.head",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h this x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HNNExtension",
+    "name": "exists_normalWord_prod_eq",
+    "statement": "TransversalPair G A B) (w : ReducedWord G A B) : \u2203 w' : NormalWord d, w'.prod \u03c6 = w.prod \u03c6 \u2227 w'.toList.map Prod.fst = w.toList.map Prod.fst \u2227 \u2200 u \u2208 w.toList.head?.map Prod.fst, w'.head\u207b\u00b9 * w.head \u2208 toSubgroup A B (-u)",
+    "have_tree": [
+      {
+        "name": "hx'",
+        "type": "",
+        "body": "congr_arg (Option.map Prod.fst) hx",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "w'.head \u2208 toSubgroup A B a.fst",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "a.fst = -a.fst",
+        "body": "by",
+        "children": [
+          {
+            "name": "hl",
+            "type": "l \u2260 []",
+            "body": "by rintro rfl; simp_all",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "a.fst = (l.head hl).fst",
+            "body": "(List.isChain_cons.1 chain).1 (l.head hl)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

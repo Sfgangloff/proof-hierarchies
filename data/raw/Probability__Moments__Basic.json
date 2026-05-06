@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Basic",
+    "name": "iIndepFun.mgf_sum\u2080",
+    "statement": "\u03b9 \u2192 \u03a9 \u2192 \u211d} (h_indep : iIndepFun X \u03bc) (h_meas : \u2200 i, AEMeasurable (X i) \u03bc) (s : Finset \u03b9) : mgf (\u2211 i \u2208 s, X i) \u03bc t = \u220f i \u2208 s, mgf (X i) \u03bc t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsProbabilityMeasure \u03bc",
+        "body": "h_indep.isProbabilityMeasure",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "iIndepFun.cgf_sum\u2080",
+    "statement": "\u03b9 \u2192 \u03a9 \u2192 \u211d} (h_indep : iIndepFun X \u03bc) (h_meas : \u2200 i, AEMeasurable (X i) \u03bc) {s : Finset \u03b9} (h_int : \u2200 i \u2208 s, Integrable (fun \u03c9 => exp (t * X i \u03c9)) \u03bc) : cgf (\u2211 i \u2208 s, X i) \u03bc t = \u2211 i \u2208 s, cgf (X i) \u03bc t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsProbabilityMeasure \u03bc",
+        "body": "h_indep.isProbabilityMeasure",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mgf_dirac",
+    "statement": "\u211d} (hX : \u03bc.map X = .dirac x) (t : \u211d) : mgf X \u03bc t = exp (x * t)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsProbabilityMeasure (\u03bc.map X)",
+        "body": "by rw [hX]; infer_instance",
+        "children": []
+      }
+    ]
+  }
+]

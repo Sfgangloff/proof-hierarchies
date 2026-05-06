@@ -1,0 +1,80 @@
+[
+  {
+    "module": "NatInt",
+    "name": "even_mul_odd",
+    "statement": "\u2115 \u2192 M} (he : HasProd (fun k \u21a6 f (2 * k)) m) (ho : HasProd (fun k \u21a6 f (2 * k + 1)) m') : HasProd f (m * m')",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mul_right_injective\u2080 (two_ne_zero' \u2115)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NatInt",
+    "name": "Multipliable.nat_tprod_vanishing",
+    "statement": "\u2115 \u2192 G} (hf : Multipliable f) \u2983e : Set G\u2984 (he : e \u2208 \ud835\udcdd 1) : \u2203 N : \u2115, \u2200 t \u2286 {n | N \u2264 n}, (\u220f' n : t, f n) \u2208 e",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsUniformGroup G",
+        "body": "isUniformGroup_of_commGroup",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NatInt",
+    "name": "HasProd.nat_mul_neg_add_one",
+    "statement": "\u2124 \u2192 M} (hf : HasProd f m) : HasProd (fun n : \u2115 \u21a6 f n * f (-(n + 1))) m",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Injective Int.negSucc",
+        "body": "@Int.negSucc.inj",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NatInt",
+    "name": "HasProd.of_nat_of_neg_add_one",
+    "statement": "\u2124 \u2192 M} (hf\u2081 : HasProd (fun n : \u2115 \u21a6 f n) m) (hf\u2082 : HasProd (fun n : \u2115 \u21a6 f (-(n + 1))) m') : HasProd f (m * m')",
+    "have_tree": [
+      {
+        "name": "hi\u2082",
+        "type": "Injective Int.negSucc",
+        "body": "@Int.negSucc.inj",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NatInt",
+    "name": "HasProd.nat_mul_neg",
+    "statement": "\u2124 \u2192 M} (hf : HasProd f m) : HasProd (fun n : \u2115 \u21a6 f n * f (-n)) (m * f 0)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "u \u2286 u1 \u222a u2",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NatInt",
+    "name": "tprod_int_eq_zero_mul_tprod_pnat",
+    "statement": "\u2124 \u2192 G} (hf2 : Multipliable f) : \u220f' n, f n = f 0 * (\u220f' n : \u2115+, f n) * (\u220f' n : \u2115+, f (-n))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "tprod_nat_mul_neg hf2",
+        "children": []
+      }
+    ]
+  }
+]

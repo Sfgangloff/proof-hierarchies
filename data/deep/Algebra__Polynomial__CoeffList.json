@@ -1,0 +1,48 @@
+[
+  {
+    "module": "CoeffList",
+    "name": "coeffList_monomial",
+    "statement": "R} (hx : x \u2260 0) (n : \u2115) : (monomial n x).coeffList = x :: List.replicate n 0",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "mt (Polynomial.monomial_eq_zero_iff x n).mp hx",
+        "children": [
+          {
+            "name": "_",
+            "type": "((monomial n) x).natDegree.succ = n + 1",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "CoeffList",
+    "name": "coeffList_eraseLead",
+    "statement": "P \u2260 0) : P.coeffList = P.leadingCoeff :: (.replicate (P.natDegree - P.eraseLead.degree.succ) 0 ++ P.eraseLead.coeffList)",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "withBotSucc_degree_eq_natDegree_add_one h",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "withBotSucc_degree_eq_natDegree_add_one hep",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "eraseLead_natDegree_le P",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

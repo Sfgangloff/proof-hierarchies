@@ -1,0 +1,47 @@
+[
+  {
+    "module": "IntegralCharFun",
+    "name": "integral_charFun_Icc",
+    "statement": "0 < r) : \u222b t in -r..r, charFun \u03bc t = 2 * r * \u222b x, sinc (r * x) \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "intervalIntegral.integral_deriv_smul_comp (E := \u2102) (a := -r) (b := r)",
+        "children": []
+      },
+      {
+        "name": "hy",
+        "type": "y \u2260 0",
+        "body": "fun hy \u21a6 hry (by simp [hy])",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegralCharFun",
+    "name": "measureReal_abs_dual_gt_le_integral_charFunDual",
+    "statement": "Type*} [NormedAddCommGroup E] [NormedSpace \u211d E] {mE : MeasurableSpace E} [OpensMeasurableSpace E] {\u03bc : Measure E} [IsProbabilityMeasure \u03bc] (L : StrongDual \u211d E) {r : \u211d} (hr : 0 < r) : \u03bc.real {x | r < |L x|} \u2264 2\u207b\u00b9 * r * \u2016\u222b t in -2 * r\u207b\u00b9..2 * r\u207b\u00b9, 1 - charFunDual \u03bc (t \u2022 L)\u2016",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsProbabilityMeasure (\u03bc.map L)",
+        "body": "Measure.isProbabilityMeasure_map (by fun_prop)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegralCharFun",
+    "name": "measureReal_abs_inner_gt_le_integral_charFun",
+    "statement": "Type*} [SeminormedAddCommGroup E] [InnerProductSpace \u211d E] {mE : MeasurableSpace E} [OpensMeasurableSpace E] {\u03bc : Measure E} [IsProbabilityMeasure \u03bc] {a : E} {r : \u211d} (hr : 0 < r) : \u03bc.real {x | r < |\u27eaa, x\u27eb|} \u2264 2\u207b\u00b9 * r * \u2016\u222b t in -2 * r\u207b\u00b9..2 * r\u207b\u00b9, 1 - charFun \u03bc (t \u2022 a)\u2016",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsProbabilityMeasure (\u03bc.map (fun x \u21a6 \u27eaa, x\u27eb))",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

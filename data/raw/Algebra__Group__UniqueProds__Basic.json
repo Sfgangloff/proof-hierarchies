@@ -1,0 +1,59 @@
+[
+  {
+    "module": "Basic",
+    "name": "exists_iff_exists_existsUnique",
+    "statement": "(\u2203 a0 b0 : G, a0 \u2208 A \u2227 b0 \u2208 B \u2227 UniqueMul A B a0 b0) \u2194 \u2203 g : G, \u2203! ab, ab \u2208 A \u00d7\u02e2 B \u2227 ab.1 * ab.2 = g",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "toIsLeftCancelMul",
+    "statement": "IsLeftCancelMul G where mul_left_cancel a b1 b2 he",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mem_insert_self b1 {b2}",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "toTwoUniqueProds_of_group",
+    "statement": "TwoUniqueProds G where uniqueMul_of_one_lt_card {A B} hc",
+    "have_tree": [
+      {
+        "name": "hcard",
+        "type": "1 < #C \u2228 1 < #D",
+        "body": "by simp_rw [C, D, card_map]; exact hc.2.2",
+        "children": []
+      },
+      {
+        "name": "hC",
+        "type": "1 \u2208 C",
+        "body": "mem_map.mpr \u27e8a, ha, inv_mul_cancel a\u27e9",
+        "children": []
+      },
+      {
+        "name": "hD",
+        "type": "1 \u2208 D",
+        "body": "mem_map.mpr \u27e8b, hb, mul_inv_cancel b\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "uniqueMul_of_nonempty (A := D.image (\u00b7\u207b\u00b9) * C) (B := D * C.image (\u00b7\u207b\u00b9)) ?_ ?_",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "module": "FTaylorSeries",
+    "name": "HasFTaylorSeriesUpToOn.continuousOn",
+    "statement": "HasFTaylorSeriesUpToOn n f p s) : ContinuousOn f s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(h.cont 0 bot_le).congr fun x hx => (h.zero_eq' hx).symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FTaylorSeries",
+    "name": "hasFTaylorSeriesUpToOn_zero_iff",
+    "statement": "HasFTaylorSeriesUpToOn 0 f p s \u2194 ContinuousOn f s \u2227 \u2200 x \u2208 s, (p x 0).curry0 = f x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "EqOn (p \u00b7 0) ((continuousMultilinearCurryFin0 \ud835\udd5c E F).symm \u2218 f) s",
+        "body": "fun x hx \u21a6",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FTaylorSeries",
+    "name": "HasFTaylorSeriesUpToOn.eq_iteratedFDerivWithin_of_uniqueDiffOn",
+    "statement": "HasFTaylorSeriesUpToOn n f p s) {m : \u2115} (hmn : m \u2264 n) (hs : UniqueDiffOn \ud835\udd5c s) (hx : x \u2208 s) : p x m = iteratedFDerivWithin \ud835\udd5c m f s x",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "m < n",
+        "body": "lt_of_lt_of_le (mod_cast lt_add_one m) hmn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FTaylorSeries",
+    "name": "HasFTaylorSeriesUpTo.tsupport_mono",
+    "statement": "\u2115} (h : k \u2264 m) (h2 : m \u2264 n) (hf : HasFTaylorSeriesUpTo n f p) : tsupport (p \u00b7 m) \u2286 tsupport (p \u00b7 k)",
+    "have_tree": [
+      {
+        "name": "hl",
+        "type": "l < n",
+        "body": "lt_of_lt_of_le (mod_cast lt_add_one l) h2",
+        "children": []
+      }
+    ]
+  }
+]

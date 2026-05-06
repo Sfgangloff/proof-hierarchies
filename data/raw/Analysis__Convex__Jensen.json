@@ -1,0 +1,52 @@
+[
+  {
+    "module": "Jensen",
+    "name": "ConvexOn.map_add_sum_le",
+    "statement": "ConvexOn \ud835\udd5c s f) (h\u2080 : \u2200 i \u2208 t, 0 \u2264 w i) (h\u2081 : v + \u2211 i \u2208 t, w i = 1) (hmem : \u2200 i \u2208 t, p i \u2208 s) (hv : 0 \u2264 v) (hq : q \u2208 s) : f (v \u2022 q + \u2211 i \u2208 t, w i \u2022 p i) \u2264 v \u2022 f q + \u2211 i \u2208 t, w i \u2022 f (p i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "f (\u2211 j \u2208 insertNone t, W j \u2022 P j) \u2264 \u2211 j \u2208 insertNone t, W j \u2022 f (P j)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Jensen",
+    "name": "StrictConvexOn.map_sum_lt",
+    "statement": "StrictConvexOn \ud835\udd5c s f) (h\u2080 : \u2200 i \u2208 t, 0 < w i) (h\u2081 : \u2211 i \u2208 t, w i = 1) (hmem : \u2200 i \u2208 t, p i \u2208 s) (hp : \u2203 j \u2208 t, \u2203 k \u2208 t, p j \u2260 p k) : f (\u2211 i \u2208 t, w i \u2022 p i) < \u2211 i \u2208 t, w i \u2022 f (p i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "k \u2208 t.erase j",
+        "body": "mem_erase.2 \u27e8ne_of_apply_ne _ hjk.symm, hk\u27e9",
+        "children": []
+      },
+      {
+        "name": "hj",
+        "type": "j \u2209 u",
+        "body": "by simp [u]",
+        "children": []
+      },
+      {
+        "name": "hk",
+        "type": "k \u2209 u",
+        "body": "by simp [u]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h\u2080 j <| by simp",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h\u2080 k <| by simp",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,207 @@
+[
+  {
+    "module": "Basic",
+    "name": "degreeLE_mono",
+    "statement": "WithBot \u2115} (H : m \u2264 n) : degreeLE R m \u2264 degreeLE R n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "WithBot.coe_le_coe.1 (Finset.sup_le_iff.1 hp k hk)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "degreeLT_mono",
+    "statement": "\u2115} (H : m \u2264 n) : degreeLT R m \u2264 degreeLT R n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "WithBot.coe_lt_coe.1 ((Finset.sup_lt_iff <| WithBot.bot_lt_coe n).1 hp k hk)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "polynomial_not_isField",
+    "statement": "\u00acIsField R[X]",
+    "have_tree": [
+      {
+        "name": "hp0",
+        "type": "p \u2260 0",
+        "body": "right_ne_zero_of_mul_eq_one hp",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "degree_lt_degree_mul_X hp0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isPrime_map_C_iff_isPrime",
+    "statement": "Ideal R) : IsPrime (map (C : R \u2192+* R[X]) P : Ideal R[X]) \u2194 IsPrime P",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "comap_isPrime C (map C P)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "map_C_comap_of_comap_eq_leadingCoeff",
+    "statement": "Ideal R[X]) (hI : comap C I = I.leadingCoeff) : map C (comap C I) = I",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "C f.leadingCoeff * X ^ f.natDegree \u2208 map C (comap C I)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mem_span_C_coeff",
+    "statement": "f \u2208 Ideal.span { g : R[X] | \u2203 i : \u2115, g = C (coeff f i) }",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "C (coeff f n) \u2208 p",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "prime_C_iff",
+    "statement": "Prime (C r) \u2194 Prime r",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hr.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "prime_C_iff_of_fintype",
+    "statement": "Type u} (\u03c3 : Type v) {r : R} [CommRing R] [Finite \u03c3] : Prime (C r : MvPolynomial \u03c3 R) \u2194 Prime r",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite \u03c3",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "prime_C_iff",
+    "statement": "Prime (C r : MvPolynomial \u03c3 R) \u2194 Prime r",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "algebraMap R _ r \u2223 a' * b'",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Polynomial.isNoetherianRing",
+    "statement": "IsNoetherianRing R] : IsNoetherianRing R[X]",
+    "have_tree": [
+      {
+        "name": "hm",
+        "type": "M \u2208 Set.range I.leadingCoeffNth",
+        "body": "WellFounded.min_mem _ _ _",
+        "children": []
+      },
+      {
+        "name": "hm2",
+        "type": "\u2200 k, I.leadingCoeffNth k \u2264 M",
+        "body": "fun k =>",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u00acM < I.leadingCoeffNth k",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "x \u2208 I.degreeLE N",
+            "body": "hs \u25b8 Submodule.subset_span hx",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "p.leadingCoeff \u2208 I.leadingCoeffNth N",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hq0",
+            "type": "q \u2260 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "Polynomial.degree_sub_lt h1 hp0 h2",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "sup_ker_aeval_eq_ker_aeval_mul_of_coprime",
+    "statement": "M \u2192\u2097[R] M) {p q : R[X]} (hpq : IsCoprime p q) : LinearMap.ker (aeval f p) \u2294 LinearMap.ker (aeval f q) = LinearMap.ker (aeval f (p * q))",
+    "have_tree": [
+      {
+        "name": "h_eval\u2082_qpp'",
+        "type": "",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h_eval\u2082_pqq'",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "aeval_natDegree_le",
+    "statement": "Type*} [CommSemiring R] {m n : \u2115} (F : MvPolynomial \u03c3 R) (hF : F.totalDegree \u2264 m) (f : \u03c3 \u2192 Polynomial R) (hf : \u2200 i, (f i).natDegree \u2264 n) : (MvPolynomial.aeval f F).natDegree \u2264 m * n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2211 i \u2208 d.support, (d i) * n \u2264 m * n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "original": {
+      "module": "M",
+      "name": "children",
+      "statement": "M F) (i : F.B (head x)) : M F",
+      "have_tree": [
+        {
+          "name": "H",
+          "type": "",
+          "body": "fun n : \u2115 => @head_succ' _ n 0 x.1 x.2",
+          "children": [
+            {
+              "name": "P'",
+              "type": "",
+              "body": "x.2 (succ n)",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "M",
+          "name": "children",
+          "statement": "M F) (i : F.B (head x)) : M F",
+          "have_tree": [
+            {
+              "name": "H",
+              "type": "",
+              "body": "fun n : \u2115 => @head_succ' _ n 0 x.1 x.2",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "M",
+          "name": "children",
+          "statement": "M F) (i : F.B (head x)) : M F",
+          "have_tree": [
+            {
+              "name": "P'",
+              "type": "",
+              "body": "x.2 (succ n)",
+              "children": []
+            },
+            {
+              "name": "H",
+              "type": "",
+              "body": "fun n : \u2115 => @head_succ' _ n 0 x.1 x.2",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "M",
+      "name": "ext_aux",
+      "statement": "\u2115} (x y z : M F) (hx : Agree' n z x) (hy : Agree' n z y) (hrec : \u2200 ps : Path F, n = ps.length \u2192 iselect ps x = iselect ps y) : x.approx (n + 1) = y.approx (n + 1)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "mk_inj h\u2081",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "mk_inj h\u2082",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "M",
+          "name": "ext_aux",
+          "statement": "\u2115} (x y z : M F) (hx : Agree' n z x) (hy : Agree' n z y) (hrec : \u2200 ps : Path F, n = ps.length \u2192 iselect ps x = iselect ps y) : x.approx (n + 1) = y.approx (n + 1)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "mk_inj h\u2082",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "mk_inj h\u2081",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,144 @@
+[
+  {
+    "module": "StrongRankCondition",
+    "name": "mk_eq_mk_of_basis",
+    "statement": "Basis \u03b9 R M) (v' : Basis \u03b9' R M) : Cardinal.lift.{w'} #\u03b9 = Cardinal.lift.{w} #\u03b9'",
+    "have_tree": [
+      {
+        "name": "w\u2081",
+        "type": "",
+        "body": "infinite_basis_le_maximal_linearIndependent' v _ v'.linearIndependent v'.maximal",
+        "children": []
+      },
+      {
+        "name": "w\u2082",
+        "type": "",
+        "body": "infinite_basis_le_maximal_linearIndependent' v' _ v.linearIndependent v.maximal",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongRankCondition",
+    "name": "Module.Basis.le_span",
+    "statement": "Set M} (v : Basis \u03b9 R M) (hJ : span R J = \u22a4) : #(range v) \u2264 #J",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "range v \u2286 \u22c3 j, S' j",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "span R J \u2264 comap v.repr.toLinearMap (Finsupp.supported R R (\u22c3 j, S j))",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "StrongRankCondition",
+    "name": "LinearIndependent.finite_of_le_span_finite",
+    "statement": "Type*} (v : \u03b9 \u2192 M) (i : LinearIndependent R v) (w : Set M) [Finite w] (s : range v \u2264 span R w) : Finite \u03b9",
+    "have_tree": [
+      {
+        "name": "i'",
+        "type": "LinearIndependent R v'",
+        "body": "i.comp _ Subtype.val_injective",
+        "children": []
+      },
+      {
+        "name": "s'",
+        "type": "range v' \u2264 span R w",
+        "body": "(range_comp_subset_range _ _).trans s",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongRankCondition",
+    "name": "linearIndependent_le_infinite_basis",
+    "statement": "Type w} (b : Basis \u03b9 R M) [Infinite \u03b9] {\u03ba : Type w} (v : \u03ba \u2192 M) (i : LinearIndependent R v) : #\u03ba \u2264 #\u03b9",
+    "have_tree": [
+      {
+        "name": "i'",
+        "type": "LinearIndependent R v'",
+        "body": "i.comp _ Subtype.val_injective",
+        "children": []
+      },
+      {
+        "name": "w'",
+        "type": "Finite (\u03a6 \u207b\u00b9' {s})",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongRankCondition",
+    "name": "Ideal.rank_eq",
+    "statement": "Type*} [CommRing R] [StrongRankCondition R] [Ring S] [IsDomain S] [Algebra R S] {n m : Type*} [Fintype n] [Fintype m] (b : Basis n R S) {I : Ideal S} (hI : I \u2260 \u22a5) (c : Basis m R I) : Fintype.card m = Fintype.card n",
+    "have_tree": [
+      {
+        "name": "hb",
+        "type": "",
+        "body": "b.linearIndependent",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongRankCondition",
+    "name": "rank_pos_of_free",
+    "statement": "0 < Module.rank R M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Module.nontrivial R M",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongRankCondition",
+    "name": "_root_.Module.Basis.unique",
+    "statement": "Type*} (b : Basis \u03b9 R R) : Unique \u03b9",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Subsingleton \u03b9 \u2227 Nonempty \u03b9",
+        "body": "by simpa [Cardinal.eq_one_iff_unique]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongRankCondition",
+    "name": "finrank_eq_zero_iff_of_free",
+    "statement": "Module.finrank R M = 0 \u2194 Subsingleton M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Module.rank_lt_aleph0 R M",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongRankCondition",
+    "name": "StrongRankCondition.of_isNoetherian",
+    "statement": "StrongRankCondition R",
+    "have_tree": [
+      {
+        "name": "e",
+        "type": "",
+        "body": "LinearEquiv.piCongrLeft R (fun _ \u21a6 R) (finSuccEquiv n) \u226a\u226b\u2097 .piOptionEquivProd _",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,111 @@
+[
+  {
+    "module": "Degrees",
+    "name": "degrees_eq_zero_iff_support_subset_zero",
+    "statement": "p.degrees = 0 \u2194 p.support \u2286 {0}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Finsupp.support_eq_empty.mpr (h s <| mem_support_iff.mpr hs1) \u25b8 hs2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Degrees",
+    "name": "degreeOf_mul_X_self_pow_eq_add_of_ne_zero",
+    "statement": "\u03c3) (k : \u2115) (h : p \u2260 0) : (p * X i ^ k).degreeOf i = p.degreeOf i + k",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "p * X i ^ k \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Degrees",
+    "name": "degreeOf_add_eq_of_degreeOf_lt",
+    "statement": "\u03c3} (h : q.degreeOf i < p.degreeOf i) : (p + q).degreeOf i = p.degreeOf i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "p.support.Nonempty",
+        "body": "by aesop",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "s \u2209 q.support",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Degrees",
+    "name": "totalDegree_add_eq_left_of_totalDegree_lt",
+    "statement": "MvPolynomial \u03c3 R} (h : q.totalDegree < p.totalDegree) : (p + q).totalDegree = p.totalDegree",
+    "have_tree": [
+      {
+        "name": "hb",
+        "type": "b \u2209 q.support",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hbb",
+        "type": "b \u2208 (p + q).support",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Degrees",
+    "name": "totalDegree_rename_le",
+    "statement": "\u03c3 \u2192 \u03c4) (p : MvPolynomial \u03c3 R) : (rename f p).totalDegree \u2264 p.totalDegree",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "Finsupp.mapDomain_support h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Degrees",
+    "name": "mem_degreesLE",
+    "statement": "p \u2208 degreesLE R \u03c3 s \u2194 p.degrees \u2264 s",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "a.toMultiset \u2264 s",
+        "body": "by simpa [a, add_comm (a := t)] using hi",
+        "children": []
+      },
+      {
+        "name": "hb",
+        "type": "b.toMultiset \u2264 t",
+        "body": "by simp [b, Multiset.inter_le_right]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Degrees",
+    "name": "degreesLE_zero",
+    "statement": "degreesLE R \u03c3 0 = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(totalDegree_eq_zero_iff_eq_C (p := x)).mp",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,76 @@
+[
+  {
+    "module": "PrimitiveRoots",
+    "name": "norm_pow_sub_one_of_prime_pow_ne_two",
+    "statement": "\u2115} (h\u03b6 : IsPrimitiveRoot \u03b6 (p ^ (k + 1))) [hpri : Fact p.Prime] [IsCyclotomicExtension {p ^ (k + 1)} K L] (hirr : Irreducible (cyclotomic (p ^ (k + 1)) K)) (hs : s \u2264 k) (htwo : p ^ (k - s + 1) \u2260 2) : norm K (\u03b6 ^ p ^ s - 1) = (p : K) ^ p ^ s",
+    "have_tree": [
+      {
+        "name": "hirr\u2081",
+        "type": "Irreducible (cyclotomic (p ^ (k - s + 1)) K)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u03b7",
+        "type": "IsPrimitiveRoot (\u03b7 + 1) (p ^ (k + 1 - s))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsCyclotomicExtension {p ^ (k - s + 1)} K K\u27ee\u03b7\u27ef",
+        "body": "by",
+        "children": [
+          {
+            "name": "HK\u03b7",
+            "type": "K\u27ee\u03b7\u27ef = K\u27ee\u03b7 + 1\u27ef",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "H",
+            "type": "",
+            "body": "IntermediateField.adjoin_simple_toSubalgebra_of_isAlgebraic",
+            "children": []
+          },
+          {
+            "name": "h\u03b7'",
+            "type": "IsPrimitiveRoot (\u03b7 + 1) (p ^ (k + 1 - s))",
+            "body": "by simpa using h\u03b7",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsCyclotomicExtension.finiteDimensional {p ^ (k + 1)} K L",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsCyclotomicExtension.isGalois {p ^ (k + 1)} K L",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "h\u03b7.sub_one_norm_isPrimePow ?_ hirr\u2081 htwo",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Module.finrank_mul_finrank K K\u27ee\u03b7\u27ef L",
+        "children": []
+      },
+      {
+        "name": "Hex",
+        "type": "k.succ - 1 = (k - s).succ - 1 + s",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

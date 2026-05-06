@@ -1,0 +1,150 @@
+[
+  {
+    "module": "Incenter",
+    "name": "dist_orthogonalProjectionSpan_faceOpposite_eq_iff_two_zsmul_oangle_eq",
+    "statement": "P} : dist p ((t.faceOpposite i\u2083).orthogonalProjectionSpan p) = dist p ((t.faceOpposite i\u2082).orthogonalProjectionSpan p) \u2194 (2 : \u2124) \u2022 \u2221 (t.points i\u2082) (t.points i\u2081) p = (2 : \u2124) \u2022 \u2221 p (t.points i\u2081) (t.points i\u2083)",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "AffineIndependent \u211d ![t.points i\u2081, t.points i\u2082, t.points i\u2083]",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "oangle_incenter_eq",
+    "statement": "\u2221 (t.points i\u2082) (t.points i\u2081) t.incenter = \u2221 t.incenter (t.points i\u2081) (t.points i\u2083)",
+    "have_tree": [
+      {
+        "name": "hd",
+        "type": "",
+        "body": "t.dist_incenter_eq_dist_incenter i\u2083 i\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "oangle_excenter_singleton_eq",
+    "statement": "\u2221 (t.points i\u2082) (t.points i\u2081) (t.excenter {i\u2081}) = \u2221 (t.excenter {i\u2081}) (t.points i\u2081) (t.points i\u2083)",
+    "have_tree": [
+      {
+        "name": "hd",
+        "type": "",
+        "body": "(t.excenterExists_singleton i\u2081).dist_excenter_eq_dist_excenter i\u2083 i\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "oangle_excenter_singleton_eq_add_pi",
+    "statement": "\u2221 (t.points i\u2081) (t.points i\u2082) (t.excenter {i\u2081}) = \u2221 (t.excenter {i\u2081}) (t.points i\u2082) (t.points i\u2083) + \u03c0",
+    "have_tree": [
+      {
+        "name": "hd",
+        "type": "",
+        "body": "(t.excenterExists_singleton i\u2081).dist_excenter_eq_dist_excenter i\u2083 i\u2081",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "eq_excenter_of_two_zsmul_oangle_eq",
+    "statement": "P} (h\u2081 : (2 : \u2124) \u2022 \u2221 (t.points i\u2082) (t.points i\u2081) p = (2 : \u2124) \u2022 \u2221 p (t.points i\u2081) (t.points i\u2083)) (h\u2082 : (2 : \u2124) \u2022 \u2221 (t.points i\u2083) (t.points i\u2082) p = (2 : \u2124) \u2022 \u2221 p (t.points i\u2082) (t.points i\u2081)) : \u2203 signs : Finset (Fin 3), p = t.excenter signs",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "p \u2208 affineSpan \u211d (Set.range t.points)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "eq_incenter_or_eq_excenter_singleton_of_oangle_eq",
+    "statement": "Finset (Fin 3)} (h : \u2221 (t.points i\u2082) (t.points i\u2081) (t.excenter signs) = \u2221 (t.excenter signs) (t.points i\u2081) (t.points i\u2083)) : t.excenter signs = t.incenter \u2228 t.excenter signs = t.excenter {i\u2081}",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "",
+        "body": "t.excenter_eq_incenter_or_excenter_singleton_of_ne signs h\u2081\u2082 h\u2081\u2083 h\u2082\u2083",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "eq_excenter_singleton_of_oangle_eq_add_pi",
+    "statement": "Finset (Fin 3)} (h : \u2221 (t.points i\u2082) (t.points i\u2081) (t.excenter signs) = \u2221 (t.excenter signs) (t.points i\u2081) (t.points i\u2083) + \u03c0) : t.excenter signs = t.excenter {i\u2082} \u2228 t.excenter signs = t.excenter {i\u2083}",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "",
+        "body": "t.excenter_eq_incenter_or_excenter_singleton_of_ne signs h\u2081\u2082 h\u2081\u2083 h\u2082\u2083",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "eq_incenter_of_oangle_eq",
+    "statement": "P} (h\u2081 : \u2221 (t.points i\u2082) (t.points i\u2081) p = \u2221 p (t.points i\u2081) (t.points i\u2083)) (h\u2082 : \u2221 (t.points i\u2083) (t.points i\u2082) p = \u2221 p (t.points i\u2082) (t.points i\u2081)) : p = t.incenter",
+    "have_tree": [
+      {
+        "name": "h\u2081'",
+        "type": "",
+        "body": "t.eq_incenter_or_eq_excenter_singleton_of_oangle_eq h\u2081\u2082 h\u2081\u2083 h\u2082\u2083 h\u2081",
+        "children": []
+      },
+      {
+        "name": "h\u2082'",
+        "type": "",
+        "body": "t.eq_incenter_or_eq_excenter_singleton_of_oangle_eq h\u2082\u2083 h\u2081\u2082.symm h\u2081\u2083.symm h\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "eq_excenter_singleton_of_oangle_eq_of_oangle_eq_add_pi",
+    "statement": "P} (h\u2081 : \u2221 (t.points i\u2082) (t.points i\u2081) p = \u2221 p (t.points i\u2081) (t.points i\u2083)) (h\u2082 : \u2221 (t.points i\u2083) (t.points i\u2082) p = \u2221 p (t.points i\u2082) (t.points i\u2081) + \u03c0) : p = t.excenter {i\u2081}",
+    "have_tree": [
+      {
+        "name": "h\u2081'",
+        "type": "",
+        "body": "t.eq_incenter_or_eq_excenter_singleton_of_oangle_eq h\u2081\u2082 h\u2081\u2083 h\u2082\u2083 h\u2081",
+        "children": []
+      },
+      {
+        "name": "h\u2082'",
+        "type": "",
+        "body": "t.eq_excenter_singleton_of_oangle_eq_add_pi h\u2082\u2083 h\u2081\u2082.symm h\u2081\u2083.symm h\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "eq_excenter_singleton_of_oangle_eq_add_pi_of_oangle_eq_add_pi",
+    "statement": "P} (h\u2081 : \u2221 (t.points i\u2082) (t.points i\u2081) p = \u2221 p (t.points i\u2081) (t.points i\u2083) + \u03c0) (h\u2082 : \u2221 (t.points i\u2083) (t.points i\u2082) p = \u2221 p (t.points i\u2082) (t.points i\u2081) + \u03c0) : p = t.excenter {i\u2083}",
+    "have_tree": [
+      {
+        "name": "h\u2081'",
+        "type": "",
+        "body": "t.eq_excenter_singleton_of_oangle_eq_add_pi h\u2081\u2082 h\u2081\u2083 h\u2082\u2083 h\u2081",
+        "children": []
+      },
+      {
+        "name": "h\u2082'",
+        "type": "",
+        "body": "t.eq_excenter_singleton_of_oangle_eq_add_pi h\u2082\u2083 h\u2081\u2082.symm h\u2081\u2083.symm h\u2082",
+        "children": []
+      }
+    ]
+  }
+]

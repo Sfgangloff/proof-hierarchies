@@ -1,0 +1,148 @@
+[
+  {
+    "module": "EqHaar",
+    "name": "addHaar_submodule",
+    "statement": "Type*} [NormedAddCommGroup E] [NormedSpace \u211d E] [MeasurableSpace E] [BorelSpace E] [FiniteDimensional \u211d E] (\u03bc : Measure E) [IsAddHaarMeasure \u03bc] (s : Submodule \u211d E) (hs : s \u2260 \u22a4) : \u03bc s = 0",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "(c ^ n - c ^ m) \u2022 x \u2208 s",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "c ^ n - c ^ m \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "x \u2208 s",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EqHaar",
+    "name": "map_linearMap_addHaar_pi_eq_smul_addHaar",
+    "statement": "Type*} [Finite \u03b9] {f : (\u03b9 \u2192 \u211d) \u2192\u2097[\u211d] \u03b9 \u2192 \u211d} (hf : LinearMap.det f \u2260 0) (\u03bc : Measure (\u03b9 \u2192 \u211d)) [IsAddHaarMeasure \u03bc] : Measure.map f \u03bc = ENNReal.ofReal (abs (LinearMap.det f)\u207b\u00b9) \u2022 \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "addHaarMeasure_unique \u03bc (piIcc01 \u03b9)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EqHaar",
+    "name": "map_linearMap_addHaar_eq_smul_addHaar",
+    "statement": "E \u2192\u2097[\u211d] E} (hf : LinearMap.det f \u2260 0) : Measure.map f \u03bc = ENNReal.ofReal |(LinearMap.det f)\u207b\u00b9| \u2022 \u03bc",
+    "have_tree": [
+      {
+        "name": "e",
+        "type": "E \u2243\u2097[\u211d] \u03b9 \u2192 \u211d",
+        "body": "LinearEquiv.ofFinrankEq E (\u03b9 \u2192 \u211d) this",
+        "children": []
+      },
+      {
+        "name": "Ce",
+        "type": "Continuous e",
+        "body": "(e : E \u2192\u2097[\u211d] \u03b9 \u2192 \u211d).continuous_of_finiteDimensional",
+        "children": []
+      },
+      {
+        "name": "Cg",
+        "type": "Continuous g",
+        "body": "LinearMap.continuous_of_finiteDimensional g",
+        "children": []
+      },
+      {
+        "name": "Cesymm",
+        "type": "Continuous e.symm",
+        "body": "(e.symm : (\u03b9 \u2192 \u211d) \u2192\u2097[\u211d] E).continuous_of_finiteDimensional",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EqHaar",
+    "name": "map_addHaar_smul",
+    "statement": "\u211d} (hr : r \u2260 0) : Measure.map (r \u2022 \u00b7) \u03bc = ENNReal.ofReal (abs (r ^ finrank \u211d E)\u207b\u00b9) \u2022 \u03bc",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "LinearMap.det f \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EqHaar",
+    "name": "addHaar_parallelepiped",
+    "statement": "Basis \u03b9 \u211d G) (v : \u03b9 \u2192 G) : b.addHaar (parallelepiped v) = ENNReal.ofReal |b.det v|",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional \u211d G",
+        "body": "b.finiteDimensional_of_finite",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EqHaar",
+    "name": "tendsto_addHaar_inter_smul_zero_of_density_zero",
+    "statement": "Set E) (x : E) (h : Tendsto (fun r => \u03bc (s \u2229 closedBall x r) / \u03bc (closedBall x r)) (\ud835\udcdd[>] 0) (\ud835\udcdd 0)) (t : Set E) (ht : MeasurableSet t) (h''t : \u03bc t \u2260 \u221e) : Tendsto (fun r : \u211d => \u03bc (s \u2229 ({x} + r \u2022 t)) / \u03bc ({x} + r \u2022 t)) (\ud835\udcdd[>] 0) (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "I",
+        "type": "0 < \u03b5 / 2 * \u03bc t",
+        "body": "ENNReal.mul_pos (ENNReal.half_pos \u03b5pos.ne').ne' h't",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EqHaar",
+    "name": "tendsto_addHaar_inter_smul_one_of_density_one_aux",
+    "statement": "Set E) (hs : MeasurableSet s) (x : E) (h : Tendsto (fun r => \u03bc (s \u2229 closedBall x r) / \u03bc (closedBall x r)) (\ud835\udcdd[>] 0) (\ud835\udcdd 1)) (t : Set E) (ht : MeasurableSet t) (h't : \u03bc t \u2260 0) (h''t : \u03bc t \u2260 \u221e) : Tendsto (fun r : \u211d => \u03bc (s \u2229 ({x} + r \u2022 t)) / \u03bc ({x} + r \u2022 t)) (\ud835\udcdd[>] 0) (\ud835\udcdd 1)",
+    "have_tree": [
+      {
+        "name": "B",
+        "type": "",
+        "body": "ENNReal.Tendsto.sub A h (Or.inl ENNReal.one_ne_top)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "ENNReal.Tendsto.sub L'' L' (Or.inl ENNReal.one_ne_top)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EqHaar",
+    "name": "eventually_nonempty_inter_smul_of_density_one",
+    "statement": "Set E) (x : E) (h : Tendsto (fun r => \u03bc (s \u2229 closedBall x r) / \u03bc (closedBall x r)) (\ud835\udcdd[>] 0) (\ud835\udcdd 1)) (t : Set E) (ht : MeasurableSet t) (h't : \u03bc t \u2260 0) : \u2200\u1da0 r in \ud835\udcdd[>] (0 : \u211d), (s \u2229 ({x} + r \u2022 t)).Nonempty",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u03bc (s \u2229 ({x} + r \u2022 t')) \u2260 0",
+        "body": "fun h' => by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(s \u2229 ({x} + r \u2022 t')).Nonempty",
+        "body": "nonempty_of_measure_ne_zero this",
+        "children": []
+      }
+    ]
+  }
+]

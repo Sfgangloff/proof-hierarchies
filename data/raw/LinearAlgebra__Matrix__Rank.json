@@ -1,0 +1,112 @@
+[
+  {
+    "module": "Rank",
+    "name": "cRank_toNat_eq_finrank",
+    "statement": "Matrix m n R) : A.cRank.toNat = Module.finrank R (span R (range A.col))",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "((A.submatrix r id).submatrix id c).cRank \u2264 (A.submatrix r id).cRank",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hwin",
+        "type": "",
+        "body": "lift_rank_map_le f (span R (range A\u1d40))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rank",
+    "name": "eRank_le_card_width",
+    "statement": "Matrix m n R) : A.eRank \u2264 ENat.card n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rank",
+    "name": "eRank_le_card_height",
+    "statement": "Matrix m n R) : A.eRank \u2264 ENat.card m",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite m",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rank",
+    "name": "rank_unit",
+    "statement": "(Matrix n n R)\u02e3) : (A : Matrix n n R).rank = Fintype.card n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "rank_mul_le_left (A : Matrix n n R) (\u2191A\u207b\u00b9 : Matrix n n R)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rank",
+    "name": "rank_submatrix_le",
+    "statement": "Matrix m n R) (r : m\u2080 \u2192 m) (c : n\u2080 \u2192 n) : (A.submatrix r c).rank \u2264 A.rank",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Module.Finite.span_of_finite R (Set.finite_range (A.submatrix r id).col)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rank",
+    "name": "rank_eq_finrank_range_toLin",
+    "statement": "Type*} [AddCommGroup M\u2081] [AddCommGroup M\u2082] [Module R M\u2081] [Module R M\u2082] (A : Matrix m n R) (v\u2081 : Basis m R M\u2081) (v\u2082 : Basis n R M\u2082) : A.rank = finrank R (LinearMap.range (toLin v\u2082 v\u2081 A))",
+    "have_tree": [
+      {
+        "name": "aux\u2081",
+        "type": "",
+        "body": "toLin_self (Pi.basisFun R n) (Pi.basisFun R m) A i",
+        "children": []
+      },
+      {
+        "name": "aux\u2082",
+        "type": "",
+        "body": "Basis.equiv_apply (Pi.basisFun R n) i v\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Rank",
+    "name": "cRank_diagonal",
+    "statement": "m \u2192 R) : (diagonal w).cRank = lift.{uR} #{i // (w i) \u2260 0}",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "LinearIndependent R w'",
+        "body": "by",
+        "children": [
+          {
+            "name": "hli'",
+            "type": "",
+            "body": "Pi.linearIndependent_single_of_ne_zero (R := R)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

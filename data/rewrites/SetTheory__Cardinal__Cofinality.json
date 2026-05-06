@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Cofinality",
+      "name": "cof_eq'",
+      "statement": "\u03b1 \u2192 \u03b1 \u2192 Prop) [H : IsWellOrder \u03b1 r] (h : IsSuccLimit (type r)) : \u2203 S : Set \u03b1, (\u2200 a, \u2203 b \u2208 S, r a b) \u2227 #S = cof (type r)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "WellFoundedLT \u03b1",
+          "body": "H.toIsWellFounded",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "NoMaxOrder \u03b1",
+          "body": "isSuccPrelimit_type_lt_iff.1 h.isSuccPrelimit",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Cofinality",
+          "name": "cof_eq'",
+          "statement": "\u03b1 \u2192 \u03b1 \u2192 Prop) [H : IsWellOrder \u03b1 r] (h : IsSuccLimit (type r)) : \u2203 S : Set \u03b1, (\u2200 a, \u2203 b \u2208 S, r a b) \u2227 #S = cof (type r)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "NoMaxOrder \u03b1",
+              "body": "isSuccPrelimit_type_lt_iff.1 h.isSuccPrelimit",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "WellFoundedLT \u03b1",
+              "body": "H.toIsWellFounded",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Cofinality",
+      "name": "mk_bounded_subset",
+      "statement": "Type*} (h : \u2200 x < #\u03b1, 2 ^ x < #\u03b1) {r : \u03b1 \u2192 \u03b1 \u2192 Prop} [IsWellOrder \u03b1 r] (hr : (#\u03b1).ord = type r) : #{ s : Set \u03b1 // Bounded r s } = #\u03b1",
+      "have_tree": [
+        {
+          "name": "h'",
+          "type": "IsStrongLimit #\u03b1",
+          "body": "\u27e8ha, @h\u27e9",
+          "children": []
+        },
+        {
+          "name": "ha",
+          "type": "",
+          "body": "h'.aleph0_le",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Cofinality",
+          "name": "mk_bounded_subset",
+          "statement": "Type*} (h : \u2200 x < #\u03b1, 2 ^ x < #\u03b1) {r : \u03b1 \u2192 \u03b1 \u2192 Prop} [IsWellOrder \u03b1 r] (hr : (#\u03b1).ord = type r) : #{ s : Set \u03b1 // Bounded r s } = #\u03b1",
+          "have_tree": [
+            {
+              "name": "ha",
+              "type": "",
+              "body": "h'.aleph0_le",
+              "children": []
+            },
+            {
+              "name": "h'",
+              "type": "IsStrongLimit #\u03b1",
+              "body": "\u27e8ha, @h\u27e9",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

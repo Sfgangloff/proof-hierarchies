@@ -1,0 +1,72 @@
+[
+  {
+    "module": "Regular",
+    "name": "supportDim_le_supportDim_quotSMulTop_succ_of_mem_jacobson",
+    "statement": "R} (h : x \u2208 (annihilator R M).jacobson) : supportDim R M \u2264 supportDim R (QuotSMulTop x M) + 1",
+    "have_tree": [
+      {
+        "name": "hj",
+        "type": "(annihilator R M).jacobson \u2264 p.last.1.1",
+        "body": "",
+        "children": [
+          {
+            "name": "hi",
+            "type": "i + 1 < q.length + 1",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "supportDim_quotSMulTop_succ_le_of_notMem_minimalPrimes",
+    "statement": "R} (hn : \u2200 p \u2208 (annihilator R M).minimalPrimes, x \u2209 p) : supportDim R (QuotSMulTop x M) + 1 \u2264 supportDim R M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty (Module.support R M)",
+        "body": "nonempty_support_of_nontrivial.to_subtype",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nonempty (Module.support R (QuotSMulTop x M))",
+        "body": "nonempty_support_of_nontrivial.to_subtype",
+        "children": []
+      },
+      {
+        "name": "hp",
+        "type": "",
+        "body": "p.head.2",
+        "children": []
+      },
+      {
+        "name": "le",
+        "type": "support R (QuotSMulTop x M) \u2286 support R M",
+        "body": "by simp",
+        "children": []
+      },
+      {
+        "name": "hr",
+        "type": "r < q.head",
+        "body": "lt_of_le_of_ne hr (fun h \u21a6 hn q.head.1.1 (by rwa [\u2190 h]) hp.2)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "supportDim_add_length_eq_supportDim_of_isRegular",
+    "statement": "List R) (reg : IsRegular M rs) : supportDim R (M \u29f8 ofList rs \u2022 (\u22a4 : Submodule R M)) + rs.length = supportDim R M",
+    "have_tree": [
+      {
+        "name": "mem",
+        "type": "x \u2208 maximalIdeal R",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

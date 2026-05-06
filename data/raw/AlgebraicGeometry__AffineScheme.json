@@ -1,0 +1,112 @@
+[
+  {
+    "module": "AffineScheme",
+    "name": "opensRange_fromSpec",
+    "statement": "hU.fromSpec.opensRange = U",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsAffine U",
+        "body": "hU",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AffineScheme",
+    "name": "SpecMap_appLE_fromSpec",
+    "statement": "X \u27f6 Y) {V : X.Opens} {U : Y.Opens} (hU : IsAffineOpen U) (hV : IsAffineOpen V) (i : V \u2264 f \u207b\u00b9\u1d41 U) : Spec.map (f.appLE U V i) \u226b hU.fromSpec = hV.fromSpec \u226b f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsAffine U",
+        "body": "hU",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AffineScheme",
+    "name": "exists_basicOpen_le",
+    "statement": "X.Opens} (x : V) (h : \u2191x \u2208 U) : \u2203 f : \u0393(X, U), X.basicOpen f \u2264 V \u2227 \u2191x \u2208 X.basicOpen f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsAffine _",
+        "body": "hU",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AffineScheme",
+    "name": "basicOpen_basicOpen_is_basicOpen",
+    "statement": "\u0393(X, X.basicOpen f)) : \u2203 f' : \u0393(X, U), X.basicOpen f' = X.basicOpen g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isLocalization_basicOpen hU f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AffineScheme",
+    "name": "primeIdealOf_isMaximal_of_isClosed",
+    "statement": "U) (hx : IsClosed {(x : X)}) : (hU.primeIdealOf x).asIdeal.IsMaximal",
+    "have_tree": [
+      {
+        "name": "hx\u2080",
+        "type": "IsClosed {x}",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AffineScheme",
+    "name": "arrowStalkMapIso",
+    "statement": "X \u27f6 Y) {x : X} (U : Y.Opens) (hU : IsAffineOpen U) (V : X.Opens) (hV : IsAffineOpen V) (hVU : V \u2264 f \u207b\u00b9\u1d41 U) (hx : x \u2208 V) : Arrow.mk (f.stalkMap x) \u2245 Arrow.mk (CommRingCat.ofHom <| Localization.localRingHom _ _ (f.appLE U V hVU).hom congr($(IsAffineOpen.comap_primeIdealOf_appLE U hU V hV hVU hx).1).symm)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hU.isLocalization_stalk \u27e8f x, hVU hx\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hV.isLocalization_stalk \u27e8x, hx\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AffineScheme",
+    "name": "eq_of_SpecMap_comp_eq_of_isAffineOpen",
+    "statement": "CommRingCat} {X : Scheme} (\u03c6 : R \u27f6 S) (h\u03c6 : Function.Injective \u03c6) {f g : Spec R \u27f6 X} (U : X.Opens) (hU : IsAffineOpen U) (hUf : f \u207b\u00b9\u1d41 U = \u22a4) (hUg : g \u207b\u00b9\u1d41 U = \u22a4) (H : Spec.map \u03c6 \u226b f = Spec.map \u03c6 \u226b g) : f = g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Mono \u03c6",
+        "body": "ConcreteCategory.mono_of_injective _ h\u03c6",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AffineScheme",
+    "name": "eq_zeroLocus_of_isClosed_of_isAffine",
+    "statement": "Set X) : IsClosed s \u2194 \u2203 I : Ideal \u0393(X, \u22a4), s = X.zeroLocus (U",
+    "have_tree": [
+      {
+        "name": "hZ",
+        "type": "IsClosed Z",
+        "body": "(X.isoSpec.hom.homeomorph).isClosedMap _ hs",
+        "children": []
+      }
+    ]
+  }
+]

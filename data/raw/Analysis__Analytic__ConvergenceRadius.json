@@ -1,0 +1,80 @@
+[
+  {
+    "module": "ConvergenceRadius",
+    "name": "isLittleO_of_lt_radius",
+    "statement": "\u2191r < p.radius) : \u2203 a \u2208 Ioo (0 : \u211d) 1, (fun n => \u2016p n\u2016 * (r : \u211d) ^ n) =o[atTop] (a ^ \u00b7)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(TFAE_exists_lt_isLittleO_pow (fun n => \u2016p n\u2016 * (r : \u211d) ^ n) 1).out 1 4",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ConvergenceRadius",
+    "name": "norm_mul_pow_le_mul_pow_of_lt_radius",
+    "statement": "\u2191r < p.radius) : \u2203 a \u2208 Ioo (0 : \u211d) 1, \u2203 C > 0, \u2200 n, \u2016p n\u2016 * (r : \u211d) ^ n \u2264 C * a ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "((TFAE_exists_lt_isLittleO_pow (fun n => \u2016p n\u2016 * (r : \u211d) ^ n) 1).out 1 5).mp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ConvergenceRadius",
+    "name": "lt_radius_of_isBigO",
+    "statement": "r \u2260 0) {a : \u211d} (ha : a \u2208 Ioo (-1 : \u211d) 1) (hp : (fun n => \u2016p n\u2016 * (r : \u211d) ^ n) =O[atTop] (a ^ \u00b7)) : \u2191r < p.radius",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "((TFAE_exists_lt_isLittleO_pow (fun n => \u2016p n\u2016 * (r : \u211d) ^ n) 1).out 2 5)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ConvergenceRadius",
+    "name": "min_radius_le_radius_add",
+    "statement": "FormalMultilinearSeries \ud835\udd5c E F) : min p.radius q.radius \u2264 (p + q).radius",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "((p.isLittleO_one_of_lt_radius hr.1).add (q.isLittleO_one_of_lt_radius hr.2)).isBigO",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ConvergenceRadius",
+    "name": "radius_compContinuousLinearMap_le",
+    "statement": "FormalMultilinearSeries \ud835\udd5c F G) (u : E \u2243L[\ud835\udd5c] F) : (p.compContinuousLinearMap u.toContinuousLinearMap).radius \u2264 \u2016u.symm.toContinuousLinearMap\u2016\u2091 * p.radius",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(p.compContinuousLinearMap u.toContinuousLinearMap).div_le_radius_compContinuousLinearMap",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ConvergenceRadius",
+    "name": "radius_compContinuousLinearMap_linearIsometryEquiv_eq",
+    "statement": "FormalMultilinearSeries \ud835\udd5c F G) (u : E \u2243\u2097\u1d62[\ud835\udd5c] F) : (p.compContinuousLinearMap u.toLinearIsometry.toContinuousLinearMap).radius = p.radius",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial F",
+        "body": "u.symm.toEquiv.nontrivial",
+        "children": []
+      }
+    ]
+  }
+]

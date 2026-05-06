@@ -1,0 +1,72 @@
+[
+  {
+    "original": {
+      "module": "Leibniz",
+      "name": "tendsto_sum_pi_div_four",
+      "statement": "Tendsto (fun k => \u2211 i \u2208 range k, (-1 : \u211d) ^ i / (2 * i + 1)) atTop (\ud835\udcdd (\u03c0 / 4))",
+      "have_tree": [
+        {
+          "name": "abel",
+          "type": "",
+          "body": "tendsto_tsum_powerSeries_nhdsWithin_lt h",
+          "children": [
+            {
+              "name": "ny",
+              "type": "\u2016y\u2016 < 1",
+              "body": "by rw [norm_eq_abs, abs_lt]; constructor <;> linarith",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Leibniz",
+          "name": "tendsto_sum_pi_div_four",
+          "statement": "Tendsto (fun k => \u2211 i \u2208 range k, (-1 : \u211d) ^ i / (2 * i + 1)) atTop (\ud835\udcdd (\u03c0 / 4))",
+          "have_tree": [
+            {
+              "name": "abel",
+              "type": "",
+              "body": "tendsto_tsum_powerSeries_nhdsWithin_lt h",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Leibniz",
+          "name": "tendsto_sum_pi_div_four",
+          "statement": "Tendsto (fun k => \u2211 i \u2208 range k, (-1 : \u211d) ^ i / (2 * i + 1)) atTop (\ud835\udcdd (\u03c0 / 4))",
+          "have_tree": [
+            {
+              "name": "ny",
+              "type": "\u2016y\u2016 < 1",
+              "body": "by rw [norm_eq_abs, abs_lt]; constructor <;> linarith",
+              "children": []
+            },
+            {
+              "name": "abel",
+              "type": "",
+              "body": "tendsto_tsum_powerSeries_nhdsWithin_lt h",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

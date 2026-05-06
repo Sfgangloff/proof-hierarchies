@@ -1,0 +1,46 @@
+[
+  {
+    "module": "AnalyticalPart",
+    "name": "hasDerivAt_cexp_mul_sumIDeriv",
+    "statement": "\u2102[X]) (s : \u2102) (x : \u211d) : HasDerivAt (fun x : \u211d \u21a6 -(cexp (-(x \u2022 s)) * p.sumIDeriv.eval (x \u2022 s))) (s * (cexp (-(x \u2022 s)) * p.eval (x \u2022 s))) x",
+    "have_tree": [
+      {
+        "name": "h\u2080",
+        "type": "",
+        "body": "(hasDerivAt_id' x).smul_const s",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "h\u2080.fun_neg.cexp",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "((sumIDeriv p).hasDerivAt (x \u2022 s)).comp x h\u2080",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AnalyticalPart",
+    "name": "exp_polynomial_approx",
+    "statement": "\u2124[X]) (hf : f.eval 0 \u2260 0) : \u2203 c, \u2200 p > (eval 0 f).natAbs, p.Prime \u2192 \u2203 n : \u2124, \u00ac \u2191p \u2223 n \u2227 \u2203 gp : \u2124[X], gp.natDegree \u2264 p * f.natDegree - 1 \u2227 \u2200 {r : \u2102}, r \u2208 f.aroots \u2102 \u2192 \u2016n \u2022 exp r - p \u2022 aeval r gp\u2016 \u2264 c ^ p / (p - 1)!",
+    "have_tree": [
+      {
+        "name": "aux",
+        "type": "c' r \u2208 (Multiset.map c' (f.aroots \u2102)).toFinset",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "((f.aroots \u2102).map c').toFinset.Nonempty",
+        "body": "\u27e8c' r, aux\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

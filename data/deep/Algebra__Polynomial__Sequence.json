@@ -1,0 +1,64 @@
+[
+  {
+    "module": "Sequence",
+    "name": "natDegree_eq",
+    "statement": "\u2115) : (S i).natDegree = i",
+    "have_tree": [
+      {
+        "name": "head_mem_span",
+        "type": "head \u2208 span R (Set.range S)",
+        "body": "by",
+        "children": [
+          {
+            "name": "in_span",
+            "type": "S n \u2208 span R (Set.range S)",
+            "body": "subset_span (by simp)",
+            "children": []
+          },
+          {
+            "name": "smul_span",
+            "type": "",
+            "body": "smul_mem (span R (Set.range S)) (P.leadingCoeff \u2022 u) in_span",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "isRightRegular_smul_leadingCoeff",
+        "type": "IsRightRegular (u \u2022 S n).leadingCoeff",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "u_degree_same",
+        "type": "",
+        "body": "degree_smul_of_isRightRegular_leadingCoeff",
+        "children": []
+      },
+      {
+        "name": "head_degree_eq",
+        "type": "",
+        "body": "degree_smul_of_isRightRegular_leadingCoeff",
+        "children": []
+      },
+      {
+        "name": "head_degree_eq_natDegree",
+        "type": "head.degree = head.natDegree",
+        "body": "degree_eq_natDegree <| by",
+        "children": []
+      },
+      {
+        "name": "hPhead",
+        "type": "P.leadingCoeff = head.leadingCoeff",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "tail_degree_lt",
+        "type": "",
+        "body": "P.degree_sub_lt head_degree_eq p_ne_zero hPhead",
+        "children": []
+      }
+    ]
+  }
+]

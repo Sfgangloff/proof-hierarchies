@@ -1,0 +1,118 @@
+[
+  {
+    "module": "Basic",
+    "name": "two_mul_le_exp",
+    "statement": "\u211d} : 2 * x \u2264 exp x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Real.add_one_le_exp 1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "log_pos_of_lt_neg_one",
+    "statement": "x < -1) : 0 < log x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "1 < -x",
+        "body": "by linarith",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "log_neg_of_lt_zero",
+    "statement": "x < 0) (h1 : -1 < x) : log x < 0",
+    "have_tree": [
+      {
+        "name": "h0'",
+        "type": "0 < -x",
+        "body": "by linarith",
+        "children": []
+      },
+      {
+        "name": "h1'",
+        "type": "-x < 1",
+        "body": "by linarith",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "log_lt_sub_one_of_pos",
+    "statement": "0 < x) (hx2 : x \u2260 1) : log x < x - 1",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "log x \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "abs_log_mul_self_lt",
+    "statement": "\u211d) (h1 : 0 < x) (h2 : x \u2264 1) : |log x * x| < 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < 1 / x",
+        "body": "by simpa only [one_div, inv_pos] using h1",
+        "children": []
+      },
+      {
+        "name": "aux",
+        "type": "0 \u2264 -log x * x",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "log_list_prod",
+    "statement": "List \u211d} (h : \u2200 x \u2208 l, x \u2260 0) : log l.prod = (l.map (fun x \u21a6 log x)).sum",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "l.prod \u2260 0",
+        "body": "by grind [prod_ne_zero]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "log_finprod",
+    "statement": "Type*} {f : \u03b1 \u2192 \u211d} (h : \u2200 a, 0 < f a) : log (\u220f\u1da0 a, f a) = \u2211\u1da0 a, log (f a)",
+    "have_tree": [
+      {
+        "name": "H'",
+        "type": "HasFiniteMulSupport f \u2194 HasFiniteSupport fun a \u21a6 log (f a)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "ContinuousOn.log",
+    "statement": "ContinuousOn f s) (h\u2080 : \u2200 x \u2208 s, f x \u2260 0) : ContinuousOn (fun x => log (f x)) s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Tendsto (fun x \u21a6 1 + y / x) atTop (\ud835\udcdd (1 + 0))",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

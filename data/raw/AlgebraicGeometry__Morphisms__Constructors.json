@@ -1,0 +1,87 @@
+[
+  {
+    "module": "Constructors",
+    "name": "HasAffineProperty.diagonal_of_openCover",
+    "statement": "Scheme.{u}} (f : X \u27f6 Y) (\ud835\udcb0 : Scheme.OpenCover.{v} Y) [\u2200 i, IsAffine (\ud835\udcb0.X i)] (\ud835\udcb0' : \u2200 i, Scheme.OpenCover.{w} (pullback f (\ud835\udcb0.f i))) [\u2200 i j, IsAffine ((\ud835\udcb0' i).X j)] (h\ud835\udcb0' : \u2200 i j k, Q (pullback.mapDesc ((\ud835\udcb0' i).f j) ((\ud835\udcb0' i).f k) (\ud835\udcb0.pullbackHom f i))) : P.diagonal f",
+    "have_tree": [
+      {
+        "name": "i1",
+        "type": "\u2200 i, IsAffine (\ud835\udcb1.X i)",
+        "body": "fun i => by dsimp [\ud835\udcb1]; infer_instance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Constructors",
+    "name": "AffineTargetMorphismProperty.diagonal_of_openCover_source",
+    "statement": "AffineTargetMorphismProperty} [Q.IsLocal] {X Y : Scheme.{u}} (f : X \u27f6 Y) (\ud835\udcb0 : Scheme.OpenCover.{v} X) [\u2200 i, IsAffine (\ud835\udcb0.X i)] [IsAffine Y] (h\ud835\udcb0 : \u2200 i j, Q (pullback.mapDesc (\ud835\udcb0.f i) (\ud835\udcb0.f j) f)) : Q.diagonal f",
+    "have_tree": [
+      {
+        "name": "i1",
+        "type": "\u2200 i, IsAffine (\ud835\udcb1.X i)",
+        "body": "fun i => by dsimp [\ud835\udcb1]; infer_instance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Constructors",
+    "name": "topologically_respectsIso",
+    "statement": "\u2200 {\u03b1 \u03b2 : Type u} [TopologicalSpace \u03b1] [TopologicalSpace \u03b2] (f : \u03b1 \u2243\u209c \u03b2), P f) (hP\u2082 : \u2200 {\u03b1 \u03b2 \u03b3 : Type u} [TopologicalSpace \u03b1] [TopologicalSpace \u03b2] [TopologicalSpace \u03b3] (f : \u03b1 \u2192 \u03b2) (g : \u03b2 \u2192 \u03b3) (_ : P f) (_ : P g), P (g \u2218 f)) : (topologically P).RespectsIso",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(topologically P).IsStableUnderComposition",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Constructors",
+    "name": "stalkwiseIsZariskiLocalAtTarget_of_respectsIso",
+    "statement": "RingHom.RespectsIso P) : IsZariskiLocalAtTarget (stalkwise P)",
+    "have_tree": [
+      {
+        "name": "hP'",
+        "type": "(RingHom.toMorphismProperty P).RespectsIso",
+        "body": "",
+        "children": [
+          {
+            "name": "hy",
+            "type": "f x \u2208 iSup U",
+            "body": "by rw [hU]; trivial",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Constructors",
+    "name": "stalkwise_isZariskiLocalAtSource_of_respectsIso",
+    "statement": "RingHom.RespectsIso P) : IsZariskiLocalAtSource (stalkwise P)",
+    "have_tree": [
+      {
+        "name": "hy",
+        "type": "x \u2208 iSup U",
+        "body": "by rw [hU]; trivial",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Constructors",
+    "name": "stalkwise_SpecMap_iff",
+    "statement": "RingHom.RespectsIso P) {R S : CommRingCat} (\u03c6 : R \u27f6 S) : stalkwise P (Spec.map \u03c6) \u2194 \u2200 (p : Ideal S) (_ : p.IsPrime), P (Localization.localRingHom _ p \u03c6.hom rfl)",
+    "have_tree": [
+      {
+        "name": "hP'",
+        "type": "(RingHom.toMorphismProperty P).RespectsIso",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

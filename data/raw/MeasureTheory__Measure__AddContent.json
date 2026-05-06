@@ -1,0 +1,118 @@
+[
+  {
+    "module": "AddContent",
+    "name": "AddContent.supClosure",
+    "statement": "AddContent G C) (hC : IsSetSemiring C) : AddContent G (supClosure C) where toFun",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hI hs",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Disjoint k k",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Disjoint i j",
+            "body": "h'I hi hj hij",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "AddContent",
+    "name": "addContent_mono",
+    "statement": "IsSetSemiring C) (hs : s \u2208 C) (ht : t \u2208 C) (hst : s \u2286 t) : m s \u2264 m t",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "sum_addContent_le_of_subset (m := m) hC (I := {s}) ?_ ?_ ht ?_",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AddContent",
+    "name": "addContent_iUnion_eq_tsum_of_disjoint_of_addContent_iUnion_le",
+    "statement": "AddContent \u211d\u22650\u221e C} (hC : IsSetSemiring C) -- TODO: `m_subadd` is in fact equivalent to `m.IsSigmaSubadditive`. (m_subadd : \u2200 (f : \u2115 \u2192 Set \u03b1) (_ : \u2200 i, f i \u2208 C) (_ : \u22c3 i, f i \u2208 C) (_hf_disj : Pairwise (Disjoint on f)), m (\u22c3 i, f i) \u2264 \u2211' i, m (f i)) (f : \u2115 \u2192 Set \u03b1) (hf : \u2200 i, f i \u2208 C) (hf_Union : (\u22c3 i, f i) \u2208 C) (hf_disj : Pairwise (Disjoint on f)) : m (\u22c3 i, f i) = \u2211' i, m (f i)",
+    "have_tree": [
+      {
+        "name": "hij",
+        "type": "i \u2260 j",
+        "body": "by intro h_eq; rw [h_eq] at hst; exact hst rfl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AddContent",
+    "name": "AddContent.onIoc",
+    "statement": "\u03b1 \u2192 G) : AddContent G {s : Set \u03b1 | \u2203 u v, u \u2264 v \u2227 s = Set.Ioc u v} where toFun",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "v \u2208 \u22c3\u2080 \u2191I",
+        "body": "by simp [h'uv, huv]",
+        "children": []
+      },
+      {
+        "name": "I'I",
+        "type": "I' \u2286 I",
+        "body": "erase_subset (Set.Ioc u' v) I",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AddContent",
+    "name": "IsSetRing.addContent_of_union",
+    "statement": "Set \u03b1 \u2192 G) (hC : IsSetRing C) (m_empty : m \u2205 = 0) (m_add : \u2200 {s t : Set \u03b1} (_hs : s \u2208 C) (_ht : t \u2208 C), Disjoint s t \u2192 m (s \u222a t) = m s + m t) : AddContent G C where toFun",
+    "have_tree": [
+      {
+        "name": "h_sUnion_mem",
+        "type": "\u22c3\u2080 \u2191I \u2208 C",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AddContent",
+    "name": "addContent_iUnion_eq_sum_of_tendsto_zero",
+    "statement": "IsSetRing C) (m : AddContent \u211d\u22650\u221e C) (hm_ne_top : \u2200 s \u2208 C, m s \u2260 \u221e) (hm_tendsto : \u2200 \u2983s : \u2115 \u2192 Set \u03b1\u2984 (_ : \u2200 n, s n \u2208 C), Antitone s \u2192 (\u22c2 n, s n) = \u2205 \u2192 Tendsto (fun n \u21a6 m (s n)) atTop (\ud835\udcdd 0)) \u2983f : \u2115 \u2192 Set \u03b1\u2984 (hf : \u2200 i, f i \u2208 C) (hUf : (\u22c3 i, f i) \u2208 C) (h_disj : Pairwise (Disjoint on f)) : m (\u22c3 i, f i) = \u2211' i, m (f i)",
+    "have_tree": [
+      {
+        "name": "h_tendsto",
+        "type": "Tendsto (fun n \u21a6 m (s n)) atTop (\ud835\udcdd 0)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AddContent",
+    "name": "isSigmaSubadditive_of_addContent_iUnion_eq_tsum",
+    "statement": "AddContent \u211d\u22650\u221e C} (hC : IsSetRing C) (m_iUnion : \u2200 (f : \u2115 \u2192 Set \u03b1) (_ : \u2200 i, f i \u2208 C) (_ : (\u22c3 i, f i) \u2208 C) (_hf_disj : Pairwise (Disjoint on f)), m (\u22c3 i, f i) = \u2211' i, m (f i)) : m.IsSigmaSubadditive",
+    "have_tree": [
+      {
+        "name": "h_tendsto",
+        "type": "Tendsto (fun n \u21a6 m (partialSups f n)) atTop (\ud835\udcdd (m (\u22c3 i, f i)))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_tendsto'",
+        "type": "Tendsto (fun n \u21a6 \u2211 i \u2208 range (n + 1), m (f i)) atTop (\ud835\udcdd (\u2211' i, m (f i)))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

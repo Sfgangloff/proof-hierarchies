@@ -1,0 +1,65 @@
+[
+  {
+    "module": "Extension",
+    "name": "algEquivExtension",
+    "statement": "Type*) [Field l] [Algebra k l] (h : Module.finrank k l = n) : l \u2243\u2090[k] Extension k p n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.Finite k l",
+        "body": "Module.finite_of_finrank_pos <| h \u25b8 NeZero.pos n",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Finite l",
+        "body": "Module.finite_of_finite k",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fintype l",
+        "body": ".ofFinite _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsSplittingField k l (X ^ Nat.card k ^ n - X)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extension",
+    "name": "exists_forall_apply_eq_pow",
+    "statement": "Type*) [Field l] [Algebra k l] [Finite l] (g : Gal(l/k)) : \u2203 i, \u2200 x, g x = x ^ (Nat.card k ^ i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero n",
+        "body": "NeZero.of_pos Module.finrank_pos",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extension",
+    "name": "Irreducible.natDegree_dvd_of_dvd_X_pow_card_pow_sub_X",
+    "statement": "\u2115} {f : K[X]} (hi : Irreducible f) (h : f \u2223 X ^ (Nat.card K) ^ n - X) : f.natDegree \u2223 n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (Nat.Prime p)",
+        "body": "\u27e8CharP.char_is_prime K p\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero n",
+        "body": "\u27e8hn\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

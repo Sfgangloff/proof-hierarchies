@@ -1,0 +1,78 @@
+[
+  {
+    "module": "Variance",
+    "name": "evariance_zero_measure",
+    "statement": "eVar[X; (0 : Measure \u03a9)] = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ENNReal.pow_lt_top (hX.sub <| memLp_const <| \u03bc[X]).2 (n := 2)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Variance",
+    "name": "meas_ge_le_variance_div_sq",
+    "statement": "\u03a9 \u2192 \u211d} (hX : MemLp X 2 \u03bc) {c : \u211d} (hc : 0 < c) : \u03bc {\u03c9 | c \u2264 |X \u03c9 - \u03bc[X]|} \u2264 ENNReal.ofReal (variance X \u03bc / c ^ 2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hX.isProbabilityMeasure_of_indepFun X Y (by simp) (by simp) h' h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Variance",
+    "name": "IndepFun.variance_fun_add",
+    "statement": "\u03a9 \u2192 \u211d} (hX : MemLp X 2 \u03bc) (hY : MemLp Y 2 \u03bc) (h : X \u27c2\u1d62[\u03bc] Y) : Var[fun \u03c9 \u21a6 X \u03c9 + Y \u03c9; \u03bc] = Var[X; \u03bc] + Var[Y; \u03bc]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(hs j hj1).isProbabilityMeasure_of_indepFun (X j) (X k) (by simp) (by simp) hj2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Variance",
+    "name": "variance_le_sub_mul_sub",
+    "statement": "\u211d} {X : \u03a9 \u2192 \u211d} (h : \u2200\u1d50 \u03c9 \u2202\u03bc, X \u03c9 \u2208 Set.Icc a b) (hX : AEMeasurable X \u03bc) : variance X \u03bc \u2264 (b - \u03bc[X]) * (\u03bc[X] - a)",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "\u2200\u1d50 \u03c9 \u2202\u03bc, a \u2264 X \u03c9",
+        "body": "h.mono fun \u03c9 h => h.1",
+        "children": []
+      },
+      {
+        "name": "hb",
+        "type": "\u2200\u1d50 \u03c9 \u2202\u03bc, X \u03c9 \u2264 b",
+        "body": "h.mono fun \u03c9 h => h.2",
+        "children": []
+      },
+      {
+        "name": "hX_int\u2082",
+        "type": "Integrable (fun \u03c9 \u21a6 -X \u03c9 ^ 2) \u03bc",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hX_int\u2081",
+        "type": "Integrable (fun \u03c9 \u21a6 (a + b) * X \u03c9) \u03bc",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h0",
+        "type": "0 \u2264 -\u03bc[X ^ 2] + (a + b) * \u03bc[X] - a * b",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

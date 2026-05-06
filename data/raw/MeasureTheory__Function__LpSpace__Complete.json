@@ -1,0 +1,188 @@
+[
+  {
+    "module": "Complete",
+    "name": "eLpNorm'_lim_le_liminf_eLpNorm'",
+    "statement": "\u2115 \u2192 \u03b1 \u2192 E} {p : \u211d} (hp_pos : 0 < p) (hf : \u2200 n, AEStronglyMeasurable (f n) \u03bc) {f_lim : \u03b1 \u2192 E} (h_lim : \u2200\u1d50 x : \u03b1 \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (f_lim x))) : eLpNorm' f_lim p \u03bc \u2264 atTop.liminf fun n => eLpNorm' (f n) p \u03bc",
+    "have_tree": [
+      {
+        "name": "h_rpow_mono",
+        "type": "",
+        "body": "ENNReal.strictMono_rpow_of_pos hp_pos",
+        "children": []
+      },
+      {
+        "name": "h_rpow_surj",
+        "type": "",
+        "body": "(ENNReal.rpow_left_bijective hp_pos.ne.symm).2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Complete",
+    "name": "eLpNorm_lim_le_liminf_eLpNorm",
+    "statement": "\u2115 \u2192 \u03b1 \u2192 E} (hf : \u2200 n, AEStronglyMeasurable (f n) \u03bc) (f_lim : \u03b1 \u2192 E) (h_lim : \u2200\u1d50 x : \u03b1 \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (f_lim x))) : eLpNorm f_lim p \u03bc \u2264 atTop.liminf fun n => eLpNorm (f n) p \u03bc",
+    "have_tree": [
+      {
+        "name": "hp_pos",
+        "type": "0 < p.toReal",
+        "body": "ENNReal.toReal_pos hp0 hp_top",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Complete",
+    "name": "completeSpace_lp_of_cauchy_complete_eLpNorm",
+    "statement": "Fact (1 \u2264 p)] (H : \u2200 (f : \u2115 \u2192 \u03b1 \u2192 E) (_ : \u2200 n, MemLp (f n) p \u03bc) (B : \u2115 \u2192 \u211d\u22650\u221e) (_ : \u2211' i, B i < \u221e) (_ : \u2200 N n m : \u2115, N \u2264 n \u2192 N \u2264 m \u2192 eLpNorm (f n - f m) p \u03bc < B N), \u2203 (f_lim : \u03b1 \u2192 E), MemLp f_lim p \u03bc \u2227 atTop.Tendsto (fun n => eLpNorm (f n - f_lim) p \u03bc) (\ud835\udcdd 0)) : CompleteSpace (Lp E p \u03bc)",
+    "have_tree": [
+      {
+        "name": "hB_pos",
+        "type": "\u2200 n, 0 < B n",
+        "body": "fun n => pow_pos (div_pos zero_lt_one zero_lt_two) n",
+        "children": []
+      },
+      {
+        "name": "hB1_has",
+        "type": "HasSum B1 (ENNReal.ofReal M)",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_sum",
+            "type": "",
+            "body": "(@ENNReal.summable _ B1).hasSum",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hB1",
+        "type": "\u2211' i, B1 i < \u221e",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Complete",
+    "name": "lintegral_rpow_sum_enorm_sub_le_rpow_tsum",
+    "statement": "\u2115 \u2192 \u03b1 \u2192 E} {p : \u211d} (hp1 : 1 \u2264 p) {B : \u2115 \u2192 \u211d\u22650\u221e} (n : \u2115) (hn : eLpNorm' (fun x => \u2211 i \u2208 Finset.range (n + 1), \u2016f (i + 1) x - f i x\u2016) p \u03bc \u2264 \u2211' i, B i) : (\u222b\u207b a, (\u2211 i \u2208 Finset.range (n + 1), \u2016f (i + 1) a - f i a\u2016\u2091) ^ p \u2202\u03bc) \u2264 (\u2211' i, B i) ^ p",
+    "have_tree": [
+      {
+        "name": "hp_pos",
+        "type": "0 < p",
+        "body": "zero_lt_one.trans_le hp1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Complete",
+    "name": "lintegral_rpow_tsum_coe_enorm_sub_le_tsum",
+    "statement": "\u2115 \u2192 \u03b1 \u2192 E} (hf : \u2200 n, AEStronglyMeasurable (f n) \u03bc) {p : \u211d} (hp1 : 1 \u2264 p) {B : \u2115 \u2192 \u211d\u22650\u221e} (h : \u2200 n, \u222b\u207b a, (\u2211 i \u2208 Finset.range (n + 1), \u2016f (i + 1) a - f i a\u2016\u2091) ^ p \u2202\u03bc \u2264 (\u2211' i, B i) ^ p) : (\u222b\u207b a, (\u2211' i, \u2016f (i + 1) a - f i a\u2016\u2091) ^ p \u2202\u03bc) ^ (1 / p) \u2264 \u2211' i, B i",
+    "have_tree": [
+      {
+        "name": "hp_pos",
+        "type": "0 < p",
+        "body": "zero_lt_one.trans_le hp1",
+        "children": [
+          {
+            "name": "h_rpow_mono",
+            "type": "",
+            "body": "ENNReal.strictMono_rpow_of_pos (zero_lt_one.trans_le hp1)",
+            "children": []
+          },
+          {
+            "name": "h_rpow_surj",
+            "type": "",
+            "body": "(ENNReal.rpow_left_bijective hp_pos.ne.symm).2",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Complete",
+    "name": "tsum_enorm_sub_ae_lt_top",
+    "statement": "\u2115 \u2192 \u03b1 \u2192 E} (hf : \u2200 n, AEStronglyMeasurable (f n) \u03bc) {p : \u211d} (hp1 : 1 \u2264 p) {B : \u2115 \u2192 \u211d\u22650\u221e} (hB : \u2211' i, B i \u2260 \u221e) (h : (\u222b\u207b a, (\u2211' i, \u2016f (i + 1) a - f i a\u2016\u2091) ^ p \u2202\u03bc) ^ (1 / p) \u2264 \u2211' i, B i) : \u2200\u1d50 x \u2202\u03bc, \u2211' i, \u2016f (i + 1) x - f i x\u2016\u2091 < \u221e",
+    "have_tree": [
+      {
+        "name": "hp_pos",
+        "type": "0 < p",
+        "body": "zero_lt_one.trans_le hp1",
+        "children": []
+      },
+      {
+        "name": "h_integral",
+        "type": "\u222b\u207b a, (\u2211' i, \u2016f (i + 1) a - f i a\u2016\u2091) ^ p \u2202\u03bc < \u221e",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_tsum_lt_top",
+            "type": "(\u2211' i, B i) ^ p < \u221e",
+            "body": "ENNReal.rpow_lt_top_of_nonneg hp_pos.le hB",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "rpow_ae_lt_top",
+        "type": "\u2200\u1d50 x \u2202\u03bc, (\u2211' i, \u2016f (i + 1) x - f i x\u2016\u2091) ^ p < \u221e",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Complete",
+    "name": "ae_tendsto_of_cauchy_eLpNorm'",
+    "statement": "\u2115 \u2192 \u03b1 \u2192 E} {p : \u211d} (hf : \u2200 n, AEStronglyMeasurable (f n) \u03bc) (hp1 : 1 \u2264 p) {B : \u2115 \u2192 \u211d\u22650\u221e} (hB : \u2211' i, B i \u2260 \u221e) (h_cau : \u2200 N n m : \u2115, N \u2264 n \u2192 N \u2264 m \u2192 eLpNorm' (f n - f m) p \u03bc < B N) : \u2200\u1d50 x \u2202\u03bc, \u2203 l : E, atTop.Tendsto (fun n => f n x) (\ud835\udcdd l)",
+    "have_tree": [
+      {
+        "name": "h3",
+        "type": "(\u222b\u207b a, (\u2211' i, \u2016f (i + 1) a - f i a\u2016\u2091) ^ p \u2202\u03bc) ^ (1 / p) \u2264 \u2211' i, B i",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h4",
+        "type": "\u2200\u1d50 x \u2202\u03bc, \u2211' i, \u2016f (i + 1) x - f i x\u2016\u2091 < \u221e",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Complete",
+    "name": "ae_tendsto_of_cauchy_eLpNorm",
+    "statement": "\u2115 \u2192 \u03b1 \u2192 E} (hf : \u2200 n, AEStronglyMeasurable (f n) \u03bc) (hp : 1 \u2264 p) {B : \u2115 \u2192 \u211d\u22650\u221e} (hB : \u2211' i, B i \u2260 \u221e) (h_cau : \u2200 N n m : \u2115, N \u2264 n \u2192 N \u2264 m \u2192 eLpNorm (f n - f m) p \u03bc < B N) : \u2200\u1d50 x \u2202\u03bc, \u2203 l : E, atTop.Tendsto (fun n => f n x) (\ud835\udcdd l)",
+    "have_tree": [
+      {
+        "name": "h_cau_ae",
+        "type": "\u2200\u1d50 x \u2202\u03bc, \u2200 N n m, N \u2264 n \u2192 N \u2264 m \u2192 \u2016(f n - f m) x\u2016\u2091 < B N",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hp1",
+        "type": "1 \u2264 p.toReal",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Complete",
+    "name": "cauchy_complete_eLpNorm",
+    "statement": "1 \u2264 p) {f : \u2115 \u2192 \u03b1 \u2192 E} (hf : \u2200 n, MemLp (f n) p \u03bc) {B : \u2115 \u2192 \u211d\u22650\u221e} (hB : \u2211' i, B i \u2260 \u221e) (h_cau : \u2200 N n m : \u2115, N \u2264 n \u2192 N \u2264 m \u2192 eLpNorm (f n - f m) p \u03bc < B N) : \u2203 (f_lim : \u03b1 \u2192 E), MemLp f_lim p \u03bc \u2227 atTop.Tendsto (fun n => eLpNorm (f n - f_lim) p \u03bc) (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "h_\u2112p_lim",
+        "type": "MemLp f_lim p \u03bc",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

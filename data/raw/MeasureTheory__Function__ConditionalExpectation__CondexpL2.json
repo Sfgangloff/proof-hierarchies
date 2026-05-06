@@ -1,0 +1,73 @@
+[
+  {
+    "module": "CondexpL2",
+    "name": "condExpL2_indicator_of_measurable",
+    "statement": "m \u2264 m0) (hs : MeasurableSet[m] s) (h\u03bcs : \u03bc s \u2260 \u221e) (c : E) : (condExpL2 E \ud835\udd5c hm (indicatorConstLp 2 (hm s hs) h\u03bcs c) : \u03b1 \u2192\u2082[\u03bc] E) = indicatorConstLp 2 (hm s hs) h\u03bcs c",
+    "have_tree": [
+      {
+        "name": "h_mem",
+        "type": "indicatorConstLp 2 (hm s hs) h\u03bcs c \u2208 lpMeas E \ud835\udd5c m 2 \u03bc",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h_orth_mem",
+        "type": "",
+        "body": "Submodule.orthogonalProjection_mem_subspace_eq_self ind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CondexpL2",
+    "name": "lintegral_nnnorm_condExpL2_le",
+    "statement": "MeasurableSet[m] s) (h\u03bcs : \u03bc s \u2260 \u221e) (f : Lp \u211d 2 \u03bc) : \u222b\u207b x in s, \u2016(condExpL2 \u211d \u211d hm f : \u03b1 \u2192 \u211d) x\u2016\u208a \u2202\u03bc \u2264 \u222b\u207b x in s, \u2016f x\u2016\u208a \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "hg_meas",
+        "type": "StronglyMeasurable[m] g",
+        "body": "h_meas.choose_spec.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CondexpL2",
+    "name": "integral_condExpL2_eq",
+    "statement": "m \u2264 m0) (f : Lp E' 2 \u03bc) (hs : MeasurableSet[m] s) (h\u03bcs : \u03bc s \u2260 \u221e) : \u222b x in s, (condExpL2 E' \ud835\udd5c hm f : \u03b1 \u2192 E') x \u2202\u03bc = \u222b x in s, f x \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "h_ae_eq_f",
+        "type": "",
+        "body": "MemLp.coeFn_toLp (E := \ud835\udd5c) ((Lp.memLp f).const_inner c)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CondexpL2",
+    "name": "condExpL2_indicator_ae_eq_smul",
+    "statement": "m \u2264 m0) (hs : MeasurableSet s) (h\u03bcs : \u03bc s \u2260 \u221e) (x : E') : condExpL2 E' \ud835\udd5c hm (indicatorConstLp 2 hs h\u03bcs x) =\u1d50[\u03bc] fun a => (condExpL2 \u211d \u211d hm (indicatorConstLp 2 hs h\u03bcs (1 : \u211d)) : \u03b1 \u2192 \u211d) a \u2022 x",
+    "have_tree": [
+      {
+        "name": "h_comp",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CondexpL2",
+    "name": "condExpL2_indicator_eq_toSpanSingleton_comp",
+    "statement": "m \u2264 m0) (hs : MeasurableSet s) (h\u03bcs : \u03bc s \u2260 \u221e) (x : E') : (condExpL2 E' \ud835\udd5c hm (indicatorConstLp 2 hs h\u03bcs x) : \u03b1 \u2192\u2082[\u03bc] E') = (toSpanSingleton \u211d x).compLp (condExpL2 \u211d \u211d hm (indicatorConstLp 2 hs h\u03bcs 1))",
+    "have_tree": [
+      {
+        "name": "h_comp",
+        "type": "",
+        "body": "(toSpanSingleton \u211d x).coeFn_compLp",
+        "children": []
+      }
+    ]
+  }
+]

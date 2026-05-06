@@ -1,0 +1,54 @@
+[
+  {
+    "module": "OfAdjunction",
+    "name": "hasLeftCalculusOfFractions",
+    "statement": "G \u22a3 F) (W : MorphismProperty C\u2081) [W.IsMultiplicative] (hW : W.IsInvertedBy G) (hW' : (W.functorCategory C\u2081) adj.unit) : W.HasLeftCalculusOfFractions where exists_leftFraction X Y \u03c6",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hW s (by assumption)",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "adj.unit.naturality s",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hW s (by assumption)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OfAdjunction",
+    "name": "hasRightCalculusOfFractions",
+    "statement": "F \u22a3 G) (W : MorphismProperty C\u2081) [W.IsMultiplicative] (hW : W.IsInvertedBy G) (hW' : (W.functorCategory _) adj.counit) : W.HasRightCalculusOfFractions",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasLeftCalculusOfFractions adj.op W.op hW.op (fun _ \u21a6 hW' _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OfAdjunction",
+    "name": "isLocalization_leftAdjoint",
+    "statement": "G \u22a3 F) (W : MorphismProperty C\u2081) (hW : W.IsInvertedBy G) (hW' : (W.functorCategory C\u2081) adj.unit) : G.IsLocalization W",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso (Functor.whiskerRight adj.unit W.Q)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "module": "LFunction",
+    "name": "tendsTo_eulerProduct_of_tendsTo",
+    "statement": "\u03b9 \u2192 ArithmeticFunction R) (hf : \u2200 n, \u2200\u1da0 i in cofinite, f i n = (1 : ArithmeticFunction R) n) : \u2200 n, \u2200\u1da0 s in atTop, (\u220f i \u2208 s, f i) n = eulerProduct f n",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "hs' i (hw i (Finset.mem_insert_self i w)) j.1",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "hw' (fun i hi \u21a6 hw i (Finset.mem_insert_of_mem hi)) j.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LFunction",
+    "name": "isMultiplicative_eulerProduct",
+    "statement": "\u03b9 \u2192 ArithmeticFunction R) (hf : \u2200 i, IsMultiplicative (f i)) : IsMultiplicative (eulerProduct f)",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "tendsto_iff.mp hf'.hasProd",
+        "children": [
+          {
+            "name": "h2",
+            "type": "",
+            "body": "key (m * n)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LFunction",
+    "name": "tendsTo_eulerProduct_ofPowerSeries",
+    "statement": "\u03b9 \u2192 \u2115) [hq : Northcott q] (f : \u03b9 \u2192 PowerSeries R) (hf : \u2200 i, (f i).constantCoeff = 1) (n : \u2115) : \u2200\u1da0 s in atTop, (\u220f i \u2208 s, ofPowerSeries (q i) (f i)) n = eulerProduct (fun i \u21a6 ofPowerSeries (q i) (f i)) n",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "k \u2260 0",
+        "body": "fun h \u21a6 by simp_all",
+        "children": []
+      }
+    ]
+  }
+]

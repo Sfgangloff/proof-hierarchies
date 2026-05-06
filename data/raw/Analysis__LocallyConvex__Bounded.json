@@ -1,0 +1,73 @@
+[
+  {
+    "module": "Bounded",
+    "name": "isVonNBounded_biUnion",
+    "statement": "Type*} {I : Set \u03b9} (hI : I.Finite) {s : \u03b9 \u2192 Set E} : IsVonNBounded \ud835\udd5c (\u22c3 i \u2208 I, s i) \u2194 \u2200 i \u2208 I, IsVonNBounded \ud835\udd5c (s i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hI.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bounded",
+    "name": "IsVonNBounded.image",
+    "statement": "\ud835\udd5c\u2081 \u2192+* \ud835\udd5c\u2082} [RingHomSurjective \u03c3] [RingHomIsometric \u03c3] {s : Set E} (hs : IsVonNBounded \ud835\udd5c\u2081 s) (f : E \u2192SL[\u03c3] F) : IsVonNBounded \ud835\udd5c\u2082 (f '' s)",
+    "have_tree": [
+      {
+        "name": "hf\u2080",
+        "type": "Tendsto f (\ud835\udcdd 0) (\ud835\udcdd 0)",
+        "body": "f.continuous.tendsto' 0 0 (map_zero f)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bounded",
+    "name": "IsVonNBounded.extend_scalars",
+    "statement": "Type*} [AddCommGroup E] [Module \ud835\udd5c E] (\ud835\udd5d : Type*) [NontriviallyNormedField \ud835\udd5d] [NormedAlgebra \ud835\udd5c \ud835\udd5d] [Module \ud835\udd5d E] [TopologicalSpace E] [ContinuousSMul \ud835\udd5d E] [IsScalarTower \ud835\udd5c \ud835\udd5d E] {s : Set E} (h : IsVonNBounded \ud835\udd5c s) : IsVonNBounded \ud835\udd5d s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.smul_tendsto_zero (.of_forall hx) h\u03b5",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bounded",
+    "name": "TotallyBounded.isVonNBounded",
+    "statement": "Set E} (hs : TotallyBounded s) : Bornology.IsVonNBounded \ud835\udd5c s",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "(nhds_basis_balanced \ud835\udd5c E).prod (nhds_basis_balanced \ud835\udd5c E)",
+        "children": []
+      },
+      {
+        "name": "hx_fstsnd",
+        "type": "x.fst + x.snd \u2286 U",
+        "body": "add_subset_iff.mpr fun z1 hz1 z2 hz2 \u21a6",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bounded",
+    "name": "Bornology.IsVonNBounded.restrict_scalars",
+    "statement": "Set E} (h : IsVonNBounded \ud835\udd5c' s) : IsVonNBounded \ud835\udd5c s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Subsingleton E",
+        "body": "MulActionWithZero.subsingleton \ud835\udd5c' E",
+        "children": []
+      }
+    ]
+  }
+]

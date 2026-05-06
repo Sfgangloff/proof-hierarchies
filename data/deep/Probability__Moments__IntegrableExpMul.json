@@ -1,0 +1,68 @@
+[
+  {
+    "module": "IntegrableExpMul",
+    "name": "integrable_exp_mul_abs_add",
+    "statement": "Integrable (fun \u03c9 \u21a6 exp ((v + t) * X \u03c9)) \u03bc) (ht_int_neg : Integrable (fun \u03c9 \u21a6 exp ((v - t) * X \u03c9)) \u03bc) : Integrable (fun \u03c9 \u21a6 exp (t * |X \u03c9| + v * X \u03c9)) \u03bc",
+    "have_tree": [
+      {
+        "name": "h_int_add",
+        "type": "Integrable (fun a \u21a6 exp ((v + t) * X a) + exp ((v - t) * X a)) \u03bc",
+        "body": "",
+        "children": [
+          {
+            "name": "hX",
+            "type": "AEMeasurable X \u03bc",
+            "body": "aemeasurable_of_integrable_exp_mul ?_ ht_int_pos ht_int_neg",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "IntegrableExpMul",
+    "name": "integrable_rpow_abs_mul_exp_add_of_integrable_exp_mul",
+    "statement": "\u211d} (h_int_pos : Integrable (fun \u03c9 \u21a6 exp ((v + t) * X \u03c9)) \u03bc) (h_int_neg : Integrable (fun \u03c9 \u21a6 exp ((v - t) * X \u03c9)) \u03bc) (h_nonneg : 0 \u2264 x) (hx : x < |t|) {p : \u211d} (hp : 0 \u2264 p) : Integrable (fun a \u21a6 |X a| ^ p * exp (v * X a + x * |X a|)) \u03bc",
+    "have_tree": [
+      {
+        "name": "ht",
+        "type": "t \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hX",
+        "type": "AEMeasurable X \u03bc",
+        "body": "aemeasurable_of_integrable_exp_mul ?_ h_int_pos h_int_neg",
+        "children": [
+          {
+            "name": "_",
+            "type": "|t| = |t| - x + x",
+            "body": "by simp",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "IntegrableExpMul",
+    "name": "integrable_rpow_mul_exp_of_integrable_exp_mul",
+    "statement": "t \u2260 0) (ht_int_pos : Integrable (fun \u03c9 \u21a6 exp ((v + t) * X \u03c9)) \u03bc) (ht_int_neg : Integrable (fun \u03c9 \u21a6 exp ((v - t) * X \u03c9)) \u03bc) {p : \u211d} (hp : 0 \u2264 p) : Integrable (fun \u03c9 \u21a6 X \u03c9 ^ p * exp (v * X \u03c9)) \u03bc",
+    "have_tree": [
+      {
+        "name": "hX",
+        "type": "AEMeasurable X \u03bc",
+        "body": "aemeasurable_of_integrable_exp_mul ?_ ht_int_pos ht_int_neg",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "integrable_rpow_abs_mul_exp_of_integrable_exp_mul ht ht_int_pos ht_int_neg hp",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "module": "ChangeOrigin",
+    "name": "nnnorm_changeOrigin_le",
+    "statement": "\u2115) (h : (\u2016x\u2016\u208a : \u211d\u22650\u221e) < p.radius) : \u2016p.changeOrigin x k\u2016\u208a \u2264 \u2211' s : \u03a3 l : \u2115, { s : Finset (Fin (k + l)) // s.card = l }, \u2016p (k + s.1)\u2016\u208a * \u2016x\u2016\u208a ^ s.1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "p.changeOriginSeries_summable_aux\u2082 h k",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ChangeOrigin",
+    "name": "hasFPowerSeriesOnBall_changeOrigin",
+    "statement": "\u2115) (hr : 0 < p.radius) : HasFPowerSeriesOnBall (fun x => p.changeOrigin x k) (p.changeOriginSeries k) 0 p.radius",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "p.le_changeOriginSeries_radius k",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ChangeOrigin",
+    "name": "changeOrigin_eval",
+    "statement": "(\u2016x\u2016\u208a + \u2016y\u2016\u208a : \u211d\u22650\u221e) < p.radius) : (p.changeOrigin x).sum y = p.sum (x + y)",
+    "have_tree": [
+      {
+        "name": "radius_pos",
+        "type": "0 < p.radius",
+        "body": "lt_of_le_of_lt (zero_le _) h",
+        "children": []
+      },
+      {
+        "name": "hsf",
+        "type": "Summable f",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "HasSum f ((p.changeOrigin x).sum y)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(p.hasFPowerSeriesOnBall_changeOrigin k radius_pos).hasSum x_mem_ball",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "ChangeOrigin",
+    "name": "HasFPowerSeriesWithinOnBall.analyticWithinAt_of_mem",
+    "statement": "HasFPowerSeriesWithinOnBall f p s x r) (h : y \u2208 insert x s \u2229 Metric.eball x r) : AnalyticWithinAt \ud835\udd5c f s y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.changeOrigin this (by simpa using h.1)",
+        "children": []
+      }
+    ]
+  }
+]

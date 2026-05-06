@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Reflection",
+    "name": "isIso_tfae",
+    "statement": "List.TFAE [ \u2200 (c : C) (d : D), IsIso (adj.unit.app ((ihom d).obj (R.obj c))) , \u2200 (c : C) (d : D), IsIso ((pre (adj.unit.app d)).app (R.obj c)) , \u2200 (d d' : D), IsIso (L.map ((adj.unit.app d) \u25b7 d')) , \u2200 (d d' : D), IsIso (L.map ((adj.unit.app d) \u2297\u2098 (adj.unit.app d')))]",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "\u2200 d d', IsIso (L.map (d \u25c1 (adj.unit.app d')))",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "braiding_naturality (\ud835\udfd9 d) (adj.unit.app d')",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "IsIso adj.toMonad.\u03bc",
+        "body": "\u03bc_iso_of_reflective (R := R)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "f = R.map (R.preimage f)",
+        "body": "by simp",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "module": "HasseDeriv",
+    "name": "hasseDeriv_comp",
+    "statement": "\u2115) : (@hasseDeriv R _ k).comp (hasseDeriv l) = (k + l).choose k \u2022 hasseDeriv (k + l)",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "l \u2264 i",
+        "body": "le_of_add_le_right hikl",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "k \u2264 i - l",
+        "body": "le_tsub_of_add_le_right hikl",
+        "children": []
+      },
+      {
+        "name": "h3",
+        "type": "k \u2264 k + l",
+        "body": "le_self_add",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HasseDeriv",
+    "name": "natDegree_hasseDeriv_le",
+    "statement": "R[X]) (n : \u2115) : natDegree (hasseDeriv n p) \u2264 natDegree p - n",
+    "have_tree": [
+      {
+        "name": "hxp",
+        "type": "x \u2264 p.natDegree",
+        "body": "le_natDegree_of_ne_zero hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HasseDeriv",
+    "name": "hasseDeriv_natDegree_eq_C",
+    "statement": "f.hasseDeriv f.natDegree = C f.leadingCoeff",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "_ \u2264 0",
+        "body": "Nat.sub_self f.natDegree \u25b8 natDegree_hasseDeriv_le ..",
+        "children": []
+      }
+    ]
+  }
+]

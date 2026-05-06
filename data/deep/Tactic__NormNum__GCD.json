@@ -1,0 +1,77 @@
+[
+  {
+    "module": "GCD",
+    "name": "isNat_gcd",
+    "statement": "{x y nx ny z : \u2115} \u2192 IsNat x nx \u2192 IsNat y ny \u2192 Nat.gcd nx ny = z \u2192 IsNat (Nat.gcd x y) z | _, _, _, _, _, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8rfl\u27e9  theorem isNat_lcm : {x y nx ny z : \u2115} \u2192 IsNat x nx \u2192 IsNat y ny \u2192 Nat.lcm nx ny = z \u2192 IsNat (Nat.lcm x y) z | _, _, _, _, _, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8rfl\u27e9  theorem isInt_gcd : {x y nx ny : \u2124} \u2192 {z : \u2115} \u2192 IsInt x nx \u2192 IsInt y ny \u2192 Int.gcd nx ny = z \u2192 IsNat (Int.gcd x y) z | _, _, _, _, _, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8rfl\u27e9  theorem isInt_lcm : {x y nx ny : \u2124} \u2192 {z : \u2115} \u2192 IsInt x nx \u2192 IsInt y ny \u2192 Int.lcm nx ny = z \u2192 IsNat (Int.lcm x y) z | _, _, _, _, _, \u27e8rfl\u27e9, \u27e8rfl\u27e9, rfl => \u27e8rfl\u27e9  /-- Given natural number literals `ex` and `ey`, return their GCD as a natural number literal and an equality proof. Panics if `ex` or `ey` aren't natural number literals. -/ def proveNatGCD (ex ey : Q(\u2115)) : (ed : Q(\u2115)) \u00d7 Q(Nat.gcd $ex $ey = $ed)",
+    "have_tree": [
+      {
+        "name": "pq",
+        "type": "Q(Nat.mod $ey $ex = 0)",
+        "body": "(q(Eq.refl (nat_lit 0)) : Expr)",
+        "children": []
+      },
+      {
+        "name": "pq",
+        "type": "Q(Nat.mod $ex $ey = 0)",
+        "body": "(q(Eq.refl (nat_lit 0)) : Expr)",
+        "children": []
+      },
+      {
+        "name": "ea'",
+        "type": "Q(\u2115)",
+        "body": "mkRawNatLit a.natAbs",
+        "children": []
+      },
+      {
+        "name": "eb'",
+        "type": "Q(\u2115)",
+        "body": "mkRawNatLit b.natAbs",
+        "children": [
+          {
+            "name": "pt",
+            "type": "Q($ex * $ea' = $ey * $eb' + 1)",
+            "body": "(q(Eq.refl ($ex * $ea')) : Expr)",
+            "children": []
+          },
+          {
+            "name": "pt",
+            "type": "Q($ey * $eb' = $ex * $ea' + 1)",
+            "body": "(q(Eq.refl ($ey * $eb')) : Expr)",
+            "children": []
+          },
+          {
+            "name": "ed",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit d",
+            "children": []
+          },
+          {
+            "name": "pu",
+            "type": "Q(Nat.mod $ex $ed = 0)",
+            "body": "(q(Eq.refl (nat_lit 0)) : Expr)",
+            "children": []
+          },
+          {
+            "name": "pv",
+            "type": "Q(Nat.mod $ey $ed = 0)",
+            "body": "(q(Eq.refl (nat_lit 0)) : Expr)",
+            "children": [
+              {
+                "name": "pt",
+                "type": "Q($ex * $ea' = $ey * $eb' + $ed)",
+                "body": "(q(Eq.refl ($ex * $ea')) : Expr)",
+                "children": []
+              },
+              {
+                "name": "pt",
+                "type": "Q($ey * $eb' = $ex * $ea' + $ed)",
+                "body": "(q(Eq.refl ($ey * $eb')) : Expr)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

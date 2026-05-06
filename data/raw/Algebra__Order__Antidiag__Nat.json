@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Nat",
+    "name": "image_apply_finMulAntidiag",
+    "statement": "\u2115} {i : Fin d} (hd : d \u2260 1) : (finMulAntidiag d n).image (fun f => f i) = divisors n",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "Nontrivial (Fin d)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nat",
+    "name": "primeFactorsPiBij_surj",
+    "statement": "\u2115) (hn : Squarefree n) (t : Fin d \u2192 \u2115) (ht : t \u2208 finMulAntidiag d n) : \u2203 (g : _) (hg : g \u2208 pi n.primeFactors fun _ => univ), Nat.primeFactorsPiBij d n g hg = t",
+    "have_tree": [
+      {
+        "name": "existsUnique",
+        "type": "",
+        "body": "fun (p : \u2115) (hp : p \u2208 n.primeFactors) =>",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "t i \u2223 n",
+        "body": "dvd_of_mem_finMulAntidiag ht _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nat",
+    "name": "f_surj",
+    "statement": "\u2115} (hn : n \u2260 0) (b : \u2115 \u00d7 \u2115) (hb : b \u2208 Finset.filter (fun \u27e8x, y\u27e9 => x.lcm y = n) (n.divisors \u00d7\u02e2 n.divisors)) : \u2203 (a : Fin 3 \u2192 \u2115) (ha : a \u2208 finMulAntidiag 3 n), f a ha = b",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "a \u2208 finMulAntidiag 3 n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

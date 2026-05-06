@@ -1,0 +1,65 @@
+[
+  {
+    "module": "Spectrum",
+    "name": "subset_polynomial_aeval",
+    "statement": "A) (p : \ud835\udd5c[X]) : (eval \u00b7 p) '' \u03c3 a \u2286 \u03c3 (aeval a p)",
+    "have_tree": [
+      {
+        "name": "hroot",
+        "type": "IsRoot q k",
+        "body": "by simp only [q, eval_C, eval_sub, sub_self, IsRoot.def]",
+        "children": []
+      },
+      {
+        "name": "hcomm",
+        "type": "",
+        "body": "(Commute.all (C k - X) (-(q / (X - C k)))).map (aeval a : \ud835\udd5c[X] \u2192\u2090[\ud835\udd5c] A)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Spectrum",
+    "name": "map_polynomial_aeval_of_degree_pos",
+    "statement": "A) (p : \ud835\udd5c[X]) (hdeg : 0 < degree p) : \u03c3 (aeval a p) = (eval \u00b7 p) '' \u03c3 a",
+    "have_tree": [
+      {
+        "name": "hprod",
+        "type": "",
+        "body": "(IsAlgClosed.splits (C k - p)).eq_prod_roots",
+        "children": []
+      },
+      {
+        "name": "h_ne",
+        "type": "C k - p \u2260 0",
+        "body": "ne_zero_of_degree_gt <| by",
+        "children": []
+      },
+      {
+        "name": "lead_ne",
+        "type": "",
+        "body": "leadingCoeff_ne_zero.mpr h_ne",
+        "children": []
+      },
+      {
+        "name": "lead_unit",
+        "type": "",
+        "body": "(Units.map \u2191\u2090.toMonoidHom (Units.mk0 _ lead_ne)).isUnit",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Spectrum",
+    "name": "nonempty_of_isAlgClosed_of_finiteDimensional",
+    "statement": "FiniteDimensional \ud835\udd5c A] (a : A) : (\u03c3 a).Nonempty",
+    "have_tree": [
+      {
+        "name": "nu",
+        "type": "\u00acIsUnit (aeval a p)",
+        "body": "by rw [\u2190 aeval_def] at h_eval_p; rw [h_eval_p]; simp",
+        "children": []
+      }
+    ]
+  }
+]

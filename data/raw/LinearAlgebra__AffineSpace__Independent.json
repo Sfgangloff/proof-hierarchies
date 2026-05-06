@@ -1,0 +1,154 @@
+[
+  {
+    "module": "Independent",
+    "name": "affineIndependent_iff_linearIndependent_vsub",
+    "statement": "\u03b9 \u2192 P) (i1 : \u03b9) : AffineIndependent k p \u2194 LinearIndependent k fun i : { x // x \u2260 i1 } => (p i -\u1d65 p i1 : V)",
+    "have_tree": [
+      {
+        "name": "h2",
+        "type": "",
+        "body": "h ((s.erase i1).subtype fun i => i \u2260 i1) (fun x => w x) hs2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Independent",
+    "name": "AffineIndependent.affineCombination_eq_iff_eq",
+    "statement": "\u03b9 \u2192 P} (ha : AffineIndependent k p) {w\u2081 w\u2082 : \u03b9 \u2192 k} {s : Finset \u03b9} (hw\u2081 : \u2211 i \u2208 s, w\u2081 i = 1) (hw\u2082 : \u2211 i \u2208 s, w\u2082 i = 1) : s.affineCombination k p w\u2081 = s.affineCombination k p w\u2082 \u2194 \u2200 i \u2208 s, w\u2081 i = w\u2082 i",
+    "have_tree": [
+      {
+        "name": "hi",
+        "type": "",
+        "body": "ha.indicator_eq_of_affineCombination_eq _ _ _ _ hw\u2081 hw\u2082 h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Independent",
+    "name": "AffineIndependent.exists_mem_inter_of_exists_mem_inter_affineSpan",
+    "statement": "\u03b9 \u2192 P} (ha : AffineIndependent k p) {s1 s2 : Set \u03b9} {p0 : P} (hp0s1 : p0 \u2208 affineSpan k (p '' s1)) (hp0s2 : p0 \u2208 affineSpan k (p '' s2)) : \u2203 i : \u03b9, i \u2208 s1 \u2229 s2",
+    "have_tree": [
+      {
+        "name": "hp0'",
+        "type": "p0 \u2208 affineSpan k (p '' s1) \u2293 affineSpan k (p '' s2)",
+        "body": "\u27e8hp0s1, hp0s2\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Independent",
+    "name": "AffineIndependent.mem_affineSpan_iff",
+    "statement": "\u03b9 \u2192 P} (ha : AffineIndependent k p) (i : \u03b9) (s : Set \u03b9) : p i \u2208 affineSpan k (p '' s) \u2194 i \u2208 s",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Independent",
+    "name": "AffineIndependent.vectorSpan_image_ne_of_mem_of_notMem_of_not_subsingleton",
+    "statement": "\u03b9 \u2192 P} (ha : AffineIndependent k p) {s\u2081 s\u2082 : Set \u03b9} {i : \u03b9} (his\u2081 : i \u2208 s\u2081) (his\u2082 : i \u2209 s\u2082) (h\u2081 : \u00acs\u2081.Subsingleton) : vectorSpan k (p '' s\u2081) \u2260 vectorSpan k (p '' s\u2082)",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "p i -\u1d65 p j \u2208 vectorSpan k (p '' s\u2081)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hfsfs'",
+        "type": "fs.map (Embedding.subtype _) \u2286 fs'",
+        "body": "by grind",
+        "children": []
+      },
+      {
+        "name": "hi",
+        "type": "i \u2208 fs'",
+        "body": "by grind",
+        "children": []
+      },
+      {
+        "name": "hj",
+        "type": "j \u2208 fs'",
+        "body": "by grind",
+        "children": []
+      },
+      {
+        "name": "h0",
+        "type": "",
+        "body": "ha fs' w''' hw''' hs''' i hi",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Independent",
+    "name": "AffineIndependent.vectorSpan_image_eq_iff",
+    "statement": "\u03b9 \u2192 P} (ha : AffineIndependent k p) {s\u2081 s\u2082 : Set \u03b9} : vectorSpan k (p '' s\u2081) = vectorSpan k (p '' s\u2082) \u2194 s\u2081 = s\u2082 \u2228 s\u2081.Subsingleton \u2227 s\u2082.Subsingleton",
+    "have_tree": [
+      {
+        "name": "hi",
+        "type": "(\u2203 i \u2208 s\u2081, i \u2209 s\u2082) \u2228 \u2203 i \u2208 s\u2082, i \u2209 s\u2081",
+        "body": "by grind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Independent",
+    "name": "weightedVSub_mem_vectorSpan_pair",
+    "statement": "\u03b9 \u2192 P} (h : AffineIndependent k p) {w w\u2081 w\u2082 : \u03b9 \u2192 k} {s : Finset \u03b9} (hw : \u2211 i \u2208 s, w i = 0) (hw\u2081 : \u2211 i \u2208 s, w\u2081 i = 1) (hw\u2082 : \u2211 i \u2208 s, w\u2082 i = 1) : s.weightedVSub p w \u2208 vectorSpan k ({s.affineCombination k p w\u2081, s.affineCombination k p w\u2082} : Set P) \u2194 \u2203 r : k, \u2200 i \u2208 s, w i = r * (w\u2081 i - w\u2082 i)",
+    "have_tree": [
+      {
+        "name": "hr'",
+        "type": "",
+        "body": "h s _ hw' hr i hi",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Independent",
+    "name": "exists_subset_affineIndependent_affineSpan_eq_top",
+    "statement": "Set P} (h : AffineIndependent k (fun p => p : s \u2192 P)) : \u2203 t : Set P, s \u2286 t \u2227 AffineIndependent k (fun p => p : t \u2192 P) \u2227 affineSpan k t = \u22a4",
+    "have_tree": [
+      {
+        "name": "hsvi",
+        "type": "",
+        "body": "hsv.linearIndependent",
+        "children": []
+      },
+      {
+        "name": "hsvt",
+        "type": "",
+        "body": "hsv.span_eq",
+        "children": []
+      },
+      {
+        "name": "hsvi",
+        "type": "",
+        "body": "bsv.linearIndependent",
+        "children": []
+      },
+      {
+        "name": "hsvt",
+        "type": "",
+        "body": "bsv.span_eq",
+        "children": []
+      },
+      {
+        "name": "hsv",
+        "type": "",
+        "body": "h.subset_extend (Set.subset_univ _)",
+        "children": []
+      }
+    ]
+  }
+]

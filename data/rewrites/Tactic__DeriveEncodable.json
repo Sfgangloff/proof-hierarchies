@@ -1,0 +1,149 @@
+[
+  {
+    "original": {
+      "module": "DeriveEncodable",
+      "name": "S.encode",
+      "statement": "S \u2192 \u2115 | nat n => Nat.pair 0 n | cons a b => Nat.pair (S.encode a + 1) (S.encode b)  private lemma nat_unpair_lt_2 {n : \u2115} (h : (Nat.unpair n).1 \u2260 0) : (Nat.unpair n).2 < n",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "Nat.le_mul_self a",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "Nat.le_mul_self b",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "DeriveEncodable",
+          "name": "S.encode",
+          "statement": "S \u2192 \u2115 | nat n => Nat.pair 0 n | cons a b => Nat.pair (S.encode a + 1) (S.encode b)  private lemma nat_unpair_lt_2 {n : \u2115} (h : (Nat.unpair n).1 \u2260 0) : (Nat.unpair n).2 < n",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.le_mul_self b",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.le_mul_self a",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "DeriveEncodable",
+      "name": "S.decode",
+      "statement": "\u2115) : S",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "p.1 \u2264 n",
+          "body": "Nat.unpair_left_le n",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "Nat.unpair_lt (by lia : 1 \u2264 n)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "nat_unpair_lt_2 h",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "DeriveEncodable",
+          "name": "S.decode",
+          "statement": "\u2115) : S",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.unpair_lt (by lia : 1 \u2264 n)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "p.1 \u2264 n",
+              "body": "Nat.unpair_left_le n",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "nat_unpair_lt_2 h",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "DeriveEncodable",
+          "name": "S.decode",
+          "statement": "\u2115) : S",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "p.1 \u2264 n",
+              "body": "Nat.unpair_left_le n",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "nat_unpair_lt_2 h",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.unpair_lt (by lia : 1 \u2264 n)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

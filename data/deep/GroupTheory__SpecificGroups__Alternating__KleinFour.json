@@ -1,0 +1,41 @@
+[
+  {
+    "module": "KleinFour",
+    "name": "mem_kleinFour_of_order_two_pow",
+    "statement": "Nat.card \u03b1 = 4) {g : Perm \u03b1} (hg0 : g \u2208 alternatingGroup \u03b1) {n : \u2115} (hg : orderOf g \u2223 2 ^ n) : g.cycleType = { } \u2228 g.cycleType = {2, 2}",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "g.cycleType.sum \u2264 4",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "\u2200 k \u2208 g.cycleType, k = 2",
+        "body": "by",
+        "children": [
+          {
+            "name": "hk4",
+            "type": "",
+            "body": "(Multiset.le_sum_of_mem hk).trans h1",
+            "children": []
+          },
+          {
+            "name": "hk1",
+            "type": "",
+            "body": "one_lt_of_mem_cycleType hk",
+            "children": [
+              {
+                "name": "h",
+                "type": "0 \u2209 g.cycleType",
+                "body": "Nat.not_succ_lt_self \u2218 one_lt_of_mem_cycleType",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

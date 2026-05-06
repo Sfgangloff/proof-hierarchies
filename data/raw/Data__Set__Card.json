@@ -1,0 +1,261 @@
+[
+  {
+    "module": "Card",
+    "name": "_root_.ENat.card_coe_set_eq",
+    "statement": "Set \u03b1) : ENat.card s = s.encard",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.fintype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "encard_eq_coe_toFinset_card",
+    "statement": "Set \u03b1) [Fintype s] : encard s = s.toFinset.card",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "toFinite s",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "Infinite.encard_eq",
+    "statement": "Set \u03b1} (h : s.Infinite) : s.encard = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "encard_ne_add_one",
+    "statement": "\u03b1) : ({x | x \u2260 a}).encard + 1 = ENat.card \u03b1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Disjoint {x | x \u2260 a} {a}",
+        "body": "disjoint_singleton_right.mpr <| by simp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "Finite.eq_of_subset_of_encard_le'",
+    "statement": "t.Finite) (hst : s \u2286 t) (hts : t.encard \u2264 s.encard) : s = t",
+    "have_tree": [
+      {
+        "name": "hdiff",
+        "type": "",
+        "body": "WithTop.le_of_add_le_add_right (ht.subset hst).encard_lt_top.ne hts",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "exists_subset_encard_eq",
+    "statement": "\u2115\u221e} (hk : k \u2264 s.encard) : \u2203 t, t \u2286 s \u2227 t.encard = k",
+    "have_tree": [
+      {
+        "name": "hne",
+        "type": "t\u2080 \u2260 s",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "exists_superset_subset_encard_eq",
+    "statement": "\u2115\u221e} (hst : s \u2286 t) (hsk : s.encard \u2264 k) (hkt : k \u2264 t.encard) : \u2203 r, s \u2286 r \u2227 r \u2286 t \u2227 r.encard = k",
+    "have_tree": [
+      {
+        "name": "hk",
+        "type": "k \u2264 encard (t \\ s)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "Finite.exists_injOn_of_encard_le",
+    "statement": "Set \u03b1} {t : Set \u03b2} (hs : s.Finite) (hle : s.encard \u2264 t.encard) : \u2203 (f : \u03b1 \u2192 \u03b2), s \u2286 f \u207b\u00b9' t \u2227 InjOn f s",
+    "have_tree": [
+      {
+        "name": "hle'",
+        "type": "(s \\ {a}).encard \u2264 (t \\ {b}).encard",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "ncard_powerset",
+    "statement": "Set \u03b1) (hs : s.Finite",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "Cardinal.mk_powerset s",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "ncard_congr",
+    "statement": "Set \u03b2} (f : \u2200 a \u2208 s, \u03b2) (h\u2081 : \u2200 a ha, f a ha \u2208 t) (h\u2082 : \u2200 a b ha hb, f a ha = f b hb \u2192 a = b) (h\u2083 : \u2200 b \u2208 t, \u2203 a ha, f a ha = b) : s.ncard = t.ncard",
+    "have_tree": [
+      {
+        "name": "hbij",
+        "type": "f'.Bijective",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "ncard_le_ncard_of_injOn",
+    "statement": "Set \u03b2} (f : \u03b1 \u2192 \u03b2) (hf : \u2200 a \u2208 s, f a \u2208 t) (f_inj : InjOn f s) (ht : t.Finite",
+    "have_tree": [
+      {
+        "name": "hle",
+        "type": "",
+        "body": "encard_le_encard_of_injOn hf f_inj",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "surj_on_of_inj_on_of_ncard_le",
+    "statement": "Set \u03b2} (f : \u2200 a \u2208 s, \u03b2) (hf : \u2200 a ha, f a ha \u2208 t) (hinj : \u2200 a\u2081 a\u2082 ha\u2081 ha\u2082, f a\u2081 ha\u2081 = f a\u2082 ha\u2082 \u2192 a\u2081 = a\u2082) (hst : t.ncard \u2264 s.ncard) (ht : t.Finite",
+    "have_tree": [
+      {
+        "name": "finj",
+        "type": "f'.Injective",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hft",
+        "type": "",
+        "body": "ht.fintype",
+        "children": []
+      },
+      {
+        "name": "hft'",
+        "type": "",
+        "body": "Fintype.ofInjective f' finj",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "inj_on_of_surj_on_of_ncard_le",
+    "statement": "Set \u03b2} (f : \u2200 a \u2208 s, \u03b2) (hf : \u2200 a ha, f a ha \u2208 t) (hsurj : \u2200 b \u2208 t, \u2203 a ha, f a ha = b) (hst : s.ncard \u2264 t.ncard) \u2983a\u2081\u2984 (ha\u2081 : a\u2081 \u2208 s) \u2983a\u2082\u2984 (ha\u2082 : a\u2082 \u2208 s) (ha\u2081a\u2082 : f a\u2081 ha\u2081 = f a\u2082 ha\u2082) (hs : s.Finite",
+    "have_tree": [
+      {
+        "name": "hsurj",
+        "type": "f'.Surjective",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "Infinite.exists_subset_ncard_eq",
+    "statement": "Set \u03b1} (hs : s.Infinite) (k : \u2115) : \u2203 t, t \u2286 s \u2227 t.Finite \u2227 t.ncard = k",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "exists_subset_or_subset_of_two_mul_lt_ncard",
+    "statement": "\u2115} (hst : 2 * n < (s \u222a t).ncard) : \u2203 r : Set \u03b1, n < r.ncard \u2227 (r \u2286 s \u2228 r \u2286 t)",
+    "have_tree": [
+      {
+        "name": "hu",
+        "type": "",
+        "body": "finite_of_ncard_ne_zero ((Nat.zero_le _).trans_lt hst).ne.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "ncard_eq_one",
+    "statement": "s.ncard = 1 \u2194 \u2203 a, s = {a}",
+    "have_tree": [
+      {
+        "name": "hft",
+        "type": "",
+        "body": "(finite_of_ncard_ne_zero (ne_zero_of_eq_one h)).fintype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "one_lt_ncard_of_nonempty_of_even",
+    "statement": "Set.Finite s) (hn : Set.Nonempty s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "s.ncard \u2260 1",
+        "body": "fun h \u21a6 by simp [h] at he",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "exists_ne_of_one_lt_ncard",
+    "statement": "1 < s.ncard) (a : \u03b1) : \u2203 b, b \u2208 s \u2227 b \u2260 a",
+    "have_tree": [
+      {
+        "name": "hsf",
+        "type": "",
+        "body": "finite_of_ncard_ne_zero (zero_lt_one.trans hs).ne.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "eq_insert_of_ncard_eq_succ",
+    "statement": "\u2115} (h : s.ncard = n + 1) : \u2203 a t, a \u2209 t \u2227 insert a t = s \u2227 t.ncard = n",
+    "have_tree": [
+      {
+        "name": "hsf",
+        "type": "",
+        "body": "finite_of_ncard_pos (n.zero_lt_succ.trans_eq h.symm)",
+        "children": []
+      }
+    ]
+  }
+]

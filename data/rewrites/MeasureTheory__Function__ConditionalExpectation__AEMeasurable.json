@@ -1,0 +1,613 @@
+[
+  {
+    "original": {
+      "module": "AEMeasurable",
+      "name": "Lp.induction_stronglyMeasurable",
+      "statement": "m \u2264 m0) (hp_ne_top : p \u2260 \u221e) (P : Lp F p \u03bc \u2192 Prop) (h_ind : \u2200 (c : F) {s : Set \u03b1} (hs : MeasurableSet[m] s) (h\u03bcs : \u03bc s < \u221e), P (Lp.simpleFunc.indicatorConst p (hm s hs) h\u03bcs.ne c)) (h_add : \u2200 \u2983f g\u2984, \u2200 hf : MemLp f p \u03bc, \u2200 hg : MemLp g p \u03bc, StronglyMeasurable[m] f \u2192 StronglyMeasurable[m] g \u2192 Disjoint (Function.support f) (Function.support g) \u2192 P (hf.toLp f) \u2192 P (hg.toLp g) \u2192 P (hf.toLp f + hg.toLp g)) (h_closed : IsClosed {f : lpMeas F \u211d m p \u03bc | P f}) : \u2200 f : Lp F p \u03bc, AEStronglyMeasurable[m] f \u03bc \u2192 P f",
+      "have_tree": [
+        {
+          "name": "hs_f",
+          "type": "MeasurableSet[m] s_f",
+          "body": "hfm.stronglyMeasurable_mk.measurableSet_support",
+          "children": []
+        },
+        {
+          "name": "hs_g",
+          "type": "MeasurableSet[m] s_g",
+          "body": "hgm.stronglyMeasurable_mk.measurableSet_support",
+          "children": []
+        },
+        {
+          "name": "hf'_meas",
+          "type": "StronglyMeasurable[m] f'",
+          "body": "hfm.stronglyMeasurable_mk.indicator (hs_f.diff hs_g)",
+          "children": []
+        },
+        {
+          "name": "hf'_Lp",
+          "type": "MemLp f' p \u03bc",
+          "body": "hf.ae_eq hff'",
+          "children": []
+        },
+        {
+          "name": "hg'_meas",
+          "type": "StronglyMeasurable[m] g'",
+          "body": "hgm.stronglyMeasurable_mk.indicator (hs_g.diff hs_f)",
+          "children": []
+        },
+        {
+          "name": "hg'_Lp",
+          "type": "MemLp g' p \u03bc",
+          "body": "hg.ae_eq hgg'",
+          "children": []
+        },
+        {
+          "name": "h_disj",
+          "type": "Disjoint (Function.support f') (Function.support g')",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "AEMeasurable",
+          "name": "Lp.induction_stronglyMeasurable",
+          "statement": "m \u2264 m0) (hp_ne_top : p \u2260 \u221e) (P : Lp F p \u03bc \u2192 Prop) (h_ind : \u2200 (c : F) {s : Set \u03b1} (hs : MeasurableSet[m] s) (h\u03bcs : \u03bc s < \u221e), P (Lp.simpleFunc.indicatorConst p (hm s hs) h\u03bcs.ne c)) (h_add : \u2200 \u2983f g\u2984, \u2200 hf : MemLp f p \u03bc, \u2200 hg : MemLp g p \u03bc, StronglyMeasurable[m] f \u2192 StronglyMeasurable[m] g \u2192 Disjoint (Function.support f) (Function.support g) \u2192 P (hf.toLp f) \u2192 P (hg.toLp g) \u2192 P (hf.toLp f + hg.toLp g)) (h_closed : IsClosed {f : lpMeas F \u211d m p \u03bc | P f}) : \u2200 f : Lp F p \u03bc, AEStronglyMeasurable[m] f \u03bc \u2192 P f",
+          "have_tree": [
+            {
+              "name": "hs_g",
+              "type": "MeasurableSet[m] s_g",
+              "body": "hgm.stronglyMeasurable_mk.measurableSet_support",
+              "children": []
+            },
+            {
+              "name": "hs_f",
+              "type": "MeasurableSet[m] s_f",
+              "body": "hfm.stronglyMeasurable_mk.measurableSet_support",
+              "children": []
+            },
+            {
+              "name": "hf'_meas",
+              "type": "StronglyMeasurable[m] f'",
+              "body": "hfm.stronglyMeasurable_mk.indicator (hs_f.diff hs_g)",
+              "children": []
+            },
+            {
+              "name": "hf'_Lp",
+              "type": "MemLp f' p \u03bc",
+              "body": "hf.ae_eq hff'",
+              "children": []
+            },
+            {
+              "name": "hg'_meas",
+              "type": "StronglyMeasurable[m] g'",
+              "body": "hgm.stronglyMeasurable_mk.indicator (hs_g.diff hs_f)",
+              "children": []
+            },
+            {
+              "name": "hg'_Lp",
+              "type": "MemLp g' p \u03bc",
+              "body": "hg.ae_eq hgg'",
+              "children": []
+            },
+            {
+              "name": "h_disj",
+              "type": "Disjoint (Function.support f') (Function.support g')",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "AEMeasurable",
+          "name": "Lp.induction_stronglyMeasurable",
+          "statement": "m \u2264 m0) (hp_ne_top : p \u2260 \u221e) (P : Lp F p \u03bc \u2192 Prop) (h_ind : \u2200 (c : F) {s : Set \u03b1} (hs : MeasurableSet[m] s) (h\u03bcs : \u03bc s < \u221e), P (Lp.simpleFunc.indicatorConst p (hm s hs) h\u03bcs.ne c)) (h_add : \u2200 \u2983f g\u2984, \u2200 hf : MemLp f p \u03bc, \u2200 hg : MemLp g p \u03bc, StronglyMeasurable[m] f \u2192 StronglyMeasurable[m] g \u2192 Disjoint (Function.support f) (Function.support g) \u2192 P (hf.toLp f) \u2192 P (hg.toLp g) \u2192 P (hf.toLp f + hg.toLp g)) (h_closed : IsClosed {f : lpMeas F \u211d m p \u03bc | P f}) : \u2200 f : Lp F p \u03bc, AEStronglyMeasurable[m] f \u03bc \u2192 P f",
+          "have_tree": [
+            {
+              "name": "hs_f",
+              "type": "MeasurableSet[m] s_f",
+              "body": "hfm.stronglyMeasurable_mk.measurableSet_support",
+              "children": []
+            },
+            {
+              "name": "hf'_meas",
+              "type": "StronglyMeasurable[m] f'",
+              "body": "hfm.stronglyMeasurable_mk.indicator (hs_f.diff hs_g)",
+              "children": []
+            },
+            {
+              "name": "hs_g",
+              "type": "MeasurableSet[m] s_g",
+              "body": "hgm.stronglyMeasurable_mk.measurableSet_support",
+              "children": []
+            },
+            {
+              "name": "hf'_Lp",
+              "type": "MemLp f' p \u03bc",
+              "body": "hf.ae_eq hff'",
+              "children": []
+            },
+            {
+              "name": "hg'_meas",
+              "type": "StronglyMeasurable[m] g'",
+              "body": "hgm.stronglyMeasurable_mk.indicator (hs_g.diff hs_f)",
+              "children": []
+            },
+            {
+              "name": "hg'_Lp",
+              "type": "MemLp g' p \u03bc",
+              "body": "hg.ae_eq hgg'",
+              "children": []
+            },
+            {
+              "name": "h_disj",
+              "type": "Disjoint (Function.support f') (Function.support g')",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "AEMeasurable",
+          "name": "Lp.induction_stronglyMeasurable",
+          "statement": "m \u2264 m0) (hp_ne_top : p \u2260 \u221e) (P : Lp F p \u03bc \u2192 Prop) (h_ind : \u2200 (c : F) {s : Set \u03b1} (hs : MeasurableSet[m] s) (h\u03bcs : \u03bc s < \u221e), P (Lp.simpleFunc.indicatorConst p (hm s hs) h\u03bcs.ne c)) (h_add : \u2200 \u2983f g\u2984, \u2200 hf : MemLp f p \u03bc, \u2200 hg : MemLp g p \u03bc, StronglyMeasurable[m] f \u2192 StronglyMeasurable[m] g \u2192 Disjoint (Function.support f) (Function.support g) \u2192 P (hf.toLp f) \u2192 P (hg.toLp g) \u2192 P (hf.toLp f + hg.toLp g)) (h_closed : IsClosed {f : lpMeas F \u211d m p \u03bc | P f}) : \u2200 f : Lp F p \u03bc, AEStronglyMeasurable[m] f \u03bc \u2192 P f",
+          "have_tree": [
+            {
+              "name": "hs_f",
+              "type": "MeasurableSet[m] s_f",
+              "body": "hfm.stronglyMeasurable_mk.measurableSet_support",
+              "children": []
+            },
+            {
+              "name": "hs_g",
+              "type": "MeasurableSet[m] s_g",
+              "body": "hgm.stronglyMeasurable_mk.measurableSet_support",
+              "children": []
+            },
+            {
+              "name": "hf'_Lp",
+              "type": "MemLp f' p \u03bc",
+              "body": "hf.ae_eq hff'",
+              "children": []
+            },
+            {
+              "name": "hf'_meas",
+              "type": "StronglyMeasurable[m] f'",
+              "body": "hfm.stronglyMeasurable_mk.indicator (hs_f.diff hs_g)",
+              "children": []
+            },
+            {
+              "name": "hg'_meas",
+              "type": "StronglyMeasurable[m] g'",
+              "body": "hgm.stronglyMeasurable_mk.indicator (hs_g.diff hs_f)",
+              "children": []
+            },
+            {
+              "name": "hg'_Lp",
+              "type": "MemLp g' p \u03bc",
+              "body": "hg.ae_eq hgg'",
+              "children": []
+            },
+            {
+              "name": "h_disj",
+              "type": "Disjoint (Function.support f') (Function.support g')",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5,
+          6
+        ],
+        "result": {
+          "module": "AEMeasurable",
+          "name": "Lp.induction_stronglyMeasurable",
+          "statement": "m \u2264 m0) (hp_ne_top : p \u2260 \u221e) (P : Lp F p \u03bc \u2192 Prop) (h_ind : \u2200 (c : F) {s : Set \u03b1} (hs : MeasurableSet[m] s) (h\u03bcs : \u03bc s < \u221e), P (Lp.simpleFunc.indicatorConst p (hm s hs) h\u03bcs.ne c)) (h_add : \u2200 \u2983f g\u2984, \u2200 hf : MemLp f p \u03bc, \u2200 hg : MemLp g p \u03bc, StronglyMeasurable[m] f \u2192 StronglyMeasurable[m] g \u2192 Disjoint (Function.support f) (Function.support g) \u2192 P (hf.toLp f) \u2192 P (hg.toLp g) \u2192 P (hf.toLp f + hg.toLp g)) (h_closed : IsClosed {f : lpMeas F \u211d m p \u03bc | P f}) : \u2200 f : Lp F p \u03bc, AEStronglyMeasurable[m] f \u03bc \u2192 P f",
+          "have_tree": [
+            {
+              "name": "hs_f",
+              "type": "MeasurableSet[m] s_f",
+              "body": "hfm.stronglyMeasurable_mk.measurableSet_support",
+              "children": []
+            },
+            {
+              "name": "hs_g",
+              "type": "MeasurableSet[m] s_g",
+              "body": "hgm.stronglyMeasurable_mk.measurableSet_support",
+              "children": []
+            },
+            {
+              "name": "hf'_meas",
+              "type": "StronglyMeasurable[m] f'",
+              "body": "hfm.stronglyMeasurable_mk.indicator (hs_f.diff hs_g)",
+              "children": []
+            },
+            {
+              "name": "hg'_meas",
+              "type": "StronglyMeasurable[m] g'",
+              "body": "hgm.stronglyMeasurable_mk.indicator (hs_g.diff hs_f)",
+              "children": []
+            },
+            {
+              "name": "hf'_Lp",
+              "type": "MemLp f' p \u03bc",
+              "body": "hf.ae_eq hff'",
+              "children": []
+            },
+            {
+              "name": "hg'_Lp",
+              "type": "MemLp g' p \u03bc",
+              "body": "hg.ae_eq hgg'",
+              "children": []
+            },
+            {
+              "name": "h_disj",
+              "type": "Disjoint (Function.support f') (Function.support g')",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4,
+          6
+        ],
+        "result": {
+          "module": "AEMeasurable",
+          "name": "Lp.induction_stronglyMeasurable",
+          "statement": "m \u2264 m0) (hp_ne_top : p \u2260 \u221e) (P : Lp F p \u03bc \u2192 Prop) (h_ind : \u2200 (c : F) {s : Set \u03b1} (hs : MeasurableSet[m] s) (h\u03bcs : \u03bc s < \u221e), P (Lp.simpleFunc.indicatorConst p (hm s hs) h\u03bcs.ne c)) (h_add : \u2200 \u2983f g\u2984, \u2200 hf : MemLp f p \u03bc, \u2200 hg : MemLp g p \u03bc, StronglyMeasurable[m] f \u2192 StronglyMeasurable[m] g \u2192 Disjoint (Function.support f) (Function.support g) \u2192 P (hf.toLp f) \u2192 P (hg.toLp g) \u2192 P (hf.toLp f + hg.toLp g)) (h_closed : IsClosed {f : lpMeas F \u211d m p \u03bc | P f}) : \u2200 f : Lp F p \u03bc, AEStronglyMeasurable[m] f \u03bc \u2192 P f",
+          "have_tree": [
+            {
+              "name": "hs_f",
+              "type": "MeasurableSet[m] s_f",
+              "body": "hfm.stronglyMeasurable_mk.measurableSet_support",
+              "children": []
+            },
+            {
+              "name": "hs_g",
+              "type": "MeasurableSet[m] s_g",
+              "body": "hgm.stronglyMeasurable_mk.measurableSet_support",
+              "children": []
+            },
+            {
+              "name": "hf'_meas",
+              "type": "StronglyMeasurable[m] f'",
+              "body": "hfm.stronglyMeasurable_mk.indicator (hs_f.diff hs_g)",
+              "children": []
+            },
+            {
+              "name": "hf'_Lp",
+              "type": "MemLp f' p \u03bc",
+              "body": "hf.ae_eq hff'",
+              "children": []
+            },
+            {
+              "name": "hg'_Lp",
+              "type": "MemLp g' p \u03bc",
+              "body": "hg.ae_eq hgg'",
+              "children": []
+            },
+            {
+              "name": "hg'_meas",
+              "type": "StronglyMeasurable[m] g'",
+              "body": "hgm.stronglyMeasurable_mk.indicator (hs_g.diff hs_f)",
+              "children": []
+            },
+            {
+              "name": "h_disj",
+              "type": "Disjoint (Function.support f') (Function.support g')",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          5
+        ],
+        "result": {
+          "module": "AEMeasurable",
+          "name": "Lp.induction_stronglyMeasurable",
+          "statement": "m \u2264 m0) (hp_ne_top : p \u2260 \u221e) (P : Lp F p \u03bc \u2192 Prop) (h_ind : \u2200 (c : F) {s : Set \u03b1} (hs : MeasurableSet[m] s) (h\u03bcs : \u03bc s < \u221e), P (Lp.simpleFunc.indicatorConst p (hm s hs) h\u03bcs.ne c)) (h_add : \u2200 \u2983f g\u2984, \u2200 hf : MemLp f p \u03bc, \u2200 hg : MemLp g p \u03bc, StronglyMeasurable[m] f \u2192 StronglyMeasurable[m] g \u2192 Disjoint (Function.support f) (Function.support g) \u2192 P (hf.toLp f) \u2192 P (hg.toLp g) \u2192 P (hf.toLp f + hg.toLp g)) (h_closed : IsClosed {f : lpMeas F \u211d m p \u03bc | P f}) : \u2200 f : Lp F p \u03bc, AEStronglyMeasurable[m] f \u03bc \u2192 P f",
+          "have_tree": [
+            {
+              "name": "hs_f",
+              "type": "MeasurableSet[m] s_f",
+              "body": "hfm.stronglyMeasurable_mk.measurableSet_support",
+              "children": []
+            },
+            {
+              "name": "hs_g",
+              "type": "MeasurableSet[m] s_g",
+              "body": "hgm.stronglyMeasurable_mk.measurableSet_support",
+              "children": []
+            },
+            {
+              "name": "hf'_meas",
+              "type": "StronglyMeasurable[m] f'",
+              "body": "hfm.stronglyMeasurable_mk.indicator (hs_f.diff hs_g)",
+              "children": []
+            },
+            {
+              "name": "hf'_Lp",
+              "type": "MemLp f' p \u03bc",
+              "body": "hf.ae_eq hff'",
+              "children": []
+            },
+            {
+              "name": "hg'_meas",
+              "type": "StronglyMeasurable[m] g'",
+              "body": "hgm.stronglyMeasurable_mk.indicator (hs_g.diff hs_f)",
+              "children": []
+            },
+            {
+              "name": "h_disj",
+              "type": "Disjoint (Function.support f') (Function.support g')",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hg'_Lp",
+              "type": "MemLp g' p \u03bc",
+              "body": "hg.ae_eq hgg'",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "AEMeasurable",
+      "name": "MemLp.induction_stronglyMeasurable",
+      "statement": "m \u2264 m0) (hp_ne_top : p \u2260 \u221e) (P : (\u03b1 \u2192 F) \u2192 Prop) (h_ind : \u2200 (c : F) \u2983s\u2984, MeasurableSet[m] s \u2192 \u03bc s < \u221e \u2192 P (s.indicator fun _ => c)) (h_add : \u2200 \u2983f g : \u03b1 \u2192 F\u2984, Disjoint (Function.support f) (Function.support g) \u2192 MemLp f p \u03bc \u2192 MemLp g p \u03bc \u2192 StronglyMeasurable[m] f \u2192 StronglyMeasurable[m] g \u2192 P f \u2192 P g \u2192 P (f + g)) (h_closed : IsClosed {f : lpMeas F \u211d m p \u03bc | P f}) (h_ae : \u2200 \u2983f g\u2984, f =\u1d50[\u03bc] g \u2192 MemLp f p \u03bc \u2192 P f \u2192 P g) : \u2200 \u2983f : \u03b1 \u2192 F\u2984, MemLp f p \u03bc \u2192 AEStronglyMeasurable[m] f \u03bc \u2192 P f",
+      "have_tree": [
+        {
+          "name": "hfm_Lp",
+          "type": "AEStronglyMeasurable[m] f_Lp \u03bc",
+          "body": "hfm.congr hf.coeFn_toLp.symm",
+          "children": [
+            {
+              "name": "hfP'",
+              "type": "P f",
+              "body": "h_ae hf_mem.coeFn_toLp (Lp.memLp _) hfP",
+              "children": []
+            },
+            {
+              "name": "hgP'",
+              "type": "P g",
+              "body": "h_ae hg_mem.coeFn_toLp (Lp.memLp _) hgP",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "AEMeasurable",
+          "name": "MemLp.induction_stronglyMeasurable",
+          "statement": "m \u2264 m0) (hp_ne_top : p \u2260 \u221e) (P : (\u03b1 \u2192 F) \u2192 Prop) (h_ind : \u2200 (c : F) \u2983s\u2984, MeasurableSet[m] s \u2192 \u03bc s < \u221e \u2192 P (s.indicator fun _ => c)) (h_add : \u2200 \u2983f g : \u03b1 \u2192 F\u2984, Disjoint (Function.support f) (Function.support g) \u2192 MemLp f p \u03bc \u2192 MemLp g p \u03bc \u2192 StronglyMeasurable[m] f \u2192 StronglyMeasurable[m] g \u2192 P f \u2192 P g \u2192 P (f + g)) (h_closed : IsClosed {f : lpMeas F \u211d m p \u03bc | P f}) (h_ae : \u2200 \u2983f g\u2984, f =\u1d50[\u03bc] g \u2192 MemLp f p \u03bc \u2192 P f \u2192 P g) : \u2200 \u2983f : \u03b1 \u2192 F\u2984, MemLp f p \u03bc \u2192 AEStronglyMeasurable[m] f \u03bc \u2192 P f",
+          "have_tree": [
+            {
+              "name": "hfm_Lp",
+              "type": "AEStronglyMeasurable[m] f_Lp \u03bc",
+              "body": "hfm.congr hf.coeFn_toLp.symm",
+              "children": [
+                {
+                  "name": "hgP'",
+                  "type": "P g",
+                  "body": "h_ae hg_mem.coeFn_toLp (Lp.memLp _) hgP",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          1
+        ],
+        "result": {
+          "module": "AEMeasurable",
+          "name": "MemLp.induction_stronglyMeasurable",
+          "statement": "m \u2264 m0) (hp_ne_top : p \u2260 \u221e) (P : (\u03b1 \u2192 F) \u2192 Prop) (h_ind : \u2200 (c : F) \u2983s\u2984, MeasurableSet[m] s \u2192 \u03bc s < \u221e \u2192 P (s.indicator fun _ => c)) (h_add : \u2200 \u2983f g : \u03b1 \u2192 F\u2984, Disjoint (Function.support f) (Function.support g) \u2192 MemLp f p \u03bc \u2192 MemLp g p \u03bc \u2192 StronglyMeasurable[m] f \u2192 StronglyMeasurable[m] g \u2192 P f \u2192 P g \u2192 P (f + g)) (h_closed : IsClosed {f : lpMeas F \u211d m p \u03bc | P f}) (h_ae : \u2200 \u2983f g\u2984, f =\u1d50[\u03bc] g \u2192 MemLp f p \u03bc \u2192 P f \u2192 P g) : \u2200 \u2983f : \u03b1 \u2192 F\u2984, MemLp f p \u03bc \u2192 AEStronglyMeasurable[m] f \u03bc \u2192 P f",
+          "have_tree": [
+            {
+              "name": "hfm_Lp",
+              "type": "AEStronglyMeasurable[m] f_Lp \u03bc",
+              "body": "hfm.congr hf.coeFn_toLp.symm",
+              "children": [
+                {
+                  "name": "hfP'",
+                  "type": "P f",
+                  "body": "h_ae hf_mem.coeFn_toLp (Lp.memLp _) hfP",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "AEMeasurable",
+          "name": "MemLp.induction_stronglyMeasurable",
+          "statement": "m \u2264 m0) (hp_ne_top : p \u2260 \u221e) (P : (\u03b1 \u2192 F) \u2192 Prop) (h_ind : \u2200 (c : F) \u2983s\u2984, MeasurableSet[m] s \u2192 \u03bc s < \u221e \u2192 P (s.indicator fun _ => c)) (h_add : \u2200 \u2983f g : \u03b1 \u2192 F\u2984, Disjoint (Function.support f) (Function.support g) \u2192 MemLp f p \u03bc \u2192 MemLp g p \u03bc \u2192 StronglyMeasurable[m] f \u2192 StronglyMeasurable[m] g \u2192 P f \u2192 P g \u2192 P (f + g)) (h_closed : IsClosed {f : lpMeas F \u211d m p \u03bc | P f}) (h_ae : \u2200 \u2983f g\u2984, f =\u1d50[\u03bc] g \u2192 MemLp f p \u03bc \u2192 P f \u2192 P g) : \u2200 \u2983f : \u03b1 \u2192 F\u2984, MemLp f p \u03bc \u2192 AEStronglyMeasurable[m] f \u03bc \u2192 P f",
+          "have_tree": [
+            {
+              "name": "hfP'",
+              "type": "P f",
+              "body": "h_ae hf_mem.coeFn_toLp (Lp.memLp _) hfP",
+              "children": []
+            },
+            {
+              "name": "hfm_Lp",
+              "type": "AEStronglyMeasurable[m] f_Lp \u03bc",
+              "body": "hfm.congr hf.coeFn_toLp.symm",
+              "children": [
+                {
+                  "name": "hgP'",
+                  "type": "P g",
+                  "body": "h_ae hg_mem.coeFn_toLp (Lp.memLp _) hgP",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "AEMeasurable",
+          "name": "MemLp.induction_stronglyMeasurable",
+          "statement": "m \u2264 m0) (hp_ne_top : p \u2260 \u221e) (P : (\u03b1 \u2192 F) \u2192 Prop) (h_ind : \u2200 (c : F) \u2983s\u2984, MeasurableSet[m] s \u2192 \u03bc s < \u221e \u2192 P (s.indicator fun _ => c)) (h_add : \u2200 \u2983f g : \u03b1 \u2192 F\u2984, Disjoint (Function.support f) (Function.support g) \u2192 MemLp f p \u03bc \u2192 MemLp g p \u03bc \u2192 StronglyMeasurable[m] f \u2192 StronglyMeasurable[m] g \u2192 P f \u2192 P g \u2192 P (f + g)) (h_closed : IsClosed {f : lpMeas F \u211d m p \u03bc | P f}) (h_ae : \u2200 \u2983f g\u2984, f =\u1d50[\u03bc] g \u2192 MemLp f p \u03bc \u2192 P f \u2192 P g) : \u2200 \u2983f : \u03b1 \u2192 F\u2984, MemLp f p \u03bc \u2192 AEStronglyMeasurable[m] f \u03bc \u2192 P f",
+          "have_tree": [
+            {
+              "name": "hgP'",
+              "type": "P g",
+              "body": "h_ae hg_mem.coeFn_toLp (Lp.memLp _) hgP",
+              "children": []
+            },
+            {
+              "name": "hfm_Lp",
+              "type": "AEStronglyMeasurable[m] f_Lp \u03bc",
+              "body": "hfm.congr hf.coeFn_toLp.symm",
+              "children": [
+                {
+                  "name": "hfP'",
+                  "type": "P f",
+                  "body": "h_ae hf_mem.coeFn_toLp (Lp.memLp _) hfP",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "AEMeasurable",
+          "name": "MemLp.induction_stronglyMeasurable",
+          "statement": "m \u2264 m0) (hp_ne_top : p \u2260 \u221e) (P : (\u03b1 \u2192 F) \u2192 Prop) (h_ind : \u2200 (c : F) \u2983s\u2984, MeasurableSet[m] s \u2192 \u03bc s < \u221e \u2192 P (s.indicator fun _ => c)) (h_add : \u2200 \u2983f g : \u03b1 \u2192 F\u2984, Disjoint (Function.support f) (Function.support g) \u2192 MemLp f p \u03bc \u2192 MemLp g p \u03bc \u2192 StronglyMeasurable[m] f \u2192 StronglyMeasurable[m] g \u2192 P f \u2192 P g \u2192 P (f + g)) (h_closed : IsClosed {f : lpMeas F \u211d m p \u03bc | P f}) (h_ae : \u2200 \u2983f g\u2984, f =\u1d50[\u03bc] g \u2192 MemLp f p \u03bc \u2192 P f \u2192 P g) : \u2200 \u2983f : \u03b1 \u2192 F\u2984, MemLp f p \u03bc \u2192 AEStronglyMeasurable[m] f \u03bc \u2192 P f",
+          "have_tree": [
+            {
+              "name": "hfm_Lp",
+              "type": "AEStronglyMeasurable[m] f_Lp \u03bc",
+              "body": "hfm.congr hf.coeFn_toLp.symm",
+              "children": [
+                {
+                  "name": "hgP'",
+                  "type": "P g",
+                  "body": "h_ae hg_mem.coeFn_toLp (Lp.memLp _) hgP",
+                  "children": []
+                },
+                {
+                  "name": "hfP'",
+                  "type": "P f",
+                  "body": "h_ae hf_mem.coeFn_toLp (Lp.memLp _) hfP",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

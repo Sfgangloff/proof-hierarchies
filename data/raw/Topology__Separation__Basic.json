@@ -1,0 +1,148 @@
+[
+  {
+    "module": "Basic",
+    "name": "eq_of_tendsto_nhds",
+    "statement": "X \u2192 Y} {x : X} {y : Y} (h : Tendsto f (\ud835\udcdd x) (\ud835\udcdd y)) : f x = y",
+    "have_tree": [
+      {
+        "name": "fact\u2081",
+        "type": "{f x}\u1d9c \u2208 \ud835\udcdd y",
+        "body": "compl_singleton_mem_nhds hfa.symm",
+        "children": []
+      },
+      {
+        "name": "fact\u2082",
+        "type": "Tendsto f (pure x) (\ud835\udcdd y)",
+        "body": "h.comp (tendsto_id'.2 <| pure_le_nhds x)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "tendsto_const_nhds_iff",
+    "statement": "Filter Y} [NeBot l] {c d : X} : Tendsto (fun _ => c) l (\ud835\udcdd d) \u2194 c = d",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "{x} \u2286 s",
+        "body": "by simp only [singleton_subset_iff, mem_of_mem_nhds hs]",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "IsClosed (s \\ {x})",
+        "body": "(hsf.subset diff_subset).isClosed",
+        "children": []
+      },
+      {
+        "name": "C",
+        "type": "(s \\ {x})\u1d9c \u2208 \ud835\udcdd x",
+        "body": "B.isOpen_compl.mem_nhds fun h => h.2 rfl",
+        "children": []
+      },
+      {
+        "name": "D",
+        "type": "{x} \u2208 \ud835\udcdd x",
+        "body": "by simpa only [\u2190 diff_eq, diff_diff_cancel_left A] using inter_mem hs C",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Set.Finite.continuousOn",
+    "statement": "Set X} (hs : s.Finite) (f : X \u2192 Y) : ContinuousOn f s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite s",
+        "body": "hs",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "SeparationQuotient.t1Space_iff",
+    "statement": "T1Space (SeparationQuotient X) \u2194 R0Space X",
+    "have_tree": [
+      {
+        "name": "xspecy",
+        "type": "x \u2933 y",
+        "body": "isInducing_mk.specializes_iff.mp sxspecsy",
+        "children": []
+      },
+      {
+        "name": "yspecx",
+        "type": "y \u2933 x",
+        "body": "h xspecy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsCompact.mem_closure_iff_exists_inseparable",
+    "statement": "Set X} (hK : IsCompact K) : y \u2208 closure K \u2194 \u2203 x \u2208 K, Inseparable x y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Disjoint (\ud835\udcdd y) (\ud835\udcdd\u02e2 K)",
+        "body": "hK.disjoint_nhdsSet_right.2 fun x hx \u21a6",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsCompact.binary_compact_cover",
+    "statement": "Set X} (hK : IsCompact K) (hU : IsOpen U) (hV : IsOpen V) (h2K : K \u2286 U \u222a V) : \u2203 K\u2081 K\u2082 : Set X, IsCompact K\u2081 \u2227 IsCompact K\u2082 \u2227 K\u2081 \u2286 U \u2227 K\u2082 \u2286 V \u2227 K = K\u2081 \u222a K\u2082",
+    "have_tree": [
+      {
+        "name": "hK'",
+        "type": "IsCompact (closure K)",
+        "body": "hK.closure",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "SeparatedNhds (closure K \\ U) (closure K \\ V)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "SeparatedNhds (K \\ U) (K \\ V)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsCompact.finite_compact_cover",
+    "statement": "Set X} (hs : IsCompact s) {\u03b9 : Type*} (t : Finset \u03b9) (U : \u03b9 \u2192 Set X) (hU : \u2200 i \u2208 t, IsOpen (U i)) (hsC : s \u2286 \u22c3 i \u2208 t, U i) : \u2203 K : \u03b9 \u2192 Set X, (\u2200 i, IsCompact (K i)) \u2227 (\u2200 i, K i \u2286 U i) \u2227 s = \u22c3 i \u2208 t, K i",
+    "have_tree": [
+      {
+        "name": "hU'",
+        "type": "\u2200 i \u2208 t, IsOpen (U i)",
+        "body": "fun i hi => hU.2 i hi",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_mem_nhds_isCompact_mapsTo_of_isCompact_mem_nhds",
+    "statement": "Type*} [TopologicalSpace X] [TopologicalSpace Y] [R1Space Y] {f : X \u2192 Y} {x : X} {K : Set X} {s : Set Y} (hf : Continuous f) (hs : s \u2208 \ud835\udcdd (f x)) (hKc : IsCompact K) (hKx : K \u2208 \ud835\udcdd x) : \u2203 L \u2208 \ud835\udcdd x, IsCompact L \u2227 MapsTo f L s",
+    "have_tree": [
+      {
+        "name": "hc",
+        "type": "IsCompact (f '' K \\ interior s)",
+        "body": "(hKc.image hf).diff isOpen_interior",
+        "children": []
+      }
+    ]
+  }
+]

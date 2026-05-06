@@ -1,0 +1,190 @@
+[
+  {
+    "module": "Bounds",
+    "name": "ContinuousLinearMap.norm_iteratedFDerivWithin_le_of_bilinear",
+    "statement": "E \u2192L[\ud835\udd5c] F \u2192L[\ud835\udd5c] G) {f : D \u2192 E} {g : D \u2192 F} {N : \u2115\u221e\u03c9} {s : Set D} {x : D} (hf : ContDiffOn \ud835\udd5c N f s) (hg : ContDiffOn \ud835\udd5c N g s) (hs : UniqueDiffOn \ud835\udd5c s) (hx : x \u2208 s) {n : \u2115} (hn : n \u2264 N) : \u2016iteratedFDerivWithin \ud835\udd5c n (fun y => B (f y) (g y)) s x\u2016 \u2264 \u2016B\u2016 * \u2211 i \u2208 Finset.range (n + 1), (n.choose i : \u211d) * \u2016iteratedFDerivWithin \ud835\udd5c i f s x\u2016 * \u2016iteratedFDerivWithin \ud835\udd5c (n - i) g s x\u2016",
+    "have_tree": [
+      {
+        "name": "isoD",
+        "type": "Du \u2243\u2097\u1d62[\ud835\udd5c] D",
+        "body": "LinearIsometryEquiv.ulift \ud835\udd5c D",
+        "children": []
+      },
+      {
+        "name": "isoE",
+        "type": "Eu \u2243\u2097\u1d62[\ud835\udd5c] E",
+        "body": "LinearIsometryEquiv.ulift \ud835\udd5c E",
+        "children": []
+      },
+      {
+        "name": "isoF",
+        "type": "Fu \u2243\u2097\u1d62[\ud835\udd5c] F",
+        "body": "LinearIsometryEquiv.ulift \ud835\udd5c F",
+        "children": []
+      },
+      {
+        "name": "isoG",
+        "type": "Gu \u2243\u2097\u1d62[\ud835\udd5c] G",
+        "body": "LinearIsometryEquiv.ulift \ud835\udd5c G",
+        "children": []
+      },
+      {
+        "name": "Bu_le",
+        "type": "\u2016Bu\u2016 \u2264 \u2016B\u2016",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hsu",
+        "type": "UniqueDiffOn \ud835\udd5c su",
+        "body": "isoD.toContinuousLinearEquiv.uniqueDiffOn_preimage_iff.2 hs",
+        "children": []
+      },
+      {
+        "name": "hxu",
+        "type": "xu \u2208 su",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hfu",
+        "type": "ContDiffOn \ud835\udd5c n fu su",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hgu",
+        "type": "ContDiffOn \ud835\udd5c n gu su",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bounds",
+    "name": "norm_iteratedFDerivWithin_prod_le",
+    "statement": "Finset \u03b9} {f : \u03b9 \u2192 E \u2192 A'} {N : \u2115\u221e\u03c9} (hf : \u2200 i \u2208 u, ContDiffOn \ud835\udd5c N (f i) s) (hs : UniqueDiffOn \ud835\udd5c s) {x : E} (hx : x \u2208 s) {n : \u2115} (hn : n \u2264 N) : \u2016iteratedFDerivWithin \ud835\udd5c n (\u220f j \u2208 u, f j \u00b7) s x\u2016 \u2264 \u2211 p \u2208 u.sym n, (p : Multiset \u03b9).countPerms * \u220f j \u2208 u, \u2016iteratedFDerivWithin \ud835\udd5c (Multiset.count j p) (f j) s x\u2016",
+    "have_tree": [
+      {
+        "name": "hip",
+        "type": "i \u2209 p",
+        "body": "mt (hp i) hi",
+        "children": []
+      },
+      {
+        "name": "hji",
+        "type": "j \u2260 i",
+        "body": "mt (\u00b7 \u25b8 hj) hi",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bounds",
+    "name": "norm_iteratedFDerivWithin_comp_le_aux",
+    "statement": "Type u} [NormedAddCommGroup Fu] [NormedSpace \ud835\udd5c Fu] [NormedAddCommGroup Gu] [NormedSpace \ud835\udd5c Gu] {g : Fu \u2192 Gu} {f : E \u2192 Fu} {n : \u2115} {s : Set E} {t : Set Fu} {x : E} (hg : ContDiffOn \ud835\udd5c n g t) (hf : ContDiffOn \ud835\udd5c n f s) (ht : UniqueDiffOn \ud835\udd5c t) (hs : UniqueDiffOn \ud835\udd5c s) (hst : MapsTo f s t) (hx : x \u2208 s) {C : \u211d} {D : \u211d} (hC : \u2200 i, i \u2264 n \u2192 \u2016iteratedFDerivWithin \ud835\udd5c i g t (f x)\u2016 \u2264 C) (hD : \u2200 i, 1 \u2264 i \u2192 i \u2264 n \u2192 \u2016iteratedFDerivWithin \ud835\udd5c i f s x\u2016 \u2264 D ^ i) : \u2016iteratedFDerivWithin \ud835\udd5c n (g \u2218 f) s x\u2016 \u2264 n ! * C * D ^ n",
+    "have_tree": [
+      {
+        "name": "Cnonneg",
+        "type": "0 \u2264 C",
+        "body": "(norm_nonneg _).trans (hC 0 bot_le)",
+        "children": []
+      },
+      {
+        "name": "Dnonneg",
+        "type": "0 \u2264 D",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "1 \u2264 n + 1",
+            "body": "by simp only [le_add_iff_nonneg_left, zero_le']",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "J",
+        "type": "\u2200 i, \u2016iteratedFDerivWithin \ud835\udd5c (n - i) (fderivWithin \ud835\udd5c f s) s x\u2016 \u2264 D ^ (n - i + 1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2016iteratedFDerivWithin \ud835\udd5c (n - i + 1) f s x\u2016 \u2264 D ^ (n - i + 1)",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Bounds",
+    "name": "norm_iteratedFDerivWithin_comp_le",
+    "statement": "F \u2192 G} {f : E \u2192 F} {n : \u2115} {s : Set E} {t : Set F} {x : E} {N : \u2115\u221e\u03c9} (hg : ContDiffOn \ud835\udd5c N g t) (hf : ContDiffOn \ud835\udd5c N f s) (hn : n \u2264 N) (ht : UniqueDiffOn \ud835\udd5c t) (hs : UniqueDiffOn \ud835\udd5c s) (hst : MapsTo f s t) (hx : x \u2208 s) {C : \u211d} {D : \u211d} (hC : \u2200 i, i \u2264 n \u2192 \u2016iteratedFDerivWithin \ud835\udd5c i g t (f x)\u2016 \u2264 C) (hD : \u2200 i, 1 \u2264 i \u2192 i \u2264 n \u2192 \u2016iteratedFDerivWithin \ud835\udd5c i f s x\u2016 \u2264 D ^ i) : \u2016iteratedFDerivWithin \ud835\udd5c n (g \u2218 f) s x\u2016 \u2264 n ! * C * D ^ n",
+    "have_tree": [
+      {
+        "name": "isoF",
+        "type": "Fu \u2243\u2097\u1d62[\ud835\udd5c] F",
+        "body": "LinearIsometryEquiv.ulift \ud835\udd5c F",
+        "children": []
+      },
+      {
+        "name": "isoG",
+        "type": "Gu \u2243\u2097\u1d62[\ud835\udd5c] G",
+        "body": "LinearIsometryEquiv.ulift \ud835\udd5c G",
+        "children": []
+      },
+      {
+        "name": "htu",
+        "type": "UniqueDiffOn \ud835\udd5c tu",
+        "body": "isoF.toContinuousLinearEquiv.uniqueDiffOn_preimage_iff.2 ht",
+        "children": []
+      },
+      {
+        "name": "hstu",
+        "type": "MapsTo fu s tu",
+        "body": "fun y hy \u21a6 by",
+        "children": []
+      },
+      {
+        "name": "hfu",
+        "type": "ContDiffOn \ud835\udd5c n fu s",
+        "body": "isoF.symm.contDiff.comp_contDiffOn (hf.of_le hn)",
+        "children": []
+      },
+      {
+        "name": "hgu",
+        "type": "ContDiffOn \ud835\udd5c n gu tu",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bounds",
+    "name": "norm_iteratedFDerivWithin_clm_apply",
+    "statement": "E \u2192 F \u2192L[\ud835\udd5c] G} {g : E \u2192 F} {s : Set E} {x : E} {N : \u2115\u221e\u03c9} {n : \u2115} (hf : ContDiffOn \ud835\udd5c N f s) (hg : ContDiffOn \ud835\udd5c N g s) (hs : UniqueDiffOn \ud835\udd5c s) (hx : x \u2208 s) (hn : n \u2264 N) : \u2016iteratedFDerivWithin \ud835\udd5c n (fun y => (f y) (g y)) s x\u2016 \u2264 \u2211 i \u2208 Finset.range (n + 1), \u2191(n.choose i) * \u2016iteratedFDerivWithin \ud835\udd5c i f s x\u2016 * \u2016iteratedFDerivWithin \ud835\udd5c (n - i) g s x\u2016",
+    "have_tree": [
+      {
+        "name": "hB",
+        "type": "\u2016B\u2016 \u2264 1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bounds",
+    "name": "ContinuousLinearMap.norm_iteratedFDerivWithin_comp_left",
+    "statement": "F \u2192L[\ud835\udd5c] G) {f : E \u2192 F} {s : Set E} {x : E} {N : \u2115\u221e\u03c9} {n : \u2115} (hf : ContDiffWithinAt \ud835\udd5c N f s x) (hs : UniqueDiffOn \ud835\udd5c s) (hx : x \u2208 s) (hn : n \u2264 N) : \u2016iteratedFDerivWithin \ud835\udd5c n (L \u2218 f) s x\u2016 \u2264 \u2016L\u2016 * \u2016iteratedFDerivWithin \ud835\udd5c n f s x\u2016",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "L.norm_compContinuousMultilinearMap_le (iteratedFDerivWithin \ud835\udd5c n f s x)",
+        "children": []
+      }
+    ]
+  }
+]

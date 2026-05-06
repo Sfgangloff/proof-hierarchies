@@ -1,0 +1,205 @@
+[
+  {
+    "module": "Composition",
+    "name": "comp_id",
+    "statement": "FormalMultilinearSeries \ud835\udd5c E F) (x : E) : p.comp (id \ud835\udd5c E x) = p",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "1 < b.blocksFun j",
+        "body": "by convert lt_k",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Composition",
+    "name": "id_comp",
+    "statement": "FormalMultilinearSeries \ud835\udd5c E F) (v0 : Fin 0 \u2192 E) : (id \ud835\udd5c F (p 0 v0)).comp p = p",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "1 < b.length",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "b.length \u2260 1",
+            "body": "by simpa [Composition.eq_single_iff_length] using hb",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "0 < b.length",
+            "body": "Composition.length_pos_of_pos b n_pos",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Composition",
+    "name": "comp_summable_nnreal",
+    "statement": "FormalMultilinearSeries \ud835\udd5c F G) (p : FormalMultilinearSeries \ud835\udd5c E F) (hq : 0 < q.radius) (hp : 0 < p.radius) : \u2203 r > (0 : \u211d\u22650), Summable fun i : \u03a3 n, Composition n => \u2016q.compAlongComposition p i.2\u2016\u208a * r ^ i.1",
+    "have_tree": [
+      {
+        "name": "r0_pos",
+        "type": "0 < r0",
+        "body": "inv_pos.2 (mul_pos zero_lt_four (zero_lt_one.trans_le hCp1))",
+        "children": []
+      },
+      {
+        "name": "r_pos",
+        "type": "0 < r",
+        "body": "mul_pos (mul_pos rp_pos rq_pos) r0_pos",
+        "children": [
+          {
+            "name": "A",
+            "type": "",
+            "body": "calc",
+            "children": []
+          },
+          {
+            "name": "B",
+            "type": "",
+            "body": "calc",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Composition",
+    "name": "compChangeOfVariables_sum",
+    "statement": "Type*} [AddCommMonoid \u03b1] (m M N : \u2115) (f : (\u03a3 n : \u2115, Fin n \u2192 \u2115) \u2192 \u03b1) (g : (\u03a3 n, Composition n) \u2192 \u03b1) (h : \u2200 (e) (he : e \u2208 compPartialSumSource m M N), f e = g (compChangeOfVariables m M N e he)) : \u2211 e \u2208 compPartialSumSource m M N, f e = \u2211 e \u2208 compPartialSumTarget m M N, g e",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(compChangeOfVariables_length m M N H).symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Composition",
+    "name": "compPartialSumTarget_tendsto_prod_atTop",
+    "statement": "Tendsto (fun (p : \u2115 \u00d7 \u2115) => compPartialSumTarget 0 p.1 p.2) atTop atTop",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 i, i < m.1 \u2192 i < n.1",
+        "body": "fun i hi => lt_of_lt_of_le hi hmn.1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 i, i < m.2 \u2192 i < n.2",
+        "body": "fun i hi => lt_of_lt_of_le hi hmn.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Composition",
+    "name": "HasFPowerSeriesWithinAt.comp",
+    "statement": "F \u2192 G} {f : E \u2192 F} {q : FormalMultilinearSeries \ud835\udd5c F G} {p : FormalMultilinearSeries \ud835\udd5c E F} {x : E} {t : Set F} {s : Set E} (hg : HasFPowerSeriesWithinAt g q t (f x)) (hf : HasFPowerSeriesWithinAt f p s x) (hs : Set.MapsTo f s t) : HasFPowerSeriesWithinAt (g \u2218 f) (q.comp p) s x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "insert (f x) t \u2229 Metric.eball (f x) rg \u2208 \ud835\udcdd[insert (f x) t] (f x)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Hf.analyticWithinAt.continuousWithinAt_insert.tendsto_nhdsWithin (hs.insert x) this",
+        "children": []
+      },
+      {
+        "name": "min_pos",
+        "type": "0 < min rf' r",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "fy_mem",
+        "type": "f (x + y) \u2208 insert (f x) t \u2229 Metric.eball (f x) rg",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "le_trans (le_of_lt hy) (min_le_right _ _)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Composition",
+    "name": "HasFiniteFPowerSeriesAt.comp",
+    "statement": "\u2115} {g : F \u2192 G} {f : E \u2192 F} {q : FormalMultilinearSeries \ud835\udd5c F G} {p : FormalMultilinearSeries \ud835\udd5c E F} {x : E} (hg : HasFiniteFPowerSeriesAt g q (f x) m) (hf : HasFiniteFPowerSeriesAt f p x n) (hn : 0 < n) : HasFiniteFPowerSeriesAt (g \u2218 f) (q.comp p) x (m * n)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "j.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Composition",
+    "name": "sizeUpTo_sizeUpTo_add",
+    "statement": "Composition n) (b : Composition a.length) {i j : \u2115} (hi : i < b.length) (hj : j < blocksFun b \u27e8i, hi\u27e9) : sizeUpTo a (sizeUpTo b i + j) = sizeUpTo (a.gather b) i + sizeUpTo (sigmaCompositionAux a b \u27e8i, (length_gather a b).symm \u25b8 hi\u27e9) j",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "i < b.length",
+        "body": "Nat.lt_of_succ_lt hi",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "i < List.length (map List.sum (splitWrtComposition a.blocks b))",
+        "body": "by simp [A]",
+        "children": []
+      },
+      {
+        "name": "C",
+        "type": "0 < blocksFun b \u27e8i, A\u27e9",
+        "body": "Composition.blocks_pos' _ _ _",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "j < blocksFun b \u27e8i, hi\u27e9",
+        "body": "lt_trans (lt_add_one j) hj",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "j < length (sigmaCompositionAux a b \u27e8i, (length_gather a b).symm \u25b8 hi\u27e9)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "C",
+        "type": "sizeUpTo b i + j < sizeUpTo b (i + 1)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "D",
+        "type": "sizeUpTo b i + j < length a",
+        "body": "lt_of_lt_of_le C (b.sizeUpTo_le _)",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "module": "MeanInequalities",
+    "name": "lintegral_rpow_add_lt_top_of_lintegral_rpow_lt_top",
+    "statement": "\u211d} {f g : \u03b1 \u2192 \u211d\u22650\u221e} (hf : AEMeasurable f \u03bc) (hf_top : (\u222b\u207b a, f a ^ p \u2202\u03bc) < \u22a4) (hg_top : (\u222b\u207b a, g a ^ p \u2202\u03bc) < \u22a4) (hp1 : 1 \u2264 p) : (\u222b\u207b a, (f + g) a ^ p \u2202\u03bc) < \u22a4",
+    "have_tree": [
+      {
+        "name": "hp0_lt",
+        "type": "0 < p",
+        "body": "lt_of_lt_of_le zero_lt_one hp1",
+        "children": []
+      },
+      {
+        "name": "hp0",
+        "type": "0 \u2264 p",
+        "body": "le_of_lt hp0_lt",
+        "children": [
+          {
+            "name": "h_zero_lt_half_rpow",
+            "type": "(0 : \u211d\u22650\u221e) < (1 / 2 : \u211d\u22650\u221e) ^ p",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h_rw",
+            "type": "(1 / 2 : \u211d\u22650\u221e) ^ p * (2 : \u211d\u22650\u221e) ^ (p - 1) = 1 / 2",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "MeanInequalities",
+    "name": "lintegral_Lp_mul_le_Lq_mul_Lr",
+    "statement": "\u211d} (hp0_lt : 0 < p) (hpq : p < q) (hpqr : 1 / p = 1 / q + 1 / r) (\u03bc : Measure \u03b1) {f g : \u03b1 \u2192 \u211d\u22650\u221e} (hf : AEMeasurable f \u03bc) (hg : AEMeasurable g \u03bc) : (\u222b\u207b a, (f * g) a ^ p \u2202\u03bc) ^ (1 / p) \u2264 (\u222b\u207b a, f a ^ q \u2202\u03bc) ^ (1 / q) * (\u222b\u207b a, g a ^ r \u2202\u03bc) ^ (1 / r)",
+    "have_tree": [
+      {
+        "name": "hp0_ne",
+        "type": "p \u2260 0",
+        "body": "(ne_of_lt hp0_lt).symm",
+        "children": []
+      },
+      {
+        "name": "hp0",
+        "type": "0 \u2264 p",
+        "body": "le_of_lt hp0_lt",
+        "children": []
+      },
+      {
+        "name": "hq0_lt",
+        "type": "0 < q",
+        "body": "lt_of_le_of_lt hp0 hpq",
+        "children": []
+      },
+      {
+        "name": "hq0_ne",
+        "type": "q \u2260 0",
+        "body": "(ne_of_lt hq0_lt).symm",
+        "children": []
+      },
+      {
+        "name": "h_one_div_r",
+        "type": "1 / r = 1 / p - 1 / q",
+        "body": "by rw [hpqr]; simp",
+        "children": []
+      },
+      {
+        "name": "hp2q2",
+        "type": "p2.HolderConjugate q2",
+        "body": "",
+        "children": [
+          {
+            "name": "hpp2",
+            "type": "p * p2 = q",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hpq2",
+            "type": "p * q2 = r",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

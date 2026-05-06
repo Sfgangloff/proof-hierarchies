@@ -1,0 +1,96 @@
+[
+  {
+    "module": "Basic",
+    "name": "jacobiSum_mul_jacobiSum_inv",
+    "statement": "ringChar F' \u2260 ringChar F) {\u03c7 \u03c6 : MulChar F F'} (h\u03c7 : \u03c7 \u2260 1) (h\u03c6 : \u03c6 \u2260 1) (h\u03c7\u03c6 : \u03c7 * \u03c6 \u2260 1) : jacobiSum \u03c7 \u03c6 * jacobiSum \u03c7\u207b\u00b9 \u03c6\u207b\u00b9 = Fintype.card F",
+    "have_tree": [
+      {
+        "name": "hinj",
+        "type": "",
+        "body": "(algebraMap F' FF').injective",
+        "children": []
+      },
+      {
+        "name": "H\u03c7\u03c6",
+        "type": "\u03c7' * \u03c6' \u2260 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "H\u03c7\u03c6'",
+        "type": "\u03c7'\u207b\u00b9 * \u03c6'\u207b\u00b9 \u2260 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "H\u03c7",
+        "type": "\u03c7' \u2260 1",
+        "body": "(MulChar.ringHomComp_ne_one_iff hinj).mpr h\u03c7",
+        "children": []
+      },
+      {
+        "name": "H\u03c6",
+        "type": "\u03c6' \u2260 1",
+        "body": "(MulChar.ringHomComp_ne_one_iff hinj).mpr h\u03c6",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "(gaussSum_mul_gaussSum_eq_card H\u03c7\u03c6 \u03c8.prim).trans_ne Hcard",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_jacobiSum_eq_neg_one_add",
+    "statement": "\u2115} (hn : 2 < n) {\u03c7 \u03c8 : MulChar F R} {\u03bc : R} (h\u03c7 : \u03c7 ^ n = 1) (h\u03c8 : \u03c8 ^ n = 1) (hn' : n \u2223 Fintype.card F - 1) (h\u03bc : IsPrimitiveRoot \u03bc n) : \u2203 z \u2208 \u2124[\u03bc], jacobiSum \u03c7 \u03c8 = -1 + z * (\u03bc - 1) ^ 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero n",
+        "body": "\u27e8by lia\u27e9",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "MulChar.exists_apply_sub_one_mul_apply_sub_one h\u03c7 h\u03c8 h\u03bc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "gaussSum_pow_eq_prod_jacobiSum_aux",
+    "statement": "MulChar F R) (\u03c8 : AddChar F R) {n : \u2115} (hn\u2081 : 0 < n) (hn\u2082 : n < orderOf \u03c7) : gaussSum \u03c7 \u03c8 ^ n = gaussSum (\u03c7 ^ n) \u03c8 * \u220f j \u2208 Ico 1 n, jacobiSum \u03c7 (\u03c7 ^ j)",
+    "have_tree": [
+      {
+        "name": "h\u03c7n",
+        "type": "\u03c7 * (\u03c7 ^ n) \u2260 1",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "gaussSum_pow_eq_prod_jacobiSum",
+    "statement": "MulChar F R} {\u03c8 : AddChar F R} (h\u03c7 : 2 \u2264 orderOf \u03c7) (h\u03c8 : \u03c8.IsPrimitive) : gaussSum \u03c7 \u03c8 ^ orderOf \u03c7 = \u03c7 (-1) * Fintype.card F * \u220f i \u2208 Ico 1 (orderOf \u03c7 - 1), jacobiSum \u03c7 (\u03c7 ^ i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "gaussSum_pow_eq_prod_jacobiSum_aux \u03c7 \u03c8 (n := orderOf \u03c7 - 1) (by lia) (by lia)",
+        "children": []
+      },
+      {
+        "name": "h\u03c7\u2081",
+        "type": "\u03c7 \u2260 1",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

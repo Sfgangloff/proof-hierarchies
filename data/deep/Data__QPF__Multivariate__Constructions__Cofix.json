@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Cofix",
+    "name": "Cofix.bisim_aux",
+    "statement": "TypeVec n} (r : Cofix F \u03b1 \u2192 Cofix F \u03b1 \u2192 Prop) (h' : \u2200 x, r x x) (h : \u2200 x y, r x y \u2192 appendFun id (Quot.mk r) <$$> Cofix.dest x = appendFun id (Quot.mk r) <$$> Cofix.dest y) : \u2200 x y, r x y \u2192 x = y",
+    "have_tree": [
+      {
+        "name": "hr'",
+        "type": "r' = fun x y => r (Quot.mk _ x) (Quot.mk _ y)",
+        "body": "rfl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsPrecongr r'",
+        "body": "by",
+        "children": [
+          {
+            "name": "h\u2081",
+            "type": "\u2200 u v : q.P.M \u03b1, Mcongr u v \u2192 Quot.mk r' u = Quot.mk r' v",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "f \u2218 Quot.mk r \u2218 Quot.mk Mcongr = Quot.mk r'",
+            "body": "rfl",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

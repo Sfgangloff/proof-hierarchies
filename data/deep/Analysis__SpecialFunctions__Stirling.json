@@ -1,0 +1,48 @@
+[
+  {
+    "module": "Stirling",
+    "name": "log_stirlingSeq_diff_le_geo_sum",
+    "statement": "\u2115) : log (stirlingSeq (n + 1)) - log (stirlingSeq (n + 2)) \u2264 ((1 : \u211d) / (2 * \u2191(n + 1) + 1)) ^ 2 / (1 - ((1 : \u211d) / (2 * \u2191(n + 1) + 1)) ^ 2)",
+    "have_tree": [
+      {
+        "name": "h_nonneg",
+        "type": "(0 : \u211d) \u2264 ((1 : \u211d) / (2 * \u2191(n + 1) + 1)) ^ 2",
+        "body": "sq_nonneg _",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(hasSum_geometric_of_lt_one h_nonneg ?_).mul_left (((1 : \u211d) / (2 * \u2191(n + 1) + 1)) ^ 2)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Stirling",
+    "name": "log_stirlingSeq_bounded_aux",
+    "statement": "\u2203 c : \u211d, \u2200 n : \u2115, log (stirlingSeq 1) - log (stirlingSeq (n + 1)) \u2264 c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "log_stirlingSeq' k - log_stirlingSeq' (k + 1) \u2264 1 / 4 * (1 / (\u2191(k + 1) : \u211d) ^ 2)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "(\u2211 k \u2208 range n, 1 / (\u2191(k + 1) : \u211d) ^ 2) \u2264 d",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(summable_nat_add_iff 1).mpr <| Real.summable_one_div_nat_pow.mpr one_lt_two",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "module": "Basic",
+    "name": "isPurelyInseparable_iff_pow_mem",
+    "statement": "IsPurelyInseparable F E \u2194 \u2200 x : E, \u2203 n : \u2115, x ^ q ^ n \u2208 (algebraMap F E).range",
+    "have_tree": [
+      {
+        "name": "hdeg",
+        "type": "",
+        "body": "(minpoly.natSepDegree_eq_one_iff_pow_mem q).2 (h x)",
+        "children": []
+      },
+      {
+        "name": "halg",
+        "type": "IsIntegral F x",
+        "body": "by_contra fun h' \u21a6 by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isPurelyInseparable_of_finSepDegree_eq_one",
+    "statement": "finSepDegree F E = 1) : IsPurelyInseparable F E",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "finSepDegree_mul_finSepDegree_of_isAlgebraic F F\u27eex\u27ef E",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isPurelyInseparable_iff_fd_isPurelyInseparable",
+    "statement": "IsPurelyInseparable F E \u2194 \u2200 L : IntermediateField F E, FiniteDimensional F L \u2192 IsPurelyInseparable F L",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "IsIntegral F x",
+        "body": "Algebra.IsIntegral.isIntegral x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Algebra.IsAlgebraic.isSepClosed",
+    "statement": "IsSepClosed E",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Algebra.IsAlgebraic F (AlgebraicClosure E)",
+        "body": ".trans F E _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "finSepDegree_eq",
+    "statement": "finSepDegree F E = Cardinal.toNat (sepDegree F E)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "finSepDegree_mul_finSepDegree_of_isAlgebraic F (separableClosure F E) E |>.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "adjoin_eq_of_isAlgebraic_of_isSeparable",
+    "statement": "adjoin E (separableClosure F K : Set K) = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Algebra.isSeparable_tower_top_of_isSeparable E L K",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsScalarTower S L K",
+        "body": "IsScalarTower.of_algebraMap_eq (congrFun rfl)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Algebra.IsAlgebraic.trans F E K",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsPurelyInseparable S K",
+        "body": "separableClosure.isPurelyInseparable F K",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsPurelyInseparable.tower_top S L K",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "adjoin_eq_of_isAlgebraic",
+    "statement": "adjoin E (separableClosure F K) = separableClosure E K",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "congr_arg lift (adjoin_eq_of_isAlgebraic_of_isSeparable (F := F) S)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Subalgebra.mem_perfectClosure_iff",
+    "statement": "A} : x \u2208 perfectClosure R A p \u2194 \u2203 n : \u2115, x ^ p ^ n \u2208 (algebraMap R A).rangeS",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "ExpChar (R \u2297[k] K) q",
+        "body": "expChar_of_injective_ringHom (algebraMap k _).injective q",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "CharZero k",
+        "body": "charZero_of_expChar_one' k",
+        "children": []
+      }
+    ]
+  }
+]

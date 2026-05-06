@@ -1,0 +1,228 @@
+[
+  {
+    "module": "VolumeOfBalls",
+    "name": "MeasureTheory.measure_lt_one_eq_integral_div_gamma",
+    "statement": "\u211d} (hp : 0 < p) : \u03bc {x : E | g x < 1} = .ofReal ((\u222b (x : E), Real.exp (-(g x) ^ p) \u2202\u03bc) / Real.Gamma (finrank \u211d E / p + 1))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "BorelSpace F",
+        "body": "{ measurable_eq := rfl }",
+        "children": [
+          {
+            "name": "_",
+            "type": "@MeasurePreserving E F mE _ \u03c8 \u03bc \u03bd",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "VolumeOfBalls",
+    "name": "MeasureTheory.measure_le_eq_lt",
+    "statement": "\u211d) : \u03bc {x : E | g x \u2264 r} = \u03bc {x : E | g x < r}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "BorelSpace F",
+        "body": "{ measurable_eq := rfl }",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VolumeOfBalls",
+    "name": "MeasureTheory.volume_sum_rpow_lt_one",
+    "statement": "1 \u2264 p) : volume {x : \u03b9 \u2192 \u211d | \u2211 i, |x i| ^ p < 1} = .ofReal ((2 * Gamma (1 / p + 1)) ^ card \u03b9 / Gamma (card \u03b9 / p + 1))",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "0 < p",
+        "body": "by linarith",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fact (1 \u2264 ENNReal.ofReal p)",
+        "body": "fact_iff.mpr (ofReal_one \u25b8 (ofReal_le_ofReal hp))",
+        "children": []
+      },
+      {
+        "name": "nm_neg",
+        "type": "",
+        "body": "fun x : \u03b9 \u2192 \u211d => norm_neg (toLp (.ofReal p) x)",
+        "children": []
+      },
+      {
+        "name": "nm_add",
+        "type": "",
+        "body": "fun x y : \u03b9 \u2192 \u211d => norm_add_le (toLp (.ofReal p) x) (toLp (.ofReal p) y)",
+        "children": []
+      },
+      {
+        "name": "nm_smul",
+        "type": "",
+        "body": "fun (r : \u211d) (x : \u03b9 \u2192 \u211d) =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VolumeOfBalls",
+    "name": "MeasureTheory.volume_sum_rpow_le",
+    "statement": "\u211d} (hp : 1 \u2264 p) (r : \u211d) : volume {x : \u03b9 \u2192 \u211d | (\u2211 i, |x i| ^ p) ^ (1 / p) \u2264 r} = (.ofReal r) ^ card \u03b9 * .ofReal ((2 * Gamma (1 / p + 1)) ^ card \u03b9 / Gamma (card \u03b9 / p + 1))",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "0 < p",
+        "body": "by linarith",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fact (1 \u2264 ENNReal.ofReal p)",
+        "body": "fact_iff.mpr (ofReal_one \u25b8 (ofReal_le_ofReal hp))",
+        "children": []
+      },
+      {
+        "name": "nm_neg",
+        "type": "",
+        "body": "fun x : \u03b9 \u2192 \u211d => norm_neg (toLp (.ofReal p) x)",
+        "children": []
+      },
+      {
+        "name": "nm_add",
+        "type": "",
+        "body": "fun x y : \u03b9 \u2192 \u211d => norm_add_le (toLp (.ofReal p) x) (toLp (.ofReal p) y)",
+        "children": []
+      },
+      {
+        "name": "nm_smul",
+        "type": "",
+        "body": "fun (r : \u211d) (x : \u03b9 \u2192 \u211d) =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VolumeOfBalls",
+    "name": "Complex.volume_sum_rpow_lt_one",
+    "statement": "\u211d} (hp : 1 \u2264 p) : volume {x : \u03b9 \u2192 \u2102 | \u2211 i, \u2016x i\u2016 ^ p < 1} = .ofReal ((\u03c0 * Real.Gamma (2 / p + 1)) ^ card \u03b9 / Real.Gamma (2 * card \u03b9 / p + 1))",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "0 < p",
+        "body": "by linarith",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fact (1 \u2264 ENNReal.ofReal p)",
+        "body": "fact_iff.mpr (ENNReal.ofReal_one \u25b8 (ofReal_le_ofReal hp))",
+        "children": []
+      },
+      {
+        "name": "nm_neg",
+        "type": "",
+        "body": "fun x : \u03b9 \u2192 \u2102 => norm_neg (toLp (.ofReal p) x)",
+        "children": []
+      },
+      {
+        "name": "nm_add",
+        "type": "",
+        "body": "fun x y : \u03b9 \u2192 \u2102 => norm_add_le (toLp (.ofReal p) x) (toLp (.ofReal p) y)",
+        "children": []
+      },
+      {
+        "name": "nm_smul",
+        "type": "",
+        "body": "fun (r : \u211d) (x : \u03b9 \u2192 \u2102) =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VolumeOfBalls",
+    "name": "Complex.volume_sum_rpow_le",
+    "statement": "\u211d} (hp : 1 \u2264 p) (r : \u211d) : volume {x : \u03b9 \u2192 \u2102 | (\u2211 i, \u2016x i\u2016 ^ p) ^ (1 / p) \u2264 r} = (.ofReal r) ^ (2 * card \u03b9) * .ofReal ((\u03c0 * Real.Gamma (2 / p + 1)) ^ card \u03b9 / Real.Gamma (2 * card \u03b9 / p + 1))",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "0 < p",
+        "body": "by linarith",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fact (1 \u2264 ENNReal.ofReal p)",
+        "body": "fact_iff.mpr (ENNReal.ofReal_one \u25b8 (ofReal_le_ofReal hp))",
+        "children": []
+      },
+      {
+        "name": "nm_neg",
+        "type": "",
+        "body": "fun x : \u03b9 \u2192 \u2102 => norm_neg (toLp (.ofReal p) x)",
+        "children": []
+      },
+      {
+        "name": "nm_add",
+        "type": "",
+        "body": "fun x y : \u03b9 \u2192 \u2102 => norm_add_le (toLp (.ofReal p) x) (toLp (.ofReal p) y)",
+        "children": []
+      },
+      {
+        "name": "nm_smul",
+        "type": "",
+        "body": "fun (r : \u211d) (x : \u03b9 \u2192 \u2102) =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VolumeOfBalls",
+    "name": "volume_ball",
+    "statement": "E) (r : \u211d) : volume (Metric.ball x r) = (.ofReal r) ^ finrank \u211d E * .ofReal (\u221a\u03c0 ^ finrank \u211d E / Gamma (finrank \u211d E / 2 + 1))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty (Fin (finrank \u211d E))",
+        "body": "Fin.pos_iff_nonempty.mp finrank_pos",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "EuclideanSpace.volume_ball (Fin (finrank \u211d E)) ((stdOrthonormalBasis \u211d E).repr x) r",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VolumeOfBalls",
+    "name": "volume_ball_of_dim_odd",
+    "statement": "\u2115} (hk : finrank \u211d E = 2 * k + 1) (x : E) (r : \u211d) : volume (ball x r) = .ofReal r ^ finrank \u211d E * .ofReal (\u03c0 ^ k * 2 ^ (k + 1) / (finrank \u211d E : \u2115)\u203c)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial E",
+        "body": "Module.nontrivial_of_finrank_pos (R := \u211d) (hk \u25b8 (2 * k).succ_pos)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "VolumeOfBalls",
+    "name": "volume_closedBall_of_dim_odd",
+    "statement": "\u2115} (hk : finrank \u211d E = 2 * k + 1) (x : E) (r : \u211d) : volume (closedBall x r) = .ofReal r ^ finrank \u211d E * .ofReal (\u03c0 ^ k * 2 ^ (k + 1) / (finrank \u211d E : \u2115)\u203c)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial E",
+        "body": "Module.nontrivial_of_finrank_pos (R := \u211d) (hk \u25b8 (2 * k).succ_pos)",
+        "children": []
+      }
+    ]
+  }
+]

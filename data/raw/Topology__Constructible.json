@@ -1,0 +1,73 @@
+[
+  {
+    "module": "Constructible",
+    "name": "IsRetrocompact.preimage_of_isClosedEmbedding",
+    "statement": "Set Y} (hf : IsClosedEmbedding f) (hf' : IsCompact (range f)\u1d9c) (hs : IsRetrocompact s) : IsRetrocompact (f \u207b\u00b9' s)",
+    "have_tree": [
+      {
+        "name": "hfUopen",
+        "type": "IsOpen (f '' U \u222a (range f)\u1d9c)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hfUcomp",
+        "type": "IsCompact (f '' U \u222a (range f)\u1d9c)",
+        "body": "(hUcomp.image hf.continuous).union hf'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Constructible",
+    "name": "IsConstructible.image_of_isClosedEmbedding",
+    "statement": "IsClosedEmbedding f) (hfcomp : IsRetrocompact (range f)\u1d9c) (hs : IsConstructible s) : IsConstructible (f '' s)",
+    "have_tree": [
+      {
+        "name": "hfU",
+        "type": "IsOpen (f '' U \u222a (range f)\u1d9c)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Constructible",
+    "name": "IsConstructible.induction_of_isTopologicalBasis",
+    "statement": "Type*} [Nonempty \u03b9] (b : \u03b9 \u2192 Set X) (basis : IsTopologicalBasis (range b)) (isCompact_basis : \u2200 i, IsCompact (b i)) (sdiff : \u2200 i s (hs : Set.Finite s), P (b i \\ \u22c3 j \u2208 s, b j) (((isCompact_basis _).isConstructible (basis.isOpen \u27e8i, rfl\u27e9)).sdiff <| .biUnion hs fun _ _ \u21a6 ((isCompact_basis _).isConstructible (basis.isOpen \u27e8_, rfl\u27e9)))) (union : \u2200 s hs t ht, P s hs \u2192 P t ht \u2192 P (s \u222a t) (hs.union ht)) (s : Set X) (hs : IsConstructible s) : P s hs",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isCompact_open_iff_eq_finite_iUnion_of_isTopologicalBasis _ basis isCompact_basis",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Constructible",
+    "name": "IsLocallyConstructible.isConstructible_of_subset_of_isCompact",
+    "statement": "IsLocallyConstructible s) (hst : s \u2286 t) (ht : IsCompact t) : IsConstructible s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsConstructible (V \u2193\u2229 s)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsConstructible (V \u2229 s)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "this.image_of_isOpenEmbedding hV\u2081.isOpenEmbedding_subtypeVal",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,274 @@
+[
+  {
+    "module": "Weierstrass",
+    "name": "\u03c9\u2081_mem_lattice",
+    "statement": "L.\u03c9\u2081 \u2208 L.lattice",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "LinearIndependent.pair_iff.mp L.indep (m - \u03b1) (n - \u03b2)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Weierstrass",
+    "name": "lattice_eq_span_range_basis",
+    "statement": "L.lattice = Submodule.span \u2124 (Set.range L.basis)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finset.univ (\u03b1",
+        "body": "Fin 2) = {0, 1} := rfl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Weierstrass",
+    "name": "weierstrassP_bound",
+    "statement": "\u211d) (hr : 0 < r) (s : \u2102) (hs : \u2016s\u2016 < r) (l : \u2102) (h : 2 * r \u2264 \u2016l\u2016) : \u20161 / (s - l) ^ 2 - 1 / l ^ 2\u2016 \u2264 10 * r * \u2016l\u2016 ^ (-3 : \u211d)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "s \u2260 \u2191l",
+        "body": "by rintro rfl; linarith",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 < \u2016l\u2016",
+        "body": "by linarith",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Weierstrass",
+    "name": "weierstrassPExcept_of_notMem",
+    "statement": "\u2102) (hl : l\u2080 \u2209 L.lattice) : \u2118[L - l\u2080] = \u2118[L]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "l.1 \u2260 l\u2080",
+        "body": "by rintro rfl; simp at hl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Weierstrass",
+    "name": "hasSumLocallyUniformly_derivWeierstrassPExcept",
+    "statement": "\u2102) : HasSumLocallyUniformly (fun (l : L.lattice) (z : \u2102) \u21a6 if l.1 = l\u2080 then 0 else -2 / (z - l) ^ 3) \u2118'[L - l\u2080]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "s \u2260 \u2191l",
+        "body": "by rintro rfl; exfalso; linarith",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "l \u2260 0",
+        "body": "by rintro rfl; simp_all; linarith",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Weierstrass",
+    "name": "differentiableOn_derivWeierstrassPExcept",
+    "statement": "\u2102) : DifferentiableOn \u2102 \u2118'[L - l\u2080] (L.lattice \\ {l\u2080})\u1d9c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x \u2260 i",
+        "body": "by rintro rfl; simp_all",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Weierstrass",
+    "name": "eqOn_deriv_weierstrassPExcept_derivWeierstrassPExcept",
+    "statement": "\u2102) : Set.EqOn (deriv \u2118[L - l\u2080]) \u2118'[L - l\u2080] (L.lattice \\ {l\u2080})\u1d9c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x \u2260 i",
+        "body": "by rintro rfl; simp_all",
+        "children": [
+          {
+            "name": "hl\u2081",
+            "type": "l - x \u2260 0",
+            "body": "fun e \u21a6 hl\u2081 (by",
+            "children": []
+          },
+          {
+            "name": "hl\u2081",
+            "type": "l - x \u2260 0",
+            "body": "fun e \u21a6 hl\u2081 (by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Weierstrass",
+    "name": "weierstrassP_add_coe_aux",
+    "statement": "\u2102) (l : L.lattice) (hl : l.1 / 2 \u2209 L.lattice) : \u2118[L] (z + l) = \u2118[L] z",
+    "have_tree": [
+      {
+        "name": "hl0",
+        "type": "l \u2260 0",
+        "body": "by rintro rfl; simp at hl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Weierstrass",
+    "name": "weierstrassP_add_coe",
+    "statement": "\u2102) (l : L.lattice) : \u2118[L] (z + l) = \u2118[L] z",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "L.lattice \u2264 G.toIntSubmodule",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Weierstrass",
+    "name": "derivWeierstrassPExcept_of_notMem",
+    "statement": "\u2102) (hl : l\u2080 \u2209 L.lattice) : \u2118'[L - l\u2080] = \u2118'[L]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "l.1 \u2260 l\u2080",
+        "body": "by rintro rfl; simp at hl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Weierstrass",
+    "name": "summable_weierstrassPExceptSummand",
+    "statement": "\u2102) (hx : \u2200 l : L.lattice, l.1 \u2260 l\u2080 \u2192 \u2016z - x\u2016 < \u2016l - x\u2016) : Summable (Function.uncurry fun b c \u21a6 L.weierstrassPExceptSummand l\u2080 x b c * (z - x) ^ b)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 l \u2208 L.lattice, l \u2260 l\u2080 \u2192 (\u03ba / 2 + 1) * \u2016z - x\u2016 < dist x l",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "|\u03ba\u207b\u00b9| < 1",
+            "body": "by grind [abs_inv, inv_lt_one_iff\u2080]",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hpx",
+        "type": "\u2016p.2 - x\u2016 \u2260 0",
+        "body": "fun h \u21a6 by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Weierstrass",
+    "name": "hasFPowerSeriesOnBall_weierstrassPExcept",
+    "statement": "\u2102) (r : NNReal) (hr0 : 0 < r) (hr : Metric.closedBall x r \u2286 (L.lattice \\ {l\u2080})\u1d9c) : HasFPowerSeriesOnBall \u2118[L - l\u2080] (L.weierstrassPExceptSeries l\u2080 x) x r",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "L.weierstrassPExceptSeries_hasSum l\u2080 (x + z) x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Weierstrass",
+    "name": "meromorphic_weierstrassP",
+    "statement": "Meromorphic \u2118[L]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(analyticOnNhd_weierstrassPExcept L x x (by simp)).meromorphicAt",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Weierstrass",
+    "name": "order_weierstrassP",
+    "statement": "\u2102) (h : l\u2080 \u2208 L.lattice) : meromorphicOrderAt \u2118[L] l\u2080 = -2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(z - l\u2080) ^ 2 \u2260 0",
+        "body": "by simpa [sub_eq_zero]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Weierstrass",
+    "name": "meromorphic_relation",
+    "statement": "Meromorphic L.relation",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Meromorphic fun z \u21a6 \u2118'[L] z ^ 2 - 4 * \u2118[L] z ^ 3 + L.g\u2082 * \u2118[L] z + L.g\u2083",
+        "body": "by fun_prop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Weierstrass",
+    "name": "analyticAt_relation",
+    "statement": "\u2102) : AnalyticAt \u2102 L.relation x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "L.analyticAt_relation_zero",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "L.analyticOnNhd_derivWeierstrassP _ hx",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "L.analyticOnNhd_weierstrassP _ hx",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Weierstrass",
+    "name": "relation_eq_zero",
+    "statement": "L.relation = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Differentiable \u2102 L.relation",
+        "body": "fun x \u21a6 (L.analyticAt_relation x).differentiableAt",
+        "children": []
+      }
+    ]
+  }
+]

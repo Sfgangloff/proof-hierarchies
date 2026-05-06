@@ -1,0 +1,79 @@
+[
+  {
+    "module": "Bernoulli",
+    "name": "bernoulli'PowerSeries_mul_exp_sub_one",
+    "statement": "bernoulli'PowerSeries A * (exp A - 1) = X * exp A",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "factorial_mul_factorial_dvd_factorial_add i j",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bernoulli",
+    "name": "sum_bernoulli",
+    "statement": "\u2115) : (\u2211 k \u2208 range n, (n.choose k : \u211a) * bernoulli k) = if n = 1 then 1 else 0",
+    "have_tree": [
+      {
+        "name": "f",
+        "type": "",
+        "body": "sum_bernoulli' n.succ.succ",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bernoulli",
+    "name": "bernoulli_spec'",
+    "statement": "\u2115) : (\u2211 k \u2208 antidiagonal n, ((k.1 + k.2).choose k.2 : \u211a) / (k.2 + 1) * bernoulli k.1) = if n = 0 then 1 else 0",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "(1, n) \u2208 antidiagonal n.succ",
+        "body": "by simp [mem_antidiagonal, add_comm]",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "bernoulli'_spec' n.succ",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bernoulli",
+    "name": "sum_range_pow",
+    "statement": "\u2115) : (\u2211 k \u2208 range n, (k : \u211a) ^ p) = \u2211 i \u2208 range (p + 1), bernoulli i * ((p + 1).choose i) * (n : \u211a) ^ (p + 1 - i) / (p + 1)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "m < q + 1",
+        "body": "by simpa using h",
+        "children": []
+      },
+      {
+        "name": "hexp",
+        "type": "exp \u211a - 1 \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bernoulli",
+    "name": "sum_Ico_pow",
+    "statement": "\u2115) : (\u2211 k \u2208 Ico 1 (n + 1), (k : \u211a) ^ p) = \u2211 i \u2208 range (p + 1), bernoulli' i * (p + 1).choose i * (n : \u211a) ^ (p + 1 - i) / (p + 1)",
+    "have_tree": [
+      {
+        "name": "hle",
+        "type": "",
+        "body": "Nat.le_add_left 1 n",
+        "children": []
+      }
+    ]
+  }
+]

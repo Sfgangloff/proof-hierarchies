@@ -1,0 +1,54 @@
+[
+  {
+    "module": "HomologySequence",
+    "name": "opcycles_right_exact",
+    "statement": "ShortComplex (HomologicalComplex C c)) (hS : S.Exact) [Epi S.g] (i : \u03b9) [S.X\u2081.HasHomology i] [S.X\u2082.HasHomology i] [S.X\u2083.HasHomology i] : (ShortComplex.mk (opcyclesMap S.f i) (opcyclesMap S.g i) (by rw [\u2190 opcyclesMap_comp, S.zero, opcyclesMap_zero])).Exact",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Epi (ShortComplex.map S (eval C c i)).g",
+        "body": "by dsimp; infer_instance",
+        "children": []
+      },
+      {
+        "name": "hj",
+        "type": "",
+        "body": "(hS.map (HomologicalComplex.eval C c i)).gIsCokernel",
+        "children": [
+          {
+            "name": "H",
+            "type": "",
+            "body": "CokernelCofork.IsColimit.desc' hj (S.X\u2082.pOpcycles i \u226b k) (by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "HomologySequence",
+    "name": "cycles_left_exact",
+    "statement": "ShortComplex (HomologicalComplex C c)) (hS : S.Exact) [Mono S.f] (i : \u03b9) [S.X\u2081.HasHomology i] [S.X\u2082.HasHomology i] [S.X\u2083.HasHomology i] : (ShortComplex.mk (cyclesMap S.f i) (cyclesMap S.g i) (by rw [\u2190 cyclesMap_comp, S.zero, cyclesMap_zero])).Exact",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Mono (ShortComplex.map S (eval C c i)).f",
+        "body": "by dsimp; infer_instance",
+        "children": []
+      },
+      {
+        "name": "hi",
+        "type": "",
+        "body": "(hS.map (HomologicalComplex.eval C c i)).fIsKernel",
+        "children": [
+          {
+            "name": "H",
+            "type": "",
+            "body": "KernelFork.IsLimit.lift' hi (k \u226b S.X\u2082.iCycles i) (by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

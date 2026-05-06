@@ -1,0 +1,78 @@
+[
+  {
+    "module": "WithVal",
+    "name": "IsEquiv.orderRingIso",
+    "statement": "v.IsEquiv w) : WithVal v \u2243+*o WithVal w where __",
+    "have_tree": [
+      {
+        "name": "hs0'",
+        "type": "0 < Valued.v.restrict (toVal v s)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h'",
+        "type": "v.restrict.IsEquiv w.restrict",
+        "body": "h.restrict",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WithVal",
+    "name": "IsEquiv.uniformContinuous_equiv_symm",
+    "statement": "Valued R \u0393\u2080'] (hv : Valued.v = w) (h : w.IsEquiv v) : UniformContinuous (WithVal.equiv v).symm",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "w.restrict.IsEquiv v.restrict",
+        "body": "h.restrict",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WithVal",
+    "name": "IsEquiv.uniformContinuous",
+    "statement": "v.IsEquiv w) : @UniformContinuous R R (Valued.mk' w).toUniformSpace (Valued.mk' v).toUniformSpace (RingHom.id R)",
+    "have_tree": [
+      {
+        "name": "h_val",
+        "type": "((Valued.mk' v).v).IsEquiv (Valued.mk' w).v",
+        "body": "h",
+        "children": []
+      },
+      {
+        "name": "h_res",
+        "type": "v.restrict.IsEquiv w.restrict",
+        "body": "h_val.restrict",
+        "children": []
+      },
+      {
+        "name": "hy\u2080_ne_zero",
+        "type": "y\u2080 \u2260 0",
+        "body": "by simp [hy\u2080_def]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WithVal",
+    "name": "IsEquiv.uniformContinuous_congr",
+    "statement": "v.IsEquiv w) : UniformContinuous (WithVal.congr v w (.refl R))",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "IsEquiv.uniformContinuous_equiv (hval := Valued.mk' w) rfl h",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "IsEquiv.uniformContinuous_equiv_symm (hval := Valued.mk' v) rfl h",
+        "children": []
+      }
+    ]
+  }
+]

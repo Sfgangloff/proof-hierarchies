@@ -1,0 +1,332 @@
+[
+  {
+    "module": "Jacobian",
+    "name": "exists_closed_cover_approximatesLinearOn_of_hasFDerivWithinAt",
+    "statement": "E \u2192 F) (s : Set E) (f' : E \u2192 E \u2192L[\u211d] F) (hf' : \u2200 x \u2208 s, HasFDerivWithinAt f (f' x) s x) (r : (E \u2192L[\u211d] F) \u2192 \u211d\u22650) (rpos : \u2200 A, r A \u2260 0) : \u2203 (t : \u2115 \u2192 Set E) (A : \u2115 \u2192 E \u2192L[\u211d] F), (\u2200 n, IsClosed (t n)) \u2227 (s \u2286 \u22c3 n, t n) \u2227 (\u2200 n, ApproximatesLinearOn f (A n) (s \u2229 t n) (r (A n))) \u2227 (s.Nonempty \u2192 \u2200 n, \u2203 y \u2208 s, A n = f' y)",
+    "have_tree": [
+      {
+        "name": "s_subset",
+        "type": "\u2200 x \u2208 s, \u2203 (n : \u2115) (z : T), x \u2208 M n z",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "f' x \u2208 \u22c3 z \u2208 T, ball (f' (z : E)) (r (f' z))",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "closure_M_subset",
+        "type": "\u2200 n z, s \u2229 closure (M n z) \u2286 M n z",
+        "body": "by",
+        "children": [
+          {
+            "name": "L",
+            "type": "Tendsto (fun k => f (a k)) atTop (\ud835\udcdd (f x))",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "L2",
+            "type": "Tendsto (fun k : \u2115 => (r (f' z) : \u211d) * \u2016y - a k\u2016) atTop (\ud835\udcdd (r (f' z) * \u2016y - x\u2016))",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "I",
+            "type": "\u2200\u1da0 k in atTop, \u2016f y - f (a k) - (f' z) (y - a k)\u2016 \u2264 r (f' z) * \u2016y - a k\u2016",
+            "body": "by",
+            "children": [
+              {
+                "name": "L",
+                "type": "Tendsto (fun k => dist y (a k)) atTop (\ud835\udcdd (dist y x))",
+                "body": "",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "K_approx",
+        "type": "\u2200 (n) (z : T) (p), ApproximatesLinearOn f (f' z) (s \u2229 K n z p) (r (f' z))",
+        "body": "by",
+        "children": [
+          {
+            "name": "yM",
+            "type": "y \u2208 M n z",
+            "body": "closure_M_subset _ _ \u27e8hy.1, hy.2.1\u27e9",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "K_closed",
+        "type": "\u2200 (n) (z : T) (p), IsClosed (K n z p)",
+        "body": "fun n z p =>",
+        "children": [
+          {
+            "name": "_",
+            "type": "Nonempty T",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Set.Nonempty (ball x (u n / 3))",
+            "body": "by simp only [nonempty_ball]; linarith [u_pos n]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Jacobian",
+    "name": "addHaar_image_le_mul_of_det_lt",
+    "statement": "E \u2192L[\u211d] E) {m : \u211d\u22650} (hm : ENNReal.ofReal |A.det| < m) : \u2200\u1da0 \u03b4 in \ud835\udcdd[>] (0 : \u211d\u22650), \u2200 (s : Set E) (f : E \u2192 E), ApproximatesLinearOn f A s \u03b4 \u2192 \u03bc (f '' s) \u2264 m * \u03bc s",
+    "have_tree": [
+      {
+        "name": "HC",
+        "type": "IsCompact (A '' closedBall 0 1)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "I",
+        "type": "d * \u03bc (closedBall 0 1) < m * \u03bc (closedBall 0 1)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Iio (\u27e8\u03b5, \u03b5pos.le\u27e9 : \u211d\u22650) \u2208 \ud835\udcdd (0 : \u211d\u22650)",
+        "body": "by apply Iio_mem_nhds; exact \u03b5pos",
+        "children": []
+      },
+      {
+        "name": "I",
+        "type": "\u2200 x r, x \u2208 s \u2192 0 \u2264 r \u2192 \u03bc (f '' (s \u2229 closedBall x r)) \u2264 m * \u03bc (closedBall x r)",
+        "body": "by",
+        "children": [
+          {
+            "name": "K",
+            "type": "f '' (s \u2229 closedBall x r) \u2286 A '' closedBall 0 r + closedBall (f x) (\u03b5 * r)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "J",
+        "type": "\u2200\u1da0 a in \ud835\udcdd[>] (0 : \u211d\u22650\u221e), \u03bc (f '' s) \u2264 m * (\u03bc s + a)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "L",
+        "type": "Tendsto (fun a => (m : \u211d\u22650\u221e) * (\u03bc s + a)) (\ud835\udcdd[>] 0) (\ud835\udcdd (m * (\u03bc s + 0)))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Jacobian",
+    "name": "aemeasurable_fderivWithin",
+    "statement": "MeasurableSet s) (hf' : \u2200 x \u2208 s, HasFDerivWithinAt f (f' x) s x) : AEMeasurable f' (\u03bc.restrict s)",
+    "have_tree": [
+      {
+        "name": "\u03b4pos",
+        "type": "0 < \u03b4",
+        "body": "\u03b5pos",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u03bc.restrict s \u2264 sum fun n => \u03bc.restrict (s \u2229 t n)",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "s = \u22c3 n, s \u2229 t n",
+                "body": "by",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "E\u2081",
+        "type": "\u2200\u1d50 x : E \u2202\u03bc.restrict (s \u2229 t n), \u2016f' x - A n\u2016\u208a \u2264 \u03b4",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "E\u2082",
+        "type": "\u2200\u1d50 x : E \u2202\u03bc.restrict (s \u2229 t n), g x = A n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Jacobian",
+    "name": "nullMeasurable_image_of_fderivWithin",
+    "statement": "NullMeasurableSet s \u03bc) (hf' : \u2200 x \u2208 s, HasFDerivWithinAt f (f' x) s x) (hf : InjOn f s) : NullMeasurableSet (f '' s) \u03bc",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "f '' s =\u1d50[\u03bc] f '' t",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "s = t \u222a (s \\ t)",
+            "body": "by simp [union_eq_self_of_subset_left ts]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Jacobian",
+    "name": "addHaar_image_le_lintegral_abs_det_fderiv_aux1",
+    "statement": "MeasurableSet s) (hf' : \u2200 x \u2208 s, HasFDerivWithinAt f (f' x) s x) {\u03b5 : \u211d\u22650} (\u03b5pos : 0 < \u03b5) : \u03bc (f '' s) \u2264 (\u222b\u207b x in s, ENNReal.ofReal |(f' x).det| \u2202\u03bc) + 2 * \u03b5 * \u03bc s",
+    "have_tree": [
+      {
+        "name": "I",
+        "type": "ENNReal.ofReal |A.det| < m",
+        "body": "by",
+        "children": [
+          {
+            "name": "I",
+            "type": "|(A n).det| \u2264 |(f' x).det| + \u03b5",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "M",
+            "type": "\u2200 n : \u2115, MeasurableSet (s \u2229 t n)",
+            "body": "fun n => hs.inter (t_meas n)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Jacobian",
+    "name": "addHaar_image_le_lintegral_abs_det_fderiv",
+    "statement": "MeasurableSet s) (hf' : \u2200 x \u2208 s, HasFDerivWithinAt f (f' x) s x) : \u03bc (f '' s) \u2264 \u222b\u207b x in s, ENNReal.ofReal |(f' x).det| \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "u_meas",
+        "type": "\u2200 n, MeasurableSet (u n)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "s = \u22c3 n, s \u2229 u n",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u03bc (u n) < \u221e",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Jacobian",
+    "name": "lintegral_abs_det_fderiv_le_addHaar_image_aux1",
+    "statement": "MeasurableSet s) (hf' : \u2200 x \u2208 s, HasFDerivWithinAt f (f' x) s x) (hf : InjOn f s) {\u03b5 : \u211d\u22650} (\u03b5pos : 0 < \u03b5) : (\u222b\u207b x in s, ENNReal.ofReal |(f' x).det| \u2202\u03bc) \u2264 \u03bc (f '' s) + 2 * \u03b5 * \u03bc s",
+    "have_tree": [
+      {
+        "name": "I''",
+        "type": "\u2200 B : E \u2192L[\u211d] E, \u2016B - A\u2016 \u2264 \u2191\u03b4'' \u2192 |B.det - A.det| \u2264 \u2191\u03b5",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "I",
+        "type": "(m : \u211d\u22650\u221e) < ENNReal.ofReal |A.det|",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "h t g (htg.mono_num (min_le_left _ _))",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "s_eq",
+        "type": "s = \u22c3 n, s \u2229 t n",
+        "body": "by",
+        "children": [
+          {
+            "name": "I",
+            "type": "|(f' x).det| \u2264 |(A n).det| + \u03b5",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Jacobian",
+    "name": "lintegral_abs_det_fderiv_le_addHaar_image",
+    "statement": "MeasurableSet s) (hf' : \u2200 x \u2208 s, HasFDerivWithinAt f (f' x) s x) (hf : InjOn f s) : (\u222b\u207b x in s, ENNReal.ofReal |(f' x).det| \u2202\u03bc) \u2264 \u03bc (f '' s)",
+    "have_tree": [
+      {
+        "name": "u_meas",
+        "type": "\u2200 n, MeasurableSet (u n)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "s = \u22c3 n, s \u2229 u n",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u03bc (u n) < \u221e",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Jacobian",
+    "name": "lintegral_abs_det_fderiv_eq_addHaar_image\u2080",
+    "statement": "NullMeasurableSet s \u03bc) (hf' : \u2200 x \u2208 s, HasFDerivWithinAt f (f' x) s x) (hf : InjOn f s) : (\u222b\u207b x in s, ENNReal.ofReal |(f' x).det| \u2202\u03bc) = \u03bc (f '' s)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u03bc (f '' s) = \u03bc (f '' t)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "s = t \u222a (s \\ t)",
+            "body": "by simp [union_eq_self_of_subset_left ts]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

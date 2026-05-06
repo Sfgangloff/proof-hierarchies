@@ -1,0 +1,72 @@
+[
+  {
+    "module": "Basic",
+    "name": "FinrankQuotientMap.span_eq_top",
+    "statement": "p \u2260 \u22a4) (b : Set S) (hb' : Submodule.span R b \u2294 (p.map (algebraMap R S)).restrictScalars R = \u22a4) : Submodule.span K (algebraMap S L '' b) = \u22a4",
+    "have_tree": [
+      {
+        "name": "hRL",
+        "type": "Function.Injective (algebraMap R L)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "smul_top_eq",
+        "type": "p \u2022 (\u22a4 : Submodule R (S \u29f8 M)) = \u22a4",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "exists_sum",
+        "type": "\u2200 x : S \u29f8 M, \u2203 a' : Fin n \u2192 R, (\u2200 i, a' i \u2208 p) \u2227 \u2211 i, a' i \u2022 a i = x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "A_smul",
+        "type": "\u2200 i, \u2211 j, A i j \u2022 a j = 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "d_smul",
+        "type": "\u2200 i, A.det \u2022 a i = 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "span_d",
+        "type": "(Submodule.span S ({algebraMap R S A.det} : Set S)).restrictScalars R \u2264 M",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Ideal.Quotient.nontrivial_iff.mpr hp",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "quotientToQuotientRangePowQuotSucc_surjective",
+    "statement": "P \u2260 \u22a5) [hP : P.IsPrime] {i : \u2115} (hi : i < e) {a : S} (a_mem : a \u2208 P ^ i) (a_notMem : a \u2209 P ^ (i + 1)) : Function.Surjective (quotientToQuotientRangePowQuotSucc p P a_mem)",
+    "have_tree": [
+      {
+        "name": "Pe_le_Pi",
+        "type": "P ^ e \u2264 P ^ i",
+        "body": "Ideal.pow_le_pow_right hi.le",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(P ^ (i + 1)).zero_mem",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

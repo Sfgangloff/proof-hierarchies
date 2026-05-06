@@ -1,0 +1,77 @@
+[
+  {
+    "module": "ContMDiffMFDeriv",
+    "name": "ContMDiffWithinAt.mfderivWithin",
+    "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : ContMDiffWithinAt (J.prod I) I' n (Function.uncurry f) (t \u00d7\u02e2 u) (x\u2080, g x\u2080)) (hg : ContMDiffWithinAt J I m g t x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : ContMDiffWithinAt J \ud835\udcd8(\ud835\udd5c, E \u2192L[\ud835\udd5c] E') m (inTangentCoordinates I I' g (fun x => f x (g x)) (fun x => mfderivWithin I I' (f x) u (g x)) x\u2080) t x\u2080",
+    "have_tree": [
+      {
+        "name": "ht't",
+        "type": "t' \u2286 t",
+        "body": "inter_subset_left",
+        "children": []
+      },
+      {
+        "name": "hx\u2080gx\u2080",
+        "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+        "body": "by simp [hx\u2080, hu hx\u2080]",
+        "children": []
+      },
+      {
+        "name": "h4f",
+        "type": "ContinuousWithinAt (fun x => f x (g x)) t x\u2080",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h4f",
+        "type": "",
+        "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+        "children": []
+      },
+      {
+        "name": "h3f",
+        "type": "",
+        "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+        "children": []
+      },
+      {
+        "name": "h2f",
+        "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, ContMDiffWithinAt I I' 1 (f x\u2082) u (g x\u2082)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "MapsTo (fun x \u21a6 (x, g x)) t (t \u00d7\u02e2 u)",
+            "body": "fun y hy \u21a6 by simp [hy, hu hy]",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h2g",
+        "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+        "body": "",
+        "children": [
+          {
+            "name": "hf'",
+            "type": "",
+            "body": "hf.mono (prod_mono_left ht't)",
+            "children": []
+          },
+          {
+            "name": "hg'",
+            "type": "",
+            "body": "hg.mono (show t' \u2286 t from inter_subset_left)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h1",
+        "type": "g x \u2208 u",
+        "body": "hu hxt",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,301 @@
+[
+  {
+    "module": "WeierstrassPreparation",
+    "name": "coeff_f_sub_r_mem",
+    "statement": "f.IsWeierstrassDivisionAt g q r I) {i : \u2115} (hi : i < (g.map (Ideal.Quotient.mk I)).order.toNat) : coeff i (f - r : A\u27e6X\u27e7) \u2208 I",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "coeff_of_lt_order_toNat _ (lt_of_le_of_lt hj hi)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeierstrassPreparation",
+    "name": "IsWeierstrassDivisor.of_map_ne_zero",
+    "statement": "g.map (IsLocalRing.residue A) \u2260 0) : g.IsWeierstrassDivisor",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "coeff_order hg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeierstrassPreparation",
+    "name": "seq",
+    "statement": "g.IsWeierstrassDivisorAt I) (f : A\u27e6X\u27e7) : \u2115 \u2192 A\u27e6X\u27e7 | 0 => 0 | k + 1 => H.seq f k + (mk fun i \u21a6 coeff (i + (g.map (Ideal.Quotient.mk I)).order.toNat) (f - g * H.seq f k)) * H.isUnit_shift.unit\u207b\u00b9  variable (a : A) (f f' : A\u27e6X\u27e7)  theorem coeff_seq_mem (k : \u2115) {i : \u2115} (hi : i \u2265 (g.map (Ideal.Quotient.mk I)).order.toNat) : coeff i (f - g * H.seq f k) \u2208 I ^ k",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "",
+        "body": "s.eq_X_pow_mul_shift_add_trunc n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeierstrassPreparation",
+    "name": "eq_zero_of_mul_eq",
+    "statement": "A\u27e6X\u27e7} {r : A[X]} (hdeg : r.degree < (g.map (Ideal.Quotient.mk I)).order.toNat) (heq : g * q = r) : q = 0 \u2227 r = 0",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "\u2200 i, coeff i r \u2208 I ^ (k + 1)",
+        "body": "fun i \u21a6 by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeierstrassPreparation",
+    "name": "eq_of_mul_add_eq_mul_add",
+    "statement": "A\u27e6X\u27e7} {r r' : A[X]} (hr : r.degree < (g.map (Ideal.Quotient.mk I)).order.toNat) (hr' : r'.degree < (g.map (Ideal.Quotient.mk I)).order.toNat) (heq : g * q + r = g * q' + r') : q = q' \u2227 r = r'",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "H.eq_zero_of_mul_eq (lt_of_le_of_lt (r'.degree_sub_le r) (max_lt hr' hr)) heq",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeierstrassPreparation",
+    "name": "div_add",
+    "statement": "H.div (f + f') = H.div f + H.div f'",
+    "have_tree": [
+      {
+        "name": "H1",
+        "type": "",
+        "body": "(H.isWeierstrassDivisionAt_div_mod f).add (H.isWeierstrassDivisionAt_div_mod f')",
+        "children": []
+      },
+      {
+        "name": "H2",
+        "type": "",
+        "body": "H.isWeierstrassDivisionAt_div_mod (f + f')",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeierstrassPreparation",
+    "name": "div_smul",
+    "statement": "H.div (a \u2022 f) = a \u2022 H.div f",
+    "have_tree": [
+      {
+        "name": "H1",
+        "type": "",
+        "body": "(H.isWeierstrassDivisionAt_div_mod f).smul a",
+        "children": []
+      },
+      {
+        "name": "H2",
+        "type": "",
+        "body": "H.isWeierstrassDivisionAt_div_mod (a \u2022 f)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeierstrassPreparation",
+    "name": "mod_add",
+    "statement": "H.mod (f + f') = H.mod f + H.mod f'",
+    "have_tree": [
+      {
+        "name": "H1",
+        "type": "",
+        "body": "(H.isWeierstrassDivisionAt_div_mod f).add (H.isWeierstrassDivisionAt_div_mod f')",
+        "children": []
+      },
+      {
+        "name": "H2",
+        "type": "",
+        "body": "H.isWeierstrassDivisionAt_div_mod (f + f')",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeierstrassPreparation",
+    "name": "mod_smul",
+    "statement": "H.mod (a \u2022 f) = a \u2022 H.mod f",
+    "have_tree": [
+      {
+        "name": "H1",
+        "type": "",
+        "body": "(H.isWeierstrassDivisionAt_div_mod f).smul a",
+        "children": []
+      },
+      {
+        "name": "H2",
+        "type": "",
+        "body": "H.isWeierstrassDivisionAt_div_mod (a \u2022 f)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeierstrassPreparation",
+    "name": "_root_.Polynomial.IsDistinguishedAt.algEquivQuotient",
+    "statement": "(A[X] \u29f8 Ideal.span {g}) \u2243\u2090[A] A\u27e6X\u27e7 \u29f8 Ideal.span {(g : A\u27e6X\u27e7)} where __",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Subsingleton (A[X] \u29f8 Ideal.span {g})",
+        "body": "Quot.Subsingleton",
+        "children": []
+      },
+      {
+        "name": "hI",
+        "type": "I \u2260 \u22a4",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Ideal.Quotient.nontrivial_iff.mpr hI",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeierstrassPreparation",
+    "name": "map_ne_zero_of_ne_top",
+    "statement": "I \u2260 \u22a4) : g.map (Ideal.Quotient.mk I) \u2260 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Ideal.Quotient.nontrivial_iff.mpr hI",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeierstrassPreparation",
+    "name": "IsWeierstrassDivision.isWeierstrassFactorization",
+    "statement": "A\u27e6X\u27e7} {r : A[X]} (hg : g.map (IsLocalRing.residue A) \u2260 0) (H : (X ^ (g.map (IsLocalRing.residue A)).order.toNat).IsWeierstrassDivision g q r) : g.IsWeierstrassFactorization (Polynomial.X ^ (g.map (IsLocalRing.residue A)).order.toNat - r) \u2191(H.isUnit_of_map_ne_zero hg).unit\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "H1",
+        "type": "r.degree < (g.map (IsLocalRing.residue A)).order.toNat",
+        "body": "H.1",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "H.coeff_f_sub_r_mem hi",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "WeierstrassPreparation",
+    "name": "weierstrassDistinguished_mul",
+    "statement": "(g * g').map (IsLocalRing.residue A) \u2260 0) : (g * g').weierstrassDistinguished hg = g.weierstrassDistinguished (fun h \u21a6 hg (by simp [h])) * g'.weierstrassDistinguished (fun h \u21a6 hg (by simp [h]))",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "g.isWeierstrassFactorization_weierstrassDistinguished_weierstrassUnit",
+        "children": []
+      },
+      {
+        "name": "H'",
+        "type": "",
+        "body": "g'.isWeierstrassFactorization_weierstrassDistinguished_weierstrassUnit",
+        "children": []
+      },
+      {
+        "name": "H''",
+        "type": "",
+        "body": "(g * g').isWeierstrassFactorization_weierstrassDistinguished_weierstrassUnit hg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeierstrassPreparation",
+    "name": "weierstrassUnit_mul",
+    "statement": "(g * g').map (IsLocalRing.residue A) \u2260 0) : (g * g').weierstrassUnit hg = g.weierstrassUnit (fun h \u21a6 hg (by simp [h])) * g'.weierstrassUnit (fun h \u21a6 hg (by simp [h]))",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "g.isWeierstrassFactorization_weierstrassDistinguished_weierstrassUnit",
+        "children": []
+      },
+      {
+        "name": "H'",
+        "type": "",
+        "body": "g'.isWeierstrassFactorization_weierstrassDistinguished_weierstrassUnit",
+        "children": []
+      },
+      {
+        "name": "H''",
+        "type": "",
+        "body": "(g * g').isWeierstrassFactorization_weierstrassDistinguished_weierstrassUnit hg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeierstrassPreparation",
+    "name": "weierstrassDistinguished_smul",
+    "statement": "(a \u2022 g).map (IsLocalRing.residue A) \u2260 0) : (a \u2022 g).weierstrassDistinguished hg = g.weierstrassDistinguished (fun h \u21a6 hg (by simp [Algebra.smul_def, h]))",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "g.isWeierstrassFactorization_weierstrassDistinguished_weierstrassUnit",
+        "children": []
+      },
+      {
+        "name": "H'",
+        "type": "",
+        "body": "(a \u2022 g).isWeierstrassFactorization_weierstrassDistinguished_weierstrassUnit hg",
+        "children": []
+      },
+      {
+        "name": "ha",
+        "type": "IsLocalRing.residue A a \u2260 0",
+        "body": "fun h \u21a6 hg (by simp [Algebra.smul_def, h])",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeierstrassPreparation",
+    "name": "weierstrassUnit_smul",
+    "statement": "(a \u2022 g).map (IsLocalRing.residue A) \u2260 0) : (a \u2022 g).weierstrassUnit hg = a \u2022 g.weierstrassUnit (fun h \u21a6 hg (by simp [Algebra.smul_def, h]))",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "g.isWeierstrassFactorization_weierstrassDistinguished_weierstrassUnit",
+        "children": []
+      },
+      {
+        "name": "H'",
+        "type": "",
+        "body": "(a \u2022 g).isWeierstrassFactorization_weierstrassDistinguished_weierstrassUnit hg",
+        "children": []
+      },
+      {
+        "name": "ha",
+        "type": "IsLocalRing.residue A a \u2260 0",
+        "body": "fun h \u21a6 hg (by simp [Algebra.smul_def, h])",
+        "children": []
+      }
+    ]
+  }
+]

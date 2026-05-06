@@ -1,0 +1,87 @@
+[
+  {
+    "module": "Basic",
+    "name": "length_take_of_le_length",
+    "statement": "Seq \u03b1} {n : \u2115} (hle : \u2200 h : s.Terminates, n \u2264 s.length h) : (s.take n).length = n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "lt_length_iff'.1 (fun ht => (Nat.lt_of_succ_le (hle ht)))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "of_mem_append",
+    "statement": "Seq \u03b1} {a : \u03b1} (h : a \u2208 append s\u2081 s\u2082) : a \u2208 s\u2081 \u2228 a \u2208 s\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h; revert this",
+        "children": [
+          {
+            "name": "this",
+            "type": "",
+            "body": "congr_arg destruct e",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "all_coind",
+    "statement": "Seq \u03b1} {p : \u03b1 \u2192 Prop} (motive : Seq \u03b1 \u2192 Prop) (base : motive s) (step : \u2200 hd tl, motive (.cons hd tl) \u2192 p hd \u2227 motive tl) : \u2200 x \u2208 s, p x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "all_coind_drop_motive motive base (fun hd tl ih \u21a6 (step hd tl ih).right) n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Pairwise.coind",
+    "statement": "\u03b1 \u2192 \u03b1 \u2192 Prop} {s : Seq \u03b1} (motive : Seq \u03b1 \u2192 Prop) (base : motive s) (step : \u2200 hd tl, motive (.cons hd tl) \u2192 (\u2200 x \u2208 tl, R hd x) \u2227 motive tl) : Pairwise R s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "all_coind_drop_motive motive base (fun hd tl ih \u21a6 (step hd tl ih).right) i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Pairwise.coind_trans",
+    "statement": "\u03b1 \u2192 \u03b1 \u2192 Prop} [IsTrans \u03b1 R] {s : Seq \u03b1} (motive : Seq \u03b1 \u2192 Prop) (base : motive s) (step : \u2200 hd tl, motive (.cons hd tl) \u2192 (\u2200 x \u2208 tl.head, R hd x) \u2227 motive tl) : Pairwise R s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "all_coind_drop_motive motive base (fun hd tl ih \u21a6 (step hd tl ih).right)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "at_least_as_long_as_coind",
+    "statement": "Seq \u03b1} {b : Seq \u03b2} (motive : Seq \u03b1 \u2192 Seq \u03b2 \u2192 Prop) (base : motive a b) (step : \u2200 a b, motive a b \u2192 (\u2200 b_hd b_tl, (b = .cons b_hd b_tl) \u2192 \u2203 a_hd a_tl, a = .cons a_hd a_tl \u2227 motive a_tl b_tl)) : b.length' \u2264 a.length'",
+    "have_tree": [
+      {
+        "name": "hb_cons",
+        "type": "b.drop (a.length ha) \u2260 .nil",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

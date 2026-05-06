@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Basic",
+    "name": "card_fiber_eq_of_iso",
+    "statement": "C} (i : X \u2245 Y) : Nat.card (F.obj X) = Nat.card (F.obj Y)",
+    "have_tree": [
+      {
+        "name": "e",
+        "type": "F.obj X \u2243 F.obj Y",
+        "body": "Iso.toEquiv (mapIso (F \u22d9 FintypeCat.incl) i)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "surjective_of_nonempty_fiber_of_isConnected",
+    "statement": "C} [Nonempty (F.obj X)] [IsConnected A] (f : X \u27f6 A) : Function.Surjective (F.map f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Epi f",
+        "body": "epi_of_nonempty_of_isConnected F f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isIso_of_mono_of_eq_card_fiber",
+    "statement": "C} (f : X \u27f6 Y) [Mono f] (h : Nat.card (F.obj X) = Nat.card (F.obj Y)) : IsIso f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso (F.map f)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "card_aut_le_card_fiber_of_connected",
+    "statement": "C) [IsConnected A] : Nat.card (Aut A) \u2264 Nat.card (F.obj A)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "Nonempty (F.obj A)",
+        "body": "inferInstance",
+        "children": []
+      }
+    ]
+  }
+]

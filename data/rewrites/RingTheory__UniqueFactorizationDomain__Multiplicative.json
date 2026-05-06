@@ -1,0 +1,149 @@
+[
+  {
+    "original": {
+      "module": "Multiplicative",
+      "name": "prime_pow_coprime_prod_of_coprime_insert",
+      "statement": "Finset \u03b1} (i : \u03b1 \u2192 \u2115) (p : \u03b1) (hps : p \u2209 s) (is_prime : \u2200 q \u2208 insert p s, Prime q) (is_coprime : \u2200\u1d49 (q \u2208 insert p s) (q' \u2208 insert p s), q \u2223 q' \u2192 q = q') : IsRelPrime (p ^ i p) (\u220f p' \u2208 s, p' ^ i p')",
+      "have_tree": [
+        {
+          "name": "hp",
+          "type": "",
+          "body": "is_prime _ (Finset.mem_insert_self _ _)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "p \u2223 q",
+          "body": "dvd_trans (hd.irreducible.dvd_symm hp.irreducible hdp) hdq",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Multiplicative",
+          "name": "prime_pow_coprime_prod_of_coprime_insert",
+          "statement": "Finset \u03b1} (i : \u03b1 \u2192 \u2115) (p : \u03b1) (hps : p \u2209 s) (is_prime : \u2200 q \u2208 insert p s, Prime q) (is_coprime : \u2200\u1d49 (q \u2208 insert p s) (q' \u2208 insert p s), q \u2223 q' \u2192 q = q') : IsRelPrime (p ^ i p) (\u220f p' \u2208 s, p' ^ i p')",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "p \u2223 q",
+              "body": "dvd_trans (hd.irreducible.dvd_symm hp.irreducible hdp) hdq",
+              "children": []
+            },
+            {
+              "name": "hp",
+              "type": "",
+              "body": "is_prime _ (Finset.mem_insert_self _ _)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Multiplicative",
+      "name": "multiplicative_prime_power",
+      "statement": "\u03b1 \u2192 \u03b2} (s : Finset \u03b1) (i j : \u03b1 \u2192 \u2115) (is_prime : \u2200 p \u2208 s, Prime p) (is_coprime : \u2200\u1d49 (p \u2208 s) (q \u2208 s), p \u2223 q \u2192 p = q) (h1 : \u2200 {x y}, IsUnit y \u2192 f (x * y) = f x * f y) (hpr : \u2200 {p} (i : \u2115), Prime p \u2192 f (p ^ i) = f p ^ i) (hcp : \u2200 {x y}, IsRelPrime x y \u2192 f (x * y) = f x * f y) : f (\u220f p \u2208 s, p ^ (i p + j p)) = f (\u220f p \u2208 s, p ^ i p) * f (\u220f p \u2208 s, p ^ j p)",
+      "have_tree": [
+        {
+          "name": "hpr_p",
+          "type": "",
+          "body": "is_prime _ (Finset.mem_insert_self _ _)",
+          "children": []
+        },
+        {
+          "name": "hpr_s",
+          "type": "\u2200 p \u2208 s, Prime p",
+          "body": "fun p hp => is_prime _ (Finset.mem_insert_of_mem hp)",
+          "children": []
+        },
+        {
+          "name": "hcp_p",
+          "type": "",
+          "body": "fun i => prime_pow_coprime_prod_of_coprime_insert i p hps is_prime is_coprime",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Multiplicative",
+          "name": "multiplicative_prime_power",
+          "statement": "\u03b1 \u2192 \u03b2} (s : Finset \u03b1) (i j : \u03b1 \u2192 \u2115) (is_prime : \u2200 p \u2208 s, Prime p) (is_coprime : \u2200\u1d49 (p \u2208 s) (q \u2208 s), p \u2223 q \u2192 p = q) (h1 : \u2200 {x y}, IsUnit y \u2192 f (x * y) = f x * f y) (hpr : \u2200 {p} (i : \u2115), Prime p \u2192 f (p ^ i) = f p ^ i) (hcp : \u2200 {x y}, IsRelPrime x y \u2192 f (x * y) = f x * f y) : f (\u220f p \u2208 s, p ^ (i p + j p)) = f (\u220f p \u2208 s, p ^ i p) * f (\u220f p \u2208 s, p ^ j p)",
+          "have_tree": [
+            {
+              "name": "hpr_s",
+              "type": "\u2200 p \u2208 s, Prime p",
+              "body": "fun p hp => is_prime _ (Finset.mem_insert_of_mem hp)",
+              "children": []
+            },
+            {
+              "name": "hpr_p",
+              "type": "",
+              "body": "is_prime _ (Finset.mem_insert_self _ _)",
+              "children": []
+            },
+            {
+              "name": "hcp_p",
+              "type": "",
+              "body": "fun i => prime_pow_coprime_prod_of_coprime_insert i p hps is_prime is_coprime",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Multiplicative",
+          "name": "multiplicative_prime_power",
+          "statement": "\u03b1 \u2192 \u03b2} (s : Finset \u03b1) (i j : \u03b1 \u2192 \u2115) (is_prime : \u2200 p \u2208 s, Prime p) (is_coprime : \u2200\u1d49 (p \u2208 s) (q \u2208 s), p \u2223 q \u2192 p = q) (h1 : \u2200 {x y}, IsUnit y \u2192 f (x * y) = f x * f y) (hpr : \u2200 {p} (i : \u2115), Prime p \u2192 f (p ^ i) = f p ^ i) (hcp : \u2200 {x y}, IsRelPrime x y \u2192 f (x * y) = f x * f y) : f (\u220f p \u2208 s, p ^ (i p + j p)) = f (\u220f p \u2208 s, p ^ i p) * f (\u220f p \u2208 s, p ^ j p)",
+          "have_tree": [
+            {
+              "name": "hpr_p",
+              "type": "",
+              "body": "is_prime _ (Finset.mem_insert_self _ _)",
+              "children": []
+            },
+            {
+              "name": "hcp_p",
+              "type": "",
+              "body": "fun i => prime_pow_coprime_prod_of_coprime_insert i p hps is_prime is_coprime",
+              "children": []
+            },
+            {
+              "name": "hpr_s",
+              "type": "\u2200 p \u2208 s, Prime p",
+              "body": "fun p hp => is_prime _ (Finset.mem_insert_of_mem hp)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

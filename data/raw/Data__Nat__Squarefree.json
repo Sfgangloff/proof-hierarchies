@@ -1,0 +1,327 @@
+[
+  {
+    "module": "Squarefree",
+    "name": "Squarefree.ext_iff",
+    "statement": "\u2115} (hn : Squarefree n) (hm : Squarefree m) : n = m \u2194 \u2200 p, Prime p \u2192 (p \u2223 n \u2194 p \u2223 m)",
+    "have_tree": [
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "hn.natFactorization_le_one p",
+        "children": []
+      },
+      {
+        "name": "h\u2083",
+        "type": "",
+        "body": "hm.natFactorization_le_one p",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Squarefree",
+    "name": "squarefree_pow_iff",
+    "statement": "\u2115} (hn : n \u2260 1) (hk : k \u2260 0) : Squarefree (n ^ k) \u2194 Squarefree n \u2227 k = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "2 \u2264 k",
+        "body": "k.two_le_iff.mpr \u27e8hk, h\u2081\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Squarefree",
+    "name": "minSqFacAux",
+    "statement": "\u2115 \u2192 \u2115 \u2192 Option \u2115 | n, k => if h : n < k * k then none else have : Nat.sqrt n - k < Nat.sqrt n + 2 - k",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nat.sqrt n' - k < Nat.sqrt n + 2 - k",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Squarefree",
+    "name": "MinSqFacProp",
+    "statement": "\u2115) : Option \u2115 \u2192 Prop | none => Squarefree n | some d => Prime d \u2227 d * d \u2223 n \u2227 \u2200 p, Prime p \u2192 p * p \u2223 n \u2192 d \u2264 p  theorem minSqFacProp_div (n) {k} (pk : Prime k) (dk : k \u2223 n) (dkk : \u00ack * k \u2223 n) {o} (H : MinSqFacProp (n / k) o) : MinSqFacProp n o",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 p, Prime p \u2192 p * p \u2223 n \u2192 k * (p * p) \u2223 n",
+        "body": "fun p pp dp =>",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Squarefree",
+    "name": "minSqFacAux_has_prop",
+    "statement": "\u2115} (k) (n0 : 0 < n) (i) (e : k = 2 * i + 3) (ih : \u2200 m, Prime m \u2192 m \u2223 n \u2192 k \u2264 m) : MinSqFacProp n (minSqFacAux n k)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ih p pp (dvd_trans \u27e8_, rfl\u27e9 d)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.mul_le_mul this this",
+        "children": []
+      },
+      {
+        "name": "k2",
+        "type": "2 \u2264 k",
+        "body": "by lia",
+        "children": []
+      },
+      {
+        "name": "k0",
+        "type": "0 < k",
+        "body": "lt_of_lt_of_le (by decide) k2",
+        "children": []
+      },
+      {
+        "name": "IH",
+        "type": "\u2200 n', n' \u2223 n \u2192 \u00ack \u2223 n' \u2192 MinSqFacProp n' (n'.minSqFacAux (k + 2))",
+        "body": "by",
+        "children": [
+          {
+            "name": "hn'",
+            "type": "",
+            "body": "le_of_dvd n0 nd'",
+            "children": [
+              {
+                "name": "_",
+                "type": "Nat.sqrt n' - k < Nat.sqrt n + 2 - k",
+                "body": "",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "ih _ prime_two (dvd_trans (dvd_of_mul_right_dvd d) nd')",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "pk",
+        "type": "k \u2223 n \u2192 Prime k",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Squarefree",
+    "name": "minSqFac_prime",
+    "statement": "\u2115} (h : n.minSqFac = some d) : Prime d",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "minSqFac_has_prop n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Squarefree",
+    "name": "minSqFac_dvd",
+    "statement": "\u2115} (h : n.minSqFac = some d) : d * d \u2223 n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "minSqFac_has_prop n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Squarefree",
+    "name": "minSqFac_le_of_dvd",
+    "statement": "\u2115} (h : n.minSqFac = some d) {m} (m2 : 2 \u2264 m) (md : m * m \u2223 n) : d \u2264 m",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "minSqFac_has_prop n; rw [h] at this",
+        "children": []
+      },
+      {
+        "name": "fd",
+        "type": "",
+        "body": "minFac_dvd m",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Squarefree",
+    "name": "squarefree_iff_minSqFac",
+    "statement": "\u2115} : Squarefree n \u2194 n.minSqFac = none",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "minSqFac_has_prop n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Squarefree",
+    "name": "divisors_filter_squarefree",
+    "statement": "\u2115} (h0 : n \u2260 0) : {d \u2208 n.divisors | Squarefree d}.val = (UniqueFactorizationMonoid.normalizedFactors n).toFinset.powerset.val.map fun x => x.val.prod",
+    "have_tree": [
+      {
+        "name": "hs0",
+        "type": "s.val.prod \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Squarefree",
+    "name": "sq_mul_squarefree_of_pos",
+    "statement": "\u2115} (hn : 0 < n) : \u2203 a b : \u2115, 0 < a \u2227 0 < b \u2227 b ^ 2 * a = n \u2227 Squarefree a",
+    "have_tree": [
+      {
+        "name": "hSne",
+        "type": "S.Nonempty",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hs",
+        "type": "s \u2208 S",
+        "body": "Finset.max'_mem S hSne",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Squarefree",
+    "name": "coprime_div_gcd_of_squarefree",
+    "statement": "Squarefree m) (hn : n \u2260 0) : Coprime (m / gcd m n) n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Coprime (m / gcd m n) (gcd m n)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Squarefree",
+    "name": "primeFactors_prod",
+    "statement": "\u2200 p \u2208 s, p.Prime) : primeFactors (\u220f p \u2208 s, p) = s",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "\u220f p \u2208 s, p \u2260 0",
+        "body": "prod_ne_zero_iff.2 fun p hp \u21a6 (hs _ hp).ne_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Squarefree",
+    "name": "primeFactors_div_gcd",
+    "statement": "Squarefree m) (hn : n \u2260 0) : primeFactors (m / m.gcd n) = primeFactors m \\ primeFactors n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "m / m.gcd n \u2260 0",
+        "body": "by simp [gcd_ne_zero_right hn, gcd_le_left _ hm.ne_zero.bot_lt]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Squarefree",
+    "name": "squarefreeHelper_3",
+    "statement": "\u2115) (e : k + 1 = k') (hn' : bit1 n' * bit1 k = bit1 n) (hc : bit1 n' % bit1 k = c) (c0 : 0 < c) (H : SquarefreeHelper n' k') : SquarefreeHelper n k",
+    "have_tree": [
+      {
+        "name": "k0'",
+        "type": "0 < bit1 k",
+        "body": "bit1_pos (Nat.zero_le _)",
+        "children": []
+      },
+      {
+        "name": "dn'",
+        "type": "bit1 n' \u2223 bit1 n",
+        "body": "\u27e8_, hn'.symm\u27e9",
+        "children": []
+      },
+      {
+        "name": "dk",
+        "type": "bit1 k \u2223 bit1 n",
+        "body": "\u27e8_, ((mul_comm _ _).trans hn').symm\u27e9",
+        "children": []
+      },
+      {
+        "name": "k2",
+        "type": "2 \u2264 bit1 k",
+        "body": "Nat.succ_le_succ (bit0_pos k0)",
+        "children": []
+      },
+      {
+        "name": "pk",
+        "type": "(bit1 k).Prime",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "dkk'",
+        "type": "\u00acbit1 k \u2223 bit1 n'",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "dkk",
+        "type": "\u00acbit1 k * bit1 k \u2223 bit1 n",
+        "body": "by rwa [\u2190 Nat.dvd_div_iff_mul_dvd dk, this]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Squarefree",
+    "name": "squarefreeHelper_4",
+    "statement": "\u2115) (e : bit1 k * bit1 k = k') (hd : bit1 n < k') : SquarefreeHelper n k",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

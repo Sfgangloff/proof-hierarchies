@@ -1,0 +1,148 @@
+[
+  {
+    "module": "Extension",
+    "name": "union",
+    "statement": "Lifts F E K",
+    "have_tree": [
+      {
+        "name": "hc",
+        "type": "",
+        "body": "hc.insert fun _ _ _ \u21a6 .inl bot_le",
+        "children": []
+      },
+      {
+        "name": "dir",
+        "type": "Directed (\u00b7 \u2264 \u00b7) t",
+        "body": "hc.directedOn.directed_val.mono_comp _ fun _ _ h \u21a6 h.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extension",
+    "name": "le_union",
+    "statement": "Lifts F E K\u2984 (h\u03c3 : \u03c3 \u2208 c) : \u03c3 \u2264 union c hc",
+    "have_tree": [
+      {
+        "name": "h\u03c3",
+        "type": "",
+        "body": "Set.mem_insert_of_mem \u22a5 h\u03c3",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extension",
+    "name": "exists_upper_bound",
+    "statement": "Set (Lifts F E K)) (hc : IsChain (\u00b7 \u2264 \u00b7) c) : \u2203 ub, \u2200 a \u2208 c, a \u2264 ub",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "finiteDimensional_adjoin (S := (S : Set E)) fun _ _ \u21a6 (alg.isIntegral).1 _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(h\u03c0\u2080 \u03b8\u2080).trans h\u03b8\u03c0",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsChain (\u00b7 \u2264 \u00b7) (Set.range \u03b8)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extension",
+    "name": "nonempty_algHom_of_exist_lifts_finset",
+    "statement": "Algebra.IsAlgebraic F E] (h : \u2200 S : Finset E, \u2203 \u03c3 : Lifts F E K, (S : Set E) \u2286 \u03c3.carrier) : Nonempty (E \u2192\u2090[F] K)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "finiteDimensional_adjoin (S := {\u03b1}) fun _ _ \u21a6 ((alg.tower_top \u03d5.carrier).isIntegral).1 _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u03d5.carrier\u27ee\u03b1\u27ef.restrictScalars F \u2264 \u03b8.carrier",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extension",
+    "name": "exists_lift_of_splits'",
+    "statement": "Lifts F E K) {s : E} (h1 : IsIntegral x.carrier s) (h2 : ((minpoly x.carrier s).map x.emb.toRingHom).Splits) : \u2203 y, x \u2264 y \u2227 s \u2208 y.carrier",
+    "have_tree": [
+      {
+        "name": "I2",
+        "type": "",
+        "body": "(minpoly.degree_pos h1).ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extension",
+    "name": "exists_algHom_adjoin_of_splits''",
+    "statement": "IntermediateField F E} (f : L \u2192\u2090[F] K) (hK : \u2200 s \u2208 S, IsIntegral L s \u2227 ((minpoly L s).map f.toRingHom).Splits) : \u2203 \u03c6 : adjoin L S \u2192\u2090[F] K, \u03c6.restrictDomain L = f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsScalarTower L \u03c6.carrier E",
+        "body": "\u27e8fun x y \u21a6 smul_assoc x (y : E)\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "\u03c6.exists_lift_of_splits' (hK s h).1.tower_top ((hK s h).1.minpoly_splits_tower_top' ?_)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extension",
+    "name": "exists_algHom_adjoin_of_splits'",
+    "statement": "\u2203 \u03c6 : adjoin L S \u2192\u2090[F] K, \u03c6.restrictDomain L = f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "exists_algHom_adjoin_of_splits'' f' (S := S) fun s hs \u21a6 ?_",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsScalarTower L L' E",
+        "body": "IsScalarTower.of_algebraMap_eq' rfl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extension",
+    "name": "exists_algHom_adjoin_of_splits_of_aeval",
+    "statement": "\u2203 \u03c6 : adjoin F S \u2192\u2090[F] K, \u03c6 \u27e8x, hx\u27e9 = y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isAlgebraic_adjoin (fun s hs \u21a6 (hK s hs).1)",
+        "children": []
+      },
+      {
+        "name": "ix",
+        "type": "IsAlgebraic F _",
+        "body": "Algebra.IsAlgebraic.isAlgebraic (\u27e8x, hx\u27e9 : adjoin F S)",
+        "children": []
+      }
+    ]
+  }
+]

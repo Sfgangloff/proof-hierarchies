@@ -1,0 +1,111 @@
+[
+  {
+    "module": "Separable",
+    "name": "Separable.of_mul_left",
+    "statement": "R[X]} (h : (f * g).Separable) : f.Separable",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.of_mul_left_left; rw [derivative_mul] at this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Separable",
+    "name": "Separable.isCoprime",
+    "statement": "R[X]} (h : (f * g).Separable) : IsCoprime f g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.of_mul_left_left; rw [derivative_mul] at this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Separable",
+    "name": "separable_iff_derivative_ne_zero",
+    "statement": "F[X]} (hf : Irreducible f) : f.Separable \u2194 derivative f \u2260 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "f \u2223 derivative f",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Separable",
+    "name": "separable_map",
+    "statement": "F \u2192+* S) {p : F[X]} : (p.map f).Separable \u2194 p.Separable",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Separable.map H (f := Ideal.Quotient.mk m)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Separable",
+    "name": "separable_or",
+    "statement": "F[X]} (hf : Irreducible f) : f.Separable \u2228 \u00acf.Separable \u2227 \u2203 g : F[X], Irreducible g \u2227 expand F p g = f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "natDegree_eq_zero_of_derivative_eq_zero H",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(natDegree_pos_iff_degree_pos.mpr <| degree_pos_of_irreducible hf).ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Separable",
+    "name": "exists_separable_of_irreducible",
+    "statement": "F[X]} (hf : Irreducible f) (hp : p \u2260 0) : \u2203 (n : \u2115) (g : F[X]), g.Separable \u2227 expand F (p ^ n) g = f",
+    "have_tree": [
+      {
+        "name": "hf0",
+        "type": "f \u2260 0",
+        "body": "hf.ne_zero",
+        "children": []
+      },
+      {
+        "name": "hg2",
+        "type": "g.natDegree \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hg3",
+        "type": "g.natDegree < N.succ",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Separable",
+    "name": "eq_X_sub_C_of_separable_of_root_eq",
+    "statement": "F} {h : F[X]} (h_sep : h.Separable) (h_root : h.eval x = 0) (h_splits : Splits (h.map i)) (h_roots : \u2200 y \u2208 (h.map i).roots, y = i x) : h = C (leadingCoeff h) * (X - C x)",
+    "have_tree": [
+      {
+        "name": "h_ne_zero",
+        "type": "h \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

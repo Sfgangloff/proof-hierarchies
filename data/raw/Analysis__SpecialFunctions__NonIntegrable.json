@@ -1,0 +1,79 @@
+[
+  {
+    "module": "NonIntegrable",
+    "name": "not_integrableOn_of_tendsto_norm_atTop_of_deriv_isBigO_filter_aux",
+    "statement": "\u211d \u2192 E} {g : \u211d \u2192 F} {k : Set \u211d} (l : Filter \u211d) [NeBot l] [TendstoIxxClass Icc l l] (hl : k \u2208 l) (hd : \u2200\u1da0 x in l, DifferentiableAt \u211d f x) (hf : Tendsto (fun x => \u2016f x\u2016) l atTop) (hfg : deriv f =O[l] g) : \u00acIntegrableOn g k",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200\u1da0 x in l, (\u2016f c\u2016 + \u222b y in k, C * \u2016g y\u2016) < \u2016f x\u2016",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hg_ae",
+        "type": "\u2200\u1d50 x \u2202volume.restrict (\u0399 c d), \u2016deriv f x\u2016 \u2264 C * \u2016g x\u2016",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hsub'",
+        "type": "\u0399 c d \u2286 k",
+        "body": "Subset.trans Ioc_subset_Icc_self hsub",
+        "children": []
+      },
+      {
+        "name": "hfi",
+        "type": "IntervalIntegrable (deriv f) volume c d",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "IntegrableOn (fun x \u21a6 C * \u2016g x\u2016) (\u0399 c d)",
+            "body": "IntegrableOn.mono hgi hsub' le_rfl",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "NonIntegrable",
+    "name": "not_integrableOn_of_tendsto_norm_atTop_of_deriv_isBigO_filter",
+    "statement": "\u211d \u2192 E} {g : \u211d \u2192 F} {k : Set \u211d} (l : Filter \u211d) [NeBot l] [TendstoIxxClass Icc l l] (hl : k \u2208 l) (hd : \u2200\u1da0 x in l, DifferentiableAt \u211d f x) (hf : Tendsto (fun x => \u2016f x\u2016) l atTop) (hfg : deriv f =O[l] g) : \u00acIntegrableOn g k",
+    "have_tree": [
+      {
+        "name": "h'd",
+        "type": "\u2200\u1da0 x in l, DifferentiableAt \u211d f' x",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NonIntegrable",
+    "name": "not_intervalIntegrable_of_tendsto_norm_atTop_of_deriv_isBigO_within_diff_singleton",
+    "statement": "\u211d \u2192 E} {g : \u211d \u2192 F} {a b c : \u211d} (hne : a \u2260 b) (hc : c \u2208 [[a, b]]) (h_deriv : \u2200\u1da0 x in \ud835\udcdd[[[a, b]] \\ {c}] c, DifferentiableAt \u211d f x) (h_infty : Tendsto (fun x => \u2016f x\u2016) (\ud835\udcdd[[[a, b]] \\ {c}] c) atTop) (hg : deriv f =O[\ud835\udcdd[[[a, b]] \\ {c}] c] g) : \u00acIntervalIntegrable g volume a b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "l \u2264 \ud835\udcdd[[[a, b]] \\ {c}] c",
+        "body": "le_inf hle (le_principal_iff.2 hmem)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NonIntegrable",
+    "name": "not_intervalIntegrable_of_tendsto_norm_atTop_of_deriv_isBigO_punctured",
+    "statement": "\u211d \u2192 E} {g : \u211d \u2192 F} {a b c : \u211d} (h_deriv : \u2200\u1da0 x in \ud835\udcdd[\u2260] c, DifferentiableAt \u211d f x) (h_infty : Tendsto (fun x => \u2016f x\u2016) (\ud835\udcdd[\u2260] c) atTop) (hg : deriv f =O[\ud835\udcdd[\u2260] c] g) (hne : a \u2260 b) (hc : c \u2208 [[a, b]]) : \u00acIntervalIntegrable g volume a b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\ud835\udcdd[[[a, b]] \\ {c}] c \u2264 \ud835\udcdd[\u2260] c",
+        "body": "nhdsWithin_mono _ inter_subset_right",
+        "children": []
+      }
+    ]
+  }
+]

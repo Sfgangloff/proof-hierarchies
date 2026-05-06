@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Asymptotics",
+    "name": "isLittleO_log_rpow_rpow_atTop",
+    "statement": "\u211d} (r : \u211d) (hs : 0 < s) : (fun x => log x ^ r) =o[atTop] fun x => x ^ s",
+    "have_tree": [
+      {
+        "name": "hr",
+        "type": "0 < r'",
+        "body": "lt_max_iff.2 <| Or.inr one_pos",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "0 < s / r'",
+        "body": "div_pos hs hr",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Asymptotics",
+    "name": "tendsto_log_mul_self_nhdsLT_zero",
+    "statement": "Filter.Tendsto (fun x \u21a6 log x * x) (\ud835\udcdd[<] 0) (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "tendsto_log_mul_rpow_nhdsGT_zero zero_lt_one",
+        "children": []
+      }
+    ]
+  }
+]

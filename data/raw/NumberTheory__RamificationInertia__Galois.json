@@ -1,0 +1,185 @@
+[
+  {
+    "module": "Galois",
+    "name": "ramificationIdxIn_ne_zero",
+    "statement": "Ideal A} [p.IsPrime] (hp : p \u2260 \u22a5) [IsDomain A] [IsTorsionFree A B] : p.ramificationIdxIn B \u2260 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Algebra.IsIntegral A B",
+        "body": "IsGaloisGroup.isInvariant.isIntegral A B G",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Galois",
+    "name": "inertiaDegIn_mul_inertiaDegIn",
+    "statement": "p.inertiaDegIn B * P.inertiaDegIn C = p.inertiaDegIn C",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Q.LiesOver p",
+        "body": "LiesOver.trans Q P p",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Galois",
+    "name": "ramificationIdxIn_mul_ramificationIdxIn",
+    "statement": "map (algebraMap A C) p \u2260 \u22a5) (hP : map (algebraMap B C) P \u2260 \u22a5) : p.ramificationIdxIn B * P.ramificationIdxIn C = p.ramificationIdxIn C",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Q.LiesOver p",
+        "body": "LiesOver.trans Q P p",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Galois",
+    "name": "ramificationIdxIn_mul_ramificationIdxIn'",
+    "statement": "p.ramificationIdxIn B * P.ramificationIdxIn C = p.ramificationIdxIn C",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Q.LiesOver p",
+        "body": "LiesOver.trans Q P p",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Galois",
+    "name": "ncard_primesOver_mul_ncard_primesOver",
+    "statement": "p \u2260 \u22a5) : (p.primesOver B).ncard * (P.primesOver C).ncard = (p.primesOver C).ncard",
+    "have_tree": [
+      {
+        "name": "hP",
+        "type": "P \u2260 \u22a5",
+        "body": "ne_bot_of_liesOver_of_ne_bot hp P",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "p.ramificationIdxIn C * p.inertiaDegIn C \u2260 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Galois",
+    "name": "card_stabilizer_eq_card_inertia_mul_finrank",
+    "statement": "Ideal R) [p.IsMaximal] (P : Ideal S) [P.LiesOver p] [P.IsMaximal] [Algebra.IsSeparable (R \u29f8 p) (S \u29f8 P)] : Nat.card (MulAction.stabilizer G P) = Nat.card (inertia G P) * Module.finrank (R \u29f8 p) (S \u29f8 P)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsGalois (R \u29f8 p) (S \u29f8 P)",
+        "body": "{ __ := Ideal.Quotient.normal (A := R) G p P }",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Ideal.Quotient.finite_of_isInvariant G p P",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Galois",
+    "name": "card_inertia_eq_ramificationIdxIn",
+    "statement": "Ideal R) (hp : p \u2260 \u22a5) (P : Ideal S) [P.LiesOver p] [P.IsMaximal] [Algebra.IsSeparable (R \u29f8 p) (S \u29f8 P)] : Nat.card (P.inertia G) = Ideal.ramificationIdxIn p S",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(show p.IsPrime from P.over_def p \u25b8 inferInstance).isMaximal hp",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "ncard_primesOver_mul_card_inertia_mul_finrank (G := G) p P",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Galois",
+    "name": "card_stabilizer_eq",
+    "statement": "Ideal R) (hp : p \u2260 \u22a5) (P : Ideal S) [P.LiesOver p] [P.IsMaximal] [Algebra.IsSeparable (R \u29f8 p) (S \u29f8 P)] : Nat.card (MulAction.stabilizer G P) = p.ramificationIdxIn S * p.inertiaDegIn S",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(show p.IsPrime from P.over_def p \u25b8 inferInstance).isMaximal hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Galois",
+    "name": "exists_comap_galRestrict_eq",
+    "statement": "Ideal R} {P\u2081 P\u2082 : Ideal S} (hP\u2081 : P\u2081 \u2208 primesOver p S) (hP\u2082 : P\u2082 \u2208 primesOver p S) : \u2203 \u03c3, P\u2081.comap (galRestrict R K L S \u03c3) = P\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsDomain S",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsIntegralClosure.isDedekindDomain R K L S",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite R S",
+        "body": "IsIntegralClosure.finite R K L S",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hP\u2081.1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hP\u2081.2",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hP\u2082.1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hP\u2082.2",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsFractionRing S L",
+        "body": "IsIntegralClosure.isFractionRing_of_finite_extension R K L S",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsGaloisGroup Gal(L/K) R S",
+        "body": "IsGaloisGroup.of_isFractionRing _ _ _ K L",
+        "children": []
+      }
+    ]
+  }
+]

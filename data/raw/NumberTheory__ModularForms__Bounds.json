@@ -1,0 +1,85 @@
+[
+  {
+    "module": "Bounds",
+    "name": "exists_bound_fundamental_domain_of_isBigO",
+    "statement": "\u210d \u2192 E} (hf_cont : Continuous f) {t : \u211d} (hf_infinity : f =O[atImInfty] fun z \u21a6 z.im ^ t) : \u2203 F, \u2200 \u03c4 \u2208 \ud835\udc9f, \u2016f \u03c4\u2016 \u2264 F * \u03c4.im ^ t",
+    "have_tree": [
+      {
+        "name": "hfm",
+        "type": "ContinuousOn (fun \u03c4 \u21a6 \u2016f \u03c4\u2016 / (im \u03c4) ^ t) (truncatedFundamentalDomain y)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bounds",
+    "name": "exists_bound_of_invariant_of_isBigO",
+    "statement": "\u210d \u2192 E} (hf_cont : Continuous f) {t : \u211d} (ht : 0 \u2264 t) (hf_infinity : f =O[atImInfty] fun z \u21a6 (im z) ^ t) (hf_inv : \u2200 (g : SL(2, \u2124)) \u03c4, f (g \u2022 \u03c4) = f \u03c4) : \u2203 C, \u2200 \u03c4, \u2016f \u03c4\u2016 \u2264 C * (max (im \u03c4) (1 / im \u03c4)) ^ t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "g 1 1 \u2260 0",
+        "body": "fun hg' \u21a6 zero_ne_one <| by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bounds",
+    "name": "exists_bound_of_subgroup_invariant_of_isBigO",
+    "statement": "\u210d \u2192 E} (hf_cont : Continuous f) {t : \u211d} (ht : 0 \u2264 t) (hf_infinity : \u2200 (g : SL(2, \u2124)), (fun \u03c4 \u21a6 f (g \u2022 \u03c4)) =O[atImInfty] fun z \u21a6 (im z) ^ t) {\u0393 : Subgroup SL(2, \u2124)} [\u0393.FiniteIndex] (hf_inv : \u2200 g \u2208 \u0393, \u2200 \u03c4, f (g \u2022 \u03c4) = f \u03c4) : \u2203 C, \u2200 \u03c4, \u2016f \u03c4\u2016 \u2264 C * max \u03c4.im (1 / \u03c4.im) ^ t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype (SL(2, \u2124) \u29f8 \u0393)",
+        "body": "Subgroup.fintypeQuotientOfFiniteIndex",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bounds",
+    "name": "ModularFormClass.exists_bound",
+    "statement": "\u2124} (hk : 0 \u2264 k) {\u0393 : Subgroup (GL (Fin 2) \u211d)} [\u0393.IsArithmetic] {F : Type*} [FunLike F \u210d \u2102] [ModularFormClass F \u0393 k] (f : F) : \u2203 C, \u2200 \u03c4, \u2016f \u03c4\u2016 \u2264 C * (max 1 (1 / (\u03c4.im) ^ k))",
+    "have_tree": [
+      {
+        "name": "hC'",
+        "type": "0 \u2264 C",
+        "body": "le_trans (by positivity) <| (div_le_iff\u2080 (by positivity)).mpr hC",
+        "children": []
+      },
+      {
+        "name": "ht",
+        "type": "0 < t",
+        "body": "h \u25b8 \u03c4.im_pos",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bounds",
+    "name": "qExpansion_coeff_isBigO_of_norm_isBigO",
+    "statement": "\u2124} {\u0393 : Subgroup (GL (Fin 2) \u211d)} [\u0393.IsArithmetic] {F : Type*} [FunLike F \u210d \u2102] [ModularFormClass F \u0393 k] (f : F) (e : \u211d) (hF : IsBigO (comap UpperHalfPlane.im (\ud835\udcdd 0)) f (fun \u03c4 \u21a6 \u03c4.im ^ (-e))) : (fun n \u21a6 (qExpansion \u0393.strictWidthInfty f).coeff n) =O[atTop] fun n \u21a6 (n : \u211d) ^ e",
+    "have_tree": [
+      {
+        "name": "hh",
+        "type": "0 < h",
+        "body": "\u0393.strictWidthInfty_pos_iff.mpr Fact.out",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero h",
+        "body": "\u27e8hh.ne'\u27e9",
+        "children": []
+      },
+      {
+        "name": "h\u0393",
+        "type": "h \u2208 \u0393.strictPeriods",
+        "body": "\u0393.strictWidthInfty_mem_strictPeriods",
+        "children": []
+      }
+    ]
+  }
+]

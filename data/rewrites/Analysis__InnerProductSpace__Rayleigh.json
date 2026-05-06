@@ -1,0 +1,316 @@
+[
+  {
+    "original": {
+      "module": "Rayleigh",
+      "name": "norm_eq_iSup_rayleighQuotient",
+      "statement": "T.IsSymmetric) : \u2016T\u2016 = \u2a06 x, |T.rayleighQuotient x|",
+      "have_tree": [
+        {
+          "name": "nonneg",
+          "type": "0 \u2264 M",
+          "body": "le_ciSup_of_le T.bddAbove_rayleighQuotient 0 (abs_nonneg _)",
+          "children": [
+            {
+              "name": "hM",
+              "type": "|T.rayleighQuotient x| \u2264 M",
+              "body": "le_ciSup T.bddAbove_rayleighQuotient x",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Rayleigh",
+          "name": "norm_eq_iSup_rayleighQuotient",
+          "statement": "T.IsSymmetric) : \u2016T\u2016 = \u2a06 x, |T.rayleighQuotient x|",
+          "have_tree": [
+            {
+              "name": "nonneg",
+              "type": "0 \u2264 M",
+              "body": "le_ciSup_of_le T.bddAbove_rayleighQuotient 0 (abs_nonneg _)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Rayleigh",
+          "name": "norm_eq_iSup_rayleighQuotient",
+          "statement": "T.IsSymmetric) : \u2016T\u2016 = \u2a06 x, |T.rayleighQuotient x|",
+          "have_tree": [
+            {
+              "name": "hM",
+              "type": "|T.rayleighQuotient x| \u2264 M",
+              "body": "le_ciSup T.bddAbove_rayleighQuotient x",
+              "children": []
+            },
+            {
+              "name": "nonneg",
+              "type": "0 \u2264 M",
+              "body": "le_ciSup_of_le T.bddAbove_rayleighQuotient 0 (abs_nonneg _)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Rayleigh",
+      "name": "hasEigenvalue_iSup_of_finiteDimensional",
+      "statement": "T.IsSymmetric) : HasEigenvalue T (\u2a06 x : { x : E // x \u2260 0 }, RCLike.re \u27eaT x, x\u27eb / \u2016(x : E)\u2016 ^ 2 : \u211d)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "IsMaxOn T'.val.reApplyInnerSelf (sphere 0 \u2016x\u2080\u2016) x\u2080",
+          "body": "by simpa only [\u2190 hx\u2080] using hTx\u2080",
+          "children": []
+        },
+        {
+          "name": "hx\u2080_ne",
+          "type": "x\u2080 \u2260 0",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "\u2016x\u2080\u2016 \u2260 0",
+              "body": "by simp only [hx\u2080, norm_eq_zero, hx, Ne, not_false_iff]",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Rayleigh",
+          "name": "hasEigenvalue_iSup_of_finiteDimensional",
+          "statement": "T.IsSymmetric) : HasEigenvalue T (\u2a06 x : { x : E // x \u2260 0 }, RCLike.re \u27eaT x, x\u27eb / \u2016(x : E)\u2016 ^ 2 : \u211d)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsMaxOn T'.val.reApplyInnerSelf (sphere 0 \u2016x\u2080\u2016) x\u2080",
+              "body": "by simpa only [\u2190 hx\u2080] using hTx\u2080",
+              "children": []
+            },
+            {
+              "name": "hx\u2080_ne",
+              "type": "x\u2080 \u2260 0",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Rayleigh",
+          "name": "hasEigenvalue_iSup_of_finiteDimensional",
+          "statement": "T.IsSymmetric) : HasEigenvalue T (\u2a06 x : { x : E // x \u2260 0 }, RCLike.re \u27eaT x, x\u27eb / \u2016(x : E)\u2016 ^ 2 : \u211d)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsMaxOn T'.val.reApplyInnerSelf (sphere 0 \u2016x\u2080\u2016) x\u2080",
+              "body": "by simpa only [\u2190 hx\u2080] using hTx\u2080",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2016x\u2080\u2016 \u2260 0",
+              "body": "by simp only [hx\u2080, norm_eq_zero, hx, Ne, not_false_iff]",
+              "children": []
+            },
+            {
+              "name": "hx\u2080_ne",
+              "type": "x\u2080 \u2260 0",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Rayleigh",
+          "name": "hasEigenvalue_iSup_of_finiteDimensional",
+          "statement": "T.IsSymmetric) : HasEigenvalue T (\u2a06 x : { x : E // x \u2260 0 }, RCLike.re \u27eaT x, x\u27eb / \u2016(x : E)\u2016 ^ 2 : \u211d)",
+          "have_tree": [
+            {
+              "name": "hx\u2080_ne",
+              "type": "x\u2080 \u2260 0",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2016x\u2080\u2016 \u2260 0",
+                  "body": "by simp only [hx\u2080, norm_eq_zero, hx, Ne, not_false_iff]",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "IsMaxOn T'.val.reApplyInnerSelf (sphere 0 \u2016x\u2080\u2016) x\u2080",
+              "body": "by simpa only [\u2190 hx\u2080] using hTx\u2080",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Rayleigh",
+      "name": "hasEigenvalue_iInf_of_finiteDimensional",
+      "statement": "T.IsSymmetric) : HasEigenvalue T (\u2a05 x : { x : E // x \u2260 0 }, RCLike.re \u27eaT x, x\u27eb / \u2016(x : E)\u2016 ^ 2 : \u211d)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "IsMinOn T'.val.reApplyInnerSelf (sphere 0 \u2016x\u2080\u2016) x\u2080",
+          "body": "by simpa only [\u2190 hx\u2080] using hTx\u2080",
+          "children": []
+        },
+        {
+          "name": "hx\u2080_ne",
+          "type": "x\u2080 \u2260 0",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "\u2016x\u2080\u2016 \u2260 0",
+              "body": "by simp only [hx\u2080, norm_eq_zero, hx, Ne, not_false_iff]",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Rayleigh",
+          "name": "hasEigenvalue_iInf_of_finiteDimensional",
+          "statement": "T.IsSymmetric) : HasEigenvalue T (\u2a05 x : { x : E // x \u2260 0 }, RCLike.re \u27eaT x, x\u27eb / \u2016(x : E)\u2016 ^ 2 : \u211d)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsMinOn T'.val.reApplyInnerSelf (sphere 0 \u2016x\u2080\u2016) x\u2080",
+              "body": "by simpa only [\u2190 hx\u2080] using hTx\u2080",
+              "children": []
+            },
+            {
+              "name": "hx\u2080_ne",
+              "type": "x\u2080 \u2260 0",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Rayleigh",
+          "name": "hasEigenvalue_iInf_of_finiteDimensional",
+          "statement": "T.IsSymmetric) : HasEigenvalue T (\u2a05 x : { x : E // x \u2260 0 }, RCLike.re \u27eaT x, x\u27eb / \u2016(x : E)\u2016 ^ 2 : \u211d)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsMinOn T'.val.reApplyInnerSelf (sphere 0 \u2016x\u2080\u2016) x\u2080",
+              "body": "by simpa only [\u2190 hx\u2080] using hTx\u2080",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2016x\u2080\u2016 \u2260 0",
+              "body": "by simp only [hx\u2080, norm_eq_zero, hx, Ne, not_false_iff]",
+              "children": []
+            },
+            {
+              "name": "hx\u2080_ne",
+              "type": "x\u2080 \u2260 0",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Rayleigh",
+          "name": "hasEigenvalue_iInf_of_finiteDimensional",
+          "statement": "T.IsSymmetric) : HasEigenvalue T (\u2a05 x : { x : E // x \u2260 0 }, RCLike.re \u27eaT x, x\u27eb / \u2016(x : E)\u2016 ^ 2 : \u211d)",
+          "have_tree": [
+            {
+              "name": "hx\u2080_ne",
+              "type": "x\u2080 \u2260 0",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2016x\u2080\u2016 \u2260 0",
+                  "body": "by simp only [hx\u2080, norm_eq_zero, hx, Ne, not_false_iff]",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "IsMinOn T'.val.reApplyInnerSelf (sphere 0 \u2016x\u2080\u2016) x\u2080",
+              "body": "by simpa only [\u2190 hx\u2080] using hTx\u2080",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

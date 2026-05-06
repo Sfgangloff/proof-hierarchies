@@ -1,0 +1,243 @@
+[
+  {
+    "module": "Pell",
+    "name": "eq_zero_of_d_neg",
+    "statement": "d < 0) (a : Solution\u2081 d) : a.x = 0 \u2228 a.y = 0",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "a.prop",
+        "children": []
+      },
+      {
+        "name": "h1",
+        "type": "",
+        "body": "sq_pos_of_ne_zero h.1",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "sq_pos_of_ne_zero h.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pell",
+    "name": "x_ne_zero",
+    "statement": "0 \u2264 d) (a : Solution\u2081 d) : a.x \u2260 0",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "0 \u2264 d * a.y ^ 2",
+        "body": "mul_nonneg h\u2080 (sq_nonneg _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pell",
+    "name": "y_ne_zero_of_one_lt_x",
+    "statement": "Solution\u2081 d} (ha : 1 < a.x) : a.y \u2260 0",
+    "have_tree": [
+      {
+        "name": "prop",
+        "type": "",
+        "body": "a.prop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pell",
+    "name": "d_nonsquare_of_one_lt_x",
+    "statement": "Solution\u2081 d} (ha : 1 < a.x) : \u00acIsSquare d",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "",
+        "body": "a.prop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pell",
+    "name": "eq_one_of_x_eq_one",
+    "statement": "d \u2260 0) {a : Solution\u2081 d} (ha : a.x = 1) : a = 1",
+    "have_tree": [
+      {
+        "name": "prop",
+        "type": "",
+        "body": "a.prop_y",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pell",
+    "name": "eq_one_or_neg_one_iff_y_eq_zero",
+    "statement": "Solution\u2081 d} : a = 1 \u2228 a = -1 \u2194 a.y = 0",
+    "have_tree": [
+      {
+        "name": "prop",
+        "type": "",
+        "body": "a.prop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pell",
+    "name": "exists_of_not_isSquare",
+    "statement": "0 < d) (hd : \u00acIsSquare d) : \u2203 x y : \u2124, x ^ 2 - d * y ^ 2 = 1 \u2227 y \u2260 0",
+    "have_tree": [
+      {
+        "name": "h\u03be",
+        "type": "Irrational \u03be",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hm\u2080",
+        "type": "m \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hd\u2081",
+        "type": "m \u2223 q\u2081.num * q\u2082.num - d * (q\u2081.den * q\u2082.den)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hd\u2082",
+        "type": "m \u2223 q\u2081.num * q\u2082.den - q\u2082.num * q\u2081.den",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pell",
+    "name": "subsingleton",
+    "statement": "Solution\u2081 d} (ha : IsFundamental a) (hb : IsFundamental b) : a = b",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "",
+        "body": "le_antisymm (ha.2.2 hb.1) (hb.2.2 ha.1)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pell",
+    "name": "exists_of_not_isSquare",
+    "statement": "0 < d) (hd : \u00acIsSquare d) : \u2203 a : Solution\u2081 d, IsFundamental a",
+    "have_tree": [
+      {
+        "name": "hax",
+        "type": "",
+        "body": "a.prop",
+        "children": []
+      },
+      {
+        "name": "hb'",
+        "type": "",
+        "body": "(Int.toNat_of_nonneg <| zero_le_one.trans hb.le).symm",
+        "children": []
+      },
+      {
+        "name": "hb''",
+        "type": "",
+        "body": "hb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pell",
+    "name": "zpow_ne_neg_zpow",
+    "statement": "Solution\u2081 d} (h : IsFundamental a) {n n' : \u2124} : a ^ n \u2260 -a ^ n'",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "x_zpow_pos h.x_pos n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pell",
+    "name": "eq_pow_of_nonneg",
+    "statement": "Solution\u2081 d} (h : IsFundamental a\u2081) {a : Solution\u2081 d} (hax : 0 < a.x) (hay : 0 \u2264 a.y) : \u2203 n : \u2115, a = a\u2081 ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(hax.trans_eq hax').le.trans_eq hf",
+        "children": []
+      },
+      {
+        "name": "hx\u2081",
+        "type": "1 < a.x",
+        "body": "by nlinarith [a.prop, h.d_pos]",
+        "children": []
+      },
+      {
+        "name": "hxx\u2081",
+        "type": "",
+        "body": "h.mul_inv_x_pos hx\u2081 hy",
+        "children": []
+      },
+      {
+        "name": "hxx\u2082",
+        "type": "",
+        "body": "h.mul_inv_x_lt_x hx\u2081 hy",
+        "children": []
+      },
+      {
+        "name": "hyy",
+        "type": "",
+        "body": "h.mul_inv_y_nonneg hx\u2081 hy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pell",
+    "name": "existsUnique_pos_generator",
+    "statement": "0 < d) (hd : \u00acIsSquare d) : \u2203! a\u2081 : Solution\u2081 d, 1 < a\u2081.x \u2227 0 < a\u2081.y \u2227 \u2200 a : Solution\u2081 d, \u2203 n : \u2124, a = a\u2081 ^ n \u2228 a = -a\u2081 ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(x_zpow_pos (zero_lt_one.trans ha\u2081.1) n\u2082).trans Hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pell",
+    "name": "pos_generator_iff_fundamental",
+    "statement": "Solution\u2081 d) : (1 < a.x \u2227 0 < a.y \u2227 \u2200 b : Solution\u2081 d, \u2203 n : \u2124, b = a ^ n \u2228 b = -a ^ n) \u2194 IsFundamental a",
+    "have_tree": [
+      {
+        "name": "h\u2080",
+        "type": "",
+        "body": "d_pos_of_one_lt_x h.1",
+        "children": []
+      },
+      {
+        "name": "hd",
+        "type": "",
+        "body": "d_nonsquare_of_one_lt_x h.1",
+        "children": []
+      }
+    ]
+  }
+]

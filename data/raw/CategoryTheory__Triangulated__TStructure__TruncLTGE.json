@@ -1,0 +1,119 @@
+[
+  {
+    "module": "TruncLTGE",
+    "name": "triangleMap",
+    "statement": "triangle t n X \u27f6 triangle t n Y",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "triangle_map_exists t (triangle_distinguished t n X)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TruncLTGE",
+    "name": "triangleMapOfLE",
+    "statement": "\u2124) (h : a \u2264 b) : triangle t a A \u27f6 triangle t b A",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "triangle_map_exists t (triangle_distinguished t a A)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TruncLTGE",
+    "name": "isLE_truncLT_obj",
+    "statement": "C) (a b : \u2124) (hn : a \u2264 b + 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "t.IsLE ((t.truncLT a).obj X) (a - 1)",
+        "body": "by dsimp [truncLT]; infer_instance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TruncLTGE",
+    "name": "isGE_truncGE_obj",
+    "statement": "C) (a b : \u2124) (hn : b \u2264 a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "t.IsGE ((t.truncGE a).obj X) a",
+        "body": "by dsimp [truncGE]; infer_instance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TruncLTGE",
+    "name": "isGE_iff_isIso_truncGE\u03c0_app",
+    "statement": "\u2124) (X : C) : t.IsGE X n \u2194 IsIso ((t.truncGE\u03c0 n).app X)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "e.hom.comm\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TruncLTGE",
+    "name": "from_truncGE_obj_ext",
+    "statement": "\u2124} {X : C} {Y : C} {f\u2081 f\u2082 : (t.truncGE n).obj X \u27f6 Y} (h : (t.truncGE\u03c0 n).app X \u226b f\u2081 = (t.truncGE\u03c0 n).app X \u226b f\u2082) [t.IsGE Y n] : f\u2081 = f\u2082",
+    "have_tree": [
+      {
+        "name": "hg'",
+        "type": "",
+        "body": "t.zero_of_isLE_of_isGE g (n-2) n (by lia)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TruncLTGE",
+    "name": "to_truncLT_obj_ext",
+    "statement": "\u2124} {Y : C} {X : C} {f\u2081 f\u2082 : Y \u27f6 (t.truncLT n).obj X} (h : f\u2081 \u226b (t.truncLT\u03b9 n).app X = f\u2082 \u226b (t.truncLT\u03b9 n).app X) [t.IsLE Y (n - 1)] : f\u2081 = f\u2082",
+    "have_tree": [
+      {
+        "name": "hg'",
+        "type": "",
+        "body": "t.zero_of_isLE_of_isGE g (n - 1) (n + 1) (by lia) inferInstance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TruncLTGE",
+    "name": "isIso\u2082_truncGE_map_of_isLE",
+    "statement": "Triangle C) (hT : T \u2208 distTriang C) (n\u2080 n\u2081 : \u2124) (h : n\u2080 + 1 = n\u2081) (h\u2081 : t.IsLE T.obj\u2081 n\u2080) : IsIso ((t.truncGE n\u2081).map T.mor\u2082)",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "someOctahedron rfl (rot_of_distTriang _ hT)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TruncLTGE",
+    "name": "triangleLTLTGELT_distinguished",
+    "statement": "\u2124) (h : a \u2264 b) (X : C) : (t.triangleLTLTGELT a b h).obj X \u2208 distTriang C",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "t.isIso_truncLT_map_truncLT\u03b9_app a b h X",
+        "children": []
+      }
+    ]
+  }
+]

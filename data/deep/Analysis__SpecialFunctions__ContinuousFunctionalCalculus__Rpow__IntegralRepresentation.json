@@ -1,0 +1,98 @@
+[
+  {
+    "module": "IntegralRepresentation",
+    "name": "rpowIntegrand\u2080\u2081_apply_mul",
+    "statement": "p \u2208 Ioo 0 1) (ht : 0 \u2264 t) (hx : 0 \u2264 x) : rpowIntegrand\u2080\u2081 p (x * t) x = (rpowIntegrand\u2080\u2081 p t 1) * x ^ (p - 1)",
+    "have_tree": [
+      {
+        "name": "hxt",
+        "type": "0 \u2264 x * t",
+        "body": "by positivity",
+        "children": [
+          {
+            "name": "_",
+            "type": "x * t + x = x * (t + 1)",
+            "body": "by ring",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "IntegralRepresentation",
+    "name": "cfc\u2099_rpowIntegrand\u2080\u2081_eq_cfc\u2099_rpowIntegrand\u2080\u2081_one",
+    "statement": "\u211d} (hp : p \u2208 Ioo 0 1) (ht : 0 < t) (a : A) (ha : 0 \u2264 a) : cfc\u2099 (rpowIntegrand\u2080\u2081 p t) a = t ^ (p - 1) \u2022 cfc\u2099 (rpowIntegrand\u2080\u2081 p 1) (t\u207b\u00b9 \u2022 a)",
+    "have_tree": [
+      {
+        "name": "hspec",
+        "type": "quasispectrum \u211d a \u2286 Ici 0",
+        "body": "by grind",
+        "children": []
+      },
+      {
+        "name": "h_mapsTo",
+        "type": "MapsTo (t\u207b\u00b9 \u2022 \u00b7 : \u211d \u2192 \u211d) (Ici 0) (Ici 0)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "continuousOn_rpowIntegrand\u2080\u2081_Ici hp zero_lt_one",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "IntegralRepresentation",
+    "name": "exists_measure_nnrpow_eq_integral_cfc\u2099_rpowIntegrand\u2080\u2081",
+    "statement": "\u211d\u22650} (hp : p \u2208 Ioo 0 1) : \u2203 \u03bc : Measure \u211d, \u2200 a \u2208 Ici (0 : A), (IntegrableOn (fun t => cfc\u2099 (rpowIntegrand\u2080\u2081 p t) a) (Ioi 0) \u03bc) \u2227 a ^ p = \u222b t in Ioi 0, cfc\u2099 (rpowIntegrand\u2080\u2081 p t) a \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "p_pos",
+        "type": "0 < (p : \u211d)",
+        "body": "by exact_mod_cast hp.1",
+        "children": []
+      },
+      {
+        "name": "maxr_nonneg",
+        "type": "0 \u2264 maxr",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "ContinuousOn (Function.uncurry f) (Ioi (0 : \u211d) \u00d7\u02e2 quasispectrum \u211d a)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hbound",
+        "type": "\u2200\u1d50 t \u2202\u03bc.restrict (Ioi 0), \u2200 z \u2208 quasispectrum \u211d a, \u2016f t z\u2016 \u2264 bound t",
+        "body": "by",
+        "children": [
+          {
+            "name": "hz'",
+            "type": "0 \u2264 z",
+            "body": "by grind",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hbound_finite_integral",
+        "type": "HasFiniteIntegral bound (\u03bc.restrict (Ioi 0))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hmapzero",
+        "type": "\u2200\u1d50 (x : \u211d) \u2202\u03bc.restrict (Ioi 0), rpowIntegrand\u2080\u2081 p x 0 = 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

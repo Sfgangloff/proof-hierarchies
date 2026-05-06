@@ -1,0 +1,128 @@
+[
+  {
+    "module": "Nonvanishing",
+    "name": "F_neg_two",
+    "statement": "BadChar N) : B.F (-2 : \u211d) = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "riemannZeta_neg_two_mul_nat_add_one 0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nonvanishing",
+    "name": "re_log_comb_nonneg'",
+    "statement": "\u211d} (ha\u2080 : 0 \u2264 a) (ha\u2081 : a < 1) {z : \u2102} (hz : \u2016z\u2016 = 1) : 0 \u2264 3 * (-log (1 - a)).re + 4 * (-log (1 - a * z)).re + (-log (1 - a * z ^ 2)).re",
+    "have_tree": [
+      {
+        "name": "hac\u2081",
+        "type": "\u2016a * z\u2016 < 1",
+        "body": "by rwa [norm_mul, hz, mul_one]",
+        "children": []
+      },
+      {
+        "name": "hac\u2082",
+        "type": "\u2016a * z ^ 2\u2016 < 1",
+        "body": "by rwa [norm_mul, norm_pow, hz, one_pow, mul_one]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nonvanishing",
+    "name": "norm_LSeries_product_ge_one",
+    "statement": "\u211d} (hx : 0 < x) (y : \u211d) : \u2016L \u2197(1 : DirichletCharacter \u2102 N) (1 + x) ^ 3 * L \u2197\u03c7 (1 + x + I * y) ^ 4 * L \u2197(\u03c7 ^ 2 :) (1 + x + 2 * I * y)\u2016 \u2265 1",
+    "have_tree": [
+      {
+        "name": "H\u2080",
+        "type": "",
+        "body": "summable_neg_log_one_sub_mul_prime_cpow (N := N) 1 h\u2080",
+        "children": []
+      },
+      {
+        "name": "H\u2081",
+        "type": "",
+        "body": "summable_neg_log_one_sub_mul_prime_cpow \u03c7 h\u2081",
+        "children": []
+      },
+      {
+        "name": "H\u2082",
+        "type": "",
+        "body": "summable_neg_log_one_sub_mul_prime_cpow (\u03c7 ^ 2) h\u2082",
+        "children": []
+      },
+      {
+        "name": "hsum\u2080",
+        "type": "",
+        "body": "(hasSum_re H\u2080.hasSum).summable.mul_left 3",
+        "children": []
+      },
+      {
+        "name": "hsum\u2081",
+        "type": "",
+        "body": "(hasSum_re H\u2081.hasSum).summable.mul_left 4",
+        "children": []
+      },
+      {
+        "name": "hsum\u2082",
+        "type": "",
+        "body": "(hasSum_re H\u2082.hasSum).summable",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nonvanishing",
+    "name": "LFunction_isBigO_horizontal",
+    "statement": "\u211d} (hy : y \u2260 0 \u2228 \u03c7 \u2260 1) : (fun x : \u211d \u21a6 LFunction \u03c7 (1 + x + I * y)) =O[\ud835\udcdd[>] 0] fun _ \u21a6 (1 : \u2102)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(\u03c7.differentiableAt_LFunction _ <| one_add_I_mul_ne_one_or \u03c7 hy).continuousAt",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nonvanishing",
+    "name": "LFunction_isBigO_horizontal_of_eq_zero",
+    "statement": "\u211d} (hy : y \u2260 0 \u2228 \u03c7 \u2260 1) (h : LFunction \u03c7 (1 + I * y) = 0) : (fun x : \u211d \u21a6 LFunction \u03c7 (1 + x + I * y)) =O[\ud835\udcdd[>] 0] fun x : \u211d \u21a6 (x : \u2102)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(\u03c7.differentiableAt_LFunction _ <| one_add_I_mul_ne_one_or \u03c7 hy).hasDerivAt",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nonvanishing",
+    "name": "LFunction_ne_zero_of_not_quadratic_or_ne_one",
+    "statement": "\u211d} (h : \u03c7 ^ 2 \u2260 1 \u2228 t \u2260 0) : LFunction \u03c7 (1 + I * t) \u2260 0",
+    "have_tree": [
+      {
+        "name": "hz\u2081",
+        "type": "t \u2260 0 \u2228 \u03c7 \u2260 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hz\u2082",
+        "type": "2 * t \u2260 0 \u2228 \u03c7 ^ 2 \u2260 1",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "(LFunctionTrivChar_isBigO_near_one_horizontal (N := N)).pow 3 |>.mul <|",
+        "children": []
+      }
+    ]
+  }
+]

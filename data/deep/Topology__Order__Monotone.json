@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Monotone",
+    "name": "MonotoneOn.countable_setOf_two_preimages",
+    "statement": "MonotoneOn f s) : Set.Countable {c | \u2203 x y, x \u2208 s \u2227 y \u2208 s \u2227 x < y \u2227 f x = c \u2227 f y = c}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 c \u2208 t, \u2203 x, \u2203 y, x \u2208 s \u2227 y \u2208 s \u2227 x < y \u2227 f x = c \u2227 f y = c",
+        "body": "fun c hc \u21a6 hc",
+        "children": [
+          {
+            "name": "_",
+            "type": "Set.InjOn x t",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "f (x c) = f (x d)",
+                "body": "by simp [hcd]",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "c \u2260 d",
+            "body": "fun h \u21a6 hcd (congrArg x h)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "x d \u2264 y c",
+        "body": "(xda.trans ayc).le",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "f (x d) \u2264 f (y c)",
+        "body": "hf (hxs _ hd) (hys _ hc) this",
+        "children": []
+      }
+    ]
+  }
+]

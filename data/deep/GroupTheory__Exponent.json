@@ -1,0 +1,52 @@
+[
+  {
+    "module": "Exponent",
+    "name": "exists_orderOf_eq_exponent",
+    "statement": "ExponentExists G) : \u2203 g : G, orderOf g = exponent G",
+    "have_tree": [
+      {
+        "name": "he",
+        "type": "",
+        "body": "hG.exponent_ne_zero",
+        "children": []
+      },
+      {
+        "name": "hne",
+        "type": "(Set.range (orderOf : G \u2192 \u2115)).Nonempty",
+        "body": "\u27e81, 1, orderOf_one\u27e9",
+        "children": []
+      },
+      {
+        "name": "hfin",
+        "type": "(Set.range (orderOf : G \u2192 \u2115)).Finite",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hpk",
+        "type": "p ^ k \u2223 orderOf t",
+        "body": "Nat.ordProj_dvd _ _",
+        "children": []
+      },
+      {
+        "name": "hpk'",
+        "type": "orderOf (t ^ p ^ k) = orderOf t / p ^ k",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hcoprime",
+        "type": "(orderOf (t ^ p ^ k)).Coprime (orderOf g)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "1 = (Nat.factorization (orderOf (t ^ p ^ k))) p + 1",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

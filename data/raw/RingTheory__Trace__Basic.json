@@ -1,0 +1,107 @@
+[
+  {
+    "module": "Basic",
+    "name": "PowerBasis.trace_gen_eq_nextCoeff_minpoly",
+    "statement": "PowerBasis K S) : Algebra.trace K S pb.gen = -(minpoly K pb.gen).nextCoeff",
+    "have_tree": [
+      {
+        "name": "d_pos",
+        "type": "0 < pb.dim",
+        "body": "PowerBasis.dim_pos pb",
+        "children": []
+      },
+      {
+        "name": "d_pos'",
+        "type": "0 < (minpoly K pb.gen).natDegree",
+        "body": "by simpa",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "trace_gen_eq_sum_roots",
+    "statement": "L) (hf : ((minpoly K x).map (algebraMap K F)).Splits) : algebraMap K F (trace K K\u27eex\u27ef (AdjoinSimple.gen K x)) = ((minpoly K x).aroots F).sum",
+    "have_tree": [
+      {
+        "name": "injKxL",
+        "type": "",
+        "body": "(algebraMap K\u27eex\u27ef L).injective",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Algebra.isIntegral_trace",
+    "statement": "F} (hx : IsIntegral R x) : IsIntegral R (Algebra.trace L F x)",
+    "have_tree": [
+      {
+        "name": "hx'",
+        "type": "IsIntegral L x",
+        "body": "hx.tower_top",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "trace_eq_sum_embeddings",
+    "statement": "L} : algebraMap K E (Algebra.trace K L x) = \u2211 \u03c3 : L \u2192\u2090[K] E, \u03c3 x",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "",
+        "body": "Algebra.IsSeparable.isIntegral K x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Algebra.trace_eq_zero_of_not_isSeparable",
+    "statement": "\u00ac Algebra.IsSeparable K L) : trace K L = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "expChar_ne_zero K p",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Nat.dvd_sub (dvd_mul_left (p ^ (n + 1)) g.natDegree) h",
+            "children": [
+              {
+                "name": "_",
+                "type": "g.natDegree \u2260 0",
+                "body": "fun e \u21a6 by",
+                "children": [
+                  {
+                    "name": "_",
+                    "type": "",
+                    "body": "congr(natDegree $hg\u2082)",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Module.Basis.traceDual_powerBasis_eq",
+    "statement": "PowerBasis K L) (i) : pb.basis.traceDual i = (minpolyDiv K pb.gen).coeff i / aeval pb.gen (derivative <| minpoly K pb.gen)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_arg (coeff \u00b7 i) (sum_smul_minpolyDiv_eq_X_pow (AlgebraicClosure K)",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "module": "ConvergenceInDistribution",
+    "name": "tendstoInDistribution_unique",
+    "statement": "(i : \u03b9) \u2192 \u03a9 i \u2192 E) {Z : \u03a9' \u2192 E} {W : \u03a9'' \u2192 E} [l.NeBot] (h1 : TendstoInDistribution X l Z \u03bc \u03bc') (h2 : TendstoInDistribution X l W \u03bc \u03bc'') : \u03bc'.map Z = \u03bc''.map W",
+    "have_tree": [
+      {
+        "name": "h_eq",
+        "type": "",
+        "body": "tendsto_nhds_unique h1.tendsto h2.tendsto",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ConvergenceInDistribution",
+    "name": "tendstoInDistribution_of_tendstoInMeasure_sub",
+    "statement": "\u03b9 \u2192 \u03a9'' \u2192 E} [l.IsCountablyGenerated] (Y : \u03b9 \u2192 \u03a9'' \u2192 E) (Z : \u03a9' \u2192 E) (hXZ : TendstoInDistribution X l Z (fun _ \u21a6 \u03bc'') \u03bc') (hXY : TendstoInMeasure \u03bc'' (Y - X) l 0) (hY : \u2200 i, AEMeasurable (Y i) \u03bc'') : TendstoInDistribution Y l Z (fun _ \u21a6 \u03bc'') \u03bc'",
+    "have_tree": [
+      {
+        "name": "hZ",
+        "type": "AEMeasurable Z \u03bc'",
+        "body": "hXZ.aemeasurable_limit",
+        "children": []
+      },
+      {
+        "name": "hX",
+        "type": "\u2200 i, AEMeasurable (X i) \u03bc''",
+        "body": "hXZ.forall_aemeasurable",
+        "children": []
+      },
+      {
+        "name": "hF_cont",
+        "type": "Continuous F",
+        "body": "hF_lip.continuous",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsProbabilityMeasure (\u03bc'.map Z)",
+            "body": "Measure.isProbabilityMeasure_map hZ",
+            "children": []
+          },
+          {
+            "name": "h_int_Y",
+            "type": "Integrable (fun x \u21a6 F (Y n x)) \u03bc''",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h_int_X",
+            "type": "Integrable (fun x \u21a6 F (X n x)) \u03bc''",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h_int_sub",
+            "type": "Integrable (fun a \u21a6 \u2016F (Y n a) - F (X n a)\u2016) \u03bc''",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_lt",
+        "type": "L * \u03b5 / 2 < L * \u03b5",
+        "body": "half_lt_self (by positivity)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ConvergenceInDistribution",
+    "name": "TendstoInDistribution.prodMk_of_tendstoInMeasure_const",
+    "statement": "Type*} {mE' : MeasurableSpace E'} [SeminormedAddCommGroup E'] [SecondCountableTopology E'] [BorelSpace E'] [l.IsCountablyGenerated] (X : \u03b9 \u2192 \u03a9'' \u2192 E) (Y : \u03b9 \u2192 \u03a9'' \u2192 E') (Z : \u03a9' \u2192 E) {c : E'} (hXZ : TendstoInDistribution X l Z (fun _ \u21a6 \u03bc'') \u03bc') (hY : TendstoInMeasure \u03bc'' Y l (fun _ \u21a6 c)) (hY_meas : \u2200 i, AEMeasurable (Y i) \u03bc'') : TendstoInDistribution (fun n \u03c9 \u21a6 (X n \u03c9, Y n \u03c9)) l (fun \u03c9 \u21a6 (Z \u03c9, c)) (fun _ \u21a6 \u03bc'') \u03bc'",
+    "have_tree": [
+      {
+        "name": "hX",
+        "type": "\u2200 i, AEMeasurable (X i) \u03bc''",
+        "body": "hXZ.forall_aemeasurable",
+        "children": []
+      },
+      {
+        "name": "hZ",
+        "type": "AEMeasurable Z \u03bc'",
+        "body": "hXZ.aemeasurable_limit",
+        "children": []
+      }
+    ]
+  }
+]

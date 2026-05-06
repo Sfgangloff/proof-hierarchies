@@ -1,0 +1,40 @@
+[
+  {
+    "module": "Schwarz",
+    "name": "schwarz_aux",
+    "statement": "\u2102 \u2192 \u2102} {c z : \u2102} {R\u2081 R\u2082 : \u211d} {n : \u2115} (hd : DifferentiableOn \u2102 f (ball c R\u2081)) (h_maps : MapsTo f (ball c R\u2081) (closedBall (f c) R\u2082)) (hn : (f \u00b7 - f c) =o[\ud835\udcdd c] (fun w \u21a6 (w - c) ^ n)) (hz : z \u2208 ball c R\u2081) : \u2016f z - f c\u2016 \u2264 R\u2082 * (\u2016z - c\u2016 / R\u2081) ^ (n + 1)",
+    "have_tree": [
+      {
+        "name": "hR\u2081",
+        "type": "0 < R\u2081",
+        "body": "nonempty_ball.1 \u27e8z, hz\u27e9",
+        "children": []
+      },
+      {
+        "name": "hdg'",
+        "type": "DifferentiableOn \u2102 g' (closedBall c R\u2081)",
+        "body": "by",
+        "children": [
+          {
+            "name": "hz'",
+            "type": "\u2016z - c\u2016 \u2260 0",
+            "body": "by simpa [sub_eq_zero] using hne",
+            "children": []
+          },
+          {
+            "name": "hwc",
+            "type": "",
+            "body": "ne_of_mem_sphere hw hR\u2081.ne'",
+            "children": []
+          },
+          {
+            "name": "hfw",
+            "type": "\u2016f w - f c\u2016 \u2264 R\u2082",
+            "body": "by simpa using h_maps (sphere_subset_closedBall hw)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,80 @@
+[
+  {
+    "module": "Basic",
+    "name": "le_rank_iff_exists_linearMap",
+    "statement": "\u2115} : n \u2264 Module.rank R M \u2194 \u2203 f : (Fin n \u2192 R) \u2192\u2097[R] M, Injective f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Injective.comp v_ind (Finsupp.linearEquivFunOnFinite R ..).symm.injective",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "CommSemiring.rank_self",
+    "statement": "Module.rank R R = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "inj (a\u2081 := f ![0, 1] \u2022 ![1, 0]) (a\u2082 := f ![1, 0] \u2022 ![0, 1]) <| by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "lift_rank_le_of_injective_injective",
+    "statement": "R' \u2192+* R) (j : S \u2192+* S') (hi : Injective i) (hj : Injective j) (hc : (j.comp (algebraMap R S)).comp i = algebraMap R' S') : lift.{v'} (Module.rank R S) \u2264 lift.{v} (Module.rank R' S')",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr($hc r)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "lift_rank_le_of_surjective_injective",
+    "statement": "R \u2192+* R') (j : S \u2192+* S') (hi : Surjective i) (hj : Injective j) (hc : (algebraMap R' S').comp i = j.comp (algebraMap R S)) : lift.{v'} (Module.rank R S) \u2264 lift.{v} (Module.rank R' S')",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr($hc r)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "lift_rank_eq_of_equiv_equiv",
+    "statement": "R \u2243+* R') (j : S \u2243+* S') (hc : (algebraMap R' S').comp i.toRingHom = j.toRingHom.comp (algebraMap R S)) : lift.{v'} (Module.rank R S) = lift.{v} (Module.rank R' S')",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr($hc r)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "lift_rank_map_le",
+    "statement": "M \u2192\u2097[R] M') (p : Submodule R M) : Cardinal.lift.{v} (Module.rank R (p.map f)) \u2264 Cardinal.lift.{v'} (Module.rank R p)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "lift_rank_range_le (f.comp (Submodule.subtype p))",
+        "children": []
+      }
+    ]
+  }
+]

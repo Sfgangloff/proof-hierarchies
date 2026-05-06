@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Chain",
+    "name": "IsChain.backwards_induction",
+    "statement": "\u03b1 \u2192 Prop) (l : List \u03b1) (h : IsChain r l) (carries : \u2200 \u2983x y : \u03b1\u2984, r x y \u2192 p y \u2192 p x) (final : (lne : l \u2260 []) \u2192 p (getLast l lne)) : \u2200 i \u2208 l, p i",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "IsChain (flip (flip r)) l",
+        "body": "h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Chain",
+    "name": "List.chains",
+    "statement": "= { l : List \u03b1 // l.IsChain (flip r) }  /-- The lexicographic order on the `r`-decreasing chains -/ abbrev List.lex_chains (l m : List.chains r) : Prop",
+    "have_tree": [
+      {
+        "name": "hl'",
+        "type": "",
+        "body": "(List.isChain_cons.1 hl).2",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Acc (List.lex_chains r) l'",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,198 @@
+[
+  {
+    "module": "Basic",
+    "name": "tendsto_integral_approxOn_of_measurable",
+    "statement": "\u03b1 \u2192 E} {s : Set E} [SeparableSpace s] (hfi : Integrable f \u03bc) (hfm : Measurable f) (hs : \u2200\u1d50 x \u2202\u03bc, f x \u2208 closure s) {y\u2080 : E} (h\u2080 : y\u2080 \u2208 s) (h\u2080i : Integrable (fun _ => y\u2080) \u03bc) : Tendsto (fun n => (SimpleFunc.approxOn f hfm s y\u2080 h\u2080 n).integral \u03bc) atTop (\ud835\udcdd <| \u222b x, f x \u2202\u03bc)",
+    "have_tree": [
+      {
+        "name": "hfi'",
+        "type": "",
+        "body": "SimpleFunc.integrable_approxOn hfm hfi h\u2080 h\u2080i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_mono_measure",
+    "statement": "\u03b1 \u2192 E} {\u03bd : Measure \u03b1} (hle : \u03bc \u2264 \u03bd) (hf : 0 \u2264\u1d50[\u03bd] f) (hfi : Integrable f \u03bd) : \u222b (a : \u03b1), f a \u2202\u03bc \u2264 \u222b (a : \u03b1), f a \u2202\u03bd",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hg.separableSpace_range_union_singleton (b := 0)",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "tendsto_integral_approxOn_of_measurable_of_range_subset hg.measurable hfi _ le_rfl",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "tendsto_integral_approxOn_of_measurable_of_range_subset hg.measurable",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_tendsto_of_tendsto_of_monotone",
+    "statement": "Measure \u03b1} {f : \u2115 \u2192 \u03b1 \u2192 \u211d} {F : \u03b1 \u2192 \u211d} (hf : \u2200 n, Integrable (f n) \u03bc) (hF : Integrable F \u03bc) (h_mono : \u2200\u1d50 x \u2202\u03bc, Monotone fun n \u21a6 f n x) (h_tendsto : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n \u21a6 f n x) atTop (\ud835\udcdd (F x))) : Tendsto (fun n \u21a6 \u222b x, f n x \u2202\u03bc) atTop (\ud835\udcdd (\u222b x, F x \u2202\u03bc))",
+    "have_tree": [
+      {
+        "name": "hf'_nonneg",
+        "type": "\u2200\u1d50 x \u2202\u03bc, \u2200 n, 0 \u2264 f' n x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf'_meas",
+        "type": "\u2200 n, Integrable (f' n) \u03bc",
+        "body": "fun n \u21a6 (hf n).sub (hf 0)",
+        "children": []
+      },
+      {
+        "name": "hF_ge",
+        "type": "0 \u2264\u1d50[\u03bc] fun x \u21a6 (F - f 0) x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_cont",
+        "type": "",
+        "body": "ENNReal.continuousAt_toReal (x := \u222b\u207b a, ENNReal.ofReal ((F - f 0) a) \u2202\u03bc) ?_",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "tendsto_of_integral_tendsto_of_monotone",
+    "statement": "Measure \u03b1} {f : \u2115 \u2192 \u03b1 \u2192 \u211d} {F : \u03b1 \u2192 \u211d} (hf_int : \u2200 n, Integrable (f n) \u03bc) (hF_int : Integrable F \u03bc) (hf_tendsto : Tendsto (fun i \u21a6 \u222b a, f i a \u2202\u03bc) atTop (\ud835\udcdd (\u222b a, F a \u2202\u03bc))) (hf_mono : \u2200\u1d50 a \u2202\u03bc, Monotone (fun i \u21a6 f i a)) (hf_bound : \u2200\u1d50 a \u2202\u03bc, \u2200 i, f i a \u2264 F a) : \u2200\u1d50 a \u2202\u03bc, Tendsto (fun i \u21a6 f i a) atTop (\ud835\udcdd (F a))",
+    "have_tree": [
+      {
+        "name": "h_tendsto",
+        "type": "Tendsto (fun i \u21a6 \u222b\u207b a, f' i a \u2202\u03bc) atTop (\ud835\udcdd (\u222b\u207b a, F' a \u2202\u03bc))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_mono",
+        "type": "\u2200\u1d50 a \u2202\u03bc, Monotone (fun i \u21a6 f' i a)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_bound",
+        "type": "\u2200\u1d50 a \u2202\u03bc, \u2200 i, f' i a \u2264 F' a",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "tendsto_of_lintegral_tendsto_of_monotone ?_ h_tendsto h_mono h_bound ?_",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "norm_integral_le_integral_norm",
+    "statement": "\u03b1 \u2192 G) : \u2016\u222b a, f a \u2202\u03bc\u2016 \u2264 \u222b a, \u2016f a\u2016 \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "le_ae",
+        "type": "\u2200\u1d50 a \u2202\u03bc, 0 \u2264 \u2016f a\u2016",
+        "body": "Eventually.of_forall fun a => norm_nonneg _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_add_measure",
+    "statement": "\u03b1 \u2192 G} (h\u03bc : Integrable f \u03bc) (h\u03bd : Integrable f \u03bd) : \u222b x, f x \u2202(\u03bc + \u03bd) = \u222b x, f x \u2202\u03bc + \u222b x, f x \u2202\u03bd",
+    "have_tree": [
+      {
+        "name": "hfi",
+        "type": "",
+        "body": "h\u03bc.add_measure h\u03bd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_smul_measure",
+    "statement": "\u03b1 \u2192 G) (c : \u211d\u22650\u221e) : \u222b x, f x \u2202c \u2022 \u03bc = c.toReal \u2022 \u222b x, f x \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "hdfma_smul",
+        "type": "",
+        "body": "dominatedFinMeasAdditive_weightedSMul (F := G) (c \u2022 \u03bc)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_trim_simpleFunc",
+    "statement": "m \u2264 m0) (f : @SimpleFunc \u03b2 m F) (hf_int : Integrable f \u03bc) : \u222b x, f x \u2202\u03bc = \u222b x, f x \u2202\u03bc.trim hm",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "StronglyMeasurable[m] f",
+        "body": "@SimpleFunc.stronglyMeasurable \u03b2 F m _ f",
+        "children": []
+      },
+      {
+        "name": "hf_int_m",
+        "type": "",
+        "body": "hf_int.trim hm hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_trim",
+    "statement": "m \u2264 m0) {f : \u03b2 \u2192 G} (hf : StronglyMeasurable[m] f) : \u222b x, f x \u2202\u03bc = \u222b x, f x \u2202\u03bc.trim hm",
+    "have_tree": [
+      {
+        "name": "hf_seq_meas",
+        "type": "\u2200 n, StronglyMeasurable[m] (f_seq n)",
+        "body": "fun n =>",
+        "children": []
+      },
+      {
+        "name": "hf_seq_int",
+        "type": "\u2200 n, Integrable (f_seq n) \u03bc",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hf_seq_int_m",
+        "type": "\u2200 n, Integrable (f_seq n) (\u03bc.trim hm)",
+        "body": "fun n =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "eLpNorm_one_le_of_le",
+    "statement": "\u211d\u22650} (hfint : Integrable f \u03bc) (hfint' : 0 \u2264 \u222b x, f x \u2202\u03bc) (hf : \u2200\u1d50 \u03c9 \u2202\u03bc, f \u03c9 \u2264 r) : eLpNorm f 1 \u03bc \u2264 2 * \u03bc Set.univ * r",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(integral_eq_zero_iff_of_nonneg_ae ?_ hfint.neg).1 hnegf",
+        "children": []
+      }
+    ]
+  }
+]

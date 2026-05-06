@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Bernoulli",
+      "name": "bernoulli_spec'",
+      "statement": "\u2115) : (\u2211 k \u2208 antidiagonal n, ((k.1 + k.2).choose k.2 : \u211a) / (k.2 + 1) * bernoulli k.1) = if n = 0 then 1 else 0",
+      "have_tree": [
+        {
+          "name": "h\u2081",
+          "type": "(1, n) \u2208 antidiagonal n.succ",
+          "body": "by simp [mem_antidiagonal, add_comm]",
+          "children": []
+        },
+        {
+          "name": "H",
+          "type": "",
+          "body": "bernoulli'_spec' n.succ",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Bernoulli",
+          "name": "bernoulli_spec'",
+          "statement": "\u2115) : (\u2211 k \u2208 antidiagonal n, ((k.1 + k.2).choose k.2 : \u211a) / (k.2 + 1) * bernoulli k.1) = if n = 0 then 1 else 0",
+          "have_tree": [
+            {
+              "name": "H",
+              "type": "",
+              "body": "bernoulli'_spec' n.succ",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "(1, n) \u2208 antidiagonal n.succ",
+              "body": "by simp [mem_antidiagonal, add_comm]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Bernoulli",
+      "name": "sum_range_pow",
+      "statement": "\u2115) : (\u2211 k \u2208 range n, (k : \u211a) ^ p) = \u2211 i \u2208 range (p + 1), bernoulli i * ((p + 1).choose i) * (n : \u211a) ^ (p + 1 - i) / (p + 1)",
+      "have_tree": [
+        {
+          "name": "h",
+          "type": "m < q + 1",
+          "body": "by simpa using h",
+          "children": []
+        },
+        {
+          "name": "hexp",
+          "type": "exp \u211a - 1 \u2260 0",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Bernoulli",
+          "name": "sum_range_pow",
+          "statement": "\u2115) : (\u2211 k \u2208 range n, (k : \u211a) ^ p) = \u2211 i \u2208 range (p + 1), bernoulli i * ((p + 1).choose i) * (n : \u211a) ^ (p + 1 - i) / (p + 1)",
+          "have_tree": [
+            {
+              "name": "hexp",
+              "type": "exp \u211a - 1 \u2260 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "m < q + 1",
+              "body": "by simpa using h",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

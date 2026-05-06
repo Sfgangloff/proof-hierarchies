@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Tight",
+    "name": "isTightMeasureSet_singleton_of_innerRegularWRT",
+    "statement": "\u03bc.InnerRegularWRT (fun s \u21a6 IsCompact s \u2227 IsClosed s) MeasurableSet) : IsTightMeasureSet {\u03bc}",
+    "have_tree": [
+      {
+        "name": "h\u03b5r'",
+        "type": "r - \u03b5 < r",
+        "body": "ENNReal.sub_lt_self (measure_ne_top \u03bc _) h\u03b5r.ne_bot h\u03b5.ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tight",
+    "name": "exists_measure_iUnion_gt_of_isCompact_closure",
+    "statement": "\u2115 \u2192 Set \ud835\udce7) (O : \u2200 i, IsOpen (U i)) (Cov : \u22c3 i, U i = univ) (hcomp : IsCompact (closure S)) (\u03b5 : \u211d\u22650\u221e) (h\u03b5 : 0 < \u03b5) (h\u03b5bound : \u03b5 \u2264 1) : \u2203 (k : \u2115), \u2200 \u03bc \u2208 S, 1 - \u03b5 < \u03bc (\u22c3 i \u2264 k, U i)",
+    "have_tree": [
+      {
+        "name": "\u03b5fin",
+        "type": "\u03b5 \u2260 \u221e",
+        "body": "ne_top_of_le_ne_top (by simp) h\u03b5bound",
+        "children": [
+          {
+            "name": "hopen",
+            "type": "IsOpen (\u22c3 i \u2264 n, U i)",
+            "body": "isOpen_biUnion fun i a \u21a6 O i",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "ProbabilityMeasure.le_liminf_measure_open_of_tendsto h\u03bcconverges hopen",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "accumulation",
+        "type": "Tendsto (fun n \u21a6 \u03bclim (\u22c3 i \u2264 n, U i)) atTop (\ud835\udcdd (\u03bclim (\u22c3 i, U i)))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

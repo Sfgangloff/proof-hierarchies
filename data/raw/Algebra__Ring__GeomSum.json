@@ -1,0 +1,106 @@
+[
+  {
+    "module": "GeomSum",
+    "name": "Commute.geom_sum\u2082_mul_add",
+    "statement": "R} (h : Commute x y) (n : \u2115) : (\u2211 i \u2208 range n, (x + y) ^ i * y ^ (n - 1 - i)) * x + y ^ n = (x + y) ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Commute y ((x + y) ^ i)",
+        "body": "(h.symm.add_right (Commute.refl y)).pow_right i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GeomSum",
+    "name": "geom_sum_mul_add",
+    "statement": "R) (n : \u2115) : (\u2211 i \u2208 range n, (x + 1) ^ i) * x + 1 = (x + 1) ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Commute.one_right x).geom_sum\u2082_mul_add n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GeomSum",
+    "name": "Commute.geom_sum\u2082_mul",
+    "statement": "Commute x y) (n : \u2115) : (\u2211 i \u2208 range n, x ^ i * y ^ (n - 1 - i)) * (x - y) = x ^ n - y ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(h.sub_left (Commute.refl y)).geom_sum\u2082_mul_add n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GeomSum",
+    "name": "dvd_pow_pow_sub_self_of_dvd",
+    "statement": "R} {p a b : \u2115} (h : a \u2223 b) : r ^ p ^ a - r \u2223 r ^ p ^ b - r",
+    "have_tree": [
+      {
+        "name": "ha\u2080",
+        "type": "a \u2260 0",
+        "body": "by rintro rfl; rw [zero_dvd_iff] at h; tauto",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GeomSum",
+    "name": "geom_sum_mul",
+    "statement": "R) (n : \u2115) : (\u2211 i \u2208 range n, x ^ i) * (x - 1) = x ^ n - 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Commute.one_right x).geom_sum\u2082_mul n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GeomSum",
+    "name": "geom_sum_mul_neg",
+    "statement": "R) (n : \u2115) : (\u2211 i \u2208 range n, x ^ i) * (1 - x) = 1 - x ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_arg Neg.neg (geom_sum_mul x n)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GeomSum",
+    "name": "Commute.geom_sum\u2082_Ico_mul",
+    "statement": "Commute x y) {m n : \u2115} (hmn : m \u2264 n) : (\u2211 i \u2208 Finset.Ico m n, x ^ i * y ^ (n - 1 - i)) * (x - y) = x ^ n - y ^ (n - m) * x ^ m",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "",
+        "body": "Commute.pow_pow (Commute.op h.symm) (n - 1 - k) k",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GeomSum",
+    "name": "Odd.add_dvd_pow_add_pow",
+    "statement": "R) {n : \u2115} (h : Odd n) : x + y \u2223 x ^ n + y ^ n",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "geom_sum\u2082_mul x (-y) n",
+        "children": []
+      }
+    ]
+  }
+]

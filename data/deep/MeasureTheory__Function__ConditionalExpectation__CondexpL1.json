@@ -1,0 +1,65 @@
+[
+  {
+    "module": "CondexpL1",
+    "name": "setIntegral_condExpL1CLM",
+    "statement": "\u03b1 \u2192\u2081[\u03bc] F') (hs : MeasurableSet[m] s) : \u222b x in s, condExpL1CLM F' hm \u03bc f x \u2202\u03bc = \u222b x in s, f x \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "hS_meas",
+        "type": "\u2200 i, MeasurableSet[m] (S i)",
+        "body": "measurableSet_spanningSets (\u03bc.trim hm)",
+        "children": []
+      },
+      {
+        "name": "hS_meas0",
+        "type": "\u2200 i, MeasurableSet (S i)",
+        "body": "fun i => hm _ (hS_meas i)",
+        "children": []
+      },
+      {
+        "name": "hs_eq",
+        "type": "s = \u22c3 i, S i \u2229 s",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hS_finite",
+        "type": "\u2200 i, \u03bc (S i \u2229 s) < \u221e",
+        "body": "by",
+        "children": [
+          {
+            "name": "hS_finite_trim",
+            "type": "",
+            "body": "measure_spanningSets_lt_top (\u03bc.trim hm) i",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_mono",
+        "type": "Monotone fun i => S i \u2229 s",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_right",
+        "type": "Tendsto (fun i => \u222b x in S i \u2229 s, f x \u2202\u03bc) atTop (\ud835\udcdd (\u222b x in s, f x \u2202\u03bc))",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "h",
+            "type": "",
+            "body": "tendsto_setIntegral_of_monotone (fun i => (hS_meas0 i).inter (hm s hs)) h_mono",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

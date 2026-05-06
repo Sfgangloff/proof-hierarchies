@@ -1,0 +1,84 @@
+[
+  {
+    "module": "IntegralRNDeriv",
+    "name": "le_integral_rnDeriv_of_ac",
+    "statement": "ConvexOn \u211d (Ici 0) f) (hf_cont : ContinuousWithinAt f (Ici 0) 0) (hf_int : Integrable (fun x \u21a6 f (\u03bc.rnDeriv \u03bd x).toReal) \u03bd) (h\u03bc\u03bd : \u03bc \u226a \u03bd) : f (\u03bc.real univ) \u2264 \u222b x, f (\u03bc.rnDeriv \u03bd x).toReal \u2202\u03bd",
+    "have_tree": [
+      {
+        "name": "hf_cont'",
+        "type": "ContinuousOn f (Ici 0)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegralRNDeriv",
+    "name": "mul_le_integral_rnDeriv_of_ac",
+    "statement": "ConvexOn \u211d (Ici 0) f) (hf_cont : ContinuousWithinAt f (Ici 0) 0) (hf_int : Integrable (fun x \u21a6 f (\u03bc.rnDeriv \u03bd x).toReal) \u03bd) (h\u03bc\u03bd : \u03bc \u226a \u03bd) : \u03bd.real univ * f (\u03bc.real univ / \u03bd.real univ) \u2264 \u222b x, f (\u03bc.rnDeriv \u03bd x).toReal \u2202\u03bd",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero \u03bd",
+        "body": "\u27e8h\u03bd\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsFiniteMeasure \u03bc'",
+        "body": "\u03bc.smul_finite (by simp [h\u03bd])",
+        "children": []
+      },
+      {
+        "name": "h\u03bc\u03bd'",
+        "type": "\u03bc' \u226a \u03bd'",
+        "body": "h\u03bc\u03bd.smul _",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "f (\u03bc'.real univ) \u2264 \u222b x, f (\u03bc'.rnDeriv \u03bd' x).toReal \u2202\u03bd'",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegralRNDeriv",
+    "name": "_root_.ConvexOn.apply_rnDeriv_ae_le_integral",
+    "statement": "StronglyMeasurable f) (hf_cvx : ConvexOn \u211d (Ici 0) f) (hf_cont_at : ContinuousWithinAt f (Ici 0) 0) (h_int : Integrable (fun p \u21a6 f ((\u03bc \u2297\u2098 \u03ba).rnDeriv (\u03bd \u2297\u2098 \u03b7) p).toReal) (\u03bd \u2297\u2098 \u03b7)) (h\u03ba\u03b7 : \u03bc \u2297\u2098 \u03ba \u226a \u03bc \u2297\u2098 \u03b7) : (fun a \u21a6 f (\u03bc.rnDeriv \u03bd a).toReal) \u2264\u1d50[\u03bd] fun a \u21a6 \u222b b, f ((\u03bc \u2297\u2098 \u03ba).rnDeriv (\u03bd \u2297\u2098 \u03b7) (a, b)).toReal \u2202(\u03b7 a)",
+    "have_tree": [
+      {
+        "name": "hf_cont",
+        "type": "ContinuousOn f (Ici 0)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_lt_top",
+        "type": "\u2200\u1d50 a \u2202\u03bd, \u2200\u1d50 b \u2202\u03b7 a, (\u03bc \u2297\u2098 \u03ba).rnDeriv (\u03bd \u2297\u2098 \u03b7) (a, b) < \u221e",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h_integrable",
+        "type": "Integrable (fun x \u21a6 ((\u03bc \u2297\u2098 \u03ba).rnDeriv (\u03bd \u2297\u2098 \u03b7) x).toReal) (\u03bd \u2297\u2098 \u03b7)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegralRNDeriv",
+    "name": "_root_.ConvexOn.integrable_apply_rnDeriv_of_integrable_compProd",
+    "statement": "StronglyMeasurable f) (hf_cvx : ConvexOn \u211d (Ici 0) f) (hf_cont_at : ContinuousWithinAt f (Ici 0) 0) (hf_int : Integrable (fun p \u21a6 f ((\u03bc \u2297\u2098 \u03ba).rnDeriv (\u03bd \u2297\u2098 \u03b7) p).toReal) (\u03bd \u2297\u2098 \u03b7)) (h\u03ba\u03b7 : \u03bc \u2297\u2098 \u03ba \u226a \u03bc \u2297\u2098 \u03b7) : Integrable (fun a \u21a6 f (\u03bc.rnDeriv \u03bd a).toReal) \u03bd",
+    "have_tree": [
+      {
+        "name": "hf_cont",
+        "type": "ContinuousOn f (Ici 0)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

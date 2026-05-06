@@ -1,0 +1,98 @@
+[
+  {
+    "module": "Profinite",
+    "name": "isTopologicalBasis_isClopen",
+    "statement": "IsTopologicalBasis { s : Set X | IsClopen s }",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "U \u2208 \ud835\udcdd x",
+        "body": "IsOpen.mem_nhds U_op hxU",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Profinite",
+    "name": "loc_compact_Haus_tot_disc_of_zero_dim",
+    "statement": "IsTopologicalBasis { s : Set H | IsClopen s }",
+    "have_tree": [
+      {
+        "name": "u_open_in_s",
+        "type": "IsOpen u",
+        "body": "isOpen_interior.preimage continuous_subtype_val",
+        "children": [
+          {
+            "name": "f2",
+            "type": "IsOpen v",
+            "body": "VisClopen.2.preimage continuous_subtype_val",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Profinite",
+    "name": "exists_clopen_of_closed_subset_open",
+    "statement": "Type*} [TopologicalSpace X] [CompactSpace X] [T2Space X] [TotallyDisconnectedSpace X] {Z U : Set X} (hZ : IsClosed Z) (hU : IsOpen U) (hZU : Z \u2286 U) : \u2203 C : Set X, IsClopen C \u2227 Z \u2286 C \u2227 C \u2286 U",
+    "have_tree": [
+      {
+        "name": "V_cover",
+        "type": "Z \u2286 \u22c3 z, V z",
+        "body": "fun z hz \u21a6 mem_iUnion.mpr \u27e8\u27e8z, hz\u27e9, (hV \u27e8z, hz\u27e9).2.1\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Profinite",
+    "name": "exists_clopen_partition_of_clopen_cover",
+    "statement": "Type*} [TopologicalSpace X] [CompactSpace X] [T2Space X] [TotallyDisconnectedSpace X] [Finite I] {Z D : I \u2192 Set X} (Z_closed : \u2200 i, IsClosed (Z i)) (D_clopen : \u2200 i, IsClopen (D i)) (Z_subset_D : \u2200 i, Z i \u2286 D i) (Z_disj : univ.PairwiseDisjoint Z) : \u2203 C : I \u2192 Set X, (\u2200 i, IsClopen (C i)) \u2227 (\u2200 i, Z i \u2286 C i) \u2227 (\u2200 i, C i \u2286 D i) \u2227 (\u22c3 i, D i) \u2286 (\u22c3 i, C i) \u2227 (univ.PairwiseDisjoint C)",
+    "have_tree": [
+      {
+        "name": "Z'_disj",
+        "type": "univ.PairwiseDisjoint (Z \u2218 some)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "U_open",
+        "type": "IsOpen U",
+        "body": "IsOpen.sdiff (D_clopen none).2",
+        "children": []
+      },
+      {
+        "name": "Z0_subset_U",
+        "type": "Z none \u2286 U",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "V_subset_D0",
+        "type": "V \u2286 D none",
+        "body": "subset_trans V_subset_U diff_subset",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsClopen C0",
+        "body": "(D_clopen none).diff (isClopen_iUnion_of_finite C'_clopen)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Z none \u2286 C0",
+        "body": "by",
+        "children": [
+          {
+            "name": "hxD'",
+            "type": "x \u2208 \u22c3 i, D' i",
+            "body": "mem_iUnion.mpr \u27e8j, by grind\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

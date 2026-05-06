@@ -1,0 +1,249 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "lift",
+      "statement": "S \u2192\u2090[R] M",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "FractionRing.isScalarTower_liftAlgebra R M",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "FractionRing.isScalarTower_liftAlgebra R (FractionRing S)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "lift",
+          "statement": "S \u2192\u2090[R] M",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "FractionRing.isScalarTower_liftAlgebra R (FractionRing S)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "FractionRing.isScalarTower_liftAlgebra R M",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "nonempty_algEquiv_or_of_finrank_eq_two",
+      "statement": "Type*} (E : Type*) [Field F] [Field F'] [Field E] [Algebra F F'] [Algebra F E] [Algebra.IsAlgebraic F E] [IsAlgClosed F'] (h : Module.finrank F F' = 2) : Nonempty (E \u2243\u2090[F] F) \u2228 Nonempty (E \u2243\u2090[F] F')",
+      "have_tree": [
+        {
+          "name": "emb",
+          "type": "E \u2192\u2090[F] F'",
+          "body": "lift",
+          "children": []
+        },
+        {
+          "name": "e",
+          "type": "",
+          "body": "AlgEquiv.ofInjectiveField emb",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "Subalgebra.isSimpleOrder_of_finrank h",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "nonempty_algEquiv_or_of_finrank_eq_two",
+          "statement": "Type*} (E : Type*) [Field F] [Field F'] [Field E] [Algebra F F'] [Algebra F E] [Algebra.IsAlgebraic F E] [IsAlgClosed F'] (h : Module.finrank F F' = 2) : Nonempty (E \u2243\u2090[F] F) \u2228 Nonempty (E \u2243\u2090[F] F')",
+          "have_tree": [
+            {
+              "name": "e",
+              "type": "",
+              "body": "AlgEquiv.ofInjectiveField emb",
+              "children": []
+            },
+            {
+              "name": "emb",
+              "type": "E \u2192\u2090[F] F'",
+              "body": "lift",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Subalgebra.isSimpleOrder_of_finrank h",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "nonempty_algEquiv_or_of_finrank_eq_two",
+          "statement": "Type*} (E : Type*) [Field F] [Field F'] [Field E] [Algebra F F'] [Algebra F E] [Algebra.IsAlgebraic F E] [IsAlgClosed F'] (h : Module.finrank F F' = 2) : Nonempty (E \u2243\u2090[F] F) \u2228 Nonempty (E \u2243\u2090[F] F')",
+          "have_tree": [
+            {
+              "name": "emb",
+              "type": "E \u2192\u2090[F] F'",
+              "body": "lift",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Subalgebra.isSimpleOrder_of_finrank h",
+              "children": []
+            },
+            {
+              "name": "e",
+              "type": "",
+              "body": "AlgEquiv.ofInjectiveField emb",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "equivOfAlgebraic'",
+      "statement": "L \u2243\u2090[R] M",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "IsTorsionFree R L",
+          "body": ".trans_faithfulSMul R S L",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "IsAlgClosure R L",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "equivOfAlgebraic'",
+          "statement": "L \u2243\u2090[R] M",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsAlgClosure R L",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsTorsionFree R L",
+              "body": ".trans_faithfulSMul R S L",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "equivOfEquivAux",
+      "statement": "S \u2243+* R) : { e : L \u2243+* M // e.toRingHom.comp (algebraMap S L) = (algebraMap R M).comp hSR.toRingHom }",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "FaithfulSMul R S",
+          "body": "(faithfulSMul_iff_algebraMap_injective R S).mpr hSR.symm.injective",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Algebra.IsAlgebraic R L",
+          "body": "(IsAlgClosure.isAlgebraic.extendScalars",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "equivOfEquivAux",
+          "statement": "S \u2243+* R) : { e : L \u2243+* M // e.toRingHom.comp (algebraMap S L) = (algebraMap R M).comp hSR.toRingHom }",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic R L",
+              "body": "(IsAlgClosure.isAlgebraic.extendScalars",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "FaithfulSMul R S",
+              "body": "(faithfulSMul_iff_algebraMap_injective R S).mpr hSR.symm.injective",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

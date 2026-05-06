@@ -1,0 +1,99 @@
+[
+  {
+    "original": {
+      "module": "Bound",
+      "name": "add_div_le_sum_sq_div_card",
+      "statement": "s \u2286 t) (f : \u03b9 \u2192 \ud835\udd5c) (d : \ud835\udd5c) (hx : 0 \u2264 x) (hs : x \u2264 |(\u2211 i \u2208 s, f i) / #s - (\u2211 i \u2208 t, f i) / #t|) (ht : d \u2264 ((\u2211 i \u2208 t, f i) / #t) ^ 2) : d + #s / #t * x ^ 2 \u2264 (\u2211 i \u2208 t, f i ^ 2) / #t",
+      "have_tree": [
+        {
+          "name": "h\u2081",
+          "type": "x ^ 2 \u2264 ((\u2211 i \u2208 s, f i) / #s - (\u2211 i \u2208 t, f i) / #t) ^ 2",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "x ^ 2 \u2264 ((\u2211 i \u2208 s, (f i - (\u2211 j \u2208 t, f j) / #t)) / #s) ^ 2",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "h\u2083",
+          "type": "",
+          "body": "mul_sq_le_sum_sq hst (fun i => (f i - (\u2211 j \u2208 t, f j) / #t)) h\u2082 hscard.ne'",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Bound",
+          "name": "add_div_le_sum_sq_div_card",
+          "statement": "s \u2286 t) (f : \u03b9 \u2192 \ud835\udd5c) (d : \ud835\udd5c) (hx : 0 \u2264 x) (hs : x \u2264 |(\u2211 i \u2208 s, f i) / #s - (\u2211 i \u2208 t, f i) / #t|) (ht : d \u2264 ((\u2211 i \u2208 t, f i) / #t) ^ 2) : d + #s / #t * x ^ 2 \u2264 (\u2211 i \u2208 t, f i ^ 2) / #t",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "x ^ 2 \u2264 ((\u2211 i \u2208 s, (f i - (\u2211 j \u2208 t, f j) / #t)) / #s) ^ 2",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "x ^ 2 \u2264 ((\u2211 i \u2208 s, f i) / #s - (\u2211 i \u2208 t, f i) / #t) ^ 2",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "mul_sq_le_sum_sq hst (fun i => (f i - (\u2211 j \u2208 t, f j) / #t)) h\u2082 hscard.ne'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Bound",
+          "name": "add_div_le_sum_sq_div_card",
+          "statement": "s \u2286 t) (f : \u03b9 \u2192 \ud835\udd5c) (d : \ud835\udd5c) (hx : 0 \u2264 x) (hs : x \u2264 |(\u2211 i \u2208 s, f i) / #s - (\u2211 i \u2208 t, f i) / #t|) (ht : d \u2264 ((\u2211 i \u2208 t, f i) / #t) ^ 2) : d + #s / #t * x ^ 2 \u2264 (\u2211 i \u2208 t, f i ^ 2) / #t",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "x ^ 2 \u2264 ((\u2211 i \u2208 s, f i) / #s - (\u2211 i \u2208 t, f i) / #t) ^ 2",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "mul_sq_le_sum_sq hst (fun i => (f i - (\u2211 j \u2208 t, f j) / #t)) h\u2082 hscard.ne'",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "x ^ 2 \u2264 ((\u2211 i \u2208 s, (f i - (\u2211 j \u2208 t, f j) / #t)) / #s) ^ 2",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

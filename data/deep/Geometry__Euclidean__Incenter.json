@@ -1,0 +1,62 @@
+[
+  {
+    "module": "Incenter",
+    "name": "excenterWeights_empty_lt_inv_two",
+    "statement": "Fin (n + 1)) : s.excenterWeights \u2205 i < 2\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "(s.height i)\u207b\u00b9 + (s.height i)\u207b\u00b9 < (s.height i)\u207b\u00b9 + \u2211 j \u2208 {i}\u1d9c, (s.height j)\u207b\u00b9",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "s.inv_height_lt_sum_inv_height i",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "ExcenterExists.excenter_notMem_affineSpan_face",
+    "statement": "Finset (Fin (n + 1))} (h : s.ExcenterExists signs) {fs : Finset (Fin (n + 1))} {m : \u2115} (hfs : #fs = m + 1) (hne : m \u2260 n) : s.excenter signs \u2209 affineSpan \u211d (Set.range (s.face hfs).points)",
+    "have_tree": [
+      {
+        "name": "hc",
+        "type": "#fs < #(Finset.univ : Finset (Fin (n + 1)))",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "m + 1 \u2264 #fs",
+            "body": "hfs.ge",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "touchpoint_singleton_sbtw",
+    "statement": "Fin 3} (h\u2081\u2082 : i\u2081 \u2260 i\u2082) (h\u2081\u2083 : i\u2081 \u2260 i\u2083) (h\u2082\u2083 : i\u2082 \u2260 i\u2083) : Sbtw \u211d (t.touchpoint {i\u2081} i\u2082) (t.points i\u2083) (t.points i\u2081)",
+    "have_tree": [
+      {
+        "name": "hw",
+        "type": "",
+        "body": "t.sum_touchpointWeights {i\u2081} i\u2082",
+        "children": [
+          {
+            "name": "h",
+            "type": "i = i\u2081 \u2228 i = i\u2082 \u2228 i = i\u2083",
+            "body": "by clear hw; decide +revert",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "module": "GelfandFormula",
+    "name": "hasDerivAt_resolvent_const_left",
+    "statement": "A} {k : \ud835\udd5c} (hk : k \u2208 resolventSet \ud835\udd5c a) : HasDerivAt (resolvent a) (-resolvent a k ^ 2) k",
+    "have_tree": [
+      {
+        "name": "H\u2081",
+        "type": "HasFDerivAt Ring.inverse _ (algebraMap \ud835\udd5c A k - a)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GelfandFormula",
+    "name": "hasFDerivAt_resolvent",
+    "statement": "A} {k : \ud835\udd5c} (hk : k \u2208 resolventSet \ud835\udd5c a) : HasFDerivAt (resolvent \u00b7 k) (((ContinuousLinearMap.mulLeftRight \ud835\udd5c A) (resolvent a k)) (resolvent a k)) a",
+    "have_tree": [
+      {
+        "name": "H\u2081",
+        "type": "HasFDerivAt Ring.inverse _ (algebraMap \ud835\udd5c A k - a)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GelfandFormula",
+    "name": "differentiableOn_inverse_one_sub_smul",
+    "statement": "A} {r : \u211d\u22650} (hr : (r : \u211d\u22650\u221e) < (spectralRadius \ud835\udd5c a)\u207b\u00b9) : DifferentiableOn \ud835\udd5c (fun z : \ud835\udd5c => (1 - z \u2022 a)\u207b\u00b9\u02b3) (Metric.closedBall 0 r)",
+    "have_tree": [
+      {
+        "name": "hu",
+        "type": "IsUnit (1 - z \u2022 a)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GelfandFormula",
+    "name": "limsup_pow_nnnorm_pow_one_div_le_spectralRadius",
+    "statement": "A) : limsup (fun n : \u2115 => (\u2016a ^ n\u2016\u208a : \u211d\u22650\u221e) ^ (1 / n : \u211d)) atTop \u2264 spectralRadius \u2102 a",
+    "have_tree": [
+      {
+        "name": "H\u2081",
+        "type": "",
+        "body": "(differentiableOn_inverse_one_sub_smul r_lt).hasFPowerSeriesOnBall r_pos",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GelfandFormula",
+    "name": "nonempty",
+    "statement": "A) : (spectrum \u2102 a).Nonempty",
+    "have_tree": [
+      {
+        "name": "H\u2083",
+        "type": "",
+        "body": "H\u2081.apply_eq_of_tendsto_cocompact 0 <| by",
+        "children": []
+      }
+    ]
+  }
+]

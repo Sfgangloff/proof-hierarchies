@@ -1,0 +1,65 @@
+[
+  {
+    "module": "Restrict",
+    "name": "restrictIndepMatroid",
+    "statement": "Matroid \u03b1) (R : Set \u03b1) : IndepMatroid \u03b1 where E",
+    "have_tree": [
+      {
+        "name": "hss",
+        "type": "M.E \\ (B' \u222a (R \u2229 M.E)) \u2286 M.E \\ (B \u222a (R \u2229 M.E))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hi",
+        "type": "M\u2736.Indep (M.E \\ (B \u222a (R \u2229 M.E)))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_eq",
+        "type": "",
+        "body": "hI'.eq_of_subset_indep hi hss",
+        "children": []
+      },
+      {
+        "name": "hIJ'",
+        "type": "I \u2282 B \u2229 (R \u2229 M.E)",
+        "body": "hIJ.ssubset_of_ne (fun he \u21a6 hIn (by rwa [he]))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Restrict",
+    "name": "IsBasis.isBasis_of_isBasis_of_subset_of_subset",
+    "statement": "M.IsBasis I X) (hJ : M.IsBasis J Y) (hJX : J \u2286 X) (hIY : I \u2286 Y) : M.IsBasis I Y",
+    "have_tree": [
+      {
+        "name": "hI'",
+        "type": "",
+        "body": "hI.isBasis_subset (subset_inter hI.subset hIY) inter_subset_left",
+        "children": []
+      },
+      {
+        "name": "hJ'",
+        "type": "",
+        "body": "hJ.isBasis_subset (subset_inter hJX hJ.subset) inter_subset_right",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Restrict",
+    "name": "Indep.augment",
+    "statement": "M.Indep I) (hJ : M.Indep J) (hIJ : I.encard < J.encard) : \u2203 e \u2208 J \\ I, M.Indep (insert e I)",
+    "have_tree": [
+      {
+        "name": "hb",
+        "type": "M.IsBasis I (I \u222a J)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

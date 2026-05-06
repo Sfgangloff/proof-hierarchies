@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Embeddings",
+    "name": "coeff_bdd_of_norm_le",
+    "statement": "\u211d} {x : K} (h : \u2200 \u03c6 : K \u2192+* A, \u2016\u03c6 x\u2016 \u2264 B) (i : \u2115) : \u2016(minpoly \u211a x).coeff i\u2016 \u2264 max B 1 ^ finrank \u211a K * (finrank \u211a K).choose (finrank \u211a K / 2)",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "",
+        "body": "Algebra.IsSeparable.isIntegral \u211a x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Embeddings",
+    "name": "finite_of_norm_le",
+    "statement": "\u211d) : {x : K | IsIntegral \u2124 x \u2227 \u2200 \u03c6 : K \u2192+* A, \u2016\u03c6 x\u2016 \u2264 B}.Finite",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "bUnion_roots_finite (algebraMap \u2124 K) (finrank \u211a K) (finite_Icc (-C : \u2124) C)",
+        "children": []
+      },
+      {
+        "name": "h_map_\u211a_minpoly",
+        "type": "",
+        "body": "minpoly.isIntegrallyClosed_eq_field_fractions' \u211a hx.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Embeddings",
+    "name": "exists_comp_symm_eq_of_comp_eq",
+    "statement": "K \u2192+* \u2102) (h : \u03c6.comp (algebraMap k K) = \u03c8.comp (algebraMap k K)) : \u2203 \u03c3 : Gal(K/k), \u03c6.comp \u03c3.symm = \u03c8",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsScalarTower k K \u2102",
+        "body": "IsScalarTower.of_algebraMap_eq' rfl",
+        "children": []
+      }
+    ]
+  }
+]

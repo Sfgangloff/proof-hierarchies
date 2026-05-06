@@ -1,0 +1,80 @@
+[
+  {
+    "module": "LinearPMap",
+    "name": "sup_le",
+    "statement": "E \u2192\u209b\u2097.[\u03c3] F} (H : \u2200 (x : f.domain) (y : g.domain), (x : E) = y \u2192 f x = g y) (fh : f \u2264 h) (gh : g \u2264 h) : f.sup g H \u2264 h",
+    "have_tree": [
+      {
+        "name": "Hf",
+        "type": "f \u2264 f.sup g H \u2293 h",
+        "body": "le_inf (f.left_le_sup g H) fh",
+        "children": []
+      },
+      {
+        "name": "Hg",
+        "type": "g \u2264 f.sup g H \u2293 h",
+        "body": "le_inf (f.right_le_sup g H) gh",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearPMap",
+    "name": "sSup_aux",
+    "statement": "Set (E \u2192\u209b\u2097.[\u03c3] F)) (hc : DirectedOn (\u00b7 \u2264 \u00b7) c) : \u2203 f : \u21a5(sSup (domain '' c)) \u2192\u209b\u2097[\u03c3] F, (\u27e8_, f\u27e9 : E \u2192\u209b\u2097.[\u03c3] F) \u2208 upperBounds c",
+    "have_tree": [
+      {
+        "name": "hdir",
+        "type": "DirectedOn (\u00b7 \u2264 \u00b7) (domain '' c)",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(mem_sSup_of_directed (cne.image _) hdir).1 x.2",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LinearPMap",
+    "name": "sSup_le",
+    "statement": "Set (E \u2192\u209b\u2097.[\u03c3] F)} (hc : DirectedOn (\u00b7 \u2264 \u00b7) c) {g : E \u2192\u209b\u2097.[\u03c3] F} (hg : \u2200 f \u2208 c, f \u2264 g) : LinearPMap.sSup c hc \u2264 g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "f \u2264 LinearPMap.sSup c hc \u2293 g",
+        "body": "le_inf (LinearPMap.le_sSup _ hf) (hg f hf)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearPMap",
+    "name": "toLinearPMap_graph_eq",
+    "statement": "Submodule R (E \u00d7 F)) (hg : \u2200 (x : E \u00d7 F) (_hx : x \u2208 g) (_hx' : x.fst = 0), x.snd = 0) : g.toLinearPMap.graph = g",
+    "have_tree": [
+      {
+        "name": "hx_fst",
+        "type": "x_fst \u2208 g.map (LinearMap.fst R E F)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearPMap",
+    "name": "inverse_apply_eq",
+    "statement": "(inverse f).domain} {x : f.domain} (hxy : f x = y) : (inverse f) y = x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mem_inverse_graph hf x",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,366 @@
+[
+  {
+    "module": "Paths",
+    "name": "IsTrail.length_le_card_edgeFinset",
+    "statement": "V} {w : G.Walk u v} (h : w.IsTrail) : w.length \u2264 G.edgeFinset.card",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "edges \u2286 G.edgeFinset",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "IsPath.mem_support_iff_exists_append",
+    "statement": "G.Walk u v} (hp : p.IsPath) : w \u2208 p.support \u2194 \u2203 (q : G.Walk u w) (r : G.Walk w v), q.IsPath \u2227 r.IsPath \u2227 p = q.append r",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(q.append r).IsPath",
+        "body": "hqr \u25b8 hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "IsPath.disjoint_support_of_append",
+    "statement": "G.Walk u v} {q : G.Walk v w} (hpq : (p.append q).IsPath) (hq : \u00acq.Nil) : p.support.Disjoint q.tail.support",
+    "have_tree": [
+      {
+        "name": "hpq'",
+        "type": "",
+        "body": "hpq.support_nodup",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "IsPath.ne_of_mem_support_of_append",
+    "statement": "G.Walk u v} {q : G.Walk v w} (hpq : (p.append q).IsPath) {x y : V} (hyv : y \u2260 v) (hx : x \u2208 p.support) (hy : y \u2208 q.support) : x \u2260 y",
+    "have_tree": [
+      {
+        "name": "hq",
+        "type": "\u00acq.Nil",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hx'",
+        "type": "x \u2208 q.tail.support",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "not_nil_of_isCycle_cons",
+    "statement": "G.Walk u v} {h : G.Adj v u} (hc : (Walk.cons h p).IsCycle) : \u00ac p.Nil",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Walk.length_cons _ _ \u25b8 Walk.IsCycle.three_le_length hc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "cons_isCycle_iff",
+    "statement": "V} (p : G.Walk v u) (h : G.Adj u v) : (Walk.cons h p).IsCycle \u2194 p.IsPath \u2227 s(u, v) \u2209 p.edges",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "p.support.Nodup \u2192 p.edges.Nodup",
+        "body": "edges_nodup_of_support_nodup",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "isCycle_reverse",
+    "statement": "G.Walk u u} : p.reverse.IsCycle \u2194 p.IsCycle where mp h",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hcyc.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "exists_isTrail_forall_isTrail_length_le_length",
+    "statement": "SimpleGraph V) [N : Nonempty V] [Finite G.edgeSet] : \u2203 (u v : V) (p : G.Walk u v) (_ : p.IsTrail), \u2200 (u' v' : V) (p' : G.Walk u' v') (_ : p'.IsTrail), p'.length \u2264 p.length",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite G.edgeSet",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "s.Finite",
+        "body": "Set.Finite.subset (Set.finite_le_nat G.edgeFinset.card)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hn \u27e8u', v', p', hp', Eq.refl p'.length\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "exists_isPath_forall_isPath_length_le_length",
+    "statement": "SimpleGraph V) [N : Nonempty V] [Finite G.edgeSet] : \u2203 (u v : V) (p : G.Walk u v) (_ : p.IsPath), \u2200 (u' v' : V) (p' : G.Walk u' v') (_ : p'.IsPath), p'.length \u2264 p.length",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite G.edgeSet",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "s.Finite",
+        "body": "Set.Finite.subset (Set.finite_le_nat G.edgeFinset.card)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hn \u27e8u', v', p', hp', Eq.refl p'.length\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "IsPath.getVert_injOn",
+    "statement": "G.Walk u v} (hp : p.IsPath) : Set.InjOn p.getVert {i | i \u2264 p.length}",
+    "have_tree": [
+      {
+        "name": "hvp",
+        "type": "v \u2209 p.support",
+        "body": "by aesop",
+        "children": []
+      },
+      {
+        "name": "hvp",
+        "type": "v \u2209 p.support",
+        "body": "by simp_all",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "ihp hp.of_cons (by lia : (n - 1) \u2264 p.length)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "IsPath.getVert_eq_end_iff",
+    "statement": "\u2115} {p : G.Walk u w} (hp : p.IsPath) (hi : i \u2264 p.length) : p.getVert i = w \u2194 i = p.length",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hp.reverse.getVert_eq_start_iff (by lia : p.reverse.length - i \u2264 p.reverse.length)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "IsPath.getVert_injOn_iff",
+    "statement": "G.Walk u v) : Set.InjOn p.getVert {i | i \u2264 p.length} \u2194 p.IsPath",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hinj",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hinj",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "IsPath.eq_snd_of_mem_edges",
+    "statement": "G.Walk u v} (hp : p.IsPath) (hmem : s(u, w) \u2208 p.edges) : w = p.snd",
+    "have_tree": [
+      {
+        "name": "hnil",
+        "type": "",
+        "body": "edges_eq_nil.not.mp <| List.ne_nil_of_mem hmem",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "u \u2209 p.tail.support",
+        "body": "by induction p <;> simp_all",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "IsPath.injOn_support_of_isPath_map",
+    "statement": "(p.map f).IsPath) : Set.InjOn f {w | w \u2208 p.support}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "List.nodup_iff_injective_getElem.mp h.support_nodup",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "IsCycle.getVert_injOn",
+    "statement": "G.Walk u u} (hpc : p.IsCycle) : Set.InjOn p.getVert {i | 1 \u2264 i \u2227 i \u2264 p.length}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "((Walk.cons_isCycle_iff _ _).mp hpc).1.getVert_injOn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "IsCycle.getVert_injOn'",
+    "statement": "G.Walk u u} (hpc : p.IsCycle) : Set.InjOn p.getVert {i |  i \u2264 p.length - 1}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hpc.three_le_length",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "IsCycle.snd_ne_penultimate",
+    "statement": "G.Walk u u} (hp : p.IsCycle) : p.snd \u2260 p.penultimate",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hp.three_le_length",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "IsCycle.getVert_sub_one_ne_getVert_add_one",
+    "statement": "\u2115} {p : G.Walk u u} (hpc : p.IsCycle) (h : i \u2264 p.length) : p.getVert (i - 1) \u2260 p.getVert (i + 1)",
+    "have_tree": [
+      {
+        "name": "hl",
+        "type": "",
+        "body": "hpc.three_le_length",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hpc.getVert_injOn' (by simp only [Set.mem_setOf_eq, Nat.sub_le_iff_le_add]; lia)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "isCycle_iff_isPath_tail_and_le_length",
+    "statement": "G.Walk u u} : p.IsCycle \u2194 p.tail.IsPath \u2227 3 \u2264 p.length",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "p.isPath_iff_injective_get_support.mp h\u2081 this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "IsCycle.count_support",
+    "statement": "G.Walk v v} (hc : c.IsCycle) : c.support.count v = 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "List.count_eq_one_of_mem hc.support_nodup <| c.end_mem_tail_support hc.not_nil",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "c.head_support \u25b8 List.head?_eq_some_head c.support_ne_nil",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "IsCycle.count_support_of_mem",
+    "statement": "G.Walk v v} (hc : c.IsCycle) (hu : u \u2208 c.support) (hv : u \u2260 v) : c.support.count u = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "List.eq_or_mem_of_mem_cons <| List.cons_head_tail c.support_ne_nil \u25b8 hu",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "List.count_eq_one_of_mem hc.support_nodup <| this.resolve_left <| head_support _ \u25b8 hv",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "c.head_support \u25b8 List.head?_eq_some_head c.support_ne_nil",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paths",
+    "name": "endpoint_notMem_support_takeUntil",
+    "statement": "G.Walk u v} (hp : p.IsPath) (hw : w \u2208 p.support) (h : v \u2260 w) : v \u2209 (p.takeUntil w hw).support",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "p.length_takeUntil_lt hw h.symm",
+        "children": []
+      }
+    ]
+  }
+]

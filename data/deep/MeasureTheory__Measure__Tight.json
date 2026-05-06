@@ -1,0 +1,72 @@
+[
+  {
+    "module": "Tight",
+    "name": "exists_measure_iUnion_gt_of_isCompact_closure",
+    "statement": "\u2115 \u2192 Set \ud835\udce7) (O : \u2200 i, IsOpen (U i)) (Cov : \u22c3 i, U i = univ) (hcomp : IsCompact (closure S)) (\u03b5 : \u211d\u22650\u221e) (h\u03b5 : 0 < \u03b5) (h\u03b5bound : \u03b5 \u2264 1) : \u2203 (k : \u2115), \u2200 \u03bc \u2208 S, 1 - \u03b5 < \u03bc (\u22c3 i \u2264 k, U i)",
+    "have_tree": [
+      {
+        "name": "\u03b5fin",
+        "type": "\u03b5 \u2260 \u221e",
+        "body": "ne_top_of_le_ne_top (by simp) h\u03b5bound",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(\u03bclim (\u22c3 (i \u2264 n), U i) : \u211d) \u2264 1 - \u03b5",
+        "body": "calc",
+        "children": [
+          {
+            "name": "hopen",
+            "type": "IsOpen (\u22c3 i \u2264 n, U i)",
+            "body": "isOpen_biUnion fun i a \u21a6 O i",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "ProbabilityMeasure.le_liminf_measure_open_of_tendsto h\u03bcconverges hopen",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "accumulation",
+        "type": "Tendsto (fun n \u21a6 \u03bclim (\u22c3 i \u2264 n, U i)) atTop (\ud835\udcdd (\u03bclim (\u22c3 i, U i)))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "exceeds_bound",
+        "type": "\u2200\u1da0 n in atTop, (1 - \u03b5 / 2 : \u211d) \u2264 \u03bclim (\u22c3 i \u2264 n, U i)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tight",
+    "name": "isTightMeasureSet_of_isCompact_closure",
+    "statement": "IsCompact (closure S)) : IsTightMeasureSet {((\u03bc : ProbabilityMeasure \ud835\udce7) : Measure \ud835\udce7) | \u03bc \u2208 S}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2115) : \u22c3 i, ball (D i) (u m) = univ",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "ProbabilityMeasure \ud835\udce7) (hs : \u03bc \u2208 S) : \u03bc.toMeasure bigK\u1d9c \u2264 \u03b5",
+        "body": "calc",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2203 x, u x < \u03b4",
+            "body": "(Tendsto.eventually_lt_const \u03b4pos hu).exists",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,133 @@
+[
+  {
+    "module": "Subgraph",
+    "name": "Preconnected.degree_zero_iff",
+    "statement": "G.Subgraph} (h : H.Preconnected) (v : H.verts) [Fintype (H.neighborSet v)] : H.degree v = 0 \u2194 H.verts.Subsingleton",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hn.coe_sort",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Subgraph",
+    "name": "Preconnected.exists_adj_of_nontrivial",
+    "statement": "G.Subgraph} [Nontrivial H.verts] (h : H.Preconnected) (v : H.verts) : \u2203 u, H.Adj v u",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.coe.exists_adj_of_nontrivial v",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Subgraph",
+    "name": "neighborSet_toSubgraph_startpoint",
+    "statement": "G.Walk u v} (hp : p.IsPath) (hnp : \u00ac p.Nil) : p.toSubgraph.neighborSet u = {p.snd}",
+    "have_tree": [
+      {
+        "name": "hadj1",
+        "type": "",
+        "body": "p.toSubgraph_adj_snd hnp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Subgraph",
+    "name": "neighborSet_toSubgraph_internal",
+    "statement": "\u2115} {p : G.Walk u v} (hp : p.IsPath) (h : i \u2260 0) (h' : i < p.length) : p.toSubgraph.neighborSet (p.getVert i) = {p.getVert (i - 1), p.getVert (i + 1)}",
+    "have_tree": [
+      {
+        "name": "hadj1",
+        "type": "",
+        "body": "((show i - 1 + 1 = i from by lia) \u25b8",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Subgraph",
+    "name": "ncard_neighborSet_toSubgraph_internal_eq_two",
+    "statement": "\u2115} {p : G.Walk u v} (hp : p.IsPath) (h : i \u2260 0) (h' : i < p.length) : (p.toSubgraph.neighborSet (p.getVert i)).ncard = 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "p.getVert (i - 1) \u2260 p.getVert (i + 1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hp.getVert_injOn (by rw [Set.mem_setOf_eq]; lia) (by rw [Set.mem_setOf_eq]; lia) h",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Subgraph",
+    "name": "neighborSet_toSubgraph_endpoint",
+    "statement": "G.Walk u u} (hpc : p.IsCycle) : p.toSubgraph.neighborSet u = {p.snd, p.penultimate}",
+    "have_tree": [
+      {
+        "name": "hadj1",
+        "type": "",
+        "body": "p.toSubgraph_adj_snd hpc.not_nil",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Subgraph",
+    "name": "neighborSet_toSubgraph_internal",
+    "statement": "\u2115} {p : G.Walk u u} (hpc : p.IsCycle) (h : i \u2260 0) (h' : i < p.length) : p.toSubgraph.neighborSet (p.getVert i) = {p.getVert (i - 1), p.getVert (i + 1)}",
+    "have_tree": [
+      {
+        "name": "hadj1",
+        "type": "",
+        "body": "((show i - 1 + 1 = i from by lia) \u25b8",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Subgraph",
+    "name": "exists_isCycle_snd_verts_eq",
+    "statement": "G.Walk v v} (h : p.IsCycle) (hadj : p.toSubgraph.Adj v w) : \u2203 (p' : G.Walk v v), p'.IsCycle \u2227 p'.snd = w \u2227 p'.toSubgraph.verts = p.toSubgraph.verts",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "w \u2208 p.toSubgraph.neighborSet v",
+        "body": "hadj",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Subgraph",
+    "name": "exists_mem_support_mem_erase_mem_support_takeUntil_eq_empty",
+    "statement": "Finset V) (h : {x \u2208 s | x \u2208 p.support}.Nonempty) : \u2203 x \u2208 s, \u2203 hx : x \u2208 p.support, {t \u2208 s.erase x | t \u2208 (p.takeUntil x hx).support} = \u2205",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(p.takeUntil x hx).length + #(s.erase x) < n",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "p.length_takeUntil_le hx",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

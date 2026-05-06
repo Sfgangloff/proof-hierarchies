@@ -1,0 +1,73 @@
+[
+  {
+    "module": "Hausdorff",
+    "name": "Set.EqOn.of_subset_closure",
+    "statement": "Set X} {f g : X \u2192 Y} (h : EqOn f g s) (hf : ContinuousOn f t) (hg : ContinuousOn g t) (hst : s \u2286 t) (hts : t \u2286 closure s) : EqOn f g t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(\ud835\udcdd[s] x).NeBot",
+        "body": "mem_closure_iff_clusterPt.mp (hts hx)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hausdorff",
+    "name": "Function.LeftInverse.isClosed_range",
+    "statement": "X \u2192 Y} {g : Y \u2192 X} (h : Function.LeftInverse f g) (hf : Continuous f) (hg : Continuous g) : IsClosed (range g)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "EqOn (g \u2218 f) id (closure <| range g)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hausdorff",
+    "name": "SeparatedNhds.of_isClosed_isCompact_closure_compl_isClosed",
+    "statement": "Set X} {t : Set X} (H1 : IsClosed s) (H2 : IsCompact (closure s\u1d9c)) (H3 : IsClosed t) (H4 : Disjoint s t) : SeparatedNhds s t",
+    "have_tree": [
+      {
+        "name": "ht",
+        "type": "IsCompact t",
+        "body": ".of_isClosed_subset H2 H3 <| H4.subset_compl_left.trans subset_closure",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hausdorff",
+    "name": "ContinuousAt.ne_iff_eventually_ne",
+    "statement": "X} {f g : X \u2192 Y} (hf : ContinuousAt f x) (hg : ContinuousAt g x) : f x \u2260 g x \u2194 \u2200\u1da0 x in \ud835\udcdd x, f x \u2260 g x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "g x \u2208 Uf \u2229 Ug",
+        "body": "hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hausdorff",
+    "name": "ContinuousAt.eventuallyEq_nhds_iff_eventuallyEq_nhdsNE",
+    "statement": "X} {f g : X \u2192 Y} (hf : ContinuousAt f x) (hg : ContinuousAt g x) [(\ud835\udcdd[\u2260] x).NeBot] : f =\u1da0[\ud835\udcdd[\u2260] x] g \u2194 f =\u1da0[\ud835\udcdd x] g",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "(eventually_nhdsWithin_of_eventually_nhds",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "\u2205 \u2209 \ud835\udcdd[\u2260] x",
+        "body": "by exact empty_notMem (\ud835\udcdd[\u2260] x)",
+        "children": []
+      }
+    ]
+  }
+]

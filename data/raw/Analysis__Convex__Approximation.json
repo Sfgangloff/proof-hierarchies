@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Approximation",
+    "name": "exists_affine_le_of_lt",
+    "statement": "E} {a : \u211d} (hx : x \u2208 s) (hax : a < \u03c6 x) (hsc : IsClosed s) (h\u03c6c : LowerSemicontinuousOn \u03c6 s) (h\u03c6cv : ConvexOn \u211d s \u03c6) : \u2203 (l : E \u2192L[\ud835\udd5c] \ud835\udd5c) (c : \u211d), s.restrict (re \u2218 l) + const s c \u2264 s.restrict \u03c6 \u2227 re (l x) + c = a",
+    "have_tree": [
+      {
+        "name": "hw",
+        "type": "",
+        "body": "hLb.1.trans (hLb.2 _ (by simp [A, h] : (w, ofReal (\u03c6 w)) \u2208 A))",
+        "children": []
+      },
+      {
+        "name": "hc",
+        "type": "0 < c",
+        "body": "inv_pos.2 (pos_of_right_mul_lt_le (lt_of_add_lt_add_left (hine hx)) hax.le)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Approximation",
+    "name": "sSup_of_countable_affine_eq",
+    "statement": "IsClosed s) (h\u03c6c : LowerSemicontinuousOn \u03c6 s) (h\u03c6cv : ConvexOn \u211d s \u03c6) : \u2203 \ud835\udcd5' : Set (s \u2192 \u211d), \ud835\udcd5'.Countable \u2227 sSup \ud835\udcd5' = s.restrict \u03c6 \u2227 \u2200 f \u2208 \ud835\udcd5', f \u2264 s.restrict \u03c6 \u2227 \u2203 (l : E \u2192L[\ud835\udd5c] \ud835\udd5c) (c : \u211d), f = s.restrict (re \u2218 l) + const s c",
+    "have_tree": [
+      {
+        "name": "hl",
+        "type": "IsLUB \ud835\udcd5 (s.restrict \u03c6)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Approximation",
+    "name": "univ_sSup_affine_eq",
+    "statement": "LowerSemicontinuous \u03c6) (h\u03c6cv : ConvexOn \u211d univ \u03c6) : sSup {f | f \u2264 \u03c6 \u2227 \u2203 (l : E \u2192L[\ud835\udd5c] \ud835\udd5c) (c : \u211d), f = (re \u2218 l) + const E c} = \u03c6",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h\u03c6cv.sSup_affine_eq (\ud835\udd5c := \ud835\udd5c) isClosed_univ (lowerSemicontinuousOn_univ_iff.2 h\u03c6c)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Approximation",
+    "name": "univ_sSup_of_countable_affine_eq",
+    "statement": "LowerSemicontinuous \u03c6) (h\u03c6cv : ConvexOn \u211d univ \u03c6) : \u2203 \ud835\udcd5' : Set (E \u2192 \u211d), \ud835\udcd5'.Countable \u2227 sSup \ud835\udcd5' = \u03c6 \u2227 \u2200 f \u2208 \ud835\udcd5', f \u2264 \u03c6 \u2227 \u2203 (l : E \u2192L[\ud835\udd5c] \ud835\udd5c) (c : \u211d), f = (re \u2218 l) + const E c",
+    "have_tree": [
+      {
+        "name": "hl",
+        "type": "IsLUB \ud835\udcd5 \u03c6",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

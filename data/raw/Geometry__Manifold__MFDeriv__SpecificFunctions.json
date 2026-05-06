@@ -1,0 +1,40 @@
+[
+  {
+    "module": "SpecificFunctions",
+    "name": "mfderivWithin_prodMap",
+    "statement": "M \u00d7 M'} {t : Set M'} {f : M \u2192 N} {g : M' \u2192 N'} (hf : MDiffAt[s] f p.1) (hg : MDiffAt[t] g p.2) (hs : UniqueMDiffWithinAt I s p.1) (ht : UniqueMDiffWithinAt I' t p.2) : mfderiv[s \u00d7\u02e2 t] (Prod.map f g) p = (mfderiv[s] f p.1).prodMap (mfderiv[t] g p.2)",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "HasMFDerivAt[Prod.fst '' s \u00d7\u02e2 t] f p.1 (mfderiv[s] f p.1)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hg'",
+        "type": "HasMFDerivAt[Prod.snd '' s \u00d7\u02e2 t] g p.2 (mfderiv[t] g p.2)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SpecificFunctions",
+    "name": "writtenInExtChartAt_sumSwap_eventuallyEq_id",
+    "statement": "writtenInExtChartAt I I p Sum.swap =\u1da0[\ud835\udcdd[range I] (I <| chartAt H p p)] id",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "EqOn (writtenInExtChartAt I I (Sum.inl x) (@Sum.swap M M')) id t",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "EqOn (writtenInExtChartAt I I (Sum.inr x) (@Sum.swap M M')) id t",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

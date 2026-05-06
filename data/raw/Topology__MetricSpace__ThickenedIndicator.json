@@ -1,0 +1,67 @@
+[
+  {
+    "module": "ThickenedIndicator",
+    "name": "thickenedIndicatorAux_zero",
+    "statement": "\u211d} (\u03b4_pos : 0 < \u03b4) (E : Set \u03b1) {x : \u03b1} (x_out : x \u2209 thickening \u03b4 E) : thickenedIndicatorAux \u03b4 E x = 0",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "tsub_le_tsub",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ThickenedIndicator",
+    "name": "thickenedIndicatorAux_tendsto_indicator_closure",
+    "statement": "\u2115 \u2192 \u211d} (\u03b4seq_lim : Tendsto \u03b4seq atTop (\ud835\udcdd 0)) (E : Set \u03b1) : Tendsto (fun n => thickenedIndicatorAux (\u03b4seq n) E) atTop (\ud835\udcdd (indicator (closure E) fun _ => (1 : \u211d\u22650\u221e)))",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "x \u2209 thickening \u03b5 E",
+        "body": "by simpa only [thickening, mem_setOf_eq, not_lt] using \u03b5_lt.le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ThickenedIndicator",
+    "name": "thickenedIndicator",
+    "statement": "\u211d} (\u03b4_pos : 0 < \u03b4) (E : Set \u03b1) : \u03b1 \u2192\u1d47 \u211d\u22650 where toFun",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "@thickenedIndicatorAux_le_one _ _ \u03b4 E",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ThickenedIndicator",
+    "name": "thickenedIndicator_tendsto_indicator_closure",
+    "statement": "\u2115 \u2192 \u211d} (\u03b4seq_pos : \u2200 n, 0 < \u03b4seq n) (\u03b4seq_lim : Tendsto \u03b4seq atTop (\ud835\udcdd 0)) (E : Set \u03b1) : Tendsto (fun n : \u2115 => ((\u2191) : (\u03b1 \u2192\u1d47 \u211d\u22650) \u2192 \u03b1 \u2192 \u211d\u22650) (thickenedIndicator (\u03b4seq_pos n) E)) atTop (\ud835\udcdd (indicator (closure E) fun _ => (1 : \u211d\u22650)))",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "thickenedIndicatorAux_tendsto_indicator_closure \u03b4seq_lim E",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ThickenedIndicator",
+    "name": "mulIndicator_cthickening_eventually_eq_mulIndicator_closure",
+    "statement": "\u03b1 \u2192 \u03b2) (E : Set \u03b1) (x : \u03b1) : \u2200\u1da0 \u03b4 in \ud835\udcdd (0 : \u211d), (Metric.cthickening \u03b4 E).mulIndicator f x = (closure E).mulIndicator f x",
+    "have_tree": [
+      {
+        "name": "obs",
+        "type": "x \u2208 cthickening \u03b4 E",
+        "body": "closure_subset_cthickening \u03b4 E x_mem_closure",
+        "children": []
+      }
+    ]
+  }
+]

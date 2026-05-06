@@ -1,0 +1,53 @@
+[
+  {
+    "module": "NewtonIdentities",
+    "name": "weight_add_weight_pairMap",
+    "statement": "\u2115} (t : Finset \u03c3 \u00d7 \u03c3) (h : t \u2208 pairs \u03c3 k) : weight \u03c3 R k t + weight \u03c3 R k (pairMap \u03c3 t) = 0",
+    "have_tree": [
+      {
+        "name": "h3",
+        "type": "1 \u2264 #t.1",
+        "body": "lt_iff_add_one_le.mp (card_pos.mpr \u27e8t.snd, h1\u27e9)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NewtonIdentities",
+    "name": "sum_filter_pairs_eq_sum_powersetCard_mem_filter_antidiagonal_sum",
+    "statement": "\u2115) (a : \u2115 \u00d7 \u2115) (ha : a \u2208 {a \u2208 antidiagonal k | a.fst < k}) (f : Finset \u03c3 \u00d7 \u03c3 \u2192 MvPolynomial \u03c3 R) : \u2211 t \u2208 pairs \u03c3 k with #t.1 = a.1, f t = \u2211 A \u2208 powersetCard a.1 univ, \u2211 j, f (A, j)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "#p.fst \u2264 k",
+        "body": "by apply le_of_lt; simp_all",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NewtonIdentities",
+    "name": "psum_eq_mul_esymm_sub_sum",
+    "statement": "\u2115) (h : 0 < k) : psum \u03c3 R k = (-1) ^ (k + 1) * k * esymm \u03c3 R k - \u2211 a \u2208 antidiagonal k with a.1 \u2208 Set.Ioo 0 k, (-1) ^ a.fst * esymm \u03c3 R a.1 * psum \u03c3 R a.2",
+    "have_tree": [
+      {
+        "name": "hesymm",
+        "type": "",
+        "body": "mul_esymm_eq_sum \u03c3 R k",
+        "children": []
+      },
+      {
+        "name": "sub_both_sides",
+        "type": "",
+        "body": "congrArg (\u00b7 - (-1 : MvPolynomial \u03c3 R) ^ (k + 1) *",
+        "children": []
+      },
+      {
+        "name": "sub_both_sides",
+        "type": "",
+        "body": "congrArg ((-1 : MvPolynomial \u03c3 R) ^ (k + 1) * \u00b7) sub_both_sides",
+        "children": []
+      }
+    ]
+  }
+]

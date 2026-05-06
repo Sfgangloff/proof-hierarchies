@@ -1,0 +1,78 @@
+[
+  {
+    "module": "Arg",
+    "name": "arg_mul_cos_add_sin_mul_I",
+    "statement": "\u211d} (hr : 0 < r) {\u03b8 : \u211d} (h\u03b8 : \u03b8 \u2208 Set.Ioc (-\u03c0) \u03c0) : arg (r * (cos \u03b8 + sin \u03b8 * I)) = \u03b8",
+    "have_tree": [
+      {
+        "name": "hcos",
+        "type": "Real.cos \u03b8 < 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hsin",
+        "type": "Real.sin \u03b8 < 0",
+        "body": "Real.sin_neg_of_neg_of_neg_pi_lt (by linarith) h\u03b8",
+        "children": []
+      },
+      {
+        "name": "hcos",
+        "type": "Real.cos \u03b8 < 0",
+        "body": "Real.cos_neg_of_pi_div_two_lt_of_lt h\u2081 (by linarith)",
+        "children": []
+      },
+      {
+        "name": "hsin",
+        "type": "0 \u2264 Real.sin \u03b8",
+        "body": "Real.sin_nonneg_of_mem_Icc \u27e8by linarith, h\u03b8\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arg",
+    "name": "arg_mem_Ioc",
+    "statement": "\u2102) : arg z \u2208 Set.Ioc (-\u03c0) \u03c0",
+    "have_tree": [
+      {
+        "name": "h\u03c0",
+        "type": "0 < \u03c0",
+        "body": "Real.pi_pos",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "arg_mul_cos_add_sin_mul_I (norm_pos_iff.mpr hz) hN",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arg",
+    "name": "arg_of_im_neg",
+    "statement": "\u2102} (hz : z.im < 0) : arg z = -Real.arccos (z.re / \u2016z\u2016)",
+    "have_tree": [
+      {
+        "name": "h\u2080",
+        "type": "z \u2260 0",
+        "body": "mt (congr_arg im) hz.ne",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Arg",
+    "name": "continuousAt_arg",
+    "statement": "x \u2208 slitPlane) : ContinuousAt arg x",
+    "have_tree": [
+      {
+        "name": "h\u2080",
+        "type": "\u2016x\u2016 \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

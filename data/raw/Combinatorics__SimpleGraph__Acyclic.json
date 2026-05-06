@@ -1,0 +1,260 @@
+[
+  {
+    "module": "Acyclic",
+    "name": "IsAcyclic.isTree_connectedComponent",
+    "statement": "G.IsAcyclic) (c : G.ConnectedComponent) : c.toSimpleGraph.IsTree where connected",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hp.three_le_length",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.cast_le.mp <| hp.support_nodup.length_le_enatCard.trans h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "IsAcyclic.path_concat",
+    "statement": "G.IsAcyclic) {u v w : V} {p : G.Walk u v} {q : G.Walk u w} (hp : p.IsPath) (hq : q.IsPath) (hadj : G.Adj v w) (hv : v \u2208 q.support) : q = p.concat hadj",
+    "have_tree": [
+      {
+        "name": "hw",
+        "type": "w \u2209 p.support",
+        "body": "hG.ne_mem_support_of_support_of_adj_of_isPath hq hp hadj.symm hv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "IsAcyclic.isPath_iff_isChain",
+    "statement": "G.IsAcyclic) {v w : V} (p : G.Walk v w) : p.IsPath \u2194 List.IsChain (\u00b7 \u2260 \u00b7) p.edges",
+    "have_tree": [
+      {
+        "name": "hcc",
+        "type": "",
+        "body": "List.isChain_cons.mp (edges_cons _ _ \u25b8 h)",
+        "children": [
+          {
+            "name": "_",
+            "type": "cons head (tail.takeUntil u' hh) |>.support.tail.Nodup",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "IsPath.mk' this |>.eq_snd_of_mem_edges (Sym2.eq_swap \u25b8 hhh)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "IsTree.card_edgeFinset",
+    "statement": "G.IsTree) : Finset.card G.edgeFinset + 1 = Fintype.card V",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hG.connected.nonempty",
+        "children": [
+          {
+            "name": "h3",
+            "type": "",
+            "body": "congrArg length (hf' _ ((f _).tail.copy h1 rfl) ?_)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "isTree_iff_minimal_connected",
+    "statement": "IsTree G \u2194 Minimal Connected G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congrArg Walk.edges <| congrArg Subtype.val <|",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "reachable_eq_of_maximal_isAcyclic",
+    "statement": "SimpleGraph V) (h : Maximal (fun H \u21a6 H \u2264 G \u2227 H.IsAcyclic) F) : F.Reachable = G.Reachable",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "v \u2209 s",
+        "body": "this \u2218 s.reachable_of_mem_supp rfl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2203 d \u2208 p.darts, d.fst \u2208 s \u2227 d.snd \u2209 s",
+        "body": "p.exists_boundary_dart s rfl this",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u00acF.Reachable v' u'",
+        "body": "mt ConnectedComponent.sound <| s.mem_supp_iff u' |>.mp hu \u25b8 hv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "maximal_isAcyclic_iff_reachable_eq",
+    "statement": "SimpleGraph V} (hle : F \u2264 G) (hF : F.IsAcyclic) : Maximal (fun F \u21a6 F \u2264 G \u2227 F.IsAcyclic) F \u2194 F.Reachable = G.Reachable",
+    "have_tree": [
+      {
+        "name": "h_bridge",
+        "type": "(F \u2294 fromEdgeSet {e}).IsBridge e",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "Connected.maximal_le_isAcyclic_iff_isTree",
+    "statement": "SimpleGraph V} (hG : G.Connected) (hT : T \u2264 G) : Maximal (fun H \u21a6 H \u2264 G \u2227 H.IsAcyclic) T \u2194 T.IsTree",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hG.nonempty",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "isTree_iff_maximal_isAcyclic",
+    "statement": "G.IsTree \u2194 Nonempty V \u2227 Maximal IsAcyclic G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.nonempty",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "Connected.card_vert_le_card_edgeSet_add_one",
+    "statement": "G.Connected) : Nat.card V \u2264 Nat.card G.edgeSet + 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "isTree_iff_connected_and_card",
+    "statement": "G.IsTree \u2194 G.Connected \u2227 Nat.card G.edgeSet + 1 = Nat.card V",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite V",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "IsTree.minDegree_eq_one_of_nontrivial",
+    "statement": "G.IsTree) [Fintype V] [Nontrivial V] [DecidableRel G.Adj] : G.minDegree = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "G.sum_degrees_eq_twice_card_edges",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "Connected.induce_compl_singleton_of_degree_eq_one",
+    "statement": "G.Connected) {v : V} [Fintype \u2191(G.neighborSet v)] (hdeg : G.degree v = 1) : (G.induce {v}\u1d9c).Connected",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "List.one_le_count_iff.mpr (pwz.getVert_mem_support (pwz.length - 1))",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "List.one_le_count_iff.mpr (pzx.snd_mem_tail_support (not_nil_of_ne (by aesop)))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "Connected.exists_connected_induce_compl_singleton_of_finite_nontrivial",
+    "statement": "G.Connected) : \u2203 v : V, (G.induce {v}\u1d9c).Connected",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite V",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "IsAcyclic.coloringTwoOfVerts",
+    "statement": "G.IsAcyclic) (verts : G.ConnectedComponent \u2192 V) (h : \u2200 C, verts C \u2208 C) : G.Coloring (Fin 2) where toFun v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ConnectedComponent.sound hadj.reachable",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hG.dist_eq_dist_add_one_of_adj_of_reachable _ hadj <| ConnectedComponent.exact <| h _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "exists_isCycle_of_two_le_isEdgeReachable",
+    "statement": "V} (huv : u \u2260 v) {n : \u2115} (hn : 2 \u2264 n) (h : G.IsEdgeReachable n u v) : \u2203 w : G.Walk u u, w.IsCycle",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "@h {s(u, w)} (by simp only [Set.encard_singleton, Nat.cast_ofNat]; decide)",
+        "children": []
+      }
+    ]
+  }
+]

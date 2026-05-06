@@ -1,0 +1,130 @@
+[
+  {
+    "module": "MaximalSubgroups",
+    "name": "isPreprimitive_stabilizer_of_surjective",
+    "statement": "Function.Surjective (toPerm : stabilizer M s \u2192 Perm s)) : IsPreprimitive (stabilizer M s) s",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "Function.Bijective f",
+        "body": "Function.bijective_id",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MaximalSubgroups",
+    "name": "stabilizer_ne_top_of_nonempty_of_nonempty_compl",
+    "statement": "Set \u03b1} (hs : s.Nonempty) (hsc : s\u1d9c.Nonempty) : stabilizer (Perm \u03b1) s \u2260 \u22a4",
+    "have_tree": [
+      {
+        "name": "hg",
+        "type": "swap a b \u2208 stabilizer (Perm \u03b1) s",
+        "body": "by simp_all",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MaximalSubgroups",
+    "name": "has_swap_mem_of_lt_stabilizer",
+    "statement": "Set \u03b1) (G : Subgroup (Perm \u03b1)) (hG : stabilizer (Perm \u03b1) s < G) : \u2203 g : Perm \u03b1, g.IsSwap \u2227 g \u2208 G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite \u03b1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u03b12",
+        "type": "Fact (Nat.card (Perm \u03b1)).Prime",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MaximalSubgroups",
+    "name": "subsingleton_of_ssubset_of_stabilizer_Perm_le",
+    "statement": "Set \u03b1} {G : Subgroup (Perm \u03b1)} (hB : IsBlock G B) (hB_ss_sc : B \u2282 s) (hG : stabilizer (Perm \u03b1) s \u2264 G) : B.Subsingleton",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "h \u2208 stabilizer G s",
+        "body": "by aesop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MaximalSubgroups",
+    "name": "subsingleton_of_stabilizer_lt_of_subset",
+    "statement": "Set \u03b1} {G : Subgroup M} [IsPreprimitive (stabilizer G s) s] (hB : IsBlock G B) (hB_not_le_sc : \u2200 (B : Set \u03b1), IsBlock G B \u2192 B \u2286 s\u1d9c \u2192 B.Subsingleton) (hG : stabilizer M s < G) (hBs : B \u2286 s) : B.Subsingleton",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "(isBlock_iff_smul_eq_or_disjoint.mp hB \u27e8g', hg'\u27e9).resolve_left hg's",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MaximalSubgroups",
+    "name": "isCoatom_stabilizer_of_ncard_lt_ncard_compl",
+    "statement": "Set \u03b1} (h0 : s.Nonempty) (h\u03b1 : s.ncard < s\u1d9c.ncard) : IsCoatom (stabilizer (Perm \u03b1) s)",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "s\u1d9c.Nonempty",
+        "body": "nonempty_iff_ne_empty.mpr (by aesop)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fintype \u03b1",
+        "body": "Fintype.ofFinite \u03b1",
+        "children": []
+      },
+      {
+        "name": "hG'",
+        "type": "stabilizer (Perm \u03b1) s\u1d9c < G",
+        "body": "by rwa [stabilizer_compl]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "G.isPretransitive_of_stabilizer_lt hG exists_mem_stabilizer_smul_eq",
+        "children": [
+          {
+            "name": "_",
+            "type": "s\u1d9c.ncard \u2264 B.ncard",
+            "body": "ncard_le_ncard this",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "not_isBlock_sc",
+        "type": "\u00ac IsBlock G s\u1d9c",
+        "body": "fun hsc \u21a6 by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "isPreprimitive_stabilizer_subgroup hG.le",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isMultiplyPretransitive \u03b1 (s.ncard + 1)",
+        "children": []
+      }
+    ]
+  }
+]

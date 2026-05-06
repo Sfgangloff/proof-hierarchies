@@ -1,0 +1,67 @@
+[
+  {
+    "module": "Deriv",
+    "name": "hasStrictFDerivAt_cpow",
+    "statement": "\u2102 \u00d7 \u2102} (hp : p.1 \u2208 slitPlane) : HasStrictFDerivAt (fun x : \u2102 \u00d7 \u2102 => x.1 ^ x.2) ((p.2 * p.1 ^ (p.2 - 1)) \u2022 ContinuousLinearMap.fst \u2102 \u2102 \u2102 + (p.1 ^ p.2 * log p.1) \u2022 ContinuousLinearMap.snd \u2102 \u2102 \u2102) p",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "p.1 \u2260 0",
+        "body": "slitPlane_ne_zero hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Deriv",
+    "name": "hasDerivAt_ofReal_cpow_const",
+    "statement": "\u211d} (hx : x \u2260 0) {r : \u2102} (hr : r \u2260 0) : HasDerivAt (fun y : \u211d => (y : \u2102) ^ r) (r * x ^ (r - 1)) x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "HasDerivAt.const_mul r <| hasDerivAt_ofReal_cpow_const' hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Deriv",
+    "name": "not_differentiableAt_rpow_const_zero",
+    "statement": "\u211d} (hr : r < 1) (hr' : r \u2260 0) : \u00ac DifferentiableAt \u211d (fun x \u21a6 x ^ r) (0 : \u211d)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "Filter.Tendsto (fun t \u21a6 t ^ (r - 1)) (\ud835\udcdd[>] 0) (\ud835\udcdd y)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Deriv",
+    "name": "deriv_rpow_const",
+    "statement": "\u211d) : deriv (fun x \u21a6 x ^ p) x = p * x ^ (p - 1)",
+    "have_tree": [
+      {
+        "name": "h''",
+        "type": "",
+        "body": "deriv_zero_of_not_differentiableAt (not_differentiableAt_rpow_const_zero h'.2 h \u00b7)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Deriv",
+    "name": "contDiff_rpow_const_of_le",
+    "statement": "\u211d} {n : \u2115} (h : \u2191n \u2264 p) : ContDiff \u211d n fun x : \u211d => x ^ p",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "1 \u2264 p",
+        "body": "le_trans (by simp) h",
+        "children": []
+      }
+    ]
+  }
+]

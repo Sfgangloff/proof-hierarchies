@@ -1,0 +1,199 @@
+[
+  {
+    "original": {
+      "module": "JacobiSymbol",
+      "name": "list_prod_right",
+      "statement": "\u2124} {l : List \u2115} (hl : \u2200 n \u2208 l, n \u2260 0) : J(a | l.prod) = (l.map fun n => J(a | n)).prod",
+      "have_tree": [
+        {
+          "name": "hn",
+          "type": "",
+          "body": "hl n List.mem_cons_self",
+          "children": []
+        },
+        {
+          "name": "hl'",
+          "type": "",
+          "body": "List.prod_ne_zero fun hf => hl 0 (List.mem_cons_of_mem _ hf) rfl",
+          "children": []
+        },
+        {
+          "name": "h",
+          "type": "",
+          "body": "fun m hm => hl m (List.mem_cons_of_mem _ hm)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "JacobiSymbol",
+          "name": "list_prod_right",
+          "statement": "\u2124} {l : List \u2115} (hl : \u2200 n \u2208 l, n \u2260 0) : J(a | l.prod) = (l.map fun n => J(a | n)).prod",
+          "have_tree": [
+            {
+              "name": "hl'",
+              "type": "",
+              "body": "List.prod_ne_zero fun hf => hl 0 (List.mem_cons_of_mem _ hf) rfl",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "",
+              "body": "hl n List.mem_cons_self",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "",
+              "body": "fun m hm => hl m (List.mem_cons_of_mem _ hm)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "JacobiSymbol",
+          "name": "list_prod_right",
+          "statement": "\u2124} {l : List \u2115} (hl : \u2200 n \u2208 l, n \u2260 0) : J(a | l.prod) = (l.map fun n => J(a | n)).prod",
+          "have_tree": [
+            {
+              "name": "hn",
+              "type": "",
+              "body": "hl n List.mem_cons_self",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "",
+              "body": "fun m hm => hl m (List.mem_cons_of_mem _ hm)",
+              "children": []
+            },
+            {
+              "name": "hl'",
+              "type": "",
+              "body": "List.prod_ne_zero fun hf => hl 0 (List.mem_cons_of_mem _ hf) rfl",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "JacobiSymbol",
+      "name": "quadratic_reciprocity'",
+      "statement": "\u2115} (ha : Odd a) (hb : Odd b) : J(a | b) = qrSign b a * J(b | a)",
+      "have_tree": [
+        {
+          "name": "hpo",
+          "type": "",
+          "body": "pp.eq_two_or_odd'.resolve_left hp",
+          "children": []
+        },
+        {
+          "name": "hqo",
+          "type": "",
+          "body": "pq.eq_two_or_odd'.resolve_left hq",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "JacobiSymbol",
+          "name": "quadratic_reciprocity'",
+          "statement": "\u2115} (ha : Odd a) (hb : Odd b) : J(a | b) = qrSign b a * J(b | a)",
+          "have_tree": [
+            {
+              "name": "hqo",
+              "type": "",
+              "body": "pq.eq_two_or_odd'.resolve_left hq",
+              "children": []
+            },
+            {
+              "name": "hpo",
+              "type": "",
+              "body": "pp.eq_two_or_odd'.resolve_left hp",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "JacobiSymbol",
+      "name": "mod_right'",
+      "statement": "\u2115) {b : \u2115} (hb : Odd b) : J(a | b) = J(a | b % (4 * a))",
+      "have_tree": [
+        {
+          "name": "hb'",
+          "type": "Odd (b % (4 * a))",
+          "body": "hb.mod_even (Even.mul_right (by decide) _)",
+          "children": []
+        },
+        {
+          "name": "ha\u2081",
+          "type": "",
+          "body": "odd_iff.mpr (two_dvd_ne_zero.mp ha\u2081')",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "JacobiSymbol",
+          "name": "mod_right'",
+          "statement": "\u2115) {b : \u2115} (hb : Odd b) : J(a | b) = J(a | b % (4 * a))",
+          "have_tree": [
+            {
+              "name": "ha\u2081",
+              "type": "",
+              "body": "odd_iff.mpr (two_dvd_ne_zero.mp ha\u2081')",
+              "children": []
+            },
+            {
+              "name": "hb'",
+              "type": "Odd (b % (4 * a))",
+              "body": "hb.mod_even (Even.mul_right (by decide) _)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

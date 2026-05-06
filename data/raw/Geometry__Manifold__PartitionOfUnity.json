@@ -1,0 +1,144 @@
+[
+  {
+    "module": "PartitionOfUnity",
+    "name": "exists_pos_of_mem",
+    "statement": "x \u2208 s) : \u2203 i, 0 < f i x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "f.sum_eq_one hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PartitionOfUnity",
+    "name": "exists_isSubordinate",
+    "statement": "IsClosed s) (hU : \u2200 x \u2208 s, U x \u2208 \ud835\udcdd x) : \u2203 (\u03b9 : Type uM) (f : SmoothBumpCovering \u03b9 I M s), f.IsSubordinate U",
+    "have_tree": [
+      {
+        "name": "hB",
+        "type": "",
+        "body": "fun x hx => SmoothBumpFunction.nhds_basis_support (I := I) (hU x hx)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PartitionOfUnity",
+    "name": "exists_contMDiffMap_zero_one_of_isClosed",
+    "statement": "Set M} (hs : IsClosed s) (ht : IsClosed t) (hd : Disjoint s t) : \u2203 f : C^n\u27eeI, M; \ud835\udcd8(\u211d), \u211d\u27ef, EqOn f 0 s \u2227 EqOn f 1 t \u2227 \u2200 x, f x \u2208 Icc 0 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 x \u2208 t, s\u1d9c \u2208 \ud835\udcdd x",
+        "body": "fun x hx => hs.isOpen_compl.mem_nhds (disjoint_right.1 hd hx)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PartitionOfUnity",
+    "name": "exists_isSubordinate",
+    "statement": "Set M} (hs : IsClosed s) (U : \u03b9 \u2192 Set M) (ho : \u2200 i, IsOpen (U i)) (hU : s \u2286 \u22c3 i, U i) : \u2203 f : SmoothPartitionOfUnity \u03b9 I M s, f.IsSubordinate U",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "BumpCovering.exists_isSubordinate_of_prop (ContMDiff I \ud835\udcd8(\u211d) \u221e) ?_ hs U ho hU",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PartitionOfUnity",
+    "name": "exists_contMDiffSection_forall_mem_convex_of_local",
+    "statement": "Type*} [NormedAddCommGroup F_fiber] [NormedSpace \u211d F_fiber] (V : M \u2192 Type*) [\u2200 x, AddCommGroup (V x)] [\u2200 x, TopologicalSpace (V x)] [\u2200 x, Module \u211d (V x)] [TopologicalSpace (TotalSpace F_fiber V)] [FiberBundle F_fiber V] [VectorBundle \u211d F_fiber V] (t : \u2200 x, Set (V x)) (ht_conv : \u2200 x, Convex \u211d (t x)) (Hloc : \u2200 x\u2080 : M, \u2203 U_x\u2080 \u2208 \ud835\udcdd x\u2080, \u2203 (s_loc : (x : M) \u2192 V x), (CMDiff[U_x\u2080] n (T% s_loc)) \u2227 (\u2200 y \u2208 U_x\u2080, s_loc y \u2208 t y)) : \u2203 s : C\u209b^n\u27eeI; F_fiber, V\u27ef, \u2200 x : M, s x \u2208 t x",
+    "have_tree": [
+      {
+        "name": "hU_covers_univ",
+        "type": "univ \u2286 \u22c3 x, U x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hs",
+        "type": "CMDiff n (T% s)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_x_in_tsupport_\u03c1j",
+        "type": "x \u2208 tsupport (\u03c1 j)",
+        "body": "subset_closure (mem_support.mpr h_\u03c1jx_ne_zero)",
+        "children": []
+      },
+      {
+        "name": "h_x_in_Umap_j",
+        "type": "x \u2208 W j",
+        "body": "interior_subset (h\u03c1U j h_x_in_tsupport_\u03c1j)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PartitionOfUnity",
+    "name": "IsOpen.exists_contMDiff_support_eq_aux",
+    "statement": "Set H} (hs : IsOpen s) : \u2203 f : H \u2192 \u211d, f.support = s \u2227 CMDiff n f \u2227 Set.range f \u2286 Set.Icc 0 1",
+    "have_tree": [
+      {
+        "name": "h's",
+        "type": "IsOpen (I.symm \u207b\u00b9' s)",
+        "body": "I.continuous_symm.isOpen_preimage _ hs",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PartitionOfUnity",
+    "name": "IsOpen.exists_contMDiff_support_eq",
+    "statement": "Set M} (hs : IsOpen s) : \u2203 f : M \u2192 \u211d, f.support = s \u2227 CMDiff n f \u2227 \u2200 x, 0 \u2264 f x",
+    "have_tree": [
+      {
+        "name": "h'g",
+        "type": "\u2200 c x, 0 \u2264 g c x",
+        "body": "fun c x \u21a6 (hg c (mem_range_self (f := g c) x)).1",
+        "children": []
+      },
+      {
+        "name": "h''g",
+        "type": "\u2200 c x, 0 \u2264 f c x * g c (chartAt H c x)",
+        "body": "",
+        "children": [
+          {
+            "name": "B",
+            "type": "\u2203 c, 0 < f c x * g c (chartAt H c x)",
+            "body": "by",
+            "children": [
+              {
+                "name": "Hx",
+                "type": "x \u2208 tsupport (f c)",
+                "body": "subset_tsupport _ (ne_of_gt hc)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PartitionOfUnity",
+    "name": "exists_contMDiff_support_eq_eq_one_iff",
+    "statement": "Set M} (hs : IsOpen s) (ht : IsClosed t) (h : t \u2286 s) : \u2203 f : M \u2192 \u211d, CMDiff n f \u2227 range f \u2286 Icc 0 1 \u2227 support f = s \u2227 (\u2200 x, x \u2208 t \u2194 f x = 1)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2200 x, 0 < f x + g x",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "module": "CommutingProbability",
+    "name": "reciprocalFactors_even",
+    "statement": "\u2115} (h0 : n \u2260 0) (h2 : Even n) : reciprocalFactors n = 3 :: reciprocalFactors (n / 2)",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "n \u2260 1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CommutingProbability",
+    "name": "reciprocalFactors_odd",
+    "statement": "\u2115} (h1 : n \u2260 1) (h2 : Odd n) : reciprocalFactors n = n % 4 * n :: reciprocalFactors (n / 4 + 1)",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "n \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CommutingProbability",
+    "name": "commProb_reciprocal",
+    "statement": "\u2115) : commProb (Product (reciprocalFactors n)) = 1 / n",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "Odd (n % 4)",
+        "body": "by grind",
+        "children": []
+      }
+    ]
+  }
+]

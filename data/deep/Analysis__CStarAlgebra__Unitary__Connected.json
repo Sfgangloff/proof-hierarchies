@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Connected",
+    "name": "Unitary.norm_sub_one_sq_eq",
+    "statement": "A} (hu : u \u2208 unitary A) {x : \u211d} (hz : IsLeast (re '' (spectrum \u2102 u)) x) : \u2016u - 1\u2016 ^ 2 = 2 * (1 - x)",
+    "have_tree": [
+      {
+        "name": "h_eqOn",
+        "type": "(spectrum \u2102 u).EqOn (fun z \u21a6 \u2016z - 1\u2016 ^ 2) (fun z \u21a6 2 * (1 - z.re))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "IsGreatest ((fun z \u21a6 2 * (1 - z.re)) '' (spectrum \u2102 u)) (2 * (1 - x))",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Antitone (fun y : \u211d \u21a6 2 * (1 - y))",
+            "body": "by intro _ _ _; simp only; gcongr",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h\u2083",
+        "type": "IsGreatest ((\u2016\u00b7 - 1\u2016 ^ 2) '' spectrum \u2102 u) (\u2016cfc (\u00b7 - 1 : \u2102 \u2192 \u2102) u\u2016 ^ 2)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "pow_left_monotoneOn (n := 2) |>.mono (s\u2082 := ((\u2016\u00b7 - 1\u2016) '' spectrum \u2102 u)) (by aesop)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

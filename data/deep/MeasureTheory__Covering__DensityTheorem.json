@@ -1,0 +1,60 @@
+[
+  {
+    "module": "DensityTheorem",
+    "name": "closedBall_mem_vitaliFamily_of_dist_le_mul",
+    "statement": "\u211d} {x y : \u03b1} {r : \u211d} (h : dist x y \u2264 K * r) (rpos : 0 < r) : closedBall y r \u2208 (vitaliFamily \u03bc K).setsAt x",
+    "have_tree": [
+      {
+        "name": "I2",
+        "type": "closedBall y ((4 * K + 3) * r) \u2286 closedBall y (max (4 * K + 3) 3 * r)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "closedBall x (3 * (R / 4)) \u2286 closedBall y r",
+        "body": "by",
+        "children": [
+          {
+            "name": "A",
+            "type": "y \u2208 closedBall y r",
+            "body": "mem_closedBall_self rpos.le",
+            "children": []
+          },
+          {
+            "name": "B",
+            "type": "",
+            "body": "mem_closedBall'.1 (H A)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "DensityTheorem",
+    "name": "tendsto_closedBall_filterAt",
+    "statement": "\u211d} {x : \u03b1} {\u03b9 : Type*} {l : Filter \u03b9} (w : \u03b9 \u2192 \u03b1) (\u03b4 : \u03b9 \u2192 \u211d) (\u03b4lim : Tendsto \u03b4 l (\ud835\udcdd[>] 0)) (xmem : \u2200\u1da0 j in l, x \u2208 closedBall (w j) (K * \u03b4 j)) : Tendsto (fun j => closedBall (w j) (\u03b4 j)) l ((vitaliFamily \u03bc K).filterAt x)",
+    "have_tree": [
+      {
+        "name": "hK",
+        "type": "0 \u2264 K",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 \u2264 K * \u03b4 j",
+            "body": "nonempty_closedBall.1 \u27e8x, hj\u27e9",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "\u03b4pos",
+        "type": "",
+        "body": "eventually_mem_of_tendsto_nhdsWithin \u03b4lim",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,236 @@
+[
+  {
+    "module": "Basic",
+    "name": "card_cast_subgroup_card_ne_zero",
+    "statement": "Subgroup K\u02e3) [Fintype G] : (Fintype.card G : K) \u2260 0",
+    "have_tree": [
+      {
+        "name": "hd",
+        "type": "p \u2223 n",
+        "body": "(CharP.cast_eq_zero_iff K p n).mp nzero",
+        "children": [
+          {
+            "name": "fact_pprime",
+            "type": "",
+            "body": "Fact.mk pprime",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "sum_subgroup_units_eq_zero",
+    "statement": "Subgroup K\u02e3} [Fintype G] (hg : G \u2260 \u22a5) : \u2211 x : G, (x.val : K) = 0",
+    "have_tree": [
+      {
+        "name": "h_sum_map",
+        "type": "",
+        "body": "Finset.univ.sum_map a_mul_emb fun x => ((x : K\u02e3) : K)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "sum_subgroup_pow_eq_zero",
+    "statement": "Subgroup K\u02e3} [Fintype G] {k : \u2115} (k_pos : k \u2260 0) (k_lt_card_G : k < Fintype.card G) : \u2211 x : G, ((x : K\u02e3) : K) ^ k = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "NoZeroDivisors.to_isDomain K",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "sum_pow_lt_card_sub_one",
+    "statement": "\u2115) (h : i < q - 1) : \u2211 x : K, x ^ i = 0",
+    "have_tree": [
+      {
+        "name": "hiq",
+        "type": "\u00acq - 1 \u2223 i",
+        "body": "by contrapose! h; exact Nat.le_of_dvd (Nat.pos_of_ne_zero hi) h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "coe_frobeniusAlgHom",
+    "statement": "\u21d1(frobeniusAlgHom K R) = (\u00b7 ^ q)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "ExpChar K p'",
+        "body": "ExpChar.prime hp",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "ExpChar.eq \u2039_\u203a (expChar_of_injective_algebraMap (algebraMap K R).injective p')",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "orderOf_frobeniusAlgHom",
+    "statement": "orderOf (frobeniusAlgHom K L) = Module.finrank K L",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite L",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "card_le_degree_of_subset_roots (R := L) (p := X ^ q ^ m - X) (Z := univ) fun x _ \u21a6 by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "DFunLike.congr_fun eq x",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Nat.ModEq.pow_totient",
+    "statement": "\u2115} (h : Nat.Coprime x n) : x ^ \u03c6 n \u2261 1 [MOD n]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ZMod.pow_totient x'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "pow_card",
+    "statement": "ZMod p) : x ^ p = x",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "FiniteField.pow_card x; rwa [ZMod.card p] at h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "pow_card_sub_one_eq_one",
+    "statement": "ZMod p} (ha : a \u2260 0) : a ^ (p - 1) = 1",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "FiniteField.pow_card_sub_one_eq_one a ha",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "ZMod.eq_one_or_isUnit_sub_one",
+    "statement": "\u2115} [Fact p.Prime] (hn : n = p ^ k) (a : ZMod n) (ha : (orderOf a).Coprime n) : a = 1 \u2228 IsUnit (a - 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero n",
+        "body": "\u27e8hn0\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Subfield.mem_bot_iff_pow_eq_self",
+    "statement": "F} : x \u2208 (\u22a5 : Subfield F) \u2194 x ^ p = x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "roots_X_pow_char_sub_X_bot F p \u25b8",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isSquare_of_char_two",
+    "statement": "ringChar F = 2) (a : F) : IsSquare a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "CharP F 2",
+        "body": "ringChar.of_eq hF",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "pow_dichotomy",
+    "statement": "ringChar F \u2260 2) {a : F} (ha : a \u2260 0) : a ^ (Fintype.card F / 2) = 1 \u2228 a ^ (Fintype.card F / 2) = -1",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "FiniteField.pow_card_sub_one_eq_one a ha",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "unit_isSquare_iff",
+    "statement": "ringChar F \u2260 2) (a : F\u02e3) : IsSquare a \u2194 a ^ (Fintype.card F / 2) = 1",
+    "have_tree": [
+      {
+        "name": "hodd",
+        "type": "",
+        "body": "Nat.two_mul_odd_div_two (FiniteField.odd_card_of_char_ne_two hF)",
+        "children": [
+          {
+            "name": "key",
+            "type": "2 * (Nat.card F / 2) \u2223 n * (Nat.card F / 2)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "0 < Nat.card F / 2",
+            "body": "Nat.div_pos Finite.one_lt_card (by simp)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isSquare_iff",
+    "statement": "ringChar F \u2260 2) {a : F} (ha : a \u2260 0) : IsSquare a \u2194 a ^ (Fintype.card F / 2) = 1",
+    "have_tree": [
+      {
+        "name": "hy",
+        "type": "y \u2260 0",
+        "body": "by rintro rfl; simp at ha",
+        "children": []
+      }
+    ]
+  }
+]

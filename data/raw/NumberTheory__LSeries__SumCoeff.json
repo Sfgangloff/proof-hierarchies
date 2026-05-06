@@ -1,0 +1,97 @@
+[
+  {
+    "module": "SumCoeff",
+    "name": "LSeriesSummable_of_sum_norm_bigO_aux",
+    "statement": "f 0 = 0) (hO : (fun n \u21a6 \u2211 k \u2208 Icc 1 n, \u2016f k\u2016) =O[atTop] fun n \u21a6 (n : \u211d) ^ r) (hr : 0 \u2264 r) (hs : r < s.re) : LSeriesSummable f s",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "-s \u2260 0",
+        "body": "neg_ne_zero.mpr <| ne_zero_of_re_pos (hr.trans_lt hs)",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "(-s).re + r \u2264 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "ht'",
+            "type": "t \u2260 0",
+            "body": "(zero_lt_one.trans_le ht).ne'",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "SumCoeff",
+    "name": "LSeries_eq_mul_integral_aux",
+    "statement": "\u2115 \u2192 \u2102} (hf : f 0 = 0) {r : \u211d} (hr : 0 \u2264 r) {s : \u2102} (hs : r < s.re) (hS : LSeriesSummable f s) (hO : (fun n \u21a6 \u2211 k \u2208 Icc 1 n, f k) =O[atTop] fun n \u21a6 (n : \u211d) ^ r) : LSeries f s = s * \u222b t in Set.Ioi (1 : \u211d), (\u2211 k \u2208 Icc 1 \u230at\u230b\u208a, f k) * t ^ (-(s + 1))",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "(-s - 1).re + r < -1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "s \u2260 0",
+        "body": "ne_zero_of_re_pos (hr.trans_lt hs)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SumCoeff",
+    "name": "LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div_aux\u2082",
+    "statement": "\u211d} {S : \u211d \u2192 \u2102} (hS : LocallyIntegrableOn (fun t \u21a6 S t - l * t) (Set.Ici 1)) (h\u03b5 : 0 < \u03b5) (hs : 1 < s) (hT\u2081 : 1 \u2264 T) (hT : \u2200 t \u2265 T, \u2016S t - l * t\u2016 \u2264 \u03b5 * t) : (s - 1) * \u222b (t : \u211d) in Set.Ioi T, \u2016S t - l * t\u2016 * t ^ (-s - 1) \u2264 \u03b5",
+    "have_tree": [
+      {
+        "name": "hT\u2080",
+        "type": "0 < T",
+        "body": "zero_lt_one.trans_le hT\u2081",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SumCoeff",
+    "name": "LSeries_tendsto_sub_mul_nhds_one_of_tendsto_sum_div_aux\u2083",
+    "statement": "Tendsto (fun n : \u2115 \u21a6 (\u2211 k \u2208 Icc 1 n, f k) / n) atTop (\ud835\udcdd l)) (hfS : \u2200 s : \u211d, 1 < s \u2192 LSeriesSummable f s) {\u03b5 : \u211d} (h\u03b5 : \u03b5 > 0) : \u2203 C \u2265 0, (fun s : \u211d \u21a6 \u2016(s - 1) * LSeries f s - s * l\u2016) \u2264\u1da0[\ud835\udcdd[>] 1] fun s \u21a6 (s - 1) * s * C + s * \u03b5",
+    "have_tree": [
+      {
+        "name": "hC",
+        "type": "0 \u2264 C",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hs'",
+        "type": "0 \u2264 (s - 1) * s",
+        "body": "mul_nonneg (sub_nonneg.mpr hs.le) (zero_le_one.trans hs.le)",
+        "children": []
+      },
+      {
+        "name": "h\u2080",
+        "type": "LocallyIntegrableOn (fun t \u21a6 S t - l * t) (Set.Ici 1)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "IntegrableOn (fun t \u21a6 \u2016S t - l * t\u2016 * t ^ (-s - 1)) (Set.Ici 1)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u2084",
+        "type": "Cs \u2264 C",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

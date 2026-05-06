@@ -1,0 +1,134 @@
+[
+  {
+    "module": "Tutte",
+    "name": "Subgraph.IsMatching.exists_verts_compl_subset_universalVerts",
+    "statement": "\u00acIsTutteViolator G G.universalVerts) (h' : \u2200 (K : G.deleteUniversalVerts.coe.ConnectedComponent), G.deleteUniversalVerts.coe.IsClique K.supp) : \u2203 M : Subgraph G, M.IsMatching \u2227 M.verts\u1d9c \u2286 G.universalVerts",
+    "have_tree": [
+      {
+        "name": "hrep",
+        "type": "",
+        "body": "ConnectedComponent.Represents.image_out G.deleteUniversalVerts.coe.oddComponents",
+        "children": [
+          {
+            "name": "_",
+            "type": "G.IsClique (Subtype.val '' K.supp \\ M1.verts)",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hM2",
+        "type": "M2.IsMatching",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "disjointM12",
+        "type": "Disjoint M1.support M2.support",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(M1.verts \u222a M2.verts)\u1d9c \u2286 G.universalVerts",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tutte",
+    "name": "tutte_exists_isPerfectMatching_of_near_matchings",
+    "statement": "V} {M1 : Subgraph (G \u2294 edge x b)} {M2 : Subgraph (G \u2294 edge a c)} (hxa : G.Adj x a) (hab : G.Adj a b) (hnGxb : \u00acG.Adj x b) (hnGac : \u00acG.Adj a c) (hnxb : x \u2260 b) (hnxc : x \u2260 c) (hnac : a \u2260 c) (hnbc : b \u2260 c) (hM1 : M1.IsPerfectMatching) (hM2 : M2.IsPerfectMatching) : \u2203 (M : Subgraph G), M.IsPerfectMatching",
+    "have_tree": [
+      {
+        "name": "hM1nac",
+        "type": "\u00acM1.Adj a c",
+        "body": "fun h \u21a6 by simpa [hnGac, edge_adj, hnac, hxa.ne, hnbc.symm, hab.ne]",
+        "children": []
+      },
+      {
+        "name": "hsupG",
+        "type": "G \u2294 edge x b \u2294 (G \u2294 edge a c) = (G \u2294 edge a c) \u2294 edge x b",
+        "body": "by aesop",
+        "children": [
+          {
+            "name": "_",
+            "type": "M2.spanningCoe \u2206 G' \u2264 G",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hcalt",
+        "type": "cycles.IsAlternating M2.spanningCoe",
+        "body": "hM1.isAlternating_symmDiff_right hM2",
+        "children": []
+      },
+      {
+        "name": "hcycles",
+        "type": "",
+        "body": "Subgraph.IsPerfectMatching.symmDiff_isCycles hM1 hM2",
+        "children": []
+      },
+      {
+        "name": "hcac",
+        "type": "cycles.Adj a c",
+        "body": "by simp [cycles, symmDiff_def, hM2ac, hM1nac]",
+        "children": []
+      },
+      {
+        "name": "hM1sub",
+        "type": "",
+        "body": "Subgraph.spanningCoe_le M1",
+        "children": []
+      },
+      {
+        "name": "hM2sub",
+        "type": "",
+        "body": "Subgraph.spanningCoe_le M2",
+        "children": []
+      },
+      {
+        "name": "hacc",
+        "type": "",
+        "body": "((cycles.connectedComponentMk c).mem_supp_congr_adj hcac.symm).mp rfl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "SimpleGraph V) : LocallyFinite G",
+        "body": "fun _ \u21a6 Fintype.ofFinite _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "V) (h : x' \u2260 c) : \u00ac M2.Adj x' a",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(p'.takeUntil x' hx'p).toSubgraph.Adj a (p'.takeUntil x' hx'p).snd",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hle",
+        "type": "p.toSubgraph.spanningCoe \u2264 G \u2294 edge a c",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "p.toSubgraph.spanningCoe_le hvw",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

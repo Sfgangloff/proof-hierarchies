@@ -1,0 +1,210 @@
+[
+  {
+    "original": {
+      "module": "Factorization",
+      "name": "factorization_factorial_mul_succ",
+      "statement": "\u2115} (hp : p.Prime) : (p * (n + 1))!.factorization p = (p * n)!.factorization p + (n + 1).factorization p + 1",
+      "have_tree": [
+        {
+          "name": "h0",
+          "type": "2 \u2264 p",
+          "body": "hp.two_le",
+          "children": []
+        },
+        {
+          "name": "h1",
+          "type": "1 \u2264 p * n + 1",
+          "body": "Nat.le_add_left _ _",
+          "children": []
+        },
+        {
+          "name": "h2",
+          "type": "p * n + 1 \u2264 p * (n + 1)",
+          "body": "by linarith",
+          "children": []
+        },
+        {
+          "name": "h3",
+          "type": "p * n + 1 \u2264 p * (n + 1) + 1",
+          "body": "by lia",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Factorization",
+          "name": "factorization_factorial_mul_succ",
+          "statement": "\u2115} (hp : p.Prime) : (p * (n + 1))!.factorization p = (p * n)!.factorization p + (n + 1).factorization p + 1",
+          "have_tree": [
+            {
+              "name": "h1",
+              "type": "1 \u2264 p * n + 1",
+              "body": "Nat.le_add_left _ _",
+              "children": []
+            },
+            {
+              "name": "h0",
+              "type": "2 \u2264 p",
+              "body": "hp.two_le",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "p * n + 1 \u2264 p * (n + 1)",
+              "body": "by linarith",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "p * n + 1 \u2264 p * (n + 1) + 1",
+              "body": "by lia",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Factorization",
+          "name": "factorization_factorial_mul_succ",
+          "statement": "\u2115} (hp : p.Prime) : (p * (n + 1))!.factorization p = (p * n)!.factorization p + (n + 1).factorization p + 1",
+          "have_tree": [
+            {
+              "name": "h0",
+              "type": "2 \u2264 p",
+              "body": "hp.two_le",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "p * n + 1 \u2264 p * (n + 1)",
+              "body": "by linarith",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "1 \u2264 p * n + 1",
+              "body": "Nat.le_add_left _ _",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "p * n + 1 \u2264 p * (n + 1) + 1",
+              "body": "by lia",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Factorization",
+          "name": "factorization_factorial_mul_succ",
+          "statement": "\u2115} (hp : p.Prime) : (p * (n + 1))!.factorization p = (p * n)!.factorization p + (n + 1).factorization p + 1",
+          "have_tree": [
+            {
+              "name": "h0",
+              "type": "2 \u2264 p",
+              "body": "hp.two_le",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "1 \u2264 p * n + 1",
+              "body": "Nat.le_add_left _ _",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "p * n + 1 \u2264 p * (n + 1) + 1",
+              "body": "by lia",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "p * n + 1 \u2264 p * (n + 1)",
+              "body": "by linarith",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Factorization",
+      "name": "factorization_choose_le_log",
+      "statement": "(choose n k).factorization p \u2264 log p n",
+      "have_tree": [
+        {
+          "name": "hp",
+          "type": "p.Prime",
+          "body": "Not.imp_symm (choose n k).factorization_eq_zero_of_not_prime h",
+          "children": []
+        },
+        {
+          "name": "hkn",
+          "type": "k \u2264 n",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Factorization",
+          "name": "factorization_choose_le_log",
+          "statement": "(choose n k).factorization p \u2264 log p n",
+          "have_tree": [
+            {
+              "name": "hkn",
+              "type": "k \u2264 n",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hp",
+              "type": "p.Prime",
+              "body": "Not.imp_symm (choose n k).factorization_eq_zero_of_not_prime h",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

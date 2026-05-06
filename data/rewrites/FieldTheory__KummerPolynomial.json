@@ -1,0 +1,174 @@
+[
+  {
+    "original": {
+      "module": "KummerPolynomial",
+      "name": "root_X_pow_sub_C_eq_zero_iff",
+      "statement": "\u2115} {a : K} (H : Irreducible (X ^ n - C a)) : (AdjoinRoot.root (X ^ n - C a)) = 0 \u2194 a = 0",
+      "have_tree": [
+        {
+          "name": "hn",
+          "type": "",
+          "body": "Nat.pos_iff_ne_zero.mpr (ne_zero_of_irreducible_X_pow_sub_C H)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "not_imp_not.mp (fun hn \u21a6 ne_zero_of_irreducible_X_pow_sub_C' hn H) rfl",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "KummerPolynomial",
+          "name": "root_X_pow_sub_C_eq_zero_iff",
+          "statement": "\u2115} {a : K} (H : Irreducible (X ^ n - C a)) : (AdjoinRoot.root (X ^ n - C a)) = 0 \u2194 a = 0",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "not_imp_not.mp (fun hn \u21a6 ne_zero_of_irreducible_X_pow_sub_C' hn H) rfl",
+              "children": []
+            },
+            {
+              "name": "hn",
+              "type": "",
+              "body": "Nat.pos_iff_ne_zero.mpr (ne_zero_of_irreducible_X_pow_sub_C H)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "KummerPolynomial",
+      "name": "X_pow_sub_C_irreducible_of_prime",
+      "statement": "\u2115} (hp : p.Prime) {a : K} (ha : \u2200 b : K, b ^ p \u2260 a) : Irreducible (X ^ p - C a)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "\u00ac IsUnit (X ^ p - C a)",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "eval\u2082_eq_zero_of_dvd_of_eval\u2082_eq_zero _ _ hg' (AdjoinRoot.eval\u2082_root g)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "_",
+          "type": "p.Coprime (natDegree g)",
+          "body": "hp.coprime_iff_not_dvd.mpr (fun e \u21a6 h (((natDegree_le_of_dvd hg'",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "KummerPolynomial",
+          "name": "X_pow_sub_C_irreducible_of_prime",
+          "statement": "\u2115} (hp : p.Prime) {a : K} (ha : \u2200 b : K, b ^ p \u2260 a) : Irreducible (X ^ p - C a)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "\u00ac IsUnit (X ^ p - C a)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "p.Coprime (natDegree g)",
+              "body": "hp.coprime_iff_not_dvd.mpr (fun e \u21a6 h (((natDegree_le_of_dvd hg'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "KummerPolynomial",
+          "name": "X_pow_sub_C_irreducible_of_prime",
+          "statement": "\u2115} (hp : p.Prime) {a : K} (ha : \u2200 b : K, b ^ p \u2260 a) : Irreducible (X ^ p - C a)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "eval\u2082_eq_zero_of_dvd_of_eval\u2082_eq_zero _ _ hg' (AdjoinRoot.eval\u2082_root g)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u00ac IsUnit (X ^ p - C a)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "p.Coprime (natDegree g)",
+              "body": "hp.coprime_iff_not_dvd.mpr (fun e \u21a6 h (((natDegree_le_of_dvd hg'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "KummerPolynomial",
+          "name": "X_pow_sub_C_irreducible_of_prime",
+          "statement": "\u2115} (hp : p.Prime) {a : K} (ha : \u2200 b : K, b ^ p \u2260 a) : Irreducible (X ^ p - C a)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "p.Coprime (natDegree g)",
+              "body": "hp.coprime_iff_not_dvd.mpr (fun e \u21a6 h (((natDegree_le_of_dvd hg'",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u00ac IsUnit (X ^ p - C a)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "eval\u2082_eq_zero_of_dvd_of_eval\u2082_eq_zero _ _ hg' (AdjoinRoot.eval\u2082_root g)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

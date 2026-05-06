@@ -1,0 +1,667 @@
+[
+  {
+    "original": {
+      "module": "IntegralRepresentation",
+      "name": "rpowIntegrand\u2080\u2081_eq_pow_div",
+      "statement": "p \u2208 Ioo 0 1) (ht : 0 \u2264 t) (hx : 0 \u2264 x) : rpowIntegrand\u2080\u2081 p t x = t ^ (p - 1) * x / (t + x)",
+      "have_tree": [
+        {
+          "name": "hxt",
+          "type": "t + x \u2260 0",
+          "body": "by positivity",
+          "children": []
+        },
+        {
+          "name": "hp\u2082",
+          "type": "p - 1 \u2260 0",
+          "body": "by linarith",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "IntegralRepresentation",
+          "name": "rpowIntegrand\u2080\u2081_eq_pow_div",
+          "statement": "p \u2208 Ioo 0 1) (ht : 0 \u2264 t) (hx : 0 \u2264 x) : rpowIntegrand\u2080\u2081 p t x = t ^ (p - 1) * x / (t + x)",
+          "have_tree": [
+            {
+              "name": "hp\u2082",
+              "type": "p - 1 \u2260 0",
+              "body": "by linarith",
+              "children": []
+            },
+            {
+              "name": "hxt",
+              "type": "t + x \u2260 0",
+              "body": "by positivity",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "IntegralRepresentation",
+      "name": "cfc\u2099_rpowIntegrand\u2080\u2081_eq_cfc\u2099_rpowIntegrand\u2080\u2081_one",
+      "statement": "\u211d} (hp : p \u2208 Ioo 0 1) (ht : 0 < t) (a : A) (ha : 0 \u2264 a) : cfc\u2099 (rpowIntegrand\u2080\u2081 p t) a = t ^ (p - 1) \u2022 cfc\u2099 (rpowIntegrand\u2080\u2081 p 1) (t\u207b\u00b9 \u2022 a)",
+      "have_tree": [
+        {
+          "name": "hspec",
+          "type": "quasispectrum \u211d a \u2286 Ici 0",
+          "body": "by grind",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "continuousOn_rpowIntegrand\u2080\u2081_Ici hp zero_lt_one",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "IntegralRepresentation",
+          "name": "cfc\u2099_rpowIntegrand\u2080\u2081_eq_cfc\u2099_rpowIntegrand\u2080\u2081_one",
+          "statement": "\u211d} (hp : p \u2208 Ioo 0 1) (ht : 0 < t) (a : A) (ha : 0 \u2264 a) : cfc\u2099 (rpowIntegrand\u2080\u2081 p t) a = t ^ (p - 1) \u2022 cfc\u2099 (rpowIntegrand\u2080\u2081 p 1) (t\u207b\u00b9 \u2022 a)",
+          "have_tree": [
+            {
+              "name": "hspec",
+              "type": "quasispectrum \u211d a \u2286 Ici 0",
+              "body": "by grind",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "IntegralRepresentation",
+          "name": "cfc\u2099_rpowIntegrand\u2080\u2081_eq_cfc\u2099_rpowIntegrand\u2080\u2081_one",
+          "statement": "\u211d} (hp : p \u2208 Ioo 0 1) (ht : 0 < t) (a : A) (ha : 0 \u2264 a) : cfc\u2099 (rpowIntegrand\u2080\u2081 p t) a = t ^ (p - 1) \u2022 cfc\u2099 (rpowIntegrand\u2080\u2081 p 1) (t\u207b\u00b9 \u2022 a)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "continuousOn_rpowIntegrand\u2080\u2081_Ici hp zero_lt_one",
+              "children": []
+            },
+            {
+              "name": "hspec",
+              "type": "quasispectrum \u211d a \u2286 Ici 0",
+              "body": "by grind",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "IntegralRepresentation",
+      "name": "exists_measure_nnrpow_eq_integral_cfc\u2099_rpowIntegrand\u2080\u2081",
+      "statement": "\u211d\u22650} (hp : p \u2208 Ioo 0 1) : \u2203 \u03bc : Measure \u211d, \u2200 a \u2208 Ici (0 : A), (IntegrableOn (fun t => cfc\u2099 (rpowIntegrand\u2080\u2081 p t) a) (Ioi 0) \u03bc) \u2227 a ^ p = \u222b t in Ioi 0, cfc\u2099 (rpowIntegrand\u2080\u2081 p t) a \u2202\u03bc",
+      "have_tree": [
+        {
+          "name": "maxr_nonneg",
+          "type": "0 \u2264 maxr",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "hbound",
+          "type": "\u2200\u1d50 t \u2202\u03bc.restrict (Ioi 0), \u2200 z \u2208 quasispectrum \u211d a, \u2016f t z\u2016 \u2264 bound t",
+          "body": "by",
+          "children": [
+            {
+              "name": "hz'",
+              "type": "0 \u2264 z",
+              "body": "by grind",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "hbound_finite_integral",
+          "type": "HasFiniteIntegral bound (\u03bc.restrict (Ioi 0))",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "IntegralRepresentation",
+          "name": "exists_measure_nnrpow_eq_integral_cfc\u2099_rpowIntegrand\u2080\u2081",
+          "statement": "\u211d\u22650} (hp : p \u2208 Ioo 0 1) : \u2203 \u03bc : Measure \u211d, \u2200 a \u2208 Ici (0 : A), (IntegrableOn (fun t => cfc\u2099 (rpowIntegrand\u2080\u2081 p t) a) (Ioi 0) \u03bc) \u2227 a ^ p = \u222b t in Ioi 0, cfc\u2099 (rpowIntegrand\u2080\u2081 p t) a \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "maxr_nonneg",
+              "type": "0 \u2264 maxr",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hbound",
+              "type": "\u2200\u1d50 t \u2202\u03bc.restrict (Ioi 0), \u2200 z \u2208 quasispectrum \u211d a, \u2016f t z\u2016 \u2264 bound t",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hbound_finite_integral",
+              "type": "HasFiniteIntegral bound (\u03bc.restrict (Ioi 0))",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "IntegralRepresentation",
+          "name": "exists_measure_nnrpow_eq_integral_cfc\u2099_rpowIntegrand\u2080\u2081",
+          "statement": "\u211d\u22650} (hp : p \u2208 Ioo 0 1) : \u2203 \u03bc : Measure \u211d, \u2200 a \u2208 Ici (0 : A), (IntegrableOn (fun t => cfc\u2099 (rpowIntegrand\u2080\u2081 p t) a) (Ioi 0) \u03bc) \u2227 a ^ p = \u222b t in Ioi 0, cfc\u2099 (rpowIntegrand\u2080\u2081 p t) a \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "maxr_nonneg",
+              "type": "0 \u2264 maxr",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hz'",
+              "type": "0 \u2264 z",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hbound",
+              "type": "\u2200\u1d50 t \u2202\u03bc.restrict (Ioi 0), \u2200 z \u2208 quasispectrum \u211d a, \u2016f t z\u2016 \u2264 bound t",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hbound_finite_integral",
+              "type": "HasFiniteIntegral bound (\u03bc.restrict (Ioi 0))",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "IntegralRepresentation",
+          "name": "exists_measure_nnrpow_eq_integral_cfc\u2099_rpowIntegrand\u2080\u2081",
+          "statement": "\u211d\u22650} (hp : p \u2208 Ioo 0 1) : \u2203 \u03bc : Measure \u211d, \u2200 a \u2208 Ici (0 : A), (IntegrableOn (fun t => cfc\u2099 (rpowIntegrand\u2080\u2081 p t) a) (Ioi 0) \u03bc) \u2227 a ^ p = \u222b t in Ioi 0, cfc\u2099 (rpowIntegrand\u2080\u2081 p t) a \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "hbound",
+              "type": "\u2200\u1d50 t \u2202\u03bc.restrict (Ioi 0), \u2200 z \u2208 quasispectrum \u211d a, \u2016f t z\u2016 \u2264 bound t",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hz'",
+                  "type": "0 \u2264 z",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "maxr_nonneg",
+              "type": "0 \u2264 maxr",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hbound_finite_integral",
+              "type": "HasFiniteIntegral bound (\u03bc.restrict (Ioi 0))",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "IntegralRepresentation",
+          "name": "exists_measure_nnrpow_eq_integral_cfc\u2099_rpowIntegrand\u2080\u2081",
+          "statement": "\u211d\u22650} (hp : p \u2208 Ioo 0 1) : \u2203 \u03bc : Measure \u211d, \u2200 a \u2208 Ici (0 : A), (IntegrableOn (fun t => cfc\u2099 (rpowIntegrand\u2080\u2081 p t) a) (Ioi 0) \u03bc) \u2227 a ^ p = \u222b t in Ioi 0, cfc\u2099 (rpowIntegrand\u2080\u2081 p t) a \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "maxr_nonneg",
+              "type": "0 \u2264 maxr",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hbound_finite_integral",
+              "type": "HasFiniteIntegral bound (\u03bc.restrict (Ioi 0))",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hbound",
+              "type": "\u2200\u1d50 t \u2202\u03bc.restrict (Ioi 0), \u2200 z \u2208 quasispectrum \u211d a, \u2016f t z\u2016 \u2264 bound t",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hz'",
+                  "type": "0 \u2264 z",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "IntegralRepresentation",
+      "name": "exists_measure_nnrpow_eq_integral_cfc\u2099_rpowIntegrand\u2081\u2082",
+      "statement": "\u211d\u22650} (hp : p \u2208 Ioo 1 2) : \u2203 \u03bc : Measure \u211d, \u2200 a \u2208 Ici (0 : A), (IntegrableOn (fun t => cfc\u2099 (rpowIntegrand\u2081\u2082 p t) a) (Ioi 0) \u03bc) \u2227 a ^ p = \u222b t in Ioi 0, cfc\u2099 (rpowIntegrand\u2081\u2082 p t) a \u2202\u03bc",
+      "have_tree": [
+        {
+          "name": "maxr_nonneg",
+          "type": "0 \u2264 maxr",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "hbound",
+          "type": "\u2200\u1d50 t \u2202\u03bc.restrict (Ioi 0), \u2200 z \u2208 quasispectrum \u211d a, \u2016f t z\u2016 \u2264 bound t",
+          "body": "by",
+          "children": [
+            {
+              "name": "hz'",
+              "type": "0 \u2264 z",
+              "body": "by grind",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "hbound_finite_integral",
+          "type": "HasFiniteIntegral bound (\u03bc.restrict (Ioi 0))",
+          "body": "by",
+          "children": [
+            {
+              "name": "hr'",
+              "type": "0 \u2264 r",
+              "body": "by grind",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "IntegralRepresentation",
+          "name": "exists_measure_nnrpow_eq_integral_cfc\u2099_rpowIntegrand\u2081\u2082",
+          "statement": "\u211d\u22650} (hp : p \u2208 Ioo 1 2) : \u2203 \u03bc : Measure \u211d, \u2200 a \u2208 Ici (0 : A), (IntegrableOn (fun t => cfc\u2099 (rpowIntegrand\u2081\u2082 p t) a) (Ioi 0) \u03bc) \u2227 a ^ p = \u222b t in Ioi 0, cfc\u2099 (rpowIntegrand\u2081\u2082 p t) a \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "maxr_nonneg",
+              "type": "0 \u2264 maxr",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hbound",
+              "type": "\u2200\u1d50 t \u2202\u03bc.restrict (Ioi 0), \u2200 z \u2208 quasispectrum \u211d a, \u2016f t z\u2016 \u2264 bound t",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hbound_finite_integral",
+              "type": "HasFiniteIntegral bound (\u03bc.restrict (Ioi 0))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hr'",
+                  "type": "0 \u2264 r",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          2,
+          0
+        ],
+        "result": {
+          "module": "IntegralRepresentation",
+          "name": "exists_measure_nnrpow_eq_integral_cfc\u2099_rpowIntegrand\u2081\u2082",
+          "statement": "\u211d\u22650} (hp : p \u2208 Ioo 1 2) : \u2203 \u03bc : Measure \u211d, \u2200 a \u2208 Ici (0 : A), (IntegrableOn (fun t => cfc\u2099 (rpowIntegrand\u2081\u2082 p t) a) (Ioi 0) \u03bc) \u2227 a ^ p = \u222b t in Ioi 0, cfc\u2099 (rpowIntegrand\u2081\u2082 p t) a \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "maxr_nonneg",
+              "type": "0 \u2264 maxr",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hbound",
+              "type": "\u2200\u1d50 t \u2202\u03bc.restrict (Ioi 0), \u2200 z \u2208 quasispectrum \u211d a, \u2016f t z\u2016 \u2264 bound t",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hz'",
+                  "type": "0 \u2264 z",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hbound_finite_integral",
+              "type": "HasFiniteIntegral bound (\u03bc.restrict (Ioi 0))",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "IntegralRepresentation",
+          "name": "exists_measure_nnrpow_eq_integral_cfc\u2099_rpowIntegrand\u2081\u2082",
+          "statement": "\u211d\u22650} (hp : p \u2208 Ioo 1 2) : \u2203 \u03bc : Measure \u211d, \u2200 a \u2208 Ici (0 : A), (IntegrableOn (fun t => cfc\u2099 (rpowIntegrand\u2081\u2082 p t) a) (Ioi 0) \u03bc) \u2227 a ^ p = \u222b t in Ioi 0, cfc\u2099 (rpowIntegrand\u2081\u2082 p t) a \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "maxr_nonneg",
+              "type": "0 \u2264 maxr",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hz'",
+              "type": "0 \u2264 z",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hbound",
+              "type": "\u2200\u1d50 t \u2202\u03bc.restrict (Ioi 0), \u2200 z \u2208 quasispectrum \u211d a, \u2016f t z\u2016 \u2264 bound t",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hbound_finite_integral",
+              "type": "HasFiniteIntegral bound (\u03bc.restrict (Ioi 0))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hr'",
+                  "type": "0 \u2264 r",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "IntegralRepresentation",
+          "name": "exists_measure_nnrpow_eq_integral_cfc\u2099_rpowIntegrand\u2081\u2082",
+          "statement": "\u211d\u22650} (hp : p \u2208 Ioo 1 2) : \u2203 \u03bc : Measure \u211d, \u2200 a \u2208 Ici (0 : A), (IntegrableOn (fun t => cfc\u2099 (rpowIntegrand\u2081\u2082 p t) a) (Ioi 0) \u03bc) \u2227 a ^ p = \u222b t in Ioi 0, cfc\u2099 (rpowIntegrand\u2081\u2082 p t) a \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "maxr_nonneg",
+              "type": "0 \u2264 maxr",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hbound",
+              "type": "\u2200\u1d50 t \u2202\u03bc.restrict (Ioi 0), \u2200 z \u2208 quasispectrum \u211d a, \u2016f t z\u2016 \u2264 bound t",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hz'",
+                  "type": "0 \u2264 z",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hr'",
+              "type": "0 \u2264 r",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hbound_finite_integral",
+              "type": "HasFiniteIntegral bound (\u03bc.restrict (Ioi 0))",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "IntegralRepresentation",
+          "name": "exists_measure_nnrpow_eq_integral_cfc\u2099_rpowIntegrand\u2081\u2082",
+          "statement": "\u211d\u22650} (hp : p \u2208 Ioo 1 2) : \u2203 \u03bc : Measure \u211d, \u2200 a \u2208 Ici (0 : A), (IntegrableOn (fun t => cfc\u2099 (rpowIntegrand\u2081\u2082 p t) a) (Ioi 0) \u03bc) \u2227 a ^ p = \u222b t in Ioi 0, cfc\u2099 (rpowIntegrand\u2081\u2082 p t) a \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "hbound",
+              "type": "\u2200\u1d50 t \u2202\u03bc.restrict (Ioi 0), \u2200 z \u2208 quasispectrum \u211d a, \u2016f t z\u2016 \u2264 bound t",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hz'",
+                  "type": "0 \u2264 z",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "maxr_nonneg",
+              "type": "0 \u2264 maxr",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hbound_finite_integral",
+              "type": "HasFiniteIntegral bound (\u03bc.restrict (Ioi 0))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hr'",
+                  "type": "0 \u2264 r",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "IntegralRepresentation",
+          "name": "exists_measure_nnrpow_eq_integral_cfc\u2099_rpowIntegrand\u2081\u2082",
+          "statement": "\u211d\u22650} (hp : p \u2208 Ioo 1 2) : \u2203 \u03bc : Measure \u211d, \u2200 a \u2208 Ici (0 : A), (IntegrableOn (fun t => cfc\u2099 (rpowIntegrand\u2081\u2082 p t) a) (Ioi 0) \u03bc) \u2227 a ^ p = \u222b t in Ioi 0, cfc\u2099 (rpowIntegrand\u2081\u2082 p t) a \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "maxr_nonneg",
+              "type": "0 \u2264 maxr",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hbound_finite_integral",
+              "type": "HasFiniteIntegral bound (\u03bc.restrict (Ioi 0))",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hr'",
+                  "type": "0 \u2264 r",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hbound",
+              "type": "\u2200\u1d50 t \u2202\u03bc.restrict (Ioi 0), \u2200 z \u2208 quasispectrum \u211d a, \u2016f t z\u2016 \u2264 bound t",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hz'",
+                  "type": "0 \u2264 z",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "IntegralRepresentation",
+      "name": "concaveOn_cfc_rpowIntegrand\u2080\u2081",
+      "statement": "\u211d} (hp : p \u2208 Ioo 0 1) (ht : 0 < t) : ConcaveOn \u211d (Ici (0 : A)) (cfc (rpowIntegrand\u2080\u2081 p t))",
+      "have_tree": [
+        {
+          "name": "hspectrum",
+          "type": "\u2200 r \u2208 spectrum \u211d x, t + r \u2260 0",
+          "body": "by grind",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "cfc_sub (fun _ : \u211d => t ^ (p - 1)) (fun z : \u211d => t ^ p * (t + z)\u207b\u00b9) x",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "IntegralRepresentation",
+          "name": "concaveOn_cfc_rpowIntegrand\u2080\u2081",
+          "statement": "\u211d} (hp : p \u2208 Ioo 0 1) (ht : 0 < t) : ConcaveOn \u211d (Ici (0 : A)) (cfc (rpowIntegrand\u2080\u2081 p t))",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "cfc_sub (fun _ : \u211d => t ^ (p - 1)) (fun z : \u211d => t ^ p * (t + z)\u207b\u00b9) x",
+              "children": []
+            },
+            {
+              "name": "hspectrum",
+              "type": "\u2200 r \u2208 spectrum \u211d x, t + r \u2260 0",
+              "body": "by grind",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

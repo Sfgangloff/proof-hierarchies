@@ -1,0 +1,99 @@
+[
+  {
+    "module": "FrobeniusFractionField",
+    "name": "succNthVal_spec'",
+    "statement": "\u2115) (a\u2081 a\u2082 : \ud835\udd4e k) (bs : Fin (n + 1) \u2192 k) (ha\u2081 : a\u2081.coeff 0 \u2260 0) (ha\u2082 : a\u2082.coeff 0 \u2260 0) : succNthVal p n a\u2081 a\u2082 bs ha\u2081 ha\u2082 ^ p * a\u2081.coeff 0 ^ p ^ (n + 1) + a\u2081.coeff (n + 1) * (bs 0 ^ p) ^ p ^ (n + 1) + nthRemainder p n (fun v => bs v ^ p) (truncateFun (n + 1) a\u2081) = succNthVal p n a\u2081 a\u2082 bs ha\u2081 ha\u2082 * a\u2082.coeff 0 ^ p ^ (n + 1) + a\u2082.coeff (n + 1) * bs 0 ^ p ^ (n + 1) + nthRemainder p n bs (truncateFun (n + 1) a\u2082)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "succNthVal_spec p n a\u2081 a\u2082 bs ha\u2081 ha\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FrobeniusFractionField",
+    "name": "solution_nonzero",
+    "statement": "\ud835\udd4e k} (ha\u2081 : a\u2081.coeff 0 \u2260 0) (ha\u2082 : a\u2082.coeff 0 \u2260 0) : solution p a\u2081 a\u2082 \u2260 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "solution_spec p a\u2081 a\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FrobeniusFractionField",
+    "name": "solution_spec'",
+    "statement": "\ud835\udd4e k} (ha\u2081 : a\u2081.coeff 0 \u2260 0) (a\u2082 : \ud835\udd4e k) : solution p a\u2081 a\u2082 ^ p * a\u2081.coeff 0 = solution p a\u2081 a\u2082 * a\u2082.coeff 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "solution_spec p a\u2081 a\u2082",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.exists_eq_succ_of_ne_zero hp.out.ne_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FrobeniusFractionField",
+    "name": "frobenius_frobeniusRotation",
+    "statement": "\ud835\udd4e k} (ha\u2081 : a\u2081.coeff 0 \u2260 0) (ha\u2082 : a\u2082.coeff 0 \u2260 0) : frobenius (frobeniusRotation p ha\u2081 ha\u2082) * a\u2081 = frobeniusRotation p ha\u2081 ha\u2082 * a\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FrobeniusFractionField",
+    "name": "exists_frobenius_solution_fractionRing_aux",
+    "statement": "\u2115) (r' q' : \ud835\udd4e k) (hr' : r'.coeff 0 \u2260 0) (hq' : q'.coeff 0 \u2260 0) (hq : (p : \ud835\udd4e k) ^ n * q' \u2208 nonZeroDivisors (\ud835\udd4e k)) : let b : \ud835\udd4e k",
+    "have_tree": [
+      {
+        "name": "hq''",
+        "type": "algebraMap (\ud835\udd4e k) (FractionRing (\ud835\udd4e k)) q' \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "hq'''",
+            "type": "q' \u2260 0",
+            "body": "fun h => hq' (by simp [h])",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "FrobeniusFractionField",
+    "name": "exists_frobenius_solution_fractionRing",
+    "statement": "FractionRing (\ud835\udd4e k)} (ha : a \u2260 0) : \u2203\u1d49 (b \u2260 0) (m : \u2124), \u03c6 b * a = (p : FractionRing (\ud835\udd4e k)) ^ m * b",
+    "have_tree": [
+      {
+        "name": "hq0",
+        "type": "q \u2260 0",
+        "body": "mem_nonZeroDivisors_iff_ne_zero.1 hq",
+        "children": []
+      },
+      {
+        "name": "hr0",
+        "type": "r \u2260 0",
+        "body": "fun h => hrq (by simp [h])",
+        "children": []
+      }
+    ]
+  }
+]

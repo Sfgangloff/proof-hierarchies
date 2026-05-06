@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Computation",
+    "name": "eq_of_bisim",
+    "statement": "IsBisimulation R) {s\u2081 s\u2082} (r : s\u2081 ~ s\u2082) : s\u2081 = s\u2082",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "bisim r; revert r h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Computation",
+    "name": "of_results_think",
+    "statement": "Computation \u03b1} {a n} (h : Results (think s) a n) : \u2203 m, Results s a m \u2227 n = m + 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "results_of_terminates' _ (of_think_mem h.mem)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Computation",
+    "name": "results_thinkN",
+    "statement": "Computation \u03b1} {a m} : \u2200 n, Results s a m \u2192 Results (thinkN s n) a (m + n) | 0, h => h | n + 1, h => results_think (results_thinkN n h)  theorem results_thinkN_pure (a : \u03b1) (n) : Results (thinkN (pure a) n) a n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "results_thinkN n (results_pure a); rwa [Nat.zero_add] at this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Computation",
+    "name": "results_bind",
+    "statement": "Computation \u03b1} {f : \u03b1 \u2192 Computation \u03b2} {a b m n} (h1 : Results s a m) (h2 : Results (f a) b n) : Results (bind s f) b (n + m)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h1.mem; revert m",
+        "children": []
+      }
+    ]
+  }
+]

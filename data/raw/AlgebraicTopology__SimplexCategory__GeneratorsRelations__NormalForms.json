@@ -1,0 +1,54 @@
+[
+  {
+    "module": "NormalForms",
+    "name": "simplicialEval\u03c3_of_isAdmissible",
+    "statement": "\u2115) (hL : IsAdmissible m\u2082 L) (hk : m\u2082 + L.length = m\u2081) (j : \u2115) (hj : j < m\u2081 + 1) : (toSimplexCategory.map <| standard\u03c3 L hk).toOrderHom \u27e8j, hj\u27e9 = simplicialEval\u03c3 L j",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h_rec _ _ hL.of_cons (by grind) hj",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalForms",
+    "name": "standard\u03c3_simplicialInsert",
+    "statement": "IsAdmissible (m + 1) L) (j : \u2115) (hj : j < m + 1) (m\u2081 : \u2115) (hm\u2081 : m + L.length + 1 = m\u2081) : standard\u03c3 (m\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "a < m + 2",
+        "body": "by grind -- helps grind below",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalForms",
+    "name": "exists_normal_form_P_\u03c3",
+    "statement": "SimplexCategoryGenRel} (f : x \u27f6 y) (hf : P_\u03c3 f) : \u2203 L : List \u2115, \u2203 m : \u2115, \u2203 b : \u2115, \u2203 h\u2081 : mk m = y, \u2203 h\u2082 : x = mk (m + b), \u2203 h : L.length = b, IsAdmissible m L \u2227 f = standard\u03c3 L (by rw [h, h\u2081.symm, h\u2082]; rfl)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "standard\u03c3 (m\u2081 := m + 1 + L\u2081.length) [] (by grind) \u226b=",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalForms",
+    "name": "mem_isAdmissible_of_lt_and_eval_eq_eval_add_one",
+    "statement": "IsAdmissible m L) (j : \u2115) (hj\u2081 : j < m + L.length) (hj\u2082 : simplicialEval\u03c3 L j = simplicialEval\u03c3 L (j + 1)) : j \u2208 L",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "simplicialEval\u03c3_monotone L (a := a + 1)",
+        "children": []
+      }
+    ]
+  }
+]

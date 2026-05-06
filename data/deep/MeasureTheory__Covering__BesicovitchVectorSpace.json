@@ -1,0 +1,326 @@
+[
+  {
+    "module": "BesicovitchVectorSpace",
+    "name": "card_le_of_separated",
+    "statement": "Finset E) (hs : \u2200 c \u2208 s, \u2016c\u2016 \u2264 2) (h : \u2200 c \u2208 s, \u2200 d \u2208 s, c \u2260 d \u2192 1 \u2264 \u2016c - d\u2016) : s.card \u2264 5 ^ finrank \u211d E",
+    "have_tree": [
+      {
+        "name": "\u03c1pos",
+        "type": "0 < \u03c1",
+        "body": "by norm_num",
+        "children": []
+      },
+      {
+        "name": "D",
+        "type": "Set.Pairwise (s : Set E) (Disjoint on fun c => ball (c : E) \u03b4)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "A_subset",
+        "type": "A \u2286 ball (0 : E) \u03c1",
+        "body": "by",
+        "children": [
+          {
+            "name": "I",
+            "type": "0 < \u03b4",
+            "body": "by norm_num",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "J",
+        "type": "(s.card : \u211d\u22650\u221e) * ENNReal.ofReal (\u03b4 ^ finrank \u211d E) \u2264 ENNReal.ofReal (\u03c1 ^ finrank \u211d E)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "K",
+        "type": "(s.card : \u211d) \u2264 (5 : \u211d) ^ finrank \u211d E",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "ENNReal.toReal_le_of_le_ofReal (pow_nonneg \u03c1pos.le _) J",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "BesicovitchVectorSpace",
+    "name": "exists_good\u03b4",
+    "statement": "\u2203 \u03b4 : \u211d, 0 < \u03b4 \u2227 \u03b4 < 1 \u2227 \u2200 s : Finset E, (\u2200 c \u2208 s, \u2016c\u2016 \u2264 2) \u2192 (\u2200 c \u2208 s, \u2200 d \u2208 s, c \u2260 d \u2192 1 - \u03b4 \u2264 \u2016c - d\u2016) \u2192 s.card \u2264 multiplicity E",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype.card (Fin N) \u2264 s.card",
+        "body": "by simp only [Fintype.card_fin]; exact s_card",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2203 f : Fin N \u2192 E, (\u2200 i : Fin N, \u2016f i\u2016 \u2264 2) \u2227 Pairwise fun i j => 1 \u2264 \u2016f i - f j\u2016",
+        "body": "by",
+        "children": [
+          {
+            "name": "A",
+            "type": "\u2200 n, F (u n) \u2208 closedBall (0 : Fin N \u2192 E) 2",
+            "body": "by",
+            "children": [
+              {
+                "name": "B",
+                "type": "Tendsto (fun n => 1 - u (\u03c6 n)) atTop (\ud835\udcdd (1 - 0))",
+                "body": "",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "finj",
+        "type": "Function.Injective f",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "1 \u2264 \u2016f i - f j\u2016",
+            "body": "h'f h",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "s_card",
+        "type": "s.card = N",
+        "body": "by rw [Finset.card_image_of_injective _ finj]; exact Finset.card_fin N",
+        "children": []
+      },
+      {
+        "name": "hs",
+        "type": "\u2200 c \u2208 s, \u2016c\u2016 \u2264 2",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h's",
+        "type": "\u2200 c \u2208 s, \u2200 d \u2208 s, c \u2260 d \u2192 1 \u2264 \u2016c - d\u2016",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "i \u2260 j",
+            "body": "fun h => by rw [h] at hij; exact hij rfl",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "s.card \u2264 multiplicity E",
+        "body": "card_le_multiplicity hs h's",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BesicovitchVectorSpace",
+    "name": "le_multiplicity_of_\u03b4_of_fin",
+    "statement": "\u2115} (f : Fin n \u2192 E) (h : \u2200 i, \u2016f i\u2016 \u2264 2) (h' : Pairwise fun i j => 1 - good\u03b4 E \u2264 \u2016f i - f j\u2016) : n \u2264 multiplicity E",
+    "have_tree": [
+      {
+        "name": "finj",
+        "type": "Function.Injective f",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "1 - good\u03b4 E \u2264 \u2016f i - f j\u2016",
+            "body": "h' h",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "s_card",
+        "type": "s.card = n",
+        "body": "by rw [Finset.card_image_of_injective _ finj]; exact Finset.card_fin n",
+        "children": []
+      },
+      {
+        "name": "hs",
+        "type": "\u2200 c \u2208 s, \u2016c\u2016 \u2264 2",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h's",
+        "type": "\u2200 c \u2208 s, \u2200 d \u2208 s, c \u2260 d \u2192 1 - good\u03b4 E \u2264 \u2016c - d\u2016",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "i \u2260 j",
+            "body": "fun h => by rw [h] at hij; exact hij rfl",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "s.card \u2264 multiplicity E",
+        "body": "card_le_multiplicity_of_\u03b4 hs h's",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BesicovitchVectorSpace",
+    "name": "exists_normalized_aux2",
+    "statement": "\u2115} {\u03c4 : \u211d} (a : SatelliteConfig E N \u03c4) (lastc : a.c (last N) = 0) (lastr : a.r (last N) = 1) (h\u03c4 : 1 \u2264 \u03c4) (\u03b4 : \u211d) (h\u03b41 : \u03c4 \u2264 1 + \u03b4 / 4) (h\u03b42 : \u03b4 \u2264 1) (i j : Fin N.succ) (inej : i \u2260 j) (hi : \u2016a.c i\u2016 \u2264 2) (hj : 2 < \u2016a.c j\u2016) : 1 - \u03b4 \u2264 \u2016a.c i - (2 / \u2016a.c j\u2016) \u2022 a.c j\u2016",
+    "have_tree": [
+      {
+        "name": "\u03b4nonneg",
+        "type": "0 \u2264 \u03b4",
+        "body": "by linarith only [h\u03c4, h\u03b41]",
+        "children": []
+      },
+      {
+        "name": "D",
+        "type": "0 \u2264 1 - \u03b4 / 4",
+        "body": "by linarith only [h\u03b42]",
+        "children": []
+      },
+      {
+        "name": "hcrj",
+        "type": "\u2016a.c j\u2016 \u2264 a.r j + 1",
+        "body": "by simpa only [lastc, lastr, dist_zero_right] using a.inter' j",
+        "children": []
+      },
+      {
+        "name": "I",
+        "type": "a.r i \u2264 2",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "J",
+        "type": "(1 - \u03b4 / 4) * \u03c4 \u2264 1",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "a.r j - \u03b4 \u2264 \u2016a.c i - a.c j\u2016",
+        "body": "by",
+        "children": [
+          {
+            "name": "C",
+            "type": "a.r j \u2264 4",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "a.r j - \u03b4 \u2264 \u2016a.c i - d\u2016 + (a.r j - 1)",
+        "body": "",
+        "children": [
+          {
+            "name": "A",
+            "type": "0 \u2264 1 - 2 / \u2016a.c j\u2016",
+            "body": "by simpa [div_le_iff\u2080 (zero_le_two.trans_lt hj)] using hj.le",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "BesicovitchVectorSpace",
+    "name": "exists_normalized_aux3",
+    "statement": "\u2115} {\u03c4 : \u211d} (a : SatelliteConfig E N \u03c4) (lastc : a.c (last N) = 0) (lastr : a.r (last N) = 1) (h\u03c4 : 1 \u2264 \u03c4) (\u03b4 : \u211d) (h\u03b41 : \u03c4 \u2264 1 + \u03b4 / 4) (i j : Fin N.succ) (inej : i \u2260 j) (hi : 2 < \u2016a.c i\u2016) (hij : \u2016a.c i\u2016 \u2264 \u2016a.c j\u2016) : 1 - \u03b4 \u2264 \u2016(2 / \u2016a.c i\u2016) \u2022 a.c i - (2 / \u2016a.c j\u2016) \u2022 a.c j\u2016",
+    "have_tree": [
+      {
+        "name": "\u03b4nonneg",
+        "type": "0 \u2264 \u03b4",
+        "body": "by linarith only [h\u03c4, h\u03b41]",
+        "children": []
+      },
+      {
+        "name": "hcrj",
+        "type": "\u2016a.c j\u2016 \u2264 a.r j + 1",
+        "body": "by simpa only [lastc, lastr, dist_zero_right] using a.inter' j",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "a.r i \u2264 \u2016a.c i\u2016",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "i < last N",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hj",
+        "type": "2 < \u2016a.c j\u2016",
+        "body": "hi.trans_le hij",
+        "children": []
+      },
+      {
+        "name": "spos",
+        "type": "0 < s",
+        "body": "zero_lt_two.trans hi",
+        "children": []
+      },
+      {
+        "name": "I",
+        "type": "\u2016a.c j - a.c i\u2016 \u2264 \u2016a.c j\u2016 - s + \u2016d - a.c i\u2016",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "J",
+        "type": "a.r j - \u2016a.c j - a.c i\u2016 \u2264 s / 2 * \u03b4",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "invs_nonneg",
+        "type": "0 \u2264 2 / s",
+        "body": "div_nonneg zero_le_two (zero_le_two.trans hi.le)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BesicovitchVectorSpace",
+    "name": "exists_normalized",
+    "statement": "\u2115} {\u03c4 : \u211d} (a : SatelliteConfig E N \u03c4) (lastc : a.c (last N) = 0) (lastr : a.r (last N) = 1) (h\u03c4 : 1 \u2264 \u03c4) (\u03b4 : \u211d) (h\u03b41 : \u03c4 \u2264 1 + \u03b4 / 4) (h\u03b42 : \u03b4 \u2264 1) : \u2203 c' : Fin N.succ \u2192 E, (\u2200 n, \u2016c' n\u2016 \u2264 2) \u2227 Pairwise fun i j => 1 - \u03b4 \u2264 \u2016c' i - c' j\u2016",
+    "have_tree": [
+      {
+        "name": "norm_c'_le",
+        "type": "\u2200 i, \u2016c' i\u2016 \u2264 2",
+        "body": "by",
+        "children": [
+          {
+            "name": "H'i",
+            "type": "\u2016a.c i\u2016 \u2264 2 \u2194 False",
+            "body": "by simpa only [not_le, iff_false] using Hi",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

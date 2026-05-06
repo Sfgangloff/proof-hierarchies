@@ -1,0 +1,46 @@
+[
+  {
+    "module": "MeanValue",
+    "name": "image_le_of_liminf_slope_right_lt_deriv_boundary'",
+    "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hf : ContinuousOn f (Icc a b)) -- `hf'` actually says `liminf (f z - f x) / (z - x) \u2264 f' x` (hf' : \u2200 x \u2208 Ico a b, \u2200 r, f' x < r \u2192 \u2203\u1da0 z in \ud835\udcdd[>] x, slope f x z < r) {B B' : \u211d \u2192 \u211d} (ha : f a \u2264 B a) (hB : ContinuousOn B (Icc a b)) (hB' : \u2200 x \u2208 Ico a b, HasDerivWithinAt B (B' x) (Ici x) x) (bound : \u2200 x \u2208 Ico a b, f x = B x \u2192 f' x < B' x) : \u2200 \u2983x\u2984, x \u2208 Icc a b \u2192 f x \u2264 B x",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "ContinuousOn (fun x => (f x, B x)) (Icc a b)",
+        "body": "hf.prodMk hB",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsClosed s",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200\u1da0 x in \ud835\udcdd[Icc a b] x, f x < B x",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u2200\u1da0 x in \ud835\udcdd[>] x, f x < B x",
+            "body": "nhdsWithin_le_of_mem (Icc_mem_nhdsGT_of_mem xab) this",
+            "children": []
+          },
+          {
+            "name": "HB",
+            "type": "\u2200\u1da0 z in \ud835\udcdd[>] x, r < slope B x z",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "(hfz.trans hzB).le",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

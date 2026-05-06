@@ -1,0 +1,78 @@
+[
+  {
+    "module": "AEEqOfIntegralContDiff",
+    "name": "ae_eq_zero_of_integral_contMDiff_smul_eq_zero",
+    "statement": "LocallyIntegrable f \u03bc) (h : \u2200 g : M \u2192 \u211d, CMDiff \u221e g \u2192 HasCompactSupport g \u2192 \u222b x, g x \u2022 f x \u2202\u03bc = 0) : \u2200\u1d50 x \u2202\u03bc, f x = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "I.locallyCompactSpace",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "ChartedSpace.locallyCompactSpace H M",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "I.secondCountableTopology",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "ChartedSpace.secondCountable_of_sigmaCompact H M",
+        "children": []
+      },
+      {
+        "name": "L",
+        "type": "Tendsto (fun n \u21a6 \u222b x, g n x \u2022 f x \u2202\u03bc) atTop (\ud835\udcdd (\u222b x in s, f x \u2202\u03bc))",
+        "body": "by",
+        "children": [
+          {
+            "name": "A",
+            "type": "\u2200 n, AEStronglyMeasurable (fun x \u21a6 g n x \u2022 f x) \u03bc",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "B",
+            "type": "Integrable bound \u03bc",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "C",
+            "type": "\u2200 n, \u2200\u1d50 x \u2202\u03bc, \u2016g n x \u2022 f x\u2016 \u2264 bound x",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "",
+                "body": "g_range n (mem_range_self (f := g n) x)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "AEEqOfIntegralContDiff",
+    "name": "IsOpen.ae_eq_zero_of_integral_contMDiff_smul_eq_zero'",
+    "statement": "Set M} (hU : IsOpen U) (hSig : IsSigmaCompact U) (hf : LocallyIntegrableOn f U \u03bc) (h : \u2200 g : M \u2192 \u211d, CMDiff \u221e g \u2192 HasCompactSupport g \u2192 tsupport g \u2286 U \u2192 \u222b x, g x \u2022 f x \u2202\u03bc = 0) : \u2200\u1d50 x \u2202\u03bc, x \u2208 U \u2192 f x = 0",
+    "have_tree": [
+      {
+        "name": "meas_U",
+        "type": "",
+        "body": "hU.measurableSet",
+        "children": []
+      }
+    ]
+  }
+]

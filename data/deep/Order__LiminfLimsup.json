@@ -1,0 +1,54 @@
+[
+  {
+    "module": "LiminfLimsup",
+    "name": "limsup_max",
+    "statement": "Filter \u03b1} {u v : \u03b1 \u2192 \u03b2} (h\u2081 : f.IsCoboundedUnder (\u00b7 \u2264 \u00b7) u",
+    "have_tree": [
+      {
+        "name": "bddmax",
+        "type": "",
+        "body": "IsBoundedUnder.sup h\u2083 h\u2084",
+        "children": []
+      },
+      {
+        "name": "cobddmax",
+        "type": "",
+        "body": "isCoboundedUnder_le_max (v := v) (Or.inl h\u2081)",
+        "children": [
+          {
+            "name": "hu",
+            "type": "",
+            "body": "eventually_lt_of_limsup_lt (lt_of_le_of_lt (le_max_left _ _) hb) h\u2083",
+            "children": []
+          },
+          {
+            "name": "hv",
+            "type": "",
+            "body": "eventually_lt_of_limsup_lt (lt_of_le_of_lt (le_max_right _ _) hb) h\u2084",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LiminfLimsup",
+    "name": "limsup_finset_sup'",
+    "statement": "Filter \u03b1} {F : \u03b9 \u2192 \u03b1 \u2192 \u03b2} {s : Finset \u03b9} (hs : s.Nonempty) (h\u2081 : \u2200 i \u2208 s, f.IsCoboundedUnder (\u00b7 \u2264 \u00b7) (F i)",
+    "have_tree": [
+      {
+        "name": "bddsup",
+        "type": "",
+        "body": "isBoundedUnder_le_finset_sup' hs h\u2082",
+        "children": [
+          {
+            "name": "cobddsup",
+            "type": "",
+            "body": "isCoboundedUnder_le_finset_sup' hs h\u2083",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

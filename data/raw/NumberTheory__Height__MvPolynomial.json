@@ -1,0 +1,60 @@
+[
+  {
+    "module": "MvPolynomial",
+    "name": "mulHeight_linearMap_apply_le",
+    "statement": "\u03b9' \u00d7 \u03b9 \u2192 K) (x : \u03b9 \u2192 K) : mulHeight (fun j \u21a6 \u2211 i, A (j, i) * x i) \u2264 Nat.card \u03b9 ^ totalWeight K * mulHeight A * mulHeight x",
+    "have_tree": [
+      {
+        "name": "H\u2080",
+        "type": "1 \u2264 Nat.card \u03b9 ^ totalWeight K * mulHeight A * mulHeight x",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MvPolynomial",
+    "name": "mulHeight_eval_le",
+    "statement": "\u2115} {p : \u03b9' \u2192 MvPolynomial \u03b9 K} (hp : \u2200 i, (p i).IsHomogeneous N) (x : \u03b9 \u2192 K) : mulHeight (fun j \u21a6 (p j).eval x) \u2264 max (mulHeightBound p) 1 * mulHeight x ^ N",
+    "have_tree": [
+      {
+        "name": "H\u2081",
+        "type": "0 \u2264 (archAbsVal.map (fun v \u21a6 \u2a06 j, Finsupp.sum (p j) fun _ c \u21a6 v c)).prod",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "H\u2082",
+        "type": "0 \u2264 (archAbsVal.map (fun v \u21a6 \u2a06 i, v (x i))).prod",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(Function.ne_iff.mp h\u2080).nonempty",
+            "children": []
+          },
+          {
+            "name": "F",
+            "type": "",
+            "body": "hasFiniteMulSupport_iSup_nonarchAbsVal hx",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "MvPolynomial",
+    "name": "mulHeight_eval_ge'",
+    "statement": "\u2115} {q : \u03b9 \u00d7 \u03b9' \u2192 MvPolynomial \u03b9 K} (hq : \u2200 a, (q a).IsHomogeneous M) : \u2203 C > 0, \u2200 (p : \u03b9' \u2192 MvPolynomial \u03b9 K) {x : \u03b9 \u2192 K} (_h : \u2200 k, \u2211 j, (q (k, j)).eval x * (p j).eval x = (x k) ^ (M + N)), C * mulHeight x ^ N \u2264 mulHeight (fun j \u21a6 (p j).eval x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < Nat.card \u03b9'",
+        "body": "Nat.card_pos",
+        "children": []
+      }
+    ]
+  }
+]

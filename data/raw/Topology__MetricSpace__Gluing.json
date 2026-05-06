@@ -1,0 +1,65 @@
+[
+  {
+    "module": "Gluing",
+    "name": "glueDist",
+    "statement": "Z \u2192 X) (\u03a8 : Z \u2192 Y) (\u03b5 : \u211d) : X \u2295 Y \u2192 X \u2295 Y \u2192 \u211d | .inl x, .inl y => dist x y | .inr x, .inr y => dist x y | .inl x, .inr y => (\u2a05 p, dist x (\u03a6 p) + dist y (\u03a8 p)) + \u03b5 | .inr x, .inl y => (\u2a05 p, dist y (\u03a6 p) + dist x (\u03a8 p)) + \u03b5  set_option backward.privateInPublic true in private theorem glueDist_self (\u03a6 : Z \u2192 X) (\u03a8 : Z \u2192 Y) (\u03b5 : \u211d) : \u2200 x, glueDist \u03a6 \u03a8 \u03b5 x x = 0 | .inl _ => dist_self _ | .inr _ => dist_self _  theorem glueDist_glued_points [Nonempty Z] (\u03a6 : Z \u2192 X) (\u03a8 : Z \u2192 Y) (\u03b5 : \u211d) (p : Z) : glueDist \u03a6 \u03a8 \u03b5 (.inl (\u03a6 p)) (.inr (\u03a8 p)) = \u03b5",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2200 q, 0 \u2264 dist (\u03a6 p) (\u03a6 q) + dist (\u03a8 p) (\u03a8 q)",
+        "body": "fun _ => by positivity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gluing",
+    "name": "completeSpace",
+    "statement": "CompleteSpace (\u03a3 i, E i)",
+    "have_tree": [
+      {
+        "name": "hc",
+        "type": "\u2200 i, IsComplete (s i)",
+        "body": "fun i => by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gluing",
+    "name": "inductivePremetric",
+    "statement": "\u2200 n, Isometry (f n)) : PseudoMetricSpace (\u03a3 n, X n) where dist",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "x.1 \u2264 m",
+        "body": "le_max_left _ _",
+        "children": []
+      },
+      {
+        "name": "hy",
+        "type": "y.1 \u2264 m",
+        "body": "le_max_right _ _",
+        "children": []
+      },
+      {
+        "name": "hx",
+        "type": "x.1 \u2264 m",
+        "body": "le_trans (le_max_left _ _) (le_max_left _ _)",
+        "children": []
+      },
+      {
+        "name": "hy",
+        "type": "y.1 \u2264 m",
+        "body": "le_trans (le_max_right _ _) (le_max_left _ _)",
+        "children": []
+      },
+      {
+        "name": "hz",
+        "type": "z.1 \u2264 m",
+        "body": "le_max_right _ _",
+        "children": []
+      }
+    ]
+  }
+]

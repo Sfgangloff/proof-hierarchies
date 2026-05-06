@@ -1,0 +1,66 @@
+[
+  {
+    "module": "LucasLehmer",
+    "name": "pow_\u03c9",
+    "statement": "Odd q) (leg3 : legendreSym q 3 = -1) (leg2 : legendreSym q 2 = 1) : (\u03c9 : X q) ^ ((q + 1) / 2) = -1",
+    "have_tree": [
+      {
+        "name": "pow2",
+        "type": "(2 : ZMod q) ^ ((q + 1) / 2) = 2",
+        "body": "by",
+        "children": [
+          {
+            "name": "leg",
+            "type": "",
+            "body": "legendreSym.eq_pow q 2",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "(2 : ZMod q) = ((2 : \u2124) : ZMod q)",
+            "body": "by norm_cast",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "two_mul_\u03c9_pow odd leg3",
+        "children": []
+      },
+      {
+        "name": "coe",
+        "type": "(2 : X q) = (2 : ZMod q)",
+        "body": "by rw [map_ofNat]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LucasLehmer",
+    "name": "sModNat",
+    "statement": "\u2115) : \u2115 \u2192 \u2115 | 0 => 4 % q | i + 1 => (sModNat q i ^ 2 + (q - 2)) % q  theorem sModNat_eq_sMod (p k : \u2115) (hp : 2 \u2264 p) : (sModNat (2 ^ p - 1) k : \u2124) = sMod p k",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "calc",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "1 \u2264 2 ^ p",
+        "body": "by lia",
+        "children": [
+          {
+            "name": "h3",
+            "type": "2 \u2264 2 ^ p - 1",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

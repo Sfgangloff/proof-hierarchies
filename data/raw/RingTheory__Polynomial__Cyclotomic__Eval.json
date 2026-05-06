@@ -1,0 +1,159 @@
+[
+  {
+    "module": "Eval",
+    "name": "eval\u2082_one_cyclotomic_prime_pow",
+    "statement": "Type*} [CommRing R] [Semiring S] (f : R \u2192+* S) {p : \u2115} (k : \u2115) [Fact p.Prime] : eval\u2082 f 1 (cyclotomic (p ^ (k + 1)) R) = p",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "",
+        "body": "cyclotomic_coeff_zero \u211d hn.le",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "intermediate_value_univ (-1) 0 (cyclotomic n \u211d).continuous",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Eval",
+    "name": "cyclotomic_pos",
+    "statement": "\u2115} (hn : 2 < n) {R} [CommRing R] [LinearOrder R] [IsStrictOrderedRing R] (x : R) : 0 < eval x (cyclotomic n R)",
+    "have_tree": [
+      {
+        "name": "hn'",
+        "type": "0 < n",
+        "body": "pos_of_gt hn",
+        "children": []
+      },
+      {
+        "name": "hn''",
+        "type": "1 < n",
+        "body": "one_lt_two.trans hn",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "prod_cyclotomic_eq_geom_sum hn' R",
+        "children": [
+          {
+            "name": "h2",
+            "type": "2 \u2208 n.properDivisors.erase 1",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Eval",
+    "name": "eval_one_cyclotomic_not_prime_pow",
+    "statement": "Type*} [Ring R] {n : \u2115} (h : \u2200 {p : \u2115}, p.Prime \u2192 \u2200 k : \u2115, p ^ k \u2260 n) : eval 1 (cyclotomic n R) = 1",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "1 < n",
+        "body": "one_lt_iff_ne_zero_and_ne_one.mpr \u27e8hn'.ne', (h Nat.prime_two 0).symm\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "prod_cyclotomic_eq_geom_sum hn' \u2124",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Eval",
+    "name": "sub_one_pow_totient_lt_cyclotomic_eval",
+    "statement": "\u2115} {q : \u211d} (hn' : 2 \u2264 n) (hq' : 1 < q) : (q - 1) ^ totient n < (cyclotomic n \u211d).eval q",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "0 < n",
+        "body": "pos_of_gt hn'",
+        "children": []
+      },
+      {
+        "name": "hq",
+        "type": "",
+        "body": "zero_lt_one.trans hq'",
+        "children": []
+      },
+      {
+        "name": "hfor",
+        "type": "\u2200 \u03b6' \u2208 primitiveRoots n \u2102, q - 1 \u2264 \u2016\u2191q - \u03b6'\u2016",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u03b6",
+        "type": "IsPrimitiveRoot \u03b6 n",
+        "body": "Complex.isPrimitiveRoot_exp n hn.ne'",
+        "children": []
+      },
+      {
+        "name": "hex",
+        "type": "\u2203 \u03b6' \u2208 primitiveRoots n \u2102, q - 1 < \u2016\u2191q - \u03b6'\u2016",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Eval",
+    "name": "sub_one_pow_totient_le_cyclotomic_eval",
+    "statement": "\u211d} (hq' : 1 < q) : \u2200 n, (q - 1) ^ totient n \u2264 (cyclotomic n \u211d).eval q | 0 => by simp only [totient_zero, _root_.pow_zero, cyclotomic_zero, eval_one, le_refl] | 1 => by simp only [totient_one, pow_one, cyclotomic_one, eval_sub, eval_X, eval_one, le_refl] | _ + 2 => (sub_one_pow_totient_lt_cyclotomic_eval le_add_self hq').le  theorem cyclotomic_eval_lt_add_one_pow_totient {n : \u2115} {q : \u211d} (hn' : 3 \u2264 n) (hq' : 1 < q) : (cyclotomic n \u211d).eval q < (q + 1) ^ totient n",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "0 < n",
+        "body": "pos_of_gt hn'",
+        "children": []
+      },
+      {
+        "name": "hq",
+        "type": "",
+        "body": "zero_lt_one.trans hq'",
+        "children": []
+      },
+      {
+        "name": "hfor",
+        "type": "\u2200 \u03b6' \u2208 primitiveRoots n \u2102, \u2016\u2191q - \u03b6'\u2016 \u2264 q + 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u03b6",
+        "type": "IsPrimitiveRoot \u03b6 n",
+        "body": "Complex.isPrimitiveRoot_exp n hn.ne'",
+        "children": []
+      },
+      {
+        "name": "hex",
+        "type": "\u2203 \u03b6' \u2208 primitiveRoots n \u2102, \u2016\u2191q - \u03b6'\u2016 < q + 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "h\u03b6\u2080",
+            "type": "\u03b6 \u2260 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u2016_\u2016 \u2264 _",
+            "body": "hfor x hx",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

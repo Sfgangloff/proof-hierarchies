@@ -1,0 +1,222 @@
+[
+  {
+    "original": {
+      "module": "MongePoint",
+      "name": "eq_mongePoint_of_forall_mem_mongePlane",
+      "statement": "\u2115} {s : Simplex \u211d P (n + 2)} {i\u2081 : Fin (n + 3)} {p : P} (h : \u2200 i\u2082, i\u2081 \u2260 i\u2082 \u2192 p \u2208 s.mongePlane i\u2081 i\u2082) : p = s.mongePoint",
+      "have_tree": [
+        {
+          "name": "hv",
+          "type": "p -\u1d65 s.mongePoint \u2208 vectorSpan \u211d (Set.range s.points)",
+          "body": "by",
+          "children": [
+            {
+              "name": "h\u2081\u2082",
+              "type": "i\u2081 \u2260 i\u2082",
+              "body": "(ne_of_mem_erase h\u2082).symm",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "MongePoint",
+          "name": "eq_mongePoint_of_forall_mem_mongePlane",
+          "statement": "\u2115} {s : Simplex \u211d P (n + 2)} {i\u2081 : Fin (n + 3)} {p : P} (h : \u2200 i\u2082, i\u2081 \u2260 i\u2082 \u2192 p \u2208 s.mongePlane i\u2081 i\u2082) : p = s.mongePoint",
+          "have_tree": [
+            {
+              "name": "hv",
+              "type": "p -\u1d65 s.mongePoint \u2208 vectorSpan \u211d (Set.range s.points)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "MongePoint",
+          "name": "eq_mongePoint_of_forall_mem_mongePlane",
+          "statement": "\u2115} {s : Simplex \u211d P (n + 2)} {i\u2081 : Fin (n + 3)} {p : P} (h : \u2200 i\u2082, i\u2081 \u2260 i\u2082 \u2192 p \u2208 s.mongePlane i\u2081 i\u2082) : p = s.mongePoint",
+          "have_tree": [
+            {
+              "name": "h\u2081\u2082",
+              "type": "i\u2081 \u2260 i\u2082",
+              "body": "(ne_of_mem_erase h\u2082).symm",
+              "children": []
+            },
+            {
+              "name": "hv",
+              "type": "p -\u1d65 s.mongePoint \u2208 vectorSpan \u211d (Set.range s.points)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "MongePoint",
+      "name": "exists_of_range_subset_orthocentricSystem",
+      "statement": "Triangle \u211d P} (ho : t.orthocenter \u2209 Set.range t.points) {p : Fin 3 \u2192 P} (hps : Set.range p \u2286 insert t.orthocenter (Set.range t.points)) (hpi : Function.Injective p) : (\u2203 i\u2081 i\u2082 i\u2083 j\u2082 j\u2083 : Fin 3, i\u2081 \u2260 i\u2082 \u2227 i\u2081 \u2260 i\u2083 \u2227 i\u2082 \u2260 i\u2083 \u2227 (\u2200 i : Fin 3, i = i\u2081 \u2228 i = i\u2082 \u2228 i = i\u2083) \u2227 p i\u2081 = t.orthocenter \u2227 j\u2082 \u2260 j\u2083 \u2227 t.points j\u2082 = p i\u2082 \u2227 t.points j\u2083 = p i\u2083) \u2228 Set.range p = Set.range t.points",
+      "have_tree": [
+        {
+          "name": "hj\u2082\u2083",
+          "type": "j\u2082 \u2260 j\u2083",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hs",
+          "type": "",
+          "body": "Set.subset_diff_singleton hps h",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "MongePoint",
+          "name": "exists_of_range_subset_orthocentricSystem",
+          "statement": "Triangle \u211d P} (ho : t.orthocenter \u2209 Set.range t.points) {p : Fin 3 \u2192 P} (hps : Set.range p \u2286 insert t.orthocenter (Set.range t.points)) (hpi : Function.Injective p) : (\u2203 i\u2081 i\u2082 i\u2083 j\u2082 j\u2083 : Fin 3, i\u2081 \u2260 i\u2082 \u2227 i\u2081 \u2260 i\u2083 \u2227 i\u2082 \u2260 i\u2083 \u2227 (\u2200 i : Fin 3, i = i\u2081 \u2228 i = i\u2082 \u2228 i = i\u2083) \u2227 p i\u2081 = t.orthocenter \u2227 j\u2082 \u2260 j\u2083 \u2227 t.points j\u2082 = p i\u2082 \u2227 t.points j\u2083 = p i\u2083) \u2228 Set.range p = Set.range t.points",
+          "have_tree": [
+            {
+              "name": "hs",
+              "type": "",
+              "body": "Set.subset_diff_singleton hps h",
+              "children": []
+            },
+            {
+              "name": "hj\u2082\u2083",
+              "type": "j\u2082 \u2260 j\u2083",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "MongePoint",
+      "name": "affineSpan_of_orthocentricSystem",
+      "statement": "Set P} (ho : OrthocentricSystem s) {p : Fin 3 \u2192 P} (hps : Set.range p \u2286 s) (hpi : Function.Injective p) : affineSpan \u211d (Set.range p) = affineSpan \u211d s",
+      "have_tree": [
+        {
+          "name": "ha",
+          "type": "",
+          "body": "ho.affineIndependent hps hpi",
+          "children": []
+        },
+        {
+          "name": "hfd",
+          "type": "FiniteDimensional \u211d (affineSpan \u211d s).direction",
+          "body": "by rw [hs]; infer_instance",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "MongePoint",
+          "name": "affineSpan_of_orthocentricSystem",
+          "statement": "Set P} (ho : OrthocentricSystem s) {p : Fin 3 \u2192 P} (hps : Set.range p \u2286 s) (hpi : Function.Injective p) : affineSpan \u211d (Set.range p) = affineSpan \u211d s",
+          "have_tree": [
+            {
+              "name": "hfd",
+              "type": "FiniteDimensional \u211d (affineSpan \u211d s).direction",
+              "body": "by rw [hs]; infer_instance",
+              "children": []
+            },
+            {
+              "name": "ha",
+              "type": "",
+              "body": "ho.affineIndependent hps hpi",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "MongePoint",
+      "name": "OrthocentricSystem.exists_circumradius_eq",
+      "statement": "Set P} (ho : OrthocentricSystem s) : \u2203 r : \u211d, \u2200 t : Triangle \u211d P, Set.range t.points \u2286 s \u2192 t.circumradius = r",
+      "have_tree": [
+        {
+          "name": "ht\u2082s",
+          "type": "",
+          "body": "ht\u2082",
+          "children": []
+        },
+        {
+          "name": "hs",
+          "type": "Set.range t.points \u2286 s",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "MongePoint",
+          "name": "OrthocentricSystem.exists_circumradius_eq",
+          "statement": "Set P} (ho : OrthocentricSystem s) : \u2203 r : \u211d, \u2200 t : Triangle \u211d P, Set.range t.points \u2286 s \u2192 t.circumradius = r",
+          "have_tree": [
+            {
+              "name": "hs",
+              "type": "Set.range t.points \u2286 s",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "ht\u2082s",
+              "type": "",
+              "body": "ht\u2082",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

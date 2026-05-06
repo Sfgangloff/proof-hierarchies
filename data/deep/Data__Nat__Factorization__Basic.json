@@ -1,0 +1,73 @@
+[
+  {
+    "module": "Basic",
+    "name": "factorization_gcd",
+    "statement": "\u2115} (ha_pos : a \u2260 0) (hb_pos : b \u2260 0) : (gcd a b).factorization = a.factorization \u2293 b.factorization",
+    "have_tree": [
+      {
+        "name": "dfac_prime",
+        "type": "\u2200 p : \u2115, p \u2208 dfac.support \u2192 Prime p",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "p \u2208 a.primeFactorsList \u2227 p \u2208 b.primeFactorsList",
+            "body": "by simpa [dfac] using hp",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h1",
+        "type": "d.factorization = dfac",
+        "body": "prod_pow_factorization_eq_self dfac_prime",
+        "children": []
+      },
+      {
+        "name": "hd_pos",
+        "type": "d \u2260 0",
+        "body": "(factorizationEquiv.invFun \u27e8dfac, dfac_prime\u27e9).2.ne'",
+        "children": [
+          {
+            "name": "hea'",
+            "type": "",
+            "body": "(factorization_le_iff_dvd he_pos ha_pos).mpr hea",
+            "children": []
+          },
+          {
+            "name": "heb'",
+            "type": "",
+            "body": "(factorization_le_iff_dvd he_pos hb_pos).mpr heb",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_eq_pow_of_pow_eq_pow",
+    "statement": "\u2115} (hmn : m \u2260 0 \u2228 n \u2260 0) (h : a ^ m = b ^ n) : letI g",
+    "have_tree": [
+      {
+        "name": "coprime",
+        "type": "m'.Coprime n'",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "pow_eq",
+        "type": "a ^ m' = b ^ n'",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "g \u2260 0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

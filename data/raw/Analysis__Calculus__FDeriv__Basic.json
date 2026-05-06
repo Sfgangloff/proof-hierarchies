@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Basic",
+    "name": "HasFDerivWithinAt.lim",
+    "statement": "HasFDerivWithinAt f f' s x) {\u03b1 : Type*} {l : Filter \u03b1} {c : \u03b1 \u2192 \ud835\udd5c} {d : \u03b1 \u2192 E} {v : E} (dlim : Tendsto d l (\ud835\udcdd 0)) (dtop : \u2200\u1da0 n in l, x + d n \u2208 s) (cdlim : Tendsto (fun n => c n \u2022 d n) l (\ud835\udcdd v)) : Tendsto (fun n => c n \u2022 (f (x + d n) - f x)) l (\ud835\udcdd (f' v))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "calc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "HasStrictFDerivAt.exists_lipschitzOnWith_of_nnnorm_lt",
+    "statement": "HasStrictFDerivAt f f' x) (K : \u211d\u22650) (hK : \u2016f'\u2016\u208a < K) : \u2203 s \u2208 \ud835\udcdd x, LipschitzOnWith K f s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.isLittleO.add_isBigOWith (f'.isBigOWith_comp _ _) hK",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "HasFDerivAt.comp_semilinear",
+    "statement": "V \u2192 W} {z : V'} {f' : V \u2192L[\ud835\udd5c] W} (hf : HasFDerivAt f f' (R z)) : HasFDerivAt (L \u2218 f \u2218 R) (L.comp (f'.comp R)) z",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "RingHomIsometric \u03c3'",
+        "body": ".inv \u03c3",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.comp_tendsto (R.map_zero \u25b8 R.continuous.continuousAt.tendsto)",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "module": "Exponential",
+    "name": "hasFDerivAt_exp_smul_const_of_mem_ball",
+    "statement": "\ud835\udd38) (t : \ud835\udd4a) (htx : t \u2022 x \u2208 EMetric.ball (0 : \ud835\udd38) (expSeries \ud835\udd42 \ud835\udd38).radius) : HasFDerivAt (fun u : \ud835\udd4a => exp (u \u2022 x)) (exp (t \u2022 x) \u2022 (1 : \ud835\udd4a \u2192L[\ud835\udd42] \ud835\udd4a).smulRight x) t",
+    "have_tree": [
+      {
+        "name": "hpos",
+        "type": "0 < (expSeries \ud835\udd42 \ud835\udd38).radius",
+        "body": "(zero_le _).trans_lt htx",
+        "children": [
+          {
+            "name": "_",
+            "type": "HasFDerivAt exp (1 : \ud835\udd38 \u2192L[\ud835\udd42] \ud835\udd38) ((1 : \ud835\udd4a \u2192L[\ud835\udd42] \ud835\udd4a).smulRight x 0)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "Tendsto (fun h : \ud835\udd4a => h \u2022 x) (\ud835\udcdd 0) (\ud835\udcdd 0)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200\u1da0 h in \ud835\udcdd (0 : \ud835\udd4a), h \u2022 x \u2208 EMetric.ball (0 : \ud835\udd38) (expSeries \ud835\udd42 \ud835\udd38).radius",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Commute (t \u2022 x) (h \u2022 x)",
+        "body": "((Commute.refl x).smul_left t).smul_right h",
+        "children": []
+      }
+    ]
+  }
+]

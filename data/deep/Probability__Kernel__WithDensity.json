@@ -1,0 +1,53 @@
+[
+  {
+    "module": "WithDensity",
+    "name": "isSFiniteKernel_withDensity_of_isFiniteKernel",
+    "statement": "Kernel \u03b1 \u03b2) [IsFiniteKernel \u03ba] (hf_ne_top : \u2200 a b, f a b \u2260 \u221e) : IsSFiniteKernel (withDensity \u03ba f)",
+    "have_tree": [
+      {
+        "name": "h_le",
+        "type": "\u2200 a b n, \u2308(f a b).toReal\u2309\u208a \u2264 n \u2192 f a b \u2264 n",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(f a b).toReal \u2264 n",
+            "body": "Nat.le_of_ceil_le hn",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_zero",
+        "type": "\u2200 a b n, \u2308(f a b).toReal\u2309\u208a \u2264 n \u2192 fs n a b = 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf_eq_tsum",
+        "type": "f = \u2211' n, fs n",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_sum_a",
+            "type": "\u2200 a, Summable fun n => fs n a",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h_finset_sum",
+            "type": "\u2200 n, \u2211 i \u2208 Finset.range n, fs i a b = min (f a b) n",
+            "body": "fun n \u21a6 by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_eq_sum",
+        "type": "withDensity \u03ba f = Kernel.sum fun i => withDensity (seq \u03ba i) f",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

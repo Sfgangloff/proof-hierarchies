@@ -1,0 +1,40 @@
+[
+  {
+    "module": "DirectLimitFG",
+    "name": "TensorProduct.Algebra.eq_of_fg_of_subtype_eq",
+    "statement": "rTensor N A.val.toLinearMap t = rTensor N A.val.toLinearMap t') : \u2203 (B : Subalgebra R S) (hAB : A \u2264 B), Subalgebra.FG B \u2227 rTensor N (Subalgebra.inclusion hAB).toLinearMap t = LinearMap.rTensor N (Subalgebra.inclusion hAB).toLinearMap t'",
+    "have_tree": [
+      {
+        "name": "hP\u2081",
+        "type": "Submodule.FG P\u2081",
+        "body": "Submodule.FG.map _ (Submodule.FG.sup hP hP')",
+        "children": []
+      },
+      {
+        "name": "hBA",
+        "type": "A \u2264 B",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hP'\u2081_le",
+        "type": "P'\u2081 \u2264 B.toSubmodule",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DirectLimitFG",
+    "name": "Submodule.exists_fg_of_baseChange_eq_zero",
+    "statement": "M \u2192\u2097[R] N) {t : S \u2297[R] M} (ht : f.baseChange S t = 0) : \u2203 (A : Subalgebra R S) (_ : A.FG) (u : A \u2297[R] M), f.baseChange A u = 0 \u2227 A.val.toLinearMap.rTensor M u = t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "TensorProduct.Algebra.eq_of_fg_of_subtype_eq hA (t := f.baseChange _ u) (t' := 0)",
+        "children": []
+      }
+    ]
+  }
+]

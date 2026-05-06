@@ -1,0 +1,77 @@
+[
+  {
+    "module": "ProjectiveDimension",
+    "name": "localizedModule_hasProjectiveDimensionLE",
+    "statement": "\u2115) (S : Submonoid R) (M : ModuleCat.{v} R) [HasProjectiveDimensionLE M n] : HasProjectiveDimensionLE (M.localizedModule S) n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Small.{v} (Localization S)",
+        "body": "small_of_surjective Localization.mkHom_surjective",
+        "children": [
+          {
+            "name": "projle",
+            "type": "HasProjectiveDimensionLE M 0",
+            "body": "\u2039_\u203a",
+            "children": []
+          },
+          {
+            "name": "T_exact",
+            "type": "T.ShortExact",
+            "body": "{ exact := ShortComplex.exact_kernel f }",
+            "children": []
+          },
+          {
+            "name": "TS_exact",
+            "type": "TS.ShortExact",
+            "body": "T_exact.map_of_exact (ModuleCat.localizedModuleFunctor S)",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Projective TS.X\u2082",
+            "body": "(ModuleCat.localizedModuleFunctor.{v} S).projective_obj _",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "(T_exact.hasProjectiveDimensionLT_X\u2083_iff n \u2039_\u203a).mp \u2039_\u203a",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "ProjectiveDimension",
+    "name": "hasProjectiveDimensionLE_iff_forall_maximalSpectrum",
+    "statement": "\u2115) [Small.{v} R] [IsNoetherianRing R] (M : ModuleCat.{v} R) [Module.Finite R M] : HasProjectiveDimensionLE M n \u2194 \u2200 (m : MaximalSpectrum R), HasProjectiveDimensionLE (M.localizedModule m.1.primeCompl) n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.FinitePresentation R M",
+        "body": "Module.finitePresentation_of_finite R M",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.Projective (Localization.AtPrime p) (M.localizedModule p.primeCompl)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "S_exact",
+        "type": "",
+        "body": "LinearMap.shortExact_shortComplexKer surjf",
+        "children": []
+      },
+      {
+        "name": "proj",
+        "type": "",
+        "body": "ModuleCat.projective_of_categoryTheory_projective S.X\u2082",
+        "children": []
+      }
+    ]
+  }
+]

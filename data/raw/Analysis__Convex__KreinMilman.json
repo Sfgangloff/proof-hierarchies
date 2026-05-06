@@ -1,0 +1,47 @@
+[
+  {
+    "module": "KreinMilman",
+    "name": "IsCompact.extremePoints_nonempty",
+    "statement": "IsCompact s) (hsnemp : s.Nonempty) : (s.extremePoints \u211d).Nonempty",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "IsExposed \u211d t ({ z \u2208 t | \u2200 w \u2208 t, l w \u2264 l z })",
+        "body": "fun _ => \u27e8l, rfl\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "KreinMilman",
+    "name": "closure_convexHull_extremePoints",
+    "statement": "IsCompact s) (hAconv : Convex \u211d s) : closure (convexHull \u211d <| s.extremePoints \u211d) = s",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "IsExposed \u211d s ({ y \u2208 s | \u2200 z \u2208 s, l z \u2264 l y })",
+        "body": "fun _ => \u27e8l, rfl\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "KreinMilman",
+    "name": "surjOn_extremePoints_image",
+    "statement": "E \u2192\u1d2c[\u211d] F) (hs : IsCompact s) : SurjOn f (extremePoints \u211d s) (extremePoints \u211d (f '' s))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "by simpa using image_openSegment _ f.toAffineMap y z",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hw.2 _ (mem_image_of_mem _ hy) _ (mem_image_of_mem _ hz) <| by",
+        "children": []
+      }
+    ]
+  }
+]

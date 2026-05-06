@@ -1,0 +1,60 @@
+[
+  {
+    "module": "EraseLead",
+    "name": "eraseLead_mul_eq_mul_eraseLead_of_nextCoeff_zero",
+    "statement": "Type*} [Ring R] [NoZeroDivisors R] [Nontrivial R] {x : R} {P : R[X]} (hx : x \u2260 0) (h : P.nextCoeff = 0) : ((X - C x) * P).eraseLead.eraseLead = (X - C x) * P.eraseLead",
+    "have_tree": [
+      {
+        "name": "h\u2082",
+        "type": "#(X - C x).support = 2",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hmul",
+        "type": "",
+        "body": "card_support_mul_le (p := X - C x) (q := P)",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "((X - C x) * P).natDegree = P.natDegree + 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "((X - C x) * P).nextCoeff \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "hd\u2081",
+            "type": "n < ((X - C x) * P).eraseLead.natDegree",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "EraseLead",
+    "name": "card_support_eq",
+    "statement": "\u2115} : #f.support = n \u2194 \u2203 (k : Fin n \u2192 \u2115) (x : Fin n \u2192 R) (_ : StrictMono k) (_ : \u2200 i, x i \u2260 0), f = \u2211 i, C (x i) * X ^ k i",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "\u00ac\u2203 k : Fin n, Fin.castSucc k = Fin.last n",
+        "body": "by",
+        "children": [
+          {
+            "name": "hi",
+            "type": "i \u2208 Set.range (Fin.castSucc : Fin n \u2192 Fin (n + 1))",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

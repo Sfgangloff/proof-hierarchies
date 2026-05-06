@@ -1,0 +1,172 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "ringEquivOfPrime",
+      "statement": "\u2115} (hp : p.Prime) (hR : Fintype.card R = p) : ZMod p \u2243+* R",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Nontrivial R",
+          "body": "Fintype.one_lt_card_iff_nontrivial.1 (hR \u25b8 hp.one_lt)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "CharP R p",
+          "body": "(CharP.charP_iff_prime_eq_zero hp).2 (hR \u25b8 Nat.cast_card_eq_zero R)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "ringEquivOfPrime",
+          "statement": "\u2115} (hp : p.Prime) (hR : Fintype.card R = p) : ZMod p \u2243+* R",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "CharP R p",
+              "body": "(CharP.charP_iff_prime_eq_zero hp).2 (hR \u25b8 Nat.cast_card_eq_zero R)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Nontrivial R",
+              "body": "Fintype.one_lt_card_iff_nontrivial.1 (hR \u25b8 hp.one_lt)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "unitsEquivCoprime",
+      "statement": "\u2115} [NeZero n] : (ZMod n)\u02e3 \u2243 { x : ZMod n // Nat.Coprime x.val n } where toFun x",
+      "have_tree": [
+        {
+          "name": "inv",
+          "type": "Function.LeftInverse inv_fun to_fun \u2227 Function.RightInverse inv_fun to_fun",
+          "body": "",
+          "children": [
+            {
+              "name": "left_inv",
+              "type": "Function.LeftInverse inv_fun to_fun",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "unitsEquivCoprime",
+          "statement": "\u2115} [NeZero n] : (ZMod n)\u02e3 \u2243 { x : ZMod n // Nat.Coprime x.val n } where toFun x",
+          "have_tree": [
+            {
+              "name": "inv",
+              "type": "Function.LeftInverse inv_fun to_fun \u2227 Function.RightInverse inv_fun to_fun",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Basic",
+          "name": "unitsEquivCoprime",
+          "statement": "\u2115} [NeZero n] : (ZMod n)\u02e3 \u2243 { x : ZMod n // Nat.Coprime x.val n } where toFun x",
+          "have_tree": [
+            {
+              "name": "left_inv",
+              "type": "Function.LeftInverse inv_fun to_fun",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "inv",
+              "type": "Function.LeftInverse inv_fun to_fun \u2227 Function.RightInverse inv_fun to_fun",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "ZModModule.two_le_char",
+      "statement": "2 \u2264 n",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "NeZero.ne n",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "char_ne_one n G",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "ZModModule.two_le_char",
+          "statement": "2 \u2264 n",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "char_ne_one n G",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "NeZero.ne n",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

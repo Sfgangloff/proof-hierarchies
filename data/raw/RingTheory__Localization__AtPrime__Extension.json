@@ -1,0 +1,159 @@
+[
+  {
+    "module": "Extension",
+    "name": "liesOver_comap_of_liesOver",
+    "statement": "Type*} [CommRing T] [Algebra R T] [Algebra R\u209a T] [Algebra S T] [IsScalarTower R S T] [IsScalarTower R R\u209a T] (Q : Ideal T) [Q.LiesOver (maximalIdeal R\u209a)] : (comap (algebraMap S T) Q).LiesOver p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Q.LiesOver p",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(maximalIdeal R\u209a).LiesOver p",
+            "body": "liesOver_maximalIdeal R\u209a p _",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Extension",
+    "name": "exists_algebraMap_quot_eq_of_mem_quot",
+    "statement": "S\u209a \u29f8 P.map (algebraMap S S\u209a)) : \u2203 a, (algebraMap S (S\u209a \u29f8 P.map (algebraMap S S\u209a))) a = x",
+    "have_tree": [
+      {
+        "name": "h\u2080",
+        "type": "(P.map (algebraMap S S\u209a)).IsPrime",
+        "body": "isPrime_map_of_liesOver S p S\u209a P",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "s.1 \u2209 P",
+        "body": "(Set.disjoint_left.mp <| disjoint_primeCompl_of_liesOver P p) s.prop",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "algebraMap S S\u209a s \u2209 Ideal.map (algebraMap S S\u209a) P",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extension",
+    "name": "equivQuotientMapOfIsMaximal_apply_mk",
+    "statement": "S) : equivQuotientMapOfIsMaximal p S\u209a P (Ideal.Quotient.mk _ x) = (Ideal.Quotient.mk _ (algebraMap S S\u209a x))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(Ideal.map (algebraMap S S\u209a) P).IsPrime",
+        "body": "isPrime_map_of_liesOver S p S\u209a P",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "Ideal.Quotient.mk P \u2191s \u2260 0",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "equivQuotientMapOfIsMaximal p S\u209a P (Ideal.Quotient.mk P \u2191s) \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extension",
+    "name": "ramificationIdx_map_eq_ramificationIdx",
+    "statement": "p \u2260 \u22a5) [P.IsPrime] : (maximalIdeal R\u209a).ramificationIdx (P.map (algebraMap S S\u209a)) = p.ramificationIdx P",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "maximalIdeal R\u209a \u2260 \u22a5",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(P.map (algebraMap S S\u209a)).IsPrime",
+        "body": "isPrime_map_of_liesOver S p S\u209a P",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "P.IsMaximal",
+        "body": "IsPrime.isMaximal inferInstance hP",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(Ideal.map (algebraMap S S\u209a) P).LiesOver (maximalIdeal R\u209a)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(Ideal.map (algebraMap S S\u209a) P).LiesOver P",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_main",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extension",
+    "name": "primesOverEquivPrimesOver",
+    "statement": "p \u2260 \u22a5) : p.primesOver S \u2243o (maximalIdeal R\u209a).primesOver S\u209a where toFun P",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Q'.1.IsMaximal",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "P.val.IsMaximal",
+        "body": "Ring.DimensionLEOne.maximalOfPrime",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Extension",
+    "name": "primesOverEquivPrimesOver_apply",
+    "statement": "p \u2260 \u22a5) (P : p.primesOver S) : primesOverEquivPrimesOver p R\u209a S\u209a hp P = Ideal.map (algebraMap S S\u209a) P",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero p",
+        "body": "\u27e8hp\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "P.val.IsMaximal",
+        "body": "Ring.DimensionLEOne.maximalOfPrime",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(P.1.map (algebraMap S S\u209a)).LiesOver (maximalIdeal R\u209a)",
+        "body": "liesOver_map_of_liesOver p _ _ _",
+        "children": []
+      }
+    ]
+  }
+]

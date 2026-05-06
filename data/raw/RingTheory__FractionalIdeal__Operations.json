@@ -1,0 +1,92 @@
+[
+  {
+    "module": "Operations",
+    "name": "exists_ne_zero_mem_isInteger",
+    "statement": "I \u2260 0) : \u2203 x, x \u2260 0 \u2227 algebraMap R K x \u2208 I",
+    "have_tree": [
+      {
+        "name": "y_ne_zero",
+        "type": "y \u2260 0",
+        "body": "by simpa using y_notMem",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Operations",
+    "name": "ne_zero_of_mul_eq_one",
+    "statement": "FractionalIdeal R\u2081\u2070 K) (h : I * J = 1) : I \u2260 0",
+    "have_tree": [
+      {
+        "name": "y_zero",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Operations",
+    "name": "eq_one_div_of_mul_eq_one_right",
+    "statement": "FractionalIdeal R\u2081\u2070 K) (h : I * J = 1) : J = 1 / I",
+    "have_tree": [
+      {
+        "name": "hI",
+        "type": "I \u2260 0",
+        "body": "ne_zero_of_mul_eq_one I J h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Operations",
+    "name": "div_spanSingleton",
+    "statement": "FractionalIdeal R\u2081\u2070 K) (d : K) : J / spanSingleton R\u2081\u2070 d = spanSingleton R\u2081\u2070 d\u207b\u00b9 * J",
+    "have_tree": [
+      {
+        "name": "h_spand",
+        "type": "spanSingleton R\u2081\u2070 d \u2260 0",
+        "body": "mt spanSingleton_eq_zero_iff.mp hd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Operations",
+    "name": "exists_eq_spanSingleton_mul",
+    "statement": "FractionalIdeal R\u2081\u2070 K) : \u2203 (a : R\u2081) (aI : Ideal R\u2081), a \u2260 0 \u2227 I = spanSingleton R\u2081\u2070 (algebraMap R\u2081 K a)\u207b\u00b9 * aI",
+    "have_tree": [
+      {
+        "name": "nonzero",
+        "type": "",
+        "body": "mem_nonZeroDivisors_iff_ne_zero.mp nonzero",
+        "children": []
+      },
+      {
+        "name": "map_a_nonzero",
+        "type": "algebraMap R\u2081 K a_inv \u2260 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Operations",
+    "name": "isNoetherian_spanSingleton_inv_to_map_mul",
+    "statement": "R\u2081) {I : FractionalIdeal R\u2081\u2070 K} (hI : IsNoetherian R\u2081 I) : IsNoetherian R\u2081 (spanSingleton R\u2081\u2070 (algebraMap R\u2081 K x)\u207b\u00b9 * I : FractionalIdeal R\u2081\u2070 K)",
+    "have_tree": [
+      {
+        "name": "h_gx",
+        "type": "algebraMap R\u2081 K x \u2260 0",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h_spanx",
+        "type": "spanSingleton R\u2081\u2070 (algebraMap R\u2081 K x) \u2260 0",
+        "body": "spanSingleton_ne_zero_iff.mpr h_gx",
+        "children": []
+      }
+    ]
+  }
+]

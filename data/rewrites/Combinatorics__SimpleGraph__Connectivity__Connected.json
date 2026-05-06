@@ -1,0 +1,246 @@
+[
+  {
+    "original": {
+      "module": "Connected",
+      "name": "walk_toSimpleGraph",
+      "statement": "SimpleGraph V} (C : G.ConnectedComponent) {u v : V} (hu : u \u2208 C) (hv : v \u2208 C) (p : G.Walk u v) : C.toSimpleGraph.Walk \u27e8u, hu\u27e9 \u27e8v, hv\u27e9",
+      "have_tree": [
+        {
+          "name": "hw",
+          "type": "w \u2208 C",
+          "body": "C.mem_supp_of_adj_mem_supp hu h",
+          "children": []
+        },
+        {
+          "name": "h'",
+          "type": "C.toSimpleGraph.Adj \u27e8u, hu\u27e9 \u27e8w, hw\u27e9",
+          "body": "h",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Connected",
+          "name": "walk_toSimpleGraph",
+          "statement": "SimpleGraph V} (C : G.ConnectedComponent) {u v : V} (hu : u \u2208 C) (hv : v \u2208 C) (p : G.Walk u v) : C.toSimpleGraph.Walk \u27e8u, hu\u27e9 \u27e8v, hv\u27e9",
+          "have_tree": [
+            {
+              "name": "h'",
+              "type": "C.toSimpleGraph.Adj \u27e8u, hu\u27e9 \u27e8w, hw\u27e9",
+              "body": "h",
+              "children": []
+            },
+            {
+              "name": "hw",
+              "type": "w \u2208 C",
+              "body": "C.mem_supp_of_adj_mem_supp hu h",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Connected",
+      "name": "reachable_deleteEdges_iff_exists_cycle.aux",
+      "statement": "V} (hb : \u2200 p : G.Walk v w, s(v, w) \u2208 p.edges) (c : G.Walk u u) (hc : c.IsTrail) (he : s(v, w) \u2208 c.edges) (hw : w \u2208 (c.takeUntil v (c.fst_mem_support_of_mem_edges he)).support) : False",
+      "have_tree": [
+        {
+          "name": "hv",
+          "type": "",
+          "body": "c.fst_mem_support_of_mem_edges he",
+          "children": []
+        },
+        {
+          "name": "hbq",
+          "type": "",
+          "body": "hb (pvu.append puw)",
+          "children": []
+        },
+        {
+          "name": "hpq'",
+          "type": "",
+          "body": "hb pwv.reverse",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Connected",
+          "name": "reachable_deleteEdges_iff_exists_cycle.aux",
+          "statement": "V} (hb : \u2200 p : G.Walk v w, s(v, w) \u2208 p.edges) (c : G.Walk u u) (hc : c.IsTrail) (he : s(v, w) \u2208 c.edges) (hw : w \u2208 (c.takeUntil v (c.fst_mem_support_of_mem_edges he)).support) : False",
+          "have_tree": [
+            {
+              "name": "hbq",
+              "type": "",
+              "body": "hb (pvu.append puw)",
+              "children": []
+            },
+            {
+              "name": "hv",
+              "type": "",
+              "body": "c.fst_mem_support_of_mem_edges he",
+              "children": []
+            },
+            {
+              "name": "hpq'",
+              "type": "",
+              "body": "hb pwv.reverse",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Connected",
+          "name": "reachable_deleteEdges_iff_exists_cycle.aux",
+          "statement": "V} (hb : \u2200 p : G.Walk v w, s(v, w) \u2208 p.edges) (c : G.Walk u u) (hc : c.IsTrail) (he : s(v, w) \u2208 c.edges) (hw : w \u2208 (c.takeUntil v (c.fst_mem_support_of_mem_edges he)).support) : False",
+          "have_tree": [
+            {
+              "name": "hv",
+              "type": "",
+              "body": "c.fst_mem_support_of_mem_edges he",
+              "children": []
+            },
+            {
+              "name": "hpq'",
+              "type": "",
+              "body": "hb pwv.reverse",
+              "children": []
+            },
+            {
+              "name": "hbq",
+              "type": "",
+              "body": "hb (pvu.append puw)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Connected",
+      "name": "Connected.connected_delete_edge_of_not_isBridge",
+      "statement": "G.Connected) {x y : V} (h : \u00ac G.IsBridge s(x, y)) : (G.deleteEdges {s(x, y)}).Connected",
+      "have_tree": [
+        {
+          "name": "hyP",
+          "type": "",
+          "body": "P.snd_mem_support_of_mem_edges heP",
+          "children": []
+        },
+        {
+          "name": "hxP\u2081",
+          "type": "",
+          "body": "Walk.endpoint_notMem_support_takeUntil hP hyP hxy.ne",
+          "children": []
+        },
+        {
+          "name": "heP\u2081",
+          "type": "s(x, y) \u2209 P\u2081.edges",
+          "body": "fun h \u21a6 hxP\u2081 <| P\u2081.fst_mem_support_of_mem_edges h",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Connected",
+          "name": "Connected.connected_delete_edge_of_not_isBridge",
+          "statement": "G.Connected) {x y : V} (h : \u00ac G.IsBridge s(x, y)) : (G.deleteEdges {s(x, y)}).Connected",
+          "have_tree": [
+            {
+              "name": "hxP\u2081",
+              "type": "",
+              "body": "Walk.endpoint_notMem_support_takeUntil hP hyP hxy.ne",
+              "children": []
+            },
+            {
+              "name": "hyP",
+              "type": "",
+              "body": "P.snd_mem_support_of_mem_edges heP",
+              "children": []
+            },
+            {
+              "name": "heP\u2081",
+              "type": "s(x, y) \u2209 P\u2081.edges",
+              "body": "fun h \u21a6 hxP\u2081 <| P\u2081.fst_mem_support_of_mem_edges h",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Connected",
+          "name": "Connected.connected_delete_edge_of_not_isBridge",
+          "statement": "G.Connected) {x y : V} (h : \u00ac G.IsBridge s(x, y)) : (G.deleteEdges {s(x, y)}).Connected",
+          "have_tree": [
+            {
+              "name": "hyP",
+              "type": "",
+              "body": "P.snd_mem_support_of_mem_edges heP",
+              "children": []
+            },
+            {
+              "name": "heP\u2081",
+              "type": "s(x, y) \u2209 P\u2081.edges",
+              "body": "fun h \u21a6 hxP\u2081 <| P\u2081.fst_mem_support_of_mem_edges h",
+              "children": []
+            },
+            {
+              "name": "hxP\u2081",
+              "type": "",
+              "body": "Walk.endpoint_notMem_support_takeUntil hP hyP hxy.ne",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

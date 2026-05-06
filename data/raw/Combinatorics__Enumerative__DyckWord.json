@@ -1,0 +1,176 @@
+[
+  {
+    "module": "DyckWord",
+    "name": "getLast_eq_D",
+    "statement": "DyckWord) (h) : p.toList.getLast h = D",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "p.count_D_le_count_U (p.toList.length - 1); lia",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DyckWord",
+    "name": "cons_tail_dropLast_concat",
+    "statement": "U :: p.toList.dropLast.tail ++ [D] = p",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "toList_ne_nil.mpr h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DyckWord",
+    "name": "take",
+    "statement": "\u2115) (hi : (p.toList.take i).count U = (p.toList.take i).count D) : DyckWord where toList",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "p.count_U_eq_count_D",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DyckWord",
+    "name": "IsNested.nest",
+    "statement": "p.nest.IsNested",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "p.count_U_eq_count_D",
+        "children": []
+      },
+      {
+        "name": "ub",
+        "type": "min (1 + i) (p.toList.length - 1) < p.toList.length",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "lb",
+        "type": "0 < min (1 + i) (p.toList.length - 1)",
+        "body": "by omega",
+        "children": []
+      },
+      {
+        "name": "eq",
+        "type": "",
+        "body": "hn.2 lb ub",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DyckWord",
+    "name": "firstReturn_lt_length",
+    "statement": "p.firstReturn < p.toList.length",
+    "have_tree": [
+      {
+        "name": "lp",
+        "type": "",
+        "body": "length_pos_of_ne_nil (toList_ne_nil.mpr h)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DyckWord",
+    "name": "count_take_firstReturn_add_one",
+    "statement": "(p.toList.take (p.firstReturn + 1)).count U = (p.toList.take (p.firstReturn + 1)).count D",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "findIdx_getElem",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DyckWord",
+    "name": "count_D_lt_count_U_of_lt_firstReturn",
+    "statement": "\u2115} (hi : i < p.firstReturn) : (p.toList.take (i + 1)).count D < (p.toList.take (i + 1)).count U",
+    "have_tree": [
+      {
+        "name": "ne",
+        "type": "",
+        "body": "not_of_lt_findIdx hi",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DyckWord",
+    "name": "firstReturn_add",
+    "statement": "(p + q).firstReturn = if p = 0 then q.firstReturn else p.firstReturn",
+    "have_tree": [
+      {
+        "name": "v",
+        "type": "",
+        "body": "firstReturn_lt_length h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DyckWord",
+    "name": "firstReturn_nest",
+    "statement": "p.nest.firstReturn = p.toList.length + 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "p.count_D_le_count_U j",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DyckWord",
+    "name": "semilength_insidePart_lt",
+    "statement": "p.insidePart.semilength < p.semilength",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "semilength_insidePart_add_semilength_outsidePart_add_one h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DyckWord",
+    "name": "semilength_outsidePart_lt",
+    "statement": "p.outsidePart.semilength < p.semilength",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "semilength_insidePart_add_semilength_outsidePart_add_one h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DyckWord",
+    "name": "le_of_suffix",
+    "statement": "p.toList <:+ q.toList) : p \u2264 q",
+    "have_tree": [
+      {
+        "name": "hq",
+        "type": "",
+        "body": "q.count_U_eq_count_D",
+        "children": []
+      }
+    ]
+  }
+]

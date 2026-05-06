@@ -1,0 +1,177 @@
+[
+  {
+    "module": "Incenter",
+    "name": "inv_height_eq_sum_mul_inv_dist",
+    "statement": "Fin (n + 1)) : (s.height i)\u207b\u00b9 = \u2211 j \u2208 {k | k \u2260 i}, -(\u27eas.points i -\u1d65 s.altitudeFoot i, s.points j -\u1d65 s.altitudeFoot j\u27eb / (s.height i * s.height j)) * (s.height j)\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "s.sum_inv_height_sq_smul_vsub_eq_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "excenterWeights_empty_lt_inv_two",
+    "statement": "Fin (n + 1)) : s.excenterWeights \u2205 i < 2\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "(s.height i)\u207b\u00b9 + (s.height i)\u207b\u00b9 < (s.height i)\u207b\u00b9 + \u2211 j \u2208 {i}\u1d9c, (s.height j)\u207b\u00b9",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "s.inv_height_lt_sum_inv_height i",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "incenter_mem_interior",
+    "statement": "s.incenter \u2208 s.interior",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "s.excenterExists_empty.sum_excenterWeights_eq_one",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "ExcenterExists.excenter_notMem_affineSpan_face",
+    "statement": "Finset (Fin (n + 1))} (h : s.ExcenterExists signs) {fs : Finset (Fin (n + 1))} {m : \u2115} (hfs : #fs = m + 1) (hne : m \u2260 n) : s.excenter signs \u2209 affineSpan \u211d (Set.range (s.face hfs).points)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "m + 1 \u2264 #fs",
+        "body": "hfs.ge",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "ExcenterExists.excenter_ne_point",
+    "statement": "Finset (Fin (n + 1))} (h : s.ExcenterExists signs) (i : Fin (n + 1)) : s.excenter signs \u2260 s.points i",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "",
+        "body": "h.excenter_notMem_affineSpan_face (fs := {i}) (m := 0) (by simp) (NeZero.ne' _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "ExcenterExists.excenterWeights_eq_excenterWeights_iff",
+    "statement": "Finset (Fin (n + 1))} (h\u2081 : s.ExcenterExists signs\u2081) (h\u2082 : s.ExcenterExists signs\u2082) : s.excenterWeights signs\u2081 = s.excenterWeights signs\u2082 \u2194 signs\u2081 = signs\u2082 \u2228 signs\u2081 = signs\u2082\u1d9c",
+    "have_tree": [
+      {
+        "name": "hn\u2081",
+        "type": "\u2211 i, s.excenterWeightsUnnorm signs\u2081 i \u2260 0",
+        "body": "h\u2081",
+        "children": []
+      },
+      {
+        "name": "hn\u2082",
+        "type": "\u2211 i, s.excenterWeightsUnnorm signs\u2082 i \u2260 0",
+        "body": "h\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "ExcenterExists.affineSpan_faceOpposite_eq_orthRadius",
+    "statement": "Fact (Module.finrank \u211d V = n)] {signs : Finset (Fin (n + 1))} (h : s.ExcenterExists signs) (i : Fin (n + 1)) : affineSpan \u211d (Set.range (s.faceOpposite i).points) = (s.exsphere signs).orthRadius (s.touchpoint signs i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "NeZero.ne n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "ExcenterExists.touchpoint_injective",
+    "statement": "Finset (Fin (n + 1))} (h : s.ExcenterExists signs) : Function.Injective (s.touchpoint signs)",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "s.excenter signs -\u1d65 s.touchpoint signs i \u2208 (vectorSpan \u211d (Set.range s.points))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "ExcenterExists.touchpointWeights_map",
+    "statement": "Finset (Fin (n + 1))} (h : s.ExcenterExists signs) (f : P \u2192\u1d43\u2071[\u211d] P\u2082) : (s.map f.toAffineMap f.injective).touchpointWeights signs = s.touchpointWeights signs",
+    "have_tree": [
+      {
+        "name": "hc",
+        "type": "",
+        "body": "(s.map f.toAffineMap f.injective).affineCombination_touchpointWeights signs i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "ExcenterExists.sign_touchpointWeights",
+    "statement": "Finset (Fin (n + 1))} (h : s.ExcenterExists signs) {i j : Fin (n + 1)} (hne : i \u2260 j) : SignType.sign (s.touchpointWeights signs i j) = SignType.sign (s.excenterWeights signs j)",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "",
+        "body": "h.sign_signedInfDist_touchpoint hne",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "ExcenterExists.touchpoint_ne_point",
+    "statement": "Finset (Fin (n + 1))} (h : s.ExcenterExists signs) (i j : Fin (n + 1)) : s.touchpoint signs i \u2260 s.points j",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "1 < n",
+        "body": "Nat.AtLeastTwo.one_lt",
+        "children": []
+      },
+      {
+        "name": "h'",
+        "type": "",
+        "body": "h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Incenter",
+    "name": "touchpoint_singleton_sbtw",
+    "statement": "Fin 3} (h\u2081\u2082 : i\u2081 \u2260 i\u2082) (h\u2081\u2083 : i\u2081 \u2260 i\u2083) (h\u2082\u2083 : i\u2082 \u2260 i\u2083) : Sbtw \u211d (t.touchpoint {i\u2081} i\u2082) (t.points i\u2083) (t.points i\u2081)",
+    "have_tree": [
+      {
+        "name": "hw",
+        "type": "",
+        "body": "t.sum_touchpointWeights {i\u2081} i\u2082",
+        "children": []
+      }
+    ]
+  }
+]

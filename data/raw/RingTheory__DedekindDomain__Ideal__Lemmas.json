@@ -1,0 +1,221 @@
+[
+  {
+    "module": "Lemmas",
+    "name": "prime_generator_of_prime",
+    "statement": "Ideal A} (h : Prime P) [P.IsPrincipal] : Prime (generator P)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsPrime P",
+        "body": "isPrime_of_prime h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "eq_prime_pow_of_succ_lt_of_le",
+    "statement": "Ideal A} [P_prime : P.IsPrime] (hP : P \u2260 \u22a5) {i : \u2115} (hlt : P ^ (i + 1) < I) (hle : I \u2264 P ^ i) : I = P ^ i",
+    "have_tree": [
+      {
+        "name": "P_prime'",
+        "type": "",
+        "body": "prime_of_isPrime hP P_prime",
+        "children": []
+      },
+      {
+        "name": "h1",
+        "type": "I \u2260 \u22a5",
+        "body": "(lt_of_le_of_lt bot_le hlt).ne'",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "pow_ne_zero i hP",
+        "children": []
+      },
+      {
+        "name": "h3",
+        "type": "",
+        "body": "pow_ne_zero (i + 1) hP",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "exist_integer_multiples_notMem",
+    "statement": "Ideal A} (hJ : J \u2260 \u22a4) {\u03b9 : Type*} (s : Finset \u03b9) (f : \u03b9 \u2192 K) {j} (hjs : j \u2208 s) (hjf : f j \u2260 0) : \u2203 a : K, (\u2200 i \u2208 s, IsLocalization.IsInteger A (a * f i)) \u2227 \u2203 i \u2208 s, a * f i \u2209 (J : FractionalIdeal A\u2070 K)",
+    "have_tree": [
+      {
+        "name": "hI0",
+        "type": "I \u2260 0",
+        "body": "spanFinset_ne_zero.mpr \u27e8j, hjs, hjf\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "mul_iInf",
+    "statement": "Ideal A) {\u03b9 : Type*} [Nonempty \u03b9] (J : \u03b9 \u2192 Ideal A) : I * \u2a05 i, J i = \u2a05 i, I * J i",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "\u2a05 i, I * J i \u2264 I",
+        "body": "(iInf_le _ (Nonempty.some \u2039_\u203a)).trans mul_le_right",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "factors_span_eq",
+    "statement": "K[X]} : factors (span {p}) = (factors p).map (fun q \u21a6 span {q})",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 q \u2208 (factors p).map (fun q \u21a6 span {q}), Prime q",
+        "body": "fun q hq \u21a6 by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "FractionalIdeal.sup_mul_inf",
+    "statement": "FractionalIdeal A\u2070 K) : (I \u2293 J) * (I \u2294 J) = I * J",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Ideal.sup_mul_inf (Ideal.span {J.den.1} * I.num) (Ideal.span {I.den.1} * J.num)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "sup_eq_prod_inf_factors",
+    "statement": "I \u2260 \u22a5) (hJ : J \u2260 \u22a5) : I \u2294 J = (normalizedFactors I \u2229 normalizedFactors J).prod",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Multiset.prod_ne_zero_of_prime (normalizedFactors I \u2229 normalizedFactors J) fun _ h =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "eq_prime_pow_mul_coprime",
+    "statement": "Ideal T} (hI : I \u2260 \u22a5) (P : Ideal T) [hpm : P.IsMaximal] : \u2203 Q : Ideal T, P \u2294 Q = \u22a4 \u2227 I = P ^ (Multiset.count P (normalizedFactors I)) * Q",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "Prime p",
+        "body": "prime_of_normalized_factor p (filter_subset _ (normalizedFactors I) hpi)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "idealFactorsEquivOfQuotEquiv_mem_normalizedFactors_of_mem_normalizedFactors",
+    "statement": "J \u2260 \u22a5) {L : Ideal R} (hL : L \u2208 normalizedFactors I) : \u2191(idealFactorsEquivOfQuotEquiv f \u27e8L, dvd_of_mem_normalizedFactors hL\u27e9) \u2208 normalizedFactors J",
+    "have_tree": [
+      {
+        "name": "hI",
+        "type": "I \u2260 \u22a5",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "IsPrime.mul_mem_pow",
+    "statement": "Ideal R) [hI : I.IsPrime] {a b : R} {n : \u2115} (h : a * b \u2208 I ^ n) : a \u2208 I \u2228 b \u2208 I ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "I.IsMaximal",
+        "body": "hI.isMaximal hI0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "count_associates_factors_eq",
+    "statement": "Ideal R} (hI : I \u2260 0) (hJ : J.IsPrime) (hJ\u2080 : J \u2260 \u22a5) : (Associates.mk J).count (Associates.mk I).factors = Multiset.count J (normalizedFactors I)",
+    "have_tree": [
+      {
+        "name": "hJ'",
+        "type": "Irreducible (Associates.mk J)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "count_associates_eq",
+    "statement": "R} {n : \u2115} (hx : Prime x) (ha : \u00acx \u2223 a) (heq : a\u2080 = x ^ n * a) : (Associates.mk (span {x})).count (Associates.mk (span {a\u2080})).factors = n",
+    "have_tree": [
+      {
+        "name": "hx0",
+        "type": "x \u2260 0",
+        "body": "Prime.ne_zero hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "normalizedFactorsEquivSpanNormalizedFactors",
+    "statement": "R} (hr : r \u2260 0) : { d : R | d \u2208 normalizedFactors r } \u2243 { I : Ideal R | I \u2208 normalizedFactors (span ({r} : Set R)) }",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "i.IsPrime",
+        "body": "isPrime_of_prime (prime_of_normalized_factor i hi)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "exists_mem_normalizedFactors_of_dvd hr",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "count_span_normalizedFactors_eq",
+    "statement": "R} (hr : r \u2260 0) (hX : Prime X) : Multiset.count (span {X} : Ideal R) (normalizedFactors (span {r})) = Multiset.count (normalize X) (normalizedFactors r)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "emultiplicity_eq_emultiplicity_span (R := R) (a := X) (b := r)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "IsLocalRing.primesOverFinset_eq",
+    "statement": "Ideal R} [p.IsMaximal] (hp0 : p \u2260 \u22a5) : IsDedekindDomain.primesOverFinset p A = {IsLocalRing.maximalIdeal A}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsDomain R",
+        "body": ".of_faithfulSMul R A",
+        "children": []
+      }
+    ]
+  }
+]

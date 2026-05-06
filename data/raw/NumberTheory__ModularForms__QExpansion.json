@@ -1,0 +1,285 @@
+[
+  {
+    "module": "QExpansion",
+    "name": "differentiableAt_cuspFunction",
+    "statement": "0 < h) (h\u0393 : h \u2208 \u0393.strictPeriods) {q : \u2102} (hq : \u2016q\u2016 < 1) : DifferentiableAt \u2102 (cuspFunction h f) q",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (IsCusp OnePoint.infty \u0393)",
+        "body": "\u27e8\u0393.isCusp_of_mem_strictPeriods hh h\u0393\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "analyticAt_cuspFunction_zero",
+    "statement": "0 < h) (h\u0393 : h \u2208 \u0393.strictPeriods) : AnalyticAt \u2102 (cuspFunction h f) 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (IsCusp OnePoint.infty \u0393)",
+        "body": "\u27e8\u0393.isCusp_of_mem_strictPeriods hh h\u0393\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "hasSum_qExpansion",
+    "statement": "\u210d \u2192 \u2102} (hh : 0 < h) (hfper : Periodic (f \u2218 ofComplex) h) (hfhol : MDiff f) (hfbdd : IsBoundedAtImInfty f) (\u03c4 : \u210d) : HasSum (fun m : \u2115 \u21a6 (qExpansion h f).coeff m \u2022 \ud835\udd62 h \u03c4 ^ m) (f \u03c4)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < 2 * \u03c0 * \u03c4.im / h",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2016\ud835\udd62 h \u03c4\u2016 < 1",
+        "body": "by simpa [Periodic.qParam, Complex.norm_exp, neg_div]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "hasSum_cuspFunction_of_hasSum_punctured",
+    "statement": "\u210d \u2192 \u2102} (hh : 0 < h) {c : \u2115 \u2192 \u2102} (hf : \u2200 (\u03c4 : \u210d), HasSum (fun m \u21a6 c m \u2022 \ud835\udd62 h \u03c4 ^ m) (f \u03c4)) {q : \u2102} (hq : \u2016q\u2016 < 1) (hq1 : q \u2260 0) : HasSum (fun m \u21a6 c m \u2022 q ^ m) (cuspFunction h f q)",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "Periodic.im_invQParam_pos_of_norm_lt_one hh hq hq1",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "(Periodic.cuspFunction_eq_of_nonzero h (f \u2218 ofComplex) hq1)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "hasFPowerSeriesOnBall_cuspFunction",
+    "statement": "\u210d \u2192 \u2102} {c : \u2115 \u2192 \u2102} (hh : 0 < h) (hfanalytic : AnalyticAt \u2102 (cuspFunction h f) 0) (hf : \u2200 \u03c4 : \u210d, HasSum (fun m \u21a6 c m \u2022 \ud835\udd62 h \u03c4 ^ m) (f \u03c4)) : HasFPowerSeriesOnBall (cuspFunction h f) (.ofScalars \u2102 c) 0 1",
+    "have_tree": [
+      {
+        "name": "H1",
+        "type": "HasFPowerSeriesOnBall (update (cuspFunction h f) 0 (c 0)) (.ofScalars \u2102 c) 0 1",
+        "body": "",
+        "children": [
+          {
+            "name": "L1",
+            "type": "",
+            "body": "H1.hasFPowerSeriesAt.continuousAt",
+            "children": []
+          },
+          {
+            "name": "L2",
+            "type": "",
+            "body": "hfanalytic.continuousAt",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "(L1.eventuallyEq_nhds_iff_eventuallyEq_nhdsNE L2).mp <|",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "qExpansion_coeff_eq_circleIntegral",
+    "statement": "\u210d \u2192 \u2102} (hh : 0 < h) (hfper : Periodic (f \u2218 ofComplex) h) (hfhol : MDiff f) (hfbdd : IsBoundedAtImInfty f) (n : \u2115) {R : \u211d} (hR : 0 < R) (hR' : R < 1) : (qExpansion h f).coeff n = ((2 * \u03c0 * Complex.I)\u207b\u00b9 * \u222e (z : \u2102) in C(0, R), cuspFunction h f z / z ^ (n + 1))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "((differentiableOn_cuspFunction_ball hh hfper hfhol hfbdd).mono",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "qExpansion_coeff_eq_intervalIntegral",
+    "statement": "\u210d \u2192 \u2102} (hh : 0 < h) (hfper : Periodic (f \u2218 ofComplex) h) (hfhol : MDiff f) (hfbdd : IsBoundedAtImInfty f) (n : \u2115) {t : \u211d} (ht : 0 < t) : (qExpansion h f).coeff n = 1 / h * \u222b u in 0..h, 1 / \ud835\udd62 h (u + t * I) ^ n * f \u27e8u + t * I, by simpa using ht\u27e9",
+    "have_tree": [
+      {
+        "name": "hR0",
+        "type": "0 < R",
+        "body": "Real.exp_pos _",
+        "children": []
+      },
+      {
+        "name": "hR1",
+        "type": "R < 1",
+        "body": "Real.exp_lt_one_iff.2 <| by simpa [neg_div] using div_pos (by positivity) hh",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "I_sq",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "exp_decay_sub_atImInfty",
+    "statement": "\u210d \u2192 \u2102} (hh : 0 < h) (hfper : Periodic (f \u2218 ofComplex) h) (hfhol : MDiff f) (hfbdd : IsBoundedAtImInfty f) : (fun \u03c4 \u21a6 f \u03c4 - valueAtInfty f) =O[atImInfty] fun \u03c4 \u21a6 Real.exp (-2 * \u03c0 * \u03c4.im / h)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hfbdd.comp_tendsto tendsto_comap_im_ofComplex",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "qExpansion_coeff_eq_intervalIntegral",
+    "statement": "0 < h) (h\u0393 : h \u2208 \u0393.strictPeriods) (n : \u2115) {t : \u211d} (ht : 0 < t) : (qExpansion h f).coeff n = 1 / h * \u222b u in 0..h, 1 / \ud835\udd62 h (u + t * I) ^ n * f \u27e8u + t * I, by simpa using ht\u27e9",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (IsCusp OnePoint.infty \u0393)",
+        "body": "\u27e8\u0393.isCusp_of_mem_strictPeriods hh h\u0393\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "exp_decay_sub_atImInfty'",
+    "statement": "\u2203 c > 0, (fun \u03c4 \u21a6 f \u03c4 - valueAtInfty f) =O[atImInfty] (fun \u03c4 \u21a6 Real.exp (-c * \u03c4.im))",
+    "have_tree": [
+      {
+        "name": "hh",
+        "type": "0 < \u0393.strictWidthInfty",
+        "body": "\u0393.strictWidthInfty_pos_iff.mpr Fact.out",
+        "children": []
+      },
+      {
+        "name": "h\u0393",
+        "type": "\u0393.strictWidthInfty \u2208 \u0393.strictPeriods",
+        "body": "\u0393.strictWidthInfty_mem_strictPeriods",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "cuspFunction_apply_zero",
+    "statement": "0 < h) (h\u0393 : h \u2208 \u0393.strictPeriods) : cuspFunction h f 0 = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (IsCusp OnePoint.infty \u0393)",
+        "body": "\u27e8\u0393.isCusp_of_mem_strictPeriods hh h\u0393\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "exp_decay_atImInfty",
+    "statement": "0 < h) (h\u0393 : h \u2208 \u0393.strictPeriods) : f =O[atImInfty] fun \u03c4 \u21a6 Real.exp (-2 * \u03c0 * \u03c4.im / h)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (IsCusp OnePoint.infty \u0393)",
+        "body": "\u27e8\u0393.isCusp_of_mem_strictPeriods hh h\u0393\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "qExpansion_sub",
+    "statement": "\u210d \u2192 \u2102} (hf : AnalyticAt \u2102 (cuspFunction h f) 0) (hg : AnalyticAt \u2102 (cuspFunction h g) 0) : qExpansion h (f - g) = qExpansion h f - qExpansion h g",
+    "have_tree": [
+      {
+        "name": "hg'",
+        "type": "AnalyticAt \u2102 (cuspFunction h (-g)) 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "qExpansion_eq_zero_iff",
+    "statement": "0 < h) (h\u0393 : h \u2208 \u0393.strictPeriods) {k : \u2124} (f : ModularForm \u0393 k) : qExpansion h f = 0 \u2194 f = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (IsCusp OnePoint.infty \u0393)",
+        "body": "\u27e8\u0393.isCusp_of_mem_strictPeriods hh h\u0393\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "qExpansion_of_pow",
+    "statement": "0 < h) (h\u0393 : h \u2208 \u0393.strictPeriods) (f : ModularForm \u0393 k) (n : \u2115) : qExpansion h ((((DirectSum.of _ k f)) ^ n) (n * k)) = (qExpansion h f) ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(qExpansionRingHom h hh h\u0393).map_pow (DirectSum.of _ k f) n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "hasFPowerSeries_cuspFunction",
+    "statement": "\u2115 \u2192 \u2102} (hh : 0 < h) (hfanalytic : AnalyticAt \u2102 (cuspFunction h f) 0) (hf : \u2200 \u03c4 : \u210d, HasSum (fun m \u21a6 c m \u2022 \ud835\udd62 h \u03c4 ^ m) (f \u03c4)) : HasFPowerSeriesOnBall (cuspFunction h f) (qExpansionFormalMultilinearSeries h f) 0 1",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "(hasFPowerSeriesOnBall_cuspFunction hh hfanalytic hf).hasFPowerSeriesAt",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "HasFPowerSeriesAt (cuspFunction h f) (qExpansionFormalMultilinearSeries h f) 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QExpansion",
+    "name": "qExpansion_coeff_unique",
+    "statement": "\u2115 \u2192 \u2102} (hh : 0 < h) (hfanalytic : AnalyticAt \u2102 (cuspFunction h f) 0) (hf : \u2200 \u03c4 : \u210d, HasSum (fun m \u21a6 c m \u2022 \ud835\udd62 h \u03c4 ^ m) (f \u03c4)) (m : \u2115) : c m = (qExpansion h f).coeff m",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "(hasFPowerSeriesOnBall_cuspFunction hh hfanalytic hf).hasFPowerSeriesAt",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "(hasFPowerSeries_cuspFunction f hh hfanalytic hf).hasFPowerSeriesAt",
+        "children": []
+      }
+    ]
+  }
+]

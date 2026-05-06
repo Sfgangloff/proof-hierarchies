@@ -1,0 +1,351 @@
+[
+  {
+    "module": "GrowsPolynomially",
+    "name": "eventually_zero_of_frequently_zero",
+    "statement": "GrowsPolynomially f) (hf' : \u2203\u1da0 x in atTop, f x = 0) : \u2200\u1da0 x in atTop, f x = 0",
+    "have_tree": [
+      {
+        "name": "x\u2080_pos",
+        "type": "",
+        "body": "calc",
+        "children": [
+          {
+            "name": "hx'",
+            "type": "x \u2264 (2 : \u211d) ^ (-(k : \u2124) - 1) * x\u2080",
+            "body": "by",
+            "children": [
+              {
+                "name": "h\u2081",
+                "type": "(-1 : \u2124) + (-k - 1) = -k - 2",
+                "body": "by ring",
+                "children": []
+              },
+              {
+                "name": "h\u2082",
+                "type": "-(k + (1 : \u2124)) - 1 = -k - 2",
+                "body": "by ring",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "",
+                "body": "hz.2",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "0 \u2264 -logb 2 (x / x\u2080)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "GrowsPolynomially",
+    "name": "eventually_atTop_nonneg_or_nonpos",
+    "statement": "GrowsPolynomially f) : (\u2200\u1da0 x in atTop, 0 \u2264 f x) \u2228 (\u2200\u1da0 x in atTop, f x \u2264 0)",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "3 / 4 * x \u2208 Set.Icc (1 / 2 * x) x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hu",
+        "type": "",
+        "body": "hx (3 / 4 * x) h'",
+        "children": []
+      },
+      {
+        "name": "hu",
+        "type": "",
+        "body": "Set.nonempty_of_mem hu",
+        "children": []
+      },
+      {
+        "name": "hu'",
+        "type": "0 \u2264 (c\u2082 - c\u2081) * f x",
+        "body": "by linarith",
+        "children": []
+      },
+      {
+        "name": "h'",
+        "type": "3 / 4 * x \u2208 Set.Icc (1 / 2 * x) x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hu",
+        "type": "",
+        "body": "hx (3 / 4 * x) h'",
+        "children": []
+      },
+      {
+        "name": "hu",
+        "type": "",
+        "body": "Set.nonempty_of_mem hu",
+        "children": []
+      },
+      {
+        "name": "hu'",
+        "type": "(c\u2081 - c\u2082) * f x \u2264 0",
+        "body": "by linarith",
+        "children": []
+      },
+      {
+        "name": "hmain",
+        "type": "\u2203 c, \u2200\u1da0 x in atTop, f x = c",
+        "body": "by",
+        "children": [
+          {
+            "name": "h\u2081",
+            "type": "",
+            "body": "calc n\u2080 \u2264 1 * max n\u2080 2 := by simp",
+            "children": []
+          },
+          {
+            "name": "h\u2082",
+            "type": "",
+            "body": "hn\u2080 (2 * max n\u2080 2) h\u2081 (max n\u2080 2) \u27e8by simp, by linarith\u27e9",
+            "children": []
+          },
+          {
+            "name": "z_nonneg",
+            "type": "0 \u2264 z",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "le_2n",
+            "type": "max n\u2080 2 \u2264 (2 : \u211d) ^ n * max n\u2080 2",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "n\u2080_le_z",
+            "type": "n\u2080 \u2264 z",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "fz_eq_c\u2082fz",
+            "type": "f z = c\u2082 * f z",
+            "body": "hn\u2080 z n\u2080_le_z z \u27e8by linarith, le_rfl\u27e9",
+            "children": []
+          },
+          {
+            "name": "z_to_half_z'",
+            "type": "f (1 / 2 * z) = c\u2082 * f z",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "z_to_half_z",
+            "type": "f (1 / 2 * z) = f z",
+            "body": "by rwa [\u2190 fz_eq_c\u2082fz] at z_to_half_z'",
+            "children": []
+          },
+          {
+            "name": "half_z_to_base",
+            "type": "f (1 / 2 * z) = f (max n\u2080 2)",
+            "body": "by",
+            "children": [
+              {
+                "name": "h\u2081",
+                "type": "(2 : \u211d) ^ n = (1 / 2 : \u211d) * (2 : \u211d) ^ (n + 1)",
+                "body": "by",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "GrowsPolynomially",
+    "name": "GrowsPolynomially.add_isLittleO",
+    "statement": "\u211d \u2192 \u211d} (hf : GrowsPolynomially f) (hfg : g =o[atTop] f) : GrowsPolynomially fun x => f x + g x",
+    "have_tree": [
+      {
+        "name": "hb_ub",
+        "type": "",
+        "body": "hb.2",
+        "children": [
+          {
+            "name": "hf",
+            "type": "",
+            "body": "hf b hb",
+            "children": []
+          },
+          {
+            "name": "hbx",
+            "type": "b * x \u2264 x",
+            "body": "by nth_rewrite 2 [\u2190 one_mul x]; gcongr",
+            "children": []
+          },
+          {
+            "name": "hfg\u2082",
+            "type": "\u2016g x\u2016 \u2264 1 / 2 * f x",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hx_ub",
+            "type": "f x + g x \u2264 3 / 2 * f x",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hx_lb",
+            "type": "1 / 2 * f x \u2264 f x + g x",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hfu_nonneg",
+            "type": "0 \u2264 f u",
+            "body": "hf\u2082 _ hu_lb",
+            "children": []
+          },
+          {
+            "name": "hfg\u2083",
+            "type": "\u2016g u\u2016 \u2264 1 / 2 * f u",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hf",
+            "type": "",
+            "body": "hf b hb",
+            "children": []
+          },
+          {
+            "name": "hbx",
+            "type": "b * x \u2264 x",
+            "body": "by nth_rewrite 2 [\u2190 one_mul x]; gcongr",
+            "children": []
+          },
+          {
+            "name": "hfg\u2082",
+            "type": "\u2016g x\u2016 \u2264 -1 / 2 * f x",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hx_ub",
+            "type": "f x + g x \u2264 1 / 2 * f x",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hx_lb",
+            "type": "3 / 2 * f x \u2264 f x + g x",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hfu_nonpos",
+            "type": "f u \u2264 0",
+            "body": "hf\u2082 _ hu_lb",
+            "children": []
+          },
+          {
+            "name": "hfg\u2083",
+            "type": "\u2016g u\u2016 \u2264 -1 / 2 * f u",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "GrowsPolynomially",
+    "name": "GrowsPolynomially.inv",
+    "statement": "\u211d \u2192 \u211d} (hf : GrowsPolynomially f) : GrowsPolynomially fun x => (f x)\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "hb_pos",
+        "type": "",
+        "body": "hb.1",
+        "children": [
+          {
+            "name": "hmain",
+            "type": "(fun x => (f x)\u207b\u00b9) =\u1da0[atTop] fun x => |(f x)\u207b\u00b9|",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hmain",
+            "type": "(fun x => (f x)\u207b\u00b9) =\u1da0[atTop] fun x => -|(f x)\u207b\u00b9|",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hf'",
+        "type": "\u2200\u1da0 x in atTop, f x \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "",
+        "body": "hf.abs",
+        "children": []
+      },
+      {
+        "name": "hb_pos",
+        "type": "",
+        "body": "hb.1",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "0 < |f u|",
+        "body": "by rw [abs_pos]; exact hx'' u hu.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GrowsPolynomially",
+    "name": "GrowsPolynomially.rpow",
+    "statement": "\u211d) (hf : GrowsPolynomially f) (hf_nonneg : \u2200\u1da0 x in atTop, 0 \u2264 f x) : GrowsPolynomially fun x => (f x) ^ p",
+    "have_tree": [
+      {
+        "name": "hc\u2081p",
+        "type": "0 < c\u2081 ^ p",
+        "body": "Real.rpow_pos_of_pos hc\u2081_mem _",
+        "children": []
+      },
+      {
+        "name": "hc\u2082p",
+        "type": "0 < c\u2082 ^ p",
+        "body": "Real.rpow_pos_of_pos hc\u2082_mem _",
+        "children": [
+          {
+            "name": "fu_nonneg",
+            "type": "0 \u2264 f u",
+            "body": "hf_nonneg\u2082 u hu.1",
+            "children": [
+              {
+                "name": "_",
+                "type": "\u2200\u1da0 (_ : \u211d) in atTop, False",
+                "body": "by",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

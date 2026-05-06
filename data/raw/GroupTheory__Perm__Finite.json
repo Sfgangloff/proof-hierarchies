@@ -1,0 +1,84 @@
+[
+  {
+    "module": "Finite",
+    "name": "perm_symm_on_of_perm_on_finite",
+    "statement": "Perm \u03b1} {p : \u03b1 \u2192 Prop} [Finite { x // p x }] (h : \u2200 x, p x \u2192 p (f x)) {x : \u03b1} (hx : p x) : p (f.symm x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite { x | p x }",
+        "body": "by simpa",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finite",
+    "name": "Disjoint.isConj_mul",
+    "statement": "Perm \u03b1} (hc1 : IsConj \u03c3 \u03c0) (hc2 : IsConj \u03c4 \u03c1) (hd1 : Disjoint \u03c3 \u03c4) (hd2 : Disjoint \u03c0 \u03c1) : IsConj (\u03c3 * \u03c4) (\u03c0 * \u03c1)",
+    "have_tree": [
+      {
+        "name": "hd1'",
+        "type": "",
+        "body": "coe_inj.2 hd1.support_mul",
+        "children": []
+      },
+      {
+        "name": "hd2'",
+        "type": "",
+        "body": "coe_inj.2 hd2.support_mul",
+        "children": []
+      },
+      {
+        "name": "hd1''",
+        "type": "",
+        "body": "disjoint_coe.2 (disjoint_iff_disjoint_support.1 hd1)",
+        "children": []
+      },
+      {
+        "name": "hd2''",
+        "type": "",
+        "body": "disjoint_coe.2 (disjoint_iff_disjoint_support.1 hd2)",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "(hd2 (f x)).resolve_left ?_",
+            "children": []
+          },
+          {
+            "name": "h",
+            "type": "",
+            "body": "(hd2 (g (\u03c4 x))).resolve_right ?_",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Finite",
+    "name": "disjoint_support_closure_of_disjoint_support",
+    "statement": "Set (Perm \u03b1)} (h : \u2200 a \u2208 S, \u2200 b \u2208 T, _root_.Disjoint a.support b.support) : \u2200 a \u2208 closure S, \u2200 b \u2208 closure T, _root_.Disjoint a.support b.support",
+    "have_tree": [
+      {
+        "name": "key1",
+        "type": "",
+        "body": "support_closure_subset_union S a ha",
+        "children": []
+      },
+      {
+        "name": "key2",
+        "type": "",
+        "body": "support_closure_subset_union T b hb",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "Set.disjoint_of_subset key1 key2",
+        "children": []
+      }
+    ]
+  }
+]

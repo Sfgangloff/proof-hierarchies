@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Path",
+      "name": "trans_continuous_family",
+      "statement": "Type*} [TopologicalSpace \u03b9] {a b c : \u03b9 \u2192 X} (\u03b3\u2081 : \u2200 t : \u03b9, Path (a t) (b t)) (h\u2081 : Continuous \u21bf\u03b3\u2081) (\u03b3\u2082 : \u2200 t : \u03b9, Path (b t) (c t)) (h\u2082 : Continuous \u21bf\u03b3\u2082) : Continuous \u21bffun t => (\u03b3\u2081 t).trans (\u03b3\u2082 t)",
+      "have_tree": [
+        {
+          "name": "h\u2081'",
+          "type": "",
+          "body": "Path.continuous_uncurry_extend_of_continuous_family \u03b3\u2081 h\u2081",
+          "children": []
+        },
+        {
+          "name": "h\u2082'",
+          "type": "",
+          "body": "Path.continuous_uncurry_extend_of_continuous_family \u03b3\u2082 h\u2082",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Path",
+          "name": "trans_continuous_family",
+          "statement": "Type*} [TopologicalSpace \u03b9] {a b c : \u03b9 \u2192 X} (\u03b3\u2081 : \u2200 t : \u03b9, Path (a t) (b t)) (h\u2081 : Continuous \u21bf\u03b3\u2081) (\u03b3\u2082 : \u2200 t : \u03b9, Path (b t) (c t)) (h\u2082 : Continuous \u21bf\u03b3\u2082) : Continuous \u21bffun t => (\u03b3\u2081 t).trans (\u03b3\u2082 t)",
+          "have_tree": [
+            {
+              "name": "h\u2082'",
+              "type": "",
+              "body": "Path.continuous_uncurry_extend_of_continuous_family \u03b3\u2082 h\u2082",
+              "children": []
+            },
+            {
+              "name": "h\u2081'",
+              "type": "",
+              "body": "Path.continuous_uncurry_extend_of_continuous_family \u03b3\u2081 h\u2081",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Path",
+      "name": "range_reparam",
+      "statement": "Path x y) {f : I \u2192 I} (hfcont : Continuous f) (hf\u2080 : f 0 = 0) (hf\u2081 : f 1 = 1) : range (\u03b3.reparam f hfcont hf\u2080 hf\u2081) = range \u03b3",
+      "have_tree": [
+        {
+          "name": "h\u2081",
+          "type": "Continuous (Set.IccExtend (zero_le_one' \u211d) f)",
+          "body": "by fun_prop",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "intermediate_value_Icc (zero_le_one' \u211d) h\u2081.continuousOn",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Path",
+          "name": "range_reparam",
+          "statement": "Path x y) {f : I \u2192 I} (hfcont : Continuous f) (hf\u2080 : f 0 = 0) (hf\u2081 : f 1 = 1) : range (\u03b3.reparam f hfcont hf\u2080 hf\u2081) = range \u03b3",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "intermediate_value_Icc (zero_le_one' \u211d) h\u2081.continuousOn",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "Continuous (Set.IccExtend (zero_le_one' \u211d) f)",
+              "body": "by fun_prop",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

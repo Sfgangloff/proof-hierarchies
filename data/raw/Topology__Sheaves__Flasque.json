@@ -1,0 +1,72 @@
+[
+  {
+    "module": "Flasque",
+    "name": "Under",
+    "statement": "= StructuredArrow \u27e8op U, s\u27e9 (Functor.whiskerRight g.hom (CategoryTheory.forget AddCommGrpCat.{u})).mapElements  set_option backward.isDefEq.respectTransparency false in /- The next lemma proves that the relation `fun x y \u21a6 Nonempty (y \u27f6 x)` on `Under g s` satisfies the requirements for applying Zorn's lemma -/ lemma structured_arrows_elements_sheaf_chains_bounded (c : Set (Under g s)) (h : IsChain (fun x y \u21a6 Nonempty (y \u27f6 x)) c) : \u2203 ub, \u2200 a \u2208 c, Nonempty (ub \u27f6 a)",
+    "have_tree": [
+      {
+        "name": "le\u2081",
+        "type": "iSup f \u2264 U",
+        "body": "iSup_le <| fun j => leOfHom j.1.hom.1.unop",
+        "children": []
+      },
+      {
+        "name": "le\u2082",
+        "type": "\u2200 i, i \u2208 c \u2192 unop i.right.1 \u2264 iSup f",
+        "body": "fun i hi \u21a6 le_iSup f \u27e8i, hi\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Flasque",
+    "name": "epi_of_shortExact",
+    "statement": "ShortComplex (Sheaf AddCommGrpCat X)} (hS : S.ShortExact) [IsFlasque S.X\u2081] : Epi (S.g.1.app (op U))",
+    "have_tree": [
+      {
+        "name": "tle",
+        "type": "t.right.1.unop \u2264 U",
+        "body": "leOfHom t.hom.1.unop",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "U \u2264 t.right.1.unop",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(isLocallySurjective_iff_epi S.g).mpr hS.epi_g",
+            "children": []
+          },
+          {
+            "name": "le",
+            "type": "iSup f \u2264 U",
+            "body": "iSup_le_iff.mpr (Fin.forall_fin_two.mpr \u27e8tle, Wle\u27e9)",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Nonempty (t\u2086 \u27f6 t)",
+            "body": "Nonempty.intro (StructuredArrow.homMk (CategoryOfElements.homMk _ _",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Flasque",
+    "name": "of_shortExact_of_isFlasque\u2081\u2082",
+    "statement": "ShortComplex (Sheaf AddCommGrpCat X)} (hS : S.ShortExact) [IsFlasque S.X\u2081] [IsFlasque S.X\u2082] : IsFlasque S.X\u2083 where epi {U V} i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Epi (S.g.1.app U \u226b S.X\u2083.obj.map i)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

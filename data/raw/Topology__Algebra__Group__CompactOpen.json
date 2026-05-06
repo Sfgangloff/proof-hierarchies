@@ -1,0 +1,59 @@
+[
+  {
+    "module": "CompactOpen",
+    "name": "locallyCompactSpace_of_equicontinuousAt",
+    "statement": "Set X) (V : Set Y) (hU : IsCompact U) (hV : V \u2208 nhds (1 : Y)) (h : EquicontinuousAt (fun f : {f : X \u2192* Y | Set.MapsTo f U V} \u21a6 (f : X \u2192 Y)) 1) : LocallyCompactSpace (ContinuousMonoidHom X Y)",
+    "have_tree": [
+      {
+        "name": "hS2",
+        "type": "(interior S2).Nonempty",
+        "body": "by",
+        "children": [
+          {
+            "name": "h1",
+            "type": "T.Nonempty",
+            "body": "\u27e81, fun _ _ \u21a6 mem_interior_iff_mem_nhds.mpr hWo\u27e9",
+            "children": []
+          },
+          {
+            "name": "h2",
+            "type": "T \u2286 S2",
+            "body": "fun f hf \u21a6 hf.mono_right interior_subset",
+            "children": []
+          },
+          {
+            "name": "h3",
+            "type": "IsOpen T",
+            "body": "isOpen_induced (ContinuousMap.isOpen_setOf_mapsTo hU isOpen_interior)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "CompactOpen",
+    "name": "locallyCompactSpace_of_hasBasis",
+    "statement": "\u2115 \u2192 Set Y) (hV : \u2200 {n x}, x \u2208 V n \u2192 x * x \u2208 V n \u2192 x \u2208 V (n + 1)) (hVo : Filter.HasBasis (nhds 1) (fun _ \u21a6 True) V) : LocallyCompactSpace (ContinuousMonoidHom X Y)",
+    "have_tree": [
+      {
+        "name": "hU1",
+        "type": "\u2200 n, U n \u2208 nhds 1",
+        "body": "fun n \u21a6 (U_aux n).2",
+        "children": []
+      },
+      {
+        "name": "hU2",
+        "type": "\u2200 n, U (n + 1) * U (n + 1) \u2286 U n",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hU3",
+        "type": "\u2200 n, U (n + 1) \u2286 U n",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

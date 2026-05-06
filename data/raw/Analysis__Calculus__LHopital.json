@@ -1,0 +1,349 @@
+[
+  {
+    "module": "LHopital",
+    "name": "lhopital_zero_right_on_Ioo",
+    "statement": "a < b) (hff' : \u2200 x \u2208 Ioo a b, HasDerivAt f (f' x) x) (hgg' : \u2200 x \u2208 Ioo a b, HasDerivAt g (g' x) x) (hg' : \u2200 x \u2208 Ioo a b, g' x \u2260 0) (hfa : Tendsto f (\ud835\udcdd[>] a) (\ud835\udcdd 0)) (hga : Tendsto g (\ud835\udcdd[>] a) (\ud835\udcdd 0)) (hdiv : Tendsto (fun x => f' x / g' x) (\ud835\udcdd[>] a) l) : Tendsto (fun x => f x / g x) (\ud835\udcdd[>] a) l",
+    "have_tree": [
+      {
+        "name": "sub",
+        "type": "\u2200 x \u2208 Ioo a b, Ioo a x \u2286 Ioo a b",
+        "body": "fun x hx =>",
+        "children": []
+      },
+      {
+        "name": "hg",
+        "type": "\u2200 x \u2208 Ioo a b, g x \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Tendsto g (\ud835\udcdd[<] x) (\ud835\udcdd 0)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "cmp",
+        "type": "\u2200 x \u2208 Ioo a b, a < c x \u2227 c x < x",
+        "body": "fun x hx \u21a6 (hc x hx).1",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "cmp x hx",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LHopital",
+    "name": "lhopital_zero_left_on_Ioo",
+    "statement": "a < b) (hff' : \u2200 x \u2208 Ioo a b, HasDerivAt f (f' x) x) (hgg' : \u2200 x \u2208 Ioo a b, HasDerivAt g (g' x) x) (hg' : \u2200 x \u2208 Ioo a b, g' x \u2260 0) (hfb : Tendsto f (\ud835\udcdd[<] b) (\ud835\udcdd 0)) (hgb : Tendsto g (\ud835\udcdd[<] b) (\ud835\udcdd 0)) (hdiv : Tendsto (fun x => f' x / g' x) (\ud835\udcdd[<] b) l) : Tendsto (fun x => f x / g x) (\ud835\udcdd[<] b) l",
+    "have_tree": [
+      {
+        "name": "hdnf",
+        "type": "\u2200 x \u2208 -Ioo a b, HasDerivAt (f \u2218 Neg.neg) (f' (-x) * -1) x",
+        "body": "fun x hx =>",
+        "children": []
+      },
+      {
+        "name": "hdng",
+        "type": "\u2200 x \u2208 -Ioo a b, HasDerivAt (g \u2218 Neg.neg) (g' (-x) * -1) x",
+        "body": "fun x hx =>",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "lhopital_zero_right_on_Ioo (neg_lt_neg hab) hdnf hdng (by grind)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "this.comp tendsto_neg_nhdsLT",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LHopital",
+    "name": "lhopital_zero_atTop_on_Ioi",
+    "statement": "\u2200 x \u2208 Ioi a, HasDerivAt f (f' x) x) (hgg' : \u2200 x \u2208 Ioi a, HasDerivAt g (g' x) x) (hg' : \u2200 x \u2208 Ioi a, g' x \u2260 0) (hftop : Tendsto f atTop (\ud835\udcdd 0)) (hgtop : Tendsto g atTop (\ud835\udcdd 0)) (hdiv : Tendsto (fun x => f' x / g' x) atTop l) : Tendsto (fun x => f x / g x) atTop l",
+    "have_tree": [
+      {
+        "name": "hdnf",
+        "type": "\u2200 x \u2208 Ioo 0 a'\u207b\u00b9, HasDerivAt (f \u2218 Inv.inv) (f' x\u207b\u00b9 * -(x ^ 2)\u207b\u00b9) x",
+        "body": "fun x hx =>",
+        "children": []
+      },
+      {
+        "name": "hdng",
+        "type": "\u2200 x \u2208 Ioo 0 a'\u207b\u00b9, HasDerivAt (g \u2218 Inv.inv) (g' x\u207b\u00b9 * -(x ^ 2)\u207b\u00b9) x",
+        "body": "fun x hx =>",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "lhopital_zero_right_on_Ioo (inv_pos.mpr ha') hdnf hdng",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "this.comp tendsto_inv_atTop_nhdsGT_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LHopital",
+    "name": "lhopital_zero_atBot_on_Iio",
+    "statement": "\u2200 x \u2208 Iio a, HasDerivAt f (f' x) x) (hgg' : \u2200 x \u2208 Iio a, HasDerivAt g (g' x) x) (hg' : \u2200 x \u2208 Iio a, g' x \u2260 0) (hfbot : Tendsto f atBot (\ud835\udcdd 0)) (hgbot : Tendsto g atBot (\ud835\udcdd 0)) (hdiv : Tendsto (fun x => f' x / g' x) atBot l) : Tendsto (fun x => f x / g x) atBot l",
+    "have_tree": [
+      {
+        "name": "hdnf",
+        "type": "\u2200 x \u2208 -Iio a, HasDerivAt (f \u2218 Neg.neg) (f' (-x) * -1) x",
+        "body": "fun x hx =>",
+        "children": []
+      },
+      {
+        "name": "hdng",
+        "type": "\u2200 x \u2208 -Iio a, HasDerivAt (g \u2218 Neg.neg) (g' (-x) * -1) x",
+        "body": "fun x hx =>",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "lhopital_zero_atTop_on_Ioi hdnf hdng (by grind)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "this.comp tendsto_neg_atBot_atTop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LHopital",
+    "name": "lhopital_zero_right_on_Ioo",
+    "statement": "a < b) (hdf : DifferentiableOn \u211d f (Ioo a b)) (hg' : \u2200 x \u2208 Ioo a b, deriv g x \u2260 0) (hfa : Tendsto f (\ud835\udcdd[>] a) (\ud835\udcdd 0)) (hga : Tendsto g (\ud835\udcdd[>] a) (\ud835\udcdd 0)) (hdiv : Tendsto (fun x => (deriv f) x / (deriv g) x) (\ud835\udcdd[>] a) l) : Tendsto (fun x => f x / g x) (\ud835\udcdd[>] a) l",
+    "have_tree": [
+      {
+        "name": "hdf",
+        "type": "\u2200 x \u2208 Ioo a b, DifferentiableAt \u211d f x",
+        "body": "fun x hx =>",
+        "children": []
+      },
+      {
+        "name": "hdg",
+        "type": "\u2200 x \u2208 Ioo a b, DifferentiableAt \u211d g x",
+        "body": "fun x hx =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LHopital",
+    "name": "lhopital_zero_left_on_Ioo",
+    "statement": "a < b) (hdf : DifferentiableOn \u211d f (Ioo a b)) (hg' : \u2200 x \u2208 Ioo a b, (deriv g) x \u2260 0) (hfb : Tendsto f (\ud835\udcdd[<] b) (\ud835\udcdd 0)) (hgb : Tendsto g (\ud835\udcdd[<] b) (\ud835\udcdd 0)) (hdiv : Tendsto (fun x => (deriv f) x / (deriv g) x) (\ud835\udcdd[<] b) l) : Tendsto (fun x => f x / g x) (\ud835\udcdd[<] b) l",
+    "have_tree": [
+      {
+        "name": "hdf",
+        "type": "\u2200 x \u2208 Ioo a b, DifferentiableAt \u211d f x",
+        "body": "fun x hx =>",
+        "children": []
+      },
+      {
+        "name": "hdg",
+        "type": "\u2200 x \u2208 Ioo a b, DifferentiableAt \u211d g x",
+        "body": "fun x hx =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LHopital",
+    "name": "lhopital_zero_atTop_on_Ioi",
+    "statement": "DifferentiableOn \u211d f (Ioi a)) (hg' : \u2200 x \u2208 Ioi a, (deriv g) x \u2260 0) (hftop : Tendsto f atTop (\ud835\udcdd 0)) (hgtop : Tendsto g atTop (\ud835\udcdd 0)) (hdiv : Tendsto (fun x => (deriv f) x / (deriv g) x) atTop l) : Tendsto (fun x => f x / g x) atTop l",
+    "have_tree": [
+      {
+        "name": "hdf",
+        "type": "\u2200 x \u2208 Ioi a, DifferentiableAt \u211d f x",
+        "body": "fun x hx =>",
+        "children": []
+      },
+      {
+        "name": "hdg",
+        "type": "\u2200 x \u2208 Ioi a, DifferentiableAt \u211d g x",
+        "body": "fun x hx =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LHopital",
+    "name": "lhopital_zero_atBot_on_Iio",
+    "statement": "DifferentiableOn \u211d f (Iio a)) (hg' : \u2200 x \u2208 Iio a, (deriv g) x \u2260 0) (hfbot : Tendsto f atBot (\ud835\udcdd 0)) (hgbot : Tendsto g atBot (\ud835\udcdd 0)) (hdiv : Tendsto (fun x => (deriv f) x / (deriv g) x) atBot l) : Tendsto (fun x => f x / g x) atBot l",
+    "have_tree": [
+      {
+        "name": "hdf",
+        "type": "\u2200 x \u2208 Iio a, DifferentiableAt \u211d f x",
+        "body": "fun x hx =>",
+        "children": []
+      },
+      {
+        "name": "hdg",
+        "type": "\u2200 x \u2208 Iio a, DifferentiableAt \u211d g x",
+        "body": "fun x hx =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LHopital",
+    "name": "lhopital_zero_nhdsGT",
+    "statement": "\u2200\u1da0 x in \ud835\udcdd[>] a, HasDerivAt f (f' x) x) (hgg' : \u2200\u1da0 x in \ud835\udcdd[>] a, HasDerivAt g (g' x) x) (hg' : \u2200\u1da0 x in \ud835\udcdd[>] a, g' x \u2260 0) (hfa : Tendsto f (\ud835\udcdd[>] a) (\ud835\udcdd 0)) (hga : Tendsto g (\ud835\udcdd[>] a) (\ud835\udcdd 0)) (hdiv : Tendsto (fun x => f' x / g' x) (\ud835\udcdd[>] a) l) : Tendsto (fun x => f x / g x) (\ud835\udcdd[>] a) l",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "s \u2208 \ud835\udcdd[>] a",
+        "body": "inter_mem (inter_mem hs\u2081 hs\u2082) hs\u2083",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LHopital",
+    "name": "lhopital_zero_nhdsLT",
+    "statement": "\u2200\u1da0 x in \ud835\udcdd[<] a, HasDerivAt f (f' x) x) (hgg' : \u2200\u1da0 x in \ud835\udcdd[<] a, HasDerivAt g (g' x) x) (hg' : \u2200\u1da0 x in \ud835\udcdd[<] a, g' x \u2260 0) (hfa : Tendsto f (\ud835\udcdd[<] a) (\ud835\udcdd 0)) (hga : Tendsto g (\ud835\udcdd[<] a) (\ud835\udcdd 0)) (hdiv : Tendsto (fun x => f' x / g' x) (\ud835\udcdd[<] a) l) : Tendsto (fun x => f x / g x) (\ud835\udcdd[<] a) l",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "s \u2208 \ud835\udcdd[<] a",
+        "body": "inter_mem (inter_mem hs\u2081 hs\u2082) hs\u2083",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LHopital",
+    "name": "lhopital_zero_atTop",
+    "statement": "\u2200\u1da0 x in atTop, HasDerivAt f (f' x) x) (hgg' : \u2200\u1da0 x in atTop, HasDerivAt g (g' x) x) (hg' : \u2200\u1da0 x in atTop, g' x \u2260 0) (hftop : Tendsto f atTop (\ud835\udcdd 0)) (hgtop : Tendsto g atTop (\ud835\udcdd 0)) (hdiv : Tendsto (fun x => f' x / g' x) atTop l) : Tendsto (fun x => f x / g x) atTop l",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "s \u2208 atTop",
+        "body": "inter_mem (inter_mem hs\u2081 hs\u2082) hs\u2083",
+        "children": []
+      },
+      {
+        "name": "hl'",
+        "type": "Ioi l \u2286 s",
+        "body": "fun x hx => hl x (le_of_lt hx)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LHopital",
+    "name": "lhopital_zero_atBot",
+    "statement": "\u2200\u1da0 x in atBot, HasDerivAt f (f' x) x) (hgg' : \u2200\u1da0 x in atBot, HasDerivAt g (g' x) x) (hg' : \u2200\u1da0 x in atBot, g' x \u2260 0) (hfbot : Tendsto f atBot (\ud835\udcdd 0)) (hgbot : Tendsto g atBot (\ud835\udcdd 0)) (hdiv : Tendsto (fun x => f' x / g' x) atBot l) : Tendsto (fun x => f x / g x) atBot l",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "s \u2208 atBot",
+        "body": "inter_mem (inter_mem hs\u2081 hs\u2082) hs\u2083",
+        "children": []
+      },
+      {
+        "name": "hl'",
+        "type": "Iio l \u2286 s",
+        "body": "fun x hx => hl x (le_of_lt hx)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LHopital",
+    "name": "lhopital_zero_nhdsWithin_convex",
+    "statement": "Set \u211d} (hs : Convex \u211d s) (hdf : \u2200\u1da0 x in \ud835\udcdd[s \\ {a}] a, DifferentiableWithinAt \u211d f (s \\ {a}) x) (hg' : \u2200\u1da0 x in \ud835\udcdd[s \\ {a}] a, derivWithin g (s \\ {a}) x \u2260 0) (hfa : Tendsto f (\ud835\udcdd[s \\ {a}] a) (\ud835\udcdd 0)) (hga : Tendsto g (\ud835\udcdd[s \\ {a}] a) (\ud835\udcdd 0)) (hdiv : Tendsto (fun x => derivWithin f (s \\ {a}) x / derivWithin g (s \\ {a}) x) (\ud835\udcdd[s \\ {a}] a) l) : Tendsto (fun x => f x / g x) (\ud835\udcdd[s \\ {a}] a) l",
+    "have_tree": [
+      {
+        "name": "hdg",
+        "type": "\u2200\u1da0 x in \ud835\udcdd[s \\ {a}] a, DifferentiableWithinAt \u211d g (s \\ {a}) x",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hdf'",
+        "type": "\u2200\u1da0 x in \ud835\udcdd[s \\ {a}] a, HasDerivWithinAt f (derivWithin f (s \\ {a}) x) (s \\ {a}) x",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hdg'",
+        "type": "\u2200\u1da0 x in \ud835\udcdd[s \\ {a}] a, HasDerivWithinAt g (derivWithin g (s \\ {a}) x) (s \\ {a}) x",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LHopital",
+    "name": "lhopital_zero_atTop",
+    "statement": "\u2200\u1da0 x : \u211d in atTop, DifferentiableAt \u211d f x) (hg' : \u2200\u1da0 x : \u211d in atTop, deriv g x \u2260 0) (hftop : Tendsto f atTop (\ud835\udcdd 0)) (hgtop : Tendsto g atTop (\ud835\udcdd 0)) (hdiv : Tendsto (fun x => (deriv f) x / (deriv g) x) atTop l) : Tendsto (fun x => f x / g x) atTop l",
+    "have_tree": [
+      {
+        "name": "hdg",
+        "type": "\u2200\u1da0 x in atTop, DifferentiableAt \u211d g x",
+        "body": "hg'.mp",
+        "children": []
+      },
+      {
+        "name": "hdf'",
+        "type": "\u2200\u1da0 x in atTop, HasDerivAt f (deriv f x) x",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hdg'",
+        "type": "\u2200\u1da0 x in atTop, HasDerivAt g (deriv g x) x",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LHopital",
+    "name": "lhopital_zero_atBot",
+    "statement": "\u2200\u1da0 x : \u211d in atBot, DifferentiableAt \u211d f x) (hg' : \u2200\u1da0 x : \u211d in atBot, deriv g x \u2260 0) (hfbot : Tendsto f atBot (\ud835\udcdd 0)) (hgbot : Tendsto g atBot (\ud835\udcdd 0)) (hdiv : Tendsto (fun x => (deriv f) x / (deriv g) x) atBot l) : Tendsto (fun x => f x / g x) atBot l",
+    "have_tree": [
+      {
+        "name": "hdg",
+        "type": "\u2200\u1da0 x in atBot, DifferentiableAt \u211d g x",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hdf'",
+        "type": "\u2200\u1da0 x in atBot, HasDerivAt f (deriv f x) x",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hdg'",
+        "type": "\u2200\u1da0 x in atBot, HasDerivAt g (deriv g x) x",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

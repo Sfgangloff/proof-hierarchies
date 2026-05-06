@@ -1,0 +1,92 @@
+[
+  {
+    "module": "List",
+    "name": "nat_omega_rec'",
+    "statement": "\u03b2 \u2192 \u03c3) {m : \u03b2 \u2192 \u2115} {l : \u03b2 \u2192 List \u03b2} {g : \u03b2 \u2192 List \u03c3 \u2192 Option \u03c3} (hm : Primrec m) (hl : Primrec l) (hg : Primrec\u2082 g) (Ord : \u2200 b, \u2200 b' \u2208 l b, m b' < m b) (H : \u2200 b, g b ((l b).map f) = some (f b)) : Primrec f",
+    "have_tree": [
+      {
+        "name": "mapGraph_primrec",
+        "type": "Primrec\u2082 mapGraph",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "bindList_primrec",
+        "type": "Primrec\u2082 (bindList)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "graph_primrec",
+        "type": "Primrec\u2082 (graph)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Primrec (fun b => (graph b (m b + 1))[0]?.map Prod.snd)",
+        "body": "",
+        "children": [
+          {
+            "name": "bindList_eq_nil",
+            "type": "bindList b (m b + 1) = []",
+            "body": "",
+            "children": [
+              {
+                "name": "_",
+                "type": "\u2115) : \u2200 b' \u2208 bindList b k, m b' < m b + 1 - k",
+                "body": "by",
+                "children": [
+                  {
+                    "name": "_",
+                    "type": "b \u2208 bs \u2227 bs' \u2286 bs",
+                    "body": "by simpa using has",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "bindList_succ",
+            "type": "\u2200 i, bindList b (i + 1) = (bindList b i).flatMap l",
+            "body": "fun _ => rfl",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "List",
+    "name": "encode",
+    "statement": "\u2200 {n}, @Primrec' n encode | 0 => (const 0).of_eq fun v => by rw [v.eq_nil]; rfl | _ + 1 => (succ.comp\u2081 _ (natPair.comp\u2082 _ head (tail Primrec'.encode))).of_eq fun \u27e8_ :: _, _\u27e9 => rfl  theorem sqrt : @Primrec' 1 fun v => v.head.sqrt",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "",
+        "children": [
+          {
+            "name": "x",
+            "type": "",
+            "body": "v.head; have y := v.tail.head",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "x1",
+        "type": "@Primrec' 3 fun v => v.head.succ",
+        "body": "succ.comp\u2081 _ head",
+        "children": []
+      },
+      {
+        "name": "y1",
+        "type": "@Primrec' 3 fun v => v.tail.head.succ",
+        "body": "succ.comp\u2081 _ (tail head)",
+        "children": []
+      }
+    ]
+  }
+]

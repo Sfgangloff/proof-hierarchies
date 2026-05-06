@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Basic",
+    "name": "eq_or_mem_iff_mem",
+    "statement": "WSeq \u03b1} {a a' s'} : some (a', s') \u2208 destruct s \u2192 (a \u2208 s \u2194 a = a' \u2228 a \u2208 s')",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_arg Computation.destruct m <;>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mem_of_mem_dropn",
+    "statement": "WSeq \u03b1} {a} : \u2200 {n}, a \u2208 drop s n \u2192 a \u2208 s | 0, h => h | n + 1, h => @mem_of_mem_dropn s a n (mem_of_mem_tail h)  theorem get?_mem {s : WSeq \u03b1} {a n} : some a \u2208 get? s n \u2192 a \u2208 s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "@IH (tail s)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_dropn_of_mem",
+    "statement": "WSeq \u03b1} {a} (h : a \u2208 s) : \u2203 n s', some (a, s') \u2208 destruct (drop s n)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Computation.mem_unique (Computation.mem_map _ om) h",
+        "children": []
+      }
+    ]
+  }
+]

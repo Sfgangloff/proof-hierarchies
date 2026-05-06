@@ -1,0 +1,122 @@
+[
+  {
+    "module": "Roots",
+    "name": "isRoot_of_unity_of_root_cyclotomic",
+    "statement": "R} {i : \u2115} (hi : i \u2208 n.divisors) (h : (cyclotomic i R).IsRoot \u03b6) : \u03b6 ^ n = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_arg (eval \u03b6) (prod_cyclotomic_eq_X_pow_sub_one hn R).symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Roots",
+    "name": "isRoot_cyclotomic_iff'",
+    "statement": "\u2115} {K : Type*} [Field K] {\u03bc : K} [NeZero (n : K)] : IsRoot (cyclotomic n K) \u03bc \u2194 IsPrimitiveRoot \u03bc n",
+    "have_tree": [
+      {
+        "name": "hnpos",
+        "type": "0 < n",
+        "body": "(NeZero.of_neZero_natCast K).out.bot_lt",
+        "children": []
+      },
+      {
+        "name": "ho",
+        "type": "0 < orderOf \u03bc",
+        "body": "(isOfFinOrder_iff_pow_eq_one.2 <| \u27e8n, hnpos, h\u03bcn\u27e9).orderOf_pos",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "pow_orderOf_eq_one \u03bc",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "i < n",
+        "body": "(Nat.le_of_dvd ho hio).trans_lt ((Nat.le_of_dvd hnpos h\u03bcn).lt_of_ne hn\u03bc)",
+        "children": []
+      },
+      {
+        "name": "key'",
+        "type": "i \u2223 n",
+        "body": "hio.trans h\u03bcn",
+        "children": []
+      },
+      {
+        "name": "hni",
+        "type": "{i, n} \u2286 n.divisors",
+        "body": "by simpa [Finset.insert_subset_iff, key'] using hnpos.ne'",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "prod_cyclotomic_eq_X_pow_sub_one hnpos K",
+        "children": []
+      },
+      {
+        "name": "hn",
+        "type": "",
+        "body": "(X_pow_sub_one_separable_iff.mpr <| NeZero.natCast_ne n K).squarefree",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Roots",
+    "name": "isRoot_cyclotomic_iff",
+    "statement": "R)] {\u03bc : R} : IsRoot (cyclotomic n R) \u03bc \u2194 IsPrimitiveRoot \u03bc n",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "Function.Injective _",
+        "body": "IsFractionRing.injective R (FractionRing R)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Roots",
+    "name": "cyclotomic_injective",
+    "statement": "Function.Injective fun n => cyclotomic n R",
+    "have_tree": [
+      {
+        "name": "hprim",
+        "type": "",
+        "body": "Complex.isPrimitiveRoot_exp _ hzero",
+        "children": []
+      },
+      {
+        "name": "hroot",
+        "type": "",
+        "body": "isRoot_cyclotomic_iff (R := \u2102).2 hprim",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Roots",
+    "name": "sum_eq_zero_iff_forall_eq",
+    "statement": "p.Prime) (h\u03b6 : IsPrimitiveRoot \u03b6 p) (\u03b1 : Fin p \u2192 \u211a) : \u2211 i, \u03b1 i * \u03b6 ^ i.val = 0 \u2194 \u2200 i j, \u03b1 i = \u03b1 j",
+    "have_tree": [
+      {
+        "name": "hP'",
+        "type": "P.degree \u2264 \u2191(p - 1)",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "c.degree \u2264 0",
+            "body": "(WithBot.add_le_add_iff_left (x := \u2191(p - 1)) (by simp)).mp (by simpa)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

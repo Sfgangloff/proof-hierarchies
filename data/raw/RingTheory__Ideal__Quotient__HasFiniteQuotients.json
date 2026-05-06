@@ -1,0 +1,85 @@
+[
+  {
+    "module": "HasFiniteQuotients",
+    "name": "maximalOfPrime",
+    "statement": "Ideal R} [P.IsPrime] (hp : P \u2260 \u22a5) : P.IsMaximal",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite (R \u29f8 P)",
+        "body": "finiteQuotient hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HasFiniteQuotients",
+    "name": "cardQuot_pos",
+    "statement": "Ideal R) (hI : I \u2260 \u22a5) : 0 < I.cardQuot",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "finiteQuotient hI",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HasFiniteQuotients",
+    "name": "finite_setOf_mem",
+    "statement": "R) (hx : x \u2260 0) : {I : Ideal R | x \u2208 I}.Finite",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "finiteQuotient (mt Ideal.span_singleton_eq_bot.mp hx)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "{I | Ideal.comap (Ideal.Quotient.mk (Ideal.span {x})) \u22a5 \u2264 I}.Finite",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HasFiniteQuotients",
+    "name": "finite_cardQuot_le",
+    "statement": "\u2115) : {I : Ideal R | I.cardQuot \u2264 B}.Finite",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "finiteQuotient hI.2",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite (R \u29f8 I)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HasFiniteQuotients",
+    "name": "of_module_finite",
+    "statement": "Type*) [CommRing S] [IsDomain S] [Algebra R S] [Module.Finite R S] : HasFiniteQuotients S where finiteQuotient {I} hI",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite (R \u29f8 J)",
+        "body": "finiteQuotient <| Ideal.under_ne_bot R hI",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite (R \u29f8 J) (S \u29f8 I)",
+        "body": "Module.Finite.of_restrictScalars_finite R _ _",
+        "children": []
+      }
+    ]
+  }
+]

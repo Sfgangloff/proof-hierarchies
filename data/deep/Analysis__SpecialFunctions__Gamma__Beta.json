@@ -1,0 +1,110 @@
+[
+  {
+    "module": "Beta",
+    "name": "betaIntegral_recurrence",
+    "statement": "\u2102} (hu : 0 < re u) (hv : 0 < re v) : u * betaIntegral u (v + 1) = v * betaIntegral (u + 1) v",
+    "have_tree": [
+      {
+        "name": "hu'",
+        "type": "0 < re (u + 1)",
+        "body": "by rw [add_re, one_re]; positivity",
+        "children": []
+      },
+      {
+        "name": "hv'",
+        "type": "0 < re (v + 1)",
+        "body": "by rw [add_re, one_re]; positivity",
+        "children": []
+      },
+      {
+        "name": "hc",
+        "type": "ContinuousOn F (Icc 0 1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "U",
+            "type": "HasDerivAt (fun y : \u2102 => y ^ u) (u * (x : \u2102) ^ (u - 1)) \u2191x",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "",
+                "body": "@HasDerivAt.cpow_const _ _ _ u (hasDerivAt_id (x : \u2102)) (Or.inl ?_)",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "V",
+            "type": "HasDerivAt (fun y : \u2102 => (1 - y) ^ v) (-v * (1 - (x : \u2102)) ^ (v - 1)) \u2191x",
+            "body": "by",
+            "children": [
+              {
+                "name": "A",
+                "type": "",
+                "body": "@HasDerivAt.cpow_const _ _ _ v (hasDerivAt_id (1 - (x : \u2102))) (Or.inl ?_)",
+                "children": []
+              },
+              {
+                "name": "B",
+                "type": "HasDerivAt (fun y : \u2102 => 1 - y) (-1) \u2191x",
+                "body": "by",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "h_int",
+        "type": "",
+        "body": "((betaIntegral_convergent hu hv').const_mul u).sub",
+        "children": []
+      },
+      {
+        "name": "int_ev",
+        "type": "",
+        "body": "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le zero_le_one hc hder h_int",
+        "children": []
+      },
+      {
+        "name": "hF0",
+        "type": "F 0 = 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hF1",
+        "type": "F 1 = 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Beta",
+    "name": "GammaSeq_mul",
+    "statement": "\u2102) {n : \u2115} (hn : n \u2260 0) : GammaSeq z n * GammaSeq (1 - z) n = n / (n + \u21911 - z) * (\u21911 / (z * \u220f j \u2208 Finset.range n, (\u21911 - z ^ 2 / ((j : \u2102) + 1) ^ 2)))",
+    "have_tree": [
+      {
+        "name": "aux",
+        "type": "\u2200 a b c d : \u2102, a * b * (c * d) = a * c * (b * d)",
+        "body": "by intros; ring",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(n : \u2102) ^ z * (n : \u2102) ^ (1 - z) = n",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(j : \u2102) + 1 \u2260 0",
+            "body": "by rw [\u2190 Nat.cast_succ, Nat.cast_ne_zero]; exact Nat.succ_ne_zero j",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

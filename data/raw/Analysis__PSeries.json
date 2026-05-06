@@ -1,0 +1,125 @@
+[
+  {
+    "module": "PSeries",
+    "name": "le_sum_schlomilch'",
+    "statement": "\u2200 \u2983m n\u2984, 0 < m \u2192 m \u2264 n \u2192 f n \u2264 f m) (h_pos : \u2200 n, 0 < u n) (hu : Monotone u) (n : \u2115) : (\u2211 k \u2208 Ico (u 0) (u n), f k) \u2264 \u2211 k \u2208 range n, (u (k + 1) - u k) \u2022 f (u k)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 k \u2208 Ico (u n) (u (n + 1)), f k \u2264 f (u n)",
+        "body": "fun k hk =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PSeries",
+    "name": "sum_schlomilch_le'",
+    "statement": "\u2200 \u2983m n\u2984, 1 < m \u2192 m \u2264 n \u2192 f n \u2264 f m) (h_pos : \u2200 n, 0 < u n) (hu : Monotone u) (n : \u2115) : (\u2211 k \u2208 range n, (u (k + 1) - u k) \u2022 f (u (k + 1))) \u2264 \u2211 k \u2208 Ico (u 0 + 1) (u n + 1), f k",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 k \u2208 Ico (u n + 1) (u (n + 1) + 1), f (u (n + 1)) \u2264 f k",
+        "body": "fun k hk =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PSeries",
+    "name": "summable_condensed_iff",
+    "statement": "\u2115 \u2192 \u211d\u22650} (hf : \u2200 \u2983m n\u2984, 0 < m \u2192 m \u2264 n \u2192 f n \u2264 f m) : (Summable fun k : \u2115 => (2 : \u211d\u22650) ^ k * f (2 ^ k)) \u2194 Summable f",
+    "have_tree": [
+      {
+        "name": "h_succ_diff",
+        "type": "SuccDiffBounded 2 (2 ^ \u00b7)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PSeries",
+    "name": "summable_schlomilch_iff_of_nonneg",
+    "statement": "\u2115} {u : \u2115 \u2192 \u2115} {f : \u2115 \u2192 \u211d} (h_nonneg : \u2200 n, 0 \u2264 f n) (hf : \u2200 \u2983m n\u2984, 0 < m \u2192 m \u2264 n \u2192 f n \u2264 f m) (h_pos : \u2200 n, 0 < u n) (hu_strict : StrictMono u) (hC_nonzero : C \u2260 0) (h_succ_diff : SuccDiffBounded C u) : (Summable fun k : \u2115 => (u (k + 1) - (u k : \u211d)) * f (u k)) \u2194 Summable f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.cast_le (\u03b1 := \u211d\u22650).mpr <| (hu_strict k.lt_succ_self).le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PSeries",
+    "name": "summable_condensed_iff_of_nonneg",
+    "statement": "\u2115 \u2192 \u211d} (h_nonneg : \u2200 n, 0 \u2264 f n) (h_mono : \u2200 \u2983m n\u2984, 0 < m \u2192 m \u2264 n \u2192 f n \u2264 f m) : (Summable fun k : \u2115 => (2 : \u211d) ^ k * f (2 ^ k)) \u2194 Summable f",
+    "have_tree": [
+      {
+        "name": "h_succ_diff",
+        "type": "SuccDiffBounded 2 (2 ^ \u00b7)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PSeries",
+    "name": "summable_condensed_iff_of_eventually_nonneg",
+    "statement": "\u2115 \u2192 \u211d} (h_nonneg : 0 \u2264\u1da0[Filter.atTop] f) (h_mono : \u2200\u1da0 k in Filter.atTop, f (k + 1) \u2264 f k) : (Summable fun k : \u2115 => (2 : \u211d) ^ k * f (2 ^ k)) \u2194 Summable f",
+    "have_tree": [
+      {
+        "name": "h_pow",
+        "type": "",
+        "body": "tendsto_pow_atTop_atTop_of_one_lt (r := 2) (by simp)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PSeries",
+    "name": "summable_nat_rpow_inv",
+    "statement": "\u211d} : Summable (fun n => ((n : \u211d) ^ p)\u207b\u00b9 : \u2115 \u2192 \u211d) \u2194 1 < p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u00ac1 < p",
+        "body": "fun hp\u2081 => hp.not_ge (zero_le_one.trans hp\u2081.le)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PSeries",
+    "name": "Real.not_summable_indicator_one_div_natCast",
+    "statement": "\u2115} (hm : m \u2260 0) (k : ZMod m) : \u00ac Summable ({n : \u2115 | (n : ZMod m) = k}.indicator fun n : \u2115 \u21a6 (1 / n : \u211d))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero m",
+        "body": "\u27e8hm\u27e9 -- instance is needed below",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PSeries",
+    "name": "Real.summable_one_div_nat_add_rpow",
+    "statement": "\u211d) (s : \u211d) : Summable (fun n : \u2115 \u21a6 1 / |n + a| ^ s) \u2194 1 < s",
+    "have_tree": [
+      {
+        "name": "hna",
+        "type": "0 < n + b",
+        "body": "by linarith [lt_of_abs_lt ((abs_neg b).symm \u25b8 Nat.lt_of_ceil_lt hn)]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Tendsto (fun x \u21a6 (x + b) / (x + c)) atTop (\ud835\udcdd 1)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

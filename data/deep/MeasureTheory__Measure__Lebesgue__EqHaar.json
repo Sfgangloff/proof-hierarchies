@@ -1,0 +1,104 @@
+[
+  {
+    "module": "EqHaar",
+    "name": "addHaar_submodule",
+    "statement": "Type*} [NormedAddCommGroup E] [NormedSpace \u211d E] [MeasurableSpace E] [BorelSpace E] [FiniteDimensional \u211d E] (\u03bc : Measure E) [IsAddHaarMeasure \u03bc] (s : Submodule \u211d E) (hs : s \u2260 \u22a4) : \u03bc s = 0",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "IsBounded (range fun n : \u2115 => c ^ n \u2022 x)",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "Tendsto (fun n : \u2115 => c ^ n \u2022 x) atTop (\ud835\udcdd ((0 : \u211d) \u2022 x))",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "A",
+        "type": "(c ^ n - c ^ m) \u2022 x \u2208 s",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "c ^ n - c ^ m \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "x \u2208 s",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EqHaar",
+    "name": "tendsto_addHaar_inter_smul_zero_of_density_zero_aux1",
+    "statement": "Set E) (x : E) (h : Tendsto (fun r => \u03bc (s \u2229 closedBall x r) / \u03bc (closedBall x r)) (\ud835\udcdd[>] 0) (\ud835\udcdd 0)) (t : Set E) (u : Set E) (h'u : \u03bc u \u2260 0) (t_bound : t \u2286 closedBall 0 1) : Tendsto (fun r : \u211d => \u03bc (s \u2229 ({x} + r \u2022 t)) / \u03bc ({x} + r \u2022 u)) (\ud835\udcdd[>] 0) (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "Tendsto (fun r : \u211d => \u03bc (s \u2229 ({x} + r \u2022 t)) / \u03bc (closedBall x r)) (\ud835\udcdd[>] 0) (\ud835\udcdd 0)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "closedBall x r = {x} + r \u2022 closedBall (0 : E) 1",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "EqHaar",
+    "name": "tendsto_addHaar_inter_smul_one_of_density_one_aux",
+    "statement": "Set E) (hs : MeasurableSet s) (x : E) (h : Tendsto (fun r => \u03bc (s \u2229 closedBall x r) / \u03bc (closedBall x r)) (\ud835\udcdd[>] 0) (\ud835\udcdd 1)) (t : Set E) (ht : MeasurableSet t) (h't : \u03bc t \u2260 0) (h''t : \u03bc t \u2260 \u221e) : Tendsto (fun r : \u211d => \u03bc (s \u2229 ({x} + r \u2022 t)) / \u03bc ({x} + r \u2022 t)) (\ud835\udcdd[>] 0) (\ud835\udcdd 1)",
+    "have_tree": [
+      {
+        "name": "L",
+        "type": "Tendsto (fun r => \u03bc (s\u1d9c \u2229 closedBall x r) / \u03bc (closedBall x r)) (\ud835\udcdd[>] 0) (\ud835\udcdd 0)",
+        "body": "by",
+        "children": [
+          {
+            "name": "A",
+            "type": "Tendsto (fun r => \u03bc (closedBall x r) / \u03bc (closedBall x r)) (\ud835\udcdd[>] 0) (\ud835\udcdd 1)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "B",
+            "type": "",
+            "body": "ENNReal.Tendsto.sub A h (Or.inl ENNReal.one_ne_top)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "L'",
+        "type": "Tendsto (fun r : \u211d => \u03bc (s\u1d9c \u2229 ({x} + r \u2022 t)) / \u03bc ({x} + r \u2022 t)) (\ud835\udcdd[>] 0) (\ud835\udcdd 0)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "L''",
+        "type": "Tendsto (fun r : \u211d => \u03bc ({x} + r \u2022 t) / \u03bc ({x} + r \u2022 t)) (\ud835\udcdd[>] 0) (\ud835\udcdd 1)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "ENNReal.Tendsto.sub L'' L' (Or.inl ENNReal.one_ne_top)",
+        "children": []
+      }
+    ]
+  }
+]

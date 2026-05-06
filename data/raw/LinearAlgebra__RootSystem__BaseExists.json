@@ -1,0 +1,118 @@
+[
+  {
+    "module": "BaseExists",
+    "name": "baseOf_pairwise_pairing_le_zero",
+    "statement": "\u2200 i, f (P.root i) \u2260 0) : (baseOf P.root f).Pairwise fun i j \u21a6 P.pairingIn \u2124 i j \u2264 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsAddIndecomposable.pairwise_baseOf_sub_notMem P.root (by simp) f hf hi hj hne",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BaseExists",
+    "name": "linearIndepOn_root_baseOf'",
+    "statement": "Type*} [LinearOrder S] [CommRing S] [IsStrictOrderedRing S] [Algebra S R] [FaithfulSMul S R] [Module S M] [IsScalarTower S R M] [Module S N] [IsScalarTower S R N] [P.IsValuedIn S] [P.IsCrystallographic] (f : Dual S M) (hf : \u2200 i, f (P.root i) \u2260 0) : LinearIndepOn S P.root (baseOf P.root (f : M \u2192+ S))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "CharZero R",
+        "body": "Algebra.charZero_of_charZero S R",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BaseExists",
+    "name": "ncard_eq_finrank_of_linearIndepOn_of",
+    "statement": "Set \u03b9} (hli : LinearIndepOn R P.root s) (hsp : \u2200 i, P.root i \u2208 AddSubmonoid.closure (P.root '' s) \u2228 -P.root i \u2208 AddSubmonoid.closure (P.root '' s)) : s.ncard = finrank R M",
+    "have_tree": [
+      {
+        "name": "_i",
+        "type": "Fintype s",
+        "body": "Fintype.ofFinite s",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BaseExists",
+    "name": "linearIndepOn_root_baseOf",
+    "statement": "M \u2192+ \u211a) (hf : \u2200 i, f (P.root i) \u2260 0) : LinearIndepOn R P.root (baseOf P.root f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype (baseOf P.root f)",
+        "body": "Fintype.ofFinite _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BaseExists",
+    "name": "baseOf_root_eq_baseOf_coroot_aux",
+    "statement": "M \u2192+ \u211a) (g : N \u2192+ \u211a) (hf : \u2200 i, f (P.root i) \u2260 0) (hfg : \u2200 i, 0 < f (P.root i) \u2194 0 < g (P.coroot i)) : baseOf P.root f \u2286 baseOf P.coroot (g : N \u2192+ \u211a)",
+    "have_tree": [
+      {
+        "name": "_i",
+        "type": "Fintype \u03b9",
+        "body": "Fintype.ofFinite _",
+        "children": [
+          {
+            "name": "aux\u2081",
+            "type": "2 / l' i \u2260 0",
+            "body": "by simpa using IsAnisotropic.rootForm_root_ne_zero i",
+            "children": []
+          },
+          {
+            "name": "hli",
+            "type": "LinearIndepOn \u211a id (P.root '' s)",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "0 \u2264 u * (a x)",
+                "body": "by positivity",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "0 \u2264 v * (b x)",
+                "body": "by positivity",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "hij",
+        "type": "\u00ac LinearIndependent R ![P.root i, P.root j]",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BaseExists",
+    "name": "coroot_mem_or_neg_mem_closure_of_root",
+    "statement": "Set \u03b9) (hli : LinearIndepOn R P.root s) (hsp : \u2200 i, P.root i \u2208 AddSubmonoid.closure (P.root '' s) \u2228 -P.root i \u2208 AddSubmonoid.closure (P.root '' s)) (i : \u03b9) : P.coroot i \u2208 AddSubmonoid.closure (P.coroot '' s) \u2228 -P.coroot i \u2208 AddSubmonoid.closure (P.coroot '' s)",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "",
+        "body": "P.eq_baseOf_of_linearIndepOn_of_mem_or_neg_mem_closure s hli hsp f hf'",
+        "children": []
+      }
+    ]
+  }
+]

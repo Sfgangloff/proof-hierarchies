@@ -1,0 +1,111 @@
+[
+  {
+    "module": "Prod",
+    "name": "Measurable.lintegral_prod_right'",
+    "statement": "\u2200 {f : \u03b1 \u00d7 \u03b2 \u2192 \u211d\u22650\u221e}, Measurable f \u2192 Measurable fun x => \u222b\u207b y, f (x, y) \u2202\u03bd",
+    "have_tree": [
+      {
+        "name": "m",
+        "type": "",
+        "body": "@measurable_prodMk_left",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Prod",
+    "name": "prod_prod",
+    "statement": "Set \u03b1) (t : Set \u03b2) : \u03bc.prod \u03bd (s \u00d7\u02e2 t) = \u03bc s * \u03bd t",
+    "have_tree": [
+      {
+        "name": "hSTm",
+        "type": "MeasurableSet ST",
+        "body": "measurableSet_toMeasurable _ _",
+        "children": []
+      },
+      {
+        "name": "hST",
+        "type": "s \u00d7\u02e2 t \u2286 ST",
+        "body": "subset_toMeasurable _ _",
+        "children": []
+      },
+      {
+        "name": "hfm",
+        "type": "Measurable f",
+        "body": "measurable_measure_prodMk_left hSTm",
+        "children": []
+      },
+      {
+        "name": "hss'",
+        "type": "s \u2286 s'",
+        "body": "fun x hx => measure_mono fun y hy => hST <| mk_mem_prod hx hy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Prod",
+    "name": "prod_sum_right",
+    "statement": "Type*} [Countable \u03b9'] (m : Measure \u03b1) (m' : \u03b9' \u2192 Measure \u03b2) [\u2200 n, SFinite (m' n)] : m.prod (Measure.sum m') = Measure.sum (fun p \u21a6 m.prod (m' p))",
+    "have_tree": [
+      {
+        "name": "M",
+        "type": "\u2200 x, MeasurableSet (Prod.mk x \u207b\u00b9' s)",
+        "body": "fun x => measurable_prodMk_left hs",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Prod",
+    "name": "ext_prod",
+    "statement": "Type*} {m\u03b1 : MeasurableSpace \u03b1} {m\u03b2 : MeasurableSpace \u03b2} {\u03bc \u03bd : Measure (\u03b1 \u00d7 \u03b2)} [IsFiniteMeasure \u03bc] (h : \u2200 {s : Set \u03b1} {t : Set \u03b2}, MeasurableSet s \u2192 MeasurableSet t \u2192 \u03bc (s \u00d7\u02e2 t) = \u03bd (s \u00d7\u02e2 t)) : \u03bc = \u03bd",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsFiniteMeasure \u03bd",
+        "body": "\u27e8by simp [\u2190 h_univ]\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Prod",
+    "name": "ext_prod\u2083",
+    "statement": "Type*} {m\u03b1 : MeasurableSpace \u03b1} {m\u03b2 : MeasurableSpace \u03b2} {m\u03b3 : MeasurableSpace \u03b3} {\u03bc \u03bd : Measure (\u03b1 \u00d7 \u03b2 \u00d7 \u03b3)} [IsFiniteMeasure \u03bc] (h : \u2200 {s : Set \u03b1} {t : Set \u03b2} {u : Set \u03b3}, MeasurableSet s \u2192 MeasurableSet t \u2192 MeasurableSet u \u2192 \u03bc (s \u00d7\u02e2 t \u00d7\u02e2 u) = \u03bd (s \u00d7\u02e2 t \u00d7\u02e2 u)) : \u03bc = \u03bd",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsFiniteMeasure \u03bd",
+        "body": "\u27e8by simp [\u2190 h_univ]\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Prod",
+    "name": "skew_product",
+    "statement": "\u03b1 \u2192 \u03b2} (hf : MeasurePreserving f \u03bca \u03bcb) {g : \u03b1 \u2192 \u03b3 \u2192 \u03b4} (hgm : Measurable (uncurry g)) (hg : \u2200\u1d50 a \u2202\u03bca, map (g a) \u03bcc = \u03bcd) : MeasurePreserving (fun p : \u03b1 \u00d7 \u03b3 => (f p.1, g p.1 p.2)) (\u03bca.prod \u03bcc) (\u03bcb.prod \u03bcd)",
+    "have_tree": [
+      {
+        "name": "sf",
+        "type": "SFinite \u03bcd",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Prod",
+    "name": "_root_.MeasureTheory.measurePreserving_prodAssoc",
+    "statement": "Measure \u03b1) (\u03bcb : Measure \u03b2) (\u03bcc : Measure \u03b3) [SFinite \u03bcb] [SFinite \u03bcc] : MeasurePreserving (MeasurableEquiv.prodAssoc : (\u03b1 \u00d7 \u03b2) \u00d7 \u03b3 \u2243\u1d50 \u03b1 \u00d7 \u03b2 \u00d7 \u03b3) ((\u03bca.prod \u03bcb).prod \u03bcc) (\u03bca.prod (\u03bcb.prod \u03bcc)) where measurable",
+    "have_tree": [
+      {
+        "name": "B",
+        "type": "MeasurableSet (MeasurableEquiv.prodAssoc \u207b\u00b9' s)",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

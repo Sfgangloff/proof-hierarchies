@@ -1,0 +1,22 @@
+[
+  {
+    "module": "FrobeniusNumber",
+    "name": "frobeniusNumber_pair",
+    "statement": "Coprime m n) (hm : 1 < m) (hn : 1 < n) : FrobeniusNumber (m * n - m - n) {m, n}",
+    "have_tree": [
+      {
+        "name": "hmn",
+        "type": "m + n \u2264 m * n",
+        "body": "add_le_mul hm hn",
+        "children": [
+          {
+            "name": "hx",
+            "type": "x.val < m * n",
+            "body": "chineseRemainder_lt_mul cop 0 k (ne_bot_of_gt hm) (ne_bot_of_gt hn)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

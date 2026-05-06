@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Expand",
+    "name": "natDegree_expand",
+    "statement": "\u2115) (f : R[X]) : (expand R p f).natDegree = f.natDegree * p",
+    "have_tree": [
+      {
+        "name": "hf1",
+        "type": "expand R p f \u2260 0",
+        "body": "mt (expand_eq_zero hp).1 hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Expand",
+    "name": "expand_contract",
+    "statement": "R[X]} (hf : Polynomial.derivative f = 0) (hp : p \u2260 0) : expand R p (contract p f) = f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "coeff_derivative f n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Expand",
+    "name": "isLocalHom_expand",
+    "statement": "\u2115} (hp : 0 < p) : IsLocalHom (expand R p)",
+    "have_tree": [
+      {
+        "name": "hf2",
+        "type": "",
+        "body": "eq_C_of_degree_eq_zero (degree_eq_zero_of_isUnit hf1)",
+        "children": []
+      }
+    ]
+  }
+]

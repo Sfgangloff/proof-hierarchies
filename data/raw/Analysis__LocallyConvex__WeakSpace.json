@@ -1,0 +1,47 @@
+[
+  {
+    "module": "WeakSpace",
+    "name": "Convex.toWeakSpace_closure",
+    "statement": "Set E} (hs : Convex \u211d s) : (toWeakSpace \ud835\udd5c E) '' (closure s) = closure (toWeakSpace \ud835\udd5c E '' s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "ContinuousSMul \u211d E",
+        "body": "IsScalarTower.continuousSMul \ud835\udd5c",
+        "children": []
+      },
+      {
+        "name": "hux'",
+        "type": "u < RCLike.reCLM.comp (f'.restrictScalars \u211d) (toWeakSpace \ud835\udd5c E x)",
+        "body": "by simpa [f']",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeakSpace",
+    "name": "LinearMap.image_closure_of_convex",
+    "statement": "Set E} (hs : Convex \u211d s) (e : E \u2192\u2097[\ud835\udd5c] F) (he : \u2200 f : StrongDual \ud835\udd5c F, Continuous (e.dualMap f)) : e '' (closure s) \u2286 closure (e '' s)",
+    "have_tree": [
+      {
+        "name": "h_convex",
+        "type": "Convex \u211d (e '' s)",
+        "body": "hs.linear_image (F := F) e",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeakSpace",
+    "name": "LinearEquiv.image_closure_of_convex'",
+    "statement": "Set E} (hs : Convex \u211d s) (e : E \u2243\u2097[\ud835\udd5c] F) (e_dual : StrongDual \ud835\udd5c F \u2243 StrongDual \ud835\udd5c E) (he : \u2200 f : StrongDual \ud835\udd5c F, (e_dual f : E \u2192\u2097[\ud835\udd5c] \ud835\udd5c) = e.dualMap f) : e '' (closure s) = closure (e '' s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "he _ \u25b8 congr(\u21d1$(e_dual.apply_symm_apply g)).symm",
+        "children": []
+      }
+    ]
+  }
+]

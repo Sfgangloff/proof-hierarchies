@@ -1,0 +1,248 @@
+[
+  {
+    "module": "Basic",
+    "name": "gcd_mul_dvd_mul_gcd",
+    "statement": "\u03b1) : gcd k (m * n) \u2223 gcd k m * gcd k n",
+    "have_tree": [
+      {
+        "name": "hm'n'",
+        "type": "m' * n' \u2223 k",
+        "body": "h \u25b8 gcd_dvd_left _ _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "pow_dvd_of_mul_eq_pow",
+    "statement": "\u03b1} (ha : a \u2260 0) (hab : IsUnit (gcd a b)) {k : \u2115} (h : a * b = c ^ k) (hc : c = d\u2081 * d\u2082) (hd\u2081 : d\u2081 \u2223 a) : d\u2081 ^ k \u2260 0 \u2227 d\u2081 ^ k \u2223 a",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "IsUnit (gcd (d\u2081 ^ k) b)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "d\u2081 ^ k \u2223 a * b",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h3",
+        "type": "d\u2081 ^ k \u2223 a",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h4",
+        "type": "d\u2081 ^ k \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_associated_pow_of_mul_eq_pow",
+    "statement": "\u03b1} (hab : IsUnit (gcd a b)) {k : \u2115} (h : a * b = c ^ k) : \u2203 d : \u03b1, Associated (d ^ k) a",
+    "have_tree": [
+      {
+        "name": "hc",
+        "type": "c \u2223 a * b",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "lcm_dvd_iff",
+    "statement": "\u03b1} : lcm a b \u2223 c \u2194 a \u2223 c \u2227 b \u2223 c",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "gcd a b \u2260 0",
+        "body": "fun H => h1 ((gcd_eq_zero_iff _ _).1 H).1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "lcm_eq_zero_iff",
+    "statement": "\u03b1) : lcm a b = 0 \u2194 a = 0 \u2228 b = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Associated (a * b) 0",
+        "body": "(gcd_mul_lcm a b).symm.trans <| by rw [h, mul_zero]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "lcm_mul_left",
+    "statement": "\u03b1) : lcm (a * b) (a * c) = normalize a * lcm b c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "a \u2223 lcm (a * b) (a * c)",
+        "body": "(dvd_mul_right _ _).trans (dvd_lcm_left _ _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "gcdMonoidOfGCD",
+    "statement": "\u03b1 \u2192 \u03b1 \u2192 \u03b1) (gcd_dvd_left : \u2200 a b, gcd a b \u2223 a) (gcd_dvd_right : \u2200 a b, gcd a b \u2223 b) (dvd_gcd : \u2200 {a b c}, a \u2223 c \u2192 a \u2223 b \u2192 a \u2223 gcd c b) : GCDMonoid \u03b1",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "(Classical.choose_spec ((gcd_dvd_left a 0).trans (Dvd.intro 0 rfl))).symm",
+        "children": []
+      },
+      {
+        "name": "a0'",
+        "type": "gcd a 0 \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "normalizedGCDMonoidOfGCD",
+    "statement": "\u03b1 \u2192 \u03b1 \u2192 \u03b1) (gcd_dvd_left : \u2200 a b, gcd a b \u2223 a) (gcd_dvd_right : \u2200 a b, gcd a b \u2223 b) (dvd_gcd : \u2200 {a b c}, a \u2223 c \u2192 a \u2223 b \u2192 a \u2223 gcd c b) (normalize_gcd : \u2200 a b, normalize (gcd a b) = gcd a b) : NormalizedGCDMonoid \u03b1",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "gcd a b \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "hab",
+            "type": "a * b \u2260 0",
+            "body": "mul_ne_zero a0 hb",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "gcdMonoidOfLCM",
+    "statement": "\u03b1 \u2192 \u03b1 \u2192 \u03b1) (dvd_lcm_left : \u2200 a b, a \u2223 lcm a b) (dvd_lcm_right : \u2200 a b, b \u2223 lcm a b) (lcm_dvd : \u2200 {a b c}, c \u2223 a \u2192 b \u2223 a \u2192 lcm c b \u2223 a) : GCDMonoid \u03b1",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "lcm a b \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "lcm_dvd (Dvd.intro b rfl) (Dvd.intro_left a rfl)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h0",
+        "type": "lcm a b \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "lcm_dvd (Dvd.intro b rfl) (Dvd.intro_left a rfl)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h0",
+        "type": "lcm c b \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "lcm_dvd (Dvd.intro b rfl) (Dvd.intro_left c rfl)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "normalizedGCDMonoidOfLCM",
+    "statement": "\u03b1 \u2192 \u03b1 \u2192 \u03b1) (dvd_lcm_left : \u2200 a b, a \u2223 lcm a b) (dvd_lcm_right : \u2200 a b, b \u2223 lcm a b) (lcm_dvd : \u2200 {a b c}, c \u2223 a \u2192 b \u2223 a \u2192 lcm c b \u2223 a) (normalize_lcm : \u2200 a b, normalize (lcm a b) = lcm a b) : NormalizedGCDMonoid \u03b1",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "lcm a b \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "lcm_dvd (Dvd.intro b rfl) (Dvd.intro_left a rfl)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h0",
+        "type": "lcm a b \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "lcm_dvd (Dvd.intro b rfl) (Dvd.intro_left a rfl)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h0",
+        "type": "lcm a b \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "lcm_dvd (Dvd.intro b rfl) (Dvd.intro_left a rfl)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h0",
+        "type": "lcm c b \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "lcm_dvd (Dvd.intro b rfl) (Dvd.intro_left c rfl)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

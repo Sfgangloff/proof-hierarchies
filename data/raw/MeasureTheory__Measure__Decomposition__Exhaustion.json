@@ -1,0 +1,85 @@
+[
+  {
+    "module": "Exhaustion",
+    "name": "exists_isSigmaFiniteSet_measure_ge",
+    "statement": "Measure \u03b1) [IsFiniteMeasure \u03bd] (n : \u2115) : \u2203 t, MeasurableSet t \u2227 SigmaFinite (\u03bc.restrict t) \u2227 (\u2a06 (s) (_ : MeasurableSet s) (_ : SigmaFinite (\u03bc.restrict s)), \u03bd s) - 1 / n \u2264 \u03bd t",
+    "have_tree": [
+      {
+        "name": "ht_meas",
+        "type": "MeasurableSet t",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "ht_mem",
+        "type": "SigmaFinite (\u03bc.restrict t)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exhaustion",
+    "name": "sigmaFinite_restrict_sigmaFiniteSetWRT'",
+    "statement": "Measure \u03b1) [IsFiniteMeasure \u03bd] : SigmaFinite (\u03bc.restrict (\u03bc.sigmaFiniteSetWRT' \u03bd))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "sigmaFinite_restrict_sigmaFiniteSetGE \u03bc \u03bd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exhaustion",
+    "name": "measure_eq_top_of_subset_compl_sigmaFiniteSetWRT'_of_measurableSet",
+    "statement": "MeasurableSet s) (hs_subset : s \u2286 (\u03bc.sigmaFiniteSetWRT' \u03bd)\u1d9c) (h\u03bds : \u03bd s \u2260 0) : \u03bc s = \u221e",
+    "have_tree": [
+      {
+        "name": "h_lt_top",
+        "type": "Fact (\u03bc s < \u221e)",
+        "body": "\u27e8Ne.lt_top h\u27e9",
+        "children": []
+      },
+      {
+        "name": "h_lt",
+        "type": "\u03bd (\u03bc.sigmaFiniteSetWRT' \u03bd) < \u03bd (\u03bc.sigmaFiniteSetWRT' \u03bd \u222a s)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_le",
+        "type": "\u03bd (\u03bc.sigmaFiniteSetWRT' \u03bd \u222a s) \u2264 \u03bd (\u03bc.sigmaFiniteSetWRT' \u03bd)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exhaustion",
+    "name": "measure_eq_top_of_subset_compl_sigmaFiniteSetWRT'",
+    "statement": "s \u2286 (\u03bc.sigmaFiniteSetWRT' \u03bd)\u1d9c) (h\u03bds : \u03bd s \u2260 0) : \u03bc s = \u221e",
+    "have_tree": [
+      {
+        "name": "hs_subset_t",
+        "type": "s \u2286 t \u2229 (\u03bc.sigmaFiniteSetWRT' \u03bd)\u1d9c",
+        "body": "Set.subset_inter hts hs_subset",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exhaustion",
+    "name": "measure_compl_sigmaFiniteSetWRT",
+    "statement": "\u03bc \u226a \u03bd) [SigmaFinite \u03bc] [SFinite \u03bd] : \u03bd (\u03bc.sigmaFiniteSetWRT \u03bd)\u1d9c = 0",
+    "have_tree": [
+      {
+        "name": "h_zero_top",
+        "type": "",
+        "body": "measure_eq_top_of_subset_compl_sigmaFiniteSetWRT",
+        "children": []
+      }
+    ]
+  }
+]

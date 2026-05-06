@@ -1,0 +1,46 @@
+[
+  {
+    "module": "Defs",
+    "name": "pow_apply_pos_iff_nonempty_path",
+    "statement": "\u2200 i j, 0 \u2264 A i j) (k : \u2115) (i j : n) : letI",
+    "have_tree": [
+      {
+        "name": "hAm_nonneg",
+        "type": "0 \u2264 (A ^ m) i l",
+        "body": "pow_apply_nonneg hA m i l",
+        "children": []
+      },
+      {
+        "name": "hA_nonneg'",
+        "type": "0 \u2264 A l j",
+        "body": "hA l j",
+        "children": []
+      },
+      {
+        "name": "h_Am",
+        "type": "0 < (A ^ m) i l",
+        "body": "by by_contra! h; simp [le_antisymm h hAm_nonneg] at hl_pos",
+        "children": []
+      },
+      {
+        "name": "h_A",
+        "type": "0 < A l j",
+        "body": "by by_contra! h; simp [le_antisymm h hA_nonneg'] at hl_pos",
+        "children": [
+          {
+            "name": "h_Am_pos",
+            "type": "0 < (A ^ m) i b",
+            "body": "(ih i b).mpr \u27e8q, hp_len\u27e9",
+            "children": []
+          },
+          {
+            "name": "h_prod",
+            "type": "0 < (A ^ m) i b * A b j",
+            "body": "mul_pos h_Am_pos h_A_pos",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "module": "Defs",
+    "name": "char_ne_one",
+    "statement": "\u2115) [hc : CharP R p] : p \u2260 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(p : R) = 0",
+        "body": "(cast_eq_zero_iff R p p).mpr (dvd_refl p)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(d : R) * e = 0",
+        "body": "@Nat.cast_mul R _ d e \u25b8 hmul \u25b8 this",
+        "children": [
+          {
+            "name": "_",
+            "type": "p \u2223 d",
+            "body": "(cast_eq_zero_iff R p d).mp hd",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "p \u2223 e",
+            "body": "(cast_eq_zero_iff R p e).mp he",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "e \u2223 p",
+            "body": "dvd_of_mul_left_eq d (Eq.symm hmul)",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "e = p",
+            "body": "\u2039e \u2223 p\u203a.antisymm \u2039p \u2223 e\u203a",
+            "children": []
+          },
+          {
+            "name": "h\u2080",
+            "type": "0 < p",
+            "body": "by grind",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "d * p = 1 * p",
+            "body": "by grind",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

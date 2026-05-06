@@ -1,0 +1,131 @@
+[
+  {
+    "module": "PiL2",
+    "name": "sum_repr_symm",
+    "statement": "OrthonormalBasis \u03b9 \ud835\udd5c E) (v : EuclideanSpace \ud835\udd5c \u03b9) : \u2211 i, v i \u2022 b i = b.repr.symm v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_arg (innerSL \ud835\udd5c x) (b.sum_repr y)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PiL2",
+    "name": "OrthonormalBasis.det_to_matrix_orthonormalBasis",
+    "statement": "\u2016a.toBasis.det b\u2016 = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Matrix.det_of_mem_unitary (a.toMatrix_orthonormalBasis_mem_unitary b)).2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PiL2",
+    "name": "Orthonormal.exists_orthonormalBasis_extension",
+    "statement": "Orthonormal \ud835\udd5c ((\u2191) : v \u2192 E)) : \u2203 (u : Finset E) (b : OrthonormalBasis u \ud835\udd5c E), v \u2286 u \u2227 \u21d1b = ((\u2191) : u \u2192 E)",
+    "have_tree": [
+      {
+        "name": "hu\u2080_finite",
+        "type": "u\u2080.Finite",
+        "body": "hu\u2080.linearIndependent.setFinite",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PiL2",
+    "name": "Orthonormal.exists_orthonormalBasis_extension_of_card_eq",
+    "statement": "Type*} [Fintype \u03b9] (card_\u03b9 : finrank \ud835\udd5c E = Fintype.card \u03b9) {v : \u03b9 \u2192 E} {s : Set \u03b9} (hv : Orthonormal \ud835\udd5c (s.restrict v)) : \u2203 b : OrthonormalBasis \u03b9 \ud835\udd5c E, \u2200 i \u2208 s, b i = v i",
+    "have_tree": [
+      {
+        "name": "hsv",
+        "type": "Injective (s.restrict v)",
+        "body": "hv.linearIndependent.injective",
+        "children": []
+      },
+      {
+        "name": "hvsY",
+        "type": "s.MapsTo v Y",
+        "body": "(s.mapsTo_image v).mono_right (by rwa [\u2190 range_restrict])",
+        "children": []
+      },
+      {
+        "name": "hsv'",
+        "type": "Set.InjOn v s",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PiL2",
+    "name": "orthonormalBasis_one_dim",
+    "statement": "OrthonormalBasis \u03b9 \u211d \u211d) : (\u21d1b = fun _ => (1 : \u211d)) \u2228 \u21d1b = fun _ => (-1 : \u211d)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Unique \u03b9",
+        "body": "b.toBasis.unique",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PiL2",
+    "name": "OrthonormalBasis.fromOrthogonalSpanSingleton",
+    "statement": "\u2115) [Fact (finrank \ud835\udd5c E = n + 1)] {v : E} (hv : v \u2260 0) : OrthonormalBasis (Fin n) \ud835\udd5c (\ud835\udd5c \u2219 v)\u15ee",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional \ud835\udd5c E",
+        "body": ".of_fact_finrank_eq_succ (K := \ud835\udd5c) (V := E) n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PiL2",
+    "name": "LinearIsometry.extend",
+    "statement": "S \u2192\u2097\u1d62[\ud835\udd5c] V) : V \u2192\u2097\u1d62[\ud835\udd5c] V",
+    "have_tree": [
+      {
+        "name": "E",
+        "type": "S\u15ee \u2243\u2097\u1d62[\ud835\udd5c] LS\u15ee",
+        "body": "by",
+        "children": [
+          {
+            "name": "Lp1x",
+            "type": "L (p1 x) \u2208 LinearMap.range L.toLinearMap",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "Lp2x",
+            "type": "L3 (p2 x) \u2208 (LinearMap.range L.toLinearMap)\u15ee",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PiL2",
+    "name": "InnerProductSpace.toMatrix_rankOne",
+    "statement": "Type*} [RCLike \ud835\udd5c] [SeminormedAddCommGroup E] [NormedSpace \ud835\udd5c E] [NormedAddCommGroup F] [InnerProductSpace \ud835\udd5c F] [Finite \u03b9] [Fintype \u03b9'] [DecidableEq \u03b9'] (x : E) (y : F) (b : Module.Basis \u03b9 \ud835\udd5c E) (b' : OrthonormalBasis \u03b9' \ud835\udd5c F) : (rankOne \ud835\udd5c x y).toMatrix b'.toBasis b = .vecMulVec (b.repr x) (star (b'.repr y))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      }
+    ]
+  }
+]

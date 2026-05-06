@@ -1,0 +1,174 @@
+[
+  {
+    "original": {
+      "module": "Pushouts",
+      "name": "mono_of_isPushout_of_isPullback",
+      "statement": "X\u2084 \u27f6 X\u2085} (h\u2081 : IsPushout t l r b) {r' : X\u2082 \u27f6 X\u2085} {b' : X\u2083 \u27f6 X\u2085} (h\u2082 : IsPullback t l r' b') (facr : r \u226b k = r') (facb : b \u226b k = b') [hr' : Mono r'] (H : \u2200 (x\u2083 y\u2083 : X\u2083) (_ : x\u2083 \u2209 Set.range l) (_ : y\u2083 \u2209 Set.range l), b' x\u2083 = b' y\u2083 \u2192 x\u2083 = y\u2083) : Mono k",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Function.Injective l",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "w",
+          "type": "",
+          "body": "ConcreteCategory.congr_hom h\u2081.w",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Pushouts",
+          "name": "mono_of_isPushout_of_isPullback",
+          "statement": "X\u2084 \u27f6 X\u2085} (h\u2081 : IsPushout t l r b) {r' : X\u2082 \u27f6 X\u2085} {b' : X\u2083 \u27f6 X\u2085} (h\u2082 : IsPullback t l r' b') (facr : r \u226b k = r') (facb : b \u226b k = b') [hr' : Mono r'] (H : \u2200 (x\u2083 y\u2083 : X\u2083) (_ : x\u2083 \u2209 Set.range l) (_ : y\u2083 \u2209 Set.range l), b' x\u2083 = b' y\u2083 \u2192 x\u2083 = y\u2083) : Mono k",
+          "have_tree": [
+            {
+              "name": "w",
+              "type": "",
+              "body": "ConcreteCategory.congr_hom h\u2081.w",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Function.Injective l",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Pushouts",
+      "name": "isPushout_of_isPullback_of_mono",
+      "statement": "X\u2084 \u27f6 X\u2085} {r' : X\u2082 \u27f6 X\u2085} {b' : X\u2083 \u27f6 X\u2085} (h\u2081 : IsPullback t l r' b') (facr : r \u226b k = r') (facb : b \u226b k = b') [Mono r'] [Mono k] (h\u2082 : Set.range r \u2294 Set.range b = Set.univ) (H : \u2200 (x\u2083 y\u2083 : X\u2083) (_ : x\u2083 \u2209 Set.range l) (_ : y\u2083 \u2209 Set.range l), b' x\u2083 = b' y\u2083 \u2192 x\u2083 = y\u2083) : IsPushout t l r b",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "mono_of_isPushout_of_isPullback (IsPushout.of_hasPushout t l) h\u2081",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "IsIso \u03c6",
+          "body": "by",
+          "children": [
+            {
+              "name": "hx\u2084",
+              "type": "",
+              "body": "Set.mem_univ x\u2084",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Pushouts",
+          "name": "isPushout_of_isPullback_of_mono",
+          "statement": "X\u2084 \u27f6 X\u2085} {r' : X\u2082 \u27f6 X\u2085} {b' : X\u2083 \u27f6 X\u2085} (h\u2081 : IsPullback t l r' b') (facr : r \u226b k = r') (facb : b \u226b k = b') [Mono r'] [Mono k] (h\u2082 : Set.range r \u2294 Set.range b = Set.univ) (H : \u2200 (x\u2083 y\u2083 : X\u2083) (_ : x\u2083 \u2209 Set.range l) (_ : y\u2083 \u2209 Set.range l), b' x\u2083 = b' y\u2083 \u2192 x\u2083 = y\u2083) : IsPushout t l r b",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "mono_of_isPushout_of_isPullback (IsPushout.of_hasPushout t l) h\u2081",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsIso \u03c6",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Pushouts",
+          "name": "isPushout_of_isPullback_of_mono",
+          "statement": "X\u2084 \u27f6 X\u2085} {r' : X\u2082 \u27f6 X\u2085} {b' : X\u2083 \u27f6 X\u2085} (h\u2081 : IsPullback t l r' b') (facr : r \u226b k = r') (facb : b \u226b k = b') [Mono r'] [Mono k] (h\u2082 : Set.range r \u2294 Set.range b = Set.univ) (H : \u2200 (x\u2083 y\u2083 : X\u2083) (_ : x\u2083 \u2209 Set.range l) (_ : y\u2083 \u2209 Set.range l), b' x\u2083 = b' y\u2083 \u2192 x\u2083 = y\u2083) : IsPushout t l r b",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "mono_of_isPushout_of_isPullback (IsPushout.of_hasPushout t l) h\u2081",
+              "children": []
+            },
+            {
+              "name": "hx\u2084",
+              "type": "",
+              "body": "Set.mem_univ x\u2084",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsIso \u03c6",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Pushouts",
+          "name": "isPushout_of_isPullback_of_mono",
+          "statement": "X\u2084 \u27f6 X\u2085} {r' : X\u2082 \u27f6 X\u2085} {b' : X\u2083 \u27f6 X\u2085} (h\u2081 : IsPullback t l r' b') (facr : r \u226b k = r') (facb : b \u226b k = b') [Mono r'] [Mono k] (h\u2082 : Set.range r \u2294 Set.range b = Set.univ) (H : \u2200 (x\u2083 y\u2083 : X\u2083) (_ : x\u2083 \u2209 Set.range l) (_ : y\u2083 \u2209 Set.range l), b' x\u2083 = b' y\u2083 \u2192 x\u2083 = y\u2083) : IsPushout t l r b",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsIso \u03c6",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hx\u2084",
+                  "type": "",
+                  "body": "Set.mem_univ x\u2084",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "mono_of_isPushout_of_isPullback (IsPushout.of_hasPushout t l) h\u2081",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

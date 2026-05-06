@@ -1,0 +1,72 @@
+[
+  {
+    "module": "Nondegenerate",
+    "name": "toInvariantForm",
+    "statement": "P.InvariantForm where form",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u03b9) : lsq i = P.RootForm (P.root i) (P.root i)",
+        "body": "rfl",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "lsq k \u2022 P.coroot k = (m \u2022 lsq i) \u2022 P.coroot i + (n \u2022 lsq j) \u2022 P.coroot j",
+        "body": "by",
+        "children": [
+          {
+            "name": "aux",
+            "type": "P.RootForm (P.root j) (P.root i) = B.form (P.root i) (P.root j)",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h\u2083",
+        "type": "2 * B.form (P.root i) (P.root j) = P.pairing i j * lsq j",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u2084",
+        "type": "P.pairing j i * lsq i = P.pairing i j * lsq j",
+        "body": "B.pairing_mul_eq_pairing_mul_swap i j",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Nondegenerate",
+    "name": "finrank_range_polarization_eq_finrank_span_coroot",
+    "statement": "finrank S (LinearMap.range (P.PolarizationIn S)) = finrank S (P.corootSpan S)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsReflexive R N",
+        "body": ".of_isPerfPair P.flip.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.IsTorsionFree S N",
+        "body": ".trans_faithfulSMul S R N",
+        "children": []
+      },
+      {
+        "name": "h_ne",
+        "type": "\u220f i, (P.RootFormIn S (P.rootSpanMem S i) (P.rootSpanMem S i)) \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(FaithfulSMul.algebraMap_eq_zero_iff S R).mpr h",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

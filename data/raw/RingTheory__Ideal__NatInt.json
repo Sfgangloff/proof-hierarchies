@@ -1,0 +1,46 @@
+[
+  {
+    "module": "NatInt",
+    "name": "Ideal.isPrime_nat_iff",
+    "statement": "Ideal \u2115} : P.IsPrime \u2194 P = \u22a5 \u2228 P = maximalIdeal \u2115 \u2228 \u2203 p : \u2115, p.Prime \u2227 P = span {p}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "p \u2260 1",
+        "body": "ne_of_mem_of_not_mem hp P.one_notMem",
+        "children": []
+      },
+      {
+        "name": "prime",
+        "type": "p.Prime",
+        "body": "Nat.prime_iff_not_exists_mul_eq.mpr <| .intro (by lia)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "n \u2260 1",
+        "body": "Nat.mem_maximalIdeal_iff.mp hn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NatInt",
+    "name": "ringKrullDim_nat",
+    "statement": "ringKrullDim \u2115 = 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero s.length",
+        "body": "\u27e8three_ne_zero\u27e9",
+        "children": []
+      },
+      {
+        "name": "h1",
+        "type": "\u22a5 < (s 1).asIdeal",
+        "body": "bot_le.trans_lt (s.step 0)",
+        "children": []
+      }
+    ]
+  }
+]

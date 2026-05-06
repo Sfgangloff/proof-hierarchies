@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Config",
+    "name": "exists_code",
+    "statement": "List.Vector \u2115 n \u2192. \u2115} (hf : Nat.Partrec' f) : \u2203 c : Code, \u2200 v : List.Vector \u2115 n, c.eval v.1 = pure <$> f v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Part.eq_some_iff.mpr (this _ _ (zero_add _))",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "PFun.mem_fix_iff.1 h2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Config",
+    "name": "cont_eval_fix",
+    "statement": "Code.Ok f) : eval step (stepNormal f (Cont.fix f k) v) = f.fix.eval v >>= fun v => eval step (Cfg.ret k v)",
+    "have_tree": [
+      {
+        "name": "e\u2081",
+        "type": "",
+        "body": "stepNormal_then f Cont.halt (Cont.fix f k) v'.tail",
+        "children": []
+      }
+    ]
+  }
+]

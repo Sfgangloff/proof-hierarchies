@@ -1,0 +1,91 @@
+[
+  {
+    "module": "Engel",
+    "name": "Function.Surjective.isEngelian",
+    "statement": "L \u2192\u2097\u2045R\u2046 L\u2082} (hf : Function.Surjective f) (h : LieAlgebra.IsEngelian.{u\u2081, u\u2082, u\u2084} R L) : LieAlgebra.IsEngelian.{u\u2081, u\u2083, u\u2084} R L\u2082",
+    "have_tree": [
+      {
+        "name": "hnp",
+        "type": "\u2200 x, IsNilpotent (toEnd R L M x)",
+        "body": "fun x => h' (f x)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Engel",
+    "name": "LieAlgebra.exists_engelian_lieSubalgebra_of_lt_normalizer",
+    "statement": "LieSubalgebra R L} (hK\u2081 : LieAlgebra.IsEngelian.{u\u2081, u\u2082, u\u2084} R K) (hK\u2082 : K < K.normalizer) : \u2203 (K' : LieSubalgebra R L), LieAlgebra.IsEngelian.{u\u2081, u\u2082, u\u2084} R K' \u2227 K < K'",
+    "have_tree": [
+      {
+        "name": "hxK'",
+        "type": "x \u2208 K'",
+        "body": "Submodule.mem_sup_left (Submodule.subset_span (Set.mem_singleton _))",
+        "children": []
+      },
+      {
+        "name": "hKK'",
+        "type": "K \u2264 K'",
+        "body": "(LieSubalgebra.toSubmodule_le_toSubmodule K K').mp le_sup_right",
+        "children": []
+      },
+      {
+        "name": "hK'",
+        "type": "K' \u2264 K.normalizer",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "e",
+        "type": "K \u2243\u2097\u2045R\u2046 I",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hI\u2083",
+        "type": "LieAlgebra.IsEngelian R I",
+        "body": "e.isEngelian_iff.mp hK\u2081",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Engel",
+    "name": "LieAlgebra.isEngelian_of_isNoetherian",
+    "statement": "LieAlgebra.IsEngelian R L",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "s.Nonempty",
+        "body": "\u27e8\u22a5, LieAlgebra.isEngelian_of_subsingleton\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 K \u2208 s, K \u2260 \u22a4 \u2192 \u2203 K' \u2208 s, K < K'",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Nontrivial (L' \u29f8 K.toLieSubmodule)",
+            "body": "Submodule.Quotient.nontrivial_iff.2 <| by simpa",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "LieModule.IsNilpotent K (L' \u29f8 K.toLieSubmodule)",
+            "body": "by",
+            "children": [
+              {
+                "name": "hx",
+                "type": "",
+                "body": "LieAlgebra.isNilpotent_ad_of_isNilpotent (h x)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

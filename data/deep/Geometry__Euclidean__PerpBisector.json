@@ -1,0 +1,60 @@
+[
+  {
+    "module": "PerpBisector",
+    "name": "dist_lt_of_sbtw_of_inner_eq_zero",
+    "statement": "P} (h_sbtw : Sbtw \u211d a b c) (h_inner : \u27eap -\u1d65 a, b -\u1d65 a\u27eb = 0) : dist p b < dist p c",
+    "have_tree": [
+      {
+        "name": "hb",
+        "type": "b -\u1d65 a = t \u2022 (c -\u1d65 a)",
+        "body": "by simp [\u2190 hb_eq, AffineMap.lineMap_apply]",
+        "children": []
+      },
+      {
+        "name": "hpc",
+        "type": "\u27eap -\u1d65 a, c -\u1d65 a\u27eb = 0",
+        "body": "by simpa [ht0.ne', hb, inner_smul_right] using h_inner",
+        "children": []
+      },
+      {
+        "name": "h_sq_ineq",
+        "type": "dist p b ^ 2 < dist p c ^ 2",
+        "body": "by",
+        "children": [
+          {
+            "name": "hv_pos",
+            "type": "0 < dist a c ^ 2",
+            "body": "sq_pos_of_pos (dist_pos.mpr h_sbtw.left_ne_right)",
+            "children": []
+          },
+          {
+            "name": "ht_sq_lt",
+            "type": "t ^ 2 < 1",
+            "body": "sq_lt_one_iff\u2080 ht0.le |>.mpr ht1",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PerpBisector",
+    "name": "dist_le_of_wbtw_of_inner_eq_zero",
+    "statement": "P} (h_wbtw : Wbtw \u211d a b c) (h_inner : \u27eap -\u1d65 a, c -\u1d65 a\u27eb = 0) : dist p b \u2264 dist p c",
+    "have_tree": [
+      {
+        "name": "h_sq_ineq",
+        "type": "dist p b ^ 2 \u2264 dist p c ^ 2",
+        "body": "by",
+        "children": [
+          {
+            "name": "ht_sq_le",
+            "type": "t ^ 2 \u2264 1",
+            "body": "sq_le_one_iff\u2080 ht0 |>.mpr ht1",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

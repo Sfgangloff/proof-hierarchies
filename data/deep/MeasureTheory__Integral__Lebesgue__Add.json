@@ -1,0 +1,58 @@
+[
+  {
+    "module": "Add",
+    "name": "lintegral_iSup",
+    "statement": "\u2115 \u2192 \u03b1 \u2192 \u211d\u22650\u221e} (hf : \u2200 n, Measurable (f n)) (h_mono : Monotone f) : \u222b\u207b a, \u2a06 n, f n a \u2202\u03bc = \u2a06 n, \u222b\u207b a, f n a \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "r < 1",
+        "body": "ENNReal.coe_lt_coe.1 ha",
+        "children": []
+      },
+      {
+        "name": "eq_rs",
+        "type": "rs.map c = (const \u03b1 r : \u03b1 \u2192\u209b \u211d\u22650\u221e) * map c s",
+        "body": "rfl",
+        "children": []
+      },
+      {
+        "name": "eq",
+        "type": "\u2200 p, rs.map c \u207b\u00b9' {p} = \u22c3 n, rs.map c \u207b\u00b9' {p} \u2229 { a | p \u2264 f n a }",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "r * s x \u2260 0",
+            "body": "by rwa [Ne, \u2190 ENNReal.coe_eq_zero]",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "s x \u2260 0",
+            "body": "right_ne_zero_of_mul this",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "(rs.map c) x < \u2a06 n : \u2115, f n x",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "mono",
+        "type": "\u2200 r : \u211d\u22650\u221e, Monotone fun n => rs.map c \u207b\u00b9' {r} \u2229 { a | r \u2264 f n a }",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_meas",
+        "type": "\u2200 n, MeasurableSet {a : \u03b1 | map c rs a \u2264 f n a}",
+        "body": "fun n =>",
+        "children": []
+      }
+    ]
+  }
+]

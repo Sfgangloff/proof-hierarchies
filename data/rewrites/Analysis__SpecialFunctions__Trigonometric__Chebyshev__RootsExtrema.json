@@ -1,0 +1,199 @@
+[
+  {
+    "original": {
+      "module": "RootsExtrema",
+      "name": "isLocalMax_T_real",
+      "statement": "\u2115} (hn : n \u2260 0) (hk\u2080 : 0 < k) (hk\u2081 : k < n) (hk\u2082 : Even k) : IsLocalMax (T \u211d n).eval (cos (k * \u03c0 / n))",
+      "have_tree": [
+        {
+          "name": "zero_lt",
+          "type": "0 < k * \u03c0 / n",
+          "body": "by positivity",
+          "children": []
+        },
+        {
+          "name": "lt_pi",
+          "type": "k * \u03c0 / n < \u03c0",
+          "body": "calc",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "RootsExtrema",
+          "name": "isLocalMax_T_real",
+          "statement": "\u2115} (hn : n \u2260 0) (hk\u2080 : 0 < k) (hk\u2081 : k < n) (hk\u2082 : Even k) : IsLocalMax (T \u211d n).eval (cos (k * \u03c0 / n))",
+          "have_tree": [
+            {
+              "name": "lt_pi",
+              "type": "k * \u03c0 / n < \u03c0",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "zero_lt",
+              "type": "0 < k * \u03c0 / n",
+              "body": "by positivity",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "RootsExtrema",
+      "name": "isLocalMin_T_real",
+      "statement": "\u2115} (hn : n \u2260 0) (hk\u2081 : k < n) (hk\u2082 : Odd k) : IsLocalMin (T \u211d n).eval (cos (k * \u03c0 / n))",
+      "have_tree": [
+        {
+          "name": "k_pos",
+          "type": "0 < k",
+          "body": "hk\u2082.pos",
+          "children": []
+        },
+        {
+          "name": "zero_lt",
+          "type": "0 < k * \u03c0 / n",
+          "body": "by positivity",
+          "children": []
+        },
+        {
+          "name": "lt_pi",
+          "type": "k * \u03c0 / n < \u03c0",
+          "body": "calc",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "RootsExtrema",
+          "name": "isLocalMin_T_real",
+          "statement": "\u2115} (hn : n \u2260 0) (hk\u2081 : k < n) (hk\u2082 : Odd k) : IsLocalMin (T \u211d n).eval (cos (k * \u03c0 / n))",
+          "have_tree": [
+            {
+              "name": "zero_lt",
+              "type": "0 < k * \u03c0 / n",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "k_pos",
+              "type": "0 < k",
+              "body": "hk\u2082.pos",
+              "children": []
+            },
+            {
+              "name": "lt_pi",
+              "type": "k * \u03c0 / n < \u03c0",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "RootsExtrema",
+          "name": "isLocalMin_T_real",
+          "statement": "\u2115} (hn : n \u2260 0) (hk\u2081 : k < n) (hk\u2082 : Odd k) : IsLocalMin (T \u211d n).eval (cos (k * \u03c0 / n))",
+          "have_tree": [
+            {
+              "name": "k_pos",
+              "type": "0 < k",
+              "body": "hk\u2082.pos",
+              "children": []
+            },
+            {
+              "name": "lt_pi",
+              "type": "k * \u03c0 / n < \u03c0",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "zero_lt",
+              "type": "0 < k * \u03c0 / n",
+              "body": "by positivity",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "RootsExtrema",
+      "name": "isExtrOn_T_real_iff",
+      "statement": "\u2115} (hn : n \u2260 0) {x : \u211d} (hx : x \u2208 Set.Icc (-1) 1) : IsExtrOn (T \u211d n).eval (Set.Icc (-1) 1) x \u2194 \u2203 k \u2264 n, x = cos (k * \u03c0 / n)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "isMinOn_iff.mp h (cos (1 * \u03c0 / n)) (by grind [abs_cos_le_one])",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "isMaxOn_iff.mp h (cos (0 * \u03c0 / n)) (by simp)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "RootsExtrema",
+          "name": "isExtrOn_T_real_iff",
+          "statement": "\u2115} (hn : n \u2260 0) {x : \u211d} (hx : x \u2208 Set.Icc (-1) 1) : IsExtrOn (T \u211d n).eval (Set.Icc (-1) 1) x \u2194 \u2203 k \u2264 n, x = cos (k * \u03c0 / n)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "isMaxOn_iff.mp h (cos (0 * \u03c0 / n)) (by simp)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "isMinOn_iff.mp h (cos (1 * \u03c0 / n)) (by grind [abs_cos_le_one])",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,87 @@
+[
+  {
+    "module": "DirichletContinuation",
+    "name": "deriv_LFunction_eq_deriv_LSeries",
+    "statement": "DirichletCharacter \u2102 N) {s : \u2102} (hs : 1 < s.re) : deriv (LFunction \u03c7) s = deriv (LSeries (\u03c7 \u00b7)) s",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "{z | 1 < z.re} \u2208 nhds s",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DirichletContinuation",
+    "name": "LFunction_changeLevel_aux",
+    "statement": "\u2115} [NeZero M] [NeZero N] (hMN : M \u2223 N) (\u03c7 : DirichletCharacter \u2102 M) {s : \u2102} (hs : s \u2260 1) : LFunction (changeLevel hMN \u03c7) s = LFunction \u03c7 s * \u220f p \u2208 N.primeFactors, (1 - \u03c7 p * p ^ (-s))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero i",
+        "body": "\u27e8(Nat.pos_of_mem_primeFactors h).ne'\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DirichletContinuation",
+    "name": "LFunction_changeLevel",
+    "statement": "\u2115} [NeZero M] [NeZero N] (hMN : M \u2223 N) (\u03c7 : DirichletCharacter \u2102 M) {s : \u2102} (h : \u03c7 \u2260 1 \u2228 s \u2260 1) : LFunction (changeLevel hMN \u03c7) s = LFunction \u03c7 s * \u220f p \u2208 N.primeFactors, (1 - \u03c7 p * p ^ (-s))",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "Continuous fun s \u21a6 LFunction \u03c7 s * \u220f p \u2208 N.primeFactors, (1 - \u03c7 p * \u2191p ^ (-s))",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "NeZero p",
+            "body": "\u27e8(Nat.prime_of_mem_primeFactors hp).ne_zero\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "DirichletContinuation",
+    "name": "LFunctionTrivChar_residue_one",
+    "statement": "Tendsto (fun s \u21a6 (s - 1) * LFunctionTrivChar N s) (\ud835\udcdd[\u2260] 1) (\ud835\udcdd <| \u220f p \u2208 N.primeFactors, (1 - (p : \u2102)\u207b\u00b9))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero p",
+        "body": "\u27e8(Nat.prime_of_mem_primeFactors hp).ne_zero\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DirichletContinuation",
+    "name": "continuousOn_neg_logDeriv_LFunctionTrivChar\u2081",
+    "statement": "ContinuousOn (fun s \u21a6 -deriv (LFunctionTrivChar\u2081 n) s / LFunctionTrivChar\u2081 n s) {s | s = 1 \u2228 LFunctionTrivChar n s \u2260 0}",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "differentiable_LFunctionTrivChar\u2081 n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DirichletContinuation",
+    "name": "continuousOn_neg_logDeriv_LFunction_of_nontriv",
+    "statement": "\u03c7 \u2260 1) : ContinuousOn (fun s \u21a6 -deriv (LFunction \u03c7) s / LFunction \u03c7 s) {s | LFunction \u03c7 s \u2260 0}",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "differentiable_LFunction h\u03c7",
+        "children": []
+      }
+    ]
+  }
+]

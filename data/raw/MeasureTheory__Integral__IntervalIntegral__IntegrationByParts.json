@@ -1,0 +1,111 @@
+[
+  {
+    "module": "IntegrationByParts",
+    "name": "integral_deriv_smul_comp'''",
+    "statement": "ContinuousOn f [[a, b]]) (hff' : \u2200 x \u2208 Ioo (min a b) (max a b), HasDerivWithinAt f (f' x) (Ioi x) x) (hg_cont : ContinuousOn g (f '' Ioo (min a b) (max a b))) (hg1 : IntegrableOn g (f '' [[a, b]])) (hg2 : IntegrableOn (fun x \u21a6 f' x \u2022 (g \u2218 f) x) [[a, b]]) : (\u222b x in a..b, f' x \u2022 (g \u2218 f) x) = \u222b u in f a..f b, g u",
+    "have_tree": [
+      {
+        "name": "h_cont",
+        "type": "ContinuousOn (fun u \u21a6 \u222b t in f a..f u, g t) [[a, b]]",
+        "body": "by",
+        "children": [
+          {
+            "name": "cdsub",
+            "type": "[[c, d]] \u2286 Ioo (min a b) (max a b)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h2x",
+            "type": "f x \u2208 J",
+            "body": "by rw [\u2190 hJ]; exact mem_image_of_mem _ (mem_uIcc_of_le hc.2.le hd.1.le)",
+            "children": []
+          },
+          {
+            "name": "h2g",
+            "type": "IntervalIntegrable g volume (f a) (f x)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h3g",
+            "type": "StronglyMeasurableAtFilter g (\ud835\udcdd[J] f x)",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "HasDerivWithinAt (fun u \u21a6 \u222b x in f a..u, g x) (g (f x)) J (f x)",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "IntegrationByParts",
+    "name": "integral_deriv_smul_comp_of_deriv_nonneg",
+    "statement": "ContinuousOn f [[a, b]]) (hff' : \u2200 x \u2208 Ioo (min a b) (max a b), HasDerivAt f (f' x) x) (hf' : \u2200 x \u2208 Ioo (min a b) (max a b), 0 \u2264 f' x) : (\u222b x in a..b, f' x \u2022 (g \u2218 f) x) = \u222b u in f a..f b, g u",
+    "have_tree": [
+      {
+        "name": "M",
+        "type": "MonotoneOn f (uIcc a b)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrationByParts",
+    "name": "integrable_deriv_smul_comp_iff_of_deriv_nonneg",
+    "statement": "ContinuousOn f [[a, b]]) (hff' : \u2200 x \u2208 Ioo (min a b) (max a b), HasDerivAt f (f' x) x) (hf' : \u2200 x \u2208 Ioo (min a b) (max a b), 0 \u2264 f' x) : IntervalIntegrable (fun x \u21a6 f' x \u2022 (g \u2218 f) x) volume a b \u2194 IntervalIntegrable g volume (f a) (f b)",
+    "have_tree": [
+      {
+        "name": "M",
+        "type": "MonotoneOn f (uIcc a b)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrationByParts",
+    "name": "integral_deriv_smul_comp_of_deriv_nonpos",
+    "statement": "ContinuousOn f [[a, b]]) (hff' : \u2200 x \u2208 Ioo (min a b) (max a b), HasDerivAt f (f' x) x) (hf' : \u2200 x \u2208 Ioo (min a b) (max a b), f' x \u2264 0) : (\u222b x in a..b, f' x \u2022 (g \u2218 f) x) = \u222b u in f a..f b, g u",
+    "have_tree": [
+      {
+        "name": "M",
+        "type": "AntitoneOn f (uIcc a b)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrationByParts",
+    "name": "integrable_deriv_smul_comp_iff_of_deriv_nonpos",
+    "statement": "ContinuousOn f [[a, b]]) (hff' : \u2200 x \u2208 Ioo (min a b) (max a b), HasDerivAt f (f' x) x) (hf' : \u2200 x \u2208 Ioo (min a b) (max a b), f' x \u2264 0) : IntervalIntegrable (fun x \u21a6 f' x \u2022 (g \u2218 f) x) volume a b \u2194 IntervalIntegrable g volume (f a) (f b)",
+    "have_tree": [
+      {
+        "name": "M",
+        "type": "AntitoneOn f (uIcc a b)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrationByParts",
+    "name": "integral_comp_mul_deriv'''",
+    "statement": "\u211d} {f f' : \u211d \u2192 \u211d} {g : \u211d \u2192 \u211d} (hf : ContinuousOn f [[a, b]]) (hff' : \u2200 x \u2208 Ioo (min a b) (max a b), HasDerivWithinAt f (f' x) (Ioi x) x) (hg_cont : ContinuousOn g (f '' Ioo (min a b) (max a b))) (hg1 : IntegrableOn g (f '' [[a, b]])) (hg2 : IntegrableOn (fun x \u21a6 (g \u2218 f) x * f' x) [[a, b]]) : (\u222b x in a..b, (g \u2218 f) x * f' x) = \u222b u in f a..f b, g u",
+    "have_tree": [
+      {
+        "name": "hg2'",
+        "type": "IntegrableOn (fun x \u21a6 f' x \u2022 (g \u2218 f) x) [[a, b]]",
+        "body": "by simpa [mul_comm] using hg2",
+        "children": []
+      }
+    ]
+  }
+]

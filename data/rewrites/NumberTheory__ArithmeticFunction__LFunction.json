@@ -1,0 +1,122 @@
+[
+  {
+    "original": {
+      "module": "LFunction",
+      "name": "tendsTo_eulerProduct_of_tendsTo",
+      "statement": "\u03b9 \u2192 ArithmeticFunction R) (hf : \u2200 n, \u2200\u1da0 i in cofinite, f i n = (1 : ArithmeticFunction R) n) : \u2200 n, \u2200\u1da0 s in atTop, (\u220f i \u2208 s, f i) n = eulerProduct f n",
+      "have_tree": [
+        {
+          "name": "h1",
+          "type": "",
+          "body": "hs' i (hw i (Finset.mem_insert_self i w)) j.1",
+          "children": []
+        },
+        {
+          "name": "h2",
+          "type": "",
+          "body": "hw' (fun i hi \u21a6 hw i (Finset.mem_insert_of_mem hi)) j.2",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "LFunction",
+          "name": "tendsTo_eulerProduct_of_tendsTo",
+          "statement": "\u03b9 \u2192 ArithmeticFunction R) (hf : \u2200 n, \u2200\u1da0 i in cofinite, f i n = (1 : ArithmeticFunction R) n) : \u2200 n, \u2200\u1da0 s in atTop, (\u220f i \u2208 s, f i) n = eulerProduct f n",
+          "have_tree": [
+            {
+              "name": "h2",
+              "type": "",
+              "body": "hw' (fun i hi \u21a6 hw i (Finset.mem_insert_of_mem hi)) j.2",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "",
+              "body": "hs' i (hw i (Finset.mem_insert_self i w)) j.1",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "LFunction",
+      "name": "isMultiplicative_eulerProduct",
+      "statement": "\u03b9 \u2192 ArithmeticFunction R) (hf : \u2200 i, IsMultiplicative (f i)) : IsMultiplicative (eulerProduct f)",
+      "have_tree": [
+        {
+          "name": "key",
+          "type": "",
+          "body": "tendsto_iff.mp hf'.hasProd",
+          "children": [
+            {
+              "name": "h2",
+              "type": "",
+              "body": "key (m * n)",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "LFunction",
+          "name": "isMultiplicative_eulerProduct",
+          "statement": "\u03b9 \u2192 ArithmeticFunction R) (hf : \u2200 i, IsMultiplicative (f i)) : IsMultiplicative (eulerProduct f)",
+          "have_tree": [
+            {
+              "name": "key",
+              "type": "",
+              "body": "tendsto_iff.mp hf'.hasProd",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "LFunction",
+          "name": "isMultiplicative_eulerProduct",
+          "statement": "\u03b9 \u2192 ArithmeticFunction R) (hf : \u2200 i, IsMultiplicative (f i)) : IsMultiplicative (eulerProduct f)",
+          "have_tree": [
+            {
+              "name": "h2",
+              "type": "",
+              "body": "key (m * n)",
+              "children": []
+            },
+            {
+              "name": "key",
+              "type": "",
+              "body": "tendsto_iff.mp hf'.hasProd",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "module": "Basic",
+    "name": "partialGamma_add_one",
+    "statement": "\u2102} (hs : 0 < s.re) {X : \u211d} (hX : 0 \u2264 X) : partialGamma (s + 1) X = s * partialGamma s X - (-X).exp * X ^ s",
+    "have_tree": [
+      {
+        "name": "t",
+        "type": "",
+        "body": "@HasDerivAt.cpow_const _ _ _ s (hasDerivAt_id \u2191x) ?_",
+        "children": []
+      },
+      {
+        "name": "cont",
+        "type": "",
+        "body": "(continuous_ofReal.comp continuous_neg.rexp).mul (continuous_ofReal_cpow_const hs)",
+        "children": []
+      },
+      {
+        "name": "der_ible",
+        "type": "",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "int_eval",
+        "type": "",
+        "body": "integral_eq_sub_of_hasDerivAt_of_le hX cont.continuousOn F_der_I der_ible",
+        "children": []
+      },
+      {
+        "name": "hn",
+        "type": "s \u2260 0",
+        "body": "by contrapose! hs; rw [hs, zero_re]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "GammaAux",
+    "statement": "\u2115 \u2192 \u2102 \u2192 \u2102 | 0 => GammaIntegral | n + 1 => fun s : \u2102 => GammaAux n (s + 1) / s  theorem GammaAux_recurrence1 (s : \u2102) (n : \u2115) (h1 : -s.re < \u2191n) : GammaAux n s = GammaAux n (s + 1) / s",
+    "have_tree": [
+      {
+        "name": "hh1",
+        "type": "-(s + 1).re < n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "GammaAux_recurrence2",
+    "statement": "\u2102) (n : \u2115) (h1 : -s.re < \u2191n) : GammaAux n s = GammaAux (n + 1) s",
+    "have_tree": [
+      {
+        "name": "hh1",
+        "type": "-(s + 1).re < n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Gamma_eq_GammaAux",
+    "statement": "\u2102) (n : \u2115) (h1 : -s.re < \u2191n) : Gamma s = GammaAux n s",
+    "have_tree": [
+      {
+        "name": "i0",
+        "type": "",
+        "body": "Nat.sub_one_lt_floor (1 - s.re)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Gamma_add_one",
+    "statement": "\u2102) (h2 : s \u2260 0) : Gamma (s + 1) = s * Gamma s",
+    "have_tree": [
+      {
+        "name": "t1",
+        "type": "-s.re < n",
+        "body": "by simpa only [sub_sub_cancel_left] using Nat.sub_one_lt_floor (1 - s.re)",
+        "children": []
+      },
+      {
+        "name": "t2",
+        "type": "-(s + 1).re < n",
+        "body": "by rw [add_re, one_re]; linarith",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Gamma_ne_zero",
+    "statement": "\u211d} (hs : \u2200 m : \u2115, s \u2260 -m) : Gamma s \u2260 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Gamma (s + 1) \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "module": "Chunk",
+    "name": "one_sub_eps_mul_card_nonuniformWitness_le_card_star",
+    "statement": "V \u2208 P.parts) (hUV : U \u2260 V) (hunif : \u00acG.IsUniform \u03b5 U V) (hP\u03b5 : \u2191100 \u2264 \u21914 ^ #P.parts * \u03b5 ^ 5) (h\u03b5\u2081 : \u03b5 \u2264 1) : (1 - \u03b5 / 10) * #(G.nonuniformWitness \u03b5 U V) \u2264 #((star hP G \u03b5 hU V).biUnion id)",
+    "have_tree": [
+      {
+        "name": "hP\u2081",
+        "type": "0 < #P.parts",
+        "body": "Finset.card_pos.2 \u27e8_, hU\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(\u21912 ^ #P.parts : \u211d) * m / (#U * \u03b5) \u2264 \u03b5 / 10",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(2 : \u211d) ^ #P.parts = \u21912 ^ (#P.parts - 1) * 2",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "Finset.card_pos.mpr (P.nonempty_of_mem_parts hU)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Chunk",
+    "name": "eps_le_card_star_div",
+    "statement": "#P.parts * 16 ^ #P.parts \u2264 card \u03b1) (hP\u03b5 : \u2191100 \u2264 \u21914 ^ #P.parts * \u03b5 ^ 5) (h\u03b5\u2081 : \u03b5 \u2264 1) (hU : U \u2208 P.parts) (hV : V \u2208 P.parts) (hUV : U \u2260 V) (hunif : \u00acG.IsUniform \u03b5 U V) : \u21914 / \u21915 * \u03b5 \u2264 #(star hP G \u03b5 hU V) / \u21914 ^ #P.parts",
+    "have_tree": [
+      {
+        "name": "hm",
+        "type": "(0 : \u211d) \u2264 1 - (\u2191m)\u207b\u00b9",
+        "body": "sub_nonneg_of_le (inv_le_one_of_one_le\u2080 <| one_le_m_coe hP\u03b1)",
+        "children": []
+      },
+      {
+        "name": "h\u03b5",
+        "type": "0 \u2264 1 - \u03b5 / 10",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u03b5\u2080",
+        "type": "0 < \u03b5",
+        "body": "by sz_positivity",
+        "children": [
+          {
+            "name": "hm",
+            "type": "(0 : \u211d) < m",
+            "body": "by sz_positivity",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Chunk",
+    "name": "edgeDensity_star_not_uniform",
+    "statement": "#P.parts * 16 ^ #P.parts \u2264 card \u03b1) (hP\u03b5 : \u2191100 \u2264 \u21914 ^ #P.parts * \u03b5 ^ 5) (h\u03b5\u2081 : \u03b5 \u2264 1) {hU : U \u2208 P.parts} {hV : V \u2208 P.parts} (hUVne : U \u2260 V) (hUV : \u00acG.IsUniform \u03b5 U V) : \u21913 / \u21914 * \u03b5 \u2264 |(\u2211 ab \u2208 (star hP G \u03b5 hU V).product (star hP G \u03b5 hV U), (G.edgeDensity ab.1 ab.2 : \u211d)) / (#(star hP G \u03b5 hU V) * #(star hP G \u03b5 hV U)) - (\u2211 ab \u2208 (chunk hP G \u03b5 hU).parts.product (chunk hP G \u03b5 hV).parts, (G.edgeDensity ab.1 ab.2 : \u211d)) / (16 : \u211d) ^ #P.parts|",
+    "have_tree": [
+      {
+        "name": "hrs",
+        "type": "|r - s| \u2264 \u03b5 / 5",
+        "body": "abs_density_star_sub_density_le_eps hP\u03b5 h\u03b5\u2081 hUVne hUV",
+        "children": []
+      },
+      {
+        "name": "hst",
+        "type": "\u03b5 \u2264 |s - t|",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hpr",
+        "type": "|p - r| \u2264 \u03b5 ^ 5 / 49",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hqt",
+        "type": "|q - t| \u2264 \u03b5 ^ 5 / 49",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "average_density_near_total_density hP\u03b1 hP\u03b5 h\u03b5\u2081",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h\u03b5'",
+        "type": "\u03b5 ^ 5 \u2264 \u03b5",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

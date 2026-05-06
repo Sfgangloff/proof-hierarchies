@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Basic",
+    "name": "approxBounded",
+    "statement": "MeasurableSpace \u03b1} [Norm \u03b2] [SMul \u211d \u03b2] (hf : StronglyMeasurable f) (c : \u211d) : \u2115 \u2192 SimpleFunc \u03b1 \u03b2",
+    "have_tree": [
+      {
+        "name": "h_tendsto",
+        "type": "",
+        "body": "hf.tendsto_approx x",
+        "children": [
+          {
+            "name": "h_tendsto_norm",
+            "type": "Tendsto (fun n => \u2016hf.approx n x\u2016) atTop (\ud835\udcdd 0)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "min 1 (c / \u2016f x\u2016) = 1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "finStronglyMeasurable_of_set_sigmaFinite",
+    "statement": "MeasurableSpace \u03b1} {\u03bc : Measure \u03b1} (hf_meas : StronglyMeasurable f) {t : Set \u03b1} (ht : MeasurableSet t) (hft_zero : \u2200 x \u2208 t\u1d9c, f x = 0) (ht\u03bc : SigmaFinite (\u03bc.restrict t)) : FinStronglyMeasurable f \u03bc",
+    "have_tree": [
+      {
+        "name": "hS_meas",
+        "type": "\u2200 n, MeasurableSet (S n)",
+        "body": "measurableSet_spanningSets (\u03bc.restrict t)",
+        "children": []
+      },
+      {
+        "name": "h_fs_t_compl",
+        "type": "\u2200 n, \u2200 x, x \u2209 t \u2192 fs n x = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_lt_top",
+            "type": "",
+            "body": "measure_spanningSets_lt_top (\u03bc.restrict t) n",
+            "children": []
+          },
+          {
+            "name": "h",
+            "type": "Tendsto (fun n => (f_approx n) x) atTop (\ud835\udcdd (f x))",
+            "body": "hf_meas.tendsto_approx x",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

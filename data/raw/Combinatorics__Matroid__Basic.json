@@ -1,0 +1,112 @@
+[
+  {
+    "module": "Basic",
+    "name": "encard_diff_le_aux",
+    "statement": "Set \u03b1} (exch : ExchangeProperty IsBase) (hB\u2081 : IsBase B\u2081) (hB\u2082 : IsBase B\u2082) : (B\u2081 \\ B\u2082).encard \u2264 (B\u2082 \\ B\u2081).encard",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "encard (insert f (B\u2082 \\ {e}) \\ B\u2081) < encard (B\u2082 \\ B\u2081)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hencard",
+        "type": "",
+        "body": "encard_diff_le_aux exch hB\u2081 hB'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "ext_isBase",
+    "statement": "Matroid \u03b1} (hE : M\u2081.E = M\u2082.E) (h : \u2200 \u2983B\u2984, B \u2286 M\u2081.E \u2192 (M\u2081.IsBase B \u2194 M\u2082.IsBase B)) : M\u2081 = M\u2082",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "\u2200 B, M\u2081.IsBase B \u2194 M\u2082.IsBase B",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsBase.eq_exchange_of_diff_eq_singleton",
+    "statement": "M.IsBase B) (hB' : M.IsBase B') (h : B \\ B' = {e}) : \u2203 f \u2208 B' \\ B, B' = (insert f B) \\ {e}",
+    "have_tree": [
+      {
+        "name": "hne",
+        "type": "f \u2260 e",
+        "body": "by rintro rfl; exact hf.2 (h.symm.subset (mem_singleton f)).1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsBase.exchange_isBase_of_indep",
+    "statement": "M.IsBase B) (hf : f \u2209 B) (hI : M.Indep (insert f (B \\ {e}))) : M.IsBase (insert f (B \\ {e}))",
+    "have_tree": [
+      {
+        "name": "hcard",
+        "type": "",
+        "body": "hB'.encard_diff_comm hB",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsBase.exchange_isBase_of_indep'",
+    "statement": "M.IsBase B) (he : e \u2208 B) (hf : f \u2209 B) (hI : M.Indep (insert f B \\ {e})) : M.IsBase (insert f B \\ {e})",
+    "have_tree": [
+      {
+        "name": "hfe",
+        "type": "f \u2260 e",
+        "body": "ne_of_mem_of_not_mem he hf |>.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsBasis.dep_of_ssubset",
+    "statement": "M.IsBasis I X) (hIY : I \u2282 Y) (hYX : Y \u2286 X) : M.Dep Y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "X \u2286 M.E",
+        "body": "hI.subset_ground",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsBasis.isBasis_sUnion",
+    "statement": "Set (Set \u03b1)} (hne : Xs.Nonempty) (h : \u2200 X \u2208 Xs, M.IsBasis I X) : M.IsBasis I (\u22c3\u2080 Xs)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Iff.mpr nonempty_coe_sort hne",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "finite_setOf_matroid",
+    "statement": "Set \u03b1} (hE : E.Finite) : {M : Matroid \u03b1 | M.E \u2286 E}.Finite",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "f.Injective",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

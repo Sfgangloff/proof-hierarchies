@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Indicator",
+    "name": "condExp_ae_eq_restrict_zero",
+    "statement": "MeasurableSet[m] s) (hf : f =\u1d50[\u03bc.restrict s] 0) : \u03bc[f | m] =\u1d50[\u03bc.restrict s] 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "SigmaFinite ((\u03bc.restrict s).trim hm)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Indicator",
+    "name": "condExp_restrict_ae_eq_restrict",
+    "statement": "m \u2264 m0) [SigmaFinite (\u03bc.trim hm)] (hs_m : MeasurableSet[m] s) (hf_int : Integrable f \u03bc) : (\u03bc.restrict s)[f | m] =\u1d50[\u03bc.restrict s] \u03bc[f | m]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "SigmaFinite ((\u03bc.restrict s).trim hm)",
+        "body": "by rw [\u2190 restrict_trim hm _ hs_m]; infer_instance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Indicator",
+    "name": "condExp_ae_eq_restrict_of_measurableSpace_eq_on",
+    "statement": "MeasurableSpace \u03b1} {\u03bc : Measure \u03b1} (hm : m \u2264 m0) (hm\u2082 : m\u2082 \u2264 m0) [SigmaFinite (\u03bc.trim hm)] [SigmaFinite (\u03bc.trim hm\u2082)] (hs_m : MeasurableSet[m] s) (hs : \u2200 t, MeasurableSet[m] (s \u2229 t) \u2194 MeasurableSet[m\u2082] (s \u2229 t)) : \u03bc[f | m] =\u1d50[\u03bc.restrict s] \u03bc[f | m\u2082]",
+    "have_tree": [
+      {
+        "name": "hs_m\u2082",
+        "type": "MeasurableSet[m\u2082] s",
+        "body": "by rwa [\u2190 Set.inter_univ s, \u2190 hs Set.univ, Set.inter_univ]",
+        "children": []
+      },
+      {
+        "name": "hst_m",
+        "type": "MeasurableSet[m] (s \u2229 t)",
+        "body": "(hs _).mpr (hs_m\u2082.inter ht)",
+        "children": []
+      }
+    ]
+  }
+]

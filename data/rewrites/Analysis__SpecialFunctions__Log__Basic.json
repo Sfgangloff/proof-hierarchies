@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "log_neg_of_lt_zero",
+      "statement": "x < 0) (h1 : -1 < x) : log x < 0",
+      "have_tree": [
+        {
+          "name": "h0'",
+          "type": "0 < -x",
+          "body": "by linarith",
+          "children": []
+        },
+        {
+          "name": "h1'",
+          "type": "-x < 1",
+          "body": "by linarith",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "log_neg_of_lt_zero",
+          "statement": "x < 0) (h1 : -1 < x) : log x < 0",
+          "have_tree": [
+            {
+              "name": "h1'",
+              "type": "-x < 1",
+              "body": "by linarith",
+              "children": []
+            },
+            {
+              "name": "h0'",
+              "type": "0 < -x",
+              "body": "by linarith",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "abs_log_mul_self_lt",
+      "statement": "\u211d) (h1 : 0 < x) (h2 : x \u2264 1) : |log x * x| < 1",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "0 < 1 / x",
+          "body": "by simpa only [one_div, inv_pos] using h1",
+          "children": []
+        },
+        {
+          "name": "aux",
+          "type": "0 \u2264 -log x * x",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "abs_log_mul_self_lt",
+          "statement": "\u211d) (h1 : 0 < x) (h2 : x \u2264 1) : |log x * x| < 1",
+          "have_tree": [
+            {
+              "name": "aux",
+              "type": "0 \u2264 -log x * x",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "0 < 1 / x",
+              "body": "by simpa only [one_div, inv_pos] using h1",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

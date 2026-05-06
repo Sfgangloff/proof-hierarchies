@@ -1,0 +1,67 @@
+[
+  {
+    "module": "Paracompact",
+    "name": "precise_refinement",
+    "statement": "\u03b9 \u2192 Set X) (uo : \u2200 a, IsOpen (u a)) (uc : \u22c3 i, u i = univ) : \u2203 v : \u03b9 \u2192 Set X, (\u2200 a, IsOpen (v a)) \u2227 \u22c3 i, v i = univ \u2227 LocallyFinite v \u2227 \u2200 a, v a \u2286 u a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ParacompactSpace.locallyFinite_refinement (range u) (fun r \u21a6 (r : Set X))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paracompact",
+    "name": "ParacompactSpace.of_hasBasis",
+    "statement": "X \u2192 Sort*} {p : \u2200 x, \u03b9 x \u2192 Prop} {s : \u2200 x, \u03b9 x \u2192 Set X} (hb : \u2200 x, (\ud835\udcdd x).HasBasis (p x) (s x)) (h : \u2200 f : (x : X) \u2192 \u03b9 x, (\u2200 x, p x (f x)) \u2192 \u2203 (\u03b2 : Type u) (t : \u03b2 \u2192 Set X), (\u2200 b, IsOpen (t b)) \u2227 (\u22c3 b, t b) = univ \u2227 LocallyFinite t \u2227 \u2200 b, \u2203 x, t b \u2286 s x (f x)) : ParacompactSpace X where locallyFinite_refinement \u03b1 S ho hu",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "fun x \u21a6 (iUnion_eq_univ_iff.1 hu x).imp fun a ha \u21a6 (hb _).mem_iff.1 ((ho a).mem_nhds ha)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paracompact",
+    "name": "Topology.IsClosedEmbedding.paracompactSpace",
+    "statement": "X \u2192 Y} (he : IsClosedEmbedding e) : ParacompactSpace X where locallyFinite_refinement \u03b1 s ho hu",
+    "have_tree": [
+      {
+        "name": "heU",
+        "type": "range e \u2286 \u22c3 i, U i",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Paracompact",
+    "name": "refinement_of_locallyCompact_sigmaCompact_of_nhds_basis_set",
+    "statement": "X \u2192 Type u} {p : \u2200 x, \u03b9 x \u2192 Prop} {B : \u2200 x, \u03b9 x \u2192 Set X} {s : Set X} (hs : IsClosed s) (hB : \u2200 x \u2208 s, (\ud835\udcdd x).HasBasis (p x) (B x)) : \u2203 (\u03b1 : Type v) (c : \u03b1 \u2192 X) (r : \u2200 a, \u03b9 (c a)), (\u2200 a, c a \u2208 s \u2227 p (c a) (r a)) \u2227 (s \u2286 \u22c3 a, B (c a) (r a)) \u2227 LocallyFinite fun a \u21a6 B (c a) (r a)",
+    "have_tree": [
+      {
+        "name": "hKcov",
+        "type": "\u2200 x, x \u2208 Kdiff (K'.find x + 1)",
+        "body": "fun x \u21a6 by",
+        "children": []
+      },
+      {
+        "name": "Kdiffc",
+        "type": "\u2200 n, IsCompact (Kdiff n \u2229 s)",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(mem_compl_iff _ _).1 (hr k c hxB)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

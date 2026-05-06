@@ -1,0 +1,67 @@
+[
+  {
+    "module": "TuranDensity",
+    "name": "isGLB_turanDensity",
+    "statement": "SimpleGraph W) : IsGLB { (extremalNumber n H / n.choose 2 : \u211d) | n \u2208 Set.Ici 2 } (turanDensity H)",
+    "have_tree": [
+      {
+        "name": "h_tto",
+        "type": "",
+        "body": "Real.tendsto_atTop_csInf_of_antitoneOn_bddBelow_nat_Ici",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TuranDensity",
+    "name": "turanDensity_eq_csInf",
+    "statement": "SimpleGraph W) : turanDensity H = sInf { (extremalNumber n H / n.choose 2 : \u211d) | n \u2208 Set.Ici 2 }",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "isGLB_turanDensity H",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TuranDensity",
+    "name": "tendsto_turanDensity",
+    "statement": "SimpleGraph W) : Tendsto (fun n \u21a6 (extremalNumber n H / n.choose 2 : \u211d)) atTop (\ud835\udcdd (turanDensity H))",
+    "have_tree": [
+      {
+        "name": "h_tendsto",
+        "type": "",
+        "body": "Real.tendsto_atTop_csInf_of_antitoneOn_bddBelow_nat_Ici",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TuranDensity",
+    "name": "isEquivalent_extremalNumber",
+    "statement": "SimpleGraph W} (h : turanDensity H \u2260 0) : (fun n \u21a6 (extremalNumber n H : \u211d)) ~[atTop] (fun n \u21a6 (turanDensity H * n.choose 2 : \u211d))",
+    "have_tree": [
+      {
+        "name": "h\u03c0",
+        "type": "",
+        "body": "tendsto_turanDensity H",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TuranDensity",
+    "name": "eventually_isContained_of_card_edgeFinset",
+    "statement": "SimpleGraph W) {\u03b5 : \u211d} (h\u03b5_pos : 0 < \u03b5) : \u2200\u1da0 n in atTop, \u2200 {G : SimpleGraph (Fin n)} [DecidableRel G.Adj], #G.edgeFinset \u2265 (turanDensity H + \u03b5) * n.choose 2 \u2192 H \u2291 G",
+    "have_tree": [
+      {
+        "name": "h\u03c0",
+        "type": "",
+        "body": "(turanDensity_eq_csInf H).ge",
+        "children": []
+      }
+    ]
+  }
+]

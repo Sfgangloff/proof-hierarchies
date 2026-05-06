@@ -1,0 +1,124 @@
+[
+  {
+    "module": "IsCardinalForSmallObjectArgument",
+    "name": "prop_iterationFunctor_map_succ",
+    "statement": "\u03ba.ord.ToType) : (succStruct I \u03ba).prop ((iterationFunctor I \u03ba).map (homOfLE (Order.le_succ j)))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasIterationOfShape I \u03ba",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Cardinal.noMaxOrder (Fact.elim inferInstance : \u03ba.IsRegular).aleph0_le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsCardinalForSmallObjectArgument",
+    "name": "iterationFunctorMapSuccAppArrowIso",
+    "statement": "Arrow C) (j : \u03ba.ord.ToType) : letI",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasIterationOfShape I \u03ba",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Cardinal.noMaxOrder (Fact.elim inferInstance : \u03ba.IsRegular).aleph0_le",
+        "children": [
+          {
+            "name": "this",
+            "type": "",
+            "body": "NatTrans.congr_app ((succStruct I \u03ba).iterationFunctor_map_succ j (not_isMax j)) f",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "IsCardinalForSmallObjectArgument",
+    "name": "iterationFunctorMapSuccAppArrowIso_hom_left",
+    "statement": "Arrow C) (j : \u03ba.ord.ToType) : (iterationFunctorMapSuccAppArrowIso I \u03ba f j).hom.left = \ud835\udfd9 _",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Arrow.rightFunc.congr_map ((iterationFunctorMapSuccAppArrowIso I \u03ba f j).hom.w)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsCardinalForSmallObjectArgument",
+    "name": "relativeCellComplex\u03b9Obj",
+    "statement": "RelativeCellComplex.{w} (fun (_ : \u03ba.ord.ToType) \u21a6 I.homFamily) (\u03b9Obj I \u03ba f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasIterationOfShape I \u03ba",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsCardinalForSmallObjectArgument",
+    "name": "\u03c0FunctorObj_eq",
+    "statement": "\u03ba.ord.ToType) : letI",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "(iterationFunctorMapSuccAppArrowIso I \u03ba f j).hom.right.w",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "(transfiniteCompositionOfShapeSuccStructProp\u03b9Iteration I \u03ba).incl.naturality",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsCardinalForSmallObjectArgument",
+    "name": "\u03c0Obj_naturality",
+    "statement": "Arrow C} (\u03c6 : f \u27f6 g) : objMap I \u03ba \u03c6 \u226b \u03c0Obj I \u03ba g.hom = \u03c0Obj I \u03ba f.hom \u226b \u03c6.right",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "((iteration I \u03ba).map \u03c6).w =\u226b e\u2082.inv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsCardinalForSmallObjectArgument",
+    "name": "llp_rlp_of_isCardinalForSmallObjectArgument'",
+    "statement": "I.rlp.llp = (transfiniteCompositionsOfShape (coproducts.{w} I).pushouts \u03ba.ord.ToType).retracts",
+    "have_tree": [
+      {
+        "name": "sq",
+        "type": "CommSq (\u03b9Obj I \u03ba f) f (\u03c0Obj I \u03ba f) (\ud835\udfd9 _)",
+        "body": "\u27e8by simp\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf _ (rlp_\u03c0Obj I \u03ba f)",
+        "children": []
+      }
+    ]
+  }
+]

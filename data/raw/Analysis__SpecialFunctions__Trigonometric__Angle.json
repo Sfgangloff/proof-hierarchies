@@ -1,0 +1,138 @@
+[
+  {
+    "module": "Angle",
+    "name": "toReal_eq_pi_iff",
+    "statement": "Angle} : \u03b8.toReal = \u03c0 \u2194 \u03b8 = \u03c0",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "\u03b8.toReal \u2260 \u03c0",
+        "body": "by simp [h]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Angle",
+    "name": "cos_nonneg_iff_abs_toReal_le_pi_div_two",
+    "statement": "Angle} : 0 \u2264 cos \u03b8 \u2194 |\u03b8.toReal| \u2264 \u03c0 / 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < \u03c0 / 2",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "toReal_mem_Ioc \u03b8",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Angle",
+    "name": "sign_two_nsmul_eq_sign_iff",
+    "statement": "Angle} : ((2 : \u2115) \u2022 \u03b8).sign = \u03b8.sign \u2194 \u03b8 = \u03c0 \u2228 |\u03b8.toReal| < \u03c0 / 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < \u03c0 / 2",
+        "body": "by positivity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Angle",
+    "name": "eq_add_pi_of_two_zsmul_eq_of_sign_eq_neg",
+    "statement": "Real.Angle) (h : (2 : \u2124) \u2022 a = (2 : \u2124) \u2022 b) (h_sign : a.sign = -b.sign) (h_ne : b.sign \u2260 0) : a = b + \u03c0",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "Real.Angle.two_zsmul_eq_iff.mp h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Angle",
+    "name": "sub_ne_pi_of_sign_eq_of_sign_ne_zero",
+    "statement": "Real.Angle) (h_sign : a.sign = b.sign) (h_ne : b.sign \u2260 0) : a - b \u2260 \u03c0",
+    "have_tree": [
+      {
+        "name": "h_sign'",
+        "type": "",
+        "body": "h_sign",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Angle",
+    "name": "two_zsmul_eq_iff_eq",
+    "statement": "Real.Angle} (ha : a.sign \u2260 0) (h : a.sign = b.sign) : (2 : \u2124) \u2022 a = (2 : \u2124) \u2022 b \u2194 a = b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_arg (\u00b7 = b.sign) this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Angle",
+    "name": "abs_toReal_add_abs_toReal_eq_pi_of_two_nsmul_add_eq_zero_of_sign_eq",
+    "statement": "Angle} (h : (2 : \u2115) \u2022 (\u03b8 + \u03c8) = 0) (hs : \u03b8.sign = \u03c8.sign) (h0 : \u03b8.sign \u2260 0) : |\u03b8.toReal| + |\u03c8.toReal| = \u03c0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "k \u2208 Finset.Icc (-1) 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Angle",
+    "name": "toReal_add_eq_toReal_add_toReal",
+    "statement": "Angle} (h\u03b8 : \u03b8 \u2260 \u03c0) (h\u03c8 : \u03c8 \u2260 \u03c0) (hs : \u03b8.sign \u2260 \u03c8.sign \u2228 \u03b8.sign = (\u03b8 + \u03c8).sign) : (\u03b8 + \u03c8).toReal = \u03b8.toReal + \u03c8.toReal",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "toReal_add_of_sign_eq_neg_sign (.inr <| by simpa [neg_eq_iff_eq_neg]) hs.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Angle",
+    "name": "abs_toReal_add_eq_two_pi_sub_abs_toReal_add_abs_toReal_aux",
+    "statement": "Angle} (h\u03b8s : \u03b8.sign = 1) (h\u03c8s : \u03c8.sign = 1) (hsa : (\u03b8 + \u03c8).sign \u2260 1) : |(\u03b8 + \u03c8).toReal| = 2 * \u03c0 - (|\u03b8.toReal| + |\u03c8.toReal|)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(\u03b8 + \u03c8).sign.trichotomy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Angle",
+    "name": "abs_toReal_add_eq_two_pi_sub_abs_toReal_add_abs_toReal",
+    "statement": "Angle} (hs : \u03b8.sign = \u03c8.sign) (hsa : \u03b8.sign \u2260 (\u03b8 + \u03c8).sign) : |(\u03b8 + \u03c8).toReal| = 2 * \u03c0 - (|\u03b8.toReal| + |\u03c8.toReal|)",
+    "have_tree": [
+      {
+        "name": "hsa'",
+        "type": "(-\u03b8 + -\u03c8).sign \u2260 1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

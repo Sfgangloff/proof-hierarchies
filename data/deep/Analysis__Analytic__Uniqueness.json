@@ -1,0 +1,59 @@
+[
+  {
+    "module": "Uniqueness",
+    "name": "eqOn_zero_of_preconnected_of_eventuallyEq_zero_aux",
+    "statement": "E \u2192 F} {U : Set E} (hf : AnalyticOnNhd \ud835\udd5c f U) (hU : IsPreconnected U) {z\u2080 : E} (h\u2080 : z\u2080 \u2208 U) (hfz\u2080 : f =\u1da0[\ud835\udcdd z\u2080] 0) : EqOn f 0 U",
+    "have_tree": [
+      {
+        "name": "Uu",
+        "type": "U \u2286 u",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "has_series",
+        "type": "HasFPowerSeriesOnBall f q y (r / 2)",
+        "body": "by",
+        "children": [
+          {
+            "name": "A",
+            "type": "(\u2016y - x\u2016\u208a : \u211d\u22650\u221e) < r / 2",
+            "body": "by rwa [edist_comm, edist_eq_enorm_sub] at hxy",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "hp.changeOrigin (A.trans_le ENNReal.half_le_self)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "M",
+        "type": "EMetric.ball y (r / 2) \u2208 \ud835\udcdd x",
+        "body": "EMetric.isOpen_ball.mem_nhds hxy",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "HasSum (fun n : \u2115 => q n fun _ : Fin n => z - y) (f z)",
+        "body": "has_series.hasSum_sub hz",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "HasSum (fun n : \u2115 => q n fun _ : Fin n => z - y) 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "HasFPowerSeriesAt 0 q y",
+            "body": "has_series.hasFPowerSeriesAt.congr yu",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

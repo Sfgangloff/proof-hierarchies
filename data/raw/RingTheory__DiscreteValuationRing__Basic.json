@@ -1,0 +1,163 @@
+[
+  {
+    "module": "Basic",
+    "name": "irreducible_of_span_eq_maximalIdeal",
+    "statement": "Type*} [CommSemiring R] [IsLocalRing R] [IsDomain R] (\u03d6 : R) (h\u03d6 : \u03d6 \u2260 0) (h : maximalIdeal R = Ideal.span {\u03d6}) : Irreducible \u03d6",
+    "have_tree": [
+      {
+        "name": "h2",
+        "type": "\u00acIsUnit \u03d6",
+        "body": "show \u03d6 \u2208 maximalIdeal R from h.symm \u25b8 Submodule.mem_span_singleton_self \u03d6",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "iff_pid_with_one_nonzero_prime",
+    "statement": "Type u) [CommRing R] [IsDomain R] : IsDiscreteValuationRing R \u2194 IsPrincipalIdealRing R \u2227 \u2203! P : Ideal R, P \u2260 \u22a5 \u2227 IsPrime P",
+    "have_tree": [
+      {
+        "name": "hq",
+        "type": "q \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hPM",
+        "type": "P \u2264 maximalIdeal R",
+        "body": "le_maximalIdeal hP2.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "unique_irreducible",
+    "statement": "HasUnitMulPowIrreducibleFactorization R) \u2983p q : R\u2984 (hp : Irreducible p) (hq : Irreducible q) : Associated p q",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Irreducible (\u03d6 ^ n)",
+        "body": "hn.symm.irreducible hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "toUniqueFactorizationMonoid",
+    "statement": "HasUnitMulPowIrreducibleFactorization R) : UniqueFactorizationMonoid R",
+    "have_tree": [
+      {
+        "name": "hpq",
+        "type": "",
+        "body": "Multiset.eq_of_mem_replicate hq",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "of_ufd_of_unique_irreducible",
+    "statement": "\u2203 p : R, Irreducible p) (h\u2082 : \u2200 \u2983p q : R\u2984, Irreducible p \u2192 Irreducible q \u2192 Associated p q) : HasUnitMulPowIrreducibleFactorization R",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "hfx.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "associated_pow_irreducible",
+    "statement": "R} (hx : x \u2260 0) {\u03d6 : R} (hirr : Irreducible \u03d6) : \u2203 n : \u2115, Associated x (\u03d6 ^ n)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "WfDvdMonoid R",
+        "body": "IsNoetherianRing.wfDvdMonoid",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "hfx.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_units_eq_smul_zpow_of_irreducible",
+    "statement": "Type*} [Field K] [Algebra R K] [IsFractionRing R K] {\u03d6 : R} (h\u03d6 : Irreducible \u03d6) {x : K} (hx : x \u2260 0) : \u2203 (n : \u2124) (u : R\u02e3), x = u \u2022 algebraMap R K \u03d6 ^ n",
+    "have_tree": [
+      {
+        "name": "h\u03d6'",
+        "type": "algebraMap R K \u03d6 \u2260 0",
+        "body": "by simpa using h\u03d6.ne_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "ideal_eq_span_pow_irreducible",
+    "statement": "Ideal R} (hs : s \u2260 \u22a5) {\u03d6 : R} (hirr : Irreducible \u03d6) : \u2203 n : \u2115, s = Ideal.span {\u03d6 ^ n}",
+    "have_tree": [
+      {
+        "name": "gen_ne_zero",
+        "type": "generator s \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "unit_mul_pow_congr_pow",
+    "statement": "R} (hp : Irreducible p) (hq : Irreducible q) (u v : R\u02e3) (m n : \u2115) (h : \u2191u * p ^ m = v * q ^ n) : m = n",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "Associated (Multiset.replicate m p).prod (Multiset.replicate n q).prod",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "addVal_eq_top_iff",
+    "statement": "R} : addVal R a = \u22a4 \u2194 a = 0",
+    "have_tree": [
+      {
+        "name": "hi",
+        "type": "",
+        "body": "(Classical.choose_spec (exists_prime R)).irreducible",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "addVal_le_iff_dvd",
+    "statement": "R} : addVal R a \u2264 addVal R b \u2194 a \u2223 b",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "",
+        "body": "Classical.choose_spec (exists_prime R)",
+        "children": []
+      }
+    ]
+  }
+]

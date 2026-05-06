@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Take",
+    "name": "take_update_of_ge",
+    "statement": "\u2115) (h : m \u2264 n) (v : (i : Fin n) \u2192 \u03b1 i) (i : Fin n) (hi : i \u2265 m) (x : \u03b1 i) : take m h (update v i x) = take m h v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "castLE h j \u2260 i",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Take",
+    "name": "take_addCases_left",
+    "statement": "\u2115} {motive : Fin (n + n') \u2192 Sort*} (m : \u2115) (h : m \u2264 n) (u : (i : Fin n) \u2192 motive (castAdd n' i)) (v : (i : Fin n') \u2192 motive (natAdd n i)) : take m (Nat.le_add_right_of_le h) (addCases u v) = take m h u",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "i < n",
+        "body": "Nat.lt_of_lt_of_le i.isLt h",
+        "children": []
+      }
+    ]
+  }
+]

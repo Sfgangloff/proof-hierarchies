@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Lagrange",
+    "name": "natDegree_basis",
+    "statement": "Set.InjOn v s) (hi : i \u2208 s) : (Lagrange.basis s v i).natDegree = #s - 1",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "\u2200 j, j \u2208 s.erase i \u2192 basisDivisor (v i) (v j) \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lagrange",
+    "name": "interpolate_eq_sum_interpolate_insert_sdiff",
+    "statement": "Set.InjOn v t) (hs : s.Nonempty) (hst : s \u2286 t) : interpolate t v r = \u2211 i \u2208 s, interpolate (insert i (t \\ s)) v r * Lagrange.basis s v i",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "1 \u2264 #s",
+        "body": "Nonempty.card_pos \u27e8_, hi\u27e9",
+        "children": []
+      },
+      {
+        "name": "hst'",
+        "type": "#s \u2264 #t",
+        "body": "card_le_card hst",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lagrange",
+    "name": "iterate_derivative_interpolate",
+    "statement": "Set.InjOn v s) {k : \u2115} (hk : k < #s) : derivative^[k] (interpolate s v r) = k.factorial * \u2211 i \u2208 s, C (r i / \u220f j \u2208 s.erase i, (v i - v j)) * \u2211 t \u2208 (s.erase i).powersetCard (#s - (k + 1)), \u220f a \u2208 t, (X - C (v a))",
+    "have_tree": [
+      {
+        "name": "hvs'",
+        "type": "",
+        "body": "hvs.mono (coe_subset.mpr (erase_subset i s))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lagrange",
+    "name": "_root_.Polynomial.exists_eval_eq_iff",
+    "statement": "Type*} [Finite \u03b9] (x y : \u03b9 \u2192 F) : (\u2203 q : F[X], \u2200 i, q.eval (x i) = y i) \u2194 \u2200 i j, x i = x j \u2192 y i = y j",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,61 @@
+[
+  {
+    "module": "Set",
+    "name": "setIntegral_eq_of_subset_of_ae_diff_eq_zero_aux",
+    "statement": "s \u2286 t) (h't : \u2200\u1d50 x \u2202\u03bc, x \u2208 t \\ s \u2192 f x = 0) (haux : StronglyMeasurable f) (h'aux : IntegrableOn f t \u03bc) : \u222b x in t, f x \u2202\u03bc = \u222b x in s, f x \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "hk",
+        "type": "MeasurableSet k",
+        "body": "by borelize E; exact haux.measurable (measurableSet_singleton _)",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200 x \u2208 s \u2229 k, f x = 0",
+            "body": "fun x hx => hx.2",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Set",
+    "name": "continuousOn_integral_bilinear_of_locally_integrable_of_compact_support",
+    "statement": "F \u2192L[\ud835\udd5c] G \u2192L[\ud835\udd5c] E) {f : X \u2192 Y \u2192 G} {s : Set X} {k : Set Y} {g : Y \u2192 F} (hk : IsCompact k) (hf : ContinuousOn f.uncurry (s \u00d7\u02e2 univ)) (hfs : \u2200 p, \u2200 x, p \u2208 s \u2192 x \u2209 k \u2192 f p x = 0) (hg : IntegrableOn g k \u03bc) : ContinuousOn (fun x \u21a6 \u222b y, L (g y) (f x y) \u2202\u03bc) s",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2200 p \u2208 s, Continuous (f p)",
+        "body": "fun p hp \u21a6 by",
+        "children": []
+      },
+      {
+        "name": "I",
+        "type": "\u2200 p \u2208 s, IntegrableOn (fun y \u21a6 L (g y) (f p y)) k \u03bc",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "ContinuousOn (f p) k",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "ContinuousOn (fun y \u21a6 (p, y)) k",
+                "body": "by fun_prop",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "IntegrableOn (fun y \u21a6 \u2016L\u2016 * \u2016g y\u2016 * C) k \u03bc",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

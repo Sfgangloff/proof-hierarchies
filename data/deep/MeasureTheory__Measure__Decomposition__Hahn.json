@@ -1,0 +1,157 @@
+[
+  {
+    "module": "Hahn",
+    "name": "hahn_decomposition",
+    "statement": "Measure \u03b1) [IsFiniteMeasure \u03bc] [IsFiniteMeasure \u03bd] : \u2203 s, MeasurableSet s \u2227 (\u2200 t, MeasurableSet t \u2192 t \u2286 s \u2192 \u03bd t \u2264 \u03bc t) \u2227 \u2200 t, MeasurableSet t \u2192 t \u2286 s\u1d9c \u2192 \u03bc t \u2264 \u03bd t",
+    "have_tree": [
+      {
+        "name": "h\u03bc",
+        "type": "\u2200 s, \u03bc s \u2260 \u221e",
+        "body": "measure_ne_top \u03bc",
+        "children": []
+      },
+      {
+        "name": "h\u03bd",
+        "type": "\u2200 s, \u03bd s \u2260 \u221e",
+        "body": "measure_ne_top \u03bd",
+        "children": []
+      },
+      {
+        "name": "to_nnreal_\u03bc",
+        "type": "\u2200 s, ((\u03bc s).toNNReal : \u211d\u22650\u221e) = \u03bc s",
+        "body": "fun s => ENNReal.coe_toNNReal <| h\u03bc _",
+        "children": []
+      },
+      {
+        "name": "to_nnreal_\u03bd",
+        "type": "\u2200 s, ((\u03bd s).toNNReal : \u211d\u22650\u221e) = \u03bd s",
+        "body": "fun s => ENNReal.coe_toNNReal <| h\u03bd _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "MeasurableSet t) : d s = d (s \\ t) + d (s \u2229 t)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "bdd_c",
+        "type": "BddAbove c",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "c_nonempty",
+        "type": "c.Nonempty",
+        "body": "Nonempty.image _ \u27e8_, MeasurableSet.empty\u27e9",
+        "children": []
+      },
+      {
+        "name": "d_le_\u03b3",
+        "type": "\u2200 s, MeasurableSet s \u2192 d s \u2264 \u03b3",
+        "body": "fun s hs => le_csSup bdd_c \u27e8s, hs, rfl\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2115) : \u2203 s : Set \u03b1, MeasurableSet s \u2227 \u03b3 - (1 / 2) ^ n < d s",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u03b3 - (1 / 2) ^ n < \u03b3",
+            "body": "sub_lt_self \u03b3 (pow_pos (half_pos zero_lt_one) n)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "he\u2081",
+        "type": "\u2200 n, MeasurableSet (e n)",
+        "body": "fun n => (he n).1",
+        "children": []
+      },
+      {
+        "name": "he\u2082",
+        "type": "\u2200 n, \u03b3 - (1 / 2) ^ n < d (e n)",
+        "body": "fun n => (he n).2",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "MeasurableSet (f n m)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "a \u2264 b) (hcd : c \u2264 d) : f a d \u2286 f b c",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "n \u2264 m) : f n (m + 1) = f n m \u2229 e (m + 1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "n \u2264 m + 1",
+            "body": "le_of_lt (Nat.succ_le_succ hnm)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "m \u2264 n) : \u03b3 - 2 * (1 / 2) ^ m + (1 / 2) ^ n \u2264 d (f m n)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "\u03b3_le_d_s",
+        "type": "\u03b3 \u2264 d s",
+        "body": "by",
+        "children": [
+          {
+            "name": "h\u03b3",
+            "type": "Tendsto (fun m : \u2115 => \u03b3 - 2 * (1 / 2) ^ m) atTop (\ud835\udcdd \u03b3)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hd",
+            "type": "Tendsto (fun m => d (\u22c2 n, f m n)) atTop (\ud835\udcdd (d (\u22c3 m, \u22c2 n, f m n)))",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Tendsto (fun n => d (f m n)) atTop (\ud835\udcdd (d (\u22c2 n, f m n)))",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hs",
+        "type": "MeasurableSet s",
+        "body": "MeasurableSet.iUnion fun n => MeasurableSet.iInter fun m => hf _ _",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 \u2264 d t",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "d t \u2264 0",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "module": "TemperateGrowth",
+    "name": "hasTemperateGrowth_one_add_norm_sq_rpow",
+    "statement": "\u211d) : (fun (x : H) \u21a6 (1 + \u2016x\u2016 ^ 2) ^ r).HasTemperateGrowth",
+    "have_tree": [
+      {
+        "name": "ht",
+        "type": "Set.range (fun (x : H) \u21a6 (1 + \u2016x\u2016 ^ 2)) \u2286 t",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hdiff",
+        "type": "ContDiffOn \u211d \u221e (fun x \u21a6 x ^ r) t",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hunique",
+        "type": "UniqueDiffOn \u211d t",
+        "body": "(isOpen_lt' (1 / 2)).uniqueDiffOn",
+        "children": []
+      },
+      {
+        "name": "hk\u2081",
+        "type": "r \u2264 k",
+        "body": "le_sup_left.trans hk",
+        "children": []
+      },
+      {
+        "name": "hk\u2082",
+        "type": "Real.log 2 * (N - r) \u2264 (Real.log (3 / 2)) * k",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "le_sup_right.trans hk",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "ContDiffAt \u211d n (fun x \u21a6 x ^ r) x",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hx'",
+        "type": "1 / 2 < x",
+        "body": "by simpa [t] using hx",
+        "children": []
+      },
+      {
+        "name": "hx''",
+        "type": "0 < x",
+        "body": "lt_of_lt_of_le (by norm_num) hx'.le",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "0 < n - r",
+        "body": "by grind",
+        "children": []
+      }
+    ]
+  }
+]

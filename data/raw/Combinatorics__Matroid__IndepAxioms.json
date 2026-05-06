@@ -1,0 +1,60 @@
+[
+  {
+    "module": "IndepAxioms",
+    "name": "matroid",
+    "statement": "IndepMatroid \u03b1) : Matroid \u03b1 where E",
+    "have_tree": [
+      {
+        "name": "hnotmax",
+        "type": "\u00ac Maximal M.Indep (B \\ {e})",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IndepAxioms",
+    "name": "_root_.Matroid.existsMaximalSubsetProperty_of_bdd",
+    "statement": "Set \u03b1 \u2192 Prop} (hP : \u2203 (n : \u2115), \u2200 Y, P Y \u2192 Y.encard \u2264 n) (X : Set \u03b1) : ExistsMaximalSubsetProperty P X",
+    "have_tree": [
+      {
+        "name": "hfin",
+        "type": "Set.Finite (ncard '' {Y | P Y \u2227 I \u2286 Y \u2227 Y \u2286 X})",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hKfin",
+        "type": "K.Finite",
+        "body": "finite_of_encard_le_coe (hP K hPK)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IndepAxioms",
+    "name": "ofBddAugment",
+    "statement": "Set \u03b1) (Indep : Set \u03b1 \u2192 Prop) (indep_empty : Indep \u2205) (indep_subset : \u2200 \u2983I J\u2984, Indep J \u2192 I \u2286 J \u2192 Indep I) (indep_aug : \u2200 \u2983I J\u2984, Indep I \u2192 Indep J \u2192 I.encard < J.encard \u2192 \u2203 e \u2208 J, e \u2209 I \u2227 Indep (insert e I)) (indep_bdd : \u2203 (n : \u2115), \u2200 I, Indep I \u2192 I.encard \u2264 n) (subset_ground : \u2200 I, Indep I \u2192 I \u2286 E) : IndepMatroid \u03b1",
+    "have_tree": [
+      {
+        "name": "hlt",
+        "type": "B.encard < (insert x I).encard",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IndepAxioms",
+    "name": "ofFinset",
+    "statement": "Set \u03b1) (Indep : Finset \u03b1 \u2192 Prop) (indep_empty : Indep \u2205) (indep_subset : \u2200 \u2983I J\u2984, Indep J \u2192 I \u2286 J \u2192 Indep I) (indep_aug : \u2200 \u2983I J\u2984, Indep I \u2192 Indep J \u2192 I.card < J.card \u2192 \u2203 e \u2208 J, e \u2209 I \u2227 Indep (insert e I)) (subset_ground : \u2200 \u2983I\u2984, Indep I \u2192 (I : Set \u03b1) \u2286 E) : IndepMatroid \u03b1",
+    "have_tree": [
+      {
+        "name": "aug",
+        "type": "",
+        "body": "indep_aug (hI _ (by simp)) (hJ _ (by simp)) hIJ",
+        "children": []
+      }
+    ]
+  }
+]

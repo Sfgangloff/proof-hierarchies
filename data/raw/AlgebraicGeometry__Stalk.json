@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Stalk",
+    "name": "SpecMap_stalkSpecializes_fromSpecStalk",
+    "statement": "X} (h : x \u2933 y) : Spec.map (X.presheaf.stalkSpecializes h) \u226b X.fromSpecStalk y = X.fromSpecStalk x",
+    "have_tree": [
+      {
+        "name": "hxU",
+        "type": "x \u2208 U",
+        "body": "h.mem_open U.2 hyU",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stalk",
+    "name": "range_fromSpecStalk",
+    "statement": "X} : Set.range (X.fromSpecStalk x) = { y | y \u2933 x }",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "fromSpecStalk_closedPoint (x := y)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stalk",
+    "name": "germ_stalkClosedPointTo_Spec_fromSpecStalk",
+    "statement": "X} (f : X.presheaf.stalk x \u27f6 R) [IsLocalHom f.hom] (U : Opens X) (hU) : X.presheaf.germ U _ hU \u226b stalkClosedPointTo (Spec.map f \u226b X.fromSpecStalk x) = X.presheaf.germ U x (by simpa using hU) \u226b f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x \u2208 U",
+        "body": "this \u25b8 hU",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stalk",
+    "name": "Spec_stalkClosedPointTo_fromSpecStalk",
+    "statement": "Spec.map (stalkClosedPointTo f) \u226b X.fromSpecStalk _ = f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsAffineOpen.SpecMap_appLE_fromSpec f hU (isAffineOpen_top _)",
+        "children": []
+      }
+    ]
+  }
+]

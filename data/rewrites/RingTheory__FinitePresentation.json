@@ -1,0 +1,210 @@
+[
+  {
+    "original": {
+      "module": "FinitePresentation",
+      "name": "ker_fg_of_mvPolynomial",
+      "statement": "\u2115} (f : MvPolynomial (Fin n) R \u2192\u2090[R] A) (hf : Function.Surjective f) [FinitePresentation R A] : (RingHom.ker f.toRingHom).FG",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "fun i : Fin n => hf' (f <| X i)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "fun i : Fin m => hf (f' <| X i)",
+          "children": []
+        },
+        {
+          "name": "leI",
+          "type": "Ideal.span s' \u2264 RingHom.ker f.toRingHom",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "x \u2208 aeval_h.range.toAddSubmonoid \u2294 (Ideal.span s').toAddSubmonoid",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "FinitePresentation",
+          "name": "ker_fg_of_mvPolynomial",
+          "statement": "\u2115} (f : MvPolynomial (Fin n) R \u2192\u2090[R] A) (hf : Function.Surjective f) [FinitePresentation R A] : (RingHom.ker f.toRingHom).FG",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "fun i : Fin m => hf (f' <| X i)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "fun i : Fin n => hf' (f <| X i)",
+              "children": []
+            },
+            {
+              "name": "leI",
+              "type": "Ideal.span s' \u2264 RingHom.ker f.toRingHom",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "x \u2208 aeval_h.range.toAddSubmonoid \u2294 (Ideal.span s').toAddSubmonoid",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "FinitePresentation",
+          "name": "ker_fg_of_mvPolynomial",
+          "statement": "\u2115} (f : MvPolynomial (Fin n) R \u2192\u2090[R] A) (hf : Function.Surjective f) [FinitePresentation R A] : (RingHom.ker f.toRingHom).FG",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "fun i : Fin n => hf' (f <| X i)",
+              "children": []
+            },
+            {
+              "name": "leI",
+              "type": "Ideal.span s' \u2264 RingHom.ker f.toRingHom",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "fun i : Fin m => hf (f' <| X i)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "x \u2208 aeval_h.range.toAddSubmonoid \u2294 (Ideal.span s').toAddSubmonoid",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "FinitePresentation",
+          "name": "ker_fg_of_mvPolynomial",
+          "statement": "\u2115} (f : MvPolynomial (Fin n) R \u2192\u2090[R] A) (hf : Function.Surjective f) [FinitePresentation R A] : (RingHom.ker f.toRingHom).FG",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "fun i : Fin n => hf' (f <| X i)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "fun i : Fin m => hf (f' <| X i)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "x \u2208 aeval_h.range.toAddSubmonoid \u2294 (Ideal.span s').toAddSubmonoid",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "leI",
+              "type": "Ideal.span s' \u2264 RingHom.ker f.toRingHom",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "FinitePresentation",
+      "name": "polynomial_induction",
+      "statement": "\u2200 (R : Type u) [CommRing R] (S : Type u) [CommRing S], (R \u2192+* S) \u2192 Prop) (Q : \u2200 (R : Type u) [CommRing R] (S : Type v) [CommRing S], (R \u2192+* S) \u2192 Prop) (polynomial : \u2200 (R) [CommRing R], P R R[X] C) (fg_ker : \u2200 (R : Type u) [CommRing R] (S : Type v) [CommRing S] (f : R \u2192+* S), Surjective f \u2192 (ker f).FG \u2192 Q R S f) (comp : \u2200 (R) [CommRing R] (S) [CommRing S] (T) [CommRing T] (f : R \u2192+* S) (g : S \u2192+* T), P R S f \u2192 Q S T g \u2192 Q R T (g.comp f)) {R : Type u} {S : Type v} [CommRing R] [CommRing S] (f : R \u2192+* S) (hf : f.FinitePresentation) : Q R S f",
+      "have_tree": [
+        {
+          "name": "he",
+          "type": "(ker (g'.comp <| RingHomClass.toRingHom e.symm)).FG",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "IH (R := R[X]) (S := S) (g'.comp e.symm) (hg.comp e.symm.surjective) he",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "FinitePresentation",
+          "name": "polynomial_induction",
+          "statement": "\u2200 (R : Type u) [CommRing R] (S : Type u) [CommRing S], (R \u2192+* S) \u2192 Prop) (Q : \u2200 (R : Type u) [CommRing R] (S : Type v) [CommRing S], (R \u2192+* S) \u2192 Prop) (polynomial : \u2200 (R) [CommRing R], P R R[X] C) (fg_ker : \u2200 (R : Type u) [CommRing R] (S : Type v) [CommRing S] (f : R \u2192+* S), Surjective f \u2192 (ker f).FG \u2192 Q R S f) (comp : \u2200 (R) [CommRing R] (S) [CommRing S] (T) [CommRing T] (f : R \u2192+* S) (g : S \u2192+* T), P R S f \u2192 Q S T g \u2192 Q R T (g.comp f)) {R : Type u} {S : Type v} [CommRing R] [CommRing S] (f : R \u2192+* S) (hf : f.FinitePresentation) : Q R S f",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH (R := R[X]) (S := S) (g'.comp e.symm) (hg.comp e.symm.surjective) he",
+              "children": []
+            },
+            {
+              "name": "he",
+              "type": "(ker (g'.comp <| RingHomClass.toRingHom e.symm)).FG",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,443 @@
+[
+  {
+    "module": "Modular",
+    "name": "tendsto_normSq_coprime_pair",
+    "statement": "Filter.Tendsto (fun p : Fin 2 \u2192 \u2124 => normSq ((p 0 : \u2102) * z + p 1)) cofinite atTop",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "IsClosedEmbedding f",
+        "body": "f.isClosedEmbedding_of_injective hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "tendsto_lcRow0",
+    "statement": "Fin 2 \u2192 \u2124} (hcd : IsCoprime (cd 0) (cd 1)) : Tendsto (fun g : { g : SL(2, \u2124) // g 1 = cd } => lcRow0 cd \u2191(\u2191g : SL(2, \u211d))) cofinite (cocompact \u211d)",
+    "have_tree": [
+      {
+        "name": "hmB",
+        "type": "Continuous mB",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf\u2081",
+        "type": "Tendsto f\u2081 cofinite (cocompact _)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hf\u2082",
+        "type": "IsClosedEmbedding (lcRow0Extend hcd)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "smul_eq_lcRow0_add",
+    "statement": "Fin 2 \u2192 \u2124} (hp : IsCoprime (p 0) (p 1)) (hg : g 1 = p) : \u2191(g \u2022 z) = (lcRow0 p \u2191(g : SL(2, \u211d)) : \u2102) / ((p 0 : \u2102) ^ 2 + (p 1 : \u2102) ^ 2) + ((p 1 : \u2102) * z - p 0) / (((p 0 : \u2102) ^ 2 + (p 1 : \u2102) ^ 2) * (p 0 * z + p 1))",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "congr(Int.cast (R := \u2102) $(det_fin_two g))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "exists_max_im",
+    "statement": "\u2203 g : SL(2, \u2124), \u2200 g' : SL(2, \u2124), (g' \u2022 z).im \u2264 (g \u2022 z).im",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "s.Nonempty",
+        "body": "\u27e8![1, 1], isCoprime_one_left\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "re_T_smul",
+    "statement": "(T \u2022 z).re = z.re + 1",
+    "have_tree": [
+      {
+        "name": "had",
+        "type": "",
+        "body": "g.det_coe",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "g_eq_of_c_eq_one",
+    "statement": "g 1 0 = 1) : g = T ^ g 0 0 * S * T ^ g 1 1",
+    "have_tree": [
+      {
+        "name": "hg",
+        "type": "",
+        "body": "g.det_coe.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "im_lt_im_S_smul",
+    "statement": "normSq z < 1) : z.im < (S \u2022 z).im",
+    "have_tree": [
+      {
+        "name": "imz",
+        "type": "0 < z.im",
+        "body": "im_pos z",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "three_lt_four_mul_im_sq_of_mem_fdo",
+    "statement": "z \u2208 \ud835\udc9f\u1d52) : 3 < 4 * z.im ^ 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "1 < z.re * z.re + z.im * z.im",
+        "body": "by simpa [Complex.normSq_apply] using h.1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "three_le_four_mul_im_sq_of_mem_fd",
+    "statement": "\u210d} (h : \u03c4 \u2208 \ud835\udc9f) : 3 \u2264 4 * \u03c4.im ^ 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "1 \u2264 \u03c4.re * \u03c4.re + \u03c4.im * \u03c4.im",
+        "body": "by simpa [Complex.normSq_apply] using h.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "one_lt_normSq_T_zpow_smul",
+    "statement": "z \u2208 \ud835\udc9f\u1d52) (n : \u2124) : 1 < normSq (T ^ n \u2022 z : \u210d)",
+    "have_tree": [
+      {
+        "name": "hz\u2081",
+        "type": "1 < z.re * z.re + z.im * z.im",
+        "body": "hz.1",
+        "children": []
+      },
+      {
+        "name": "hzn",
+        "type": "",
+        "body": "Int.nneg_mul_add_sq_of_abs_le_one n (abs_two_mul_re_lt_one_of_mem_fdo hz).le",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "1 < (z.re + \u2191n) * (z.re + \u2191n) + z.im * z.im",
+        "body": "by linarith",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "eq_zero_of_mem_fdo_of_T_zpow_mem_fdo",
+    "statement": "\u2124} (hz : z \u2208 \ud835\udc9f\u1d52) (hg : T ^ n \u2022 z \u2208 \ud835\udc9f\u1d52) : n = 0",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "hz.2",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "hg.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "abs_c_le_one",
+    "statement": "z \u2208 \ud835\udc9f) (hg : g \u2022 z \u2208 \ud835\udc9f) : |g 1 0| \u2264 1",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "3 * 3 * c ^ 4 \u2264 4 * (g \u2022 z).im ^ 2 * (4 * z.im ^ 2) * c ^ 4",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "(c * z.im) ^ 4 / normSq (denom (\u2191g) z) ^ 2 \u2264 1",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "cases_c_zero",
+    "statement": "z \u2208 \ud835\udc9f) (hg : g \u2022 z \u2208 \ud835\udc9f) (hc : g 1 0 = 0) : ((g = T \u2228 g = -T) \u2227 z.re = -1 / 2) \u2228 ((g = T\u207b\u00b9 \u2228 g = -T\u207b\u00b9) \u2227 z.re = 1 / 2) \u2228 (g = 1 \u2228 g = -1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(abs_sub_abs_le_abs_add ..).trans (hre \u25b8 hg.2)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "cases_d_of_c_eq_one",
+    "statement": "z \u2208 \ud835\udc9f) (hg' : \u2016denom g z\u2016 \u2264 1) (hc : g 1 0 = 1) : |g 1 1| \u2264 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(abs_re_le_norm _).trans this",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(abs_sub_abs_le_abs_add ..).trans this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "cases_c_one_d_zero",
+    "statement": "z \u2208 \ud835\udc9f) (hg : g \u2022 z \u2208 \ud835\udc9f) (hg' : \u2016denom g z\u2016 \u2264 1) (hc : g 1 0 = 1) (hd : g 1 1 = 0) : (g = S \u2227 \u2016(z : \u2102)\u2016 = 1) \u2228 (g = T\u207b\u00b9 * S \u2227 z = \u03c1) \u2228 (g = T * S \u2227 z = (1 : \u211d) +\u1d65 \u03c1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hg.2",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(abs_sub_abs_le_abs_add _ _).trans this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "case_c_one_d_one",
+    "statement": "z \u2208 \ud835\udc9f) (hg : g \u2022 z \u2208 \ud835\udc9f) (hg' : \u2016denom g z\u2016 \u2264 1) (hc : g 1 0 = 1) (hd : g 1 1 = 1) : (g = S * T \u2228 g = T * S * T) \u2227 z = \u03c1",
+    "have_tree": [
+      {
+        "name": "hgzre",
+        "type": "",
+        "body": "hg.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "case_c_one_d_neg_one",
+    "statement": "z \u2208 \ud835\udc9f) (hg : g \u2022 z \u2208 \ud835\udc9f) (hg' : \u2016denom g z\u2016 \u2264 1) (hc : g 1 0 = 1) (hd : g 1 1 = -1) : (g = S * T\u207b\u00b9 \u2228 g = T\u207b\u00b9 * S * T\u207b\u00b9) \u2227 z = (1 : \u211d) +\u1d65 \u03c1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "g.property",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "1 \u2264 normSq z",
+        "body": "hz.1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 \u2264 -2 * z.re + 1",
+        "body": "by linarith [(le_abs_self _).trans hz.2]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "stabilizer_of_ne",
+    "statement": "z \u2208 \ud835\udc9f) (hg : g \u2022 z = z) (hzI : z \u2260 I) (hz\u03c1 : z \u2260 \u03c1) (hz\u03c1' : z \u2260 (1 : \u211d) +\u1d65 \u03c1) : g = 1 \u2228 g = -1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "T \u2022 z \u2260 z",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "T\u207b\u00b9 \u2022 z \u2260 z",
+        "body": "by rwa [ne_eq, inv_smul_eq_iff, eq_comm]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "S \u2022 z \u2260 z",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "stabilizer_I",
+    "statement": "g \u2022 I = I \u2194 g \u2208 ({1, -1, S, -S} : Finset SL(2, \u2124))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "cases_of_mem_fd_smul_mem_fd I_mem_fd (hg.symm \u25b8 I_mem_fd)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "stabilizer_\u03c1",
+    "statement": "g \u2022 \u03c1 = \u03c1 \u2194 g \u2208 ({1, -1, S * T, -(S * T), T\u207b\u00b9 * S, -(T\u207b\u00b9 * S)} : Finset SL(2, \u2124))",
+    "have_tree": [
+      {
+        "name": "neS",
+        "type": "g \u2260 S \u2227 g \u2260 -S",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "S \u2022 \u03c1 \u2260 \u03c1",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "neT",
+        "type": "g \u2260 T \u2227 g \u2260 -T \u2227 g \u2260 T\u207b\u00b9 \u2227 g \u2260 -T\u207b\u00b9",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "T \u2022 \u03c1 \u2260 \u03c1",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "T\u207b\u00b9 \u2022 \u03c1 \u2260 \u03c1",
+            "body": "by rwa [ne_eq, inv_smul_eq_iff, eq_comm]",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "neTST",
+        "type": "g \u2260 T * S * T \u2227 g \u2260 -(T * S * T)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(T * S * T) \u2022 \u03c1 \u2260 \u03c1",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "cases_of_mem_fd_smul_mem_fd \u03c1_mem_fd (hg \u25b8 \u03c1_mem_fd)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "eq_one_or_neg_one_of_mem_fdo_mem_fd",
+    "statement": "z \u2208 \ud835\udc9f\u1d52) (hg : g \u2022 z \u2208 \ud835\udc9f) : g = 1 \u2228 g = -1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u03c1 \u2209 \ud835\udc9f\u1d52",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "fdo_eq_interior_fd",
+    "statement": "\ud835\udc9f\u1d52 = interior \ud835\udc9f",
+    "have_tree": [
+      {
+        "name": "ho1",
+        "type": "",
+        "body": "isOpenMap_re.image_interior_subset \ud835\udc9f",
+        "children": []
+      },
+      {
+        "name": "ho2",
+        "type": "",
+        "body": "isOpenMap_norm.image_interior_subset \ud835\udc9f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "truncatedFundamentalDomain",
+    "statement": "\u211d) : Set \u210d",
+    "have_tree": [
+      {
+        "name": "hz'",
+        "type": "0 < z.im",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "exists_one_half_le_im_smul_and_norm_denom_le",
+    "statement": "\u210d) : \u2203 \u03b3 : SL(2, \u2124), 1 / 2 \u2264 im (\u03b3 \u2022 \u03c4) \u2227 \u2016denom \u03b3 \u03c4\u2016 \u2264 1",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "\u03c4.im \u2264 (\u03b3 \u2022 \u03c4).im",
+        "body": "h.trans h\u03b3",
+        "children": []
+      }
+    ]
+  }
+]

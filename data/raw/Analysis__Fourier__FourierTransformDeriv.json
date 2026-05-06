@@ -1,0 +1,161 @@
+[
+  {
+    "module": "FourierTransformDeriv",
+    "name": "norm_fourierSMulRight_le",
+    "statement": "V \u2192L[\u211d] W \u2192L[\u211d] \u211d) (f : V \u2192 E) (v : V) : \u2016fourierSMulRight L f v\u2016 \u2264 2 * \u03c0 * \u2016L\u2016 * \u2016v\u2016 * \u2016f v\u2016",
+    "have_tree": [
+      {
+        "name": "aux1",
+        "type": "AEStronglyMeasurable (fun v \u21a6 (L v, f v)) \u03bc",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourierTransformDeriv",
+    "name": "hasFDerivAt_fourierIntegral",
+    "statement": "Measure V} (hf : Integrable f \u03bc) (hf' : Integrable (fun v : V \u21a6 \u2016v\u2016 * \u2016f v\u2016) \u03bc) (w : W) : HasFDerivAt (fourierIntegral \ud835\udc1e \u03bc L.toLinearMap\u2081\u2082 f) (fourierIntegral \ud835\udc1e \u03bc L.toLinearMap\u2081\u2082 (fourierSMulRight L f) w) w",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "\u2200\u1da0 w' in \ud835\udcdd w, AEStronglyMeasurable (F w') \u03bc",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h3",
+        "type": "AEStronglyMeasurable (F' w) \u03bc",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h5",
+        "type": "Integrable B \u03bc",
+        "body": "by simpa only [\u2190 mul_assoc] using hf'.const_mul (2 * \u03c0 * \u2016L\u2016)",
+        "children": []
+      },
+      {
+        "name": "h6",
+        "type": "\u2200\u1d50 v \u2202\u03bc, \u2200 w', w' \u2208 Metric.ball w 1 \u2192 HasFDerivAt (fun x \u21a6 F x v) (F' w' v) w'",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourierTransformDeriv",
+    "name": "norm_iteratedFDeriv_fourierPowSMulRight",
+    "statement": "V \u2192 E} {K : \u2115\u221e\u03c9} {C : \u211d} (hf : ContDiff \u211d K f) {n : \u2115} {k : \u2115} (hk : k \u2264 K) {v : V} (hv : \u2200 i \u2264 k, \u2200 j \u2264 n, \u2016v\u2016 ^ j * \u2016iteratedFDeriv \u211d i f v\u2016 \u2264 C) : \u2016iteratedFDeriv \u211d k (fun v \u21a6 fourierPowSMulRight L f v n) v\u2016 \u2264 (2 * \u03c0) ^ n * (2 * n + 2) ^ k * \u2016L\u2016 ^ n * C",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2016T\u2016 \u2264 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "ContDiff \u211d K (fun y \u21a6 T (fun _ \u21a6 L y))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourierTransformDeriv",
+    "name": "hasFTaylorSeriesUpTo_fourierIntegral",
+    "statement": "\u2115\u221e\u03c9} (hf : \u2200 (n : \u2115), n \u2264 N \u2192 Integrable (fun v \u21a6 \u2016v\u2016 ^ n * \u2016f v\u2016) \u03bc) (h'f : AEStronglyMeasurable f \u03bc) : HasFTaylorSeriesUpTo N (fourierIntegral \ud835\udc1e \u03bc L.toLinearMap\u2081\u2082 f) (fun w n \u21a6 fourierIntegral \ud835\udc1e \u03bc L.toLinearMap\u2081\u2082 (fun v \u21a6 fourierPowSMulRight L f v n) w)",
+    "have_tree": [
+      {
+        "name": "I\u2081",
+        "type": "Integrable (fun v \u21a6 fourierPowSMulRight L f v n) \u03bc",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "I\u2082",
+        "type": "Integrable (fun v \u21a6 \u2016v\u2016 * \u2016fourierPowSMulRight L f v n\u2016) \u03bc",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "I\u2083",
+        "type": "Integrable (fun v \u21a6 fourierPowSMulRight L f v (n + 1)) \u03bc",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourierTransformDeriv",
+    "name": "fourierIntegral_iteratedFDeriv",
+    "statement": "Measure V} [Measure.IsAddHaarMeasure \u03bc] {N : \u2115\u221e} (hf : ContDiff \u211d N f) (h'f : \u2200 (n : \u2115), n \u2264 N \u2192 Integrable (iteratedFDeriv \u211d n f) \u03bc) {n : \u2115} (hn : n \u2264 N) : fourierIntegral \ud835\udc1e \u03bc L.toLinearMap\u2081\u2082 (iteratedFDeriv \u211d n f) = (fun w \u21a6 fourierPowSMulRight (-L.flip) (fourierIntegral \ud835\udc1e \u03bc L.toLinearMap\u2081\u2082 f) w n)",
+    "have_tree": [
+      {
+        "name": "J",
+        "type": "Integrable (fderiv \u211d (iteratedFDeriv \u211d n f)) \u03bc",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h'n",
+        "type": "n < N",
+        "body": "(Nat.cast_lt.mpr n.lt_succ_self).trans_le hn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourierTransformDeriv",
+    "name": "pow_mul_norm_iteratedFDeriv_fourier_le",
+    "statement": "\u2115\u221e} (hf : ContDiff \u211d N f) (h'f : \u2200 (k n : \u2115), k \u2264 K \u2192 n \u2264 N \u2192 Integrable (fun v \u21a6 \u2016v\u2016 ^ k * \u2016iteratedFDeriv \u211d n f v\u2016)) {k n : \u2115} (hk : k \u2264 K) (hn : n \u2264 N) (w : V) : \u2016w\u2016 ^ n * \u2016iteratedFDeriv \u211d k (\ud835\udcd5 f) w\u2016 \u2264 (2 * \u03c0) ^ k * (2 * k + 2) ^ n * \u2211 p \u2208 Finset.range (k + 1) \u00d7\u02e2 Finset.range (n + 1), \u222b v, \u2016v\u2016 ^ p.1 * \u2016iteratedFDeriv \u211d p.2 f v\u2016",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "VectorFourier.pow_mul_norm_iteratedFDeriv_fourierIntegral_le (innerSL \u211d) hf h'f hk hn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourierTransformDeriv",
+    "name": "hasDerivAt_fourier",
+    "statement": "\u211d \u2192 E} (hf : Integrable f) (hf' : Integrable (fun x : \u211d \u21a6 x \u2022 f x)) (w : \u211d) : HasDerivAt (\ud835\udcd5 f) (\ud835\udcd5 (fun x : \u211d \u21a6 (-2 * \u03c0 * I * x) \u2022 f x) w) w",
+    "have_tree": [
+      {
+        "name": "h_int",
+        "type": "Integrable fun v \u21a6 fourierSMulRight L f v",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourierTransformDeriv",
+    "name": "fourier_deriv",
+    "statement": "\u211d \u2192 E} (hf : Integrable f) (h'f : Differentiable \u211d f) (hf' : Integrable (deriv f)) : \ud835\udcd5 (deriv f) = fun (x : \u211d) \u21a6 (2 * \u03c0 * I * x) \u2022 (\ud835\udcd5 f x)",
+    "have_tree": [
+      {
+        "name": "I",
+        "type": "Integrable (fun x \u21a6 fderiv \u211d f x)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourierTransformDeriv",
+    "name": "iteratedDeriv_fourier",
+    "statement": "\u211d \u2192 E} {N : \u2115\u221e} {n : \u2115} (hf : \u2200 (n : \u2115), n \u2264 N \u2192 Integrable (fun x \u21a6 x ^ n \u2022 f x)) (hn : n \u2264 N) : iteratedDeriv n (\ud835\udcd5 f) = \ud835\udcd5 (fun x : \u211d \u21a6 (-2 * \u03c0 * I * x) ^ n \u2022 f x)",
+    "have_tree": [
+      {
+        "name": "B",
+        "type": "AEStronglyMeasurable f",
+        "body": "by simpa using (hf 0 (zero_le _)).1",
+        "children": []
+      }
+    ]
+  }
+]

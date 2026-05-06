@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Covolume",
+    "name": "covolume",
+    "statement": "Measure E",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "MeasurableVAdd L E",
+        "body": "(inferInstance : MeasurableVAdd L.toAddSubgroup E)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "VAddInvariantMeasure L E \u03bc",
+        "body": "(inferInstance : VAddInvariantMeasure L.toAddSubgroup E \u03bc)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Covolume",
+    "name": "covolume_div_covolume_eq_relIndex'",
+    "statement": "Type*} [NormedAddCommGroup E] [InnerProductSpace \u211d E] [FiniteDimensional \u211d E] [MeasurableSpace E] [BorelSpace E] (L\u2081 L\u2082 : Submodule \u2124 E) [DiscreteTopology L\u2081] [IsZLattice \u211d L\u2081] [DiscreteTopology L\u2082] [IsZLattice \u211d L\u2082] (h : L\u2081 \u2264 L\u2082) : covolume L\u2081 / covolume L\u2082 = L\u2081.toAddSubgroup.relIndex L\u2082.toAddSubgroup",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "MeasurePreserving f",
+        "body": "(stdOrthonormalBasis \u211d E).measurePreserving_repr_symm.comp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Covolume",
+    "name": "volume_image_eq_volume_div_covolume'",
+    "statement": "Type*} [NormedAddCommGroup E] [InnerProductSpace \u211d E] [FiniteDimensional \u211d E] [MeasurableSpace E] [BorelSpace E] (L : Submodule \u2124 E) [DiscreteTopology L] [IsZLattice \u211d L] {\u03b9 : Type*} [Fintype \u03b9] (b : Basis \u03b9 \u2124 L) {s : Set E} (hs : NullMeasurableSet s) : volume ((b.ofZLatticeBasis \u211d).equivFun '' s) = volume s / ENNReal.ofReal (covolume L)",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "MeasurePreserving f",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

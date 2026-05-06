@@ -1,0 +1,876 @@
+[
+  {
+    "original": {
+      "module": "Ordset",
+      "name": "Valid'.rotateL",
+      "statement": "\u03b1} {r o\u2081 o\u2082} (hl : Valid' o\u2081 l x) (hr : Valid' x r o\u2082) (H1 : \u00acsize l + size r \u2264 1) (H2 : delta * size l < size r) (H3 : 2 * size r \u2264 9 * size l + 5 \u2228 size r \u2264 3) : Valid' o\u2081 (@rotateL \u03b1 l x r) o\u2082",
+      "have_tree": [
+        {
+          "name": "H3p",
+          "type": "size l > 0 \u2192 2 * (size rl + size rr) \u2264 9 * size l + 3",
+          "body": "fun l0 : 1 \u2264 size l =>",
+          "children": []
+        },
+        {
+          "name": "hlp",
+          "type": "size l > 0 \u2192 \u00acsize rl + size rr \u2264 1",
+          "body": "fun l0 hb =>",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hr.3.1",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Ordset",
+          "name": "Valid'.rotateL",
+          "statement": "\u03b1} {r o\u2081 o\u2082} (hl : Valid' o\u2081 l x) (hr : Valid' x r o\u2082) (H1 : \u00acsize l + size r \u2264 1) (H2 : delta * size l < size r) (H3 : 2 * size r \u2264 9 * size l + 5 \u2228 size r \u2264 3) : Valid' o\u2081 (@rotateL \u03b1 l x r) o\u2082",
+          "have_tree": [
+            {
+              "name": "H3p",
+              "type": "size l > 0 \u2192 2 * (size rl + size rr) \u2264 9 * size l + 3",
+              "body": "fun l0 : 1 \u2264 size l =>",
+              "children": []
+            },
+            {
+              "name": "hlp",
+              "type": "size l > 0 \u2192 \u00acsize rl + size rr \u2264 1",
+              "body": "fun l0 hb =>",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Ordset",
+          "name": "Valid'.rotateL",
+          "statement": "\u03b1} {r o\u2081 o\u2082} (hl : Valid' o\u2081 l x) (hr : Valid' x r o\u2082) (H1 : \u00acsize l + size r \u2264 1) (H2 : delta * size l < size r) (H3 : 2 * size r \u2264 9 * size l + 5 \u2228 size r \u2264 3) : Valid' o\u2081 (@rotateL \u03b1 l x r) o\u2082",
+          "have_tree": [
+            {
+              "name": "H3p",
+              "type": "size l > 0 \u2192 2 * (size rl + size rr) \u2264 9 * size l + 3",
+              "body": "fun l0 : 1 \u2264 size l =>",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hr.3.1",
+              "children": []
+            },
+            {
+              "name": "hlp",
+              "type": "size l > 0 \u2192 \u00acsize rl + size rr \u2264 1",
+              "body": "fun l0 hb =>",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Ordset",
+          "name": "Valid'.rotateL",
+          "statement": "\u03b1} {r o\u2081 o\u2082} (hl : Valid' o\u2081 l x) (hr : Valid' x r o\u2082) (H1 : \u00acsize l + size r \u2264 1) (H2 : delta * size l < size r) (H3 : 2 * size r \u2264 9 * size l + 5 \u2228 size r \u2264 3) : Valid' o\u2081 (@rotateL \u03b1 l x r) o\u2082",
+          "have_tree": [
+            {
+              "name": "hlp",
+              "type": "size l > 0 \u2192 \u00acsize rl + size rr \u2264 1",
+              "body": "fun l0 hb =>",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hr.3.1",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "H3p",
+              "type": "size l > 0 \u2192 2 * (size rl + size rr) \u2264 9 * size l + 3",
+              "body": "fun l0 : 1 \u2264 size l =>",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Ordset",
+      "name": "Valid'.map_aux",
+      "statement": "\u03b1 \u2192 \u03b2} (f_strict_mono : StrictMono f) {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) : Valid' (Option.map f a\u2081) (map f t) (Option.map f a\u2082) \u2227 (map f t).size = t.size",
+      "have_tree": [
+        {
+          "name": "t_ih_l'",
+          "type": "",
+          "body": "t_ih_l h.left",
+          "children": []
+        },
+        {
+          "name": "t_ih_r'",
+          "type": "",
+          "body": "t_ih_r h.right",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Ordset",
+          "name": "Valid'.map_aux",
+          "statement": "\u03b1 \u2192 \u03b2} (f_strict_mono : StrictMono f) {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) : Valid' (Option.map f a\u2081) (map f t) (Option.map f a\u2082) \u2227 (map f t).size = t.size",
+          "have_tree": [
+            {
+              "name": "t_ih_r'",
+              "type": "",
+              "body": "t_ih_r h.right",
+              "children": []
+            },
+            {
+              "name": "t_ih_l'",
+              "type": "",
+              "body": "t_ih_l h.left",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Ordset",
+      "name": "Valid'.erase_aux",
+      "statement": "\u03b1) {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) : Valid' a\u2081 (erase x t) a\u2082 \u2227 Raised (erase x t).size t.size",
+      "have_tree": [
+        {
+          "name": "t_ih_l'",
+          "type": "",
+          "body": "t_ih_l h.left",
+          "children": []
+        },
+        {
+          "name": "t_ih_r'",
+          "type": "",
+          "body": "t_ih_r h.right",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Ordset",
+          "name": "Valid'.erase_aux",
+          "statement": "\u03b1) {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) : Valid' a\u2081 (erase x t) a\u2082 \u2227 Raised (erase x t).size t.size",
+          "have_tree": [
+            {
+              "name": "t_ih_r'",
+              "type": "",
+              "body": "t_ih_r h.right",
+              "children": []
+            },
+            {
+              "name": "t_ih_l'",
+              "type": "",
+              "body": "t_ih_l h.left",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Ordset",
+      "name": "size_erase_of_mem",
+      "statement": "\u03b1} {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) (h_mem : x \u2208 t) : size (erase x t) = size t - 1",
+      "have_tree": [
+        {
+          "name": "t_ih_l'",
+          "type": "",
+          "body": "t_ih_l h.left",
+          "children": []
+        },
+        {
+          "name": "t_ih_r'",
+          "type": "",
+          "body": "t_ih_r h.right",
+          "children": [
+            {
+              "name": "t_l_h",
+              "type": "",
+              "body": "Valid'.erase_aux x h.left",
+              "children": []
+            },
+            {
+              "name": "h_pos_t_l_size",
+              "type": "",
+              "body": "pos_size_of_mem h.left.sz h_mem",
+              "children": []
+            },
+            {
+              "name": "t_r_h",
+              "type": "",
+              "body": "Valid'.erase_aux x h.right",
+              "children": []
+            },
+            {
+              "name": "h_pos_t_r_size",
+              "type": "",
+              "body": "pos_size_of_mem h.right.sz h_mem",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Ordset",
+          "name": "size_erase_of_mem",
+          "statement": "\u03b1} {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) (h_mem : x \u2208 t) : size (erase x t) = size t - 1",
+          "have_tree": [
+            {
+              "name": "t_ih_l'",
+              "type": "",
+              "body": "t_ih_l h.left",
+              "children": []
+            },
+            {
+              "name": "t_ih_r'",
+              "type": "",
+              "body": "t_ih_r h.right",
+              "children": [
+                {
+                  "name": "h_pos_t_l_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.left.sz h_mem",
+                  "children": []
+                },
+                {
+                  "name": "t_r_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.right",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_r_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.right.sz h_mem",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          1
+        ],
+        "result": {
+          "module": "Ordset",
+          "name": "size_erase_of_mem",
+          "statement": "\u03b1} {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) (h_mem : x \u2208 t) : size (erase x t) = size t - 1",
+          "have_tree": [
+            {
+              "name": "t_ih_l'",
+              "type": "",
+              "body": "t_ih_l h.left",
+              "children": []
+            },
+            {
+              "name": "t_ih_r'",
+              "type": "",
+              "body": "t_ih_r h.right",
+              "children": [
+                {
+                  "name": "t_l_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.left",
+                  "children": []
+                },
+                {
+                  "name": "t_r_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.right",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_r_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.right.sz h_mem",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          2
+        ],
+        "result": {
+          "module": "Ordset",
+          "name": "size_erase_of_mem",
+          "statement": "\u03b1} {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) (h_mem : x \u2208 t) : size (erase x t) = size t - 1",
+          "have_tree": [
+            {
+              "name": "t_ih_l'",
+              "type": "",
+              "body": "t_ih_l h.left",
+              "children": []
+            },
+            {
+              "name": "t_ih_r'",
+              "type": "",
+              "body": "t_ih_r h.right",
+              "children": [
+                {
+                  "name": "t_l_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.left",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_l_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.left.sz h_mem",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_r_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.right.sz h_mem",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          3
+        ],
+        "result": {
+          "module": "Ordset",
+          "name": "size_erase_of_mem",
+          "statement": "\u03b1} {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) (h_mem : x \u2208 t) : size (erase x t) = size t - 1",
+          "have_tree": [
+            {
+              "name": "t_ih_l'",
+              "type": "",
+              "body": "t_ih_l h.left",
+              "children": []
+            },
+            {
+              "name": "t_ih_r'",
+              "type": "",
+              "body": "t_ih_r h.right",
+              "children": [
+                {
+                  "name": "t_l_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.left",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_l_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.left.sz h_mem",
+                  "children": []
+                },
+                {
+                  "name": "t_r_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.right",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Ordset",
+          "name": "size_erase_of_mem",
+          "statement": "\u03b1} {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) (h_mem : x \u2208 t) : size (erase x t) = size t - 1",
+          "have_tree": [
+            {
+              "name": "t_ih_l'",
+              "type": "",
+              "body": "t_ih_l h.left",
+              "children": []
+            },
+            {
+              "name": "t_l_h",
+              "type": "",
+              "body": "Valid'.erase_aux x h.left",
+              "children": []
+            },
+            {
+              "name": "t_ih_r'",
+              "type": "",
+              "body": "t_ih_r h.right",
+              "children": [
+                {
+                  "name": "h_pos_t_l_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.left.sz h_mem",
+                  "children": []
+                },
+                {
+                  "name": "t_r_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.right",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_r_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.right.sz h_mem",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Ordset",
+          "name": "size_erase_of_mem",
+          "statement": "\u03b1} {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) (h_mem : x \u2208 t) : size (erase x t) = size t - 1",
+          "have_tree": [
+            {
+              "name": "t_ih_l'",
+              "type": "",
+              "body": "t_ih_l h.left",
+              "children": []
+            },
+            {
+              "name": "h_pos_t_l_size",
+              "type": "",
+              "body": "pos_size_of_mem h.left.sz h_mem",
+              "children": []
+            },
+            {
+              "name": "t_ih_r'",
+              "type": "",
+              "body": "t_ih_r h.right",
+              "children": [
+                {
+                  "name": "t_l_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.left",
+                  "children": []
+                },
+                {
+                  "name": "t_r_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.right",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_r_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.right.sz h_mem",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 2,
+        "result": {
+          "module": "Ordset",
+          "name": "size_erase_of_mem",
+          "statement": "\u03b1} {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) (h_mem : x \u2208 t) : size (erase x t) = size t - 1",
+          "have_tree": [
+            {
+              "name": "t_ih_l'",
+              "type": "",
+              "body": "t_ih_l h.left",
+              "children": []
+            },
+            {
+              "name": "t_r_h",
+              "type": "",
+              "body": "Valid'.erase_aux x h.right",
+              "children": []
+            },
+            {
+              "name": "t_ih_r'",
+              "type": "",
+              "body": "t_ih_r h.right",
+              "children": [
+                {
+                  "name": "t_l_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.left",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_l_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.left.sz h_mem",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_r_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.right.sz h_mem",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 3,
+        "result": {
+          "module": "Ordset",
+          "name": "size_erase_of_mem",
+          "statement": "\u03b1} {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) (h_mem : x \u2208 t) : size (erase x t) = size t - 1",
+          "have_tree": [
+            {
+              "name": "t_ih_l'",
+              "type": "",
+              "body": "t_ih_l h.left",
+              "children": []
+            },
+            {
+              "name": "h_pos_t_r_size",
+              "type": "",
+              "body": "pos_size_of_mem h.right.sz h_mem",
+              "children": []
+            },
+            {
+              "name": "t_ih_r'",
+              "type": "",
+              "body": "t_ih_r h.right",
+              "children": [
+                {
+                  "name": "t_l_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.left",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_l_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.left.sz h_mem",
+                  "children": []
+                },
+                {
+                  "name": "t_r_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.right",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Ordset",
+          "name": "size_erase_of_mem",
+          "statement": "\u03b1} {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) (h_mem : x \u2208 t) : size (erase x t) = size t - 1",
+          "have_tree": [
+            {
+              "name": "t_ih_r'",
+              "type": "",
+              "body": "t_ih_r h.right",
+              "children": [
+                {
+                  "name": "t_l_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.left",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_l_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.left.sz h_mem",
+                  "children": []
+                },
+                {
+                  "name": "t_r_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.right",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_r_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.right.sz h_mem",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "t_ih_l'",
+              "type": "",
+              "body": "t_ih_l h.left",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          1
+        ],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Ordset",
+          "name": "size_erase_of_mem",
+          "statement": "\u03b1} {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) (h_mem : x \u2208 t) : size (erase x t) = size t - 1",
+          "have_tree": [
+            {
+              "name": "t_ih_l'",
+              "type": "",
+              "body": "t_ih_l h.left",
+              "children": []
+            },
+            {
+              "name": "t_ih_r'",
+              "type": "",
+              "body": "t_ih_r h.right",
+              "children": [
+                {
+                  "name": "h_pos_t_l_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.left.sz h_mem",
+                  "children": []
+                },
+                {
+                  "name": "t_l_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.left",
+                  "children": []
+                },
+                {
+                  "name": "t_r_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.right",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_r_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.right.sz h_mem",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          1
+        ],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Ordset",
+          "name": "size_erase_of_mem",
+          "statement": "\u03b1} {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) (h_mem : x \u2208 t) : size (erase x t) = size t - 1",
+          "have_tree": [
+            {
+              "name": "t_ih_l'",
+              "type": "",
+              "body": "t_ih_l h.left",
+              "children": []
+            },
+            {
+              "name": "t_ih_r'",
+              "type": "",
+              "body": "t_ih_r h.right",
+              "children": [
+                {
+                  "name": "t_l_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.left",
+                  "children": []
+                },
+                {
+                  "name": "t_r_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.right",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_l_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.left.sz h_mem",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_r_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.right.sz h_mem",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          1
+        ],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Ordset",
+          "name": "size_erase_of_mem",
+          "statement": "\u03b1} {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) (h_mem : x \u2208 t) : size (erase x t) = size t - 1",
+          "have_tree": [
+            {
+              "name": "t_ih_l'",
+              "type": "",
+              "body": "t_ih_l h.left",
+              "children": []
+            },
+            {
+              "name": "t_ih_r'",
+              "type": "",
+              "body": "t_ih_r h.right",
+              "children": [
+                {
+                  "name": "t_l_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.left",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_l_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.left.sz h_mem",
+                  "children": []
+                },
+                {
+                  "name": "h_pos_t_r_size",
+                  "type": "",
+                  "body": "pos_size_of_mem h.right.sz h_mem",
+                  "children": []
+                },
+                {
+                  "name": "t_r_h",
+                  "type": "",
+                  "body": "Valid'.erase_aux x h.right",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

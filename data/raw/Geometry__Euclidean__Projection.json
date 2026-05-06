@@ -1,0 +1,67 @@
+[
+  {
+    "module": "Projection",
+    "name": "orthogonalProjection_affineSpan_singleton",
+    "statement": "P) : orthogonalProjection (affineSpan \ud835\udd5c {p\u2081}) p\u2082 = p\u2081",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "SetLike.coe_mem (orthogonalProjection (affineSpan \ud835\udd5c {p\u2081}) p\u2082)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Projection",
+    "name": "coe_orthogonalProjection_eq_iff_mem",
+    "statement": "AffineSubspace \ud835\udd5c P} [Nonempty s] [s.direction.HasOrthogonalProjection] {p q : P} : orthogonalProjection s p = q \u2194 q \u2208 s \u2227 p -\u1d65 q \u2208 s.direction\u15ee",
+    "have_tree": [
+      {
+        "name": "hq",
+        "type": "q \u2208 mk' p s.direction\u15ee",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Projection",
+    "name": "exists_dist_eq_iff_exists_dist_orthogonalProjection_eq",
+    "statement": "AffineSubspace \ud835\udd5c P} [Nonempty s] [s.direction.HasOrthogonalProjection] {ps : Set P} (hps : ps \u2286 s) (p : P) : (\u2203 r, \u2200 p\u2081 \u2208 ps, dist p\u2081 p = r) \u2194 \u2203 r, \u2200 p\u2081 \u2208 ps, dist p\u2081 \u2191(orthogonalProjection s p) = r",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "dist_set_eq_iff_dist_orthogonalProjection_eq hps p",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Projection",
+    "name": "reflection_mem_of_le_of_mem",
+    "statement": "AffineSubspace \ud835\udd5c P} [Nonempty s\u2081] [s\u2081.direction.HasOrthogonalProjection] (hle : s\u2081 \u2264 s\u2082) {p : P} (hp : p \u2208 s\u2082) : reflection s\u2081 p \u2208 s\u2082",
+    "have_tree": [
+      {
+        "name": "ho",
+        "type": "\u2191(orthogonalProjection s\u2081 p) \u2208 s\u2082",
+        "body": "hle (orthogonalProjection_mem p)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Projection",
+    "name": "orthogonalProjection_subtype",
+    "statement": "AffineSubspace \ud835\udd5c P) [Nonempty s] (s' : AffineSubspace \ud835\udd5c s) [Nonempty s'] [s'.direction.HasOrthogonalProjection] [(s'.map s.subtype).direction.HasOrthogonalProjection] (p : s) : (orthogonalProjection s' p : P) = orthogonalProjection (s'.map s.subtype) p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(s'.map s.subtype\u2090\u1d62.toAffineMap).direction.HasOrthogonalProjection",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

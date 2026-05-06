@@ -1,0 +1,65 @@
+[
+  {
+    "module": "Cardinality",
+    "name": "basis_finite_of_finite_spans",
+    "statement": "Set M} (hs : s.Finite) (hsspan : span R s = \u22a4) {\u03b9 : Type w} (b : Basis \u03b9 R M) : Finite \u03b9",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr(($hsspan).map b.repr.toLinearMap)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cardinality",
+    "name": "union_support_maximal_linearIndependent_eq_range_basis",
+    "statement": "Type w} (b : Basis \u03b9 R M) {\u03ba : Type w'} (v : \u03ba \u2192 M) (ind : LinearIndependent R v) (m : ind.Maximal) : \u22c3 k, ((b.repr (v k)).support : Set \u03b9) = Set.univ",
+    "have_tree": [
+      {
+        "name": "r",
+        "type": "range v \u2286 range v'",
+        "body": "by rintro - \u27e8k, rfl\u27e9; exact \u27e8some k, rfl\u27e9",
+        "children": []
+      },
+      {
+        "name": "r'",
+        "type": "b i \u2209 range v",
+        "body": "fun \u27e8k, p\u27e9 \u21a6 by simpa [w] using congr(b.repr $p i)",
+        "children": []
+      },
+      {
+        "name": "r''",
+        "type": "range v \u2260 range v'",
+        "body": "(r' <| \u00b7 \u25b8 \u27e8none, rfl\u27e9)",
+        "children": []
+      },
+      {
+        "name": "i'",
+        "type": "LinearIndepOn R id (range v')",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cardinality",
+    "name": "infinite_basis_le_maximal_linearIndependent'",
+    "statement": "Type w} (b : Basis \u03b9 R M) [Infinite \u03b9] {\u03ba : Type w'} (v : \u03ba \u2192 M) (i : LinearIndependent R v) (m : i.Maximal) : Cardinal.lift.{w'} #\u03b9 \u2264 Cardinal.lift.{w} #\u03ba",
+    "have_tree": [
+      {
+        "name": "w\u2081",
+        "type": "#\u03b9 \u2264 #(Set.range \u03a6)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "w\u2082",
+        "type": "Cardinal.lift.{w'} #(Set.range \u03a6) \u2264 Cardinal.lift.{w} #\u03ba",
+        "body": "Cardinal.mk_range_le_lift",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,162 @@
+[
+  {
+    "module": "Tower",
+    "name": "LinearIndependent.map_of_isPurelyInseparable_of_isSeparable",
+    "statement": "Type*} {v : \u03b9 \u2192 K} (hsep : \u2200 i : \u03b9, IsSeparable F (v i)) (h : LinearIndependent F v) : LinearIndependent E v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(expChar_pow_pos F q n).ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tower",
+    "name": "sepDegree_eq_of_isPurelyInseparable_of_isSeparable",
+    "statement": "sepDegree F K = Module.rank E K",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "(separableClosure F K).linearDisjoint_of_isPurelyInseparable_of_isSeparable E",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tower",
+    "name": "lift_rank_mul_lift_insepDegree_of_isPurelyInseparable",
+    "statement": "Cardinal.lift.{w} (Module.rank F E) * Cardinal.lift.{v} (insepDegree E K) = Cardinal.lift.{v} (insepDegree F K)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "(separableClosure F K).linearDisjoint_of_isPurelyInseparable_of_isSeparable E",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tower",
+    "name": "lift_sepDegree_mul_lift_sepDegree_of_isAlgebraic",
+    "statement": "Cardinal.lift.{w} (sepDegree F E) * Cardinal.lift.{v} (sepDegree E K) = Cardinal.lift.{v} (sepDegree F K)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "lift_rank_mul_lift_sepDegree_of_isSeparable F (separableClosure F E) K",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tower",
+    "name": "lift_insepDegree_mul_lift_insepDegree_of_isAlgebraic",
+    "statement": "Cardinal.lift.{w} (insepDegree F E) * Cardinal.lift.{v} (insepDegree E K) = Cardinal.lift.{v} (insepDegree F K)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "lift_rank_mul_lift_insepDegree_of_isPurelyInseparable (separableClosure F E) E K",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tower",
+    "name": "IntermediateField.sepDegree_adjoin_eq_of_isAlgebraic_of_isPurelyInseparable",
+    "statement": "Set K) [Algebra.IsAlgebraic F (adjoin F S)] [IsPurelyInseparable F E] : sepDegree E (adjoin E S) = sepDegree F (adjoin F S)",
+    "have_tree": [
+      {
+        "name": "hi",
+        "type": "M \u2264 L.restrictScalars F",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "lift_sepDegree_mul_lift_sepDegree_of_isAlgebraic F E L",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tower",
+    "name": "IntermediateField.sepDegree_adjoin_eq_of_isAlgebraic_of_isPurelyInseparable'",
+    "statement": "IntermediateField F K) [Algebra.IsAlgebraic F S] [IsPurelyInseparable F E] : sepDegree E (adjoin E (S : Set K)) = sepDegree F S",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "sepDegree_adjoin_eq_of_isAlgebraic_of_isPurelyInseparable (F := F) E (S : Set K)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tower",
+    "name": "minpoly.map_eq_of_isSeparable_of_isPurelyInseparable",
+    "statement": "K) (hsep : IsSeparable F x) [IsPurelyInseparable F E] : (minpoly F x).map (algebraMap F E) = minpoly E x",
+    "have_tree": [
+      {
+        "name": "hi",
+        "type": "",
+        "body": "IsSeparable.isIntegral hsep",
+        "children": []
+      },
+      {
+        "name": "hi'",
+        "type": "IsIntegral E x",
+        "body": "IsIntegral.tower_top hi",
+        "children": []
+      },
+      {
+        "name": "hsep'",
+        "type": "",
+        "body": "IsSeparable.tower_top E hsep",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Algebra.IsSeparable.isAlgebraic F F\u27eex\u27ef",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tower",
+    "name": "Polynomial.Separable.map_irreducible_of_isPurelyInseparable",
+    "statement": "F[X]} (hsep : f.Separable) (hirr : Irreducible f) [IsPurelyInseparable F E] : Irreducible (f.map (algebraMap F E))",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "Associated f (minpoly F x)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "isUnit_C.2 (leadingCoeff_ne_zero.2 hirr.ne_zero).isUnit.inv",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "ha'",
+        "type": "Associated (f.map (algebraMap F E)) ((minpoly F x).map (algebraMap F E))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "heq",
+        "type": "",
+        "body": "minpoly.map_eq_of_isSeparable_of_isPurelyInseparable E x (ha.separable hsep)",
+        "children": []
+      }
+    ]
+  }
+]

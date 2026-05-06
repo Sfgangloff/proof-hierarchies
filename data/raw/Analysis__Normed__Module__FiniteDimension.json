@@ -1,0 +1,170 @@
+[
+  {
+    "module": "FiniteDimension",
+    "name": "LipschitzOnWith.extend_finite_dimension",
+    "statement": "Type*} [PseudoMetricSpace \u03b1] {E' : Type*} [NormedAddCommGroup E'] [NormedSpace \u211d E'] [FiniteDimensional \u211d E'] {s : Set \u03b1} {f : \u03b1 \u2192 E'} {K : \u211d\u22650} (hf : LipschitzOnWith K f s) : \u2203 g : \u03b1 \u2192 E', LipschitzWith (lipschitzExtensionConstant E' * K) g \u2227 EqOn f g s",
+    "have_tree": [
+      {
+        "name": "LA",
+        "type": "LipschitzWith \u2016A.toContinuousLinearMap\u2016\u208a A",
+        "body": "by apply A.lipschitz",
+        "children": []
+      },
+      {
+        "name": "L",
+        "type": "LipschitzOnWith (\u2016A.toContinuousLinearMap\u2016\u208a * K) (A \u2218 f) s",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "ContinuousLinearMap.isOpen_injective",
+    "statement": "IsOpen { L : E \u2192L[\ud835\udd5c] F | Injective L }",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200\u1da0 \u03c6 in \ud835\udcdd \u03c6\u2080, \u2016\u03c6 - \u03c6\u2080\u2016\u208a < K\u207b\u00b9",
+        "body": "eventually_nnnorm_sub_lt _ <| inv_pos_of_pos K_pos",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "exists_norm_le_le_norm_sub_of_finset",
+    "statement": "\ud835\udd5c} (hc : 1 < \u2016c\u2016) {R : \u211d} (hR : \u2016c\u2016 < R) (h : \u00acFiniteDimensional \ud835\udd5c E) (s : Finset E) : \u2203 x : E, \u2016x\u2016 \u2264 R \u2227 \u2200 y \u2208 s, 1 \u2264 \u2016y - x\u2016",
+    "have_tree": [
+      {
+        "name": "hF",
+        "type": "F.FG",
+        "body": "\u27e8s, rfl\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2203 x, x \u2209 F",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "exists_seq_norm_le_one_le_norm_sub",
+    "statement": "\u00acFiniteDimensional \ud835\udd5c E) : \u2203 (R : \u211d) (f : \u2115 \u2192 E), 1 < R \u2227 (\u2200 n, \u2016f n\u2016 \u2264 R) \u2227 Pairwise fun m n => 1 \u2264 \u2016f m - f n\u2016",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2016c\u2016 < \u2016c\u2016 + 1",
+        "body": "by linarith",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "ProperSpace.of_locallyCompactSpace",
+    "statement": "Type*) [NontriviallyNormedField \ud835\udd5c] {E : Type*} [SeminormedAddCommGroup E] [NormedSpace \ud835\udd5c E] [LocallyCompactSpace E] : ProperSpace E",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "c ^ n \u2260 0",
+        "body": "pow_ne_zero _ <| fun h \u21a6 by simp [h, zero_le_one.not_gt] at hc",
+        "children": []
+      },
+      {
+        "name": "hTop",
+        "type": "Tendsto (fun n \u21a6 \u2016c\u2016 ^ n * r) atTop atTop",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "ProperSpace.of_locallyCompact_module",
+    "statement": "Type*) [AddCommGroup V] [TopologicalSpace V] [IsTopologicalAddGroup V] [T2Space V] [Nontrivial V] [LocallyCompactSpace V] [Module \ud835\udd5c V] [ContinuousSMul \ud835\udd5c V] : ProperSpace \ud835\udd5c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "LocallyCompactSpace \ud835\udd5c",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsClosedEmbedding L",
+            "body": "isClosedEmbedding_smul_left hv",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "FiniteDimensional.of_isCompactOperator_id",
+    "statement": "IsCompactOperator (id : E \u2192 E)) : FiniteDimensional \ud835\udd5c E",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "LocallyCompactSpace.of_isCompactOperator_id h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "FiniteDimensional.proper",
+    "statement": "ProperSpace E",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "ProperSpace \ud835\udd5c",
+        "body": ".of_locallyCompactSpace \ud835\udd5c",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "exists_mem_frontier_infDist_compl_eq_dist",
+    "statement": "Type*} [NormedAddCommGroup E] [NormedSpace \u211d E] [FiniteDimensional \u211d E] {x : E} {s : Set E} (hx : x \u2208 s) (hs : s \u2260 univ) : \u2203 y \u2208 frontier s, Metric.infDist x s\u1d9c = dist x y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional \u211d E",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "continuous_coe_repr",
+    "statement": "Continuous (fun m : M => \u21d1(B.repr m))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Finite.of_basis B",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteDimension",
+    "name": "continuous_toMatrix",
+    "statement": "Continuous fun (v : \u03b9 \u2192 M) => B.toMatrix v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Finite.of_basis B",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Coeff",
+    "name": "charpoly_of_card_eq_two",
+    "statement": "Fintype.card n = 2) : M.charpoly = X ^ 2 - C M.trace * X + C M.det",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty n",
+        "body": "by rw [\u2190 Fintype.card_pos_iff]; lia",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Coeff",
+    "name": "charpoly_inv",
+    "statement": "Matrix n n R) (h : IsUnit A) : A\u207b\u00b9.charpoly = (-1) ^ Fintype.card n * C A.det\u207b\u00b9\u02b3 * A.charpolyRev",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Invertible A",
+        "body": "h.invertible",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Coeff",
+    "name": "isNilpotent_charpoly_sub_pow_of_isNilpotent",
+    "statement": "IsNilpotent M) : IsNilpotent (M.charpoly - X ^ (Fintype.card n))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsNilpotent (p /\u2098 X)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "aux",
+        "type": "(M.charpoly - X ^ (Fintype.card n)).natDegree \u2264 M.charpoly.natDegree",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

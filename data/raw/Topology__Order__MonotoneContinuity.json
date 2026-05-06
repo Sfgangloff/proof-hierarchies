@@ -1,0 +1,35 @@
+[
+  {
+    "module": "MonotoneContinuity",
+    "name": "StrictMonoOn.continuousWithinAt_right_of_exists_between",
+    "statement": "\u03b1 \u2192 \u03b2} {s : Set \u03b1} {a : \u03b1} (h_mono : StrictMonoOn f s) (hs : s \u2208 \ud835\udcdd[\u2265] a) (hfs : \u2200 b > f a, \u2203 c \u2208 s, f c \u2208 Ioc (f a) b) : ContinuousWithinAt f (Ici a) a",
+    "have_tree": [
+      {
+        "name": "has",
+        "type": "a \u2208 s",
+        "body": "mem_of_mem_nhdsWithin self_mem_Ici hs",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MonotoneContinuity",
+    "name": "continuousWithinAt_right_of_monotoneOn_of_exists_between",
+    "statement": "\u03b1 \u2192 \u03b2} {s : Set \u03b1} {a : \u03b1} (h_mono : MonotoneOn f s) (hs : s \u2208 \ud835\udcdd[\u2265] a) (hfs : \u2200 b > f a, \u2203 c \u2208 s, f c \u2208 Ioo (f a) b) : ContinuousWithinAt f (Ici a) a",
+    "have_tree": [
+      {
+        "name": "has",
+        "type": "a \u2208 s",
+        "body": "mem_of_mem_nhdsWithin self_mem_Ici hs",
+        "children": [
+          {
+            "name": "_",
+            "type": "a < c",
+            "body": "not_le.1 fun h => hac.not_ge <| h_mono hcs has h",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

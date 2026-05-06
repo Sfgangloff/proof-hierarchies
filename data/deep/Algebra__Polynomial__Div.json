@@ -1,0 +1,58 @@
+[
+  {
+    "module": "Div",
+    "name": "finiteMultiplicity_of_degree_pos_of_monic",
+    "statement": "(0 : WithBot \u2115) < degree p) (hmp : Monic p) (hq : q \u2260 0) : FiniteMultiplicity p q",
+    "have_tree": [
+      {
+        "name": "zn0",
+        "type": "(0 : R) \u2260 1",
+        "body": "",
+        "children": [
+          {
+            "name": "hp0",
+            "type": "p \u2260 0",
+            "body": "fun hp0 => by simp [hp0] at hp",
+            "children": []
+          },
+          {
+            "name": "hr0",
+            "type": "r \u2260 0",
+            "body": "fun hr0 => by subst hr0; simp [hq] at hr",
+            "children": []
+          },
+          {
+            "name": "hpn1",
+            "type": "leadingCoeff p ^ (natDegree q + 1) = 1",
+            "body": "by simp [show _ = _ from hmp]",
+            "children": []
+          },
+          {
+            "name": "hpn0'",
+            "type": "leadingCoeff p ^ (natDegree q + 1) \u2260 0",
+            "body": "hpn1.symm \u25b8 zn0.symm",
+            "children": []
+          },
+          {
+            "name": "hpnr0",
+            "type": "leadingCoeff (p ^ (natDegree q + 1)) * leadingCoeff r \u2260 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hnp",
+            "type": "0 < natDegree p",
+            "body": "Nat.cast_lt.1 <| by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "congr_arg natDegree hr",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

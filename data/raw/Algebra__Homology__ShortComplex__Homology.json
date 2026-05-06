@@ -1,0 +1,106 @@
+[
+  {
+    "module": "Homology",
+    "name": "homologyMap_eq",
+    "statement": "homologyMap \u03c6 = h\u2081.homologyIso.hom \u226b \u03b3.\u03c6H \u226b h\u2082.homologyIso.inv",
+    "have_tree": [
+      {
+        "name": "\u03b3'",
+        "type": "HomologyMapData \u03c6 S\u2081.homologyData S\u2082.homologyData",
+        "body": "default",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Homology",
+    "name": "homologyMap'_op",
+    "statement": "(homologyMap' \u03c6 h\u2081 h\u2082).op = h\u2082.iso.inv.op \u226b homologyMap' (opMap \u03c6) h\u2082.op h\u2081.op \u226b h\u2081.iso.hom.op",
+    "have_tree": [
+      {
+        "name": "\u03b3",
+        "type": "HomologyMapData \u03c6 h\u2081 h\u2082",
+        "body": "default",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Homology",
+    "name": "isIso_homology\u03c0",
+    "statement": "S.f = 0) [S.HasHomology] : IsIso S.homology\u03c0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "S.isIso_leftHomology\u03c0 hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Homology",
+    "name": "isIso_homology\u03b9",
+    "statement": "S.g = 0) [S.HasHomology] : IsIso S.homology\u03b9",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "S.isIso_rightHomology\u03b9 hg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Homology",
+    "name": "asIsoHomology\u03c0",
+    "statement": "S.f = 0) [S.HasHomology] : S.cycles \u2245 S.homology",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "S.isIso_homology\u03c0 hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Homology",
+    "name": "asIsoHomology\u03c0_inv_comp_homology\u03c0",
+    "statement": "S.f = 0) [S.HasHomology] : (S.asIsoHomology\u03c0 hf).inv \u226b S.homology\u03c0 = \ud835\udfd9 _",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "S.isIso_homology\u03b9 hg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Homology",
+    "name": "asIsoHomology\u03b9_inv_comp_homology\u03b9",
+    "statement": "S.g = 0) [S.HasHomology] : (S.asIsoHomology\u03b9 hg).inv \u226b S.homology\u03b9 = \ud835\udfd9 _",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Mono (homologyMap \u03c6 \u226b S\u2082.homology\u03b9)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Homology",
+    "name": "epi_homologyMap_of_epi_cyclesMap'",
+    "statement": "Epi (cyclesMap \u03c6)) : Epi (homologyMap \u03c6)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Epi (S\u2081.homology\u03c0 \u226b homologyMap \u03c6)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

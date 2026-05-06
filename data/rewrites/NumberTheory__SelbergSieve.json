@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "SelbergSieve",
+      "name": "nu_pos_of_dvd_prodPrimes",
+      "statement": "\u2115} (hd : d \u2223 s.prodPrimes) : 0 < s.nu d",
+      "have_tree": [
+        {
+          "name": "hp_prime",
+          "type": "p.Prime",
+          "body": "prime_of_mem_primeFactors hpd",
+          "children": []
+        },
+        {
+          "name": "hp_dvd",
+          "type": "p \u2223 s.prodPrimes",
+          "body": "(dvd_of_mem_primeFactors hpd).trans hd",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "SelbergSieve",
+          "name": "nu_pos_of_dvd_prodPrimes",
+          "statement": "\u2115} (hd : d \u2223 s.prodPrimes) : 0 < s.nu d",
+          "have_tree": [
+            {
+              "name": "hp_dvd",
+              "type": "p \u2223 s.prodPrimes",
+              "body": "(dvd_of_mem_primeFactors hpd).trans hd",
+              "children": []
+            },
+            {
+              "name": "hp_prime",
+              "type": "p.Prime",
+              "body": "prime_of_mem_primeFactors hpd",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "SelbergSieve",
+      "name": "nu_lt_one_of_dvd_prodPrimes",
+      "statement": "\u2115} (hdP : d \u2223 s.prodPrimes) (hd_ne_one : d \u2260 1) : s.nu d < 1",
+      "have_tree": [
+        {
+          "name": "hd_sq",
+          "type": "Squarefree d",
+          "body": "Squarefree.squarefree_of_dvd hdP s.prodPrimes_squarefree",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "hd_sq.ne_zero",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "SelbergSieve",
+          "name": "nu_lt_one_of_dvd_prodPrimes",
+          "statement": "\u2115} (hdP : d \u2223 s.prodPrimes) (hd_ne_one : d \u2260 1) : s.nu d < 1",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hd_sq.ne_zero",
+              "children": []
+            },
+            {
+              "name": "hd_sq",
+              "type": "Squarefree d",
+              "body": "Squarefree.squarefree_of_dvd hdP s.prodPrimes_squarefree",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

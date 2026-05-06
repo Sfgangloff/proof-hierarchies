@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Gluing",
+    "name": "f_invApp_f_app",
+    "statement": "D.J) (U : Opens (D.V (i, j)).carrier) : (D.f_open i j).invApp _ U \u226b (D.f i k).c.app _ = (\u03c0\u2081 i, j, k).c.app (op U) \u226b (\u03c0\u2082\u207b\u00b9 i, j, k) (unop _) \u226b (D.V _).presheaf.map (eqToHom (by delta IsOpenImmersion.opensFunctor IsOpenEmbedding.functor dsimp only [Functor.op, IsOpenMap.functor, Opens.map, unop_op] congr apply pullback_base))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "PresheafedSpace.congr_app (@pullback.condition _ _ _ _ _ (D.f i j) (D.f i k) _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gluing",
+    "name": "itself",
+    "statement": "D.J) (U : Opens (pullback (D.f i j) (D.f i k)).carrier) : \u2203 eq, (\u03c0\u2082\u207b\u00b9 i, j, k) U \u226b (D.t k i).c.app _ \u226b (D.V (k, i)).presheaf.map (eqToHom eq) = (D.t' k i j).c.app _ \u226b (\u03c0\u2081\u207b\u00b9 k, j, i) (unop _)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(\ud835\udda3.t_fac k i j).symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gluing",
+    "name": "snd_invApp_t_app",
+    "statement": "D.J) (U : Opens (pullback (D.f i j) (D.f i k)).carrier) : (\u03c0\u2082\u207b\u00b9 i, j, k) U \u226b (D.t k i).c.app _ = (D.t' k i j).c.app _ \u226b (\u03c0\u2081\u207b\u00b9 k, j, i) (unop _) \u226b (D.V (k, i)).presheaf.map (eqToHom (D.snd_invApp_t_app' i j k U).choose.symm)",
+    "have_tree": [
+      {
+        "name": "e",
+        "type": "",
+        "body": "(D.snd_invApp_t_app' i j k U).choose_spec",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gluing",
+    "name": "vPullbackConeIsLimit",
+    "statement": "D.J) : IsLimit (\ud835\udda3.vPullbackCone i j)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_arg PresheafedSpace.Hom.base s.condition",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "module": "BigOperators",
+    "name": "coeff_list_prod_of_natDegree_le",
+    "statement": "List S[X]) (n : \u2115) (hl : \u2200 p \u2208 l, natDegree p \u2264 n) : coeff (List.prod l) (l.length * n) = (l.map fun p => coeff p n).prod",
+    "have_tree": [
+      {
+        "name": "hl'",
+        "type": "\u2200 p \u2208 tl, natDegree p \u2264 n",
+        "body": "fun p hp => hl p (List.mem_cons_of_mem _ hp)",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "natDegree tl.prod \u2264 n * tl.length",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BigOperators",
+    "name": "degree_multiset_prod_of_monic",
+    "statement": "\u2200 f \u2208 t, Monic f) : t.prod.degree = (t.map degree).sum",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "t.prod \u2260 0",
+        "body": "Monic.ne_zero <| by simpa using monic_multiset_prod_of_monic _ _ h",
+        "children": []
+      }
+    ]
+  }
+]

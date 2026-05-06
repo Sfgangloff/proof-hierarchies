@@ -1,0 +1,59 @@
+[
+  {
+    "module": "PrecoverageToGrothendieck",
+    "name": "isSheaf_toGrothendieck_iff",
+    "statement": "C\u1d52\u1d56 \u2964 Type*) : Presieve.IsSheaf J.toGrothendieck P \u2194 (\u2200 {X Y : C} {f : Y \u27f6 X} (R : Presieve X), R \u2208 J X \u2192 Presieve.IsSheafFor P ((Sieve.generate R).pullback f).arrows)",
+    "have_tree": [
+      {
+        "name": "hq",
+        "type": "q.Compatible",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrecoverageToGrothendieck",
+    "name": "mem_toGrothendieck_iff_of_isStableUnderComposition",
+    "statement": "C} {S : Sieve X} : S \u2208 J.toGrothendieck X \u2194 \u2203 R \u2208 J X, R \u2264 S",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "R.HasPullbacks f",
+        "body": "J.hasPullbacks_of_mem f hR",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrecoverageToGrothendieck",
+    "name": "Presieve.IsSheafFor.comp_iff_of_preservesPairwisePullbacks",
+    "statement": "C \u2964 D) (P : D\u1d52\u1d56 \u2964 Type*) {X : C} (R : Presieve X) [R.HasPairwisePullbacks] [F.PreservesPairwisePullbacks R] : Presieve.IsSheafFor (F.op \u22d9 P) R \u2194 Presieve.IsSheafFor P (R.map F)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(R.map F).HasPairwisePullbacks",
+        "body": ".map_of_preservesPairwisePullbacks _ _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "PreservesLimit (cospan (f i) (f j)) F",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasPullback (F.map (f i)) (F.map (f j))",
+        "body": "hasPullback_of_preservesPullback _ _ _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Function.Bijective (P.map (pullbackComparison F (f i) (f j)).op)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

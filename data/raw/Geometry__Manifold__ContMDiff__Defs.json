@@ -1,0 +1,148 @@
+[
+  {
+    "module": "Defs",
+    "name": "contDiffWithinAt_localInvariantProp_of_le",
+    "statement": "\u2115\u221e\u03c9) (hmn : m \u2264 n) : (contDiffGroupoid n I).LocalInvariantProp (contDiffGroupoid n I') (ContDiffWithinAtProp I I' m) where is_local {s x u f} u_open xu",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "u \u2208 \ud835\udcdd (I.symm (I x))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "I (e x) \u2208 I.symm \u207b\u00b9' e.target \u2229 range I",
+        "body": "by simp only [hx, mfld_simps]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(mem_groupoid_of_pregroupoid.2 he).2.contDiffWithinAt this",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "(I' \u2218 f \u2218 I.symm) (I x) \u2208 I'.symm \u207b\u00b9' e'.source \u2229 range I'",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(mem_groupoid_of_pregroupoid.2 he').1.contDiffWithinAt A",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "contDiffWithinAtProp_id",
+    "statement": "H) : ContDiffWithinAtProp I I n id univ x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "ContDiffWithinAt \ud835\udd5c n id (range I) (I x)",
+        "body": "contDiff_id.contDiffAt.contDiffWithinAt",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "contMDiffWithinAt_iff_source_of_mem_maximalAtlas",
+    "statement": "e \u2208 maximalAtlas I n M) (hx : x \u2208 e.source) : ContMDiffWithinAt I I' n f s x \u2194 ContMDiffWithinAt \ud835\udcd8(\ud835\udd5c, E) I' n (f \u2218 (e.extend I).symm) ((e.extend I).symm \u207b\u00b9' s \u2229 range I) (e.extend I x)",
+    "have_tree": [
+      {
+        "name": "h2x",
+        "type": "",
+        "body": "hx; rw [\u2190 e.extend_source (I := I)] at h2x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "contMDiffOn_iff",
+    "statement": "ContMDiffOn I I' n f s \u2194 ContinuousOn f s \u2227 \u2200 (x : M) (y : M'), ContDiffOn \ud835\udd5c n (extChartAt I' y \u2218 f \u2218 (extChartAt I x).symm) ((extChartAt I x).target \u2229 (extChartAt I x).symm \u207b\u00b9' (s \u2229 f \u207b\u00b9' (extChartAt I' y).source))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "w \u2208 s",
+        "body": "by simp only [w, hz, mfld_simps]",
+        "children": []
+      },
+      {
+        "name": "w1",
+        "type": "w \u2208 (chartAt H x).source",
+        "body": "by simp only [w, hz, mfld_simps]",
+        "children": []
+      },
+      {
+        "name": "w2",
+        "type": "f w \u2208 (chartAt H' y).source",
+        "body": "by simp only [w, hz, mfld_simps]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "contMDiffOn_iff_target",
+    "statement": "ContMDiffOn I I' n f s \u2194 ContinuousOn f s \u2227 \u2200 y : M', ContMDiffOn I \ud835\udcd8(\ud835\udd5c, E') n (extChartAt I' y \u2218 f) (s \u2229 f \u207b\u00b9' (extChartAt I' y).source)",
+    "have_tree": [
+      {
+        "name": "h''",
+        "type": "ContinuousOn _ univ",
+        "body": "(ModelWithCorners.continuous I').continuousOn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "contMDiffWithinAt_congr_set'",
+    "statement": "M) (h : s =\u1da0[\ud835\udcdd[{y}\u1d9c] x] t) : ContMDiffWithinAt I I' n f s x \u2194 ContMDiffWithinAt I I' n f t x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "T1Space M",
+        "body": "I.t1Space M",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "contMDiffWithinAt_iff_contMDiffOn_nhds",
+    "statement": "n \u2260 \u221e) : ContMDiffWithinAt I I' n f s x \u2194 \u2203 u \u2208 \ud835\udcdd[insert x s] x, ContMDiffOn I I' n f u",
+    "have_tree": [
+      {
+        "name": "hv\u2082",
+        "type": "MapsTo f ((extChartAt I x).symm '' v) (extChartAt I' (f x)).source",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "ContMDiffWithinAt.contMDiffOn'",
+    "statement": "m \u2264 n) (h' : m = \u221e \u2192 n = \u03c9) (h : ContMDiffWithinAt I I' n f s x) : \u2203 u, IsOpen u \u2227 x \u2208 u \u2227 ContMDiffOn I I' m f (insert x s \u2229 u)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsManifold I m M",
+        "body": ".of_le hm",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsManifold I' m M'",
+        "body": ".of_le hm",
+        "children": []
+      }
+    ]
+  }
+]

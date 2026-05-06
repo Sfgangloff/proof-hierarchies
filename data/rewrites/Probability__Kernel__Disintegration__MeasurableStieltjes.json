@@ -1,0 +1,169 @@
+[
+  {
+    "original": {
+      "module": "MeasurableStieltjes",
+      "name": "measurableSet_isRatStieltjesPoint",
+      "statement": "Measurable f) : MeasurableSet {a | IsRatStieltjesPoint f a}",
+      "have_tree": [
+        {
+          "name": "h1",
+          "type": "MeasurableSet {a | Monotone (f a)}",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "h2",
+          "type": "MeasurableSet {a | Tendsto (f a) atTop (\ud835\udcdd 1)}",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "h3",
+          "type": "MeasurableSet {a | Tendsto (f a) atBot (\ud835\udcdd 0)}",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "MeasurableStieltjes",
+          "name": "measurableSet_isRatStieltjesPoint",
+          "statement": "Measurable f) : MeasurableSet {a | IsRatStieltjesPoint f a}",
+          "have_tree": [
+            {
+              "name": "h2",
+              "type": "MeasurableSet {a | Tendsto (f a) atTop (\ud835\udcdd 1)}",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "MeasurableSet {a | Monotone (f a)}",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "MeasurableSet {a | Tendsto (f a) atBot (\ud835\udcdd 0)}",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "MeasurableStieltjes",
+          "name": "measurableSet_isRatStieltjesPoint",
+          "statement": "Measurable f) : MeasurableSet {a | IsRatStieltjesPoint f a}",
+          "have_tree": [
+            {
+              "name": "h1",
+              "type": "MeasurableSet {a | Monotone (f a)}",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "MeasurableSet {a | Tendsto (f a) atBot (\ud835\udcdd 0)}",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "MeasurableSet {a | Tendsto (f a) atTop (\ud835\udcdd 1)}",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "MeasurableStieltjes",
+      "name": "IsMeasurableRatCDF.tendsto_stieltjesFunction_atTop",
+      "statement": "\u03b1) : Tendsto (hf.stieltjesFunction a) atTop (\ud835\udcdd 1)",
+      "have_tree": [
+        {
+          "name": "hqs_tendsto",
+          "type": "Tendsto qs atTop atTop",
+          "body": "by",
+          "children": [
+            {
+              "name": "h_le",
+              "type": "y - 1 \u2264 qs y",
+              "body": "(h_exists y).choose_spec.1.le",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "MeasurableStieltjes",
+          "name": "IsMeasurableRatCDF.tendsto_stieltjesFunction_atTop",
+          "statement": "\u03b1) : Tendsto (hf.stieltjesFunction a) atTop (\ud835\udcdd 1)",
+          "have_tree": [
+            {
+              "name": "hqs_tendsto",
+              "type": "Tendsto qs atTop atTop",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "MeasurableStieltjes",
+          "name": "IsMeasurableRatCDF.tendsto_stieltjesFunction_atTop",
+          "statement": "\u03b1) : Tendsto (hf.stieltjesFunction a) atTop (\ud835\udcdd 1)",
+          "have_tree": [
+            {
+              "name": "h_le",
+              "type": "y - 1 \u2264 qs y",
+              "body": "(h_exists y).choose_spec.1.le",
+              "children": []
+            },
+            {
+              "name": "hqs_tendsto",
+              "type": "Tendsto qs atTop atTop",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

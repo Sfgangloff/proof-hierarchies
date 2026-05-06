@@ -1,0 +1,240 @@
+[
+  {
+    "module": "QuasiFinite",
+    "name": "Localization.exists_finite_awayMap\u2090_of_surjective_awayMap\u2090",
+    "statement": "S \u2192\u2090[R] T) (g : S) (hg : Function.Surjective (Localization.awayMap\u2090 f g)) (p : Ideal R) [p.IsPrime] (hgp : IsUnit (M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "PrimeSpectrum.isClosedMap_comap_of_isIntegral (algebraMap R S)",
+        "children": [
+          {
+            "name": "_",
+            "type": "q.asIdeal.LiesOver p",
+            "body": "\u27e8congr(($e).1).symm\u27e9",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "1 \u2297\u209c g \u2209 (PrimeSpectrum.preimageEquivFiber R S \u27e8p, \u2039_\u203a\u27e9 \u27e8q, e\u27e9).asIdeal",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "h\u2081",
+            "type": "(Localization.awayMap (algebraMap R S) r).IsIntegral",
+            "body": "isIntegral_localization",
+            "children": [
+              {
+                "name": "_",
+                "type": "PrimeSpectrum.basicOpen (algebraMap R S r) \u2264 PrimeSpectrum.basicOpen g",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "IsScalarTower.of_algebraMap_eq'",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "QuasiFinite",
+    "name": "Algebra.exists_notMem_and_isIntegral_forall_mem_of_ne_of_liesOver",
+    "statement": "Type*} [CommRing R] [CommRing S] [Algebra R S] (p : Ideal R) [p.IsPrime] (q : Ideal S) [q.IsPrime] [q.LiesOver p] [Algebra.FiniteType R S] [Algebra.QuasiFiniteAt R q] : \u2203 s \u2209 q, \u2203 hs : IsIntegral R s, (\u2200 q' : Ideal S, q'.IsPrime \u2192 q' \u2260 q \u2192 q'.LiesOver p \u2192 s \u2208 q') \u2227 \u2200 (q' : Ideal (integralClosure R S)), q'.IsPrime \u2192 q' \u2260 q.under _ \u2192 q'.LiesOver p \u2192 \u27e8s, hs\u27e9 \u2208 q'",
+    "have_tree": [
+      {
+        "name": "hs\u2083q",
+        "type": "s\u2083.1 \u2209 q",
+        "body": "fun h \u21a6 (show \u2191s\u2082 ^ m * (s\u2081 * \u2191s\u2082 ^ n) \u2209 q from q.primeCompl.mul_mem",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "q's.IsPrime",
+        "body": "IsLocalization.isPrime_of_isPrime_disjoint (.powers s\u2082) _ _ \u2039_\u203a hq's",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "q's.LiesOver q'",
+        "body": "\u27e8(IsLocalization.comap_map_of_isPrime_disjoint _ _ \u2039_\u203a hq's).symm\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "q's.LiesOver p",
+        "body": ".trans _ q' _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs\u2081 (q's.comap (e.symm.toAlgHom.comp (IsScalarTower.toAlgHom _ _ _)).toRingHom)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QuasiFinite",
+    "name": "Algebra.exists_etale_isIdempotentElem_forall_liesOver_eq_aux",
+    "statement": "Type u} {S : Type v} [CommRing R] [CommRing S] [Algebra R S] [Algebra.FiniteType R S] (p : Ideal R) [p.IsPrime] (q : Ideal S) [q.IsPrime] [q.LiesOver p] [Algebra.QuasiFiniteAt R q] : \u2203 (R' : Type u) (_ : CommRing R') (_ : Algebra R R') (_ : Algebra.Etale R R') (P : Ideal R') (_ : P.IsPrime) (_ : P.LiesOver p) (e : R' \u2297[R] S) (_ : IsIdempotentElem e) (e\u2080 : R' \u2297[R] integralClosure R S) (_ : IsIdempotentElem e\u2080) (_ : Algebra.TensorProduct.map (.id R' R') (integralClosure R S).val e\u2080 = e) (P' : Ideal (R' \u2297[R] S)) (_ : P'.IsPrime) (_ : P'.LiesOver P), P'.comap Algebra.TensorProduct.includeRight.toRingHom = q \u2227 e \u2209 P' \u2227 Function.Bijective (Ideal.ResidueField.map\u2090 p P (Algebra.ofId _ _) (P.over_def p)) \u2227 (\u2200 P'' : Ideal (R' \u2297[R] integralClosure R S), P''.IsPrime \u2192 P''.LiesOver P \u2192 e\u2080 \u2209 P'' \u2192 P'' = P'.comap (Algebra.TensorProduct.map (.id R' R') (integralClosure R S).val).toRingHom) \u2227 \u2200 P'' : Ideal (R' \u2297[R] S), P''.IsPrime \u2192 P''.LiesOver P \u2192 e \u2209 P'' \u2192 P'' = P'",
+    "have_tree": [
+      {
+        "name": "hqm",
+        "type": "q.Monic",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hs\u2080'f",
+        "type": "aeval (A",
+        "body": "R' \u2297[R] integralClosure R S) (1 \u2297\u209c s\u2080) f = 0 :=",
+        "children": []
+      },
+      {
+        "name": "he\u2080",
+        "type": "IsIdempotentElem e\u2080",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "he",
+        "type": "IsIdempotentElem e",
+        "body": "he\u2080e \u25b8 he\u2080.map _",
+        "children": []
+      },
+      {
+        "name": "hs'P'",
+        "type": "s' \u2209 P'.1",
+        "body": "mt (fun h \u21a6 hP'q.le h) hsq",
+        "children": []
+      },
+      {
+        "name": "ha'P'",
+        "type": "aeval s' a' \u2209 P'.1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hb'P'",
+        "type": "aeval s' b' \u2208 P'.1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "heP'",
+        "type": "e \u2209 P'.1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "P'.1.mul_mem_left (aeval s' d) hb'P'",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "1 \u2297\u209c s\u2080 \u2208 P''",
+            "body": "hs\u2080 _ inferInstance H (by simp [Ideal.liesOver_iff, Ideal.under,",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "s' \u2208 P''",
+            "body": "hs _ inferInstance H (by simp [Ideal.liesOver_iff, Ideal.under,",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "QuasiFinite",
+    "name": "Algebra.exists_etale_isIdempotentElem_forall_liesOver_eq_aux\u2082",
+    "statement": "Type*} [CommRing R] [CommRing S] [Algebra R S] [Algebra.FiniteType R S] [CommRing R'] [Algebra R R'] [CommRing R''] [Algebra R R''] [Algebra R'' S] [Algebra.IsIntegral R R''] [IsScalarTower R R'' S] (q : Ideal S) (P : Ideal R') [P.IsPrime] (e : R' \u2297[R] S) (e\u2080 : R' \u2297[R] R'') (he\u2080 : IsIdempotentElem e\u2080) (he\u2080e : Algebra.TensorProduct.map (.id R' R') (IsScalarTower.toAlgHom R R'' S) e\u2080 = e) (P' : Ideal (R' \u2297[R] S)) (hP'q : P'.comap Algebra.TensorProduct.includeRight.toRingHom = q) (H : \u2200 P'' : Ideal (R' \u2297[R] R''), P''.IsPrime \u2192 P''.LiesOver P \u2192 e\u2080 \u2209 P'' \u2192 P'' = P'.comap (Algebra.TensorProduct.map (.id R' R') (IsScalarTower.toAlgHom R R'' S)).toRingHom) (g : R'') (hgq : algebraMap R'' S g \u2209 q) (hg : Function.Surjective (Localization.awayMap (algebraMap R'' S) g)) : \u2203 f \u2209 P, Module.Finite (Localization.Away f) (Localization.Away ((Algebra.TensorProduct.map (Algebra.ofId R' (Localization.Away f)) (AlgHom.id R S)) e))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Algebra.IsIntegral R' (Localization.Away e\u2080)",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "H (m.comap (Algebra.TensorProduct.includeRight.toRingHom.comp (algebraMap _ _)))",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "IsLocalization.Away (e * (f \u2297\u209c 1)) (Localization.Away (\u03c6 e))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QuasiFinite",
+    "name": "Algebra.exists_etale_isIdempotentElem_forall_liesOver_eq",
+    "statement": "Type u} {S : Type v} [CommRing R] [CommRing S] [Algebra R S] [Algebra.FiniteType R S] (p : Ideal R) [p.IsPrime] (q : Ideal S) [q.IsPrime] [q.LiesOver p] [Algebra.QuasiFiniteAt R q] : \u2203 (R' : Type u) (_ : CommRing R') (_ : Algebra R R') (_ : Algebra.Etale R R') (P : Ideal R') (_ : P.IsPrime) (_ : P.LiesOver p) (e : R' \u2297[R] S) (_ : IsIdempotentElem e) (P' : Ideal (R' \u2297[R] S)) (_ : P'.IsPrime) (_ : P'.LiesOver P), P'.comap Algebra.TensorProduct.includeRight.toRingHom = q \u2227 e \u2209 P' \u2227 Function.Bijective (Ideal.ResidueField.map\u2090 p P (Algebra.ofId _ _) (P.over_def p)) \u2227 Module.Finite R' (Localization.Away e) \u2227 \u2200 P'' : Ideal (R' \u2297[R] S), P''.IsPrime \u2192 P''.LiesOver P \u2192 e \u2209 P'' \u2192 P'' = P'",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Pf.IsPrime",
+        "body": "IsLocalization.isPrime_of_isPrime_disjoint (.powers f) _ _ \u2039_\u203a (by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Pf.LiesOver P",
+        "body": "\u27e8(IsLocalization.comap_map_of_isPrime_disjoint (.powers f) _ \u2039_\u203a (by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsLocalization.Away (R",
+        "body": "R' \u2297[R] S) (f \u2297\u209c 1) (Localization.Away f \u2297[R] S) := by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "P'f.IsPrime",
+        "body": "IsLocalization.isPrime_of_isPrime_disjoint _ _ _ \u2039_\u203a hP'f",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "P'f.LiesOver P'",
+        "body": "\u27e8(IsLocalization.comap_map_of_isPrime_disjoint _ _ \u2039_\u203a hP'f).symm\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "P'f.LiesOver P",
+        "body": ".trans _ P' _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "P'f.LiesOver Pf",
+        "body": "\u27e8congr($(PrimeSpectrum.localization_comap_injective",
+        "children": [
+          {
+            "name": "_",
+            "type": "P''.LiesOver P",
+            "body": ".trans _ Pf _",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

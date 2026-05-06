@@ -1,0 +1,109 @@
+[
+  {
+    "module": "Connected",
+    "name": "Set.Countable.isPathConnected_compl_of_one_lt_rank",
+    "statement": "1 < Module.rank \u211d E) {s : Set E} (hs : s.Countable) : IsPathConnected s\u1d9c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial E",
+        "body": "(rank_pos_iff_nontrivial (R := \u211d)).1 (zero_lt_one.trans h)",
+        "children": []
+      },
+      {
+        "name": "Ia",
+        "type": "c - x = a",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "Ib",
+        "type": "c + x = b",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "x_ne_zero",
+        "type": "x \u2260 0",
+        "body": "by simpa [x] using sub_ne_zero.2 hab.symm",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "Set.Countable {t : \u211d | ([c + x -[\u211d] c + t \u2022 y] \u2229 s).Nonempty}",
+        "body": "by",
+        "children": [
+          {
+            "name": "N",
+            "type": "{c + x} \u2229 s = \u2205",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "B",
+        "type": "Set.Countable {t : \u211d | ([c - x -[\u211d] c + t \u2022 y] \u2229 s).Nonempty}",
+        "body": "by",
+        "children": [
+          {
+            "name": "N",
+            "type": "{c - x} \u2229 s = \u2205",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "JA",
+        "type": "JoinedIn s\u1d9c a z",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "JB",
+        "type": "JoinedIn s\u1d9c b z",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Connected",
+    "name": "isPathConnected_sphere",
+    "statement": "1 < Module.rank \u211d E) (x : E) {r : \u211d} (hr : 0 \u2264 r) : IsPathConnected (sphere x r)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "ContinuousOn f {0}\u1d9c",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "IsPathConnected ({0}\u1d9c : Set E)",
+        "body": "isPathConnected_compl_singleton_of_one_lt_rank h 0",
+        "children": []
+      },
+      {
+        "name": "C",
+        "type": "IsPathConnected (f '' {0}\u1d9c)",
+        "body": "B.image' A",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "f '' {0}\u1d9c = sphere x r",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2016y\u2016 \u2260 0",
+            "body": "by simpa using hy",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

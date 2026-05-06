@@ -1,0 +1,161 @@
+[
+  {
+    "module": "Basic",
+    "name": "exists_int_int_abs_mul_sub_le",
+    "statement": "\u211d) {n : \u2115} (n_pos : 0 < n) : \u2203 j k : \u2124, 0 < k \u2227 k \u2264 n \u2227 |\u2191k * \u03be - j| \u2264 1 / (n + 1)",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "0 < (n : \u211d) + 1",
+        "body": "mod_cast Nat.succ_pos _",
+        "children": []
+      },
+      {
+        "name": "hfu",
+        "type": "",
+        "body": "fun m : \u2124 => mul_lt_of_lt_one_left hn <| fract_lt_one (\u03be * \u2191m)",
+        "children": [
+          {
+            "name": "hf'",
+            "type": "((n : \u2124) : \u211d) \u2264 fract (\u03be * m) * (n + 1)",
+            "body": "hf \u25b8 floor_le (fract (\u03be * m) * (n + 1))",
+            "children": []
+          },
+          {
+            "name": "hm\u2080",
+            "type": "0 < m",
+            "body": "by",
+            "children": [
+              {
+                "name": "hf\u2080",
+                "type": "f 0 = 0",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "hfu'",
+            "type": "\u2200 m, f m \u2264 n",
+            "body": "fun m => lt_add_one_iff.mp (floor_lt.mpr (mod_cast hfu m))",
+            "children": []
+          },
+          {
+            "name": "hwd",
+            "type": "\u2200 m : \u2124, m \u2208 D \u2192 f m \u2208 Ico (0 : \u2124) n",
+            "body": "fun x hx =>",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "aux\u2081",
+    "statement": "0 < fract \u03be",
+    "have_tree": [
+      {
+        "name": "hv\u2080",
+        "type": "(0 : \u211d) < v",
+        "body": "cast_pos.mpr (zero_lt_two.trans_le hv)",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "(2 * v - 1 : \u211d) < 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "h'",
+            "type": "(\u230a\u03be\u230b : \u211d) - u / v = (\u230a\u03be\u230b * v - u) / v",
+            "body": "by field",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "aux\u2082",
+    "statement": "0 < u - \u230a\u03be\u230b * v \u2227 u - \u230a\u03be\u230b * v < v",
+    "have_tree": [
+      {
+        "name": "hv\u2081",
+        "type": "0 < 2 * v - 1",
+        "body": "by linarith only [hv]",
+        "children": []
+      },
+      {
+        "name": "hu\u2080",
+        "type": "0 \u2264 u - \u230a\u03be\u230b * v",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hu\u2081",
+        "type": "u - \u230a\u03be\u230b * v \u2264 v",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "huv_cop",
+        "type": "IsCoprime (u - \u230a\u03be\u230b * v) v",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "aux\u2083",
+    "statement": "|(fract \u03be)\u207b\u00b9 - v / (u - \u230a\u03be\u230b * v)| < (((u : \u211d) - \u230a\u03be\u230b * v) * (2 * (u - \u230a\u03be\u230b * v) - 1))\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "h\u03be\u2080",
+        "type": "",
+        "body": "aux\u2081 hv h",
+        "children": []
+      },
+      {
+        "name": "hu'\u211d",
+        "type": "(u' : \u211d) = u - \u230a\u03be\u230b * v",
+        "body": "mod_cast hu'",
+        "children": []
+      },
+      {
+        "name": "H\u2081",
+        "type": "",
+        "body": "div_pos (div_pos Hv Hu) h\u03be\u2080",
+        "children": []
+      },
+      {
+        "name": "h'",
+        "type": "|fract \u03be - u' / v| < ((v : \u211d) * (2 * v - 1))\u207b\u00b9",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "(2 * u' - 1 : \u211d) \u2264 (2 * v - 1) * fract \u03be",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(2 * (v : \u211d) - 1) * (-((v : \u211d) * (2 * v - 1))\u207b\u00b9 + u' / v) = 2 * u' - (1 + u') / v",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

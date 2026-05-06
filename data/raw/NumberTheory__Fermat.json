@@ -1,0 +1,116 @@
+[
+  {
+    "module": "Fermat",
+    "name": "two_mul_fermatNumber_sub_one_sq_le_fermatNumber_sq",
+    "statement": "\u2115) : 2 * (fermatNumber n - 1) ^ 2 \u2264 (fermatNumber (n + 1)) ^ 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 \u2264 1 + 2 ^ (2 ^ n * 4)",
+        "body": "le_add_left _ _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fermat",
+    "name": "coprime_fermatNumber_fermatNumber",
+    "statement": "\u2115} (hmn : m \u2260 n) : Coprime (fermatNumber m) (fermatNumber n)",
+    "have_tree": [
+      {
+        "name": "h_n",
+        "type": "d \u2223 fermatNumber n",
+        "body": "gcd_dvd_right ..",
+        "children": []
+      },
+      {
+        "name": "h_m",
+        "type": "d \u2223 2",
+        "body": "(Nat.dvd_add_right <| (gcd_dvd_left _ _).trans <| dvd_prod_of_mem _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fermat",
+    "name": "pepin_primality",
+    "statement": "\u2115) (h : 3 ^ (2 ^ (2 ^ n - 1)) = (-1 : ZMod (fermatNumber n))) : (fermatNumber n).Prime",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk (two_lt_fermatNumber n)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fermat",
+    "name": "pow_pow_add_primeFactors_one_lt",
+    "statement": "\u2115} (hp : p.Prime) (hp2 : p \u2260 2) (hpdvd : p \u2223 a ^ (2 ^ n) + 1) : \u2203 k, p = k * 2 ^ (n + 1) + 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (2 < p)",
+        "body": "Fact.mk (lt_of_le_of_ne hp.two_le hp2.symm)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fact p.Prime",
+        "body": "Fact.mk hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fermat",
+    "name": "fermat_primeFactors_one_lt",
+    "statement": "\u2115) (hn : 1 < n) (hp : p.Prime) (hpdvd : p \u2223 fermatNumber n) : \u2203 k, p = k * 2 ^ (n + 2) + 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact p.Prime",
+        "body": "Fact.mk hp",
+        "children": []
+      },
+      {
+        "name": "hp2",
+        "type": "p \u2260 2",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fermat",
+    "name": "prime_of_pow_sub_one_prime",
+    "statement": "\u2115} (hn1 : n \u2260 1) (hP : (a ^ n - 1).Prime) : a = 2 \u2227 n.Prime",
+    "have_tree": [
+      {
+        "name": "han1",
+        "type": "1 < a ^ n",
+        "body": "tsub_pos_iff_lt.mp hP.pos",
+        "children": []
+      },
+      {
+        "name": "hn0",
+        "type": "n \u2260 0",
+        "body": "fun h \u21a6 (h \u25b8 han1).ne' rfl",
+        "children": []
+      },
+      {
+        "name": "ha1",
+        "type": "1 < a",
+        "body": "(Nat.one_lt_pow_iff hn0).mp han1",
+        "children": []
+      },
+      {
+        "name": "ha0",
+        "type": "0 < a",
+        "body": "one_pos.trans ha1",
+        "children": []
+      }
+    ]
+  }
+]

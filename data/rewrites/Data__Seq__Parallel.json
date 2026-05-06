@@ -1,0 +1,199 @@
+[
+  {
+    "original": {
+      "module": "Parallel",
+      "name": "terminates_parallel.aux",
+      "statement": "\u2200 {l : List (Computation \u03b1)} {S c}, c \u2208 l \u2192 Terminates c \u2192 Terminates (corec parallel.aux1 (l, S))",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "IH' m _ e",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "H1 _ h",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Parallel",
+          "name": "terminates_parallel.aux",
+          "statement": "\u2200 {l : List (Computation \u03b1)} {S c}, c \u2208 l \u2192 Terminates c \u2192 Terminates (corec parallel.aux1 (l, S))",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H1 _ h",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH' m _ e",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Parallel",
+      "name": "parallelRec",
+      "statement": "WSeq (Computation \u03b1)} (C : \u03b1 \u2192 Sort v) (H : \u2200 s \u2208 S, \u2200 a \u2208 s, C a) {a} (h : a \u2208 parallel S) : C a",
+      "have_tree": [
+        {
+          "name": "pe",
+          "type": "",
+          "body": "congr_arg parallel this",
+          "children": []
+        },
+        {
+          "name": "h'",
+          "type": "",
+          "body": "h",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "a \u2208 c \u2227 c \u2208 S",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Parallel",
+          "name": "parallelRec",
+          "statement": "WSeq (Computation \u03b1)} (C : \u03b1 \u2192 Sort v) (H : \u2200 s \u2208 S, \u2200 a \u2208 s, C a) {a} (h : a \u2208 parallel S) : C a",
+          "have_tree": [
+            {
+              "name": "h'",
+              "type": "",
+              "body": "h",
+              "children": []
+            },
+            {
+              "name": "pe",
+              "type": "",
+              "body": "congr_arg parallel this",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "a \u2208 c \u2227 c \u2208 S",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Parallel",
+          "name": "parallelRec",
+          "statement": "WSeq (Computation \u03b1)} (C : \u03b1 \u2192 Sort v) (H : \u2200 s \u2208 S, \u2200 a \u2208 s, C a) {a} (h : a \u2208 parallel S) : C a",
+          "have_tree": [
+            {
+              "name": "pe",
+              "type": "",
+              "body": "congr_arg parallel this",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "a \u2208 c \u2227 c \u2208 S",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h'",
+              "type": "",
+              "body": "h",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Parallel",
+      "name": "parallel_congr_left",
+      "statement": "WSeq (Computation \u03b1)} {a} (h1 : \u2200 s \u2208 S, s ~> a) (H : S.LiftRel Equiv T) : parallel S ~ parallel T",
+      "have_tree": [
+        {
+          "name": "aa",
+          "type": "",
+          "body": "parallel_promises h1 h",
+          "children": []
+        },
+        {
+          "name": "aa",
+          "type": "",
+          "body": "parallel_promises h2 h",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Parallel",
+          "name": "parallel_congr_left",
+          "statement": "WSeq (Computation \u03b1)} {a} (h1 : \u2200 s \u2208 S, s ~> a) (H : S.LiftRel Equiv T) : parallel S ~ parallel T",
+          "have_tree": [
+            {
+              "name": "aa",
+              "type": "",
+              "body": "parallel_promises h2 h",
+              "children": []
+            },
+            {
+              "name": "aa",
+              "type": "",
+              "body": "parallel_promises h1 h",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

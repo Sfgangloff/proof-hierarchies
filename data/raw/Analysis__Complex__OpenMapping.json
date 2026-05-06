@@ -1,0 +1,113 @@
+[
+  {
+    "module": "OpenMapping",
+    "name": "DiffContOnCl.ball_subset_image_closedBall",
+    "statement": "DiffContOnCl \u2102 f (ball z\u2080 r)) (hr : 0 < r) (hf : \u2200 z \u2208 sphere z\u2080 r, \u03b5 \u2264 \u2016f z - f z\u2080\u2016) (hz\u2080 : \u2203\u1da0 z in \ud835\udcdd z\u2080, f z \u2260 f z\u2080) : ball (f z\u2080) (\u03b5 / 2) \u2286 f '' closedBall z\u2080 r",
+    "have_tree": [
+      {
+        "name": "h3",
+        "type": "AnalyticOnNhd \u2102 f (ball z\u2080 r)",
+        "body": "h.differentiableOn.analyticOnNhd isOpen_ball",
+        "children": []
+      },
+      {
+        "name": "h4",
+        "type": "\u2200 z \u2208 sphere z\u2080 r, \u03b5 / 2 \u2264 \u2016f z - v\u2016",
+        "body": "fun z hz => by",
+        "children": []
+      },
+      {
+        "name": "h5",
+        "type": "\u2016f z\u2080 - v\u2016 < \u03b5 / 2",
+        "body": "by simpa [\u2190 dist_eq_norm, dist_comm] using mem_ball.mp hv",
+        "children": []
+      },
+      {
+        "name": "h6",
+        "type": "",
+        "body": "h1.differentiableOn.eventually_differentiableAt (isOpen_ball.mem_nhds hz1)",
+        "children": []
+      },
+      {
+        "name": "h8",
+        "type": "IsPreconnected (ball z\u2080 r)",
+        "body": "(convex_ball z\u2080 r).isPreconnected",
+        "children": []
+      },
+      {
+        "name": "h9",
+        "type": "",
+        "body": "h3.eqOn_of_preconnected_of_frequently_eq analyticOnNhd_const h8 hz1 h7",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OpenMapping",
+    "name": "AnalyticAt.eventually_constant_or_nhds_le_map_nhds_aux",
+    "statement": "AnalyticAt \u2102 f z\u2080) : (\u2200\u1da0 z in \ud835\udcdd z\u2080, f z = f z\u2080) \u2228 \ud835\udcdd (f z\u2080) \u2264 map f (\ud835\udcdd z\u2080)",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "(hf.eventually_eq_or_eventually_ne analyticAt_const).resolve_left h",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "\u2200\u1da0 z in \ud835\udcdd z\u2080, AnalyticAt \u2102 f z",
+        "body": "(isOpen_analyticAt \u2102 f).eventually_mem hf",
+        "children": []
+      },
+      {
+        "name": "hr",
+        "type": "0 < r",
+        "body": "lt_inf_iff.mpr \u27e8h\u03c1, hR\u27e9",
+        "children": []
+      },
+      {
+        "name": "h5",
+        "type": "closedBall z\u2080 r \u2286 closedBall z\u2080 \u03c1",
+        "body": "closedBall_subset_closedBall inf_le_left",
+        "children": []
+      },
+      {
+        "name": "h6",
+        "type": "DiffContOnCl \u2102 f (ball z\u2080 r)",
+        "body": "h3.mono (ball_subset_ball inf_le_left)",
+        "children": []
+      },
+      {
+        "name": "h7",
+        "type": "\u2200 z \u2208 sphere z\u2080 r, f z \u2260 f z\u2080",
+        "body": "fun z hz =>",
+        "children": []
+      },
+      {
+        "name": "h8",
+        "type": "(sphere z\u2080 r).Nonempty",
+        "body": "NormedSpace.sphere_nonempty.mpr hr.le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OpenMapping",
+    "name": "AnalyticAt.eventually_constant_or_nhds_le_map_nhds",
+    "statement": "E} (hg : AnalyticAt \u2102 g z\u2080) : (\u2200\u1da0 z in \ud835\udcdd z\u2080, g z = g z\u2080) \u2228 \ud835\udcdd (g z\u2080) \u2264 map g (\ud835\udcdd z\u2080)",
+    "have_tree": [
+      {
+        "name": "h4",
+        "type": "\u2016z - z\u2080\u2016 < r",
+        "body": "by simpa [dist_eq_norm] using mem_ball.mp hz",
+        "children": []
+      },
+      {
+        "name": "h7",
+        "type": "",
+        "body": "h1.eventually_constant_or_nhds_le_map_nhds_aux.resolve_left hrz",
+        "children": []
+      }
+    ]
+  }
+]

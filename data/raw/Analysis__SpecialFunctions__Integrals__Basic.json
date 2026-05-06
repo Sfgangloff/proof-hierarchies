@@ -1,0 +1,163 @@
+[
+  {
+    "module": "Basic",
+    "name": "integral_cpow",
+    "statement": "\u2102} (h : -1 < r.re \u2228 r \u2260 -1 \u2227 (0 : \u211d) \u2209 [[a, b]]) : (\u222b x : \u211d in a..b, (x : \u2102) ^ r) = ((b : \u2102) ^ (r + 1) - (a : \u2102) ^ (r + 1)) / (r + 1)",
+    "have_tree": [
+      {
+        "name": "hr",
+        "type": "r + 1 \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_id",
+    "statement": "\u222b x in a..b, x = (b ^ 2 - a ^ 2) / 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "@integral_pow a b 1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_const_on_unit_interval",
+    "statement": "\u222b _ in a..a + 1, b = b",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "fun x (hx : x \u2208 [[a, b]]) => ne_of_mem_of_not_mem hx h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_cos_mul_complex",
+    "statement": "\u2102} (hz : z \u2260 0) (a b : \u211d) : (\u222b x in a..b, Complex.cos (z * x)) = Complex.sin (z * b) / z - Complex.sin (z * a) / z",
+    "have_tree": [
+      {
+        "name": "a",
+        "type": "",
+        "body": "Complex.hasDerivAt_sin (\u2191x * z)",
+        "children": []
+      },
+      {
+        "name": "d",
+        "type": "",
+        "body": "HasDerivAt.comp_ofReal (c.div_const z)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_mul_cpow_one_add_sq",
+    "statement": "\u2102} (ht : t \u2260 -1) : (\u222b x : \u211d in a..b, (x : \u2102) * ((1 : \u2102) + \u2191x ^ 2) ^ t) = ((1 : \u2102) + (b : \u2102) ^ 2) ^ (t + 1) / (2 * (t + \u21911)) - ((1 : \u2102) + (a : \u2102) ^ 2) ^ (t + 1) / (2 * (t + \u21911))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "t + 1 \u2260 0",
+        "body": "by contrapose ht; rwa [add_eq_zero_iff_eq_neg] at ht",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_sin_pow_aux",
+    "statement": "(\u222b x in a..b, sin x ^ (n + 2)) = (sin a ^ (n + 1) * cos a - sin b ^ (n + 1) * cos b + (\u2191n + 1) * \u222b x in a..b, sin x ^ n) - (\u2191n + 1) * \u222b x in a..b, sin x ^ (n + 2)",
+    "have_tree": [
+      {
+        "name": "hv",
+        "type": "\u2200 x \u2208 [[a, b]], HasDerivAt (-cos) (sin x) x",
+        "body": "fun x _ => by",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "integral_mul_deriv_eq_deriv_mul hu hv ?_ ?_",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_cos_pow_aux",
+    "statement": "(\u222b x in a..b, cos x ^ (n + 2)) = (cos b ^ (n + 1) * sin b - cos a ^ (n + 1) * sin a + (n + 1) * \u222b x in a..b, cos x ^ n) - (n + 1) * \u222b x in a..b, cos x ^ (n + 2)",
+    "have_tree": [
+      {
+        "name": "hv",
+        "type": "\u2200 x \u2208 [[a, b]], HasDerivAt sin (cos x) x",
+        "body": "fun x _ => hasDerivAt_sin x",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "integral_mul_deriv_eq_deriv_mul hu hv ?_ ?_",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_sin_sq_mul_cos",
+    "statement": "\u222b x in a..b, sin x ^ 2 * cos x = (sin b ^ 3 - sin a ^ 3) / 3",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "@integral_sin_pow_mul_cos_pow_odd a b 2 0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_cos_pow_three",
+    "statement": "\u222b x in a..b, cos x ^ 3 = sin b - sin a - (sin b ^ 3 - sin a ^ 3) / 3",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "@integral_sin_pow_mul_cos_pow_odd a b 0 1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_sin_mul_cos_sq",
+    "statement": "\u222b x in a..b, sin x * cos x ^ 2 = (cos a ^ 3 - cos b ^ 3) / 3",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "@integral_sin_pow_odd_mul_cos_pow a b 0 2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integral_sin_pow_three",
+    "statement": "\u222b x in a..b, sin x ^ 3 = cos a - cos b - (cos a ^ 3 - cos b ^ 3) / 3",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "@integral_sin_pow_odd_mul_cos_pow a b 1 0",
+        "children": []
+      }
+    ]
+  }
+]

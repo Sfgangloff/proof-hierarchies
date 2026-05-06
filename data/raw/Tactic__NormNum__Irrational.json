@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Irrational",
+    "name": "not_power_nat_of_bounds",
+    "statement": "\u2115} (h_left : k ^ d < n) (h_right : n < (k + 1) ^ d) {m : \u2115} : n \u2260 m ^ d",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "k < m",
+        "body": "lt_of_pow_lt_pow_left' d h_left",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "m < k + 1",
+        "body": "lt_of_pow_lt_pow_left' d h_right",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Irrational",
+    "name": "irrational_rpow_rat_rat_of_num",
+    "statement": "\u211d} {x_num x_den y_num y_den k_num : \u2115} (hx_isNNRat : IsNNRat x x_num x_den) (hy_isNNRat : IsNNRat y y_num y_den) (hx_coprime : Nat.Coprime x_num x_den) (hy_coprime : Nat.Coprime y_num y_den) (hn1 : k_num ^ y_den < x_num) (hn2 : x_num < (k_num + 1) ^ y_den) : Irrational (x ^ y)",
+    "have_tree": [
+      {
+        "name": "hy_den_pos",
+        "type": "0 < y_den",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

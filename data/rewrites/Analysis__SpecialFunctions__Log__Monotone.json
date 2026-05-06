@@ -1,0 +1,210 @@
+[
+  {
+    "original": {
+      "module": "Monotone",
+      "name": "log_div_self_antitoneOn",
+      "statement": "AntitoneOn (fun x : \u211d => log x / x) { x | exp 1 \u2264 x }",
+      "have_tree": [
+        {
+          "name": "x_pos",
+          "type": "0 < x",
+          "body": "(exp_pos 1).trans_le hex",
+          "children": []
+        },
+        {
+          "name": "y_pos",
+          "type": "0 < y",
+          "body": "(exp_pos 1).trans_le hey",
+          "children": []
+        },
+        {
+          "name": "hlogx",
+          "type": "1 \u2264 log x",
+          "body": "by rwa [le_log_iff_exp_le x_pos]",
+          "children": []
+        },
+        {
+          "name": "hyx",
+          "type": "0 \u2264 y / x - 1",
+          "body": "by rwa [le_sub_iff_add_le, le_div_iff\u2080 x_pos, zero_add, one_mul]",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Monotone",
+          "name": "log_div_self_antitoneOn",
+          "statement": "AntitoneOn (fun x : \u211d => log x / x) { x | exp 1 \u2264 x }",
+          "have_tree": [
+            {
+              "name": "y_pos",
+              "type": "0 < y",
+              "body": "(exp_pos 1).trans_le hey",
+              "children": []
+            },
+            {
+              "name": "x_pos",
+              "type": "0 < x",
+              "body": "(exp_pos 1).trans_le hex",
+              "children": []
+            },
+            {
+              "name": "hlogx",
+              "type": "1 \u2264 log x",
+              "body": "by rwa [le_log_iff_exp_le x_pos]",
+              "children": []
+            },
+            {
+              "name": "hyx",
+              "type": "0 \u2264 y / x - 1",
+              "body": "by rwa [le_sub_iff_add_le, le_div_iff\u2080 x_pos, zero_add, one_mul]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Monotone",
+          "name": "log_div_self_antitoneOn",
+          "statement": "AntitoneOn (fun x : \u211d => log x / x) { x | exp 1 \u2264 x }",
+          "have_tree": [
+            {
+              "name": "x_pos",
+              "type": "0 < x",
+              "body": "(exp_pos 1).trans_le hex",
+              "children": []
+            },
+            {
+              "name": "hlogx",
+              "type": "1 \u2264 log x",
+              "body": "by rwa [le_log_iff_exp_le x_pos]",
+              "children": []
+            },
+            {
+              "name": "y_pos",
+              "type": "0 < y",
+              "body": "(exp_pos 1).trans_le hey",
+              "children": []
+            },
+            {
+              "name": "hyx",
+              "type": "0 \u2264 y / x - 1",
+              "body": "by rwa [le_sub_iff_add_le, le_div_iff\u2080 x_pos, zero_add, one_mul]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Monotone",
+          "name": "log_div_self_antitoneOn",
+          "statement": "AntitoneOn (fun x : \u211d => log x / x) { x | exp 1 \u2264 x }",
+          "have_tree": [
+            {
+              "name": "x_pos",
+              "type": "0 < x",
+              "body": "(exp_pos 1).trans_le hex",
+              "children": []
+            },
+            {
+              "name": "y_pos",
+              "type": "0 < y",
+              "body": "(exp_pos 1).trans_le hey",
+              "children": []
+            },
+            {
+              "name": "hyx",
+              "type": "0 \u2264 y / x - 1",
+              "body": "by rwa [le_sub_iff_add_le, le_div_iff\u2080 x_pos, zero_add, one_mul]",
+              "children": []
+            },
+            {
+              "name": "hlogx",
+              "type": "1 \u2264 log x",
+              "body": "by rwa [le_log_iff_exp_le x_pos]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Monotone",
+      "name": "log_div_self_rpow_antitoneOn",
+      "statement": "\u211d} (ha : 0 < a) : AntitoneOn (fun x : \u211d => log x / x ^ a) { x | exp (1 / a) \u2264 x }",
+      "have_tree": [
+        {
+          "name": "x_pos",
+          "type": "0 < x",
+          "body": "lt_of_lt_of_le (exp_pos (1 / a)) hex",
+          "children": []
+        },
+        {
+          "name": "y_pos",
+          "type": "0 < y",
+          "body": "by linarith",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Monotone",
+          "name": "log_div_self_rpow_antitoneOn",
+          "statement": "\u211d} (ha : 0 < a) : AntitoneOn (fun x : \u211d => log x / x ^ a) { x | exp (1 / a) \u2264 x }",
+          "have_tree": [
+            {
+              "name": "y_pos",
+              "type": "0 < y",
+              "body": "by linarith",
+              "children": []
+            },
+            {
+              "name": "x_pos",
+              "type": "0 < x",
+              "body": "lt_of_lt_of_le (exp_pos (1 / a)) hex",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

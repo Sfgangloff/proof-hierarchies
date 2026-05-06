@@ -1,0 +1,374 @@
+[
+  {
+    "original": {
+      "module": "Polynomial",
+      "name": "height_eq_height_add_one_of_isMaximal",
+      "statement": "Ideal R) [p.IsMaximal] (P : Ideal R[X]) [P.IsMaximal] [P.LiesOver p] : P.height = p.height + 1",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "(P.map (Ideal.Quotient.mk <| p.map (algebraMap R R[X]))).IsMaximal",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "P'.IsMaximal",
+          "body": "map_isMaximal_of_equiv e",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Polynomial",
+          "name": "height_eq_height_add_one_of_isMaximal",
+          "statement": "Ideal R) [p.IsMaximal] (P : Ideal R[X]) [P.IsMaximal] [P.LiesOver p] : P.height = p.height + 1",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "P'.IsMaximal",
+              "body": "map_isMaximal_of_equiv e",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(P.map (Ideal.Quotient.mk <| p.map (algebraMap R R[X]))).IsMaximal",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Polynomial",
+      "name": "height_eq_height_add_one",
+      "statement": "Ideal R) (P : Ideal R[X]) [P.IsMaximal] [P.LiesOver p] : P.height = p.height + 1",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "p.IsPrime",
+          "body": "by rw [P.over_def p]; infer_instance",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "p'.IsMaximal",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "eq",
+          "type": "",
+          "body": "comap_map_of_isPrime_disjoint _ R\u209a[X] \u2039P.IsMaximal\u203a.isPrime disj",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "(comap (algebraMap R[X] R\u209a[X]) P').IsMaximal",
+          "body": "eq.symm \u25b8 \u2039P.IsMaximal\u203a",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "P'.IsMaximal",
+          "body": ".of_isLocalization_of_disjoint (p.primeCompl.map C)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "P'.LiesOver p'",
+          "body": "liesOver_of_isPrime_of_disjoint p.primeCompl _ _ disj",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Polynomial",
+          "name": "height_eq_height_add_one",
+          "statement": "Ideal R) (P : Ideal R[X]) [P.IsMaximal] [P.LiesOver p] : P.height = p.height + 1",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "p'.IsMaximal",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "p.IsPrime",
+              "body": "by rw [P.over_def p]; infer_instance",
+              "children": []
+            },
+            {
+              "name": "eq",
+              "type": "",
+              "body": "comap_map_of_isPrime_disjoint _ R\u209a[X] \u2039P.IsMaximal\u203a.isPrime disj",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(comap (algebraMap R[X] R\u209a[X]) P').IsMaximal",
+              "body": "eq.symm \u25b8 \u2039P.IsMaximal\u203a",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "P'.IsMaximal",
+              "body": ".of_isLocalization_of_disjoint (p.primeCompl.map C)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "P'.LiesOver p'",
+              "body": "liesOver_of_isPrime_of_disjoint p.primeCompl _ _ disj",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Polynomial",
+          "name": "height_eq_height_add_one",
+          "statement": "Ideal R) (P : Ideal R[X]) [P.IsMaximal] [P.LiesOver p] : P.height = p.height + 1",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "p.IsPrime",
+              "body": "by rw [P.over_def p]; infer_instance",
+              "children": []
+            },
+            {
+              "name": "eq",
+              "type": "",
+              "body": "comap_map_of_isPrime_disjoint _ R\u209a[X] \u2039P.IsMaximal\u203a.isPrime disj",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "p'.IsMaximal",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(comap (algebraMap R[X] R\u209a[X]) P').IsMaximal",
+              "body": "eq.symm \u25b8 \u2039P.IsMaximal\u203a",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "P'.IsMaximal",
+              "body": ".of_isLocalization_of_disjoint (p.primeCompl.map C)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "P'.LiesOver p'",
+              "body": "liesOver_of_isPrime_of_disjoint p.primeCompl _ _ disj",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Polynomial",
+          "name": "height_eq_height_add_one",
+          "statement": "Ideal R) (P : Ideal R[X]) [P.IsMaximal] [P.LiesOver p] : P.height = p.height + 1",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "p.IsPrime",
+              "body": "by rw [P.over_def p]; infer_instance",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "p'.IsMaximal",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(comap (algebraMap R[X] R\u209a[X]) P').IsMaximal",
+              "body": "eq.symm \u25b8 \u2039P.IsMaximal\u203a",
+              "children": []
+            },
+            {
+              "name": "eq",
+              "type": "",
+              "body": "comap_map_of_isPrime_disjoint _ R\u209a[X] \u2039P.IsMaximal\u203a.isPrime disj",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "P'.IsMaximal",
+              "body": ".of_isLocalization_of_disjoint (p.primeCompl.map C)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "P'.LiesOver p'",
+              "body": "liesOver_of_isPrime_of_disjoint p.primeCompl _ _ disj",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5
+        ],
+        "result": {
+          "module": "Polynomial",
+          "name": "height_eq_height_add_one",
+          "statement": "Ideal R) (P : Ideal R[X]) [P.IsMaximal] [P.LiesOver p] : P.height = p.height + 1",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "p.IsPrime",
+              "body": "by rw [P.over_def p]; infer_instance",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "p'.IsMaximal",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "eq",
+              "type": "",
+              "body": "comap_map_of_isPrime_disjoint _ R\u209a[X] \u2039P.IsMaximal\u203a.isPrime disj",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "P'.IsMaximal",
+              "body": ".of_isLocalization_of_disjoint (p.primeCompl.map C)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(comap (algebraMap R[X] R\u209a[X]) P').IsMaximal",
+              "body": "eq.symm \u25b8 \u2039P.IsMaximal\u203a",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "P'.LiesOver p'",
+              "body": "liesOver_of_isPrime_of_disjoint p.primeCompl _ _ disj",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4
+        ],
+        "result": {
+          "module": "Polynomial",
+          "name": "height_eq_height_add_one",
+          "statement": "Ideal R) (P : Ideal R[X]) [P.IsMaximal] [P.LiesOver p] : P.height = p.height + 1",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "p.IsPrime",
+              "body": "by rw [P.over_def p]; infer_instance",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "p'.IsMaximal",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "eq",
+              "type": "",
+              "body": "comap_map_of_isPrime_disjoint _ R\u209a[X] \u2039P.IsMaximal\u203a.isPrime disj",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(comap (algebraMap R[X] R\u209a[X]) P').IsMaximal",
+              "body": "eq.symm \u25b8 \u2039P.IsMaximal\u203a",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "P'.LiesOver p'",
+              "body": "liesOver_of_isPrime_of_disjoint p.primeCompl _ _ disj",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "P'.IsMaximal",
+              "body": ".of_isLocalization_of_disjoint (p.primeCompl.map C)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

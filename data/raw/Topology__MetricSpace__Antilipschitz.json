@@ -1,0 +1,53 @@
+[
+  {
+    "module": "Antilipschitz",
+    "name": "to_rightInverse",
+    "statement": "AntilipschitzWith K f) {g : \u03b2 \u2192 \u03b1} (hg : Function.RightInverse g f) : LipschitzWith K g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf (g x) (g y)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Antilipschitz",
+    "name": "properSpace",
+    "statement": "Type*} [MetricSpace \u03b1] {K : \u211d\u22650} {f : \u03b1 \u2192 \u03b2} [ProperSpace \u03b1] (hK : AntilipschitzWith K f) (f_cont : Continuous f) (hf : Function.Surjective f) : ProperSpace \u03b2",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "IsClosed K",
+        "body": "isClosed_closedBall.preimage f_cont",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "IsBounded K",
+        "body": "hK.isBounded_preimage isBounded_closedBall",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsCompact K",
+        "body": "isCompact_iff_isClosed_bounded.2 \u27e8A, B\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Antilipschitz",
+    "name": "isBounded_of_image2_left",
+    "statement": "\u03b1 \u2192 \u03b2 \u2192 \u03b3) {K\u2081 : \u211d\u22650} (hf : \u2200 b, AntilipschitzWith K\u2081 fun a => f a b) {s : Set \u03b1} {t : Set \u03b2} (hst : IsBounded (Set.image2 f s t)) : IsBounded s \u2228 IsBounded t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u00acIsBounded (Set.image2 f s {b})",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "RatAlgebra",
+      "name": "dpow_mul_of_add_lt",
+      "statement": "\u2115} (hn_fac : IsUnit ((n - 1)! : A)) {m k : \u2115} (hkm : m + k < n) {x : A} (hx : x \u2208 I) : dpow I m x * dpow I k x = \u2191((m + k).choose m) * dpow I (m + k) x",
+      "have_tree": [
+        {
+          "name": "hm",
+          "type": "m < n",
+          "body": "lt_of_le_of_lt le_self_add hkm",
+          "children": []
+        },
+        {
+          "name": "hk",
+          "type": "k < n",
+          "body": "lt_of_le_of_lt le_add_self hkm",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "RatAlgebra",
+          "name": "dpow_mul_of_add_lt",
+          "statement": "\u2115} (hn_fac : IsUnit ((n - 1)! : A)) {m k : \u2115} (hkm : m + k < n) {x : A} (hx : x \u2208 I) : dpow I m x * dpow I k x = \u2191((m + k).choose m) * dpow I (m + k) x",
+          "have_tree": [
+            {
+              "name": "hk",
+              "type": "k < n",
+              "body": "lt_of_le_of_lt le_add_self hkm",
+              "children": []
+            },
+            {
+              "name": "hm",
+              "type": "m < n",
+              "body": "lt_of_le_of_lt le_self_add hkm",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

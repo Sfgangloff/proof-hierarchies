@@ -1,0 +1,92 @@
+[
+  {
+    "module": "ModEq",
+    "name": "gcd_eq",
+    "statement": "a \u2261 b [MOD m]) : gcd a m = gcd b m",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "gcd_dvd_right a m",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "gcd_dvd_right b m",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ModEq",
+    "name": "cancel_left_div_gcd",
+    "statement": "0 < m) (h : c * a \u2261 c * b [MOD m]) : a \u2261 b [MOD m / gcd m c]",
+    "have_tree": [
+      {
+        "name": "hmd",
+        "type": "",
+        "body": "gcd_dvd_left m c",
+        "children": []
+      },
+      {
+        "name": "hcd",
+        "type": "",
+        "body": "gcd_dvd_right m c",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ModEq",
+    "name": "chineseRemainder'",
+    "statement": "a \u2261 b [MOD gcd n m]) : { k // k \u2261 a [MOD n] \u2227 k \u2261 b [MOD m] }",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "gcd_eq_gcd_ab n m",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ModEq",
+    "name": "chineseRemainder'_lt_lcm",
+    "statement": "a \u2261 b [MOD gcd n m]) (hn : n \u2260 0) (hm : m \u2260 0) : \u2191(chineseRemainder' h) < lcm n m",
+    "have_tree": [
+      {
+        "name": "lcm_pos",
+        "type": "",
+        "body": "Int.natCast_pos.mpr (Nat.pos_of_ne_zero (lcm_ne_zero hn hm))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ModEq",
+    "name": "add_mod_add_ite",
+    "statement": "\u2115) : ((a + b) % c + if c \u2264 a % c + b % c then c else 0) = a % c + b % c",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "0 < (a % c + b % c) / c",
+        "body": "Nat.div_pos h (Nat.pos_of_ne_zero hc0)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ModEq",
+    "name": "odd_mul_odd_div_two",
+    "statement": "\u2115} (hm1 : m % 2 = 1) (hn1 : n % 2 = 1) : m * n / 2 = m * (n / 2) + m / 2",
+    "have_tree": [
+      {
+        "name": "hn0",
+        "type": "0 < n",
+        "body": "Nat.pos_of_ne_zero fun h => by simp_all",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "module": "Periodic",
+    "name": "differentiableAt_cuspFunction",
+    "statement": "h \u2260 0) (hf : Periodic f h) {z : \u2102} (hol_z : DifferentiableAt \u2102 f z) : DifferentiableAt \u2102 (cuspFunction h f) (\ud835\udd62 h z)",
+    "have_tree": [
+      {
+        "name": "qdiff",
+        "type": "HasStrictDerivAt (\ud835\udd62 h) (q * (2 * \u03c0 * I / h)) z",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "diff_ne",
+        "type": "q * (2 * \u03c0 * I / h) \u2260 0",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "diff_L",
+        "type": "DifferentiableAt \u2102 L q",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hF",
+        "type": "",
+        "body": "hL.fun_comp (cuspFunction h f)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Periodic",
+    "name": "differentiableAt_cuspFunction_zero",
+    "statement": "0 < h) (hf : Periodic f h) (h_hol : \u2200\u1da0 z in I\u221e, DifferentiableAt \u2102 f z) (h_bd : BoundedAtFilter I\u221e f) : DifferentiableAt \u2102 (cuspFunction h f) 0",
+    "have_tree": [
+      {
+        "name": "h_diff",
+        "type": "DifferentiableOn \u2102 (cuspFunction h f) (S \\ {0})",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hF_bd",
+        "type": "BddAbove (norm \u2218 cuspFunction h f '' (S \\ {0}))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "differentiableOn_update_limUnder_of_bddAbove (IsOpen.mem_nhds hS2 hS3) h_diff hF_bd",
+        "children": []
+      }
+    ]
+  }
+]

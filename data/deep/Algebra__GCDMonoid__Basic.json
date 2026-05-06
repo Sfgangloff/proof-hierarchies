@@ -1,0 +1,145 @@
+[
+  {
+    "module": "Basic",
+    "name": "normalizedGCDMonoidOfGCD",
+    "statement": "\u03b1 \u2192 \u03b1 \u2192 \u03b1) (gcd_dvd_left : \u2200 a b, gcd a b \u2223 a) (gcd_dvd_right : \u2200 a b, gcd a b \u2223 b) (dvd_gcd : \u2200 {a b c}, a \u2223 c \u2192 a \u2223 b \u2192 a \u2223 gcd c b) (normalize_gcd : \u2200 a b, normalize (gcd a b) = gcd a b) : NormalizedGCDMonoid \u03b1",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "gcd a b \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "hab",
+            "type": "a * b \u2260 0",
+            "body": "mul_ne_zero a0 hb",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h2",
+        "type": "normalize (gcd a b * l) = gcd a b * l",
+        "body": "by rw [this, normalize_idem]",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "gcd0",
+        "type": "gcd a 0 = normalize a",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "gcdMonoidOfLCM",
+    "statement": "\u03b1 \u2192 \u03b1 \u2192 \u03b1) (dvd_lcm_left : \u2200 a b, a \u2223 lcm a b) (dvd_lcm_right : \u2200 a b, b \u2223 lcm a b) (lcm_dvd : \u2200 {a b c}, c \u2223 a \u2192 b \u2223 a \u2192 lcm c b \u2223 a) : GCDMonoid \u03b1",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "lcm a b \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "lcm_dvd (Dvd.intro b rfl) (Dvd.intro_left a rfl)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h0",
+        "type": "lcm a b \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "lcm_dvd (Dvd.intro b rfl) (Dvd.intro_left a rfl)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h0",
+        "type": "lcm c b \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "lcm_dvd (Dvd.intro b rfl) (Dvd.intro_left c rfl)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "normalizedGCDMonoidOfLCM",
+    "statement": "\u03b1 \u2192 \u03b1 \u2192 \u03b1) (dvd_lcm_left : \u2200 a b, a \u2223 lcm a b) (dvd_lcm_right : \u2200 a b, b \u2223 lcm a b) (lcm_dvd : \u2200 {a b c}, c \u2223 a \u2192 b \u2223 a \u2192 lcm c b \u2223 a) (normalize_lcm : \u2200 a b, normalize (lcm a b) = lcm a b) : NormalizedGCDMonoid \u03b1",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "lcm a b \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "lcm_dvd (Dvd.intro b rfl) (Dvd.intro_left a rfl)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h0",
+        "type": "lcm a b \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "lcm_dvd (Dvd.intro b rfl) (Dvd.intro_left a rfl)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h0",
+        "type": "lcm a b \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "lcm_dvd (Dvd.intro b rfl) (Dvd.intro_left a rfl)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h0",
+        "type": "lcm c b \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "lcm_dvd (Dvd.intro b rfl) (Dvd.intro_left c rfl)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

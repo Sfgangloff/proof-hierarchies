@@ -1,0 +1,114 @@
+[
+  {
+    "module": "Compactum",
+    "name": "subset_cl",
+    "statement": "Compactum} (A : Set X) : A \u2286 cl A",
+    "have_tree": [
+      {
+        "name": "claim1",
+        "type": "\u2200 (B) (_ : B \u2208 C0) (C) (_ : C \u2208 C0), B \u2229 C \u2208 C0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "claim2",
+        "type": "\u2200 B \u2208 C0, Set.Nonempty B",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "claim3",
+        "type": "\u2200 B \u2208 C0, (AA \u2229 B).Nonempty",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(Q \u2229 cl A).Nonempty",
+            "body": "Filter.nonempty_of_mem (inter_mem hQ hF)",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "G.map X.str = F",
+            "body": "Ultrafilter.coe_le_coe.1 fun S hS => h1 (Or.inr \u27e8S, hS, rfl\u27e9)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "claim4",
+        "type": "",
+        "body": "finiteInterClosure_finiteInter C1",
+        "children": []
+      },
+      {
+        "name": "claim5",
+        "type": "FiniteInter C0",
+        "body": "\u27e8\u27e8_, univ_mem, Set.preimage_univ\u27e9, claim1\u27e9",
+        "children": []
+      },
+      {
+        "name": "claim6",
+        "type": "\u2200 P \u2208 C2, (P : Set (Ultrafilter X)).Nonempty",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Compactum",
+    "name": "str_eq_of_le_nhds",
+    "statement": "Compactum} (F : Ultrafilter X) (x : X) : \u2191F \u2264 \ud835\udcdd x \u2192 X.str F = x",
+    "have_tree": [
+      {
+        "name": "claim1",
+        "type": "\u2200 A : Set X, IsClosed A \u2192 A \u2208 F \u2192 x \u2208 A",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "claim2",
+        "type": "\u2200 A : Set X, A \u2208 F \u2192 x \u2208 cl A",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "claim3",
+        "type": "\u2200 (S1) (_ : S1 \u2208 T0) (S2) (_ : S2 \u2208 T0), S1 \u2229 S2 \u2208 T0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "claim4",
+        "type": "\u2200 S \u2208 T0, (AA \u2229 S).Nonempty",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "claim5",
+        "type": "\u2200 S \u2208 T0, Set.Nonempty S",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "claim6",
+        "type": "\u2200 S \u2208 T2, Set.Nonempty S",
+        "body": "by",
+        "children": [
+          {
+            "name": "c1",
+            "type": "X.join G = F",
+            "body": "Ultrafilter.coe_le_coe.1 fun P hP => h1 (Or.inr \u27e8P, hP, rfl\u27e9)",
+            "children": []
+          },
+          {
+            "name": "c2",
+            "type": "G.map X.str = X.incl x",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

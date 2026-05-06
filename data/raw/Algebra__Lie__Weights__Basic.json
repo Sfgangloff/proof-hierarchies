@@ -1,0 +1,112 @@
+[
+  {
+    "module": "Basic",
+    "name": "weight_vector_multiplication",
+    "statement": "Type*) [AddCommGroup M\u2081] [Module R M\u2081] [LieRingModule L M\u2081] [LieModule R L M\u2081] [AddCommGroup M\u2082] [Module R M\u2082] [LieRingModule L M\u2082] [LieModule R L M\u2082] [AddCommGroup M\u2083] [Module R M\u2083] [LieRingModule L M\u2083] [LieModule R L M\u2083] (g : M\u2081 \u2297[R] M\u2082 \u2192\u2097\u2045R,L\u2046 M\u2083) (\u03c7\u2081 \u03c7\u2082 : R) (x : L) : LinearMap.range ((g : M\u2081 \u2297[R] M\u2082 \u2192\u2097[R] M\u2083).comp (mapIncl \ud835\udd4e(M\u2081, \u03c7\u2081, x) \ud835\udd4e(M\u2082, \u03c7\u2082, x))) \u2264 \ud835\udd4e(M\u2083, \u03c7\u2081 + \u03c7\u2082, x)",
+    "have_tree": [
+      {
+        "name": "hf_comm",
+        "type": "Commute f\u2081 f\u2082",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isZero_zero",
+    "statement": "L \u2192 R))] : IsZero (0 : Weight R L M)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2a05 x, genWeightSpaceOf M (\u03c7 x) x \u2260 \u22a5",
+        "body": "\u03c7.genWeightSpace_ne_bot",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "posFittingCompOf",
+    "statement": "L) : LieSubmodule R L M",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "Commute f\u2081 f\u2082",
+        "body": "by ext; simp [f\u2081, f\u2082]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "iInf_lowerCentralSeries_eq_posFittingComp",
+    "statement": "\u2a05 k, lowerCentralSeries R L M k = posFittingComp R L M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "LinearMap.congr_fun (Module.End.commute_pow_left_of_commute",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isCompl_genWeightSpace_zero_posFittingComp_aux",
+    "statement": "\u2200 N < (\u22a4 : LieSubmodule R L M), IsCompl (genWeightSpace N 0) (posFittingComp R L N)) : IsCompl (genWeightSpace M 0) (posFittingComp R L M)",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "IsCompl M\u2080\u2093 M\u2081\u2093",
+        "body": "isCompl_genWeightSpaceOf_zero_posFittingCompOf R L M x",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "IsCompl M\u2080\u2093\u2080 M\u2080\u2093\u2081",
+        "body": "h M\u2080\u2093 hx.lt_top",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsTriangularizable.exists_hasEigenvalue",
+    "statement": "L) : \u2203 \u03c6, (toEnd R L M x).HasEigenvalue \u03c6",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "maxGenEigenspace_eq_top (R := R) (L := L) (M := M) x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "iSup_genWeightSpace_eq_top'",
+    "statement": "\u2a06 \u03c7 : Weight K L M, genWeightSpace M \u03c7 = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "iSup_genWeightSpace_eq_top K L M",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "eq_iSup_inf_genWeightSpace",
+    "statement": "LieSubmodule K L M) : N = \u2a06 \u03c7 : Weight K L M, N \u2293 genWeightSpace M \u03c7",
+    "have_tree": [
+      {
+        "name": "hN",
+        "type": "",
+        "body": "(LieSubmodule.map_mono (le_top : genWeightSpace N \u03c7_N \u2264 \u22a4)).trans N.map_incl_top.le",
+        "children": []
+      }
+    ]
+  }
+]

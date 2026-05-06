@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Defs",
+      "name": "IsMulFreimanHom.mulRothNumber_mono",
+      "statement": "IsMulFreimanHom 2 A B f) (hf' : Set.BijOn f A B) : mulRothNumber B \u2264 mulRothNumber A",
+      "have_tree": [
+        {
+          "name": "hsA",
+          "type": "invFunOn f A '' s \u2286 A",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "hfsA",
+          "type": "Set.SurjOn f A s",
+          "body": "hf'.surjOn.mono Subset.rfl (coe_subset.2 hsB)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Defs",
+          "name": "IsMulFreimanHom.mulRothNumber_mono",
+          "statement": "IsMulFreimanHom 2 A B f) (hf' : Set.BijOn f A B) : mulRothNumber B \u2264 mulRothNumber A",
+          "have_tree": [
+            {
+              "name": "hfsA",
+              "type": "Set.SurjOn f A s",
+              "body": "hf'.surjOn.mono Subset.rfl (coe_subset.2 hsB)",
+              "children": []
+            },
+            {
+              "name": "hsA",
+              "type": "invFunOn f A '' s \u2286 A",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Defs",
+      "name": "IsMulFreimanIso.mulRothNumber_congr",
+      "statement": "IsMulFreimanIso 2 A B f) : mulRothNumber A = mulRothNumber B",
+      "have_tree": [
+        {
+          "name": "hfs",
+          "type": "Set.InjOn f s",
+          "body": "hf.bijOn.injOn.mono hsA",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "(hf.subset hsA hfs.bijOn_image).threeGPFree_congr.1 hs",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Defs",
+          "name": "IsMulFreimanIso.mulRothNumber_congr",
+          "statement": "IsMulFreimanIso 2 A B f) : mulRothNumber A = mulRothNumber B",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "(hf.subset hsA hfs.bijOn_image).threeGPFree_congr.1 hs",
+              "children": []
+            },
+            {
+              "name": "hfs",
+              "type": "Set.InjOn f s",
+              "body": "hf.bijOn.injOn.mono hsA",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,112 @@
+[
+  {
+    "module": "Sign",
+    "name": "swapFactorsAux",
+    "statement": "\u2200 (l : List \u03b1) (f : Perm \u03b1), (\u2200 {x}, f x \u2260 x \u2192 x \u2208 l) \u2192 { l : List (Perm \u03b1) // l.prod = f \u2227 \u2200 g \u2208 l, IsSwap g } | [] => fun f h => \u27e8[], Equiv.ext fun x => by rw [List.prod_nil] exact (Classical.not_not.1 (mt h List.not_mem_nil)).symm, by simp\u27e9 | x::l => fun f h => if hfx : x = f x then swapFactorsAux l f fun {y} hy => List.mem_of_ne_of_mem (fun h : y = x => by simp [h, hfx.symm] at hy) (h hy) else let m",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "f y \u2260 y \u2227 y \u2260 x",
+        "body": "ne_and_ne_of_swap_mul_apply_ne_self hy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sign",
+    "name": "isConj_swap",
+    "statement": "\u03b1} (hwx : w \u2260 x) (hyz : y \u2260 z) : IsConj (swap w x) (swap y z)",
+    "have_tree": [
+      {
+        "name": "hwy",
+        "type": "w \u2260 y",
+        "body": "by rw [hwz]; exact hyz.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sign",
+    "name": "signBijAux_injOn",
+    "statement": "\u2115} {f : Perm (Fin n)} : (finPairsLT n : Set (\u03a3 _, Fin n)).InjOn (signBijAux f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u00acb\u2081 < b\u2082",
+        "body": "hb.le.not_gt",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sign",
+    "name": "signAux_swap_zero_one'",
+    "statement": "\u2115) : signAux (swap (0 : Fin (n + 2)) 1) = -1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "1 < a\u2081",
+        "body": "lt_of_le_of_ne' (Nat.succ_le_of_lt ha\u2081) ha\u2082",
+        "children": []
+      },
+      {
+        "name": "lt",
+        "type": "1 < a\u2081",
+        "body": "le.trans_lt ha\u2081",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sign",
+    "name": "signAux_eq_signAux2",
+    "statement": "\u2115} : \u2200 (l : List \u03b1) (f : Perm \u03b1) (e : \u03b1 \u2243 Fin n) (_h : \u2200 x, f x \u2260 x \u2192 x \u2208 l), signAux ((e.symm.trans f).trans e) = signAux2 l f | [], f, e, h => by have : f = 1",
+    "have_tree": [
+      {
+        "name": "hefx",
+        "type": "e x \u2260 e (f x)",
+        "body": "mt e.injective.eq_iff.1 hfx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sign",
+    "name": "sign_subtypePerm",
+    "statement": "Perm \u03b1) {p : \u03b1 \u2192 Prop} [DecidablePred p] (h\u2081 : \u2200 x, p (f x) \u2194 p x) (h\u2082 : \u2200 x, f x \u2260 x \u2192 p x) : sign (subtypePerm f h\u2081) = sign f",
+    "have_tree": [
+      {
+        "name": "hl'",
+        "type": "\u2200 g' \u2208 l.1.map ofSubtype, IsSwap g'",
+        "body": "fun g' hg' =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sign",
+    "name": "sign_bij",
+    "statement": "Perm \u03b1} {g : Perm \u03b2} (i : \u2200 x : \u03b1, f x \u2260 x \u2192 \u03b2) (h : \u2200 x hx hx', i (f x) hx' = g (i x hx)) (hi : \u2200 x\u2081 x\u2082 hx\u2081 hx\u2082, i x\u2081 hx\u2081 = i x\u2082 hx\u2082 \u2192 x\u2081 = x\u2082) (hg : \u2200 y, g y \u2260 y \u2192 \u2203 x hx, i x hx = y) : sign f = sign g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "f (f x) \u2260 f x",
+        "body": "mt (fun h => f.injective h) x.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Sign",
+    "name": "ofSign_disjoint",
+    "statement": "_root_.Disjoint (ofSign 1 : Finset (Perm \u03b1)) (ofSign (-1))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h\u03c3.symm.trans h\u03c4",
+        "children": []
+      }
+    ]
+  }
+]

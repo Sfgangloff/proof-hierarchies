@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Floor",
+      "name": "tendsto_floor_left_pure_ceil_sub_one",
+      "statement": "\u03b1) : Tendsto (floor : \u03b1 \u2192 \u2124) (\ud835\udcdd[<] x) (pure (\u2308x\u2309 - 1))",
+      "have_tree": [
+        {
+          "name": "h\u2081",
+          "type": "\u2191(\u2308x\u2309 - 1) < x",
+          "body": "by rw [cast_sub, cast_one, sub_lt_iff_lt_add]; exact ceil_lt_add_one _",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "x \u2264 \u2191(\u2308x\u2309 - 1) + 1",
+          "body": "by rw [cast_sub, cast_one, sub_add_cancel]; exact le_ceil _",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Floor",
+          "name": "tendsto_floor_left_pure_ceil_sub_one",
+          "statement": "\u03b1) : Tendsto (floor : \u03b1 \u2192 \u2124) (\ud835\udcdd[<] x) (pure (\u2308x\u2309 - 1))",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "x \u2264 \u2191(\u2308x\u2309 - 1) + 1",
+              "body": "by rw [cast_sub, cast_one, sub_add_cancel]; exact le_ceil _",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "\u2191(\u2308x\u2309 - 1) < x",
+              "body": "by rw [cast_sub, cast_one, sub_lt_iff_lt_add]; exact ceil_lt_add_one _",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,78 @@
+[
+  {
+    "module": "CosetCover",
+    "name": "leftCoset_cover_filter_FiniteIndex_aux",
+    "statement": "Subgroup G \u2192 Prop)] : (\u22c3 k \u2208 s.filter (fun i => (H i).FiniteIndex), g k \u2022 (H k : Set G) = Set.univ) \u2227 (1 \u2264 \u2211 i \u2208 s, ((H i).index : \u211a)\u207b\u00b9) \u2227 (\u2211 i \u2208 s, ((H i).index : \u211a)\u207b\u00b9 = 1 \u2192 Set.PairwiseDisjoint (s.filter (fun i => (H i).FiniteIndex)) (fun i \u21a6 g i \u2022 (H i : Set G)))",
+    "have_tree": [
+      {
+        "name": "hD",
+        "type": "D.FiniteIndex",
+        "body": "finiteIndex_iInf' _ <| by simp",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "i \u2208 s) (hfi : (H i).FiniteIndex) : D \u2264 H i",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hcovers'",
+        "type": "\u22c3 k \u2208 Finset.univ, f k \u2022 (K k : Set G) = Set.univ",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2203 k, (H k.1.1).FiniteIndex \u2227 K k = D",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "exists_finiteIndex_of_leftCoset_cover hcovers",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "(t j hj hjfi).Nonempty",
+            "body": "Finset.nonempty_coe_sort.mp",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u00ac(H i).FiniteIndex \u2192 H i \u2260 D",
+        "body": "fun hfi hD' => (hD' \u25b8 hfi) hD",
+        "children": [
+          {
+            "name": "hdisjoint",
+            "type": "",
+            "body": "pairwiseDisjoint_leftCoset_cover_const_of_index_eq hcovers' h.symm",
+            "children": [
+              {
+                "name": "_",
+                "type": "",
+                "body": "this",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "hk' i hi hi'",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "hk' j hj hj'",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

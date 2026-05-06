@@ -1,0 +1,79 @@
+[
+  {
+    "module": "NormalizedFactors",
+    "name": "normalizedFactors_irreducible",
+    "statement": "\u03b1} (ha : Irreducible a) : normalizedFactors a = {normalize a}",
+    "have_tree": [
+      {
+        "name": "p_mem",
+        "type": "p \u2208 normalizedFactors a",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalizedFactors",
+    "name": "normalizedFactors_prod_eq",
+    "statement": "Multiset \u03b1) (hs : \u2200 a \u2208 s, Irreducible a) : normalizedFactors s.prod = s.map normalize",
+    "have_tree": [
+      {
+        "name": "ia",
+        "type": "",
+        "body": "hs a (Multiset.mem_cons_self a _)",
+        "children": []
+      },
+      {
+        "name": "ib",
+        "type": "",
+        "body": "fun b h => hs b (Multiset.mem_cons_of_mem h)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalizedFactors",
+    "name": "_root_.Associated.normalizedFactors_eq",
+    "statement": "\u03b1} (h : Associated a b) : normalizedFactors a = normalizedFactors b",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "\u21d1(normalize (\u03b1",
+        "body": "\u03b1)) = Associates.out \u2218 Associates.mk := funext Associates.out_mk",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalizedFactors",
+    "name": "disjoint_normalizedFactors",
+    "statement": "\u03b1} (hc : IsRelPrime a b) : Disjoint (normalizedFactors a) (normalizedFactors b)",
+    "have_tree": [
+      {
+        "name": "x_dvd_a",
+        "type": "",
+        "body": "dvd_of_mem_normalizedFactors hxa",
+        "children": []
+      },
+      {
+        "name": "x_dvd_b",
+        "type": "",
+        "body": "dvd_of_mem_normalizedFactors hxb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalizedFactors",
+    "name": "exists_associated_prime_pow_of_unique_normalized_factor",
+    "statement": "\u03b1} (h : \u2200 {m}, m \u2208 normalizedFactors r \u2192 m = p) (hr : r \u2260 0) : \u2203 i : \u2115, Associated (p ^ i) r",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "UniqueFactorizationMonoid.prod_normalizedFactors hr",
+        "children": []
+      }
+    ]
+  }
+]

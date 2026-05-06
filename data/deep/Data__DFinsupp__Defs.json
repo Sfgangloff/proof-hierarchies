@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Defs",
+    "name": "induction",
+    "statement": "(\u03a0\u2080 i, \u03b2 i) \u2192 Prop} (f : \u03a0\u2080 i, \u03b2 i) (h0 : p 0) (ha : \u2200 (i b) (f : \u03a0\u2080 i, \u03b2 i), f i = 0 \u2192 b \u2260 0 \u2192 p f \u2192 p (single i b + f)) : p f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "f = 0",
+        "body": "funext fun i => (H i).resolve_left (Multiset.notMem_zero _)",
+        "children": []
+      },
+      {
+        "name": "H2",
+        "type": "p (erase i \u27e8f, Trunc.mk \u27e8i ::\u2098 s, H\u27e9\u27e9)",
+        "body": "by",
+        "children": [
+          {
+            "name": "H2",
+            "type": "\u2200 j, j \u2208 s \u2228 ite (j = i) 0 (f j) = 0",
+            "body": "by grind",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "H3",
+        "type": "single i _ + _ = (\u27e8f, Trunc.mk \u27e8i ::\u2098 s, H\u27e9\u27e9 : \u03a0\u2080 i, \u03b2 i)",
+        "body": "single_add_erase _ _",
+        "children": []
+      }
+    ]
+  }
+]

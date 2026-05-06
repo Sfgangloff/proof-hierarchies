@@ -1,0 +1,194 @@
+[
+  {
+    "module": "Three",
+    "name": "three_dvd_b_of_dvd_a_of_gcd_eq_one_of_case2",
+    "statement": "\u2124} (ha : a \u2260 0) (Hgcd : Finset.gcd {a, b, c} id = 1) (h3a : 3 \u2223 a) (HF : a ^ 3 + b ^ 3 + c ^ 3 = 0) (H : \u2200 a b c : \u2124, c \u2260 0 \u2192 \u00ac 3 \u2223 a \u2192 \u00ac 3 \u2223 b \u2192 3 \u2223 c \u2192 IsCoprime a b \u2192 a ^ 3 + b ^ 3 \u2260 c ^ 3) : 3 \u2223 b",
+    "have_tree": [
+      {
+        "name": "hbc",
+        "type": "IsCoprime (-b) (-c)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Three",
+    "name": "fermatLastTheoremThree_of_dvd_a_of_gcd_eq_one_of_case2",
+    "statement": "\u2124} (ha : a \u2260 0) (h3a : 3 \u2223 a) (Hgcd : Finset.gcd {a, b, c} id = 1) (H : \u2200 a b c : \u2124, c \u2260 0 \u2192 \u00ac 3 \u2223 a \u2192 \u00ac 3 \u2223 b \u2192 3 \u2223 c \u2192 IsCoprime a b \u2192 a ^ 3 + b ^ 3 \u2260 c ^ 3) : a ^ 3 + b ^ 3 + c ^ 3 \u2260 0",
+    "have_tree": [
+      {
+        "name": "h3b",
+        "type": "3 \u2223 b",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Three",
+    "name": "lambda_sq_dvd_c",
+    "statement": "\u03bb ^ 2 \u2223 S'.c",
+    "have_tree": [
+      {
+        "name": "hm",
+        "type": "",
+        "body": "S'.multiplicity_lambda_c_finite",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "lambda_pow_four_dvd_c_cube S'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Three",
+    "name": "lambda_sq_dvd_or_dvd_or_dvd",
+    "statement": "\u03bb ^ 2 \u2223 S'.a + S'.b \u2228 \u03bb ^ 2 \u2223 S'.a + \u03b7 * S'.b \u2228 \u03bb ^ 2 \u2223 S'.a + \u03b7 ^ 2 * S'.b",
+    "have_tree": [
+      {
+        "name": "h1'",
+        "type": "FiniteMultiplicity (h\u03b6.toInteger - 1) (S'.a + S'.b)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h2'",
+        "type": "FiniteMultiplicity (h\u03b6.toInteger - 1) (S'.a + \u03b7 * S'.b)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h3'",
+        "type": "FiniteMultiplicity (h\u03b6.toInteger - 1) (S'.a + \u03b7 ^ 2 * S'.b)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(pow_dvd_pow_of_dvd (lambda_sq_dvd_c S') 3).mul_left S'.u",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Three",
+    "name": "associated_of_dvd_a_add_b_of_dvd_a_add_eta_mul_b",
+    "statement": "\ud835\udcde K} (hp : Prime p) (hpab : p \u2223 S.a + S.b) (hpa\u03b7b : p \u2223 S.a + \u03b7 * S.b) : Associated p \u03bb",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "dvd_mul_sub_mul_mul_gcd_of_dvd hpab hpa\u03b7b",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Three",
+    "name": "associated_of_dvd_a_add_b_of_dvd_a_add_eta_sq_mul_b",
+    "statement": "\ud835\udcde K} (hp : Prime p) (hpab : p \u2223 (S.a + S.b)) (hpa\u03b7sqb : p \u2223 (S.a + \u03b7 ^ 2 * S.b)) : Associated p \u03bb",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "dvd_mul_sub_mul_mul_gcd_of_dvd hpab hpa\u03b7sqb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Three",
+    "name": "associated_of_dvd_a_add_eta_mul_b_of_dvd_a_add_eta_sq_mul_b",
+    "statement": "\ud835\udcde K} (hp : Prime p) (hpa\u03b7b : p \u2223 S.a + \u03b7 * S.b) (hpa\u03b7sqb : p \u2223 S.a + \u03b7 ^ 2 * S.b) : Associated p \u03bb",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "dvd_mul_sub_mul_mul_gcd_of_dvd hpa\u03b7b hpa\u03b7sqb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Three",
+    "name": "lambda_not_dvd_y",
+    "statement": "\u00ac \u03bb \u2223 S.y",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "\u03bb ^ S.multiplicity \u2223 S.c",
+        "body": "pow_multiplicity_dvd _ _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "S.two_le_multiplicity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Three",
+    "name": "lambda_not_dvd_w",
+    "statement": "\u00ac \u03bb \u2223 S.w",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "S.two_le_multiplicity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Three",
+    "name": "x_mul_y_mul_z_eq_u_mul_w_cube",
+    "statement": "S.x * S.y * S.z = S.u * S.w ^ 3",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "S.two_le_multiplicity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Three",
+    "name": "u\u2084_eq_one_or_neg_one",
+    "statement": "S.u\u2084 = 1 \u2228 S.u\u2084 = -1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u03bb ^ 2 \u2223 \u03bb ^ 4",
+        "body": "\u27e8\u03bb ^ 2, by ring\u27e9",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "S.lambda_sq_div_u\u2085_mul",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Three",
+    "name": "exists_Solution_multiplicity_lt",
+    "statement": "\u2203 S\u2081 : Solution h\u03b6, S\u2081.multiplicity < S.multiplicity",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NumberField K",
+        "body": "IsCyclotomicExtension.numberField {3} \u211a _",
+        "children": []
+      }
+    ]
+  }
+]

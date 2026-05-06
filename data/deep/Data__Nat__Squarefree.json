@@ -1,0 +1,91 @@
+[
+  {
+    "module": "Squarefree",
+    "name": "minSqFacAux_has_prop",
+    "statement": "\u2115} (k) (n0 : 0 < n) (i) (e : k = 2 * i + 3) (ih : \u2200 m, Prime m \u2192 m \u2223 n \u2192 k \u2264 m) : MinSqFacProp n (minSqFacAux n k)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ih p pp (dvd_trans \u27e8_, rfl\u27e9 d)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.mul_le_mul this this",
+        "children": []
+      },
+      {
+        "name": "k2",
+        "type": "2 \u2264 k",
+        "body": "by lia",
+        "children": []
+      },
+      {
+        "name": "k0",
+        "type": "0 < k",
+        "body": "lt_of_lt_of_le (by decide) k2",
+        "children": []
+      },
+      {
+        "name": "IH",
+        "type": "\u2200 n', n' \u2223 n \u2192 \u00ack \u2223 n' \u2192 MinSqFacProp n' (n'.minSqFacAux (k + 2))",
+        "body": "by",
+        "children": [
+          {
+            "name": "hn'",
+            "type": "",
+            "body": "le_of_dvd n0 nd'",
+            "children": [
+              {
+                "name": "_",
+                "type": "Nat.sqrt n' - k < Nat.sqrt n + 2 - k",
+                "body": "",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "ih _ prime_two (dvd_trans (dvd_of_mul_right_dvd d) nd')",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "pk",
+        "type": "k \u2223 n \u2192 Prime k",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Squarefree",
+    "name": "sq_mul_squarefree_of_pos",
+    "statement": "\u2115} (hn : 0 < n) : \u2203 a b : \u2115, 0 < a \u2227 0 < b \u2227 b ^ 2 * a = n \u2227 Squarefree a",
+    "have_tree": [
+      {
+        "name": "hSne",
+        "type": "S.Nonempty",
+        "body": "by",
+        "children": [
+          {
+            "name": "h1",
+            "type": "0 < n \u2227 \u2203 x : \u2115, 1 = x ^ 2",
+            "body": "\u27e8hn, \u27e81, (one_pow 2).symm\u27e9\u27e9",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hs",
+        "type": "s \u2208 S",
+        "body": "Finset.max'_mem S hSne",
+        "children": []
+      }
+    ]
+  }
+]

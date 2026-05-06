@@ -1,0 +1,105 @@
+[
+  {
+    "module": "Trace",
+    "name": "trace_one",
+    "statement": "trace R M 1 = (finrank R M : R)",
+    "have_tree": [
+      {
+        "name": "b",
+        "type": "",
+        "body": "Module.Free.chooseBasis R M",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Trace",
+    "name": "trace_id",
+    "statement": "trace R M id = (finrank R M : R)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "Function.Surjective e.toLinearMap",
+        "body": "e.surjective",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Trace",
+    "name": "trace_prodMap",
+    "statement": "trace R (M \u00d7 N) \u2218\u2097 prodMapLinear R M N M N R = (coprod id id : R \u00d7 R \u2192\u2097[R] R) \u2218\u2097 prodMap (trace R M) (trace R N)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "Function.Surjective e.toLinearMap",
+        "body": "e.surjective",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Trace",
+    "name": "trace_prodMap'",
+    "statement": "M \u2192\u2097[R] M) (g : N \u2192\u2097[R] N) : trace R (M \u00d7 N) (prodMap f g) = trace R M f + trace R N g",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "LinearMap.ext_iff.1 (trace_prodMap R M N) (f, g)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Trace",
+    "name": "trace_tensorProduct'",
+    "statement": "M \u2192\u2097[R] M) (g : N \u2192\u2097[R] N) : trace R (M \u2297 N) (map f g) = trace R M f * trace R N g",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "LinearMap.ext_iff.1 (LinearMap.ext_iff.1 (trace_tensorProduct R M N) f) g",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Trace",
+    "name": "trace_comp_comm'",
+    "statement": "M \u2192\u2097[R] N) (g : N \u2192\u2097[R] M) : trace R M (g \u2218\u2097 f) = trace R N (f \u2218\u2097 g)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "LinearMap.ext_iff.1 (LinearMap.ext_iff.1 (trace_comp_comm R M N) g) f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Trace",
+    "name": "Module.Free.bijective_algebraMap_of_finrank_eq_one",
+    "statement": "Type*} [CommRing R] [Ring S] [Algebra R S] [Nontrivial R] [Free R S] (h : finrank R S = 1) : Function.Bijective (algebraMap R S)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.Finite R S",
+        "body": "finite_of_finrank_pos (by grind)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Free R (Module.End R S)",
+        "body": ".of_equiv (dualTensorHomEquiv R S S)",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "Function.Bijective f",
+        "body": "\u27e8Algebra.lmul_injective, .of_comp eq.surjective\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

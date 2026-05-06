@@ -1,0 +1,41 @@
+[
+  {
+    "module": "DFA",
+    "name": "acceptsFrom",
+    "statement": "\u03c3) : Language \u03b1",
+    "have_tree": [
+      {
+        "name": "hlen'",
+        "type": "",
+        "body": "congr_arg List.length h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DFA",
+    "name": "evalFrom_of_pow",
+    "statement": "List \u03b1} {s : \u03c3} (hx : M.evalFrom s x = s) (hy : y \u2208 ({x} : Language \u03b1)\u2217) : M.evalFrom s y = s",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "",
+        "body": "hS a List.mem_cons_self",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "DFA",
+    "name": "pumping_lemma",
+    "statement": "List \u03b1} (hx : x \u2208 M.accepts) (hlen : Fintype.card \u03c3 \u2264 List.length x) : \u2203 a b c, x = a ++ b ++ c \u2227 a.length + b.length \u2264 Fintype.card \u03c3 \u2227 b \u2260 [] \u2227 {a} * {b}\u2217 * {c} \u2264 M.accepts",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "M.evalFrom_of_pow hb hb'",
+        "children": []
+      }
+    ]
+  }
+]

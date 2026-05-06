@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Goursat",
+    "name": "goursat_surjective",
+    "statement": "\u2203 e : (M \u29f8 L.goursatFst) \u2243\u2097[R] N \u29f8 L.goursatSnd, LinearMap.range ((L.goursatFst.mkQ.prodMap L.goursatSnd.mkQ).comp L.subtype) = e.graph",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(x, e x) \u2208 e.toAddMonoidHom.graph",
+        "body": "rfl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Goursat",
+    "name": "goursat",
+    "statement": "\u2203 (M' : Submodule R M) (N' : Submodule R N) (M'' : Submodule R M') (N'' : Submodule R N') (e : (M' \u29f8 M'') \u2243\u2097[R] N' \u29f8 N''), L = (e.graph.comap <| M''.mkQ.prodMap N''.mkQ).map (M'.subtype.prodMap N'.subtype)",
+    "have_tree": [
+      {
+        "name": "hL\u2081'",
+        "type": "Surjective (Prod.fst \u2218 L'.subtype)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hL\u2082'",
+        "type": "Surjective (Prod.snd \u2218 L'.subtype)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

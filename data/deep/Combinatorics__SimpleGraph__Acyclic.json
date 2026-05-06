@@ -1,0 +1,86 @@
+[
+  {
+    "module": "Acyclic",
+    "name": "IsAcyclic.isPath_iff_isChain",
+    "statement": "G.IsAcyclic) {v w : V} (p : G.Walk v w) : p.IsPath \u2194 List.IsChain (\u00b7 \u2260 \u00b7) p.edges",
+    "have_tree": [
+      {
+        "name": "hcc",
+        "type": "",
+        "body": "List.isChain_cons.mp (edges_cons _ _ \u25b8 h)",
+        "children": [
+          {
+            "name": "_",
+            "type": "cons head (tail.takeUntil u' hh) |>.support.tail.Nodup",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "IsPath.mk' this |>.eq_snd_of_mem_edges (Sym2.eq_swap \u25b8 hhh)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "IsTree.card_edgeFinset",
+    "statement": "G.IsTree) : Finset.card G.edgeFinset + 1 = Fintype.card V",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hG.isConnected.nonempty",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Finset.card ({default} : Finset V)\u1d9c + 1 = Fintype.card V",
+        "body": "by",
+        "children": [
+          {
+            "name": "h3",
+            "type": "",
+            "body": "congrArg length (hf' _ ((f _).tail.copy h1 rfl) ?_)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Acyclic",
+    "name": "isAcyclic_add_edge_iff_of_not_reachable",
+    "statement": "V) (hxy : \u00ac G.Reachable x y) : (G \u2294 fromEdgeSet {s(x, y)}).IsAcyclic \u2194 IsAcyclic G",
+    "have_tree": [
+      {
+        "name": "x_neq_y",
+        "type": "x \u2260 y",
+        "body": "fun c => (c \u25b8 hxy) (Reachable.refl y)",
+        "children": []
+      },
+      {
+        "name": "h_add_remove",
+        "type": "(G \u2294 fromEdgeSet {s(x, y)}) \\ fromEdgeSet {s(x, y)} = G",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_bridge",
+        "type": "(G \u2294 fromEdgeSet {s(x, y)}).IsBridge s(x, y)",
+        "body": "by",
+        "children": [
+          {
+            "name": "eneq",
+            "type": "e \u2260 s(x, y)",
+            "body": "fun h => h_bridge.2 c hc (h \u25b8 he)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

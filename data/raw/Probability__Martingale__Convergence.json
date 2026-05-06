@@ -1,0 +1,79 @@
+[
+  {
+    "module": "Convergence",
+    "name": "Submartingale.upcrossings_ae_lt_top'",
+    "statement": "Submartingale f \u2131 \u03bc) (hbdd : \u2200 n, eLpNorm (f n) 1 \u03bc \u2264 R) (hab : a < b) : \u2200\u1d50 \u03c9 \u2202\u03bc, upcrossings a b f \u03c9 < \u221e",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.mul_lintegral_upcrossings_le_lintegral_pos_part a b",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Convergence",
+    "name": "Submartingale.ae_tendsto_limitProcess",
+    "statement": "Submartingale f \u2131 \u03bc) (hbdd : \u2200 n, eLpNorm (f n) 1 \u03bc \u2264 R) : \u2200\u1d50 \u03c9 \u2202\u03bc, Tendsto (fun n => f n \u03c9) atTop (\ud835\udcdd (\u2131.limitProcess f \u03bc \u03c9))",
+    "have_tree": [
+      {
+        "name": "hle",
+        "type": "\u2a06 n, \u2131 n \u2264 m0",
+        "body": "sSup_le fun m \u27e8n, hn\u27e9 => hn \u25b8 \u2131.le _",
+        "children": []
+      },
+      {
+        "name": "hg'm",
+        "type": "AEStronglyMeasurable[\u2a06 n, \u2131 n] g' (\u03bc.trim hle)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Convergence",
+    "name": "Submartingale.tendsto_eLpNorm_one_limitProcess",
+    "statement": "Submartingale f \u2131 \u03bc) (hunif : UniformIntegrable f 1 \u03bc) : Tendsto (fun n => eLpNorm (f n - \u2131.limitProcess f \u03bc) 1 \u03bc) atTop (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "hmeas",
+        "type": "\u2200 n, AEStronglyMeasurable (f n) \u03bc",
+        "body": "fun n =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Convergence",
+    "name": "Integrable.tendsto_ae_condExp",
+    "statement": "Integrable g \u03bc) (hgmeas : StronglyMeasurable[\u2a06 n, \u2131 n] g) : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => (\u03bc[g | \u2131 n]) x) atTop (\ud835\udcdd (g x))",
+    "have_tree": [
+      {
+        "name": "hle",
+        "type": "\u2a06 n, \u2131 n \u2264 m0",
+        "body": "sSup_le fun m \u27e8n, hn\u27e9 => hn \u25b8 \u2131.le _",
+        "children": []
+      },
+      {
+        "name": "hpi",
+        "type": "IsPiSystem {s | \u2203 n, MeasurableSet[\u2131 n] s}",
+        "body": "by",
+        "children": [
+          {
+            "name": "hgeq",
+            "type": "",
+            "body": "@setIntegral_compl _ _ (\u2a06 n, \u2131 n) _ _ _ _ _ htmeas (hg.trim hle hgmeas)",
+            "children": []
+          },
+          {
+            "name": "hheq",
+            "type": "",
+            "body": "@setIntegral_compl _ _ (\u2a06 n, \u2131 n) _ _ _ _ _ htmeas",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

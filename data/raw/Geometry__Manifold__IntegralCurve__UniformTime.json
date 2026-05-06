@@ -1,0 +1,35 @@
+[
+  {
+    "module": "UniformTime",
+    "name": "isMIntegralCurve_abs_add_one_of_isMIntegralCurveOn_Ioo",
+    "statement": "CMDiff 1 (fun x \u21a6 (\u27e8x, v x\u27e9 : TangentBundle I M))) {x : M} (\u03b3 : \u211d \u2192 \u211d \u2192 M) (h\u03b3x : \u2200 a, \u03b3 a 0 = x) (h\u03b3 : \u2200 a > 0, IsMIntegralCurveOn (\u03b3 a) v (Ioo (-a) a)) : IsMIntegralCurve (fun t \u21a6 \u03b3 (|t| + 1) t) v",
+    "have_tree": [
+      {
+        "name": "ht",
+        "type": "t \u2208 Ioo (-(|t| + 1)) (|t| + 1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "|t| < |t| + 1",
+            "body": "lt_add_of_pos_right |t| zero_lt_one",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "UniformTime",
+    "name": "exists_isMIntegralCurve_of_isMIntegralCurveOn",
+    "statement": "(x : M) \u2192 TangentSpace I x} (hv : CMDiff 1 (fun x \u21a6 (\u27e8x, v x\u27e9 : TangentBundle I M))) {\u03b5 : \u211d} (h\u03b5 : 0 < \u03b5) (h : \u2200 x : M, \u2203 \u03b3 : \u211d \u2192 M, \u03b3 0 = x \u2227 IsMIntegralCurveOn \u03b3 v (Ioo (-\u03b5) \u03b5)) (x : M) : \u2203 \u03b3 : \u211d \u2192 M, \u03b3 0 = x \u2227 IsMIntegralCurve \u03b3 v",
+    "have_tree": [
+      {
+        "name": "h\u03b5le",
+        "type": "\u03b5 \u2264 asup",
+        "body": "le_csSup hbdd (h x)",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "module": "GeomSum",
+    "name": "Commute.geom_sum\u2082",
+    "statement": "Commute x y) (h : x \u2260 y) (n : \u2115) : \u2211 i \u2208 range n, x ^ i * y ^ (n - 1 - i) = (x ^ n - y ^ n) / (x - y)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x - y \u2260 0",
+        "body": "by simp_all [sub_eq_iff_eq_add]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GeomSum",
+    "name": "geom_sum_eq",
+    "statement": "x \u2260 1) (n : \u2115) : \u2211 i \u2208 range n, x ^ i = (x ^ n - 1) / (x - 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x - 1 \u2260 0",
+        "body": "by simp_all [sub_eq_iff_eq_add]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GeomSum",
+    "name": "Commute.geom_sum\u2082_Ico",
+    "statement": "Commute x y) (hxy : x \u2260 y) {m n : \u2115} (hmn : m \u2264 n) : \u2211 i \u2208 Finset.Ico m n, x ^ i * y ^ (n - 1 - i) = (x ^ n - y ^ (n - m) * x ^ m) / (x - y)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x - y \u2260 0",
+        "body": "by simp_all [sub_eq_iff_eq_add]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GeomSum",
+    "name": "geom_sum_inv",
+    "statement": "x \u2260 1) (hx0 : x \u2260 0) (n : \u2115) : \u2211 i \u2208 range n, x\u207b\u00b9 ^ i = (x - 1)\u207b\u00b9 * (x - x\u207b\u00b9 ^ n * x)",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "x\u207b\u00b9 \u2260 1",
+        "body": "by rwa [inv_eq_one_div, Ne, div_eq_iff_mul_eq hx0, one_mul]",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "x\u207b\u00b9 - 1 \u2260 0",
+        "body": "mt sub_eq_zero.1 h\u2081",
+        "children": []
+      },
+      {
+        "name": "h\u2083",
+        "type": "x - 1 \u2260 0",
+        "body": "mt sub_eq_zero.1 hx1",
+        "children": []
+      }
+    ]
+  }
+]

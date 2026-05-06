@@ -1,0 +1,60 @@
+[
+  {
+    "module": "SumCoeff",
+    "name": "LSeriesSummable_of_sum_norm_bigO_aux",
+    "statement": "f 0 = 0) (hO : (fun n \u21a6 \u2211 k \u2208 Icc 1 n, \u2016f k\u2016) =O[atTop] fun n \u21a6 (n : \u211d) ^ r) (hr : 0 \u2264 r) (hs : r < s.re) : LSeriesSummable f s",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "-s \u2260 0",
+        "body": "neg_ne_zero.mpr <| ne_zero_of_re_pos (hr.trans_lt hs)",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "(-s).re + r \u2264 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u211d) (ht : t \u2208 Set.Ici 1) : DifferentiableAt \u211d (fun x : \u211d \u21a6 \u2016(x : \u2102) ^ (-s)\u2016) t",
+        "body": "",
+        "children": [
+          {
+            "name": "ht'",
+            "type": "t \u2260 0",
+            "body": "(zero_lt_one.trans_le ht).ne'",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h\u2084",
+        "type": "(deriv fun t : \u211d \u21a6 \u2016(t : \u2102) ^ (-s)\u2016) =\u1da0[atTop] fun t \u21a6 -s.re * t ^ (-(s.re + 1))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SumCoeff",
+    "name": "lemma\u2081",
+    "statement": "Tendsto (fun n : \u2115 \u21a6 (\u2211 k \u2208 Icc 1 n, f k) / n) atTop (\ud835\udcdd l)) {s : \u211d} (hs : 1 < s) : IntegrableOn (fun t : \u211d \u21a6 (\u2211 k \u2208 Icc 1 \u230at\u230b\u208a, f k) * (t : \u2102) ^ (-(s : \u2102) - 1)) (Set.Ici 1)",
+    "have_tree": [
+      {
+        "name": "h\u2082",
+        "type": "(fun t : \u211d \u21a6 \u2211 k \u2208 Icc 1 \u230at\u230b\u208a, f k) =O[atTop] fun t \u21a6 t ^ (1 : \u211d)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Tendsto (fun n \u21a6 (\u2211 k \u2208 Icc 1 n, f k) / ((n : \u211d) ^ (1 : \u211d) : \u211d)) atTop (\ud835\udcdd l)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

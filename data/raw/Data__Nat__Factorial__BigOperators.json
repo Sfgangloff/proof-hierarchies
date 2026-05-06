@@ -1,0 +1,21 @@
+[
+  {
+    "module": "BigOperators",
+    "name": "ascFactorial_eq_prod_range",
+    "statement": "\u2115) : \u2200 k, n.ascFactorial k = \u220f i \u2208 range k, (n + i) | 0 => rfl | k + 1 => by rw [ascFactorial, prod_range_succ_comm, ascFactorial_eq_prod_range n k]  theorem descFactorial_eq_prod_range (n : \u2115) : \u2200 k, n.descFactorial k = \u220f i \u2208 range k, (n - i) | 0 => rfl | k + 1 => by rw [descFactorial, prod_range_succ_comm, descFactorial_eq_prod_range n k]  /-- `k!` divides the product of any `k` consecutive integers. -/ lemma factorial_coe_dvd_prod (k : \u2115) (n : \u2124) : (k ! : \u2124) \u2223 \u220f i \u2208 range k, (n + i)",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "0 \u2264 n % k !",
+        "body": "Int.emod_nonneg n <| Int.natCast_ne_zero.mpr k.factorial_ne_zero",
+        "children": []
+      },
+      {
+        "name": "hdivk",
+        "type": "",
+        "body": "x.factorial_dvd_ascFactorial k",
+        "children": []
+      }
+    ]
+  }
+]

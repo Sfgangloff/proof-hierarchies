@@ -1,0 +1,98 @@
+[
+  {
+    "module": "Basic",
+    "name": "mem_transvections_iff_mem_dilatransvections_and_fixedReduce_eq_one",
+    "statement": "V \u2243\u2097[K] V) : e \u2208 transvections K V \u2194 e \u2208 dilatransvections K V \u2227 e.fixedReduce = 1",
+    "have_tree": [
+      {
+        "name": "hefixed_ne_top",
+        "type": "e.fixedSubmodule \u2260 \u22a4",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(LinearMap.ker f).finrank_quotient_add_finrank",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "det_ofField",
+    "statement": "Dual K V) (v : V) : (LinearMap.transvection f v).det = 1 + f v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "FiniteDimensional.fintypeBasisIndex b",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "FiniteDimensional.fintypeBasisIndex b",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "det_ofDomain",
+    "statement": "Dual R V) (v : V) : (transvection f v).det = 1 + f v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "det_ofField (f.baseChange K) (1 \u2297\u209c[R] v)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "det",
+    "statement": "Dual R V) (v : V) : (transvection f v).det = 1 + f v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsDomain S",
+        "body": "inferInstance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsScalarTower S R V",
+        "body": "IsScalarTower.of_compHom S R V",
+        "children": []
+      },
+      {
+        "name": "ibc",
+        "type": "",
+        "body": "IsBaseChange.of_fintype_basis S b",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.LinearEquiv.transvection.det_eq_one",
+    "statement": "Dual R V} {v : V} (hfv : f v = 0) : (LinearEquiv.transvection hfv).det = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Free R V",
+        "body": "Free.of_det_ne_one h",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite R V",
+        "body": "finite_of_det_ne_one h",
+        "children": []
+      }
+    ]
+  }
+]

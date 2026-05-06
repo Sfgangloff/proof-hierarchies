@@ -1,0 +1,111 @@
+[
+  {
+    "module": "Metric",
+    "name": "exists_walk_of_edist_eq_coe",
+    "statement": "\u2115} (h : G.edist u v = k) : \u2203 p : G.Walk u v, p.length = k",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "G.edist u v \u2260 \u22a4",
+        "body": "by rw [h]; exact ENat.coe_ne_top _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Metric",
+    "name": "edist_le_one_iff_adj_or_eq",
+    "statement": "G.edist u v \u2264 1 \u2194 G.Adj u v \u2228 u = v",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "0 < G.edist u v",
+        "body": "edist_pos_of_ne huv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Metric",
+    "name": "edist_eq_two_iff",
+    "statement": "V} : G.edist u v = 2 \u2194 u \u2260 v \u2227 \u00ac G.Adj u v \u2227 (G.commonNeighbors u v).Nonempty",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Walk.cons hw.1 <| .cons hw.2.symm .nil).edist_le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Metric",
+    "name": "two_lt_edist_iff",
+    "statement": "V} : 2 < G.edist u v \u2194 u \u2260 v \u2227 \u00ac G.Adj u v \u2227 (G.commonNeighbors u v) = \u2205",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u00ac G.Adj u v",
+        "body": "fun hc \u21a6 by simp +decide [edist_eq_one_iff_adj.mpr hc] at h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Metric",
+    "name": "Adj.diff_dist_adj",
+    "statement": "G.Adj v w) : G.dist u w = G.dist u v \u2228 G.dist u w = G.dist u v + 1 \u2228 G.dist u w = G.dist u v - 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "G.dist u w \u2264 G.dist u v + G.dist v w",
+        "body": "hadj.reachable.dist_triangle_right u",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "G.dist u v \u2264 G.dist u w + G.dist w v",
+        "body": "huw.dist_triangle_left v",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Metric",
+    "name": "length_eq_dist_of_subwalk",
+    "statement": "V} {p\u2081 : G.Walk u v} {p\u2082 : G.Walk u' v'} (h\u2081 : p\u2081.length = G.dist u v) (h\u2082 : p\u2082.IsSubwalk p\u2081) : p\u2082.length = G.dist u' v'",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "dist_le r",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Metric",
+    "name": "Walk.exists_adj_adj_not_adj_ne",
+    "statement": "G.Walk v w} (hp : p.length = G.dist v w) (hl : 1 < G.dist v w) : \u2203 (x a b : V), G.Adj x a \u2227 G.Adj a b \u2227 \u00ac G.Adj x b \u2227 x \u2260 b",
+    "have_tree": [
+      {
+        "name": "hnp",
+        "type": "\u00acp.Nil",
+        "body": "by simpa [nil_iff_length_eq, hp] using Nat.ne_zero_of_lt hl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "p.tail.tail.length < p.tail.length",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "p.tail.length < p.length",
+        "body": "by rw [\u2190 p.length_tail_add_one hnp]; lia",
+        "children": []
+      }
+    ]
+  }
+]

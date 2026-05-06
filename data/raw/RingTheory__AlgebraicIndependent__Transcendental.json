@@ -1,0 +1,99 @@
+[
+  {
+    "module": "Transcendental",
+    "name": "algebraicIndependent_unique_type_iff",
+    "statement": "AlgebraicIndependent R x \u2194 Transcendental R (x default)",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "aeval (R",
+        "body": "R) x = (Polynomial.aeval (R := R) (x default)).comp i := by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Transcendental",
+    "name": "transcendental",
+    "statement": "\u03b9) : Transcendental R (x i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hx.comp ![i] (Function.injective_of_subsingleton _)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "AlgebraicIndependent R ![x i]",
+        "body": "by rwa [\u2190 FinVec.map_eq] at this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Transcendental",
+    "name": "AlgebraicIndepOn.insert",
+    "statement": "Set \u03b9} {i : \u03b9} (hs : AlgebraicIndepOn R x s) (hi : Transcendental (adjoin R (x '' s)) (x i)) : AlgebraicIndepOn R x (insert i s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.algebraMap_injective.nontrivial",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Transcendental",
+    "name": "algebraicIndependent_of_set_of_finite",
+    "statement": "Set \u03b9) (ind : AlgebraicIndependent R fun i : s \u21a6 x i) (H : \u2200 t : Set \u03b9, t.Finite \u2192 AlgebraicIndependent R (fun i : t \u21a6 x i) \u2192 \u2200 i \u2209 s, i \u2209 t \u2192 Transcendental (adjoin R (x '' t)) (x i)) : AlgebraicIndependent R x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "a \u2209 t \u2229 s \u222a u",
+        "body": "(\u00b7.elim (ha.2 \u00b7.2) ha')",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Transcendental",
+    "name": "sumElim_of_tower",
+    "statement": "\u03b9' \u2192 A} (hxS : range x \u2286 range (algebraMap S A)) (hy : AlgebraicIndependent S y) : AlgebraicIndependent R (Sum.elim y x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsScalarTower Rx S A",
+        "body": ".of_algebraMap_eq fun x \u21a6 show _ = (e (e.symm _)).1 by simp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Transcendental",
+    "name": "lift_trdeg_add_le",
+    "statement": "lift.{v} (trdeg R S) + lift.{u} (trdeg S A) \u2264 lift.{u} (trdeg R A)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.sumElim_comp ht",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Transcendental",
+    "name": "MvPolynomial.algebraicIndependent_polynomial_aeval_X",
+    "statement": "\u03b9 \u2192 Polynomial R) (hf : \u2200 i, Transcendental R (f i)) : AlgebraicIndependent R fun i \u21a6 Polynomial.aeval (X i : MvPolynomial \u03b9 R) (f i)",
+    "have_tree": [
+      {
+        "name": "hle",
+        "type": "adjoin R (x '' t) \u2264 supported R t",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

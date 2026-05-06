@@ -1,0 +1,217 @@
+[
+  {
+    "module": "StrongLaw",
+    "name": "moment_truncation_eq_intervalIntegral",
+    "statement": "AEStronglyMeasurable f \u03bc) {A : \u211d} (hA : 0 \u2264 A) {n : \u2115} (hn : n \u2260 0) : \u222b x, truncation f A x ^ n \u2202\u03bc = \u222b y in -A..A, y ^ n \u2202Measure.map f \u03bc",
+    "have_tree": [
+      {
+        "name": "M",
+        "type": "MeasurableSet (Set.Ioc (-A) A)",
+        "body": "measurableSet_Ioc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongLaw",
+    "name": "moment_truncation_eq_intervalIntegral_of_nonneg",
+    "statement": "AEStronglyMeasurable f \u03bc) {A : \u211d} {n : \u2115} (hn : n \u2260 0) (h'f : 0 \u2264 f) : \u222b x, truncation f A x ^ n \u2202\u03bc = \u222b y in 0..A, y ^ n \u2202Measure.map f \u03bc",
+    "have_tree": [
+      {
+        "name": "M",
+        "type": "MeasurableSet (Set.Ioc 0 A)",
+        "body": "measurableSet_Ioc",
+        "children": []
+      },
+      {
+        "name": "M'",
+        "type": "MeasurableSet (Set.Ioc A 0)",
+        "body": "measurableSet_Ioc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongLaw",
+    "name": "sum_variance_truncation_le",
+    "statement": "\u03a9 \u2192 \u211d} (hint : Integrable X) (hnonneg : 0 \u2264 X) (K : \u2115) : \u2211 j \u2208 range K, ((j : \u211d) ^ 2)\u207b\u00b9 * \ud835\udd3c[truncation X j ^ 2] \u2264 2 * \ud835\udd3c[X]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < x",
+        "body": "k.cast_nonneg.trans_lt hx.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongLaw",
+    "name": "strong_law_aux1",
+    "statement": "\u211d} (c_one : 1 < c) {\u03b5 : \u211d} (\u03b5pos : 0 < \u03b5) : \u2200\u1d50 \u03c9, \u2200\u1da0 n : \u2115 in atTop, |\u2211 i \u2208 range \u230ac ^ n\u230b\u208a, truncation (X i) i \u03c9 - \ud835\udd3c[\u2211 i \u2208 range \u230ac ^ n\u230b\u208a, truncation (X i) i]| < \u03b5 * \u230ac ^ n\u230b\u208a",
+    "have_tree": [
+      {
+        "name": "c_pos",
+        "type": "0 < c",
+        "body": "zero_lt_one.trans c_one",
+        "children": []
+      },
+      {
+        "name": "hX",
+        "type": "\u2200 i, AEStronglyMeasurable (X i) \u2119",
+        "body": "fun i =>",
+        "children": []
+      },
+      {
+        "name": "u_mono",
+        "type": "Monotone u",
+        "body": "fun i j hij => Nat.floor_mono (pow_right_mono\u2080 c_one.le hij)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongLaw",
+    "name": "strong_law_aux2",
+    "statement": "\u211d} (c_one : 1 < c) : \u2200\u1d50 \u03c9, (fun n : \u2115 => \u2211 i \u2208 range \u230ac ^ n\u230b\u208a, truncation (X i) i \u03c9 - \ud835\udd3c[\u2211 i \u2208 range \u230ac ^ n\u230b\u208a, truncation (X i) i]) =o[atTop] fun n : \u2115 => (\u230ac ^ n\u230b\u208a : \u211d)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "fun i => strong_law_aux1 X hint hindep hident hnonneg c_one (v_pos i)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongLaw",
+    "name": "strong_law_ae_real",
+    "statement": "Type*} {m : MeasurableSpace \u03a9} {\u03bc : Measure \u03a9} (X : \u2115 \u2192 \u03a9 \u2192 \u211d) (hint : Integrable (X 0) \u03bc) (hindep : Pairwise ((\u00b7 \u27c2\u1d62[\u03bc] \u00b7) on X)) (hident : \u2200 i, IdentDistrib (X i) (X 0) \u03bc \u03bc) : \u2200\u1d50 \u03c9 \u2202\u03bc, Tendsto (fun n : \u2115 => (\u2211 i \u2208 range n, X i \u03c9) / n) atTop (\ud835\udcdd \u03bc[X 0])",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsProbabilityMeasure \u03bc",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "posm",
+        "type": "Measurable pos",
+        "body": "measurable_id'.max measurable_const",
+        "children": []
+      },
+      {
+        "name": "negm",
+        "type": "Measurable neg",
+        "body": "measurable_id'.neg.max measurable_const",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongLaw",
+    "name": "strong_law_ae_simpleFunc_comp",
+    "statement": "\u2115 \u2192 \u03a9 \u2192 E) (h' : Measurable (X 0)) (hindep : Pairwise ((\u00b7 \u27c2\u1d62[\u03bc] \u00b7) on X)) (hident : \u2200 i, IdentDistrib (X i) (X 0) \u03bc \u03bc) (\u03c6 : SimpleFunc E E) : \u2200\u1d50 \u03c9 \u2202\u03bc, Tendsto (fun n : \u2115 \u21a6 (n : \u211d)\u207b\u00b9 \u2022 (\u2211 i \u2208 range n, \u03c6 (X i \u03c9))) atTop (\ud835\udcdd \u03bc[\u03c6 \u2218 (X 0)])",
+    "have_tree": [
+      {
+        "name": "F_meas",
+        "type": "Measurable F",
+        "body": "(measurable_indicator_const_iff 1).2 hs",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongLaw",
+    "name": "strong_law_ae_of_measurable",
+    "statement": "\u2115 \u2192 \u03a9 \u2192 E) (hint : Integrable (X 0) \u03bc) (h' : StronglyMeasurable (X 0)) (hindep : Pairwise ((\u00b7 \u27c2\u1d62[\u03bc] \u00b7) on X)) (hident : \u2200 i, IdentDistrib (X i) (X 0) \u03bc \u03bc) : \u2200\u1d50 \u03c9 \u2202\u03bc, Tendsto (fun n : \u2115 \u21a6 (n : \u211d)\u207b\u00b9 \u2022 (\u2211 i \u2208 range n, X i \u03c9)) atTop (\ud835\udcdd \u03bc[X 0])",
+    "have_tree": [
+      {
+        "name": "zero_s",
+        "type": "0 \u2208 s",
+        "body": "by simp [s]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "SeparableSpace s",
+        "body": "h'.separableSpace_range_union_singleton",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nonempty s",
+        "body": "\u27e80, zero_s\u27e9",
+        "children": [
+          {
+            "name": "G_meas",
+            "type": "\u2200 k, Measurable (G k)",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u2016\u03bc[Y k 0] - \u03bc[X 0]\u2016 < \u03b4",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "I",
+        "type": "\u2200\u1da0 n in atTop, (\u2211 i \u2208 range n, \u2016(X i - Y k i) \u03c9\u2016) / n < \u03b4",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongLaw",
+    "name": "strong_law_ae",
+    "statement": "\u2115 \u2192 \u03a9 \u2192 E) (hint : Integrable (X 0) \u03bc) (hindep : Pairwise ((\u00b7 \u27c2\u1d62[\u03bc] \u00b7) on X)) (hident : \u2200 i, IdentDistrib (X i) (X 0) \u03bc \u03bc) : \u2200\u1d50 \u03c9 \u2202\u03bc, Tendsto (fun n : \u2115 \u21a6 (n : \u211d)\u207b\u00b9 \u2022 (\u2211 i \u2208 range n, X i \u03c9)) atTop (\ud835\udcdd \u03bc[X 0])",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsProbabilityMeasure \u03bc",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "\u2200 i, Integrable (X i) \u03bc",
+        "body": "fun i \u21a6 (hident i).integrable_iff.2 hint",
+        "children": []
+      },
+      {
+        "name": "Yint",
+        "type": "Integrable (Y 0) \u03bc",
+        "body": "Integrable.congr hint (AEStronglyMeasurable.ae_eq_mk (A 0).1)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrongLaw",
+    "name": "strong_law_Lp",
+    "statement": "\u211d\u22650\u221e} (hp : 1 \u2264 p) (hp' : p \u2260 \u221e) (X : \u2115 \u2192 \u03a9 \u2192 E) (h\u2112p : MemLp (X 0) p \u03bc) (hindep : Pairwise ((\u00b7 \u27c2\u1d62[\u03bc] \u00b7) on X)) (hident : \u2200 i, IdentDistrib (X i) (X 0) \u03bc \u03bc) : Tendsto (fun (n : \u2115) => eLpNorm (fun \u03c9 => (n : \u211d)\u207b\u00b9 \u2022 (\u2211 i \u2208 range n, X i \u03c9) - \u03bc[X 0]) p \u03bc) atTop (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsProbabilityMeasure \u03bc",
+        "body": "MemLp.isProbabilityMeasure_of_indepFun",
+        "children": []
+      },
+      {
+        "name": "hmeas",
+        "type": "\u2200 i, AEStronglyMeasurable (X i) \u03bc",
+        "body": "fun i =>",
+        "children": []
+      },
+      {
+        "name": "hint",
+        "type": "Integrable (X 0) \u03bc",
+        "body": "h\u2112p.integrable hp",
+        "children": []
+      }
+    ]
+  }
+]

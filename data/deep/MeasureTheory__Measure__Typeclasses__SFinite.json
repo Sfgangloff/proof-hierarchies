@@ -1,0 +1,107 @@
+[
+  {
+    "module": "SFinite",
+    "name": "_root_.Set.Infinite.meas_eq_top",
+    "statement": "Set \u03b1} (hs : s.Infinite) (h' : \u2203 \u03b5, \u03b5 \u2260 0 \u2227 \u2200 x \u2208 s, \u03b5 \u2264 \u03bc {x}) : \u03bc s = \u221e",
+    "have_tree": [
+      {
+        "name": "countable_union",
+        "type": "posmeas = \u22c3 n, fairmeas n",
+        "body": "by",
+        "children": [
+          {
+            "name": "fairmeas_eq",
+            "type": "\u2200 n, fairmeas n = (fun i => \u03bc (As i)) \u207b\u00b9' Ici (as n)",
+            "body": "fun n => by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "SFinite",
+    "name": "measure_toMeasurable_inter_of_sum",
+    "statement": "Set \u03b1} (hs : MeasurableSet s) {t : Set \u03b1} {m : \u2115 \u2192 Measure \u03b1} (hv : \u2200 n, m n t \u2260 \u221e) (h\u03bc : \u03bc = sum m) : \u03bc (toMeasurable \u03bc t \u2229 s) = \u03bc (t \u2229 s)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2203 t', t' \u2287 t \u2227 MeasurableSet t' \u2227 \u2200 u, MeasurableSet u \u2192 \u03bc (t' \u2229 u) = \u03bc (t \u2229 u)",
+        "body": "by",
+        "children": [
+          {
+            "name": "T",
+            "type": "t \u2286 \u22c2 n, w n",
+            "body": "subset_iInter (fun i \u21a6 subset_toMeasurable (m i) t)",
+            "children": []
+          },
+          {
+            "name": "M",
+            "type": "MeasurableSet (\u22c2 n, w n)",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "SFinite",
+    "name": "measure_toMeasurable_inter_of_cover",
+    "statement": "Set \u03b1} (hs : MeasurableSet s) {t : Set \u03b1} {v : \u2115 \u2192 Set \u03b1} (hv : t \u2286 \u22c3 n, v n) (h'v : \u2200 n, \u03bc (t \u2229 v n) \u2260 \u221e) : \u03bc (toMeasurable \u03bc t \u2229 s) = \u03bc (t \u2229 s)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2203 t', t' \u2287 t \u2227 MeasurableSet t' \u2227 \u2200 u, MeasurableSet u \u2192 \u03bc (t' \u2229 u) = \u03bc (t \u2229 u)",
+        "body": "by",
+        "children": [
+          {
+            "name": "hw",
+            "type": "\u2200 n, \u03bc (w n) < \u221e",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "tt'",
+            "type": "t \u2286 t'",
+            "body": "",
+            "children": [
+              {
+                "name": "_",
+                "type": "x \u2208 t \u2229 v n",
+                "body": "\u27e8hx, hn\u27e9",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "SFinite",
+    "name": "sigmaFinite_bot_iff",
+    "statement": "@Measure \u03b1 \u22a5) : SigmaFinite \u03bc \u2194 IsFiniteMeasure \u03bc",
+    "have_tree": [
+      {
+        "name": "hs_univ",
+        "type": "\u22c3 i, s i = Set.univ",
+        "body": "iUnion_spanningSets \u03bc",
+        "children": []
+      },
+      {
+        "name": "hs_meas",
+        "type": "\u2200 i, MeasurableSet[\u22a5] (s i)",
+        "body": "measurableSet_spanningSets \u03bc",
+        "children": [
+          {
+            "name": "h_empty",
+            "type": "\u2200 i, s i = \u2205",
+            "body": "by simpa [h_not_univ] using hs_meas",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

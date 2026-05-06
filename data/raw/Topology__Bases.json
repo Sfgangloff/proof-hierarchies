@@ -1,0 +1,104 @@
+[
+  {
+    "module": "Bases",
+    "name": "_root_.Pairwise.countable_of_isOpen_disjoint",
+    "statement": "Type*} {s : \u03b9 \u2192 Set \u03b1} (hd : Pairwise (Disjoint on s)) (ho : \u2200 i, IsOpen (s i)) (hne : \u2200 i, (s i).Nonempty) : Countable \u03b9",
+    "have_tree": [
+      {
+        "name": "f_inj",
+        "type": "Injective f",
+        "body": "fun i j hij \u21a6",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "u_countable.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bases",
+    "name": "IsTopologicalBasis.exists_countable_biUnion_of_isOpen",
+    "statement": "Set (Set \u03b1)} (ht : IsTopologicalBasis t) {u : Set \u03b1} (hu : IsOpen u) : \u2203 s \u2286 t, s.Countable \u2227 u = \u22c3 a \u2208 s, a",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2200 x \u2208 u, \u2203 a \u2208 t, x \u2208 a \u2227 a \u2286 u",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bases",
+    "name": "IsTopologicalBasis.exists_countable",
+    "statement": "Set (Set \u03b1)} (ht : IsTopologicalBasis t) : \u2203 s \u2286 t, s.Countable \u2227 IsTopologicalBasis s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "@ht.isOpen",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "x \u2208 \u22c3 a \u2208 s u, a",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bases",
+    "name": "exists_countable_of_generateFrom",
+    "statement": "Type*} [ts : TopologicalSpace \u03b1] [SecondCountableTopology \u03b1] {t : Set (Set \u03b1)} (ht : ts = generateFrom t) : \u2203 s \u2286 t, s.Countable \u2227 ts = generateFrom s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsTopologicalBasis t'",
+        "body": "TopologicalSpace.isTopologicalBasis_of_subbasis ht",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bases",
+    "name": "IsTopologicalBasis.isQuotientMap",
+    "statement": "Set (Set X)} (hV : IsTopologicalBasis V) (h' : IsQuotientMap \u03c0) (h : IsOpenMap \u03c0) : IsTopologicalBasis (Set.image \u03c0 '' V)",
+    "have_tree": [
+      {
+        "name": "x_in_W",
+        "type": "x \u2208 W",
+        "body": "y_in_U",
+        "children": []
+      },
+      {
+        "name": "W_open",
+        "type": "IsOpen W",
+        "body": "U_open.preimage h'.continuous",
+        "children": []
+      },
+      {
+        "name": "XZ_in_U",
+        "type": "\u03c0 '' Z \u2286 U",
+        "body": "(Set.image_mono Z_in_W).trans (image_preimage_subset \u03c0 U)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bases",
+    "name": "Topology.IsEmbedding.separableSpace",
+    "statement": "\u03b1 \u2192 \u03b2} (hf : IsEmbedding f) : TopologicalSpace.SeparableSpace \u03b1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.secondCountableTopology",
+        "children": []
+      }
+    ]
+  }
+]

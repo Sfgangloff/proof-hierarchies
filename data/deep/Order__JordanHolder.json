@@ -1,0 +1,28 @@
+[
+  {
+    "module": "JordanHolder",
+    "name": "exists_last_eq_snoc_equivalent",
+    "statement": "CompositionSeries X) (x : X) (hm : IsMaximal x s.last) (hb : s.head \u2264 x) : \u2203 t : CompositionSeries X, t.head = s.head \u2227 t.length + 1 = s.length \u2227 \u2203 htx : t.last = x, Equivalent s (snoc t s.last (show IsMaximal t.last _ from htx.symm \u25b8 hm))",
+    "have_tree": [
+      {
+        "name": "h0s",
+        "type": "0 < s.length",
+        "body": "hn.symm \u25b8 Nat.succ_pos _",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "ih _ _ imxs (le_inf (by simpa) (le_last_of_mem s.eraseLast.head_mem)) (by simp [hn])",
+            "children": []
+          },
+          {
+            "name": "hmtx",
+            "type": "IsMaximal t.last x",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

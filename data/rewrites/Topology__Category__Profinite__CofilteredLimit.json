@@ -1,0 +1,149 @@
+[
+  {
+    "original": {
+      "module": "CofilteredLimit",
+      "name": "exists_isClopen_of_cofiltered",
+      "statement": "Set C.pt} (hC : IsLimit C) (hU : IsClopen U) : \u2203 (j : J) (V : Set (F.obj j)), IsClopen V \u2227 U = C.\u03c0.app j \u207b\u00b9' V",
+      "have_tree": [
+        {
+          "name": "hB",
+          "type": "",
+          "body": "TopCat.isTopologicalBasis_cofiltered_limit.{u, v} (F \u22d9 Profinite.toTopCat)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "hU.1.isCompact.elim_finite_subcover (fun s : S => C.\u03c0.app (j s) \u207b\u00b9' V s) hUo hsU",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "CofilteredLimit",
+          "name": "exists_isClopen_of_cofiltered",
+          "statement": "Set C.pt} (hC : IsLimit C) (hU : IsClopen U) : \u2203 (j : J) (V : Set (F.obj j)), IsClopen V \u2227 U = C.\u03c0.app j \u207b\u00b9' V",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hU.1.isCompact.elim_finite_subcover (fun s : S => C.\u03c0.app (j s) \u207b\u00b9' V s) hUo hsU",
+              "children": []
+            },
+            {
+              "name": "hB",
+              "type": "",
+              "body": "TopCat.isTopologicalBasis_cofiltered_limit.{u, v} (F \u22d9 Profinite.toTopCat)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "CofilteredLimit",
+      "name": "exists_locallyConstant",
+      "statement": "Type*} (hC : IsLimit C) (f : LocallyConstant C.pt \u03b1) : \u2203 (j : J) (g : LocallyConstant (F.obj j) \u03b1), f = g.comap (C.\u03c0.app _).hom.hom",
+      "have_tree": [
+        {
+          "name": "cond",
+          "type": "",
+          "body": "TopCat.nonempty_limitCone_of_compact_t2_cofiltered_system.{u}",
+          "children": []
+        },
+        {
+          "name": "hD",
+          "type": "IsLimit D",
+          "body": "isLimitOfPreserves Profinite.toTopCat hC",
+          "children": []
+        },
+        {
+          "name": "CD",
+          "type": "",
+          "body": "(hD.conePointUniqueUpToIso (TopCat.limitConeIsLimit.{v, max u v} _)).inv",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "CofilteredLimit",
+          "name": "exists_locallyConstant",
+          "statement": "Type*} (hC : IsLimit C) (f : LocallyConstant C.pt \u03b1) : \u2203 (j : J) (g : LocallyConstant (F.obj j) \u03b1), f = g.comap (C.\u03c0.app _).hom.hom",
+          "have_tree": [
+            {
+              "name": "hD",
+              "type": "IsLimit D",
+              "body": "isLimitOfPreserves Profinite.toTopCat hC",
+              "children": []
+            },
+            {
+              "name": "cond",
+              "type": "",
+              "body": "TopCat.nonempty_limitCone_of_compact_t2_cofiltered_system.{u}",
+              "children": []
+            },
+            {
+              "name": "CD",
+              "type": "",
+              "body": "(hD.conePointUniqueUpToIso (TopCat.limitConeIsLimit.{v, max u v} _)).inv",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "CofilteredLimit",
+          "name": "exists_locallyConstant",
+          "statement": "Type*} (hC : IsLimit C) (f : LocallyConstant C.pt \u03b1) : \u2203 (j : J) (g : LocallyConstant (F.obj j) \u03b1), f = g.comap (C.\u03c0.app _).hom.hom",
+          "have_tree": [
+            {
+              "name": "cond",
+              "type": "",
+              "body": "TopCat.nonempty_limitCone_of_compact_t2_cofiltered_system.{u}",
+              "children": []
+            },
+            {
+              "name": "CD",
+              "type": "",
+              "body": "(hD.conePointUniqueUpToIso (TopCat.limitConeIsLimit.{v, max u v} _)).inv",
+              "children": []
+            },
+            {
+              "name": "hD",
+              "type": "IsLimit D",
+              "body": "isLimitOfPreserves Profinite.toTopCat hC",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

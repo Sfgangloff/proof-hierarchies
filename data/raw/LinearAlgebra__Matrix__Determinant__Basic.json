@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Basic",
+    "name": "det_unique",
+    "statement": "Type*} [Unique n] [DecidableEq n] [Fintype n] (A : Matrix n n R) : det A = A default default",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "uniqueOfSubsingleton k",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "det_updateRow_sum_aux",
+    "statement": "Matrix n n R) {j : n} (s : Finset n) (hj : j \u2209 s) (c : n \u2192 R) (a : R) : (M.updateRow j (a \u2022 M j + \u2211 k \u2208 s, (c k) \u2022 M k)).det = a \u2022 M.det",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "k \u2260 j",
+        "body": "fun h \u21a6 (h \u25b8 hj) (Finset.mem_insert_self _ _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "det_eq_of_forall_row_eq_smul_add_pred_aux",
+    "statement": "\u2115} (k : Fin (n + 1)) : \u2200 (c : Fin n \u2192 R) (_hc : \u2200 i : Fin n, k < i.succ \u2192 c i = 0) {M N : Matrix (Fin n.succ) (Fin n.succ) R} (_h0 : \u2200 j, M 0 j = N 0 j) (_hsucc : \u2200 (i : Fin n) (j), M i.succ j = N i.succ j + c i * M (Fin.castSucc i) j), det M = det N",
+    "have_tree": [
+      {
+        "name": "k_ne_succ",
+        "type": "(Fin.castSucc k) \u2260 k.succ",
+        "body": "Fin.castSucc_lt_succ.ne",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,85 @@
+[
+  {
+    "module": "Factors",
+    "name": "cycleOf_one",
+    "statement": "Perm \u03b1).SameCycle] (x : \u03b1) : cycleOf 1 x = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "cycleOf f x x \u2260 x",
+        "body": "by rwa [SameCycle.rfl.cycleOf_apply]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Factors",
+    "name": "cycleFactorsAux",
+    "statement": "List \u03b1) (f : Perm \u03b1) (h : \u2200 {x}, f x \u2260 x \u2192 x \u2208 l) : { pl : List (Perm \u03b1) // pl.prod = f \u2227 (\u2200 g \u2208 pl, IsCycle g) \u2227 pl.Pairwise Disjoint }",
+    "have_tree": [
+      {
+        "name": "hxy",
+        "type": "SameCycle g x y",
+        "body": "not_imp_comm.1 cycleOf_apply_of_not_sameCycle hgy",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 h \u2208 m.erase g', Disjoint g' h",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hsc",
+        "type": "SameCycle g\u207b\u00b9 x (g y)",
+        "body": "by rwa [sameCycle_inv, sameCycle_apply_right]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Factors",
+    "name": "mem_list_cycles_iff",
+    "statement": "Type*} [Finite \u03b1] {l : List (Perm \u03b1)} (h1 : \u2200 \u03c3 : Perm \u03b1, \u03c3 \u2208 l \u2192 \u03c3.IsCycle) (h2 : l.Pairwise Disjoint) {\u03c3 : Perm \u03b1} : \u03c3 \u2208 l \u2194 \u03c3.IsCycle \u2227 \u2200 a, \u03c3 a \u2260 a \u2192 \u03c3 a = l.prod a",
+    "have_tree": [
+      {
+        "name": "h\u03c3l",
+        "type": "\u03c3.support \u2286 l.prod.support",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Factors",
+    "name": "cycleFactorsFinset_eq_list_toFinset",
+    "statement": "Perm \u03b1} {l : List (Perm \u03b1)} (hn : l.Nodup) : \u03c3.cycleFactorsFinset = l.toFinset \u2194 (\u2200 f : Perm \u03b1, f \u2208 l \u2192 f.IsCycle) \u2227 l.Pairwise Disjoint \u2227 l.prod = \u03c3",
+    "have_tree": [
+      {
+        "name": "hn'",
+        "type": "l'.Nodup",
+        "body": "nodup_of_pairwise_disjoint_cycles hc' hd'",
+        "children": []
+      },
+      {
+        "name": "hperm",
+        "type": "l ~ l'",
+        "body": "List.perm_of_nodup_nodup_toFinset_eq hn hn' h.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Factors",
+    "name": "Disjoint.disjoint_cycleFactorsFinset",
+    "statement": "Perm \u03b1} (h : Disjoint f g) : _root_.Disjoint (cycleFactorsFinset f) (cycleFactorsFinset g)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.le_bot (by simp [ha, \u2190 hf a ha, \u2190 hg a ha] : a \u2208 f.support \u2229 g.support)",
+        "children": []
+      }
+    ]
+  }
+]

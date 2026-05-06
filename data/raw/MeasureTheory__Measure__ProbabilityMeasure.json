@@ -1,0 +1,34 @@
+[
+  {
+    "module": "ProbabilityMeasure",
+    "name": "self_eq_mass_mul_normalize",
+    "statement": "Set \u03a9) : \u03bc s = \u03bc.mass * \u03bc.normalize s",
+    "have_tree": [
+      {
+        "name": "mass_nonzero",
+        "type": "\u03bc.mass \u2260 0",
+        "body": "by rwa [\u03bc.mass_nonzero_iff]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ProbabilityMeasure",
+    "name": "tendsto_normalize_testAgainstNN_of_tendsto",
+    "statement": "Type*} {F : Filter \u03b3} {\u03bcs : \u03b3 \u2192 FiniteMeasure \u03a9} (\u03bcs_lim : Tendsto \u03bcs F (\ud835\udcdd \u03bc)) (nonzero : \u03bc \u2260 0) (f : \u03a9 \u2192\u1d47 \u211d\u22650) : Tendsto (fun i \u21a6 (\u03bcs i).normalize.toFiniteMeasure.testAgainstNN f) F (\ud835\udcdd (\u03bc.normalize.toFiniteMeasure.testAgainstNN f))",
+    "have_tree": [
+      {
+        "name": "lim_mass",
+        "type": "",
+        "body": "\u03bcs_lim.mass",
+        "children": []
+      },
+      {
+        "name": "eventually_nonzero",
+        "type": "\u2200\u1da0 i in F, \u03bcs i \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

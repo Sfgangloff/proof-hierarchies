@@ -1,0 +1,346 @@
+[
+  {
+    "original": {
+      "module": "ExtChartAt",
+      "name": "isInvertible_fderivWithin_extendCoordChange",
+      "statement": "n \u2260 0) (he : e \u2208 maximalAtlas I n M) (he' : e' \u2208 maximalAtlas I n M) {x : E} (hx : x \u2208 (I.extendCoordChange e e').source) : ContinuousLinearMap.IsInvertible <| fderivWithin \ud835\udd5c (I.extendCoordChange e e') (I.extendCoordChange e e').source x",
+      "have_tree": [
+        {
+          "name": "h\u03c6",
+          "type": "ContDiffOn \ud835\udd5c n \u03c6 \u03c6.source",
+          "body": "I.contDiffOn_extendCoordChange he he'",
+          "children": []
+        },
+        {
+          "name": "h\u03c6'",
+          "type": "ContDiffOn \ud835\udd5c n \u03c6.symm \u03c6.target",
+          "body": "I.contDiffOn_extendCoordChange_symm he he'",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "ExtChartAt",
+          "name": "isInvertible_fderivWithin_extendCoordChange",
+          "statement": "n \u2260 0) (he : e \u2208 maximalAtlas I n M) (he' : e' \u2208 maximalAtlas I n M) {x : E} (hx : x \u2208 (I.extendCoordChange e e').source) : ContinuousLinearMap.IsInvertible <| fderivWithin \ud835\udd5c (I.extendCoordChange e e') (I.extendCoordChange e e').source x",
+          "have_tree": [
+            {
+              "name": "h\u03c6'",
+              "type": "ContDiffOn \ud835\udd5c n \u03c6.symm \u03c6.target",
+              "body": "I.contDiffOn_extendCoordChange_symm he he'",
+              "children": []
+            },
+            {
+              "name": "h\u03c6",
+              "type": "ContDiffOn \ud835\udd5c n \u03c6 \u03c6.source",
+              "body": "I.contDiffOn_extendCoordChange he he'",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "ExtChartAt",
+      "name": "extChartAt_target_subset_closure_interior",
+      "statement": "M} : (extChartAt I x).target \u2286 closure (interior (extChartAt I x).target)",
+      "have_tree": [
+        {
+          "name": "A",
+          "type": "t \u2229 ((extChartAt I x).target \u222a (range I)\u1d9c) \u2208 \ud835\udcdd y",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "B",
+          "type": "y \u2208 closure (interior (range I))",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "h''z",
+          "type": "z \u2208 (extChartAt I x).target",
+          "body": "by simpa [interior_subset hz] using h'z",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "ExtChartAt",
+          "name": "extChartAt_target_subset_closure_interior",
+          "statement": "M} : (extChartAt I x).target \u2286 closure (interior (extChartAt I x).target)",
+          "have_tree": [
+            {
+              "name": "B",
+              "type": "y \u2208 closure (interior (range I))",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "t \u2229 ((extChartAt I x).target \u222a (range I)\u1d9c) \u2208 \ud835\udcdd y",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "h''z",
+              "type": "z \u2208 (extChartAt I x).target",
+              "body": "by simpa [interior_subset hz] using h'z",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "ExtChartAt",
+          "name": "extChartAt_target_subset_closure_interior",
+          "statement": "M} : (extChartAt I x).target \u2286 closure (interior (extChartAt I x).target)",
+          "have_tree": [
+            {
+              "name": "A",
+              "type": "t \u2229 ((extChartAt I x).target \u222a (range I)\u1d9c) \u2208 \ud835\udcdd y",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "h''z",
+              "type": "z \u2208 (extChartAt I x).target",
+              "body": "by simpa [interior_subset hz] using h'z",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "y \u2208 closure (interior (range I))",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "ExtChartAt",
+      "name": "extChartAt_mem_closure_interior",
+      "statement": "M} (hx : x \u2208 closure (interior s)) (h'x : x \u2208 (extChartAt I x\u2080).source) : extChartAt I x\u2080 x \u2208 closure (interior ((extChartAt I x\u2080).symm \u207b\u00b9' s \u2229 (extChartAt I x\u2080).target))",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "(extChartAt I x\u2080) \u207b\u00b9' o \u2208 \ud835\udcdd x",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "A",
+          "type": "interior (\u2191(extChartAt I x\u2080).symm \u207b\u00b9' s) \u2208 \ud835\udcdd (extChartAt I x\u2080 y)",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "B",
+          "type": "(extChartAt I x\u2080) y \u2208 closure (interior (extChartAt I x\u2080).target)",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "ExtChartAt",
+          "name": "extChartAt_mem_closure_interior",
+          "statement": "M} (hx : x \u2208 closure (interior s)) (h'x : x \u2208 (extChartAt I x\u2080).source) : extChartAt I x\u2080 x \u2208 closure (interior ((extChartAt I x\u2080).symm \u207b\u00b9' s \u2229 (extChartAt I x\u2080).target))",
+          "have_tree": [
+            {
+              "name": "A",
+              "type": "interior (\u2191(extChartAt I x\u2080).symm \u207b\u00b9' s) \u2208 \ud835\udcdd (extChartAt I x\u2080 y)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(extChartAt I x\u2080) \u207b\u00b9' o \u2208 \ud835\udcdd x",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "(extChartAt I x\u2080) y \u2208 closure (interior (extChartAt I x\u2080).target)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "ExtChartAt",
+          "name": "extChartAt_mem_closure_interior",
+          "statement": "M} (hx : x \u2208 closure (interior s)) (h'x : x \u2208 (extChartAt I x\u2080).source) : extChartAt I x\u2080 x \u2208 closure (interior ((extChartAt I x\u2080).symm \u207b\u00b9' s \u2229 (extChartAt I x\u2080).target))",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "(extChartAt I x\u2080) \u207b\u00b9' o \u2208 \ud835\udcdd x",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "(extChartAt I x\u2080) y \u2208 closure (interior (extChartAt I x\u2080).target)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "interior (\u2191(extChartAt I x\u2080).symm \u207b\u00b9' s) \u2208 \ud835\udcdd (extChartAt I x\u2080 y)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "ExtChartAt",
+      "name": "Manifold.locallyCompact_of_finiteDimensional",
+      "statement": "ModelWithCorners \ud835\udd5c E H) [LocallyCompactSpace \ud835\udd5c] [FiniteDimensional \ud835\udd5c E] : LocallyCompactSpace M",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "ProperSpace E",
+          "body": "FiniteDimensional.proper \ud835\udd5c E",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "LocallyCompactSpace H",
+          "body": "I.locallyCompactSpace",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "ExtChartAt",
+          "name": "Manifold.locallyCompact_of_finiteDimensional",
+          "statement": "ModelWithCorners \ud835\udd5c E H) [LocallyCompactSpace \ud835\udd5c] [FiniteDimensional \ud835\udd5c E] : LocallyCompactSpace M",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "LocallyCompactSpace H",
+              "body": "I.locallyCompactSpace",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "ProperSpace E",
+              "body": "FiniteDimensional.proper \ud835\udd5c E",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "ExtChartAt",
+      "name": "LocallyCompactSpace.of_locallyCompact_manifold",
+      "statement": "ModelWithCorners \ud835\udd5c E H) [h : Nonempty M] [LocallyCompactSpace M] : LocallyCompactSpace E",
+      "have_tree": [
+        {
+          "name": "h'y",
+          "type": "y \u2208 (extChartAt I x).target",
+          "body": "interior_subset hy",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "IsCompact <| (extChartAt I x) '' s",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "ExtChartAt",
+          "name": "LocallyCompactSpace.of_locallyCompact_manifold",
+          "statement": "ModelWithCorners \ud835\udd5c E H) [h : Nonempty M] [LocallyCompactSpace M] : LocallyCompactSpace E",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsCompact <| (extChartAt I x) '' s",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "h'y",
+              "type": "y \u2208 (extChartAt I x).target",
+              "body": "interior_subset hy",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

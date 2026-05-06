@@ -1,0 +1,112 @@
+[
+  {
+    "module": "LogBounds",
+    "name": "hasDerivAt_log_sub_logTaylor",
+    "statement": "\u2115) {z : \u2102} (hz : 1 + z \u2208 slitPlane) : HasDerivAt (fun z : \u2102 \u21a6 log (1 + z) - logTaylor (n + 1) z) ((-z) ^ n * (1 + z)\u207b\u00b9) z",
+    "have_tree": [
+      {
+        "name": "hz'",
+        "type": "-z \u2260 1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LogBounds",
+    "name": "integrable_pow_mul_norm_one_add_mul_inv",
+    "statement": "\u2115) {z : \u2102} (hz : \u2016z\u2016 < 1) : IntervalIntegrable (fun t : \u211d \u21a6 t ^ n * \u2016(1 + t * z)\u207b\u00b9\u2016) MeasureTheory.volume 0 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "continuousOn_one_add_mul_inv <| mem_slitPlane_of_norm_lt_one hz",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LogBounds",
+    "name": "log_sub_logTaylor_isBigO",
+    "statement": "\u2115) : (fun z \u21a6 log (1 + z) - logTaylor (n + 1) z) =O[\ud835\udcdd 0] fun z \u21a6 z ^ (n + 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(1 - \u2016z\u2016)\u207b\u00b9 \u2264 2",
+        "body": "by rw [inv_le_comm\u2080 (sub_pos_of_lt hz1) two_pos]; linarith",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LogBounds",
+    "name": "norm_log_one_add_half_le_self",
+    "statement": "\u2102} (hz : \u2016z\u2016 \u2264 1 / 2) : \u2016log (1 + z)\u2016 \u2264 (3 / 2) * \u2016z\u2016",
+    "have_tree": [
+      {
+        "name": "hz3",
+        "type": "(1 - \u2016z\u2016)\u207b\u00b9 \u2264 2",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hz4",
+        "type": "\u2016z\u2016 ^ 2 * (1 - \u2016z\u2016)\u207b\u00b9 / 2 \u2264 \u2016z\u2016 / 2 * 2 / 2",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LogBounds",
+    "name": "tendsto_mul_log_one_add_of_tendsto",
+    "statement": "\u211d \u2192 \u2102} {t : \u2102} (hg : Tendsto (fun x \u21a6 x * g x) atTop (\ud835\udcdd t)) : Tendsto (fun x \u21a6 x * log (1 + g x)) atTop (\ud835\udcdd t)",
+    "have_tree": [
+      {
+        "name": "hg0",
+        "type": "",
+        "body": "tendsto_zero_of_isBoundedUnder_smul_of_tendsto_cobounded hg.norm.isBoundedUnder_le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LogBounds",
+    "name": "tendsto_one_add_cpow_exp_of_tendsto",
+    "statement": "\u211d \u2192 \u2102} {t : \u2102} (hg : Tendsto (fun x \u21a6 x * g x) atTop (\ud835\udcdd t)) : Tendsto (fun x \u21a6 (1 + g x) ^ (x : \u2102)) atTop (\ud835\udcdd (exp t))",
+    "have_tree": [
+      {
+        "name": "hg0",
+        "type": "",
+        "body": "tendsto_zero_of_isBoundedUnder_smul_of_tendsto_cobounded",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LogBounds",
+    "name": "tendsto_mul_log_one_add_of_tendsto",
+    "statement": "\u211d \u2192 \u211d} {t : \u211d} (hg : Tendsto (fun x \u21a6 x * g x) atTop (\ud835\udcdd t)) : Tendsto (fun x \u21a6 x * log (1 + g x)) atTop (\ud835\udcdd t)",
+    "have_tree": [
+      {
+        "name": "hg0",
+        "type": "",
+        "body": "tendsto_zero_of_isBoundedUnder_smul_of_tendsto_cobounded",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LogBounds",
+    "name": "tendsto_one_add_rpow_exp_of_tendsto",
+    "statement": "\u211d \u2192 \u211d} {t : \u211d} (hg : Tendsto (fun x \u21a6 x * g x) atTop (\ud835\udcdd t)) : Tendsto (fun x \u21a6 (1 + g x) ^ x) atTop (\ud835\udcdd (exp t))",
+    "have_tree": [
+      {
+        "name": "hg0",
+        "type": "",
+        "body": "tendsto_zero_of_isBoundedUnder_smul_of_tendsto_cobounded",
+        "children": []
+      }
+    ]
+  }
+]

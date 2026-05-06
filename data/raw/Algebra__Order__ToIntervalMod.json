@@ -1,0 +1,78 @@
+[
+  {
+    "module": "ToIntervalMod",
+    "name": "tfae_modEq",
+    "statement": "TFAE [a \u2261 b [PMOD p], \u2200 z : \u2124, b - z \u2022 p \u2209 Set.Ioo a (a + p), toIcoMod hp a b \u2260 toIocMod hp a b, toIcoMod hp a b + p = toIocMod hp a b]",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "toIcoMod_mem_Ico hp a b",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ToIntervalMod",
+    "name": "toIxxMod_cyclic_left",
+    "statement": "\u03b1} (h : toIcoMod hp x\u2081 x\u2082 \u2264 toIocMod hp x\u2081 x\u2083) : toIcoMod hp x\u2082 x\u2083 \u2264 toIocMod hp x\u2082 x\u2081",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "x\u2082' \u2264 toIocMod hp x\u2081 x\u2083'",
+        "body": "by simpa [x\u2083']",
+        "children": []
+      },
+      {
+        "name": "h\u2082\u2081",
+        "type": "x\u2082' < x\u2081 + p",
+        "body": "toIcoMod_lt_right _ _ _",
+        "children": []
+      },
+      {
+        "name": "h\u2083\u2082",
+        "type": "x\u2083' - p < x\u2082'",
+        "body": "sub_lt_iff_lt_add.2 (toIcoMod_lt_right _ _ _)",
+        "children": []
+      },
+      {
+        "name": "not_h\u2083\u2082",
+        "type": "",
+        "body": "(h.trans hIoc\u2081\u2083.le).not_gt",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ToIntervalMod",
+    "name": "toIxxMod_total'",
+    "statement": "\u03b1) : toIcoMod hp b a \u2264 toIocMod hp b c \u2228 toIcoMod hp b c \u2264 toIocMod hp b a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_arg\u2082 (\u00b7 + \u00b7) (toIcoMod_add_toIocMod_zero hp a b) (toIcoMod_add_toIocMod_zero hp c b)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ToIntervalMod",
+    "name": "toIxxMod_trans",
+    "statement": "\u03b1} (h\u2081\u2082\u2083 : toIcoMod hp x\u2081 x\u2082 \u2264 toIocMod hp x\u2081 x\u2083 \u2227 \u00actoIcoMod hp x\u2083 x\u2082 \u2264 toIocMod hp x\u2083 x\u2081) (h\u2082\u2083\u2084 : toIcoMod hp x\u2082 x\u2084 \u2264 toIocMod hp x\u2082 x\u2083 \u2227 \u00actoIcoMod hp x\u2083 x\u2084 \u2264 toIocMod hp x\u2083 x\u2082) : toIcoMod hp x\u2081 x\u2084 \u2264 toIocMod hp x\u2081 x\u2083 \u2227 \u00actoIcoMod hp x\u2083 x\u2084 \u2264 toIocMod hp x\u2083 x\u2081",
+    "have_tree": [
+      {
+        "name": "h\u2081\u2082\u2083'",
+        "type": "",
+        "body": "toIxxMod_cyclic_left _ (toIxxMod_cyclic_left _ h\u2081\u2082\u2083.1)",
+        "children": []
+      },
+      {
+        "name": "h\u2082\u2083\u2084'",
+        "type": "",
+        "body": "toIxxMod_cyclic_left _ (toIxxMod_cyclic_left _ h\u2082\u2083\u2084.1)",
+        "children": []
+      }
+    ]
+  }
+]

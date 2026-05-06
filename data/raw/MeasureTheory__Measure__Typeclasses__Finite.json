@@ -1,0 +1,73 @@
+[
+  {
+    "module": "Finite",
+    "name": "Measure.eq_of_le_of_measure_univ_eq",
+    "statement": "\u03bc \u2264 \u03bd) (h_univ : \u03bc univ = \u03bd univ) : \u03bc = \u03bd",
+    "have_tree": [
+      {
+        "name": "h_disj",
+        "type": "Disjoint s s\u1d9c",
+        "body": "disjoint_compl_right_iff_subset.mpr subset_rfl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finite",
+    "name": "tendsto_measure_biUnion_Ici_zero_of_pairwise_disjoint",
+    "statement": "Type*} [MeasurableSpace X] {\u03bc : Measure X} [IsFiniteMeasure \u03bc] {Es : \u2115 \u2192 Set X} (Es_mble : \u2200 i, NullMeasurableSet (Es i) \u03bc) (Es_disj : Pairwise fun n m \u21a6 Disjoint (Es n) (Es m)) : Tendsto (\u03bc \u2218 fun n \u21a6 \u22c3 i \u2265 n, Es i) atTop (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "decr",
+        "type": "Antitone fun n \u21a6 \u22c3 i \u2265 n, Es i",
+        "body": "",
+        "children": [
+          {
+            "name": "oops",
+            "type": "",
+            "body": "(Es_disj (Nat.ne_of_lt k_gt_j)).ne_of_mem x_in_Es_j x_in_Es_k",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "tendsto_measure_iInter_atTop (\u03bc := \u03bc) (fun n \u21a6 by measurability)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finite",
+    "name": "abs_measureReal_sub_le_measureReal_symmDiff'",
+    "statement": "NullMeasurableSet s \u03bc) (ht : NullMeasurableSet t \u03bc) (hs' : \u03bc s \u2260 \u221e) (ht' : \u03bc t \u2260 \u221e) : |\u03bc.real s - \u03bc.real t| \u2264 \u03bc.real (s \u2206 t)",
+    "have_tree": [
+      {
+        "name": "hst",
+        "type": "\u03bc (s \\ t) \u2260 \u221e",
+        "body": "(measure_lt_top_of_subset diff_subset hs').ne",
+        "children": []
+      },
+      {
+        "name": "hts",
+        "type": "\u03bc (t \\ s) \u2260 \u221e",
+        "body": "(measure_lt_top_of_subset diff_subset ht').ne",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Finite",
+    "name": "exists_ne_forall_mem_nhds_pos_measure_preimage",
+    "statement": "\u03b1 \u2192 \u03b2} (h : \u2200 b, \u2203\u1d50 x \u2202\u03bc, f x \u2260 b) : \u2203 a b : \u03b2, a \u2260 b \u2227 (\u2200 s \u2208 \ud835\udcdd a, 0 < \u03bc (f \u207b\u00b9' s)) \u2227 \u2200 t \u2208 \ud835\udcdd b, 0 < \u03bc (f \u207b\u00b9' t)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "m univ \u2260 0",
+        "body": "ne_bot_of_le_ne_bot (h default) (measure_mono <| subset_univ _)",
+        "children": []
+      }
+    ]
+  }
+]

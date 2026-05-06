@@ -1,0 +1,73 @@
+[
+  {
+    "module": "Height",
+    "name": "Ideal.isMaximal_of_primeHeight_eq_ringKrullDim",
+    "statement": "Ideal R} [I.IsPrime] [FiniteRingKrullDim R] (e : I.primeHeight = ringKrullDim R) : I.IsMaximal",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "I \u2260 \u22a4",
+        "body": "by",
+        "children": [
+          {
+            "name": "h2",
+            "type": "",
+            "body": "e \u25b8 M.primeHeight_le_ringKrullDim",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Height",
+    "name": "exists_spanRank_le_and_le_height_of_le_height",
+    "statement": "Ideal R) (r : \u2115) (hr : r \u2264 I.height) : \u2203 J \u2264 I, J.spanRank \u2264 r \u2227 r \u2264 J.height",
+    "have_tree": [
+      {
+        "name": "hS",
+        "type": "Set.Finite S",
+        "body": "Set.Finite.subset J.finite_minimalPrimes_of_isNoetherianRing",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u00ac(I : Set R) \u2286 \u22c3 K \u2208 hS.toFinset, (K : Set R)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hr.trans (Ideal.height_mono e)",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "hp.1.1",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "p.FiniteHeight",
+            "body": "\u27e8Or.inr h\u27e9",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "Ideal.height_mono (le_sup_left.trans hp.1.2)",
+            "children": [
+              {
+                "name": "_",
+                "type": "",
+                "body": "h\u2083.trans this",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

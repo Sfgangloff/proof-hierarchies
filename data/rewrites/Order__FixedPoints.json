@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "FixedPoints",
+      "name": "lfp_induction",
+      "statement": "\u03b1 \u2192 Prop} (step : \u2200 a, p a \u2192 a \u2264 f.lfp \u2192 p (f a)) (hSup : \u2200 s, (\u2200 a \u2208 s, p a) \u2192 p (sSup s)) : p f.lfp",
+      "have_tree": [
+        {
+          "name": "h",
+          "type": "sSup s \u2264 f.lfp",
+          "body": "sSup_le fun b => And.left",
+          "children": []
+        },
+        {
+          "name": "hmem",
+          "type": "f (sSup s) \u2208 s",
+          "body": "\u27e8f.map_le_lfp h, step _ hSup h\u27e9",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "FixedPoints",
+          "name": "lfp_induction",
+          "statement": "\u03b1 \u2192 Prop} (step : \u2200 a, p a \u2192 a \u2264 f.lfp \u2192 p (f a)) (hSup : \u2200 s, (\u2200 a \u2208 s, p a) \u2192 p (sSup s)) : p f.lfp",
+          "have_tree": [
+            {
+              "name": "hmem",
+              "type": "f (sSup s) \u2208 s",
+              "body": "\u27e8f.map_le_lfp h, step _ hSup h\u27e9",
+              "children": []
+            },
+            {
+              "name": "h",
+              "type": "sSup s \u2264 f.lfp",
+              "body": "sSup_le fun b => And.left",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

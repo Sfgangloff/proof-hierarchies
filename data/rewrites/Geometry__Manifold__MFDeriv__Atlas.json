@@ -1,0 +1,393 @@
+[
+  {
+    "original": {
+      "module": "Atlas",
+      "name": "mdifferentiableAt_atlas",
+      "statement": "e \u2208 atlas H M) {x : M} (hx : x \u2208 e.source) : MDiffAt e x",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "(chartAt H x).symm.trans e \u2208 contDiffGroupoid 1 I",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "B",
+          "type": "",
+          "body": "A.differentiableOn one_ne_zero (I ((chartAt H x : M \u2192 H) x)) mem",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Atlas",
+          "name": "mdifferentiableAt_atlas",
+          "statement": "e \u2208 atlas H M) {x : M} (hx : x \u2208 e.source) : MDiffAt e x",
+          "have_tree": [
+            {
+              "name": "B",
+              "type": "",
+              "body": "A.differentiableOn one_ne_zero (I ((chartAt H x : M \u2192 H) x)) mem",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(chartAt H x).symm.trans e \u2208 contDiffGroupoid 1 I",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Atlas",
+      "name": "mdifferentiableAt_atlas_symm",
+      "statement": "e \u2208 atlas H M) {x : H} (hx : x \u2208 e.target) : MDiffAt e.symm x",
+      "have_tree": [
+        {
+          "name": "mem",
+          "type": "I x \u2208 I.symm \u207b\u00b9' (e.symm \u226b\u2095 chartAt H (e.symm x)).source \u2229 range I",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "e.symm.trans (chartAt H (e.symm x)) \u2208 contDiffGroupoid 1 I",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "B",
+          "type": "",
+          "body": "A.differentiableOn one_ne_zero (I x) mem",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Atlas",
+          "name": "mdifferentiableAt_atlas_symm",
+          "statement": "e \u2208 atlas H M) {x : H} (hx : x \u2208 e.target) : MDiffAt e.symm x",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "e.symm.trans (chartAt H (e.symm x)) \u2208 contDiffGroupoid 1 I",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "mem",
+              "type": "I x \u2208 I.symm \u207b\u00b9' (e.symm \u226b\u2095 chartAt H (e.symm x)).source \u2229 range I",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "",
+              "body": "A.differentiableOn one_ne_zero (I x) mem",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Atlas",
+          "name": "mdifferentiableAt_atlas_symm",
+          "statement": "e \u2208 atlas H M) {x : H} (hx : x \u2208 e.target) : MDiffAt e.symm x",
+          "have_tree": [
+            {
+              "name": "mem",
+              "type": "I x \u2208 I.symm \u207b\u00b9' (e.symm \u226b\u2095 chartAt H (e.symm x)).source \u2229 range I",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "",
+              "body": "A.differentiableOn one_ne_zero (I x) mem",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "e.symm.trans (chartAt H (e.symm x)) \u2208 contDiffGroupoid 1 I",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Atlas",
+      "name": "mfderiv_extChartAt_comp_mfderivWithin_extChartAt_symm",
+      "statement": "M} {y : E} (hy : y \u2208 (extChartAt I x).target) : (mfderiv% (extChartAt I x) ((extChartAt I x).symm y)) \u2218L (mfderiv[range I] (extChartAt I x).symm y) = ContinuousLinearMap.id _ _",
+      "have_tree": [
+        {
+          "name": "U",
+          "type": "UniqueMDiffWithinAt \ud835\udcd8(\ud835\udd5c, E) (range \u2191I) y",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "h'y",
+          "type": "(extChartAt I x).symm y \u2208 (extChartAt I x).source",
+          "body": "(extChartAt I x).map_target hy",
+          "children": []
+        },
+        {
+          "name": "h''y",
+          "type": "(extChartAt I x).symm y \u2208 (chartAt H x).source",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Atlas",
+          "name": "mfderiv_extChartAt_comp_mfderivWithin_extChartAt_symm",
+          "statement": "M} {y : E} (hy : y \u2208 (extChartAt I x).target) : (mfderiv% (extChartAt I x) ((extChartAt I x).symm y)) \u2218L (mfderiv[range I] (extChartAt I x).symm y) = ContinuousLinearMap.id _ _",
+          "have_tree": [
+            {
+              "name": "h'y",
+              "type": "(extChartAt I x).symm y \u2208 (extChartAt I x).source",
+              "body": "(extChartAt I x).map_target hy",
+              "children": []
+            },
+            {
+              "name": "U",
+              "type": "UniqueMDiffWithinAt \ud835\udcd8(\ud835\udd5c, E) (range \u2191I) y",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h''y",
+              "type": "(extChartAt I x).symm y \u2208 (chartAt H x).source",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Atlas",
+          "name": "mfderiv_extChartAt_comp_mfderivWithin_extChartAt_symm",
+          "statement": "M} {y : E} (hy : y \u2208 (extChartAt I x).target) : (mfderiv% (extChartAt I x) ((extChartAt I x).symm y)) \u2218L (mfderiv[range I] (extChartAt I x).symm y) = ContinuousLinearMap.id _ _",
+          "have_tree": [
+            {
+              "name": "U",
+              "type": "UniqueMDiffWithinAt \ud835\udcd8(\ud835\udd5c, E) (range \u2191I) y",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h''y",
+              "type": "(extChartAt I x).symm y \u2208 (chartAt H x).source",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h'y",
+              "type": "(extChartAt I x).symm y \u2208 (extChartAt I x).source",
+              "body": "(extChartAt I x).map_target hy",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Atlas",
+      "name": "mfderivWithin_extChartAt_symm_comp_mfderiv_extChartAt",
+      "statement": "E} (hy : y \u2208 (extChartAt I x).target) : (mfderiv[range I] (extChartAt I x).symm y) \u2218L (mfderiv% (extChartAt I x) ((extChartAt I x).symm y)) = ContinuousLinearMap.id _ _",
+      "have_tree": [
+        {
+          "name": "h'y",
+          "type": "(extChartAt I x).symm y \u2208 (extChartAt I x).source",
+          "body": "(extChartAt I x).map_target hy",
+          "children": []
+        },
+        {
+          "name": "h''y",
+          "type": "(extChartAt I x).symm y \u2208 (chartAt H x).source",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "U'",
+          "type": "UniqueMDiffWithinAt I (extChartAt I x).source ((extChartAt I x).symm y)",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Atlas",
+          "name": "mfderivWithin_extChartAt_symm_comp_mfderiv_extChartAt",
+          "statement": "E} (hy : y \u2208 (extChartAt I x).target) : (mfderiv[range I] (extChartAt I x).symm y) \u2218L (mfderiv% (extChartAt I x) ((extChartAt I x).symm y)) = ContinuousLinearMap.id _ _",
+          "have_tree": [
+            {
+              "name": "h''y",
+              "type": "(extChartAt I x).symm y \u2208 (chartAt H x).source",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h'y",
+              "type": "(extChartAt I x).symm y \u2208 (extChartAt I x).source",
+              "body": "(extChartAt I x).map_target hy",
+              "children": []
+            },
+            {
+              "name": "U'",
+              "type": "UniqueMDiffWithinAt I (extChartAt I x).source ((extChartAt I x).symm y)",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Atlas",
+          "name": "mfderivWithin_extChartAt_symm_comp_mfderiv_extChartAt",
+          "statement": "E} (hy : y \u2208 (extChartAt I x).target) : (mfderiv[range I] (extChartAt I x).symm y) \u2218L (mfderiv% (extChartAt I x) ((extChartAt I x).symm y)) = ContinuousLinearMap.id _ _",
+          "have_tree": [
+            {
+              "name": "h'y",
+              "type": "(extChartAt I x).symm y \u2208 (extChartAt I x).source",
+              "body": "(extChartAt I x).map_target hy",
+              "children": []
+            },
+            {
+              "name": "U'",
+              "type": "UniqueMDiffWithinAt I (extChartAt I x).source ((extChartAt I x).symm y)",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "h''y",
+              "type": "(extChartAt I x).symm y \u2208 (chartAt H x).source",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Atlas",
+      "name": "isInvertible_mfderiv_extChartAt",
+      "statement": "M} (hy : y \u2208 (extChartAt I x).source) : (mfderiv% (extChartAt I x) y).IsInvertible",
+      "have_tree": [
+        {
+          "name": "h'y",
+          "type": "extChartAt I x y \u2208 (extChartAt I x).target",
+          "body": "(extChartAt I x).map_source hy",
+          "children": []
+        },
+        {
+          "name": "Z",
+          "type": "",
+          "body": "ContinuousLinearMap.IsInvertible.of_inverse",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Atlas",
+          "name": "isInvertible_mfderiv_extChartAt",
+          "statement": "M} (hy : y \u2208 (extChartAt I x).source) : (mfderiv% (extChartAt I x) y).IsInvertible",
+          "have_tree": [
+            {
+              "name": "Z",
+              "type": "",
+              "body": "ContinuousLinearMap.IsInvertible.of_inverse",
+              "children": []
+            },
+            {
+              "name": "h'y",
+              "type": "extChartAt I x y \u2208 (extChartAt I x).target",
+              "body": "(extChartAt I x).map_source hy",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

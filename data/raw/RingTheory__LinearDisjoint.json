@@ -1,0 +1,155 @@
+[
+  {
+    "module": "LinearDisjoint",
+    "name": "isDomain_of_injective",
+    "statement": "Type*} [Semiring A] [Semiring B] [Algebra R A] [Algebra R B] {fa : A \u2192\u2090[R] S} {fb : B \u2192\u2090[R] S} (hfa : Function.Injective fa) (hfb : Function.Injective fb) (H : fa.range.LinearDisjoint fb.range) : IsDomain (A \u2297[R] B)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "H.isDomain",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearDisjoint",
+    "name": "linearIndependent_left_op_of_flat",
+    "statement": "A.LinearDisjoint B) [Module.Flat R B] {\u03b9 : Type*} {a : \u03b9 \u2192 A} (ha : LinearIndependent R a) : LinearIndependent B.op (MulOpposite.op \u2218 A.val \u2218 a)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "Submodule.LinearDisjoint.linearIndependent_left_of_flat H ha",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearDisjoint",
+    "name": "linearIndependent_right_of_flat",
+    "statement": "A.LinearDisjoint B) [Module.Flat R A] {\u03b9 : Type*} {b : \u03b9 \u2192 B} (hb : LinearIndependent R b) : LinearIndependent A (B.val \u2218 b)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "Submodule.LinearDisjoint.linearIndependent_right_of_flat H hb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearDisjoint",
+    "name": "exists_field_of_isDomain_of_injective",
+    "statement": "Type v) [CommRing A] (B : Type w) [CommRing B] [Algebra R A] [Algebra R B] [Module.Flat R A] [Module.Flat R B] [IsDomain (A \u2297[R] B)] (ha : Function.Injective (algebraMap R A)) (hb : Function.Injective (algebraMap R B)) : \u2203 (K : Type (max v w)) (_ : Field K) (_ : Algebra R K) (fa : A \u2192\u2090[R] K) (fb : B \u2192\u2090[R] K), Function.Injective fa \u2227 Function.Injective fb \u2227 fa.range.LinearDisjoint fb.range",
+    "have_tree": [
+      {
+        "name": "hi",
+        "type": "Function.Injective i",
+        "body": "IsFractionRing.injective (A \u2297[R] B) K",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearDisjoint",
+    "name": "_root_.Algebra.TensorProduct.not_isField_of_transcendental",
+    "statement": "Type v) [CommRing A] (B : Type w) [CommRing B] [Algebra R A] [Algebra R B] [Module.Flat R A] [Module.Flat R B] [Algebra.Transcendental R A] [Algebra.Transcendental R B] : \u00acIsField (A \u2297[R] B)",
+    "have_tree": [
+      {
+        "name": "key1",
+        "type": "Module.rank R \u21a5(fa.range \u2293 fb.range) \u2264 1",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "htab",
+        "type": "Function.Injective gab",
+        "body": "hfa.comp hta",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "Function.Injective f",
+        "body": "RingHom.injective _",
+        "children": []
+      },
+      {
+        "name": "key2",
+        "type": "gab.range \u2264 fa.range \u2293 fb.range",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "key3",
+        "type": "",
+        "body": "(Subalgebra.inclusion key2).comp (AlgEquiv.ofInjective gab htab).toAlgHom",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "lift_uzero.{u} _ \u25b8 (basisMonomials R).mk_eq_rank.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearDisjoint",
+    "name": "of_finrank_sup_of_free",
+    "statement": "Module.finrank R \u21a5(A \u2294 B) = Module.finrank R A * Module.finrank R B) : A.LinearDisjoint B",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "Function.Surjective (mulMap' A B).toLinearMap",
+        "body": "mulMap'_surjective A B",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearDisjoint",
+    "name": "adjoin_rank_eq_rank_left",
+    "statement": "Module.rank B (Algebra.adjoin B (A : Set S)) = Module.rank R A",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "H.linearIndependent_left_of_flat (Module.Free.chooseBasis R A).linearIndependent",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearDisjoint",
+    "name": "of_finrank_coprime_of_free",
+    "statement": "Set S))] [Module.Free B (Algebra.adjoin B (A : Set S))] (H : (Module.finrank R A).Coprime (Module.finrank R B)) : A.LinearDisjoint B",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.finrank R A \u2264 Module.finrank R \u21a5(A \u2294 B)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearDisjoint",
+    "name": "of_linearDisjoint_finite_left",
+    "statement": "\u2200 A' : Subalgebra R S, A' \u2264 A \u2192 [Module.Finite R A'] \u2192 A'.LinearDisjoint B) : A.LinearDisjoint B",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "Submodule.FG (toSubmodule A')",
+        "body": "fg_adjoin_of_finite s.finite_toSet fun x hx \u21a6",
+        "children": []
+      },
+      {
+        "name": "hA",
+        "type": "toSubmodule A' \u2264 toSubmodule A",
+        "body": "Algebra.adjoin_le_iff.2 hs'",
+        "children": []
+      }
+    ]
+  }
+]

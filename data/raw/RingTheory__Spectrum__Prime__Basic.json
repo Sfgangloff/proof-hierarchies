@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Basic",
+    "name": "gc_set",
+    "statement": "@GaloisConnection (Set R) (Set (PrimeSpectrum R))\u1d52\u1d48 _ _ (fun s => zeroLocus s) fun t => vanishingIdeal t",
+    "have_tree": [
+      {
+        "name": "ideal_gc",
+        "type": "GaloisConnection Ideal.span _",
+        "body": "(Submodule.gi R R).gc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "zeroLocus_empty_of_one_mem",
+    "statement": "Set R} (h : (1 : R) \u2208 s) : zeroLocus s = \u2205",
+    "have_tree": [
+      {
+        "name": "x_prime",
+        "type": "x.asIdeal.IsPrime",
+        "body": "by infer_instance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_primeSpectrum_prod_le",
+    "statement": "Ideal R) : \u2203 Z : Multiset (PrimeSpectrum R), Multiset.prod (Z.map asIdeal) \u2264 I",
+    "have_tree": [
+      {
+        "name": "lt_add",
+        "type": "\u2200 z \u2209 M, M < M + span R {z}",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_primeSpectrum_prod_le_and_ne_bot_of_domain",
+    "statement": "\u00acIsField A) {I : Ideal A} (h_nzI : I \u2260 \u22a5) : \u2203 Z : Multiset (PrimeSpectrum A), Multiset.prod (Z.map asIdeal) \u2264 I \u2227 Multiset.prod (Z.map asIdeal) \u2260 \u22a5",
+    "have_tree": [
+      {
+        "name": "hA_nont",
+        "type": "Nontrivial A",
+        "body": "IsDomain.toNontrivial",
+        "children": []
+      },
+      {
+        "name": "lt_add",
+        "type": "\u2200 z \u2209 M, M < M + span A {z}",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

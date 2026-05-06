@@ -1,0 +1,211 @@
+[
+  {
+    "module": "UniformLimitsDeriv",
+    "name": "uniformCauchySeqOnFilter_of_fderiv",
+    "statement": "UniformCauchySeqOnFilter f' l (\ud835\udcdd x)) (hf : \u2200\u1da0 n : \u03b9 \u00d7 E in l \u00d7\u02e2 \ud835\udcdd x, HasFDerivAt (f n.1) (f' n.1 n.2) n.2) (hfg : Cauchy (map (fun n => f n x) l)) : UniformCauchySeqOnFilter f l (\ud835\udcdd x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "this.1.neg.add this.2.neg",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(tendsto_swap4_prod.eventually (hf.prod_mk hf)).diag_of_prod_right",
+        "children": []
+      },
+      {
+        "name": "hr",
+        "type": "0 < r",
+        "body": "by simp [r, hR]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UniformLimitsDeriv",
+    "name": "uniformCauchySeqOn_ball_of_fderiv",
+    "statement": "\u211d} (hf' : UniformCauchySeqOn f' l (Metric.ball x r)) (hf : \u2200 n : \u03b9, \u2200 y : E, y \u2208 Metric.ball x r \u2192 HasFDerivAt (f n) (f' n y) y) (hfg : Cauchy (map (fun n => f n x) l)) : UniformCauchySeqOn f l (Metric.ball x r)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeBot l",
+        "body": "(cauchy_map_iff.1 hfg).1",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "this.1.neg.add this.2.neg",
+            "children": []
+          },
+          {
+            "name": "mvt",
+            "type": "",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "q * \u2016y - x\u2016 < q * r",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "UniformLimitsDeriv",
+    "name": "cauchy_map_of_uniformCauchySeqOn_fderiv",
+    "statement": "Set E} (hs : IsOpen s) (h's : IsPreconnected s) (hf' : UniformCauchySeqOn f' l s) (hf : \u2200 n : \u03b9, \u2200 y : E, y \u2208 s \u2192 HasFDerivAt (f n) (f' n y) y) {x\u2080 x : E} (hx\u2080 : x\u2080 \u2208 s) (hx : x \u2208 s) (hfg : Cauchy (map (fun n => f n x\u2080) l)) : Cauchy (map (fun n => f n x) l)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeBot l",
+        "body": "(cauchy_map_iff.1 hfg).1",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "\u2200 x \u03b5, x \u2208 t \u2192 Metric.ball x \u03b5 \u2286 s \u2192 Metric.ball x \u03b5 \u2286 t",
+        "body": "fun x \u03b5 xt hx y hy =>",
+        "children": []
+      },
+      {
+        "name": "open_t",
+        "type": "IsOpen t",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "st_nonempty",
+        "type": "(s \u2229 t).Nonempty",
+        "body": "\u27e8x\u2080, hx\u2080, \u27e8hx\u2080, hfg\u27e9\u27e9",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "Metric.ball y (\u03b5 / 2) \u2286 Metric.ball x \u03b5",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UniformLimitsDeriv",
+    "name": "difference_quotients_converge_uniformly",
+    "statement": "Type*} [NormedAddCommGroup E] {\ud835\udd5c : Type*} [RCLike \ud835\udd5c] [NormedSpace \ud835\udd5c E] {G : Type*} [NormedAddCommGroup G] [NormedSpace \ud835\udd5c G] {f : \u03b9 \u2192 E \u2192 G} {g : E \u2192 G} {f' : \u03b9 \u2192 E \u2192 E \u2192L[\ud835\udd5c] G} {g' : E \u2192 E \u2192L[\ud835\udd5c] G} {x : E} (hf' : TendstoUniformlyOnFilter f' g' l (\ud835\udcdd x)) (hf : \u2200\u1da0 n : \u03b9 \u00d7 E in l \u00d7\u02e2 \ud835\udcdd x, HasFDerivAt (f n.1) (f' n.1 n.2) n.2) (hfg : \u2200\u1da0 y : E in \ud835\udcdd x, Tendsto (fun n => f n y) l (\ud835\udcdd (g y))) : TendstoUniformlyOnFilter (fun n : \u03b9 => fun y : E => (\u2016y - x\u2016\u207b\u00b9 : \ud835\udd5c) \u2022 (f n y - f n x)) (fun y : E => (\u2016y - x\u2016\u207b\u00b9 : \ud835\udd5c) \u2022 (g y - g x)) l (\ud835\udcdd x)",
+    "have_tree": [
+      {
+        "name": "hfg'",
+        "type": "",
+        "body": "hf'.uniformCauchySeqOnFilter",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(tendsto_swap4_prod.eventually (hf.prod_mk hf)).diag_of_prod_right",
+        "children": []
+      },
+      {
+        "name": "hyz",
+        "type": "0 < \u2016y - x\u2016",
+        "body": "by rw [norm_pos_iff]; intro hy'; exact hyz' (eq_of_sub_eq_zero hy').symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UniformLimitsDeriv",
+    "name": "hasFDerivAt_of_tendstoUniformlyOnFilter",
+    "statement": "TendstoUniformlyOnFilter f' g' l (\ud835\udcdd x)) (hf : \u2200\u1da0 n : \u03b9 \u00d7 E in l \u00d7\u02e2 \ud835\udcdd x, HasFDerivAt (f n.1) (f' n.1 n.2) n.2) (hfg : \u2200\u1da0 y in \ud835\udcdd x, Tendsto (fun n => f n y) l (\ud835\udcdd (g y))) : HasFDerivAt g (g' x) x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hn.self_of_nhds",
+        "children": []
+      },
+      {
+        "name": "hnx",
+        "type": "0 < \u2016n.2 - x\u2016",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UniformLimitsDeriv",
+    "name": "hasFDerivAt_of_tendstoLocallyUniformlyOn",
+    "statement": "Set E} (hs : IsOpen s) (hf' : TendstoLocallyUniformlyOn f' g' l s) (hf : \u2200 n, \u2200 x \u2208 s, HasFDerivAt (f n) (f' n x) x) (hfg : \u2200 x \u2208 s, Tendsto (fun n => f n x) l (\ud835\udcdd (g x))) (hx : x \u2208 s) : HasFDerivAt g (g' x) x",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "s \u2208 \ud835\udcdd x",
+        "body": "hs.mem_nhds hx",
+        "children": []
+      },
+      {
+        "name": "h3",
+        "type": "Set.univ \u00d7\u02e2 s \u2208 l \u00d7\u02e2 \ud835\udcdd x",
+        "body": "by simp only [h1, prod_mem_prod_iff, univ_mem, and_self_iff]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UniformLimitsDeriv",
+    "name": "hasFDerivAt_of_tendstoUniformly",
+    "statement": "TendstoUniformly f' g' l) (hf : \u2200 n : \u03b9, \u2200 x : E, HasFDerivAt (f n) (f' n x) x) (hfg : \u2200 x : E, Tendsto (fun n => f n x) l (\ud835\udcdd (g x))) (x : E) : HasFDerivAt g (g' x) x",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "TendstoUniformlyOn f' g' l Set.univ",
+        "body": "by rwa [tendstoUniformlyOn_univ]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UniformLimitsDeriv",
+    "name": "hasDerivAt_of_tendstoUniformlyOnFilter",
+    "statement": "TendstoUniformlyOnFilter f' g' l (\ud835\udcdd x)) (hf : \u2200\u1da0 n : \u03b9 \u00d7 \ud835\udd5c in l \u00d7\u02e2 \ud835\udcdd x, HasDerivAt (f n.1) (f' n.1 n.2) n.2) (hfg : \u2200\u1da0 y in \ud835\udcdd x, Tendsto (fun n => f n y) l (\ud835\udcdd (g y))) : HasDerivAt g (g' x) x",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "TendstoUniformlyOnFilter F' G' l (\ud835\udcdd x)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UniformLimitsDeriv",
+    "name": "hasDerivAt_of_tendstoLocallyUniformlyOn",
+    "statement": "Set \ud835\udd5c} (hs : IsOpen s) (hf' : TendstoLocallyUniformlyOn f' g' l s) (hf : \u2200\u1da0 n in l, \u2200 x \u2208 s, HasDerivAt (f n) (f' n x) x) (hfg : \u2200 x \u2208 s, Tendsto (fun n => f n x) l (\ud835\udcdd (g x))) (hx : x \u2208 s) : HasDerivAt g (g' x) x",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "s \u2208 \ud835\udcdd x",
+        "body": "hs.mem_nhds hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "UniformLimitsDeriv",
+    "name": "hasDerivAt_of_tendstoUniformly",
+    "statement": "TendstoUniformly f' g' l) (hf : \u2200\u1da0 n in l, \u2200 x : \ud835\udd5c, HasDerivAt (f n) (f' n x) x) (hfg : \u2200 x : \ud835\udd5c, Tendsto (fun n => f n x) l (\ud835\udcdd (g x))) (x : \ud835\udd5c) : HasDerivAt g (g' x) x",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "TendstoUniformlyOn f' g' l Set.univ",
+        "body": "by rwa [tendstoUniformlyOn_univ]",
+        "children": []
+      }
+    ]
+  }
+]

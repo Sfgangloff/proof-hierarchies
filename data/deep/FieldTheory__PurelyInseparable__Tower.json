@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Tower",
+    "name": "IntermediateField.sepDegree_adjoin_eq_of_isAlgebraic_of_isPurelyInseparable",
+    "statement": "Set K) [Algebra.IsAlgebraic F (adjoin F S)] [IsPurelyInseparable F E] : sepDegree E (adjoin E S) = sepDegree F (adjoin F S)",
+    "have_tree": [
+      {
+        "name": "hi",
+        "type": "M \u2264 L.restrictScalars F",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "extendScalars hi = adjoin M (E' : Set K)",
+            "body": "restrictScalars_injective F <| by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "lift_sepDegree_mul_lift_sepDegree_of_isAlgebraic F E L",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Tower",
+    "name": "Polynomial.Separable.map_irreducible_of_isPurelyInseparable",
+    "statement": "F[X]} (hsep : f.Separable) (hirr : Irreducible f) [IsPurelyInseparable F E] : Irreducible (f.map (algebraMap F E))",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "Associated f (minpoly F x)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "isUnit_C.2 (leadingCoeff_ne_zero.2 hirr.ne_zero).isUnit.inv",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "ha'",
+        "type": "Associated (f.map (algebraMap F E)) ((minpoly F x).map (algebraMap F E))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "heq",
+        "type": "",
+        "body": "minpoly.map_eq_of_isSeparable_of_isPurelyInseparable E x (ha.separable hsep)",
+        "children": []
+      }
+    ]
+  }
+]

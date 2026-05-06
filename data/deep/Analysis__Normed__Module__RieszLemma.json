@@ -1,0 +1,58 @@
+[
+  {
+    "module": "RieszLemma",
+    "name": "riesz_lemma",
+    "statement": "Subspace \ud835\udd5c E} (hFc : IsClosed (F : Set E)) (hF : \u2203 x : E, x \u2209 F) {r : \u211d} (hr : r < 1) : \u2203 x\u2080 : E, x\u2080 \u2209 F \u2227 \u2200 y \u2208 F, r * \u2016x\u2080\u2016 \u2264 \u2016x\u2080 - y\u2016",
+    "have_tree": [
+      {
+        "name": "hFn",
+        "type": "(F : Set E).Nonempty",
+        "body": "\u27e8_, F.zero_mem\u27e9",
+        "children": []
+      },
+      {
+        "name": "hdp",
+        "type": "0 < d",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hr'",
+        "type": "r' < 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hlt",
+        "type": "0 < r'",
+        "body": "lt_of_lt_of_le (by simp) (le_max_right r 2\u207b\u00b9)",
+        "children": []
+      },
+      {
+        "name": "hdlt",
+        "type": "d < d / r'",
+        "body": "(lt_div_iff\u2080 hlt).mpr ((mul_lt_iff_lt_one_right hdp).2 hr')",
+        "children": []
+      },
+      {
+        "name": "x_ne_y\u2080",
+        "type": "x - y\u2080 \u2209 F",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "x - y\u2080 + y\u2080 \u2208 F",
+            "body": "F.add_mem h hy\u2080F",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hy\u2080y",
+        "type": "y\u2080 + y \u2208 F",
+        "body": "F.add_mem hy\u2080F hy",
+        "children": []
+      }
+    ]
+  }
+]

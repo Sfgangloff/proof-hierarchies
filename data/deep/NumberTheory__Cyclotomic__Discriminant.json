@@ -1,0 +1,48 @@
+[
+  {
+    "module": "Discriminant",
+    "name": "discr_prime_pow_ne_two",
+    "statement": "Fact p.Prime] (h\u03b6 : IsPrimitiveRoot \u03b6 (p ^ (k + 1))) (hirr : Irreducible (cyclotomic (p ^ (k + 1)) K)) (hk : p ^ (k + 1) \u2260 2) : discr K (h\u03b6.powerBasis K).basis = (-1) ^ ((p ^ (k + 1)).totient / 2) * p ^ (p ^ k * ((p - 1) * (k + 1) - 1))",
+    "have_tree": [
+      {
+        "name": "hp2",
+        "type": "p = 2 \u2192 k \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "hnorm",
+            "type": "(norm K) (\u03b6 ^ p ^ k - 1) = (p : K) ^ p ^ k",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "mul_pos (succ_pos k) (tsub_pos_of_lt hp.out.one_lt)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Discriminant",
+    "name": "discr_prime_pow",
+    "statement": "IsCyclotomicExtension {p ^ k} K L] [hp : Fact p.Prime] (h\u03b6 : IsPrimitiveRoot \u03b6 (p ^ k)) (hirr : Irreducible (cyclotomic (p ^ k) K)) : discr K (h\u03b6.powerBasis K).basis = (-1) ^ ((p ^ k).totient / 2) * p ^ (p ^ (k - 1) * ((p - 1) * k - 1))",
+    "have_tree": [
+      {
+        "name": "h\u03b6one",
+        "type": "\u03b6 = 1",
+        "body": "by simpa using h\u03b6",
+        "children": [
+          {
+            "name": "_",
+            "type": "natDegree (minpoly K \u03b6) = 1",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

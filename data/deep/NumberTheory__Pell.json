@@ -1,0 +1,104 @@
+[
+  {
+    "module": "Pell",
+    "name": "exists_of_not_isSquare",
+    "statement": "0 < d) (hd : \u00acIsSquare d) : \u2203 x y : \u2124, x ^ 2 - d * y ^ 2 = 1 \u2227 y \u2260 0",
+    "have_tree": [
+      {
+        "name": "h\u03be",
+        "type": "Irrational \u03be",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hM",
+        "type": "{q : \u211a | |q.1 ^ 2 - d * (q.2 : \u2124) ^ 2| < M}.Infinite",
+        "body": "by",
+        "children": [
+          {
+            "name": "h0",
+            "type": "0 < (q.2 : \u211d) ^ 2",
+            "body": "pow_pos (Nat.cast_pos.mpr q.pos) 2",
+            "children": []
+          },
+          {
+            "name": "h1",
+            "type": "(q.num : \u211d) / (q.den : \u211d) = q",
+            "body": "mod_cast q.num_div_den",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hm\u2080",
+        "type": "m \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hd\u2081",
+        "type": "m \u2223 q\u2081.num * q\u2082.num - d * (q\u2081.den * q\u2082.den)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hd\u2082",
+        "type": "m \u2223 q\u2081.num * q\u2082.den - q\u2082.num * q\u2081.den",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pell",
+    "name": "exists_of_not_isSquare",
+    "statement": "0 < d) (hd : \u00acIsSquare d) : \u2203 a : Solution\u2081 d, IsFundamental a",
+    "have_tree": [
+      {
+        "name": "P",
+        "type": "\u2203 x' : \u2115, 1 < x' \u2227 \u2203 y' : \u2124, 0 < y' \u2227 (x' : \u2124) ^ 2 - d * y' ^ 2 = 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "hax",
+            "type": "",
+            "body": "a.prop",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hb'",
+        "type": "",
+        "body": "(Int.toNat_of_nonneg <| zero_le_one.trans hb.le).symm",
+        "children": []
+      },
+      {
+        "name": "hb''",
+        "type": "",
+        "body": "hb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pell",
+    "name": "y_strictMono",
+    "statement": "Solution\u2081 d} (h : IsFundamental a) : StrictMono fun n : \u2124 => (a ^ n).y",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "\u2200 n : \u2124, 0 \u2264 n \u2192 (a ^ n).y < (a ^ (n + 1)).y",
+        "body": "by",
+        "children": [
+          {
+            "name": "hm",
+            "type": "n = -m - 1",
+            "body": "by simp only [m, neg_sub, sub_neg_eq_add, add_tsub_cancel_left]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

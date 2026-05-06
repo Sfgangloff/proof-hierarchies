@@ -1,0 +1,196 @@
+[
+  {
+    "original": {
+      "module": "MellinEqDirichlet",
+      "name": "hasSum_mellin",
+      "statement": "\u03b9 \u2192 \u2102} {p : \u03b9 \u2192 \u211d} {F : \u211d \u2192 \u2102} {s : \u2102} (hp : \u2200 i, a i = 0 \u2228 0 < p i) (hs : 0 < s.re) (hF : \u2200 t \u2208 Ioi 0, HasSum (fun i \u21a6 a i * rexp (-p i * t)) (F t)) (h_sum : Summable fun i \u21a6 \u2016a i\u2016 / (p i) ^ s.re) : HasSum (fun i \u21a6 Gamma s * a i / p i ^ s) (mellin F s)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "integral_cpow_mul_exp_neg_mul_Ioi hs hpi",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "Complex.GammaIntegral_convergent hs",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "Real.integral_rpow_mul_exp_neg_mul_Ioi hs hpi",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "MellinEqDirichlet",
+          "name": "hasSum_mellin",
+          "statement": "\u03b9 \u2192 \u2102} {p : \u03b9 \u2192 \u211d} {F : \u211d \u2192 \u2102} {s : \u2102} (hp : \u2200 i, a i = 0 \u2228 0 < p i) (hs : 0 < s.re) (hF : \u2200 t \u2208 Ioi 0, HasSum (fun i \u21a6 a i * rexp (-p i * t)) (F t)) (h_sum : Summable fun i \u21a6 \u2016a i\u2016 / (p i) ^ s.re) : HasSum (fun i \u21a6 Gamma s * a i / p i ^ s) (mellin F s)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Complex.GammaIntegral_convergent hs",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "integral_cpow_mul_exp_neg_mul_Ioi hs hpi",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Real.integral_rpow_mul_exp_neg_mul_Ioi hs hpi",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "MellinEqDirichlet",
+          "name": "hasSum_mellin",
+          "statement": "\u03b9 \u2192 \u2102} {p : \u03b9 \u2192 \u211d} {F : \u211d \u2192 \u2102} {s : \u2102} (hp : \u2200 i, a i = 0 \u2228 0 < p i) (hs : 0 < s.re) (hF : \u2200 t \u2208 Ioi 0, HasSum (fun i \u21a6 a i * rexp (-p i * t)) (F t)) (h_sum : Summable fun i \u21a6 \u2016a i\u2016 / (p i) ^ s.re) : HasSum (fun i \u21a6 Gamma s * a i / p i ^ s) (mellin F s)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "integral_cpow_mul_exp_neg_mul_Ioi hs hpi",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Real.integral_rpow_mul_exp_neg_mul_Ioi hs hpi",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Complex.GammaIntegral_convergent hs",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "MellinEqDirichlet",
+      "name": "hasSum_mellin_pi_mul_sq'",
+      "statement": "\u03b9 \u2192 \u2102} {r : \u03b9 \u2192 \u211d} {F : \u211d \u2192 \u2102} {s : \u2102} (hs : 0 < s.re) (hF : \u2200 t \u2208 Ioi 0, HasSum (fun i \u21a6 a i * r i * rexp (-\u03c0 * r i ^ 2 * t)) (F t)) (h_sum : Summable fun i \u21a6 \u2016a i\u2016 / |r i| ^ s.re) : HasSum (fun i \u21a6 Gamma\u211d (s + 1) * a i * SignType.sign (r i) / |r i| ^ s) (mellin F ((s + 1) / 2))",
+      "have_tree": [
+        {
+          "name": "hs\u2081",
+          "type": "s \u2260 0",
+          "body": "fun h \u21a6 lt_irrefl _ (zero_re \u25b8 h \u25b8 hs)",
+          "children": []
+        },
+        {
+          "name": "hs\u2082",
+          "type": "0 < (s + 1).re",
+          "body": "by rw [add_re, one_re]; positivity",
+          "children": []
+        },
+        {
+          "name": "hs\u2083",
+          "type": "s + 1 \u2260 0",
+          "body": "fun h \u21a6 lt_irrefl _ (zero_re \u25b8 h \u25b8 hs\u2082)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "MellinEqDirichlet",
+          "name": "hasSum_mellin_pi_mul_sq'",
+          "statement": "\u03b9 \u2192 \u2102} {r : \u03b9 \u2192 \u211d} {F : \u211d \u2192 \u2102} {s : \u2102} (hs : 0 < s.re) (hF : \u2200 t \u2208 Ioi 0, HasSum (fun i \u21a6 a i * r i * rexp (-\u03c0 * r i ^ 2 * t)) (F t)) (h_sum : Summable fun i \u21a6 \u2016a i\u2016 / |r i| ^ s.re) : HasSum (fun i \u21a6 Gamma\u211d (s + 1) * a i * SignType.sign (r i) / |r i| ^ s) (mellin F ((s + 1) / 2))",
+          "have_tree": [
+            {
+              "name": "hs\u2082",
+              "type": "0 < (s + 1).re",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "hs\u2081",
+              "type": "s \u2260 0",
+              "body": "fun h \u21a6 lt_irrefl _ (zero_re \u25b8 h \u25b8 hs)",
+              "children": []
+            },
+            {
+              "name": "hs\u2083",
+              "type": "s + 1 \u2260 0",
+              "body": "fun h \u21a6 lt_irrefl _ (zero_re \u25b8 h \u25b8 hs\u2082)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "MellinEqDirichlet",
+          "name": "hasSum_mellin_pi_mul_sq'",
+          "statement": "\u03b9 \u2192 \u2102} {r : \u03b9 \u2192 \u211d} {F : \u211d \u2192 \u2102} {s : \u2102} (hs : 0 < s.re) (hF : \u2200 t \u2208 Ioi 0, HasSum (fun i \u21a6 a i * r i * rexp (-\u03c0 * r i ^ 2 * t)) (F t)) (h_sum : Summable fun i \u21a6 \u2016a i\u2016 / |r i| ^ s.re) : HasSum (fun i \u21a6 Gamma\u211d (s + 1) * a i * SignType.sign (r i) / |r i| ^ s) (mellin F ((s + 1) / 2))",
+          "have_tree": [
+            {
+              "name": "hs\u2081",
+              "type": "s \u2260 0",
+              "body": "fun h \u21a6 lt_irrefl _ (zero_re \u25b8 h \u25b8 hs)",
+              "children": []
+            },
+            {
+              "name": "hs\u2083",
+              "type": "s + 1 \u2260 0",
+              "body": "fun h \u21a6 lt_irrefl _ (zero_re \u25b8 h \u25b8 hs\u2082)",
+              "children": []
+            },
+            {
+              "name": "hs\u2082",
+              "type": "0 < (s + 1).re",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

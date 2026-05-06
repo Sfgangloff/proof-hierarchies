@@ -1,0 +1,1872 @@
+[
+  {
+    "original": {
+      "module": "TranscendenceBasis",
+      "name": "AlgebraicIndependent.isTranscendenceBasis_iff",
+      "statement": "AlgebraicIndependent R x) : IsTranscendenceBasis R x \u2194 \u2200 (\u03ba : Type w) (w : \u03ba \u2192 A) (_ : AlgebraicIndependent R w) (j : \u03b9 \u2192 \u03ba) (_ : w \u2218 j = x), Surjective j",
+      "have_tree": [
+        {
+          "name": "p",
+          "type": "",
+          "body": "p.2 (range w) i'.coe_range (range_comp_subset_range _ _)",
+          "children": []
+        },
+        {
+          "name": "q",
+          "type": "",
+          "body": "congr_arg (fun s => ((\u2191) : w \u2192 A) '' s) p.range_eq",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "AlgebraicIndependent.isTranscendenceBasis_iff",
+          "statement": "AlgebraicIndependent R x) : IsTranscendenceBasis R x \u2194 \u2200 (\u03ba : Type w) (w : \u03ba \u2192 A) (_ : AlgebraicIndependent R w) (j : \u03b9 \u2192 \u03ba) (_ : w \u2218 j = x), Surjective j",
+          "have_tree": [
+            {
+              "name": "q",
+              "type": "",
+              "body": "congr_arg (fun s => ((\u2191) : w \u2192 A) '' s) p.range_eq",
+              "children": []
+            },
+            {
+              "name": "p",
+              "type": "",
+              "body": "p.2 (range w) i'.coe_range (range_comp_subset_range _ _)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "TranscendenceBasis",
+      "name": "IsTranscendenceBasis.algebraMap_comp",
+      "statement": "\u03b9 \u2192 S} (hx : IsTranscendenceBasis R x) : IsTranscendenceBasis R (algebraMap S A \u2218 x)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Algebra.IsAlgebraic Rx S",
+          "body": "hx.isAlgebraic",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Algebra.IsAlgebraic Rx A",
+          "body": ".trans _ S _",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "IsTranscendenceBasis.algebraMap_comp",
+          "statement": "\u03b9 \u2192 S} (hx : IsTranscendenceBasis R x) : IsTranscendenceBasis R (algebraMap S A \u2218 x)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic Rx A",
+              "body": ".trans _ S _",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic Rx S",
+              "body": "hx.isAlgebraic",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "TranscendenceBasis",
+      "name": "IsTranscendenceBasis.isAlgebraic_iff",
+      "statement": "Type*} {v : \u03b9 \u2192 A} (hv : IsTranscendenceBasis R v) : Algebra.IsAlgebraic S A \u2194 \u2200 i, IsAlgebraic S (v i)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Algebra.IsAlgebraic S Sv",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "le",
+          "type": "Rv \u2264 Sv.restrictScalars R",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "IsScalarTower Rv Sv A",
+          "body": ".of_algebraMap_eq fun x \u21a6 rfl",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "(algebraMap R S).domain_nontrivial",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "hv.isAlgebraic",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Algebra.IsAlgebraic Sv A",
+          "body": ".extendScalars (Subalgebra.inclusion_injective le)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "IsTranscendenceBasis.isAlgebraic_iff",
+          "statement": "Type*} {v : \u03b9 \u2192 A} (hv : IsTranscendenceBasis R v) : Algebra.IsAlgebraic S A \u2194 \u2200 i, IsAlgebraic S (v i)",
+          "have_tree": [
+            {
+              "name": "le",
+              "type": "Rv \u2264 Sv.restrictScalars R",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic S Sv",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsScalarTower Rv Sv A",
+              "body": ".of_algebraMap_eq fun x \u21a6 rfl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(algebraMap R S).domain_nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hv.isAlgebraic",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic Sv A",
+              "body": ".extendScalars (Subalgebra.inclusion_injective le)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "IsTranscendenceBasis.isAlgebraic_iff",
+          "statement": "Type*} {v : \u03b9 \u2192 A} (hv : IsTranscendenceBasis R v) : Algebra.IsAlgebraic S A \u2194 \u2200 i, IsAlgebraic S (v i)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic S Sv",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsScalarTower Rv Sv A",
+              "body": ".of_algebraMap_eq fun x \u21a6 rfl",
+              "children": []
+            },
+            {
+              "name": "le",
+              "type": "Rv \u2264 Sv.restrictScalars R",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(algebraMap R S).domain_nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hv.isAlgebraic",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic Sv A",
+              "body": ".extendScalars (Subalgebra.inclusion_injective le)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "IsTranscendenceBasis.isAlgebraic_iff",
+          "statement": "Type*} {v : \u03b9 \u2192 A} (hv : IsTranscendenceBasis R v) : Algebra.IsAlgebraic S A \u2194 \u2200 i, IsAlgebraic S (v i)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic S Sv",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "le",
+              "type": "Rv \u2264 Sv.restrictScalars R",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(algebraMap R S).domain_nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsScalarTower Rv Sv A",
+              "body": ".of_algebraMap_eq fun x \u21a6 rfl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hv.isAlgebraic",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic Sv A",
+              "body": ".extendScalars (Subalgebra.inclusion_injective le)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "IsTranscendenceBasis.isAlgebraic_iff",
+          "statement": "Type*} {v : \u03b9 \u2192 A} (hv : IsTranscendenceBasis R v) : Algebra.IsAlgebraic S A \u2194 \u2200 i, IsAlgebraic S (v i)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic S Sv",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "le",
+              "type": "Rv \u2264 Sv.restrictScalars R",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsScalarTower Rv Sv A",
+              "body": ".of_algebraMap_eq fun x \u21a6 rfl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hv.isAlgebraic",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(algebraMap R S).domain_nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic Sv A",
+              "body": ".extendScalars (Subalgebra.inclusion_injective le)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "IsTranscendenceBasis.isAlgebraic_iff",
+          "statement": "Type*} {v : \u03b9 \u2192 A} (hv : IsTranscendenceBasis R v) : Algebra.IsAlgebraic S A \u2194 \u2200 i, IsAlgebraic S (v i)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic S Sv",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "le",
+              "type": "Rv \u2264 Sv.restrictScalars R",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsScalarTower Rv Sv A",
+              "body": ".of_algebraMap_eq fun x \u21a6 rfl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(algebraMap R S).domain_nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic Sv A",
+              "body": ".extendScalars (Subalgebra.inclusion_injective le)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hv.isAlgebraic",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "TranscendenceBasis",
+      "name": "IsTranscendenceBasis.sumElim_comp",
+      "statement": "\u03b9 \u2192 S} {y : \u03b9' \u2192 A} (hx : IsTranscendenceBasis R x) (hy : IsTranscendenceBasis S y) : IsTranscendenceBasis R (Sum.elim y (algebraMap S A \u2218 x))",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "hx.1.algebraMap_injective.nontrivial",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "hy.1.algebraMap_injective.nontrivial",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "hy.isAlgebraic",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "IsScalarTower Rxy Sy A",
+          "body": ".of_algebraMap_eq fun \u27e8a, _\u27e9 \u21a6 show a = _ from rfl",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "IsScalarTower Rx Rxy Sy",
+          "body": ".of_algebraMap_eq fun \u27e8a, _\u27e9 \u21a6 Subtype.ext rfl",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Algebra.IsAlgebraic Rxy Sy",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "IsTranscendenceBasis.sumElim_comp",
+          "statement": "\u03b9 \u2192 S} {y : \u03b9' \u2192 A} (hx : IsTranscendenceBasis R x) (hy : IsTranscendenceBasis S y) : IsTranscendenceBasis R (Sum.elim y (algebraMap S A \u2218 x))",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hy.1.algebraMap_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hx.1.algebraMap_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hy.isAlgebraic",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsScalarTower Rxy Sy A",
+              "body": ".of_algebraMap_eq fun \u27e8a, _\u27e9 \u21a6 show a = _ from rfl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsScalarTower Rx Rxy Sy",
+              "body": ".of_algebraMap_eq fun \u27e8a, _\u27e9 \u21a6 Subtype.ext rfl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic Rxy Sy",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "IsTranscendenceBasis.sumElim_comp",
+          "statement": "\u03b9 \u2192 S} {y : \u03b9' \u2192 A} (hx : IsTranscendenceBasis R x) (hy : IsTranscendenceBasis S y) : IsTranscendenceBasis R (Sum.elim y (algebraMap S A \u2218 x))",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hx.1.algebraMap_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hy.isAlgebraic",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hy.1.algebraMap_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsScalarTower Rxy Sy A",
+              "body": ".of_algebraMap_eq fun \u27e8a, _\u27e9 \u21a6 show a = _ from rfl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsScalarTower Rx Rxy Sy",
+              "body": ".of_algebraMap_eq fun \u27e8a, _\u27e9 \u21a6 Subtype.ext rfl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic Rxy Sy",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "IsTranscendenceBasis.sumElim_comp",
+          "statement": "\u03b9 \u2192 S} {y : \u03b9' \u2192 A} (hx : IsTranscendenceBasis R x) (hy : IsTranscendenceBasis S y) : IsTranscendenceBasis R (Sum.elim y (algebraMap S A \u2218 x))",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hx.1.algebraMap_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hy.1.algebraMap_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsScalarTower Rxy Sy A",
+              "body": ".of_algebraMap_eq fun \u27e8a, _\u27e9 \u21a6 show a = _ from rfl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hy.isAlgebraic",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsScalarTower Rx Rxy Sy",
+              "body": ".of_algebraMap_eq fun \u27e8a, _\u27e9 \u21a6 Subtype.ext rfl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic Rxy Sy",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "IsTranscendenceBasis.sumElim_comp",
+          "statement": "\u03b9 \u2192 S} {y : \u03b9' \u2192 A} (hx : IsTranscendenceBasis R x) (hy : IsTranscendenceBasis S y) : IsTranscendenceBasis R (Sum.elim y (algebraMap S A \u2218 x))",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hx.1.algebraMap_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hy.1.algebraMap_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hy.isAlgebraic",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsScalarTower Rx Rxy Sy",
+              "body": ".of_algebraMap_eq fun \u27e8a, _\u27e9 \u21a6 Subtype.ext rfl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsScalarTower Rxy Sy A",
+              "body": ".of_algebraMap_eq fun \u27e8a, _\u27e9 \u21a6 show a = _ from rfl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic Rxy Sy",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "IsTranscendenceBasis.sumElim_comp",
+          "statement": "\u03b9 \u2192 S} {y : \u03b9' \u2192 A} (hx : IsTranscendenceBasis R x) (hy : IsTranscendenceBasis S y) : IsTranscendenceBasis R (Sum.elim y (algebraMap S A \u2218 x))",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hx.1.algebraMap_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hy.1.algebraMap_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hy.isAlgebraic",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsScalarTower Rxy Sy A",
+              "body": ".of_algebraMap_eq fun \u27e8a, _\u27e9 \u21a6 show a = _ from rfl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic Rxy Sy",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsScalarTower Rx Rxy Sy",
+              "body": ".of_algebraMap_eq fun \u27e8a, _\u27e9 \u21a6 Subtype.ext rfl",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "TranscendenceBasis",
+      "name": "exists_isTranscendenceBasis_between",
+      "statement": "Set A) (hst : s \u2286 t) (hs : AlgebraicIndepOn R id s) [ht : Algebra.IsAlgebraic (adjoin R t) A] : \u2203 u, s \u2286 u \u2227 u \u2286 t \u2227 IsTranscendenceBasis R ((\u2191) : u \u2192 A)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "ht.nontrivial",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "Subtype.val_injective (p := (\u00b7 \u2208 adjoin R t)).nontrivial",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "(isDomain_iff_noZeroDivisors_and_nontrivial A).mpr \u27e8inferInstance, inferInstance\u27e9",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "(faithfulSMul_iff_algebraMap_injective R A).mpr hs.algebraMap_injective",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "exists_isTranscendenceBasis_between",
+          "statement": "Set A) (hst : s \u2286 t) (hs : AlgebraicIndepOn R id s) [ht : Algebra.IsAlgebraic (adjoin R t) A] : \u2203 u, s \u2286 u \u2227 u \u2286 t \u2227 IsTranscendenceBasis R ((\u2191) : u \u2192 A)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Subtype.val_injective (p := (\u00b7 \u2208 adjoin R t)).nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "ht.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isDomain_iff_noZeroDivisors_and_nontrivial A).mpr \u27e8inferInstance, inferInstance\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(faithfulSMul_iff_algebraMap_injective R A).mpr hs.algebraMap_injective",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "exists_isTranscendenceBasis_between",
+          "statement": "Set A) (hst : s \u2286 t) (hs : AlgebraicIndepOn R id s) [ht : Algebra.IsAlgebraic (adjoin R t) A] : \u2203 u, s \u2286 u \u2227 u \u2286 t \u2227 IsTranscendenceBasis R ((\u2191) : u \u2192 A)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "ht.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isDomain_iff_noZeroDivisors_and_nontrivial A).mpr \u27e8inferInstance, inferInstance\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Subtype.val_injective (p := (\u00b7 \u2208 adjoin R t)).nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(faithfulSMul_iff_algebraMap_injective R A).mpr hs.algebraMap_injective",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "exists_isTranscendenceBasis_between",
+          "statement": "Set A) (hst : s \u2286 t) (hs : AlgebraicIndepOn R id s) [ht : Algebra.IsAlgebraic (adjoin R t) A] : \u2203 u, s \u2286 u \u2227 u \u2286 t \u2227 IsTranscendenceBasis R ((\u2191) : u \u2192 A)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "ht.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Subtype.val_injective (p := (\u00b7 \u2208 adjoin R t)).nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(faithfulSMul_iff_algebraMap_injective R A).mpr hs.algebraMap_injective",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isDomain_iff_noZeroDivisors_and_nontrivial A).mpr \u27e8inferInstance, inferInstance\u27e9",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "TranscendenceBasis",
+      "name": "trdeg_le_cardinalMk",
+      "statement": "Algebra.IsAlgebraic (adjoin R s) A] : trdeg R A \u2264 #s",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "isDomain_of_adjoin_range R s",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "(faithfulSMul_iff_algebraMap_injective R A).mpr h",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "trdeg_le_cardinalMk",
+          "statement": "Algebra.IsAlgebraic (adjoin R s) A] : trdeg R A \u2264 #s",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "(faithfulSMul_iff_algebraMap_injective R A).mpr h",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "isDomain_of_adjoin_range R s",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "TranscendenceBasis",
+      "name": "isTranscendenceBasis_of_lift_le_trdeg_of_finite",
+      "statement": "Algebra.IsAlgebraic (adjoin R (range x)) A] (le : lift.{w} #\u03b9 \u2264 lift.{u} (trdeg R A)) : IsTranscendenceBasis R x",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "rangeFactorization_surjective.bijective_of_nat_card_le (Nat.card_le_card_of_injective _ h)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "isDomain_of_adjoin_range R (range x)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "isTranscendenceBasis_of_lift_le_trdeg_of_finite",
+          "statement": "Algebra.IsAlgebraic (adjoin R (range x)) A] (le : lift.{w} #\u03b9 \u2264 lift.{u} (trdeg R A)) : IsTranscendenceBasis R x",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "isDomain_of_adjoin_range R (range x)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "rangeFactorization_surjective.bijective_of_nat_card_le (Nat.card_le_card_of_injective _ h)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "TranscendenceBasis",
+      "name": "lift_trdeg_add_eq",
+      "statement": "lift.{w} (trdeg R S) + lift.{v} (trdeg S A) = lift.{v} (trdeg R A)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "(FaithfulSMul.algebraMap_injective S A).noZeroDivisors _ (map_zero _) (map_mul _)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "(FaithfulSMul.algebraMap_injective R S).nontrivial",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "lift_trdeg_add_eq",
+          "statement": "lift.{w} (trdeg R S) + lift.{v} (trdeg S A) = lift.{v} (trdeg R A)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "(FaithfulSMul.algebraMap_injective R S).nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(FaithfulSMul.algebraMap_injective S A).noZeroDivisors _ (map_zero _) (map_mul _)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "TranscendenceBasis",
+      "name": "of_isAlgebraic_adjoin_insert_diff",
+      "statement": "j \u2208 insert i s) (H\u2081 : IsTranscendenceBasis R fun x : s \u21a6 v x) (H\u2082 : IsAlgebraic (Algebra.adjoin R (v '' (insert i s \\ {j}))) (v j)) : IsTranscendenceBasis R fun x : \u21a5(insert i s \\ {j}) \u21a6 v x",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "H\u2082.nontrivial",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "(adjoin R (v '' (insert i s \\ {j}))).subtype_injective.nontrivial",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "(isDomain_iff_noZeroDivisors_and_nontrivial S).mpr \u27e8\u2039_\u203a, \u2039_\u203a\u27e9",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "Module.nontrivial R S",
+          "children": []
+        },
+        {
+          "name": "inj",
+          "type": "",
+          "body": "injOn_iff_injective.mpr H\u2081.1.injective",
+          "children": []
+        },
+        {
+          "name": "H'",
+          "type": "",
+          "body": "image_eq_range .. \u25b8 matroid_isBase_iff.mpr H\u2081.to_subtype_range",
+          "children": []
+        },
+        {
+          "name": "Hj",
+          "type": "",
+          "body": "H'.indep.notMem_closure_diff_of_mem \u27e8j, hj, rfl\u27e9",
+          "children": []
+        },
+        {
+          "name": "hi",
+          "type": "i \u2209 s",
+          "body": "fun hi \u21a6 Hj <| by",
+          "children": []
+        },
+        {
+          "name": "hi'",
+          "type": "v i \u2209 v '' s",
+          "body": "fun his \u21a6 Hj <| by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "(insert i s).InjOn v",
+          "body": "(injOn_insert hi).mpr \u27e8inj, hi'\u27e9",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "of_isAlgebraic_adjoin_insert_diff",
+          "statement": "j \u2208 insert i s) (H\u2081 : IsTranscendenceBasis R fun x : s \u21a6 v x) (H\u2082 : IsAlgebraic (Algebra.adjoin R (v '' (insert i s \\ {j}))) (v j)) : IsTranscendenceBasis R fun x : \u21a5(insert i s \\ {j}) \u21a6 v x",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "(adjoin R (v '' (insert i s \\ {j}))).subtype_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "H\u2082.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isDomain_iff_noZeroDivisors_and_nontrivial S).mpr \u27e8\u2039_\u203a, \u2039_\u203a\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Module.nontrivial R S",
+              "children": []
+            },
+            {
+              "name": "inj",
+              "type": "",
+              "body": "injOn_iff_injective.mpr H\u2081.1.injective",
+              "children": []
+            },
+            {
+              "name": "H'",
+              "type": "",
+              "body": "image_eq_range .. \u25b8 matroid_isBase_iff.mpr H\u2081.to_subtype_range",
+              "children": []
+            },
+            {
+              "name": "Hj",
+              "type": "",
+              "body": "H'.indep.notMem_closure_diff_of_mem \u27e8j, hj, rfl\u27e9",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "i \u2209 s",
+              "body": "fun hi \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "hi'",
+              "type": "v i \u2209 v '' s",
+              "body": "fun his \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(insert i s).InjOn v",
+              "body": "(injOn_insert hi).mpr \u27e8inj, hi'\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "of_isAlgebraic_adjoin_insert_diff",
+          "statement": "j \u2208 insert i s) (H\u2081 : IsTranscendenceBasis R fun x : s \u21a6 v x) (H\u2082 : IsAlgebraic (Algebra.adjoin R (v '' (insert i s \\ {j}))) (v j)) : IsTranscendenceBasis R fun x : \u21a5(insert i s \\ {j}) \u21a6 v x",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H\u2082.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isDomain_iff_noZeroDivisors_and_nontrivial S).mpr \u27e8\u2039_\u203a, \u2039_\u203a\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(adjoin R (v '' (insert i s \\ {j}))).subtype_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Module.nontrivial R S",
+              "children": []
+            },
+            {
+              "name": "inj",
+              "type": "",
+              "body": "injOn_iff_injective.mpr H\u2081.1.injective",
+              "children": []
+            },
+            {
+              "name": "H'",
+              "type": "",
+              "body": "image_eq_range .. \u25b8 matroid_isBase_iff.mpr H\u2081.to_subtype_range",
+              "children": []
+            },
+            {
+              "name": "Hj",
+              "type": "",
+              "body": "H'.indep.notMem_closure_diff_of_mem \u27e8j, hj, rfl\u27e9",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "i \u2209 s",
+              "body": "fun hi \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "hi'",
+              "type": "v i \u2209 v '' s",
+              "body": "fun his \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(insert i s).InjOn v",
+              "body": "(injOn_insert hi).mpr \u27e8inj, hi'\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "of_isAlgebraic_adjoin_insert_diff",
+          "statement": "j \u2208 insert i s) (H\u2081 : IsTranscendenceBasis R fun x : s \u21a6 v x) (H\u2082 : IsAlgebraic (Algebra.adjoin R (v '' (insert i s \\ {j}))) (v j)) : IsTranscendenceBasis R fun x : \u21a5(insert i s \\ {j}) \u21a6 v x",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H\u2082.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(adjoin R (v '' (insert i s \\ {j}))).subtype_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Module.nontrivial R S",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isDomain_iff_noZeroDivisors_and_nontrivial S).mpr \u27e8\u2039_\u203a, \u2039_\u203a\u27e9",
+              "children": []
+            },
+            {
+              "name": "inj",
+              "type": "",
+              "body": "injOn_iff_injective.mpr H\u2081.1.injective",
+              "children": []
+            },
+            {
+              "name": "H'",
+              "type": "",
+              "body": "image_eq_range .. \u25b8 matroid_isBase_iff.mpr H\u2081.to_subtype_range",
+              "children": []
+            },
+            {
+              "name": "Hj",
+              "type": "",
+              "body": "H'.indep.notMem_closure_diff_of_mem \u27e8j, hj, rfl\u27e9",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "i \u2209 s",
+              "body": "fun hi \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "hi'",
+              "type": "v i \u2209 v '' s",
+              "body": "fun his \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(insert i s).InjOn v",
+              "body": "(injOn_insert hi).mpr \u27e8inj, hi'\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "of_isAlgebraic_adjoin_insert_diff",
+          "statement": "j \u2208 insert i s) (H\u2081 : IsTranscendenceBasis R fun x : s \u21a6 v x) (H\u2082 : IsAlgebraic (Algebra.adjoin R (v '' (insert i s \\ {j}))) (v j)) : IsTranscendenceBasis R fun x : \u21a5(insert i s \\ {j}) \u21a6 v x",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H\u2082.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(adjoin R (v '' (insert i s \\ {j}))).subtype_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isDomain_iff_noZeroDivisors_and_nontrivial S).mpr \u27e8\u2039_\u203a, \u2039_\u203a\u27e9",
+              "children": []
+            },
+            {
+              "name": "inj",
+              "type": "",
+              "body": "injOn_iff_injective.mpr H\u2081.1.injective",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Module.nontrivial R S",
+              "children": []
+            },
+            {
+              "name": "H'",
+              "type": "",
+              "body": "image_eq_range .. \u25b8 matroid_isBase_iff.mpr H\u2081.to_subtype_range",
+              "children": []
+            },
+            {
+              "name": "Hj",
+              "type": "",
+              "body": "H'.indep.notMem_closure_diff_of_mem \u27e8j, hj, rfl\u27e9",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "i \u2209 s",
+              "body": "fun hi \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "hi'",
+              "type": "v i \u2209 v '' s",
+              "body": "fun his \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(insert i s).InjOn v",
+              "body": "(injOn_insert hi).mpr \u27e8inj, hi'\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4,
+          6,
+          7,
+          8,
+          9
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "of_isAlgebraic_adjoin_insert_diff",
+          "statement": "j \u2208 insert i s) (H\u2081 : IsTranscendenceBasis R fun x : s \u21a6 v x) (H\u2082 : IsAlgebraic (Algebra.adjoin R (v '' (insert i s \\ {j}))) (v j)) : IsTranscendenceBasis R fun x : \u21a5(insert i s \\ {j}) \u21a6 v x",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H\u2082.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(adjoin R (v '' (insert i s \\ {j}))).subtype_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isDomain_iff_noZeroDivisors_and_nontrivial S).mpr \u27e8\u2039_\u203a, \u2039_\u203a\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Module.nontrivial R S",
+              "children": []
+            },
+            {
+              "name": "H'",
+              "type": "",
+              "body": "image_eq_range .. \u25b8 matroid_isBase_iff.mpr H\u2081.to_subtype_range",
+              "children": []
+            },
+            {
+              "name": "inj",
+              "type": "",
+              "body": "injOn_iff_injective.mpr H\u2081.1.injective",
+              "children": []
+            },
+            {
+              "name": "Hj",
+              "type": "",
+              "body": "H'.indep.notMem_closure_diff_of_mem \u27e8j, hj, rfl\u27e9",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "i \u2209 s",
+              "body": "fun hi \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "hi'",
+              "type": "v i \u2209 v '' s",
+              "body": "fun his \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(insert i s).InjOn v",
+              "body": "(injOn_insert hi).mpr \u27e8inj, hi'\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          5,
+          7,
+          8,
+          9
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "of_isAlgebraic_adjoin_insert_diff",
+          "statement": "j \u2208 insert i s) (H\u2081 : IsTranscendenceBasis R fun x : s \u21a6 v x) (H\u2082 : IsAlgebraic (Algebra.adjoin R (v '' (insert i s \\ {j}))) (v j)) : IsTranscendenceBasis R fun x : \u21a5(insert i s \\ {j}) \u21a6 v x",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H\u2082.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(adjoin R (v '' (insert i s \\ {j}))).subtype_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isDomain_iff_noZeroDivisors_and_nontrivial S).mpr \u27e8\u2039_\u203a, \u2039_\u203a\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Module.nontrivial R S",
+              "children": []
+            },
+            {
+              "name": "inj",
+              "type": "",
+              "body": "injOn_iff_injective.mpr H\u2081.1.injective",
+              "children": []
+            },
+            {
+              "name": "Hj",
+              "type": "",
+              "body": "H'.indep.notMem_closure_diff_of_mem \u27e8j, hj, rfl\u27e9",
+              "children": []
+            },
+            {
+              "name": "H'",
+              "type": "",
+              "body": "image_eq_range .. \u25b8 matroid_isBase_iff.mpr H\u2081.to_subtype_range",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "i \u2209 s",
+              "body": "fun hi \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "hi'",
+              "type": "v i \u2209 v '' s",
+              "body": "fun his \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(insert i s).InjOn v",
+              "body": "(injOn_insert hi).mpr \u27e8inj, hi'\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          6,
+          8,
+          9
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "of_isAlgebraic_adjoin_insert_diff",
+          "statement": "j \u2208 insert i s) (H\u2081 : IsTranscendenceBasis R fun x : s \u21a6 v x) (H\u2082 : IsAlgebraic (Algebra.adjoin R (v '' (insert i s \\ {j}))) (v j)) : IsTranscendenceBasis R fun x : \u21a5(insert i s \\ {j}) \u21a6 v x",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H\u2082.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(adjoin R (v '' (insert i s \\ {j}))).subtype_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isDomain_iff_noZeroDivisors_and_nontrivial S).mpr \u27e8\u2039_\u203a, \u2039_\u203a\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Module.nontrivial R S",
+              "children": []
+            },
+            {
+              "name": "inj",
+              "type": "",
+              "body": "injOn_iff_injective.mpr H\u2081.1.injective",
+              "children": []
+            },
+            {
+              "name": "H'",
+              "type": "",
+              "body": "image_eq_range .. \u25b8 matroid_isBase_iff.mpr H\u2081.to_subtype_range",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "i \u2209 s",
+              "body": "fun hi \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "Hj",
+              "type": "",
+              "body": "H'.indep.notMem_closure_diff_of_mem \u27e8j, hj, rfl\u27e9",
+              "children": []
+            },
+            {
+              "name": "hi'",
+              "type": "v i \u2209 v '' s",
+              "body": "fun his \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(insert i s).InjOn v",
+              "body": "(injOn_insert hi).mpr \u27e8inj, hi'\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          7,
+          9
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "of_isAlgebraic_adjoin_insert_diff",
+          "statement": "j \u2208 insert i s) (H\u2081 : IsTranscendenceBasis R fun x : s \u21a6 v x) (H\u2082 : IsAlgebraic (Algebra.adjoin R (v '' (insert i s \\ {j}))) (v j)) : IsTranscendenceBasis R fun x : \u21a5(insert i s \\ {j}) \u21a6 v x",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H\u2082.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(adjoin R (v '' (insert i s \\ {j}))).subtype_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isDomain_iff_noZeroDivisors_and_nontrivial S).mpr \u27e8\u2039_\u203a, \u2039_\u203a\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Module.nontrivial R S",
+              "children": []
+            },
+            {
+              "name": "inj",
+              "type": "",
+              "body": "injOn_iff_injective.mpr H\u2081.1.injective",
+              "children": []
+            },
+            {
+              "name": "H'",
+              "type": "",
+              "body": "image_eq_range .. \u25b8 matroid_isBase_iff.mpr H\u2081.to_subtype_range",
+              "children": []
+            },
+            {
+              "name": "Hj",
+              "type": "",
+              "body": "H'.indep.notMem_closure_diff_of_mem \u27e8j, hj, rfl\u27e9",
+              "children": []
+            },
+            {
+              "name": "hi'",
+              "type": "v i \u2209 v '' s",
+              "body": "fun his \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "i \u2209 s",
+              "body": "fun hi \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(insert i s).InjOn v",
+              "body": "(injOn_insert hi).mpr \u27e8inj, hi'\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          8
+        ],
+        "result": {
+          "module": "TranscendenceBasis",
+          "name": "of_isAlgebraic_adjoin_insert_diff",
+          "statement": "j \u2208 insert i s) (H\u2081 : IsTranscendenceBasis R fun x : s \u21a6 v x) (H\u2082 : IsAlgebraic (Algebra.adjoin R (v '' (insert i s \\ {j}))) (v j)) : IsTranscendenceBasis R fun x : \u21a5(insert i s \\ {j}) \u21a6 v x",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H\u2082.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(adjoin R (v '' (insert i s \\ {j}))).subtype_injective.nontrivial",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isDomain_iff_noZeroDivisors_and_nontrivial S).mpr \u27e8\u2039_\u203a, \u2039_\u203a\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "Module.nontrivial R S",
+              "children": []
+            },
+            {
+              "name": "inj",
+              "type": "",
+              "body": "injOn_iff_injective.mpr H\u2081.1.injective",
+              "children": []
+            },
+            {
+              "name": "H'",
+              "type": "",
+              "body": "image_eq_range .. \u25b8 matroid_isBase_iff.mpr H\u2081.to_subtype_range",
+              "children": []
+            },
+            {
+              "name": "Hj",
+              "type": "",
+              "body": "H'.indep.notMem_closure_diff_of_mem \u27e8j, hj, rfl\u27e9",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "i \u2209 s",
+              "body": "fun hi \u21a6 Hj <| by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(insert i s).InjOn v",
+              "body": "(injOn_insert hi).mpr \u27e8inj, hi'\u27e9",
+              "children": []
+            },
+            {
+              "name": "hi'",
+              "type": "v i \u2209 v '' s",
+              "body": "fun his \u21a6 Hj <| by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

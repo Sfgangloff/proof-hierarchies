@@ -1,0 +1,73 @@
+[
+  {
+    "module": "DivergenceTheorem",
+    "name": "norm_volume_sub_integral_face_upper_sub_lower_smul_le",
+    "statement": "(Fin (n + 1) \u2192 \u211d) \u2192 E} {f' : (Fin (n + 1) \u2192 \u211d) \u2192L[\u211d] E} (hfc : ContinuousOn f (Box.Icc I)) {x : Fin (n + 1) \u2192 \u211d} (hxI : x \u2208 (Box.Icc I)) {a : E} {\u03b5 : \u211d} (h0 : 0 < \u03b5) (h\u03b5 : \u2200 y \u2208 (Box.Icc I), \u2016f y - a - f' (y - x)\u2016 \u2264 \u03b5 * \u2016y - x\u2016) {c : \u211d\u22650} (hc : I.distortion \u2264 c) : \u2016(\u220f j, (I.upper j - I.lower j)) \u2022 f' (Pi.single i 1) - (integral (I.face i) \u22a5 (f \u2218 i.insertNth (\u03b1",
+    "have_tree": [
+      {
+        "name": "Hl",
+        "type": "I.lower i \u2208 Icc (I.lower i) (I.upper i)",
+        "body": "Set.left_mem_Icc.2 (I.lower_le_upper i)",
+        "children": []
+      },
+      {
+        "name": "Hu",
+        "type": "I.upper i \u2208 Icc (I.lower i) (I.upper i)",
+        "body": "Set.right_mem_Icc.2 (I.lower_le_upper i)",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Fin.insertNth_sub_same (\u03b1 := fun _ \u21a6 \u211d) i (I.upper i) (I.lower i) y",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "DivergenceTheorem",
+    "name": "hasIntegral_GP_pderiv",
+    "statement": "(Fin (n + 1) \u2192 \u211d) \u2192 E) (f' : (Fin (n + 1) \u2192 \u211d) \u2192 (Fin (n + 1) \u2192 \u211d) \u2192L[\u211d] E) (s : Set (Fin (n + 1) \u2192 \u211d)) (hs : s.Countable) (Hs : \u2200 x \u2208 s, ContinuousWithinAt f (Box.Icc I) x) (Hd : \u2200 x \u2208 (Box.Icc I) \\ s, HasFDerivWithinAt f (f' x) (Box.Icc I) x) (i : Fin (n + 1)) : HasIntegral.{0, u, u} I GP (fun x => f' x (Pi.single i 1)) BoxAdditiveMap.volume (integral.{0, u, u} (I.face i) GP (fun x => f (i.insertNth (I.upper i) x)) BoxAdditiveMap.volume - integral.{0, u, u} (I.face i) GP (fun x => f (i.insertNth (I.lower i) x)) BoxAdditiveMap.volume)",
+    "have_tree": [
+      {
+        "name": "Hc",
+        "type": "ContinuousOn f (Box.Icc I)",
+        "body": "fun x hx \u21a6 by",
+        "children": [
+          {
+            "name": "_",
+            "type": "closedBall x \u03b4 \u2229 (Box.Icc I) \u2286 closedBall x \u03b4\u2081 \u2229 (Box.Icc I)",
+            "body": "by gcongr; exact h\u03b4.2",
+            "children": []
+          },
+          {
+            "name": "Hl",
+            "type": "J.lower i \u2208 Icc (J.lower i) (J.upper i)",
+            "body": "Set.left_mem_Icc.2 (J.lower_le_upper i)",
+            "children": []
+          },
+          {
+            "name": "Hu",
+            "type": "J.upper i \u2208 Icc (J.lower i) (J.upper i)",
+            "body": "Set.right_mem_Icc.2 (J.lower_le_upper i)",
+            "children": []
+          },
+          {
+            "name": "hJ\u03b4'",
+            "type": "Box.Icc J \u2286 closedBall x \u03b4 \u2229 (Box.Icc I)",
+            "body": "subset_inter hJ\u03b4 (Box.le_iff_Icc.1 hJI)",
+            "children": [
+              {
+                "name": "_",
+                "type": "\u2200 j, |J.upper j - J.lower j| \u2264 2 * \u03b4",
+                "body": "fun j \u21a6",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

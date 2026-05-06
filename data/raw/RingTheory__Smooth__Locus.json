@@ -1,0 +1,123 @@
+[
+  {
+    "module": "Locus",
+    "name": "smoothLocus",
+    "statement": "Set (PrimeSpectrum A)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "EssFiniteType R (Localization.AtPrime p.asIdeal)",
+        "body": ".comp _ A _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "this.extendScalarsOfIsLocalization",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Locus",
+    "name": "basicOpen_subset_smoothLocus_iff",
+    "statement": "A} : \u2191(PrimeSpectrum.basicOpen f) \u2286 smoothLocus R A \u2194 Algebra.FormallySmooth R (Localization.Away f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsLocalizedModule.iso (.powers f)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "this.extendScalarsOfIsLocalization (.powers f) (Localization.Away f)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Locus",
+    "name": "basicOpen_subset_smoothLocus_iff_smooth",
+    "statement": "A} : \u2191(PrimeSpectrum.basicOpen f) \u2286 smoothLocus R A \u2194 Algebra.Smooth R (Localization.Away f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FinitePresentation A (Localization.Away f)",
+        "body": "IsLocalization.Away.finitePresentation f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Locus",
+    "name": "smoothLocus_eq_univ_iff",
+    "statement": "smoothLocus R A = Set.univ \u2194 Algebra.FormallySmooth R A",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsLocalization.atUnits A (.powers 1) (S := Localization.Away (1 : A)) (by simp)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Locus",
+    "name": "smoothLocus_comap_of_isLocalization",
+    "statement": "Type*} [CommRing Af] [Algebra A Af] [Algebra R Af] [IsScalarTower R A Af] (f : A) [IsLocalization.Away f Af] : PrimeSpectrum.comap (algebraMap A Af) \u207b\u00b9' smoothLocus R A = smoothLocus R Af",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsLocalization.AtPrime (Localization.AtPrime p.asIdeal) q.asIdeal",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Locus",
+    "name": "isOpen_smoothLocus",
+    "statement": "IsOpen (smoothLocus R A)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Algebra.FinitePresentation A (Localization.Away f)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.FinitePresentation R (Localization.Away f)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsOpen (smoothLocus R Af)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "IsLocalizedModule.iso (.powers f)",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "this.extendScalarsOfIsLocalization (.powers f) (Localization.Away f)",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "Module.Projective.of_equiv this",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

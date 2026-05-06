@@ -1,0 +1,91 @@
+[
+  {
+    "module": "Uniqueness",
+    "name": "Asymptotics.IsBigO.continuousMultilinearMap_apply_eq_zero",
+    "statement": "\u2115} {p : E [\u00d7n]\u2192L[\ud835\udd5c] F} (h : (fun y => p fun _ => y) =O[\ud835\udcdd 0] fun y => \u2016y\u2016 ^ (n + 1)) (y : E) : (p fun _ => y) = 0",
+    "have_tree": [
+      {
+        "name": "h\u2080",
+        "type": "",
+        "body": "_root_.mul_pos c_pos (pow_pos hy (n.succ + 1))",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "\u2016k \u2022 y\u2016 < \u03b4",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u2083",
+        "type": "\u2016k\u2016 * (c * \u2016y\u2016 ^ (n.succ + 1)) < \u03b5",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Uniqueness",
+    "name": "eqOn_zero_of_preconnected_of_eventuallyEq_zero_aux",
+    "statement": "E \u2192 F} {U : Set E} (hf : AnalyticOnNhd \ud835\udd5c f U) (hU : IsPreconnected U) {z\u2080 : E} (h\u2080 : z\u2080 \u2208 U) (hfz\u2080 : f =\u1da0[\ud835\udcdd z\u2080] 0) : EqOn f 0 U",
+    "have_tree": [
+      {
+        "name": "Uu",
+        "type": "U \u2286 u",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "has_series",
+        "type": "HasFPowerSeriesOnBall f q y (r / 2)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hp.changeOrigin (A.trans_le ENNReal.half_le_self)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "M",
+        "type": "Metric.eball y (r / 2) \u2208 \ud835\udcdd x",
+        "body": "Metric.isOpen_eball.mem_nhds hxy",
+        "children": [
+          {
+            "name": "_",
+            "type": "HasFPowerSeriesAt 0 q y",
+            "body": "has_series.hasFPowerSeriesAt.congr yu",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Uniqueness",
+    "name": "eqOn_zero_of_preconnected_of_eventuallyEq_zero",
+    "statement": "E \u2192 F} {U : Set E} (hf : AnalyticOnNhd \ud835\udd5c f U) (hU : IsPreconnected U) {z\u2080 : E} (h\u2080 : z\u2080 \u2208 U) (hfz\u2080 : f =\u1da0[\ud835\udcdd z\u2080] 0) : EqOn f 0 U",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "AnalyticOnNhd \ud835\udd5c (e \u2218 f) U",
+        "body": "fun x hx => (e.analyticAt _).comp (hf x hx)",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "EqOn (e \u2218 f) 0 U",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

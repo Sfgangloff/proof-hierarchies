@@ -1,0 +1,34 @@
+[
+  {
+    "module": "LogDeriv",
+    "name": "logDeriv_eqOn_iff",
+    "statement": "\ud835\udd5c \u2192 \ud835\udd5c'} {s : Set \ud835\udd5c} (hf : DifferentiableOn \ud835\udd5c f s) (hg : DifferentiableOn \ud835\udd5c g s) (hs2 : IsOpen s) (hsc : IsPreconnected s) (hgn : \u2200 x \u2208 s, g x \u2260 0) (hfn : \u2200 x \u2208 s, f x \u2260 0) : EqOn (logDeriv f) (logDeriv g) s \u2194 \u2203 z : \ud835\udd5c', z \u2260 0 \u2227 EqOn f (z \u2022 g) s",
+    "have_tree": [
+      {
+        "name": "hderiv",
+        "type": "s.EqOn (deriv (f * g\u207b\u00b9)) (deriv f * g\u207b\u00b9 - f * deriv g / g ^ 2)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hfg",
+        "type": "EqOn (deriv (f * g\u207b\u00b9)) 0 s",
+        "body": "hderiv.trans fun z hz \u21a6 by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LogDeriv",
+    "name": "AnalyticAt.tendsto_mul_logDeriv_simple_zero",
+    "statement": "\ud835\udd5c \u2192 \ud835\udd5c} {x : \ud835\udd5c} (hf : AnalyticAt \ud835\udd5c f x) (hfx : f x = 0) (hf' : deriv f x \u2260 0) : Filter.Tendsto (fun w => (w - x) * logDeriv f w) (\ud835\udcdd[\u2260] x) (\ud835\udcdd 1)",
+    "have_tree": [
+      {
+        "name": "h_slope",
+        "type": "",
+        "body": "hasDerivAt_iff_tendsto_slope.mp hf.differentiableAt.hasDerivAt",
+        "children": []
+      }
+    ]
+  }
+]

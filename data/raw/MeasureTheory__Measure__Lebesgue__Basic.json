@@ -1,0 +1,72 @@
+[
+  {
+    "module": "Basic",
+    "name": "smul_map_diagonal_volume_pi",
+    "statement": "\u03b9 \u2192 \u211d} (h : det (diagonal D) \u2260 0) : ENNReal.ofReal (abs (det (diagonal D))) \u2022 Measure.map (toLin' (diagonal D)) volume = volume",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "D i \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "volume_preserving_transvectionStruct",
+    "statement": "TransvectionStruct \u03b9 \u211d) : MeasurePreserving (toLin' t.toMatrix)",
+    "have_tree": [
+      {
+        "name": "ht",
+        "type": "Measurable (toLin' t.toMatrix)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h2s",
+        "type": "MeasurableSet (univ.pi s)",
+        "body": ".pi countable_univ fun i _ \u21a6 hs i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "ae_restrict_of_ae_restrict_inter_Ioo",
+    "statement": "Measure \u211d} [NoAtoms \u03bc] {s : Set \u211d} {p : \u211d \u2192 Prop} (h : \u2200 a b, a \u2208 s \u2192 b \u2208 s \u2192 a < b \u2192 \u2200\u1d50 x \u2202\u03bc.restrict (s \u2229 Ioo a b), p x) : \u2200\u1d50 x \u2202\u03bc.restrict s, p x",
+    "have_tree": [
+      {
+        "name": "hfinite",
+        "type": "(s \\ u).Finite",
+        "body": "s.finite_diff_iUnion_Ioo'",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "s \u2286 s \\ u \u222a \u22c3 p \u2208 A, s \u2229 T p",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "ae_of_mem_of_ae_of_mem_inter_Ioo",
+    "statement": "Measure \u211d} [NoAtoms \u03bc] {s : Set \u211d} {p : \u211d \u2192 Prop} (h : \u2200 a b, a \u2208 s \u2192 b \u2208 s \u2192 a < b \u2192 \u2200\u1d50 x \u2202\u03bc, x \u2208 s \u2229 Ioo a b \u2192 p x) : \u2200\u1d50 x \u2202\u03bc, x \u2208 s \u2192 p x",
+    "have_tree": [
+      {
+        "name": "hfinite",
+        "type": "(s \\ u).Finite",
+        "body": "s.finite_diff_iUnion_Ioo'",
+        "children": []
+      },
+      {
+        "name": "M",
+        "type": "\u2200\u1d50 x \u2202\u03bc, x \u2209 s \\ u",
+        "body": "hfinite.countable.ae_notMem _",
+        "children": []
+      }
+    ]
+  }
+]

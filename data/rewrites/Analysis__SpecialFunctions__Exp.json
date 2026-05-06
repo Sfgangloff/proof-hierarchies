@@ -1,0 +1,504 @@
+[
+  {
+    "original": {
+      "module": "Exp",
+      "name": "locally_lipschitz_exp",
+      "statement": "\u211d} (hr_nonneg : 0 \u2264 r) (hr_le : r \u2264 1) (x y : \u2102) (hyx : \u2016y - x\u2016 < r) : \u2016exp y - exp x\u2016 \u2264 (1 + r) * \u2016exp x\u2016 * \u2016y - x\u2016",
+      "have_tree": [
+        {
+          "name": "hyx_sq_le",
+          "type": "\u2016y - x\u2016 ^ 2 \u2264 r * \u2016y - x\u2016",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "h_sq",
+          "type": "\u2200 z, \u2016z\u2016 \u2264 1 \u2192 \u2016exp (x + z) - exp x\u2016 \u2264 \u2016z\u2016 * \u2016exp x\u2016 + \u2016exp x\u2016 * \u2016z\u2016 ^ 2",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "\u2016exp (x + z) - exp x - z \u2022 exp x\u2016 \u2264 \u2016exp x\u2016 * \u2016z\u2016 ^ 2",
+              "body": "exp_bound_sq x z hz",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Exp",
+          "name": "locally_lipschitz_exp",
+          "statement": "\u211d} (hr_nonneg : 0 \u2264 r) (hr_le : r \u2264 1) (x y : \u2102) (hyx : \u2016y - x\u2016 < r) : \u2016exp y - exp x\u2016 \u2264 (1 + r) * \u2016exp x\u2016 * \u2016y - x\u2016",
+          "have_tree": [
+            {
+              "name": "hyx_sq_le",
+              "type": "\u2016y - x\u2016 ^ 2 \u2264 r * \u2016y - x\u2016",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h_sq",
+              "type": "\u2200 z, \u2016z\u2016 \u2264 1 \u2192 \u2016exp (x + z) - exp x\u2016 \u2264 \u2016z\u2016 * \u2016exp x\u2016 + \u2016exp x\u2016 * \u2016z\u2016 ^ 2",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Exp",
+          "name": "locally_lipschitz_exp",
+          "statement": "\u211d} (hr_nonneg : 0 \u2264 r) (hr_le : r \u2264 1) (x y : \u2102) (hyx : \u2016y - x\u2016 < r) : \u2016exp y - exp x\u2016 \u2264 (1 + r) * \u2016exp x\u2016 * \u2016y - x\u2016",
+          "have_tree": [
+            {
+              "name": "hyx_sq_le",
+              "type": "\u2016y - x\u2016 ^ 2 \u2264 r * \u2016y - x\u2016",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2016exp (x + z) - exp x - z \u2022 exp x\u2016 \u2264 \u2016exp x\u2016 * \u2016z\u2016 ^ 2",
+              "body": "exp_bound_sq x z hz",
+              "children": []
+            },
+            {
+              "name": "h_sq",
+              "type": "\u2200 z, \u2016z\u2016 \u2264 1 \u2192 \u2016exp (x + z) - exp x\u2016 \u2264 \u2016z\u2016 * \u2016exp x\u2016 + \u2016exp x\u2016 * \u2016z\u2016 ^ 2",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Exp",
+          "name": "locally_lipschitz_exp",
+          "statement": "\u211d} (hr_nonneg : 0 \u2264 r) (hr_le : r \u2264 1) (x y : \u2102) (hyx : \u2016y - x\u2016 < r) : \u2016exp y - exp x\u2016 \u2264 (1 + r) * \u2016exp x\u2016 * \u2016y - x\u2016",
+          "have_tree": [
+            {
+              "name": "h_sq",
+              "type": "\u2200 z, \u2016z\u2016 \u2264 1 \u2192 \u2016exp (x + z) - exp x\u2016 \u2264 \u2016z\u2016 * \u2016exp x\u2016 + \u2016exp x\u2016 * \u2016z\u2016 ^ 2",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2016exp (x + z) - exp x - z \u2022 exp x\u2016 \u2264 \u2016exp x\u2016 * \u2016z\u2016 ^ 2",
+                  "body": "exp_bound_sq x z hz",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hyx_sq_le",
+              "type": "\u2016y - x\u2016 ^ 2 \u2264 r * \u2016y - x\u2016",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Exp",
+      "name": "UniformContinuousOn.cexp",
+      "statement": "\u211d) : UniformContinuousOn exp {x : \u2102 | x.re \u2264 a}",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Continuous (cexp - 1)",
+          "body": "Continuous.sub (by fun_prop) continuous_one",
+          "children": []
+        },
+        {
+          "name": "ha",
+          "type": "0 < \u03b5 / (2 * Real.exp a)",
+          "body": "by positivity",
+          "children": []
+        },
+        {
+          "name": "H",
+          "type": "",
+          "body": "this 0 (\u03b5 / (2 * Real.exp a)) ha",
+          "children": []
+        },
+        {
+          "name": "h3",
+          "type": "",
+          "body": "h\u03b4.2 (y := x - y) (by simpa only [dist_eq_norm, sub_zero] using hxy)",
+          "children": []
+        },
+        {
+          "name": "hya",
+          "type": "\u2016cexp y\u2016 \u2264 Real.exp a",
+          "body": "by simpa only [norm_exp, Real.exp_le_exp]",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "Exp",
+          "name": "UniformContinuousOn.cexp",
+          "statement": "\u211d) : UniformContinuousOn exp {x : \u2102 | x.re \u2264 a}",
+          "have_tree": [
+            {
+              "name": "ha",
+              "type": "0 < \u03b5 / (2 * Real.exp a)",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Continuous (cexp - 1)",
+              "body": "Continuous.sub (by fun_prop) continuous_one",
+              "children": []
+            },
+            {
+              "name": "H",
+              "type": "",
+              "body": "this 0 (\u03b5 / (2 * Real.exp a)) ha",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "",
+              "body": "h\u03b4.2 (y := x - y) (by simpa only [dist_eq_norm, sub_zero] using hxy)",
+              "children": []
+            },
+            {
+              "name": "hya",
+              "type": "\u2016cexp y\u2016 \u2264 Real.exp a",
+              "body": "by simpa only [norm_exp, Real.exp_le_exp]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "Exp",
+          "name": "UniformContinuousOn.cexp",
+          "statement": "\u211d) : UniformContinuousOn exp {x : \u2102 | x.re \u2264 a}",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Continuous (cexp - 1)",
+              "body": "Continuous.sub (by fun_prop) continuous_one",
+              "children": []
+            },
+            {
+              "name": "H",
+              "type": "",
+              "body": "this 0 (\u03b5 / (2 * Real.exp a)) ha",
+              "children": []
+            },
+            {
+              "name": "ha",
+              "type": "0 < \u03b5 / (2 * Real.exp a)",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "",
+              "body": "h\u03b4.2 (y := x - y) (by simpa only [dist_eq_norm, sub_zero] using hxy)",
+              "children": []
+            },
+            {
+              "name": "hya",
+              "type": "\u2016cexp y\u2016 \u2264 Real.exp a",
+              "body": "by simpa only [norm_exp, Real.exp_le_exp]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "Exp",
+          "name": "UniformContinuousOn.cexp",
+          "statement": "\u211d) : UniformContinuousOn exp {x : \u2102 | x.re \u2264 a}",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Continuous (cexp - 1)",
+              "body": "Continuous.sub (by fun_prop) continuous_one",
+              "children": []
+            },
+            {
+              "name": "ha",
+              "type": "0 < \u03b5 / (2 * Real.exp a)",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "",
+              "body": "h\u03b4.2 (y := x - y) (by simpa only [dist_eq_norm, sub_zero] using hxy)",
+              "children": []
+            },
+            {
+              "name": "H",
+              "type": "",
+              "body": "this 0 (\u03b5 / (2 * Real.exp a)) ha",
+              "children": []
+            },
+            {
+              "name": "hya",
+              "type": "\u2016cexp y\u2016 \u2264 Real.exp a",
+              "body": "by simpa only [norm_exp, Real.exp_le_exp]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "Exp",
+          "name": "UniformContinuousOn.cexp",
+          "statement": "\u211d) : UniformContinuousOn exp {x : \u2102 | x.re \u2264 a}",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Continuous (cexp - 1)",
+              "body": "Continuous.sub (by fun_prop) continuous_one",
+              "children": []
+            },
+            {
+              "name": "ha",
+              "type": "0 < \u03b5 / (2 * Real.exp a)",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "H",
+              "type": "",
+              "body": "this 0 (\u03b5 / (2 * Real.exp a)) ha",
+              "children": []
+            },
+            {
+              "name": "hya",
+              "type": "\u2016cexp y\u2016 \u2264 Real.exp a",
+              "body": "by simpa only [norm_exp, Real.exp_le_exp]",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "",
+              "body": "h\u03b4.2 (y := x - y) (by simpa only [dist_eq_norm, sub_zero] using hxy)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Exp",
+      "name": "mul_exp_neg_le_exp_neg_one",
+      "statement": "\u211d) : y * exp (-y) \u2264 exp (-1)",
+      "have_tree": [
+        {
+          "name": "h_le",
+          "type": "y \u2264 exp (y - 1)",
+          "body": "by simpa using add_one_le_exp (y - 1)",
+          "children": []
+        },
+        {
+          "name": "h_mul_le",
+          "type": "y * rexp (-y) \u2264 rexp (y - 1) * rexp (-y)",
+          "body": "by gcongr",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Exp",
+          "name": "mul_exp_neg_le_exp_neg_one",
+          "statement": "\u211d) : y * exp (-y) \u2264 exp (-1)",
+          "have_tree": [
+            {
+              "name": "h_mul_le",
+              "type": "y * rexp (-y) \u2264 rexp (y - 1) * rexp (-y)",
+              "body": "by gcongr",
+              "children": []
+            },
+            {
+              "name": "h_le",
+              "type": "y \u2264 exp (y - 1)",
+              "body": "by simpa using add_one_le_exp (y - 1)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Exp",
+      "name": "tendsto_exp_div_pow_atTop",
+      "statement": "\u2115) : Tendsto (fun x => exp x / x ^ n) atTop atTop",
+      "have_tree": [
+        {
+          "name": "hC\u2080",
+          "type": "0 < C",
+          "body": "zero_lt_one.trans_le hC\u2081",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "0 < (exp 1 * C)\u207b\u00b9",
+          "body": "inv_pos.2 (mul_pos (exp_pos _) hC\u2080)",
+          "children": []
+        },
+        {
+          "name": "hx\u2080",
+          "type": "0 < x",
+          "body": "(Nat.cast_nonneg N).trans_lt hx",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Exp",
+          "name": "tendsto_exp_div_pow_atTop",
+          "statement": "\u2115) : Tendsto (fun x => exp x / x ^ n) atTop atTop",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "0 < (exp 1 * C)\u207b\u00b9",
+              "body": "inv_pos.2 (mul_pos (exp_pos _) hC\u2080)",
+              "children": []
+            },
+            {
+              "name": "hC\u2080",
+              "type": "0 < C",
+              "body": "zero_lt_one.trans_le hC\u2081",
+              "children": []
+            },
+            {
+              "name": "hx\u2080",
+              "type": "0 < x",
+              "body": "(Nat.cast_nonneg N).trans_lt hx",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Exp",
+          "name": "tendsto_exp_div_pow_atTop",
+          "statement": "\u2115) : Tendsto (fun x => exp x / x ^ n) atTop atTop",
+          "have_tree": [
+            {
+              "name": "hC\u2080",
+              "type": "0 < C",
+              "body": "zero_lt_one.trans_le hC\u2081",
+              "children": []
+            },
+            {
+              "name": "hx\u2080",
+              "type": "0 < x",
+              "body": "(Nat.cast_nonneg N).trans_lt hx",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "0 < (exp 1 * C)\u207b\u00b9",
+              "body": "inv_pos.2 (mul_pos (exp_pos _) hC\u2080)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

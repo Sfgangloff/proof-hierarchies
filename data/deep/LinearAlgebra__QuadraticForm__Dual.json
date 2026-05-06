@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Dual",
+    "name": "LinearMap.BilinForm.linearIndependent_of_pairwise_le_zero",
+    "statement": "Type*} [CommRing R] [LinearOrder R] [IsStrictOrderedRing R] [AddCommGroup M] [Module R M] (B : LinearMap.BilinForm R M) (hB : B.toQuadraticMap.PosDef) (f : Module.Dual R M) (v : \u03b9 \u2192 M) (hp : \u2200 i, 0 < f (v i)) (hn : Pairwise fun i j \u21a6 B (v i) (v j) \u2264 0) : LinearIndependent R v",
+    "have_tree": [
+      {
+        "name": "hx\u2080",
+        "type": "x = 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u03b9 \u2192 R) (h : \u2211 i \u2208 s with 0 < c i, c i \u2022 v i = 0) (i : \u03b9) (hi : i \u2208 s) : c i \u2264 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2211 i \u2208 s with 0 < c i, c i * f (v i) = 0",
+            "body": "by simpa using (congr(f $h))",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "0 < c i * f (v i)",
+            "body": "mul_pos hi' (hp i)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

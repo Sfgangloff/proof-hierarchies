@@ -1,0 +1,986 @@
+[
+  {
+    "original": {
+      "module": "ParametricIntegral",
+      "name": "hasFDerivAt_integral_of_dominated_loc_of_lip'",
+      "statement": "\u03b1 \u2192 H \u2192L[\ud835\udd5c] E} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200 x \u2208 s, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) (hF'_meas : AEStronglyMeasurable F' \u03bc) (h_lipsch : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F x a - F x\u2080 a\u2016 \u2264 bound a * \u2016x - x\u2080\u2016) (bound_integrable : Integrable (bound : \u03b1 \u2192 \u211d) \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, HasFDerivAt (F \u00b7 a) (F' a) x\u2080) : Integrable F' \u03bc \u2227 HasFDerivAt (fun x \u21a6 \u222b a, F x a \u2202\u03bc) (\u222b a, F' a \u2202\u03bc) x\u2080",
+      "have_tree": [
+        {
+          "name": "x\u2080_in",
+          "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+          "body": "mem_ball_self \u03b5_pos",
+          "children": []
+        },
+        {
+          "name": "nneg",
+          "type": "\u2200 x, 0 \u2264 \u2016x - x\u2080\u2016\u207b\u00b9",
+          "body": "fun x \u21a6 inv_nonneg.mpr (norm_nonneg _)",
+          "children": []
+        },
+        {
+          "name": "b_int",
+          "type": "Integrable b \u03bc",
+          "body": "bound_integrable.norm",
+          "children": []
+        },
+        {
+          "name": "b_nonneg",
+          "type": "\u2200 a, 0 \u2264 b a",
+          "body": "fun a \u21a6 abs_nonneg _",
+          "children": []
+        },
+        {
+          "name": "hF_int'",
+          "type": "\u2200 x \u2208 ball x\u2080 \u03b5, Integrable (F x) \u03bc",
+          "body": "fun x x_in \u21a6 by",
+          "children": [
+            {
+              "name": "_",
+              "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F x\u2080 a - F x a\u2016 \u2264 \u03b5 * b a",
+              "body": "by",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "hF'_int",
+          "type": "Integrable F' \u03bc",
+          "body": "",
+          "children": [
+            {
+              "name": "_",
+              "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F' a\u2016 \u2264 b a",
+              "body": "by",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "h_ball",
+          "type": "ball x\u2080 \u03b5 \u2208 \ud835\udcdd x\u2080",
+          "body": "ball_mem_nhds x\u2080 \u03b5_pos",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          4,
+          0
+        ],
+        "result": {
+          "module": "ParametricIntegral",
+          "name": "hasFDerivAt_integral_of_dominated_loc_of_lip'",
+          "statement": "\u03b1 \u2192 H \u2192L[\ud835\udd5c] E} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200 x \u2208 s, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) (hF'_meas : AEStronglyMeasurable F' \u03bc) (h_lipsch : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F x a - F x\u2080 a\u2016 \u2264 bound a * \u2016x - x\u2080\u2016) (bound_integrable : Integrable (bound : \u03b1 \u2192 \u211d) \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, HasFDerivAt (F \u00b7 a) (F' a) x\u2080) : Integrable F' \u03bc \u2227 HasFDerivAt (fun x \u21a6 \u222b a, F x a \u2202\u03bc) (\u222b a, F' a \u2202\u03bc) x\u2080",
+          "have_tree": [
+            {
+              "name": "x\u2080_in",
+              "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+              "body": "mem_ball_self \u03b5_pos",
+              "children": []
+            },
+            {
+              "name": "nneg",
+              "type": "\u2200 x, 0 \u2264 \u2016x - x\u2080\u2016\u207b\u00b9",
+              "body": "fun x \u21a6 inv_nonneg.mpr (norm_nonneg _)",
+              "children": []
+            },
+            {
+              "name": "b_int",
+              "type": "Integrable b \u03bc",
+              "body": "bound_integrable.norm",
+              "children": []
+            },
+            {
+              "name": "b_nonneg",
+              "type": "\u2200 a, 0 \u2264 b a",
+              "body": "fun a \u21a6 abs_nonneg _",
+              "children": []
+            },
+            {
+              "name": "hF_int'",
+              "type": "\u2200 x \u2208 ball x\u2080 \u03b5, Integrable (F x) \u03bc",
+              "body": "fun x x_in \u21a6 by",
+              "children": []
+            },
+            {
+              "name": "hF'_int",
+              "type": "Integrable F' \u03bc",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F' a\u2016 \u2264 b a",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_ball",
+              "type": "ball x\u2080 \u03b5 \u2208 \ud835\udcdd x\u2080",
+              "body": "ball_mem_nhds x\u2080 \u03b5_pos",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          5,
+          0
+        ],
+        "result": {
+          "module": "ParametricIntegral",
+          "name": "hasFDerivAt_integral_of_dominated_loc_of_lip'",
+          "statement": "\u03b1 \u2192 H \u2192L[\ud835\udd5c] E} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200 x \u2208 s, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) (hF'_meas : AEStronglyMeasurable F' \u03bc) (h_lipsch : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F x a - F x\u2080 a\u2016 \u2264 bound a * \u2016x - x\u2080\u2016) (bound_integrable : Integrable (bound : \u03b1 \u2192 \u211d) \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, HasFDerivAt (F \u00b7 a) (F' a) x\u2080) : Integrable F' \u03bc \u2227 HasFDerivAt (fun x \u21a6 \u222b a, F x a \u2202\u03bc) (\u222b a, F' a \u2202\u03bc) x\u2080",
+          "have_tree": [
+            {
+              "name": "x\u2080_in",
+              "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+              "body": "mem_ball_self \u03b5_pos",
+              "children": []
+            },
+            {
+              "name": "nneg",
+              "type": "\u2200 x, 0 \u2264 \u2016x - x\u2080\u2016\u207b\u00b9",
+              "body": "fun x \u21a6 inv_nonneg.mpr (norm_nonneg _)",
+              "children": []
+            },
+            {
+              "name": "b_int",
+              "type": "Integrable b \u03bc",
+              "body": "bound_integrable.norm",
+              "children": []
+            },
+            {
+              "name": "b_nonneg",
+              "type": "\u2200 a, 0 \u2264 b a",
+              "body": "fun a \u21a6 abs_nonneg _",
+              "children": []
+            },
+            {
+              "name": "hF_int'",
+              "type": "\u2200 x \u2208 ball x\u2080 \u03b5, Integrable (F x) \u03bc",
+              "body": "fun x x_in \u21a6 by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F x\u2080 a - F x a\u2016 \u2264 \u03b5 * b a",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hF'_int",
+              "type": "Integrable F' \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "h_ball",
+              "type": "ball x\u2080 \u03b5 \u2208 \ud835\udcdd x\u2080",
+              "body": "ball_mem_nhds x\u2080 \u03b5_pos",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          4
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "ParametricIntegral",
+          "name": "hasFDerivAt_integral_of_dominated_loc_of_lip'",
+          "statement": "\u03b1 \u2192 H \u2192L[\ud835\udd5c] E} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200 x \u2208 s, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) (hF'_meas : AEStronglyMeasurable F' \u03bc) (h_lipsch : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F x a - F x\u2080 a\u2016 \u2264 bound a * \u2016x - x\u2080\u2016) (bound_integrable : Integrable (bound : \u03b1 \u2192 \u211d) \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, HasFDerivAt (F \u00b7 a) (F' a) x\u2080) : Integrable F' \u03bc \u2227 HasFDerivAt (fun x \u21a6 \u222b a, F x a \u2202\u03bc) (\u222b a, F' a \u2202\u03bc) x\u2080",
+          "have_tree": [
+            {
+              "name": "x\u2080_in",
+              "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+              "body": "mem_ball_self \u03b5_pos",
+              "children": []
+            },
+            {
+              "name": "nneg",
+              "type": "\u2200 x, 0 \u2264 \u2016x - x\u2080\u2016\u207b\u00b9",
+              "body": "fun x \u21a6 inv_nonneg.mpr (norm_nonneg _)",
+              "children": []
+            },
+            {
+              "name": "b_int",
+              "type": "Integrable b \u03bc",
+              "body": "bound_integrable.norm",
+              "children": []
+            },
+            {
+              "name": "b_nonneg",
+              "type": "\u2200 a, 0 \u2264 b a",
+              "body": "fun a \u21a6 abs_nonneg _",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F x\u2080 a - F x a\u2016 \u2264 \u03b5 * b a",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hF_int'",
+              "type": "\u2200 x \u2208 ball x\u2080 \u03b5, Integrable (F x) \u03bc",
+              "body": "fun x x_in \u21a6 by",
+              "children": []
+            },
+            {
+              "name": "hF'_int",
+              "type": "Integrable F' \u03bc",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F' a\u2016 \u2264 b a",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_ball",
+              "type": "ball x\u2080 \u03b5 \u2208 \ud835\udcdd x\u2080",
+              "body": "ball_mem_nhds x\u2080 \u03b5_pos",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          5
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "ParametricIntegral",
+          "name": "hasFDerivAt_integral_of_dominated_loc_of_lip'",
+          "statement": "\u03b1 \u2192 H \u2192L[\ud835\udd5c] E} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200 x \u2208 s, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) (hF'_meas : AEStronglyMeasurable F' \u03bc) (h_lipsch : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F x a - F x\u2080 a\u2016 \u2264 bound a * \u2016x - x\u2080\u2016) (bound_integrable : Integrable (bound : \u03b1 \u2192 \u211d) \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, HasFDerivAt (F \u00b7 a) (F' a) x\u2080) : Integrable F' \u03bc \u2227 HasFDerivAt (fun x \u21a6 \u222b a, F x a \u2202\u03bc) (\u222b a, F' a \u2202\u03bc) x\u2080",
+          "have_tree": [
+            {
+              "name": "x\u2080_in",
+              "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+              "body": "mem_ball_self \u03b5_pos",
+              "children": []
+            },
+            {
+              "name": "nneg",
+              "type": "\u2200 x, 0 \u2264 \u2016x - x\u2080\u2016\u207b\u00b9",
+              "body": "fun x \u21a6 inv_nonneg.mpr (norm_nonneg _)",
+              "children": []
+            },
+            {
+              "name": "b_int",
+              "type": "Integrable b \u03bc",
+              "body": "bound_integrable.norm",
+              "children": []
+            },
+            {
+              "name": "b_nonneg",
+              "type": "\u2200 a, 0 \u2264 b a",
+              "body": "fun a \u21a6 abs_nonneg _",
+              "children": []
+            },
+            {
+              "name": "hF_int'",
+              "type": "\u2200 x \u2208 ball x\u2080 \u03b5, Integrable (F x) \u03bc",
+              "body": "fun x x_in \u21a6 by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F x\u2080 a - F x a\u2016 \u2264 \u03b5 * b a",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F' a\u2016 \u2264 b a",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hF'_int",
+              "type": "Integrable F' \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "h_ball",
+              "type": "ball x\u2080 \u03b5 \u2208 \ud835\udcdd x\u2080",
+              "body": "ball_mem_nhds x\u2080 \u03b5_pos",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "ParametricIntegral",
+          "name": "hasFDerivAt_integral_of_dominated_loc_of_lip'",
+          "statement": "\u03b1 \u2192 H \u2192L[\ud835\udd5c] E} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200 x \u2208 s, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) (hF'_meas : AEStronglyMeasurable F' \u03bc) (h_lipsch : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F x a - F x\u2080 a\u2016 \u2264 bound a * \u2016x - x\u2080\u2016) (bound_integrable : Integrable (bound : \u03b1 \u2192 \u211d) \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, HasFDerivAt (F \u00b7 a) (F' a) x\u2080) : Integrable F' \u03bc \u2227 HasFDerivAt (fun x \u21a6 \u222b a, F x a \u2202\u03bc) (\u222b a, F' a \u2202\u03bc) x\u2080",
+          "have_tree": [
+            {
+              "name": "nneg",
+              "type": "\u2200 x, 0 \u2264 \u2016x - x\u2080\u2016\u207b\u00b9",
+              "body": "fun x \u21a6 inv_nonneg.mpr (norm_nonneg _)",
+              "children": []
+            },
+            {
+              "name": "x\u2080_in",
+              "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+              "body": "mem_ball_self \u03b5_pos",
+              "children": []
+            },
+            {
+              "name": "b_int",
+              "type": "Integrable b \u03bc",
+              "body": "bound_integrable.norm",
+              "children": []
+            },
+            {
+              "name": "b_nonneg",
+              "type": "\u2200 a, 0 \u2264 b a",
+              "body": "fun a \u21a6 abs_nonneg _",
+              "children": []
+            },
+            {
+              "name": "hF_int'",
+              "type": "\u2200 x \u2208 ball x\u2080 \u03b5, Integrable (F x) \u03bc",
+              "body": "fun x x_in \u21a6 by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F x\u2080 a - F x a\u2016 \u2264 \u03b5 * b a",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hF'_int",
+              "type": "Integrable F' \u03bc",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F' a\u2016 \u2264 b a",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_ball",
+              "type": "ball x\u2080 \u03b5 \u2208 \ud835\udcdd x\u2080",
+              "body": "ball_mem_nhds x\u2080 \u03b5_pos",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "ParametricIntegral",
+          "name": "hasFDerivAt_integral_of_dominated_loc_of_lip'",
+          "statement": "\u03b1 \u2192 H \u2192L[\ud835\udd5c] E} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200 x \u2208 s, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) (hF'_meas : AEStronglyMeasurable F' \u03bc) (h_lipsch : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F x a - F x\u2080 a\u2016 \u2264 bound a * \u2016x - x\u2080\u2016) (bound_integrable : Integrable (bound : \u03b1 \u2192 \u211d) \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, HasFDerivAt (F \u00b7 a) (F' a) x\u2080) : Integrable F' \u03bc \u2227 HasFDerivAt (fun x \u21a6 \u222b a, F x a \u2202\u03bc) (\u222b a, F' a \u2202\u03bc) x\u2080",
+          "have_tree": [
+            {
+              "name": "x\u2080_in",
+              "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+              "body": "mem_ball_self \u03b5_pos",
+              "children": []
+            },
+            {
+              "name": "b_int",
+              "type": "Integrable b \u03bc",
+              "body": "bound_integrable.norm",
+              "children": []
+            },
+            {
+              "name": "nneg",
+              "type": "\u2200 x, 0 \u2264 \u2016x - x\u2080\u2016\u207b\u00b9",
+              "body": "fun x \u21a6 inv_nonneg.mpr (norm_nonneg _)",
+              "children": []
+            },
+            {
+              "name": "b_nonneg",
+              "type": "\u2200 a, 0 \u2264 b a",
+              "body": "fun a \u21a6 abs_nonneg _",
+              "children": []
+            },
+            {
+              "name": "hF_int'",
+              "type": "\u2200 x \u2208 ball x\u2080 \u03b5, Integrable (F x) \u03bc",
+              "body": "fun x x_in \u21a6 by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F x\u2080 a - F x a\u2016 \u2264 \u03b5 * b a",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hF'_int",
+              "type": "Integrable F' \u03bc",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F' a\u2016 \u2264 b a",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_ball",
+              "type": "ball x\u2080 \u03b5 \u2208 \ud835\udcdd x\u2080",
+              "body": "ball_mem_nhds x\u2080 \u03b5_pos",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "ParametricIntegral",
+          "name": "hasFDerivAt_integral_of_dominated_loc_of_lip'",
+          "statement": "\u03b1 \u2192 H \u2192L[\ud835\udd5c] E} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200 x \u2208 s, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) (hF'_meas : AEStronglyMeasurable F' \u03bc) (h_lipsch : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F x a - F x\u2080 a\u2016 \u2264 bound a * \u2016x - x\u2080\u2016) (bound_integrable : Integrable (bound : \u03b1 \u2192 \u211d) \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, HasFDerivAt (F \u00b7 a) (F' a) x\u2080) : Integrable F' \u03bc \u2227 HasFDerivAt (fun x \u21a6 \u222b a, F x a \u2202\u03bc) (\u222b a, F' a \u2202\u03bc) x\u2080",
+          "have_tree": [
+            {
+              "name": "x\u2080_in",
+              "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+              "body": "mem_ball_self \u03b5_pos",
+              "children": []
+            },
+            {
+              "name": "nneg",
+              "type": "\u2200 x, 0 \u2264 \u2016x - x\u2080\u2016\u207b\u00b9",
+              "body": "fun x \u21a6 inv_nonneg.mpr (norm_nonneg _)",
+              "children": []
+            },
+            {
+              "name": "b_nonneg",
+              "type": "\u2200 a, 0 \u2264 b a",
+              "body": "fun a \u21a6 abs_nonneg _",
+              "children": []
+            },
+            {
+              "name": "b_int",
+              "type": "Integrable b \u03bc",
+              "body": "bound_integrable.norm",
+              "children": []
+            },
+            {
+              "name": "hF_int'",
+              "type": "\u2200 x \u2208 ball x\u2080 \u03b5, Integrable (F x) \u03bc",
+              "body": "fun x x_in \u21a6 by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F x\u2080 a - F x a\u2016 \u2264 \u03b5 * b a",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hF'_int",
+              "type": "Integrable F' \u03bc",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F' a\u2016 \u2264 b a",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_ball",
+              "type": "ball x\u2080 \u03b5 \u2208 \ud835\udcdd x\u2080",
+              "body": "ball_mem_nhds x\u2080 \u03b5_pos",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5,
+          6
+        ],
+        "result": {
+          "module": "ParametricIntegral",
+          "name": "hasFDerivAt_integral_of_dominated_loc_of_lip'",
+          "statement": "\u03b1 \u2192 H \u2192L[\ud835\udd5c] E} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200 x \u2208 s, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) (hF'_meas : AEStronglyMeasurable F' \u03bc) (h_lipsch : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F x a - F x\u2080 a\u2016 \u2264 bound a * \u2016x - x\u2080\u2016) (bound_integrable : Integrable (bound : \u03b1 \u2192 \u211d) \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, HasFDerivAt (F \u00b7 a) (F' a) x\u2080) : Integrable F' \u03bc \u2227 HasFDerivAt (fun x \u21a6 \u222b a, F x a \u2202\u03bc) (\u222b a, F' a \u2202\u03bc) x\u2080",
+          "have_tree": [
+            {
+              "name": "x\u2080_in",
+              "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+              "body": "mem_ball_self \u03b5_pos",
+              "children": []
+            },
+            {
+              "name": "nneg",
+              "type": "\u2200 x, 0 \u2264 \u2016x - x\u2080\u2016\u207b\u00b9",
+              "body": "fun x \u21a6 inv_nonneg.mpr (norm_nonneg _)",
+              "children": []
+            },
+            {
+              "name": "b_int",
+              "type": "Integrable b \u03bc",
+              "body": "bound_integrable.norm",
+              "children": []
+            },
+            {
+              "name": "hF_int'",
+              "type": "\u2200 x \u2208 ball x\u2080 \u03b5, Integrable (F x) \u03bc",
+              "body": "fun x x_in \u21a6 by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F x\u2080 a - F x a\u2016 \u2264 \u03b5 * b a",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "b_nonneg",
+              "type": "\u2200 a, 0 \u2264 b a",
+              "body": "fun a \u21a6 abs_nonneg _",
+              "children": []
+            },
+            {
+              "name": "hF'_int",
+              "type": "Integrable F' \u03bc",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F' a\u2016 \u2264 b a",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_ball",
+              "type": "ball x\u2080 \u03b5 \u2208 \ud835\udcdd x\u2080",
+              "body": "ball_mem_nhds x\u2080 \u03b5_pos",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4,
+          6
+        ],
+        "result": {
+          "module": "ParametricIntegral",
+          "name": "hasFDerivAt_integral_of_dominated_loc_of_lip'",
+          "statement": "\u03b1 \u2192 H \u2192L[\ud835\udd5c] E} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200 x \u2208 s, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) (hF'_meas : AEStronglyMeasurable F' \u03bc) (h_lipsch : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F x a - F x\u2080 a\u2016 \u2264 bound a * \u2016x - x\u2080\u2016) (bound_integrable : Integrable (bound : \u03b1 \u2192 \u211d) \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, HasFDerivAt (F \u00b7 a) (F' a) x\u2080) : Integrable F' \u03bc \u2227 HasFDerivAt (fun x \u21a6 \u222b a, F x a \u2202\u03bc) (\u222b a, F' a \u2202\u03bc) x\u2080",
+          "have_tree": [
+            {
+              "name": "x\u2080_in",
+              "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+              "body": "mem_ball_self \u03b5_pos",
+              "children": []
+            },
+            {
+              "name": "nneg",
+              "type": "\u2200 x, 0 \u2264 \u2016x - x\u2080\u2016\u207b\u00b9",
+              "body": "fun x \u21a6 inv_nonneg.mpr (norm_nonneg _)",
+              "children": []
+            },
+            {
+              "name": "b_int",
+              "type": "Integrable b \u03bc",
+              "body": "bound_integrable.norm",
+              "children": []
+            },
+            {
+              "name": "b_nonneg",
+              "type": "\u2200 a, 0 \u2264 b a",
+              "body": "fun a \u21a6 abs_nonneg _",
+              "children": []
+            },
+            {
+              "name": "hF'_int",
+              "type": "Integrable F' \u03bc",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F' a\u2016 \u2264 b a",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hF_int'",
+              "type": "\u2200 x \u2208 ball x\u2080 \u03b5, Integrable (F x) \u03bc",
+              "body": "fun x x_in \u21a6 by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F x\u2080 a - F x a\u2016 \u2264 \u03b5 * b a",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_ball",
+              "type": "ball x\u2080 \u03b5 \u2208 \ud835\udcdd x\u2080",
+              "body": "ball_mem_nhds x\u2080 \u03b5_pos",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          5
+        ],
+        "result": {
+          "module": "ParametricIntegral",
+          "name": "hasFDerivAt_integral_of_dominated_loc_of_lip'",
+          "statement": "\u03b1 \u2192 H \u2192L[\ud835\udd5c] E} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200 x \u2208 s, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) (hF'_meas : AEStronglyMeasurable F' \u03bc) (h_lipsch : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F x a - F x\u2080 a\u2016 \u2264 bound a * \u2016x - x\u2080\u2016) (bound_integrable : Integrable (bound : \u03b1 \u2192 \u211d) \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, HasFDerivAt (F \u00b7 a) (F' a) x\u2080) : Integrable F' \u03bc \u2227 HasFDerivAt (fun x \u21a6 \u222b a, F x a \u2202\u03bc) (\u222b a, F' a \u2202\u03bc) x\u2080",
+          "have_tree": [
+            {
+              "name": "x\u2080_in",
+              "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+              "body": "mem_ball_self \u03b5_pos",
+              "children": []
+            },
+            {
+              "name": "nneg",
+              "type": "\u2200 x, 0 \u2264 \u2016x - x\u2080\u2016\u207b\u00b9",
+              "body": "fun x \u21a6 inv_nonneg.mpr (norm_nonneg _)",
+              "children": []
+            },
+            {
+              "name": "b_int",
+              "type": "Integrable b \u03bc",
+              "body": "bound_integrable.norm",
+              "children": []
+            },
+            {
+              "name": "b_nonneg",
+              "type": "\u2200 a, 0 \u2264 b a",
+              "body": "fun a \u21a6 abs_nonneg _",
+              "children": []
+            },
+            {
+              "name": "hF_int'",
+              "type": "\u2200 x \u2208 ball x\u2080 \u03b5, Integrable (F x) \u03bc",
+              "body": "fun x x_in \u21a6 by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F x\u2080 a - F x a\u2016 \u2264 \u03b5 * b a",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_ball",
+              "type": "ball x\u2080 \u03b5 \u2208 \ud835\udcdd x\u2080",
+              "body": "ball_mem_nhds x\u2080 \u03b5_pos",
+              "children": []
+            },
+            {
+              "name": "hF'_int",
+              "type": "Integrable F' \u03bc",
+              "body": "",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F' a\u2016 \u2264 b a",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "ParametricIntegral",
+      "name": "hasFDerivAt_integral_of_dominated_loc_of_lip_interval",
+      "statement": "Measure \u211d} {F : H \u2192 \u211d \u2192 E} {F' : \u211d \u2192 H \u2192L[\u211d] E} {a b : \u211d} {bound : \u211d \u2192 \u211d} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200\u1da0 x in \ud835\udcdd x\u2080, AEStronglyMeasurable (F x) <| \u03bc.restrict (\u0399 a b)) (hF_int : IntervalIntegrable (F x\u2080) \u03bc a b) (hF'_meas : AEStronglyMeasurable F' <| \u03bc.restrict (\u0399 a b)) (h_lip : \u2200\u1d50 t \u2202\u03bc.restrict (\u0399 a b), LipschitzOnWith (Real.nnabs <| bound t) (F \u00b7 t) s) (bound_integrable : IntervalIntegrable bound \u03bc a b) (h_diff : \u2200\u1d50 t \u2202\u03bc.restrict (\u0399 a b), HasFDerivAt (F \u00b7 t) (F' t) x\u2080) : IntervalIntegrable F' \u03bc a b \u2227 HasFDerivAt (fun x \u21a6 \u222b t in a..b, F x t \u2202\u03bc) (\u222b t in a..b, F' t \u2202\u03bc) x\u2080",
+      "have_tree": [
+        {
+          "name": "H\u2081",
+          "type": "",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "H\u2082",
+          "type": "",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "ParametricIntegral",
+          "name": "hasFDerivAt_integral_of_dominated_loc_of_lip_interval",
+          "statement": "Measure \u211d} {F : H \u2192 \u211d \u2192 E} {F' : \u211d \u2192 H \u2192L[\u211d] E} {a b : \u211d} {bound : \u211d \u2192 \u211d} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200\u1da0 x in \ud835\udcdd x\u2080, AEStronglyMeasurable (F x) <| \u03bc.restrict (\u0399 a b)) (hF_int : IntervalIntegrable (F x\u2080) \u03bc a b) (hF'_meas : AEStronglyMeasurable F' <| \u03bc.restrict (\u0399 a b)) (h_lip : \u2200\u1d50 t \u2202\u03bc.restrict (\u0399 a b), LipschitzOnWith (Real.nnabs <| bound t) (F \u00b7 t) s) (bound_integrable : IntervalIntegrable bound \u03bc a b) (h_diff : \u2200\u1d50 t \u2202\u03bc.restrict (\u0399 a b), HasFDerivAt (F \u00b7 t) (F' t) x\u2080) : IntervalIntegrable F' \u03bc a b \u2227 HasFDerivAt (fun x \u21a6 \u222b t in a..b, F x t \u2202\u03bc) (\u222b t in a..b, F' t \u2202\u03bc) x\u2080",
+          "have_tree": [
+            {
+              "name": "H\u2082",
+              "type": "",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "H\u2081",
+              "type": "",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "ParametricIntegral",
+      "name": "hasFDerivAt_integral_of_dominated_of_fderiv_le",
+      "statement": "H \u2192 \u03b1 \u2192 H \u2192L[\ud835\udd5c] E} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200\u1da0 x in \ud835\udcdd x\u2080, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) (hF'_meas : AEStronglyMeasurable (F' x\u2080) \u03bc) (h_bound : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F' x a\u2016 \u2264 bound a) (bound_integrable : Integrable (bound : \u03b1 \u2192 \u211d) \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, HasFDerivAt (F \u00b7 a) (F' x a) x) : HasFDerivAt (fun x \u21a6 \u222b a, F x a \u2202\u03bc) (\u222b a, F' x\u2080 a \u2202\u03bc) x\u2080",
+      "have_tree": [
+        {
+          "name": "x\u2080_in",
+          "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+          "body": "mem_ball_self \u03b5_pos",
+          "children": []
+        },
+        {
+          "name": "diff_x\u2080",
+          "type": "\u2200\u1d50 a \u2202\u03bc, HasFDerivAt (F \u00b7 a) (F' x\u2080 a) x\u2080",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "\u2200\u1d50 a \u2202\u03bc, LipschitzOnWith (Real.nnabs (bound a)) (F \u00b7 a) (ball x\u2080 \u03b5)",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "ParametricIntegral",
+          "name": "hasFDerivAt_integral_of_dominated_of_fderiv_le",
+          "statement": "H \u2192 \u03b1 \u2192 H \u2192L[\ud835\udd5c] E} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200\u1da0 x in \ud835\udcdd x\u2080, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) (hF'_meas : AEStronglyMeasurable (F' x\u2080) \u03bc) (h_bound : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F' x a\u2016 \u2264 bound a) (bound_integrable : Integrable (bound : \u03b1 \u2192 \u211d) \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, HasFDerivAt (F \u00b7 a) (F' x a) x) : HasFDerivAt (fun x \u21a6 \u222b a, F x a \u2202\u03bc) (\u222b a, F' x\u2080 a \u2202\u03bc) x\u2080",
+          "have_tree": [
+            {
+              "name": "diff_x\u2080",
+              "type": "\u2200\u1d50 a \u2202\u03bc, HasFDerivAt (F \u00b7 a) (F' x\u2080 a) x\u2080",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "x\u2080_in",
+              "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+              "body": "mem_ball_self \u03b5_pos",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2200\u1d50 a \u2202\u03bc, LipschitzOnWith (Real.nnabs (bound a)) (F \u00b7 a) (ball x\u2080 \u03b5)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "ParametricIntegral",
+          "name": "hasFDerivAt_integral_of_dominated_of_fderiv_le",
+          "statement": "H \u2192 \u03b1 \u2192 H \u2192L[\ud835\udd5c] E} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200\u1da0 x in \ud835\udcdd x\u2080, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) (hF'_meas : AEStronglyMeasurable (F' x\u2080) \u03bc) (h_bound : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F' x a\u2016 \u2264 bound a) (bound_integrable : Integrable (bound : \u03b1 \u2192 \u211d) \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, HasFDerivAt (F \u00b7 a) (F' x a) x) : HasFDerivAt (fun x \u21a6 \u222b a, F x a \u2202\u03bc) (\u222b a, F' x\u2080 a \u2202\u03bc) x\u2080",
+          "have_tree": [
+            {
+              "name": "x\u2080_in",
+              "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+              "body": "mem_ball_self \u03b5_pos",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2200\u1d50 a \u2202\u03bc, LipschitzOnWith (Real.nnabs (bound a)) (F \u00b7 a) (ball x\u2080 \u03b5)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "diff_x\u2080",
+              "type": "\u2200\u1d50 a \u2202\u03bc, HasFDerivAt (F \u00b7 a) (F' x\u2080 a) x\u2080",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "ParametricIntegral",
+      "name": "hasDerivAt_integral_of_dominated_loc_of_deriv_le",
+      "statement": "s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200\u1da0 x in \ud835\udcdd x\u2080, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) {F' : \ud835\udd5c \u2192 \u03b1 \u2192 E} (hF'_meas : AEStronglyMeasurable (F' x\u2080) \u03bc) (h_bound : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F' x a\u2016 \u2264 bound a) (bound_integrable : Integrable bound \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, HasDerivAt (F \u00b7 a) (F' x a) x) : Integrable (F' x\u2080) \u03bc \u2227 HasDerivAt (fun n \u21a6 \u222b a, F n a \u2202\u03bc) (\u222b a, F' x\u2080 a \u2202\u03bc) x\u2080",
+      "have_tree": [
+        {
+          "name": "x\u2080_in",
+          "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+          "body": "mem_ball_self \u03b5_pos",
+          "children": []
+        },
+        {
+          "name": "diff_x\u2080",
+          "type": "\u2200\u1d50 a \u2202\u03bc, HasDerivAt (F \u00b7 a) (F' x\u2080 a) x\u2080",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "ParametricIntegral",
+          "name": "hasDerivAt_integral_of_dominated_loc_of_deriv_le",
+          "statement": "s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200\u1da0 x in \ud835\udcdd x\u2080, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) {F' : \ud835\udd5c \u2192 \u03b1 \u2192 E} (hF'_meas : AEStronglyMeasurable (F' x\u2080) \u03bc) (h_bound : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F' x a\u2016 \u2264 bound a) (bound_integrable : Integrable bound \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, HasDerivAt (F \u00b7 a) (F' x a) x) : Integrable (F' x\u2080) \u03bc \u2227 HasDerivAt (fun n \u21a6 \u222b a, F n a \u2202\u03bc) (\u222b a, F' x\u2080 a \u2202\u03bc) x\u2080",
+          "have_tree": [
+            {
+              "name": "diff_x\u2080",
+              "type": "\u2200\u1d50 a \u2202\u03bc, HasDerivAt (F \u00b7 a) (F' x\u2080 a) x\u2080",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "x\u2080_in",
+              "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+              "body": "mem_ball_self \u03b5_pos",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

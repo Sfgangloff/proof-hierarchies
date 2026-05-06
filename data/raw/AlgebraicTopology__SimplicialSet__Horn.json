@@ -1,0 +1,79 @@
+[
+  {
+    "module": "Horn",
+    "name": "horn_obj_zero",
+    "statement": "\u2115) (i : Fin (n + 3)) : (horn.{u} (n + 2) i).obj (op (.mk 0)) = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Finset.card_le_card hS.symm.le",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "this.trans Finset.card_le_two",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Horn",
+    "name": "horn_obj_eq_univ",
+    "statement": "\u2115} (i : Fin (n + 1)) (m : \u2115) (h : m + 1 < n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(congr_arg Finset.card this).symm.le.trans (Finset.card_union_le _ _)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "n \u2264 m + 1",
+        "body": "by simpa using this.trans Finset.card_image_le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Horn",
+    "name": "subcomplex_le_horn_iff",
+    "statement": "\u2115} (A : \u0394[n + 1].Subcomplex) (i : Fin (n + 2)) : A \u2264 horn.{u} (n + 1) i \u2194 \u00ac stdSimplex.face {i}\u1d9c \u2264 A",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "S.card_compl_add_card",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Horn",
+    "name": "edge",
+    "statement": "\u2115) (i a b : Fin (n + 1)) (hab : a \u2264 b) (H : #{i, a, b} \u2264 n) : (\u039b[n, i] : SSet.{u}).obj (op \u298b1\u298c)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Finset.card_le_card hS.symm.le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Horn",
+    "name": "primitiveTriangle",
+    "statement": "\u2115} (i : Fin (n + 4)) (h\u2080 : 0 < i) (h\u2099 : i < Fin.last (n + 3)) (k : \u2115) (h : k < n + 2) : (\u039b[n + 3, i] : SSet.{u}).obj (op \u298b2\u298c)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Finset.mem_univ (Fin.last _ : Fin (n + 4))",
+        "children": []
+      }
+    ]
+  }
+]

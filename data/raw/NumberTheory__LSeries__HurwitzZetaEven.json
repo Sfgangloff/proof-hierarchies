@@ -1,0 +1,93 @@
+[
+  {
+    "module": "HurwitzZetaEven",
+    "name": "evenKernel_functional_equation",
+    "statement": "UnitAddCircle) (x : \u211d) : evenKernel a x = 1 / x ^ (1 / 2 : \u211d) * cosKernel a (1 / x)",
+    "have_tree": [
+      {
+        "name": "hx'",
+        "type": "I * x \u2260 0",
+        "body": "mul_ne_zero I_ne_zero (ofReal_ne_zero.mpr hx.ne')",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HurwitzZetaEven",
+    "name": "hasSum_nat_cosKernel\u2080",
+    "statement": "\u211d) {t : \u211d} (ht : 0 < t) : HasSum (fun n : \u2115 \u21a6 2 * Real.cos (2 * \u03c0 * a * (n + 1)) * rexp (-\u03c0 * (n + 1) ^ 2 * t)) (cosKernel a t - 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(hasSum_int_cosKernel a ht).nat_add_neg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HurwitzZetaEven",
+    "name": "hasSum_nat_completedCosZeta",
+    "statement": "\u211d) {s : \u2102} (hs : 1 < re s) : HasSum (fun n : \u2115 \u21a6 if n = 0 then 0 else Gamma\u211d s * Real.cos (2 * \u03c0 * a * n) / (n : \u2102) ^ s) (completedCosZeta a s)",
+    "have_tree": [
+      {
+        "name": "hint",
+        "type": "",
+        "body": "(hasSum_int_completedCosZeta a hs).nat_add_neg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HurwitzZetaEven",
+    "name": "differentiableAt_hurwitzZetaEven",
+    "statement": "UnitAddCircle) {s : \u2102} (hs' : s \u2260 1) : DifferentiableAt \u2102 (hurwitzZetaEven a) s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "differentiableAt_update_of_residue",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HurwitzZetaEven",
+    "name": "hurwitzZetaEven_residue_one",
+    "statement": "UnitAddCircle) : Tendsto (fun s \u21a6 (s - 1) * hurwitzZetaEven a s) (\ud835\udcdd[\u2260] 1) (\ud835\udcdd 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Tendsto (fun s \u21a6 (s - 1) * completedHurwitzZetaEven a s / Gamma\u211d s) (\ud835\udcdd[\u2260] 1) (\ud835\udcdd 1)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HurwitzZetaEven",
+    "name": "hasSum_int_hurwitzZetaEven",
+    "statement": "\u211d) {s : \u2102} (hs : 1 < re s) : HasSum (fun n : \u2124 \u21a6 1 / (\u2191|n + a| : \u2102) ^ s / 2) (hurwitzZetaEven a s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(hasSum_int_completedHurwitzZetaEven a hs).div_const (Gamma\u211d s)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HurwitzZetaEven",
+    "name": "hasSum_nat_cosZeta",
+    "statement": "\u211d) {s : \u2102} (hs : 1 < re s) : HasSum (fun n : \u2115 \u21a6 Real.cos (2 * \u03c0 * a * n) / (n : \u2102) ^ s) (cosZeta a s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(hasSum_int_cosZeta a hs).nat_add_neg",
+        "children": []
+      }
+    ]
+  }
+]

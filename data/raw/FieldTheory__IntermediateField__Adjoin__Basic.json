@@ -1,0 +1,259 @@
+[
+  {
+    "module": "Basic",
+    "name": "rank_sup_le_of_isAlgebraic",
+    "statement": "Algebra.IsAlgebraic K E1 \u2228 Algebra.IsAlgebraic K E2) : Module.rank K \u21a5(E1 \u2294 E2) \u2264 Module.rank K E1 * Module.rank K E2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "E1.toSubalgebra.rank_sup_le_of_free E2.toSubalgebra",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "finrank_sup_le",
+    "statement": "finrank K \u21a5(E1 \u2294 E2) \u2264 finrank K E1 * finrank K E2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "LinearMap.rank_le_of_injective _ <| Submodule.inclusion_injective <|",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "finiteDimensional_iSup_of_finset'",
+    "statement": "Finset \u03b9} (h : \u2200 i \u2208 s, FiniteDimensional K (t i)) : FiniteDimensional K (\u2a06 i \u2208 s, t i : IntermediateField K L)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Subtype.forall'.mp h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isSplittingField_iSup",
+    "statement": "\u03b9 \u2192 K[X]} {s : Finset \u03b9} (h0 : \u220f i \u2208 s, p i \u2260 0) (h : \u2200 i \u2208 s, (p i).IsSplittingField K (t i)) : (\u220f i \u2208 s, p i).IsSplittingField K (\u2a06 i \u2208 s, t i : IntermediateField K L)",
+    "have_tree": [
+      {
+        "name": "hF",
+        "type": "\u2200 i \u2208 s, t i \u2264 F",
+        "body": "fun i hi \u21a6 le_iSup_of_le i (le_iSup (fun _ \u21a6 t i) hi)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "adjoin_rank_le_of_isAlgebraic",
+    "statement": "IntermediateField F K) (halg : Algebra.IsAlgebraic F E \u2228 Algebra.IsAlgebraic F L) : Module.rank E (adjoin E (L : Set K)) \u2264 Module.rank F L",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "L.toSubalgebra.adjoin_rank_le E",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "adjoin_simple_isCompactElement",
+    "statement": "E) : IsCompactElement F\u27eex\u27ef",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hne.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_finset_of_mem_iSup",
+    "statement": "Type*} {f : \u03b9 \u2192 IntermediateField F E} {x : E} (hx : x \u2208 \u2a06 i, f i) : \u2203 s : Finset \u03b9, x \u2208 \u2a06 i \u2208 s, f i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(adjoin_simple_isCompactElement x).exists_finset_of_le_iSup (IntermediateField F E) f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isAlgebraic_adjoin_simple",
+    "statement": "L} (hx : IsIntegral K x) : Algebra.IsAlgebraic K K\u27eex\u27ef",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "adjoin.finiteDimensional hx; Algebra.IsAlgebraic.of_finite K K\u27eex\u27ef",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "adjoin_minpoly_coeff_of_exists_primitive_element",
+    "statement": "adjoin F {\u03b1} = \u22a4) (K : IntermediateField F E) : adjoin F ((minpoly K \u03b1).map (algebraMap K E)).coeffs = K",
+    "have_tree": [
+      {
+        "name": "hsub",
+        "type": "K' \u2264 K",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "dvd_g",
+        "type": "minpoly K' \u03b1 \u2223 g.toSubring K'.toSubring (subset_adjoin F _)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "adjoin.finrank (.of_finite K \u03b1)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_lt_finrank_of_infinite_dimensional",
+    "statement": "\u00ac FiniteDimensional F E) (n : \u2115) : \u2203 L : IntermediateField F E, FiniteDimensional F L \u2227 n < finrank F L",
+    "have_tree": [
+      {
+        "name": "h2",
+        "type": "F\u27eex\u27ef \u2264 L'",
+        "body": "le_sup_right",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.Polynomial.Irreducible.natDegree_dvd_finrank",
+    "statement": "K[X]} (hi : Irreducible f) (hs : (f.map (algebraMap K L)).Splits) : f.natDegree \u2223 finrank K L",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hi.degree_pos.ne'",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "minpoly.Irreducible.eq_minpoly hi hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.Polynomial.irreducible_comp",
+    "statement": "K[X]} (hfm : f.Monic) (hgm : g.Monic) (hf : Irreducible f) (hg : \u2200 (E : Type u) [Field E] [Algebra K E] (x : E) (_ : minpoly K x = f), Irreducible (g.map (algebraMap _ _) - C (AdjoinSimple.gen K x))) : Irreducible (f.comp g)",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "natDegree f \u2260 0",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hg'",
+        "type": "natDegree g \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Fact.mk hf",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "H\u2081",
+        "type": "f.comp g \u2260 0",
+        "body": "fun h \u21a6 by simpa [hf', hg', natDegree_comp] using congr_arg natDegree h",
+        "children": []
+      },
+      {
+        "name": "H\u2082",
+        "type": "\u00ac IsUnit (f.comp g)",
+        "body": "fun h \u21a6",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk hp\u2081",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Module.finrank_mul_finrank K K\u27eeaeval (root p) g\u27ef Kx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "algEquiv",
+    "statement": "L} (hx : IsAlgebraic K x) (h_mp : minpoly K x = minpoly K y) : K\u27eex\u27ef \u2243\u2090[K] K\u27eey\u27ef",
+    "have_tree": [
+      {
+        "name": "hy",
+        "type": "IsAlgebraic K y",
+        "body": "\u27e8minpoly K x, ne_zero hx.isIntegral, (h_mp \u25b8 aeval _ _)\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "algEquiv_apply",
+    "statement": "L} (hx : IsAlgebraic K x) (h_mp : minpoly K x = minpoly K y) : algEquiv hx h_mp (AdjoinSimple.gen K x) = AdjoinSimple.gen K y",
+    "have_tree": [
+      {
+        "name": "hy",
+        "type": "IsAlgebraic K y",
+        "body": "\u27e8minpoly K x, ne_zero hx.isIntegral, (h_mp \u25b8 aeval _ _)\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "finiteDimensional_adjoin_pair",
+    "statement": "IsIntegral K x) (hy : IsIntegral K y) : FiniteDimensional K K\u27eex, y\u27ef",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "adjoin.finiteDimensional hx",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "adjoin.finiteDimensional hy",
+        "children": []
+      }
+    ]
+  }
+]

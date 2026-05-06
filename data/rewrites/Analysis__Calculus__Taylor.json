@@ -1,0 +1,344 @@
+[
+  {
+    "original": {
+      "module": "Taylor",
+      "name": "hasDerivWithinAt_taylorWithinEval",
+      "statement": "\u211d \u2192 E} {x y : \u211d} {n : \u2115} {s s' : Set \u211d} (hs_unique : UniqueDiffOn \u211d s) (hs' : s' \u2208 \ud835\udcdd[s] y) (hy : y \u2208 s') (h : s' \u2286 s) (hf : ContDiffOn \u211d n f s) (hf' : DifferentiableWithinAt \u211d (iteratedDerivWithin n f s) s y) : HasDerivWithinAt (fun t => taylorWithinEval f n s t x) (((n ! : \u211d)\u207b\u00b9 * (x - y) ^ n) \u2022 iteratedDerivWithin (n + 1) f s y) s' y",
+      "have_tree": [
+        {
+          "name": "hs'_unique",
+          "type": "UniqueDiffWithinAt \u211d s' y",
+          "body": "",
+          "children": [
+            {
+              "name": "hdiff",
+              "type": "DifferentiableOn \u211d (iteratedDerivWithin k f s) s'",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Taylor",
+          "name": "hasDerivWithinAt_taylorWithinEval",
+          "statement": "\u211d \u2192 E} {x y : \u211d} {n : \u2115} {s s' : Set \u211d} (hs_unique : UniqueDiffOn \u211d s) (hs' : s' \u2208 \ud835\udcdd[s] y) (hy : y \u2208 s') (h : s' \u2286 s) (hf : ContDiffOn \u211d n f s) (hf' : DifferentiableWithinAt \u211d (iteratedDerivWithin n f s) s y) : HasDerivWithinAt (fun t => taylorWithinEval f n s t x) (((n ! : \u211d)\u207b\u00b9 * (x - y) ^ n) \u2022 iteratedDerivWithin (n + 1) f s y) s' y",
+          "have_tree": [
+            {
+              "name": "hs'_unique",
+              "type": "UniqueDiffWithinAt \u211d s' y",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Taylor",
+          "name": "hasDerivWithinAt_taylorWithinEval",
+          "statement": "\u211d \u2192 E} {x y : \u211d} {n : \u2115} {s s' : Set \u211d} (hs_unique : UniqueDiffOn \u211d s) (hs' : s' \u2208 \ud835\udcdd[s] y) (hy : y \u2208 s') (h : s' \u2286 s) (hf : ContDiffOn \u211d n f s) (hf' : DifferentiableWithinAt \u211d (iteratedDerivWithin n f s) s y) : HasDerivWithinAt (fun t => taylorWithinEval f n s t x) (((n ! : \u211d)\u207b\u00b9 * (x - y) ^ n) \u2022 iteratedDerivWithin (n + 1) f s y) s' y",
+          "have_tree": [
+            {
+              "name": "hdiff",
+              "type": "DifferentiableOn \u211d (iteratedDerivWithin k f s) s'",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hs'_unique",
+              "type": "UniqueDiffWithinAt \u211d s' y",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Taylor",
+      "name": "taylorWithinEval_hasDerivAt_Ioo",
+      "statement": "\u211d \u2192 E} {a b t : \u211d} (x : \u211d) {n : \u2115} (hx : a < b) (ht : t \u2208 Ioo a b) (hf : ContDiffOn \u211d n f (Icc a b)) (hf' : DifferentiableOn \u211d (iteratedDerivWithin n f (Icc a b)) (Ioo a b)) : HasDerivAt (fun y => taylorWithinEval f n (Icc a b) y x) (((n ! : \u211d)\u207b\u00b9 * (x - t) ^ n) \u2022 iteratedDerivWithin (n + 1) f (Icc a b) t) t",
+      "have_tree": [
+        {
+          "name": "h_nhds",
+          "type": "Ioo a b \u2208 \ud835\udcdd t",
+          "body": "isOpen_Ioo.mem_nhds ht",
+          "children": []
+        },
+        {
+          "name": "h_nhds'",
+          "type": "Ioo a b \u2208 \ud835\udcdd[Icc a b] t",
+          "body": "nhdsWithin_le_nhds h_nhds",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Taylor",
+          "name": "taylorWithinEval_hasDerivAt_Ioo",
+          "statement": "\u211d \u2192 E} {a b t : \u211d} (x : \u211d) {n : \u2115} (hx : a < b) (ht : t \u2208 Ioo a b) (hf : ContDiffOn \u211d n f (Icc a b)) (hf' : DifferentiableOn \u211d (iteratedDerivWithin n f (Icc a b)) (Ioo a b)) : HasDerivAt (fun y => taylorWithinEval f n (Icc a b) y x) (((n ! : \u211d)\u207b\u00b9 * (x - t) ^ n) \u2022 iteratedDerivWithin (n + 1) f (Icc a b) t) t",
+          "have_tree": [
+            {
+              "name": "h_nhds'",
+              "type": "Ioo a b \u2208 \ud835\udcdd[Icc a b] t",
+              "body": "nhdsWithin_le_nhds h_nhds",
+              "children": []
+            },
+            {
+              "name": "h_nhds",
+              "type": "Ioo a b \u2208 \ud835\udcdd t",
+              "body": "isOpen_Ioo.mem_nhds ht",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Taylor",
+      "name": "taylor_mean_remainder_lagrange_iteratedDeriv",
+      "statement": "\u211d \u2192 \u211d} {x x\u2080 : \u211d} {n : \u2115} (hx : x\u2080 \u2260 x) (hf : ContDiffOn \u211d (n + 1) f (uIcc x\u2080 x)) : \u2203 x' \u2208 uIoo x\u2080 x, f x - taylorWithinEval f n (uIcc x\u2080 x) x\u2080 x = iteratedDeriv (n + 1) f x' * (x - x\u2080) ^ (n + 1) / (n + 1)!",
+      "have_tree": [
+        {
+          "name": "hu",
+          "type": "UniqueDiffOn \u211d (uIcc x\u2080 x)",
+          "body": "uniqueDiffOn_Icc (by grind)",
+          "children": []
+        },
+        {
+          "name": "hd",
+          "type": "DifferentiableOn \u211d (iteratedDerivWithin n f (uIcc x\u2080 x)) (uIcc x\u2080 x)",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Taylor",
+          "name": "taylor_mean_remainder_lagrange_iteratedDeriv",
+          "statement": "\u211d \u2192 \u211d} {x x\u2080 : \u211d} {n : \u2115} (hx : x\u2080 \u2260 x) (hf : ContDiffOn \u211d (n + 1) f (uIcc x\u2080 x)) : \u2203 x' \u2208 uIoo x\u2080 x, f x - taylorWithinEval f n (uIcc x\u2080 x) x\u2080 x = iteratedDeriv (n + 1) f x' * (x - x\u2080) ^ (n + 1) / (n + 1)!",
+          "have_tree": [
+            {
+              "name": "hd",
+              "type": "DifferentiableOn \u211d (iteratedDerivWithin n f (uIcc x\u2080 x)) (uIcc x\u2080 x)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hu",
+              "type": "UniqueDiffOn \u211d (uIcc x\u2080 x)",
+              "body": "uniqueDiffOn_Icc (by grind)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Taylor",
+      "name": "taylor_mean_remainder_bound",
+      "statement": "\u211d \u2192 E} {a b C x : \u211d} {n : \u2115} (hab : a \u2264 b) (hf : ContDiffOn \u211d (n + 1) f (Icc a b)) (hx : x \u2208 Icc a b) (hC : \u2200 y \u2208 Icc a b, \u2016iteratedDerivWithin (n + 1) f (Icc a b) y\u2016 \u2264 C) : \u2016f x - taylorWithinEval f n (Icc a b) a x\u2016 \u2264 C * (x - a) ^ (n + 1) / n !",
+      "have_tree": [
+        {
+          "name": "hf'",
+          "type": "DifferentiableOn \u211d (iteratedDerivWithin n f (Icc a b)) (Icc a b)",
+          "body": "",
+          "children": [
+            {
+              "name": "I",
+              "type": "Icc a x \u2286 Icc a b",
+              "body": "Icc_subset_Icc_right hx.2",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "norm_image_sub_le_of_norm_deriv_le_segment' A h' x (right_mem_Icc.2 hx.1)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Taylor",
+          "name": "taylor_mean_remainder_bound",
+          "statement": "\u211d \u2192 E} {a b C x : \u211d} {n : \u2115} (hab : a \u2264 b) (hf : ContDiffOn \u211d (n + 1) f (Icc a b)) (hx : x \u2208 Icc a b) (hC : \u2200 y \u2208 Icc a b, \u2016iteratedDerivWithin (n + 1) f (Icc a b) y\u2016 \u2264 C) : \u2016f x - taylorWithinEval f n (Icc a b) a x\u2016 \u2264 C * (x - a) ^ (n + 1) / n !",
+          "have_tree": [
+            {
+              "name": "hf'",
+              "type": "DifferentiableOn \u211d (iteratedDerivWithin n f (Icc a b)) (Icc a b)",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "norm_image_sub_le_of_norm_deriv_le_segment' A h' x (right_mem_Icc.2 hx.1)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Taylor",
+          "name": "taylor_mean_remainder_bound",
+          "statement": "\u211d \u2192 E} {a b C x : \u211d} {n : \u2115} (hab : a \u2264 b) (hf : ContDiffOn \u211d (n + 1) f (Icc a b)) (hx : x \u2208 Icc a b) (hC : \u2200 y \u2208 Icc a b, \u2016iteratedDerivWithin (n + 1) f (Icc a b) y\u2016 \u2264 C) : \u2016f x - taylorWithinEval f n (Icc a b) a x\u2016 \u2264 C * (x - a) ^ (n + 1) / n !",
+          "have_tree": [
+            {
+              "name": "I",
+              "type": "Icc a x \u2286 Icc a b",
+              "body": "Icc_subset_Icc_right hx.2",
+              "children": []
+            },
+            {
+              "name": "hf'",
+              "type": "DifferentiableOn \u211d (iteratedDerivWithin n f (Icc a b)) (Icc a b)",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "norm_image_sub_le_of_norm_deriv_le_segment' A h' x (right_mem_Icc.2 hx.1)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Taylor",
+          "name": "taylor_mean_remainder_bound",
+          "statement": "\u211d \u2192 E} {a b C x : \u211d} {n : \u2115} (hab : a \u2264 b) (hf : ContDiffOn \u211d (n + 1) f (Icc a b)) (hx : x \u2208 Icc a b) (hC : \u2200 y \u2208 Icc a b, \u2016iteratedDerivWithin (n + 1) f (Icc a b) y\u2016 \u2264 C) : \u2016f x - taylorWithinEval f n (Icc a b) a x\u2016 \u2264 C * (x - a) ^ (n + 1) / n !",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "norm_image_sub_le_of_norm_deriv_le_segment' A h' x (right_mem_Icc.2 hx.1)",
+              "children": []
+            },
+            {
+              "name": "hf'",
+              "type": "DifferentiableOn \u211d (iteratedDerivWithin n f (Icc a b)) (Icc a b)",
+              "body": "",
+              "children": [
+                {
+                  "name": "I",
+                  "type": "Icc a x \u2286 Icc a b",
+                  "body": "Icc_subset_Icc_right hx.2",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Taylor",
+      "name": "taylor_integral_remainder_aux",
+      "statement": "\u211d \u2192 F} {x x\u2080 : \u211d} {n : \u2115} (hf : \u2200 k \u2264 n, let u",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "UniqueDiffOn \u211d [[x\u2080, x]]",
+          "body": "uniqueDiffOn_Icc (by grind)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "hf (n + 1) (by rfl)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Taylor",
+          "name": "taylor_integral_remainder_aux",
+          "statement": "\u211d \u2192 F} {x x\u2080 : \u211d} {n : \u2115} (hf : \u2200 k \u2264 n, let u",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hf (n + 1) (by rfl)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "UniqueDiffOn \u211d [[x\u2080, x]]",
+              "body": "uniqueDiffOn_Icc (by grind)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

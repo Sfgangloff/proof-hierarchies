@@ -1,0 +1,149 @@
+[
+  {
+    "original": {
+      "module": "ADEInequality",
+      "name": "lt_three",
+      "statement": "\u2115+} (hpq : p \u2264 q) (hqr : q \u2264 r) (H : 1 < sumInv {p, q, r}) : p < 3",
+      "have_tree": [
+        {
+          "name": "h3q",
+          "type": "",
+          "body": "H.trans hpq",
+          "children": []
+        },
+        {
+          "name": "h3r",
+          "type": "",
+          "body": "h3q.trans hqr",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "ADEInequality",
+          "name": "lt_three",
+          "statement": "\u2115+} (hpq : p \u2264 q) (hqr : q \u2264 r) (H : 1 < sumInv {p, q, r}) : p < 3",
+          "have_tree": [
+            {
+              "name": "h3r",
+              "type": "",
+              "body": "h3q.trans hqr",
+              "children": []
+            },
+            {
+              "name": "h3q",
+              "type": "",
+              "body": "H.trans hpq",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "ADEInequality",
+      "name": "admissible_of_one_lt_sumInv_aux'",
+      "statement": "\u2115+} (hpq : p \u2264 q) (hqr : q \u2264 r) (H : 1 < sumInv {p, q, r}) : Admissible {p, q, r}",
+      "have_tree": [
+        {
+          "name": "hp3",
+          "type": "p < 3",
+          "body": "lt_three hpq hqr H",
+          "children": []
+        },
+        {
+          "name": "hq4",
+          "type": "q < 4",
+          "body": "lt_four hqr H",
+          "children": []
+        },
+        {
+          "name": "hr6",
+          "type": "r < 6",
+          "body": "lt_six H",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "ADEInequality",
+          "name": "admissible_of_one_lt_sumInv_aux'",
+          "statement": "\u2115+} (hpq : p \u2264 q) (hqr : q \u2264 r) (H : 1 < sumInv {p, q, r}) : Admissible {p, q, r}",
+          "have_tree": [
+            {
+              "name": "hq4",
+              "type": "q < 4",
+              "body": "lt_four hqr H",
+              "children": []
+            },
+            {
+              "name": "hp3",
+              "type": "p < 3",
+              "body": "lt_three hpq hqr H",
+              "children": []
+            },
+            {
+              "name": "hr6",
+              "type": "r < 6",
+              "body": "lt_six H",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "ADEInequality",
+          "name": "admissible_of_one_lt_sumInv_aux'",
+          "statement": "\u2115+} (hpq : p \u2264 q) (hqr : q \u2264 r) (H : 1 < sumInv {p, q, r}) : Admissible {p, q, r}",
+          "have_tree": [
+            {
+              "name": "hp3",
+              "type": "p < 3",
+              "body": "lt_three hpq hqr H",
+              "children": []
+            },
+            {
+              "name": "hr6",
+              "type": "r < 6",
+              "body": "lt_six H",
+              "children": []
+            },
+            {
+              "name": "hq4",
+              "type": "q < 4",
+              "body": "lt_four hqr H",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

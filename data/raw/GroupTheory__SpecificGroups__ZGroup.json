@@ -1,0 +1,194 @@
+[
+  {
+    "module": "ZGroup",
+    "name": "of_squarefree",
+    "statement": "Squarefree (Nat.card G)) : IsZGroup G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite G",
+        "body": "Nat.finite_of_card_ne_zero hG.ne_zero",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZGroup",
+    "name": "of_injective",
+    "statement": "IsZGroup G'] (hf : Function.Injective f) : IsZGroup G",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "Subgroup.map f P \u2264 Q",
+        "body": "hQ \u25b8 Subgroup.map_comap_le f \u2191Q",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isCyclic_of_surjective _ (Subgroup.subgroupOfEquivOfLe h).surjective",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZGroup",
+    "name": "of_surjective",
+    "statement": "IsZGroup G] (hf : Function.Surjective f) : IsZGroup G'",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZGroup",
+    "name": "commutator_lt",
+    "statement": "commutator G < \u22a4",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "p.Prime",
+        "body": "Nat.minFac_prime Finite.one_lt_card.ne'",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk hp",
+        "children": []
+      },
+      {
+        "name": "hP",
+        "type": "",
+        "body": "isZGroup p hp P",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "P.ne_bot_of_dvd_card (Nat.card G).minFac_dvd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZGroup",
+    "name": "exponent_eq_card",
+    "statement": "Monoid.exponent G = Nat.card G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZGroup",
+    "name": "isCyclic_commutator",
+    "statement": "IsCyclic (commutator G)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "Abelianization.commutator_subset_ker \u2045commutator H, commutator H\u2046.normalizerMonoidHom",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZGroup",
+    "name": "smul_mul_inv_trivial_or_surjective",
+    "statement": "IsPGroup p G) {K : Type*} [Group K] [MulDistribMulAction K G] (hGK : (Nat.card G).Coprime (Nat.card K)) : (\u2200 g : G, \u2200 k : K, k \u2022 g * g\u207b\u00b9 = 1) \u2228 (\u2200 g : G, \u2203 k : K, \u2203 q : G, k \u2022 q * q\u207b\u00b9 = g)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.finite_of_card_ne_zero hc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZGroup",
+    "name": "normalizer_le_centralizer_or_le_commutator",
+    "statement": "Subgroup.normalizer P \u2264 Subgroup.centralizer (P : Set G) \u2228 P \u2264 commutator G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Q.Normal",
+        "body": "P.normal_in_normalizer",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsCyclic Q",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZGroup",
+    "name": "IsZGroup.coprime_commutator_index",
+    "statement": "(Nat.card (commutator G)).Coprime (commutator G).index",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZGroup",
+    "name": "isZGroup_of_coprime",
+    "statement": "f'.ker \u2264 f.range) (h_cop : (Nat.card G).Coprime (Nat.card G'')) : IsZGroup G'",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk hp",
+        "children": [
+          {
+            "name": "key",
+            "type": "",
+            "body": "Subgroup.subgroupOfEquivOfLe h_le",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "ZGroup",
+    "name": "isZGroup_iff_exists_mulEquiv",
+    "statement": "IsZGroup G \u2194 \u2203 (N H : Subgroup G) (\u03c6 : H \u2192* MulAut N) (_ : G \u2243* N \u22ca[\u03c6] H), IsCyclic H \u2227 IsCyclic N \u2227 (Nat.card N).Coprime (Nat.card H)",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "Abelianization G \u2243* H",
+        "body": "hH.symm.QuotientMulEquiv",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsZGroup (N \u22ca[\u03c6] H)",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

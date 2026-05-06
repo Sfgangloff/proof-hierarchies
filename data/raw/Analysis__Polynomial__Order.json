@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Order",
+    "name": "zero_lt_eval_of_roots_lt_of_leadingCoeff_nonneg",
+    "statement": "\u2200 y, P.IsRoot y \u2192 y < x) (hlc : 0 \u2264 P.leadingCoeff) : 0 < P.eval x",
+    "have_tree": [
+      {
+        "name": "hw",
+        "type": "x \u2264 w \u2227 0 < P.eval w",
+        "body": "\u27e8le_max_left .., hz w (le_max_right ..)\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Order",
+    "name": "zero_lt_negOnePow_mul_eval_of_lt_roots_of_leadingCoeff_nonneg",
+    "statement": "\u2200 y, P.IsRoot y \u2192 x < y) (hlc : 0 \u2264 P.leadingCoeff) : 0 < Int.negOnePow P.natDegree * P.eval x",
+    "have_tree": [
+      {
+        "name": "hlc'",
+        "type": "0 \u2264 Int.negOnePow (P.comp (-X)).natDegree * (P.comp (-X)).leadingCoeff",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "zero_lt_eval_of_roots_lt_of_leadingCoeff_nonneg hroots' hlc'",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "eval_lt_zero_of_roots_lt_of_leadingCoeff_nonpos hroots' (nonpos_of_neg_nonneg hlc')",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

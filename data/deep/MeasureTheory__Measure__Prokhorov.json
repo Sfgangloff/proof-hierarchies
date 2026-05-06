@@ -1,0 +1,123 @@
+[
+  {
+    "module": "Prokhorov",
+    "name": "isCompact_setOf_finiteMeasure_le_of_compactSpace",
+    "statement": "\u211d\u22650) : IsCompact {\u03bc : FiniteMeasure E | \u03bc.mass \u2264 C}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Tendsto (fun (\u03bc : FiniteMeasure E) \u21a6 \u222b x, g x + g' x \u2202\u03bc) f (\ud835\udcdd (\u039b g + \u039b g'))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Tendsto (fun (\u03bc : FiniteMeasure E) \u21a6 \u222b x, c \u2022 g x \u2202\u03bc) f (\ud835\udcdd (c \u2022 \u039b g))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "\u03bclim_le",
+        "type": "\u03bclim univ \u2264 ENNReal.ofReal C",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u03bclim univ \u2264 ENNReal.ofReal (\u039b' o)",
+            "body": "RealRMK.rieszMeasure_le_of_eq_one \u039b'",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Prokhorov",
+    "name": "isCompact_setOf_finiteMeasure_mass_le_compl_isCompact_le",
+    "statement": "\u2115 \u2192 \u211d\u22650} {K : \u2115 \u2192 Set E} (C : \u211d\u22650) (hu : Tendsto u atTop (\ud835\udcdd 0)) (hK : \u2200 n, IsCompact (K n)) (h : NormalSpace E \u2228 Monotone K) : IsCompact {\u03bc : FiniteMeasure E | \u03bc.mass \u2264 C \u2227 \u2200 n, \u03bc (K n)\u1d9c \u2264 u n}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsCompact (partialSups K n)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "(Measure.sum (fun n \u21a6 (\u03bd n : Measure E))) univ \u2264 C",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "L",
+        "type": "Tendsto id f (\ud835\udcdd \u03bc)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Tendsto (fun n \u21a6 \u222b x, g x \u2202(\u2211 i \u2208 Finset.range n, \u03bd i)) atTop (\ud835\udcdd (\u222b x, g x \u2202\u03bc))",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "I2",
+            "type": "\u2200\u1da0 n in atTop, \u2016g\u2016 * u n < \u03b5 / 3",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "",
+                "body": "(NNReal.tendsto_coe.2 hu).const_mul (\u2016g\u2016)",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "Measure.InnerRegular (\u03bc : Measure E)",
+            "body": "by simp only [toMeasure_mk, \u03bc]; infer_instance",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Tendsto (fun (\u03c1 : FiniteMeasure E) \u21a6 \u222b x, g x \u2202\u03c1) f (\ud835\udcdd (\u222b x, g x \u2202\u03bc))",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u2211 i \u2208 Finset.Ioc n m, \u03bc.restrict (disjointed K i) = \u03bc.restrict (K m \\ K n)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Prokhorov",
+    "name": "isCompact_closure_of_isTightMeasureSet",
+    "statement": "Set (ProbabilityMeasure E)} (hS : IsTightMeasureSet {((\u03bc : ProbabilityMeasure E) : Measure E) | \u03bc \u2208 S}) : IsCompact (closure S)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2203 (K : Set E), IsCompact K \u2227 \u2200 \u03bc \u2208 S, \u03bc K\u1d9c \u2264 u n",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(\u03bc : Measure E) K\u1d9c \u2264 u n",
+            "body": "hK _ \u27e8\u03bc, h\u03bc, rfl\u27e9",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h'K",
+        "type": "IsCompact {\u03bc : ProbabilityMeasure E | \u2200 n, \u03bc (K' n)\u1d9c \u2264 u n}",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

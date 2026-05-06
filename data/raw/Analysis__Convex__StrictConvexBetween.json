@@ -1,0 +1,72 @@
+[
+  {
+    "module": "StrictConvexBetween",
+    "name": "Sbtw.dist_lt_max_dist",
+    "statement": "P) {p\u2081 p\u2082 p\u2083 : P} (h : Sbtw \u211d p\u2081 p\u2082 p\u2083) : dist p\u2082 p < max (dist p\u2081 p) (dist p\u2083 p)",
+    "have_tree": [
+      {
+        "name": "hp\u2081p\u2083",
+        "type": "p\u2081 -\u1d65 p \u2260 p\u2083 -\u1d65 p",
+        "body": "by simpa using h.left_ne_right",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrictConvexBetween",
+    "name": "Wbtw.dist_le_max_dist",
+    "statement": "P) {p\u2081 p\u2082 p\u2083 : P} (h : Wbtw \u211d p\u2081 p\u2082 p\u2083) : dist p\u2082 p \u2264 max (dist p\u2081 p) (dist p\u2083 p)",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "Sbtw \u211d p\u2081 p\u2082 p\u2083",
+        "body": "\u27e8h, hp\u2081, hp\u2083\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrictConvexBetween",
+    "name": "Collinear.wbtw_of_dist_eq_of_dist_le",
+    "statement": "P} {r : \u211d} (h : Collinear \u211d ({p\u2081, p\u2082, p\u2083} : Set P)) (hp\u2081 : dist p\u2081 p = r) (hp\u2082 : dist p\u2082 p \u2264 r) (hp\u2083 : dist p\u2083 p = r) (hp\u2081p\u2083 : p\u2081 \u2260 p\u2083) : Wbtw \u211d p\u2081 p\u2082 p\u2083",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "Sbtw \u211d p\u2082 p\u2083 p\u2081",
+        "body": "\u27e8hw, hp\u2083p\u2082, hp\u2081p\u2083.symm\u27e9",
+        "children": []
+      },
+      {
+        "name": "hs'",
+        "type": "",
+        "body": "hs.dist_lt_max_dist p",
+        "children": []
+      },
+      {
+        "name": "hs",
+        "type": "Sbtw \u211d p\u2083 p\u2081 p\u2082",
+        "body": "\u27e8hw, hp\u2081p\u2083, hp\u2081p\u2082\u27e9",
+        "children": []
+      },
+      {
+        "name": "hs'",
+        "type": "",
+        "body": "hs.dist_lt_max_dist p",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StrictConvexBetween",
+    "name": "eq_lineMap_of_dist_eq_mul_of_dist_eq_mul",
+    "statement": "dist x y = r * dist x z) (hyz : dist y z = (1 - r) * dist x z) : y = AffineMap.lineMap x z r",
+    "have_tree": [
+      {
+        "name": "H'",
+        "type": "",
+        "body": "congr_arg norm H",
+        "children": []
+      }
+    ]
+  }
+]

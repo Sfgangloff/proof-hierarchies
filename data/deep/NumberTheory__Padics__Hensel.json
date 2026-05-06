@@ -1,0 +1,111 @@
+[
+  {
+    "module": "Hensel",
+    "name": "ih_n",
+    "statement": "\u2115} {z : \u2124_[p]} (hz : ih n z) : { z' : \u2124_[p] // ih (n + 1) z' }",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "\u2016(\u2191(F.aeval z) : \u211a_[p]) / \u2191(F.derivative.aeval z)\u2016 \u2264 1",
+        "body": "calc_norm_le_one hnorm hz",
+        "children": [
+          {
+            "name": "hdist",
+            "type": "\u2016F.derivative.aeval z' - F.derivative.aeval z\u2016 < \u2016F.derivative.aeval a\u2016",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "hfeq",
+            "type": "\u2016F.derivative.aeval z'\u2016 = \u2016F.derivative.aeval a\u2016",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "",
+                "body": "PadicInt.norm_eq_of_norm_add_lt_right hdist",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "hnle",
+            "type": "\u2016F.aeval z'\u2016 \u2264 \u2016F.derivative.aeval a\u2016 ^ 2 * T ^ 2 ^ (n + 1)",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Hensel",
+    "name": "soln_unique",
+    "statement": "\u2124_[p]) (hev : F.aeval z = 0) (hnlt : \u2016z - a\u2016 < \u2016F.derivative.aeval a\u2016) : z = soln",
+    "have_tree": [
+      {
+        "name": "soln_dist",
+        "type": "\u2016z - soln\u2016 < \u2016F.derivative.aeval a\u2016",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(F.derivative.aeval soln + q * h) * h = 0",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "h = 0",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "F.derivative.aeval soln + q * h = 0",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "F.derivative.aeval soln = -q * h",
+            "body": "by simpa using eq_neg_of_add_eq_zero_left this",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Hensel",
+    "name": "a_soln_is_unique",
+    "statement": "F.aeval a = 0) (z' : \u2124_[p]) (hz' : F.aeval z' = 0) (hnormz' : \u2016z' - a\u2016 < \u2016F.derivative.aeval a\u2016) : z' = a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(F.derivative.aeval a + q * h) * h = 0",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "h = 0",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "F.derivative.aeval a + q * h = 0",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "F.derivative.aeval a = -q * h",
+            "body": "by simpa using eq_neg_of_add_eq_zero_left this",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

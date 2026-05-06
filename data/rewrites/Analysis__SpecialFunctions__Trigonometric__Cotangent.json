@@ -1,0 +1,224 @@
+[
+  {
+    "original": {
+      "module": "Cotangent",
+      "name": "cotTerm",
+      "statement": "\u2102) (n : \u2115) : \u2102",
+      "have_tree": [
+        {
+          "name": "h1",
+          "type": "",
+          "body": "integerComplement_add_ne_zero hx (i + 1)",
+          "children": []
+        },
+        {
+          "name": "h3",
+          "type": "(i + 1) ^ 2 + - x ^ 2 \u2260 0",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "(integerComplement_pow_two_ne_pow_two hx ((i + 1) : \u2124))",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Cotangent",
+          "name": "cotTerm",
+          "statement": "\u2102) (n : \u2115) : \u2102",
+          "have_tree": [
+            {
+              "name": "h1",
+              "type": "",
+              "body": "integerComplement_add_ne_zero hx (i + 1)",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "(i + 1) ^ 2 + - x ^ 2 \u2260 0",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Cotangent",
+          "name": "cotTerm",
+          "statement": "\u2102) (n : \u2115) : \u2102",
+          "have_tree": [
+            {
+              "name": "h1",
+              "type": "",
+              "body": "integerComplement_add_ne_zero hx (i + 1)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(integerComplement_pow_two_ne_pow_two hx ((i + 1) : \u2124))",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "(i + 1) ^ 2 + - x ^ 2 \u2260 0",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Cotangent",
+          "name": "cotTerm",
+          "statement": "\u2102) (n : \u2115) : \u2102",
+          "have_tree": [
+            {
+              "name": "h3",
+              "type": "(i + 1) ^ 2 + - x ^ 2 \u2260 0",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "(integerComplement_pow_two_ne_pow_two hx ((i + 1) : \u2124))",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h1",
+              "type": "",
+              "body": "integerComplement_add_ne_zero hx (i + 1)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Cotangent",
+      "name": "cot_series_rep",
+      "statement": "x \u2208 \u2102_\u2124) : \u03c0 * cot (\u03c0 * x) = 1 / x + \u2211' n : \u2115+, (1 / (x - n) + 1 / (x + n))",
+      "have_tree": [
+        {
+          "name": "h0",
+          "type": "",
+          "body": "tsum_pnat_eq_tsum_succ (f := fun n \u21a6 1 / (x - n) + 1 / (x + n))",
+          "children": []
+        },
+        {
+          "name": "h1",
+          "type": "",
+          "body": "cot_series_rep' hz",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Cotangent",
+          "name": "cot_series_rep",
+          "statement": "x \u2208 \u2102_\u2124) : \u03c0 * cot (\u03c0 * x) = 1 / x + \u2211' n : \u2115+, (1 / (x - n) + 1 / (x + n))",
+          "have_tree": [
+            {
+              "name": "h1",
+              "type": "",
+              "body": "cot_series_rep' hz",
+              "children": []
+            },
+            {
+              "name": "h0",
+              "type": "",
+              "body": "tsum_pnat_eq_tsum_succ (f := fun n \u21a6 1 / (x - n) + 1 / (x + n))",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Cotangent",
+      "name": "iteratedDerivWithin_cotTerm_bounded_uniformly",
+      "statement": "\u2115} {K : Set \u2102} (A B : \u211d) (hB : 0 < B) (hKAB : K \u2286 (\u2191) '' verticalStrip A B) (n : \u2115) {a : \u2102} (ha : a \u2208 K) : \u2016iteratedDerivWithin k (fun z \u21a6 cotTerm z n) \u210d\u2092 a\u2016 \u2264 cotTermUpperBound k A B hB n",
+      "have_tree": [
+        {
+          "name": "h1",
+          "type": "",
+          "body": "summand_bound_of_mem_verticalStrip (k := k + 1) (by positivity) ![1, n + 1] hB haAB",
+          "children": []
+        },
+        {
+          "name": "h2",
+          "type": "",
+          "body": "abs_norm_eq_max_natAbs_neg n \u25b8 summand_bound_of_mem_verticalStrip (k := k + 1)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Cotangent",
+          "name": "iteratedDerivWithin_cotTerm_bounded_uniformly",
+          "statement": "\u2115} {K : Set \u2102} (A B : \u211d) (hB : 0 < B) (hKAB : K \u2286 (\u2191) '' verticalStrip A B) (n : \u2115) {a : \u2102} (ha : a \u2208 K) : \u2016iteratedDerivWithin k (fun z \u21a6 cotTerm z n) \u210d\u2092 a\u2016 \u2264 cotTermUpperBound k A B hB n",
+          "have_tree": [
+            {
+              "name": "h2",
+              "type": "",
+              "body": "abs_norm_eq_max_natAbs_neg n \u25b8 summand_bound_of_mem_verticalStrip (k := k + 1)",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "",
+              "body": "summand_bound_of_mem_verticalStrip (k := k + 1) (by positivity) ![1, n + 1] hB haAB",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "GoingUp",
+      "name": "exists_coeff_mem_comap_sdiff_comap_of_root_mem_sdiff",
+      "statement": "I \u2264 J) {r : S} (hr : r \u2208 (J : Set S) \\ I) {p : R[X]} (p_ne_zero : p.map (Quotient.mk (I.comap f)) \u2260 0) (hpI : p.eval\u2082 f r \u2208 I) : \u2203 i, p.coeff i \u2208 (J.comap f : Set R) \\ I.comap f",
+      "have_tree": [
+        {
+          "name": "rbar_ne_zero",
+          "type": "Ideal.Quotient.mk I r \u2260 0",
+          "body": "mt (Quotient.mk_eq_zero I).mp hrI",
+          "children": []
+        },
+        {
+          "name": "rbar_mem_J",
+          "type": "Ideal.Quotient.mk I r \u2208 J.map (Ideal.Quotient.mk I)",
+          "body": "mem_map_of_mem _ hrJ",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "GoingUp",
+          "name": "exists_coeff_mem_comap_sdiff_comap_of_root_mem_sdiff",
+          "statement": "I \u2264 J) {r : S} (hr : r \u2208 (J : Set S) \\ I) {p : R[X]} (p_ne_zero : p.map (Quotient.mk (I.comap f)) \u2260 0) (hpI : p.eval\u2082 f r \u2208 I) : \u2203 i, p.coeff i \u2208 (J.comap f : Set R) \\ I.comap f",
+          "have_tree": [
+            {
+              "name": "rbar_mem_J",
+              "type": "Ideal.Quotient.mk I r \u2208 J.map (Ideal.Quotient.mk I)",
+              "body": "mem_map_of_mem _ hrJ",
+              "children": []
+            },
+            {
+              "name": "rbar_ne_zero",
+              "type": "Ideal.Quotient.mk I r \u2260 0",
+              "body": "mt (Quotient.mk_eq_zero I).mp hrI",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "GoingUp",
+      "name": "exists_ideal_over_prime_of_isIntegral_of_isDomain",
+      "statement": "Ideal R) [IsPrime P] (hP : RingHom.ker (algebraMap R S) \u2264 P) : \u2203 Q : Ideal S, IsPrime Q \u2227 Q.comap (algebraMap R S) = P",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Algebra.IsIntegral R\u209a S\u209a",
+          "body": "\u27e8isIntegral_localization\u27e9",
+          "children": []
+        },
+        {
+          "name": "Q\u209a_max",
+          "type": "IsMaximal (comap _ Q\u209a)",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "GoingUp",
+          "name": "exists_ideal_over_prime_of_isIntegral_of_isDomain",
+          "statement": "Ideal R) [IsPrime P] (hP : RingHom.ker (algebraMap R S) \u2264 P) : \u2203 Q : Ideal S, IsPrime Q \u2227 Q.comap (algebraMap R S) = P",
+          "have_tree": [
+            {
+              "name": "Q\u209a_max",
+              "type": "IsMaximal (comap _ Q\u209a)",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Algebra.IsIntegral R\u209a S\u209a",
+              "body": "\u27e8isIntegral_localization\u27e9",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

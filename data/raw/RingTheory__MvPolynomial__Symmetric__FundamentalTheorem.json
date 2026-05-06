@@ -1,0 +1,47 @@
+[
+  {
+    "module": "FundamentalTheorem",
+    "name": "supDegree_monic_esymm",
+    "statement": "\u2115} (him : i < m) : supDegree toLex (esymm (Fin m) R (i + 1)) = toLex (Finsupp.indicator (Iic \u27e8i, him\u27e9) fun _ _ \u21a6 1) \u2227 Monic toLex (esymm (Fin m) R (i + 1))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "supDegree_leadingCoeff_sum_eq (D := toLex) (s := univ.powersetCard (i + 1))",
+        "children": []
+      },
+      {
+        "name": "hkm",
+        "type": "",
+        "body": "mem_sdiff.1 (min'_mem _ hne)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FundamentalTheorem",
+    "name": "supDegree_esymmAlgHomMonomial",
+    "statement": "r \u2260 0) (t : Fin n \u2192\u2080 \u2115) (hnm : n \u2264 m) : ofLex (supDegree toLex <| esymmAlgHomMonomial (Fin m) t r) = accumulate n m t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "i.2.trans_le hnm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FundamentalTheorem",
+    "name": "esymmAlgHom_fin_bijective",
+    "statement": "\u2115) : Function.Bijective (esymmAlgHom (Fin n) R n)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(supDegree_sub_lt_of_leadingCoeff_eq toLex.injective hd.symm ?_).resolve_right hne",
+        "children": []
+      }
+    ]
+  }
+]

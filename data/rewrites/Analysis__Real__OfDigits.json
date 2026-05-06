@@ -1,0 +1,196 @@
+[
+  {
+    "original": {
+      "module": "OfDigits",
+      "name": "le_sum_ofDigitsTerm_digits",
+      "statement": "\u211d} {b : \u2115} [NeZero b] (hx : x \u2208 Set.Ico 0 1) (n : \u2115) : x - (b\u207b\u00b9 : \u211d) ^ n \u2264 \u2211 i \u2208 Finset.range n, ofDigitsTerm (digits x b) i",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "NeZero.pos b",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "ofDigits_digits_sum_eq (b := b) hx n",
+          "children": []
+        },
+        {
+          "name": "h_le",
+          "type": "",
+          "body": "Nat.lt_floor_add_one (b ^ n * x)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "OfDigits",
+          "name": "le_sum_ofDigitsTerm_digits",
+          "statement": "\u211d} {b : \u2115} [NeZero b] (hx : x \u2208 Set.Ico 0 1) (n : \u2115) : x - (b\u207b\u00b9 : \u211d) ^ n \u2264 \u2211 i \u2208 Finset.range n, ofDigitsTerm (digits x b) i",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "ofDigits_digits_sum_eq (b := b) hx n",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "NeZero.pos b",
+              "children": []
+            },
+            {
+              "name": "h_le",
+              "type": "",
+              "body": "Nat.lt_floor_add_one (b ^ n * x)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "OfDigits",
+          "name": "le_sum_ofDigitsTerm_digits",
+          "statement": "\u211d} {b : \u2115} [NeZero b] (hx : x \u2208 Set.Ico 0 1) (n : \u2115) : x - (b\u207b\u00b9 : \u211d) ^ n \u2264 \u2211 i \u2208 Finset.range n, ofDigitsTerm (digits x b) i",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "NeZero.pos b",
+              "children": []
+            },
+            {
+              "name": "h_le",
+              "type": "",
+              "body": "Nat.lt_floor_add_one (b ^ n * x)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "ofDigits_digits_sum_eq (b := b) hx n",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "OfDigits",
+      "name": "sum_ofDigitsTerm_digits_le",
+      "statement": "\u211d} {b : \u2115} [NeZero b] (hx : x \u2208 Set.Ico 0 1) (n : \u2115) : \u2211 i \u2208 Finset.range n, ofDigitsTerm (digits x b) i \u2264 x",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "ofDigits_digits_sum_eq (b := b) hx n",
+          "children": []
+        },
+        {
+          "name": "h_le",
+          "type": "",
+          "body": "Nat.floor_le (a := b ^ n * x) (by have := hx.left; positivity)",
+          "children": []
+        },
+        {
+          "name": "hb",
+          "type": "",
+          "body": "NeZero.ne b",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "OfDigits",
+          "name": "sum_ofDigitsTerm_digits_le",
+          "statement": "\u211d} {b : \u2115} [NeZero b] (hx : x \u2208 Set.Ico 0 1) (n : \u2115) : \u2211 i \u2208 Finset.range n, ofDigitsTerm (digits x b) i \u2264 x",
+          "have_tree": [
+            {
+              "name": "h_le",
+              "type": "",
+              "body": "Nat.floor_le (a := b ^ n * x) (by have := hx.left; positivity)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "ofDigits_digits_sum_eq (b := b) hx n",
+              "children": []
+            },
+            {
+              "name": "hb",
+              "type": "",
+              "body": "NeZero.ne b",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "OfDigits",
+          "name": "sum_ofDigitsTerm_digits_le",
+          "statement": "\u211d} {b : \u2115} [NeZero b] (hx : x \u2208 Set.Ico 0 1) (n : \u2115) : \u2211 i \u2208 Finset.range n, ofDigitsTerm (digits x b) i \u2264 x",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "ofDigits_digits_sum_eq (b := b) hx n",
+              "children": []
+            },
+            {
+              "name": "hb",
+              "type": "",
+              "body": "NeZero.ne b",
+              "children": []
+            },
+            {
+              "name": "h_le",
+              "type": "",
+              "body": "Nat.floor_le (a := b ^ n * x) (by have := hx.left; positivity)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

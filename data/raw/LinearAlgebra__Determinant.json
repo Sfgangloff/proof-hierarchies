@@ -1,0 +1,92 @@
+[
+  {
+    "module": "Determinant",
+    "name": "det_eq_one_of_subsingleton",
+    "statement": "M \u2192\u2097[R] M) : LinearMap.det (f : M \u2192\u2097[R] M) = 1",
+    "have_tree": [
+      {
+        "name": "b",
+        "type": "Basis (Fin 0) R M",
+        "body": "Basis.empty M",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Determinant",
+    "name": "det_eq_one_of_finrank_eq_zero",
+    "statement": "Type*} [Field \ud835\udd5c] {M : Type*} [AddCommGroup M] [Module \ud835\udd5c M] (h : Module.finrank \ud835\udd5c M = 0) (f : M \u2192\u2097[\ud835\udd5c] M) : LinearMap.det (f : M \u2192\u2097[\ud835\udd5c] M) = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsEmpty s",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Determinant",
+    "name": "bot_lt_ker_of_det_eq_zero",
+    "statement": "M \u2192\u2097[R] M} (hf : f.det = 0) : \u22a5 < ker f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.Finite R M",
+        "body": "by simp [finite_of_det_ne_one (f := f), hf]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Determinant",
+    "name": "range_lt_top_of_det_eq_zero",
+    "statement": "Type*} [Field \ud835\udd5c] [Module \ud835\udd5c M] {f : M \u2192\u2097[\ud835\udd5c] M} (hf : f.det = 0) : range f < \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.Finite \ud835\udd5c M",
+        "body": "by simp [finite_of_det_ne_one (f := f), hf]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Determinant",
+    "name": "LinearMap.equivOfIsUnitDet",
+    "statement": "M \u2192\u2097[R] M} (h : IsUnit f.det) : M \u2243\u2097[R] M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite \u03b9",
+        "body": "Module.Finite.finite_basis b",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "DecidableEq \u03b9",
+        "body": "Classical.typeDecidableEq \u03b9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Determinant",
+    "name": "_root_.LinearMap.det_dualMap",
+    "statement": "M \u2192\u2097[R] M) : f.dualMap.det = f.det",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype (Module.Free.ChooseBasisIndex R M)",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

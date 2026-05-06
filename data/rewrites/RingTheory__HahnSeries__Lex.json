@@ -1,0 +1,410 @@
+[
+  {
+    "original": {
+      "module": "Lex",
+      "name": "lt_iff",
+      "statement": "Lex R\u27e6\u0393\u27e7) : a < b \u2194 \u2203 (i : \u0393), (\u2200 (j : \u0393), j < i \u2192 (ofLex a).coeff j = (ofLex b).coeff j) \u2227 (ofLex a).coeff i < (ofLex b).coeff i",
+      "have_tree": [
+        {
+          "name": "hvu",
+          "type": "v \u2286 u",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hv",
+          "type": "v.IsWF",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "hne",
+          "type": "(ofLex a).coeff i \u2260 (ofLex b).coeff i",
+          "body": "hv.min_mem hab",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Lex",
+          "name": "lt_iff",
+          "statement": "Lex R\u27e6\u0393\u27e7) : a < b \u2194 \u2203 (i : \u0393), (\u2200 (j : \u0393), j < i \u2192 (ofLex a).coeff j = (ofLex b).coeff j) \u2227 (ofLex a).coeff i < (ofLex b).coeff i",
+          "have_tree": [
+            {
+              "name": "hv",
+              "type": "v.IsWF",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hvu",
+              "type": "v \u2286 u",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hne",
+              "type": "(ofLex a).coeff i \u2260 (ofLex b).coeff i",
+              "body": "hv.min_mem hab",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Lex",
+          "name": "lt_iff",
+          "statement": "Lex R\u27e6\u0393\u27e7) : a < b \u2194 \u2203 (i : \u0393), (\u2200 (j : \u0393), j < i \u2192 (ofLex a).coeff j = (ofLex b).coeff j) \u2227 (ofLex a).coeff i < (ofLex b).coeff i",
+          "have_tree": [
+            {
+              "name": "hvu",
+              "type": "v \u2286 u",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hne",
+              "type": "(ofLex a).coeff i \u2260 (ofLex b).coeff i",
+              "body": "hv.min_mem hab",
+              "children": []
+            },
+            {
+              "name": "hv",
+              "type": "v.IsWF",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Lex",
+      "name": "leadingCoeff_pos_iff",
+      "statement": "Lex R\u27e6\u0393\u27e7} : 0 < (ofLex x).leadingCoeff \u2194 0 < x",
+      "have_tree": [
+        {
+          "name": "hne",
+          "type": "(ofLex x) \u2260 0",
+          "body": "leadingCoeff_ne_zero.mp hpos.ne.symm",
+          "children": []
+        },
+        {
+          "name": "htop",
+          "type": "(ofLex x).orderTop \u2260 \u22a4",
+          "body": "orderTop_ne_top.2 hne",
+          "children": []
+        },
+        {
+          "name": "htop",
+          "type": "(ofLex x).orderTop \u2260 \u22a4",
+          "body": "WithTop.ne_top_iff_exists.mpr \u27e8i, horder.symm\u27e9",
+          "children": []
+        },
+        {
+          "name": "hne",
+          "type": "ofLex x \u2260 0",
+          "body": "orderTop_ne_top.1 htop",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Lex",
+          "name": "leadingCoeff_pos_iff",
+          "statement": "Lex R\u27e6\u0393\u27e7} : 0 < (ofLex x).leadingCoeff \u2194 0 < x",
+          "have_tree": [
+            {
+              "name": "htop",
+              "type": "(ofLex x).orderTop \u2260 \u22a4",
+              "body": "orderTop_ne_top.2 hne",
+              "children": []
+            },
+            {
+              "name": "hne",
+              "type": "(ofLex x) \u2260 0",
+              "body": "leadingCoeff_ne_zero.mp hpos.ne.symm",
+              "children": []
+            },
+            {
+              "name": "htop",
+              "type": "(ofLex x).orderTop \u2260 \u22a4",
+              "body": "WithTop.ne_top_iff_exists.mpr \u27e8i, horder.symm\u27e9",
+              "children": []
+            },
+            {
+              "name": "hne",
+              "type": "ofLex x \u2260 0",
+              "body": "orderTop_ne_top.1 htop",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Lex",
+          "name": "leadingCoeff_pos_iff",
+          "statement": "Lex R\u27e6\u0393\u27e7} : 0 < (ofLex x).leadingCoeff \u2194 0 < x",
+          "have_tree": [
+            {
+              "name": "hne",
+              "type": "(ofLex x) \u2260 0",
+              "body": "leadingCoeff_ne_zero.mp hpos.ne.symm",
+              "children": []
+            },
+            {
+              "name": "htop",
+              "type": "(ofLex x).orderTop \u2260 \u22a4",
+              "body": "WithTop.ne_top_iff_exists.mpr \u27e8i, horder.symm\u27e9",
+              "children": []
+            },
+            {
+              "name": "htop",
+              "type": "(ofLex x).orderTop \u2260 \u22a4",
+              "body": "orderTop_ne_top.2 hne",
+              "children": []
+            },
+            {
+              "name": "hne",
+              "type": "ofLex x \u2260 0",
+              "body": "orderTop_ne_top.1 htop",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Lex",
+          "name": "leadingCoeff_pos_iff",
+          "statement": "Lex R\u27e6\u0393\u27e7} : 0 < (ofLex x).leadingCoeff \u2194 0 < x",
+          "have_tree": [
+            {
+              "name": "hne",
+              "type": "(ofLex x) \u2260 0",
+              "body": "leadingCoeff_ne_zero.mp hpos.ne.symm",
+              "children": []
+            },
+            {
+              "name": "htop",
+              "type": "(ofLex x).orderTop \u2260 \u22a4",
+              "body": "orderTop_ne_top.2 hne",
+              "children": []
+            },
+            {
+              "name": "hne",
+              "type": "ofLex x \u2260 0",
+              "body": "orderTop_ne_top.1 htop",
+              "children": []
+            },
+            {
+              "name": "htop",
+              "type": "(ofLex x).orderTop \u2260 \u22a4",
+              "body": "WithTop.ne_top_iff_exists.mpr \u27e8i, horder.symm\u27e9",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Lex",
+      "name": "archimedeanClassMk_le_archimedeanClassMk_iff_of_orderTop_ofLex",
+      "statement": "Lex R\u27e6\u0393\u27e7} (h : (ofLex x).orderTop = (ofLex y).orderTop) : ArchimedeanClass.mk x \u2264 .mk y \u2194 ArchimedeanClass.mk (ofLex x).leadingCoeff \u2264 .mk (ofLex y).leadingCoeff",
+      "have_tree": [
+        {
+          "name": "hx",
+          "type": "x \u2260 0",
+          "body": "by simpa using orderTop_ne_top.1 <| h \u25b8 orderTop_ne_top.2 (by simpa using hy)",
+          "children": [
+            {
+              "name": "hn'",
+              "type": "|y| < (n + 1) \u2022 |x|",
+              "body": "",
+              "children": [
+                {
+                  "name": "hjlt'",
+                  "type": "j < (ofLex |y|).orderTop",
+                  "body": "h'.symm \u25b8 hjlt",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Lex",
+          "name": "archimedeanClassMk_le_archimedeanClassMk_iff_of_orderTop_ofLex",
+          "statement": "Lex R\u27e6\u0393\u27e7} (h : (ofLex x).orderTop = (ofLex y).orderTop) : ArchimedeanClass.mk x \u2264 .mk y \u2194 ArchimedeanClass.mk (ofLex x).leadingCoeff \u2264 .mk (ofLex y).leadingCoeff",
+          "have_tree": [
+            {
+              "name": "hx",
+              "type": "x \u2260 0",
+              "body": "by simpa using orderTop_ne_top.1 <| h \u25b8 orderTop_ne_top.2 (by simpa using hy)",
+              "children": [
+                {
+                  "name": "hjlt'",
+                  "type": "j < (ofLex |y|).orderTop",
+                  "body": "h'.symm \u25b8 hjlt",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "result": {
+          "module": "Lex",
+          "name": "archimedeanClassMk_le_archimedeanClassMk_iff_of_orderTop_ofLex",
+          "statement": "Lex R\u27e6\u0393\u27e7} (h : (ofLex x).orderTop = (ofLex y).orderTop) : ArchimedeanClass.mk x \u2264 .mk y \u2194 ArchimedeanClass.mk (ofLex x).leadingCoeff \u2264 .mk (ofLex y).leadingCoeff",
+          "have_tree": [
+            {
+              "name": "hx",
+              "type": "x \u2260 0",
+              "body": "by simpa using orderTop_ne_top.1 <| h \u25b8 orderTop_ne_top.2 (by simpa using hy)",
+              "children": [
+                {
+                  "name": "hn'",
+                  "type": "|y| < (n + 1) \u2022 |x|",
+                  "body": "",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Lex",
+          "name": "archimedeanClassMk_le_archimedeanClassMk_iff_of_orderTop_ofLex",
+          "statement": "Lex R\u27e6\u0393\u27e7} (h : (ofLex x).orderTop = (ofLex y).orderTop) : ArchimedeanClass.mk x \u2264 .mk y \u2194 ArchimedeanClass.mk (ofLex x).leadingCoeff \u2264 .mk (ofLex y).leadingCoeff",
+          "have_tree": [
+            {
+              "name": "hn'",
+              "type": "|y| < (n + 1) \u2022 |x|",
+              "body": "",
+              "children": [
+                {
+                  "name": "hjlt'",
+                  "type": "j < (ofLex |y|).orderTop",
+                  "body": "h'.symm \u25b8 hjlt",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hx",
+              "type": "x \u2260 0",
+              "body": "by simpa using orderTop_ne_top.1 <| h \u25b8 orderTop_ne_top.2 (by simpa using hy)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0,
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Lex",
+          "name": "archimedeanClassMk_le_archimedeanClassMk_iff_of_orderTop_ofLex",
+          "statement": "Lex R\u27e6\u0393\u27e7} (h : (ofLex x).orderTop = (ofLex y).orderTop) : ArchimedeanClass.mk x \u2264 .mk y \u2194 ArchimedeanClass.mk (ofLex x).leadingCoeff \u2264 .mk (ofLex y).leadingCoeff",
+          "have_tree": [
+            {
+              "name": "hx",
+              "type": "x \u2260 0",
+              "body": "by simpa using orderTop_ne_top.1 <| h \u25b8 orderTop_ne_top.2 (by simpa using hy)",
+              "children": [
+                {
+                  "name": "hjlt'",
+                  "type": "j < (ofLex |y|).orderTop",
+                  "body": "h'.symm \u25b8 hjlt",
+                  "children": []
+                },
+                {
+                  "name": "hn'",
+                  "type": "|y| < (n + 1) \u2022 |x|",
+                  "body": "",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

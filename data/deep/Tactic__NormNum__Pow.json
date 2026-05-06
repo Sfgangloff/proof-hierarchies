@@ -1,0 +1,103 @@
+[
+  {
+    "module": "Pow",
+    "name": "IsNatPowT.bit1",
+    "statement": "IsNatPowT (Nat.pow a b = c) a (nat_lit 2 * b + nat_lit 1) (Nat.mul c (Nat.mul c a))",
+    "have_tree": [
+      {
+        "name": "b'",
+        "type": "Q(\u2115)",
+        "body": "mkRawNatLit (b.natLit! - 1)",
+        "children": [
+          {
+            "name": "c",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit (c\u2080' * c\u2080')",
+            "children": []
+          },
+          {
+            "name": "c",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit (c\u2080' * (c\u2080' * a'))",
+            "children": []
+          },
+          {
+            "name": "hi",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit (b' >>> d)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Pow",
+    "name": "intPow_negOfNat_bit1",
+    "statement": "\u2115} (h1 : Nat.pow a b' = c') (hb : nat_lit 2 * b' + nat_lit 1 = b) (hc : c' * (c' * a) = c) : Int.pow (Int.negOfNat a) b = Int.negOfNat c",
+    "have_tree": [
+      {
+        "name": "a'",
+        "type": "Q(\u2115)",
+        "body": "a.appArg!",
+        "children": [
+          {
+            "name": "_",
+            "type": "$a =Q .ofNat $a'",
+            "body": "\u27e8\u27e9",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "$a =Q .negOfNat $a'",
+            "body": "\u27e8\u27e9",
+            "children": []
+          },
+          {
+            "name": "b\u2080",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit (b' >>> 1)",
+            "children": [
+              {
+                "name": "c",
+                "type": "Q(\u2115)",
+                "body": "mkRawNatLit (c' * c')",
+                "children": []
+              },
+              {
+                "name": "pc",
+                "type": "Q($c\u2080 * $c\u2080 = $c)",
+                "body": "(q(Eq.refl $c) : Expr)",
+                "children": []
+              },
+              {
+                "name": "pb",
+                "type": "Q(2 * $b\u2080 = $b)",
+                "body": "(q(Eq.refl $b) : Expr)",
+                "children": []
+              },
+              {
+                "name": "c",
+                "type": "Q(\u2115)",
+                "body": "mkRawNatLit (c' * (c' * a'.natLit!))",
+                "children": []
+              },
+              {
+                "name": "pc",
+                "type": "Q($c\u2080 * ($c\u2080 * $a') = $c)",
+                "body": "(q(Eq.refl $c) : Expr)",
+                "children": []
+              },
+              {
+                "name": "pb",
+                "type": "Q(2 * $b\u2080 + 1 = $b)",
+                "body": "(q(Eq.refl $b) : Expr)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

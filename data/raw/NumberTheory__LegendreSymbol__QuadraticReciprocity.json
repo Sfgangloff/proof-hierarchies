@@ -1,0 +1,59 @@
+[
+  {
+    "module": "QuadraticReciprocity",
+    "name": "exists_sq_eq_two_iff",
+    "statement": "p \u2260 2) : IsSquare (2 : ZMod p) \u2194 p % 8 = 1 \u2228 p % 8 = 7",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "(Prime.mod_two_eq_one_iff_ne_two Fact.out).mpr hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QuadraticReciprocity",
+    "name": "exists_sq_eq_neg_two_iff",
+    "statement": "p \u2260 2) : IsSquare (-2 : ZMod p) \u2194 p % 8 = 1 \u2228 p % 8 = 3",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "(Prime.mod_two_eq_one_iff_ne_two Fact.out).mpr hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QuadraticReciprocity",
+    "name": "quadratic_reciprocity",
+    "statement": "p \u2260 2) (hq : q \u2260 2) (hpq : p \u2260 q) : legendreSym q p * legendreSym p q = (-1) ^ (p / 2 * (q / 2))",
+    "have_tree": [
+      {
+        "name": "hp\u2081",
+        "type": "",
+        "body": "(Prime.eq_two_or_odd <| @Fact.out p.Prime _).resolve_left hp",
+        "children": []
+      },
+      {
+        "name": "hq\u2081",
+        "type": "",
+        "body": "(Prime.eq_two_or_odd <| @Fact.out q.Prime _).resolve_left hq",
+        "children": []
+      },
+      {
+        "name": "hq\u2082",
+        "type": "ringChar (ZMod q) \u2260 2",
+        "body": "(ringChar_zmod_n q).substr hq",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

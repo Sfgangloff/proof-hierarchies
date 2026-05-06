@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "pow_add_pow_le",
+      "statement": "0 \u2264 x) (hy : 0 \u2264 y) (hn : n \u2260 0) : x ^ n + y ^ n \u2264 (x + y) ^ n",
+      "have_tree": [
+        {
+          "name": "h1",
+          "type": "",
+          "body": "add_nonneg (mul_nonneg hx (pow_nonneg hy n)) (mul_nonneg hy (pow_nonneg hx n))",
+          "children": []
+        },
+        {
+          "name": "h2",
+          "type": "",
+          "body": "add_nonneg hx hy",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "pow_add_pow_le",
+          "statement": "0 \u2264 x) (hy : 0 \u2264 y) (hn : n \u2260 0) : x ^ n + y ^ n \u2264 (x + y) ^ n",
+          "have_tree": [
+            {
+              "name": "h2",
+              "type": "",
+              "body": "add_nonneg hx hy",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "",
+              "body": "add_nonneg (mul_nonneg hx (pow_nonneg hy n)) (mul_nonneg hy (pow_nonneg hx n))",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "Odd.pow_pos_iff",
+      "statement": "Odd n) : 0 < a ^ n \u2194 0 < a",
+      "have_tree": [
+        {
+          "name": "hn\u2080",
+          "type": "n \u2260 0",
+          "body": "by rintro rfl; simp [Odd] at hn",
+          "children": []
+        },
+        {
+          "name": "hd",
+          "type": "",
+          "body": "nonneg_of_le_add_right (hb.trans_eq hbd)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "Odd.pow_pos_iff",
+          "statement": "Odd n) : 0 < a ^ n \u2194 0 < a",
+          "have_tree": [
+            {
+              "name": "hd",
+              "type": "",
+              "body": "nonneg_of_le_add_right (hb.trans_eq hbd)",
+              "children": []
+            },
+            {
+              "name": "hn\u2080",
+              "type": "n \u2260 0",
+              "body": "by rintro rfl; simp [Odd] at hn",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

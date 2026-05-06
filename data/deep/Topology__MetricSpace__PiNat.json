@@ -1,0 +1,236 @@
+[
+  {
+    "module": "PiNat",
+    "name": "cylinder_longestPrefix_eq_of_longestPrefix_lt_firstDiff",
+    "statement": "\u2200 n, E n} {s : Set (\u2200 n, E n)} (hs : IsClosed s) (hne : s.Nonempty) (H : longestPrefix x s < firstDiff x y) (xs : x \u2209 s) (ys : y \u2209 s) : cylinder x (longestPrefix x s) = cylinder y (longestPrefix y s)",
+    "have_tree": [
+      {
+        "name": "l_eq",
+        "type": "longestPrefix y s = longestPrefix x s",
+        "body": "by",
+        "children": [
+          {
+            "name": "Z",
+            "type": "",
+            "body": "disjoint_cylinder_of_longestPrefix_lt hs ys L",
+            "children": []
+          },
+          {
+            "name": "A'y",
+            "type": "(s \u2229 cylinder y (longestPrefix x s).succ).Nonempty",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "Z",
+            "type": "",
+            "body": "disjoint_cylinder_of_longestPrefix_lt hs xs (Nat.lt_succ_self _)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PiNat",
+    "name": "exists_lipschitz_retraction_of_isClosed",
+    "statement": "Set (\u2200 n, E n)} (hs : IsClosed s) (hne : s.Nonempty) : \u2203 f : (\u2200 n, E n) \u2192 \u2200 n, E n, (\u2200 x \u2208 s, f x = x) \u2227 range f = s \u2227 LipschitzWith 1 f",
+    "have_tree": [
+      {
+        "name": "fs",
+        "type": "\u2200 x \u2208 s, f x = x",
+        "body": "fun x xs => by simp [f, xs]",
+        "children": [
+          {
+            "name": "I2",
+            "type": "cylinder x (firstDiff x y) = cylinder y (firstDiff x y)",
+            "body": "by",
+            "children": [
+              {
+                "name": "A",
+                "type": "(s \u2229 cylinder y (longestPrefix y s)).Nonempty",
+                "body": "",
+                "children": []
+              },
+              {
+                "name": "fy",
+                "type": "f y = A.some",
+                "body": "by simp_rw [f, if_neg ys]",
+                "children": []
+              },
+              {
+                "name": "I",
+                "type": "cylinder A.some (firstDiff x y) = cylinder y (firstDiff x y)",
+                "body": "by",
+                "children": [
+                  {
+                    "name": "fx",
+                    "type": "f x = A.some",
+                    "body": "by simp_rw [f, if_neg xs]",
+                    "children": []
+                  },
+                  {
+                    "name": "I",
+                    "type": "cylinder A.some (firstDiff x y) = cylinder x (firstDiff x y)",
+                    "body": "by",
+                    "children": []
+                  },
+                  {
+                    "name": "fx",
+                    "type": "f x = Ax.some",
+                    "body": "by simp_rw [f, if_neg xs]",
+                    "children": []
+                  },
+                  {
+                    "name": "Ay",
+                    "type": "(s \u2229 cylinder y (longestPrefix y s)).Nonempty",
+                    "body": "",
+                    "children": []
+                  },
+                  {
+                    "name": "fy",
+                    "type": "f y = Ay.some",
+                    "body": "by simp_rw [f, if_neg ys]",
+                    "children": [
+                      {
+                        "name": "I3",
+                        "type": "cylinder y (firstDiff x y) = cylinder Ay.some (firstDiff x y)",
+                        "body": "by",
+                        "children": []
+                      },
+                      {
+                        "name": "_",
+                        "type": "cylinder Ax.some (firstDiff x y) = cylinder Ay.some (firstDiff x y)",
+                        "body": "by",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PiNat",
+    "name": "exists_nat_nat_continuous_surjective_of_completeSpace",
+    "statement": "Type*) [MetricSpace \u03b1] [CompleteSpace \u03b1] [SecondCountableTopology \u03b1] [Nonempty \u03b1] : \u2203 f : (\u2115 \u2192 \u2115) \u2192 \u03b1, Continuous f \u2227 Surjective f",
+    "have_tree": [
+      {
+        "name": "I0",
+        "type": "(0 : \u211d) < 1 / 2",
+        "body": "by simp",
+        "children": []
+      },
+      {
+        "name": "I1",
+        "type": "(1 / 2 : \u211d) < 1",
+        "body": "by norm_num",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "\u2200 (x : s) (n : \u2115), dist (g x) (u ((x : \u2115 \u2192 \u2115) n)) \u2264 (1 / 2) ^ n",
+        "body": "fun x n =>",
+        "children": []
+      },
+      {
+        "name": "g_cont",
+        "type": "Continuous g",
+        "body": "by",
+        "children": [
+          {
+            "name": "hne'",
+            "type": "x.1 \u2260 y.1",
+            "body": "Subtype.coe_injective.ne hne",
+            "children": []
+          },
+          {
+            "name": "dist'",
+            "type": "dist x y = dist x.1 y.1",
+            "body": "rfl",
+            "children": []
+          },
+          {
+            "name": "diff_pos",
+            "type": "0 < firstDiff x.1 y.1",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hn",
+            "type": "firstDiff x.1 y.1 = n + 1",
+            "body": "(Nat.succ_pred_eq_of_pos diff_pos).symm",
+            "children": []
+          },
+          {
+            "name": "B",
+            "type": "x.1 n = y.1 n",
+            "body": "mem_cylinder_firstDiff x.1 y.1 n (Nat.pred_lt diff_pos.ne')",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "g_surj",
+        "type": "Surjective g",
+        "body": "fun y \u21a6 by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200 n : \u2115, \u2203 j, y \u2208 closedBall (u j) ((1 / 2) ^ n)",
+            "body": "fun n \u21a6 by",
+            "children": []
+          },
+          {
+            "name": "I",
+            "type": "(\u22c2 n : \u2115, closedBall (u (x n)) ((1 / 2) ^ n)).Nonempty",
+            "body": "\u27e8y, mem_iInter.2 hx\u27e9",
+            "children": []
+          },
+          {
+            "name": "J",
+            "type": "\u2200 n : \u2115, dist (g \u27e8x, I\u27e9) y \u2264 (1 / 2) ^ n + (1 / 2) ^ n",
+            "body": "fun n =>",
+            "children": []
+          },
+          {
+            "name": "L",
+            "type": "Tendsto (fun n : \u2115 => (1 / 2 : \u211d) ^ n + (1 / 2) ^ n) atTop (\ud835\udcdd (0 + 0))",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "s_closed",
+        "type": "IsClosed s",
+        "body": "by",
+        "children": [
+          {
+            "name": "L",
+            "type": "Tendsto (fun n : \u2115 => diam (closedBall (u (x n)) ((1 / 2) ^ n))) atTop (\ud835\udcdd 0)",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "Tendsto (fun n : \u2115 => (2 : \u211d) * (1 / 2) ^ n) atTop (\ud835\udcdd (2 * 0))",
+                "body": "",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "x n = y n",
+                "body": "apply_eq_of_dist_lt (mem_ball'.1 hxy) hn",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

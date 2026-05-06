@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Monotone",
+    "name": "tendsto_apply_add_mul_sq_div_sub",
+    "statement": "\u211d \u2192 \u211d} {x a c d : \u211d} {l : Filter \u211d} (hl : l \u2264 \ud835\udcdd[\u2260] x) (hf : Tendsto (fun y => (f y - d) / (y - x)) l (\ud835\udcdd a)) (h' : Tendsto (fun y => y + c * (y - x) ^ 2) l l) : Tendsto (fun y => (f (y + c * (y - x) ^ 2) - d) / (y - x)) l (\ud835\udcdd a)",
+    "have_tree": [
+      {
+        "name": "Z",
+        "type": "",
+        "body": "(hf.comp h').mul L",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200\u1da0 y in l, y + c * (y - x) ^ 2 \u2260 x",
+        "body": "by apply Tendsto.mono_right h' hl self_mem_nhdsWithin",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Monotone",
+    "name": "StieltjesFunction.ae_hasDerivAt",
+    "statement": "StieltjesFunction \u211d) : \u2200\u1d50 x, HasDerivAt f (rnDeriv f.measure volume x).toReal x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u21910 < (x - y) ^ 2",
+        "body": "sq_pos_of_pos (sub_pos.2 hy)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Monotone",
+    "name": "Monotone.ae_hasDerivAt",
+    "statement": "\u211d \u2192 \u211d} (hf : Monotone f) : \u2200\u1d50 x, HasDerivAt f (rnDeriv hf.stieltjesFunction.measure volume x).toReal x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < (y - x) ^ 2",
+        "body": "sq_pos_of_neg hy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Monotone",
+    "name": "MonotoneOn.ae_differentiableWithinAt_of_mem",
+    "statement": "\u211d \u2192 \u211d} {s : Set \u211d} (hf : MonotoneOn f s) : \u2200\u1d50 x, x \u2208 s \u2192 DifferentiableWithinAt \u211d f s x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Ioo a b \u2208 \ud835\udcdd[s] x",
+        "body": "nhdsWithin_le_nhds (Ioo_mem_nhds h'x.2.1 h'x.2.2)",
+        "children": []
+      }
+    ]
+  }
+]

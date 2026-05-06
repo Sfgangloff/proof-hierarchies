@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Carmichael",
+    "name": "carmichael_lcm",
+    "statement": "\u2115) : Carmichael (Nat.lcm a b) = Nat.lcm (Carmichael a) (Carmichael b)",
+    "have_tree": [
+      {
+        "name": "hb",
+        "type": "",
+        "body": "carmichael_dvd <| Nat.dvd_lcm_right a b",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Carmichael",
+    "name": "carmichael_two_pow_of_ne_two",
+    "statement": "\u2115} (hn : n \u2260 2) : Carmichael (2 ^ n) = 2 ^ (n - 2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsCyclic.iff_exponent_eq_card.not.mp <| ZMod.isCyclic_units_two_pow_iff n |>.not.mpr hn'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Carmichael",
+    "name": "carmichael_pow_of_prime_ne_two",
+    "statement": "\u2115} (n : \u2115) (hp : p.Prime) (hp\u2082 : p \u2260 2) : Carmichael (p ^ n) = (p ^ n).totient",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero p",
+        "body": "\u27e8hp.ne_zero\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

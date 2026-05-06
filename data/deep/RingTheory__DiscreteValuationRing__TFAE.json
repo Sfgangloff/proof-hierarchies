@@ -1,0 +1,96 @@
+[
+  {
+    "module": "TFAE",
+    "name": "exists_maximalIdeal_pow_eq_of_principal",
+    "statement": "(maximalIdeal R).IsPrincipal) (I : Ideal R) (hI : I \u2260 \u22a5) : \u2203 n : \u2115, I = maximalIdeal R ^ n",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "\u2200 r : R, \u00acIsUnit r \u2194 x \u2223 r",
+        "body": "fun r =>",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "x \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hx'",
+        "type": "",
+        "body": "IsDiscreteValuationRing.irreducible_of_span_eq_maximalIdeal x this hx",
+        "children": []
+      },
+      {
+        "name": "H'",
+        "type": "\u2200 r : R, r \u2260 0 \u2192 r \u2208 nonunits R \u2192 \u2203 n : \u2115, Associated (x ^ n) r",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200 b \u2208 f, Associated x b",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u2203 n : \u2115, x ^ n \u2208 I",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TFAE",
+    "name": "maximalIdeal_isPrincipal_of_isDedekindDomain",
+    "statement": "(maximalIdeal R).IsPrincipal",
+    "have_tree": [
+      {
+        "name": "hle",
+        "type": "Ideal.span {a} \u2264 maximalIdeal R",
+        "body": "by rwa [Ideal.span_le, Set.singleton_subset_iff]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(Ideal.span {a}).radical = maximalIdeal R",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2203 n, maximalIdeal R ^ n \u2264 Ideal.span {a}",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hb\u2083",
+        "type": "\u2200 m \u2208 maximalIdeal R, \u2203 k : R, k * a = b * m",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hb\u2084",
+        "type": "b \u2260 0",
+        "body": "by rintro rfl; apply hb\u2082; exact zero_mem _",
+        "children": []
+      },
+      {
+        "name": "ha\u2083",
+        "type": "algebraMap R K a \u2260 0",
+        "body": "IsFractionRing.to_map_eq_zero_iff.not.mpr ha\u2082",
+        "children": [
+          {
+            "name": "hk'",
+            "type": "x * algebraMap R K m = algebraMap R K k",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

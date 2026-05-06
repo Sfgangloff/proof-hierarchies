@@ -1,0 +1,252 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "eLpNorm_lt_top_iff_lintegral_rpow_enorm_lt_top",
+      "statement": "\u03b1 \u2192 \u03b5} (hp_ne_zero : p \u2260 0) (hp_ne_top : p \u2260 \u221e) : eLpNorm f p \u03bc < \u221e \u2194 \u222b\u207b a, (\u2016f a\u2016\u2091) ^ p.toReal \u2202\u03bc < \u221e",
+      "have_tree": [
+        {
+          "name": "hp'",
+          "type": "",
+          "body": "ENNReal.toReal_pos hp_ne_zero hp_ne_top",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "0 < 1 / p.toReal",
+          "body": "div_pos zero_lt_one hp'",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "eLpNorm_lt_top_iff_lintegral_rpow_enorm_lt_top",
+          "statement": "\u03b1 \u2192 \u03b5} (hp_ne_zero : p \u2260 0) (hp_ne_top : p \u2260 \u221e) : eLpNorm f p \u03bc < \u221e \u2194 \u222b\u207b a, (\u2016f a\u2016\u2091) ^ p.toReal \u2202\u03bc < \u221e",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "0 < 1 / p.toReal",
+              "body": "div_pos zero_lt_one hp'",
+              "children": []
+            },
+            {
+              "name": "hp'",
+              "type": "",
+              "body": "ENNReal.toReal_pos hp_ne_zero hp_ne_top",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "eLpNorm_enorm_rpow",
+      "statement": "\u03b1 \u2192 \u03b5) (hq_pos : 0 < q) : eLpNorm (\u2016f \u00b7\u2016\u2091 ^ q) p \u03bc = eLpNorm f (p * ENNReal.ofReal q) \u03bc ^ q",
+      "have_tree": [
+        {
+          "name": "h_rpow_mono",
+          "type": "",
+          "body": "ENNReal.strictMono_rpow_of_pos hq_pos",
+          "children": []
+        },
+        {
+          "name": "h_rpow_surj",
+          "type": "",
+          "body": "(ENNReal.rpow_left_bijective hq_pos.ne.symm).2",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "eLpNorm_enorm_rpow",
+          "statement": "\u03b1 \u2192 \u03b5) (hq_pos : 0 < q) : eLpNorm (\u2016f \u00b7\u2016\u2091 ^ q) p \u03bc = eLpNorm f (p * ENNReal.ofReal q) \u03bc ^ q",
+          "have_tree": [
+            {
+              "name": "h_rpow_surj",
+              "type": "",
+              "body": "(ENNReal.rpow_left_bijective hq_pos.ne.symm).2",
+              "children": []
+            },
+            {
+              "name": "h_rpow_mono",
+              "type": "",
+              "body": "ENNReal.strictMono_rpow_of_pos hq_pos",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "memLp_of_bounded",
+      "statement": "\u211d} {f : \u03b1 \u2192 \u211d} (h : \u2200\u1d50 x \u2202\u03bc, f x \u2208 Set.Icc a b) (hX : AEStronglyMeasurable f \u03bc) (p : ENNReal) : MemLp f p \u03bc",
+      "have_tree": [
+        {
+          "name": "ha",
+          "type": "\u2200\u1d50 x \u2202\u03bc, a \u2264 f x",
+          "body": "h.mono fun \u03c9 h => h.1",
+          "children": []
+        },
+        {
+          "name": "hb",
+          "type": "\u2200\u1d50 x \u2202\u03bc, f x \u2264 b",
+          "body": "h.mono fun \u03c9 h => h.2",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "memLp_of_bounded",
+          "statement": "\u211d} {f : \u03b1 \u2192 \u211d} (h : \u2200\u1d50 x \u2202\u03bc, f x \u2208 Set.Icc a b) (hX : AEStronglyMeasurable f \u03bc) (p : ENNReal) : MemLp f p \u03bc",
+          "have_tree": [
+            {
+              "name": "hb",
+              "type": "\u2200\u1d50 x \u2202\u03bc, f x \u2264 b",
+              "body": "h.mono fun \u03c9 h => h.2",
+              "children": []
+            },
+            {
+              "name": "ha",
+              "type": "\u2200\u1d50 x \u2202\u03bc, a \u2264 f x",
+              "body": "h.mono fun \u03c9 h => h.1",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "ae_bdd_liminf_atTop_rpow_of_eLpNorm_bdd",
+      "statement": "\u211d\u22650\u221e} {f : \u2115 \u2192 \u03b1 \u2192 E} (hfmeas : \u2200 n, Measurable (f n)) (hbdd : \u2200 n, eLpNorm (f n) p \u03bc \u2264 R) : \u2200\u1d50 x \u2202\u03bc, liminf (fun n => ((\u2016f n x\u2016\u2091) ^ p.toReal : \u211d\u22650\u221e)) atTop < \u221e",
+      "have_tree": [
+        {
+          "name": "hp",
+          "type": "p \u2260 0",
+          "body": "fun h => by simp [h] at hp0",
+          "children": []
+        },
+        {
+          "name": "hp'",
+          "type": "p \u2260 \u221e",
+          "body": "fun h => by simp [h] at hp0",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "ae_bdd_liminf_atTop_rpow_of_eLpNorm_bdd",
+          "statement": "\u211d\u22650\u221e} {f : \u2115 \u2192 \u03b1 \u2192 E} (hfmeas : \u2200 n, Measurable (f n)) (hbdd : \u2200 n, eLpNorm (f n) p \u03bc \u2264 R) : \u2200\u1d50 x \u2202\u03bc, liminf (fun n => ((\u2016f n x\u2016\u2091) ^ p.toReal : \u211d\u22650\u221e)) atTop < \u221e",
+          "have_tree": [
+            {
+              "name": "hp'",
+              "type": "p \u2260 \u221e",
+              "body": "fun h => by simp [h] at hp0",
+              "children": []
+            },
+            {
+              "name": "hp",
+              "type": "p \u2260 0",
+              "body": "fun h => by simp [h] at hp0",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "ae_bdd_liminf_atTop_of_eLpNorm_bdd",
+      "statement": "\u211d\u22650\u221e} (hp : p \u2260 0) {f : \u2115 \u2192 \u03b1 \u2192 E} (hfmeas : \u2200 n, Measurable (f n)) (hbdd : \u2200 n, eLpNorm (f n) p \u03bc \u2264 R) : \u2200\u1d50 x \u2202\u03bc, liminf (fun n => (\u2016f n x\u2016\u2091)) atTop < \u221e",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "\u2200 n, \u2200\u1d50 x \u2202\u03bc, (\u2016f n x\u2016\u2091) < R + 1",
+          "body": "fun n =>",
+          "children": []
+        },
+        {
+          "name": "hppos",
+          "type": "0 < p.toReal",
+          "body": "ENNReal.toReal_pos hp hp'",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "ae_bdd_liminf_atTop_of_eLpNorm_bdd",
+          "statement": "\u211d\u22650\u221e} (hp : p \u2260 0) {f : \u2115 \u2192 \u03b1 \u2192 E} (hfmeas : \u2200 n, Measurable (f n)) (hbdd : \u2200 n, eLpNorm (f n) p \u03bc \u2264 R) : \u2200\u1d50 x \u2202\u03bc, liminf (fun n => (\u2016f n x\u2016\u2091)) atTop < \u221e",
+          "have_tree": [
+            {
+              "name": "hppos",
+              "type": "0 < p.toReal",
+              "body": "ENNReal.toReal_pos hp hp'",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2200 n, \u2200\u1d50 x \u2202\u03bc, (\u2016f n x\u2016\u2091) < R + 1",
+              "body": "fun n =>",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

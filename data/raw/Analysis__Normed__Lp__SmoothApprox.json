@@ -1,0 +1,65 @@
+[
+  {
+    "module": "SmoothApprox",
+    "name": "exist_eLpNorm_sub_le_of_continuous",
+    "statement": "\u211d\u22650\u221e} (hp : p \u2260 \u22a4) {\u03b5 : \u211d} (h\u03b5 : 0 < \u03b5) {f : E \u2192 F} (h\u2081 : HasCompactSupport f) (h\u2082 : Continuous f) : \u2203 (g : E \u2192 F), HasCompactSupport g \u2227 ContDiff \u211d \u221e g \u2227 eLpNorm (f - g) p \u03bc \u2264 ENNReal.ofReal \u03b5",
+    "have_tree": [
+      {
+        "name": "hs\u2081",
+        "type": "\u03bc (tsupport f) \u2260 \u22a4",
+        "body": "h\u2081.measure_lt_top.ne",
+        "children": []
+      },
+      {
+        "name": "hs\u2082",
+        "type": "0 < (\u03bc <| tsupport f).toReal",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u03b5'",
+        "type": "0 < \u03b5'",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "h\u03b5\u2082",
+        "type": "ENNReal.ofReal \u03b5' * \u03bc (tsupport f) ^ (1 / p.toReal) \u2264 ENNReal.ofReal \u03b5",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SmoothApprox",
+    "name": "exist_eLpNorm_sub_le",
+    "statement": "\u211d\u22650\u221e} (hp : p \u2260 \u22a4) (hp\u2082 : 1 \u2264 p) {f : E \u2192 F} (hf : MemLp f p \u03bc) {\u03b5 : \u211d} (h\u03b5 : 0 < \u03b5) : \u2203 g, HasCompactSupport g \u2227 ContDiff \u211d \u221e g \u2227 eLpNorm (f - g) p \u03bc \u2264 ENNReal.ofReal \u03b5",
+    "have_tree": [
+      {
+        "name": "h\u03b5\u2082",
+        "type": "0 < \u03b5 / 2",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "h\u03b5\u2082'",
+        "type": "0 < ENNReal.ofReal (\u03b5 / 2)",
+        "body": "by positivity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SmoothApprox",
+    "name": "_root_.MeasureTheory.Lp.dense_hasCompactSupport_contDiff",
+    "statement": "\u211d\u22650\u221e} (hp : p \u2260 \u22a4) [hp\u2082 : Fact (1 \u2264 p)] : Dense {f : Lp F p \u03bc | \u2203 (g : E \u2192 F), f =\u1d50[\u03bc] g \u2227 HasCompactSupport g \u2227 ContDiff \u211d \u221e g}",
+    "have_tree": [
+      {
+        "name": "hg\u2084",
+        "type": "MemLp g p \u03bc",
+        "body": "hg\u2082.continuous.memLp_of_hasCompactSupport hg\u2081",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "module": "Gluing",
+    "name": "exists_of_pullback_V_V",
+    "statement": "J} (x : pullback (C",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsOpenImmersion \u03b1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gluing",
+    "name": "fst_inv_eq_snd_inv",
+    "statement": "J} (k\u2081 k\u2082 : (k : J) \u00d7 (k \u27f6 i) \u00d7 (k \u27f6 j)) {U : (F.obj i).Opens} (h\u2081 : (F.map k\u2081.2.1).opensRange \u2264 U) (h\u2082 : (F.map k\u2082.2.1).opensRange \u2264 U) : pullback.fst ((F.obj i).homOfLE h\u2081) ((F.obj i).homOfLE h\u2082) \u226b (F.map k\u2081.2.1).isoOpensRange.inv \u226b F.map k\u2081.2.2 = pullback.snd ((F.obj i).homOfLE h\u2081) ((F.obj i).homOfLE h\u2082) \u226b (F.map k\u2082.2.1).isoOpensRange.inv \u226b F.map k\u2082.2.2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsOpenImmersion \u03b1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsOpenImmersion (\u03b1 \u226b pullback.fst _ _)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Gluing",
+    "name": "glueData",
+    "statement": "Scheme.GlueData where J",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "exists_of_pullback_V_V F x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gluing",
+    "name": "glueData\u03b9_naturality",
+    "statement": "Shrink.{u} J} (f : \u2193i \u27f6 \u2193j) : F.map f \u226b (glueData F).\u03b9 j = (glueData F).\u03b9 i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIso (V F \u2193i \u2193j).\u03b9",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gluing",
+    "name": "\u03b9_jointly_surjective",
+    "statement": "\u2191(colimit F)) : \u2203 (i : J) (xi : F.obj i), colimit.\u03b9 F i xi = x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "eqToHom_naturality (fun j \u21a6 (glueData F).\u03b9 j)",
+        "children": []
+      }
+    ]
+  }
+]

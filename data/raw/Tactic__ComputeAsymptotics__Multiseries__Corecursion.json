@@ -1,0 +1,74 @@
+[
+  {
+    "module": "Corecursion",
+    "name": "dist_cons_cons",
+    "statement": "\u03b1) (s t : Seq \u03b1) : dist (cons x s) (cons x t) = 2\u207b\u00b9 * dist s t",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "cons x s \u2260 cons x t",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Corecursion",
+    "name": "exists_fixed_point_of_contractible",
+    "statement": "(\u03b2 \u2192\u1d64 Seq \u03b1) \u2192 (\u03b2 \u2192\u1d64 Seq \u03b1)) (h : LipschitzWith 2\u207b\u00b9 F) : \u2203 f : \u03b2 \u2192 Seq \u03b1, Function.IsFixedPt F f",
+    "have_tree": [
+      {
+        "name": "hF",
+        "type": "ContractingWith 2\u207b\u00b9 F",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Corecursion",
+    "name": "FriendlyOperation.exists_fixed_point",
+    "statement": "\u03b2 \u2192 Option (\u03b1 \u00d7 \u03b3 \u00d7 \u03b2)) (op : \u03b3 \u2192 Seq \u03b1 \u2192 Seq \u03b1) [h : FriendlyOperationClass op] : \u2203 f : \u03b2 \u2192 Seq \u03b1, \u2200 b : \u03b2, match F b with | none => f b = nil | some (a, c, b') => f b = Seq.cons a (op c (f b'))",
+    "have_tree": [
+      {
+        "name": "hT",
+        "type": "LipschitzWith 2\u207b\u00b9 T",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "h.friend c",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Corecursion",
+    "name": "gcorec",
+    "statement": "\u03b2 \u2192 Option (\u03b1 \u00d7 \u03b3 \u00d7 \u03b2)) (op : \u03b3 \u2192 Seq \u03b1 \u2192 Seq \u03b1) [FriendlyOperationClass op] : \u03b2 \u2192 Seq \u03b1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(FriendlyOperation.exists_fixed_point F op).choose_spec b",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Corecursion",
+    "name": "gcorec_some",
+    "statement": "\u03b2 \u2192 Option (\u03b1 \u00d7 \u03b3 \u00d7 \u03b2)} {op : \u03b3 \u2192 Seq \u03b1 \u2192 Seq \u03b1} [FriendlyOperationClass op] {b : \u03b2} {a : \u03b1} {c : \u03b3} {b' : \u03b2} (h : F b = some (a, c, b')) : gcorec F op b = Seq.cons a (op c (gcorec F op b'))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(FriendlyOperation.exists_fixed_point F op).choose_spec b",
+        "children": []
+      }
+    ]
+  }
+]

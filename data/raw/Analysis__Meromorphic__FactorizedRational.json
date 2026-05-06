@@ -1,0 +1,117 @@
+[
+  {
+    "module": "FactorizedRational",
+    "name": "extractFactor",
+    "statement": "\ud835\udd5c \u2192 \u2124} (u\u2080 : \ud835\udd5c) (hd : d.HasFiniteSupport) : (\u220f\u1da0 u, (\u00b7 - u) ^ d u) = ((\u00b7 - u\u2080) ^ d u\u2080) * (\u220f\u1da0 u, (\u00b7 - u) ^ (update d u\u2080 0 u))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "u\u2080 \u2208 hd.toFinset",
+        "body": "by simp_all",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(fun u \u21a6 (\u00b7 - u) ^ (update d u\u2080 0 u)).mulSupport \u2286 hd.toFinset.erase u\u2080",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorizedRational",
+    "name": "meromorphicTrailingCoeffAt_factorizedRational",
+    "statement": "\ud835\udd5c \u2192 \u2124} {x : \ud835\udd5c} (h : d.HasFiniteSupport) : meromorphicTrailingCoeffAt (\u220f\u1da0 u, (\u00b7 - u) ^ d u) x = \u220f\u1da0 u, (x - u) ^ update d x 0 u",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(fun u \u21a6 (\u00b7 - u) ^ d u).mulSupport \u2286 h.toFinset",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorizedRational",
+    "name": "meromorphicTrailingCoeffAt_factorizedRational_off_support",
+    "statement": "\ud835\udd5c \u2192 \u2124} {x : \ud835\udd5c} (h\u2081 : d.HasFiniteSupport) (h\u2082 : x \u2209 d.support) : meromorphicTrailingCoeffAt (\u220f\u1da0 u, (\u00b7 - u) ^ d u) x = \u220f\u1da0 u, (x - u) ^ d u",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(fun u \u21a6 (x - u) ^ d u).mulSupport \u2286 h\u2081.toFinset",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorizedRational",
+    "name": "log_norm_meromorphicTrailingCoeffAt",
+    "statement": "\ud835\udd5c \u2192 \u2124} {x : \ud835\udd5c} (h : d.HasFiniteSupport) : log \u2016meromorphicTrailingCoeffAt (\u220f\u1da0 u, (\u00b7 - u) ^ d u) x\u2016 = \u2211\u1da0 u, (d u) * log \u2016x - u\u2016",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 y \u2208 h.toFinset, \u2016(x - y) ^ update d x 0 y\u2016 \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(fun u \u21a6 (d u) * log \u2016x - u\u2016).support \u2286 h.toFinset",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorizedRational",
+    "name": "MeromorphicOn.extract_zeros_poles",
+    "statement": "\ud835\udd5c \u2192 E} (h\u2081f : MeromorphicOn f U) (h\u2082f : \u2200 u : U, meromorphicOrderAt f u \u2260 \u22a4) (h\u2083f : (divisor f U).support.Finite) : \u2203 g : \ud835\udd5c \u2192 E, AnalyticOnNhd \ud835\udd5c g U \u2227 (\u2200 u : U, g u \u2260 0) \u2227 f =\u1da0[codiscreteWithin U] (\u220f\u1da0 u, (\u00b7 - u) ^ divisor f U u) \u2022 g",
+    "have_tree": [
+      {
+        "name": "h\u03c6",
+        "type": "MeromorphicOn \u03c6 U",
+        "body": "(meromorphicNFOn (divisor f U) U).meromorphicOn",
+        "children": []
+      },
+      {
+        "name": "hg",
+        "type": "MeromorphicNFOn g U",
+        "body": "by apply meromorphicNFOn_toMeromorphicNFOn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorizedRational",
+    "name": "MeromorphicOn.extract_zeros_poles_log",
+    "statement": "\ud835\udd5c \u2192 E} {D : Function.locallyFinsuppWithin U \u2124} (hg : \u2200 u : U, g u \u2260 0) (h : f =\u1da0[codiscreteWithin U] (\u220f\u1da0 u, (\u00b7 - u) ^ D u) \u2022 g) : (log \u2016f \u00b7\u2016) =\u1da0[codiscreteWithin U] \u2211\u1da0 u, (D u * log \u2016\u00b7 - u\u2016) + (log \u2016g \u00b7\u2016)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "congrFun hx (y + u)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 x \u2208 h\u2083f.toFinset, \u2016z - x\u2016 ^ D x \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FactorizedRational",
+    "name": "MeromorphicOn.meromorphicTrailingCoeffAt_extract_zeros_poles",
+    "statement": "\ud835\udd5c} {f g : \ud835\udd5c \u2192 E} {D : \ud835\udd5c \u2192 \u2124} (hD : D.HasFiniteSupport) (h\u2081x : x \u2208 U) (h\u2082x : AccPt x (\ud835\udcdf U)) (hf : MeromorphicAt f x) (h\u2081g : AnalyticAt \ud835\udd5c g x) (h\u2082g : g x \u2260 0) (h : f =\u1da0[codiscreteWithin U] (\u220f\u1da0 u, (\u00b7 - u) ^ D u) \u2022 g) : meromorphicTrailingCoeffAt f x = (\u220f\u1da0 u, (x - u) ^ Function.update D x 0 u) \u2022 g x",
+    "have_tree": [
+      {
+        "name": "t\u2080",
+        "type": "MeromorphicAt (\u220f\u1da0 u, (\u00b7 - u) ^ D u) x",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

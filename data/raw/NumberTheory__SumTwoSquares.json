@@ -1,0 +1,91 @@
+[
+  {
+    "module": "SumTwoSquares",
+    "name": "Nat.mod_four_ne_three_of_mem_primeFactors_of_isSquare_neg_one",
+    "statement": "\u2115} (hp : p \u2208 n.primeFactors) (hs : IsSquare (-1 : ZMod n)) : p % 4 \u2260 3",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact p.Prime",
+        "body": "\u27e8Nat.prime_of_mem_primeFactors hp\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SumTwoSquares",
+    "name": "ZMod.isSquare_neg_one_iff_forall_mem_primeFactors_mod_four_ne_three",
+    "statement": "\u2115} (hn : Squarefree n) : IsSquare (-1 : ZMod n) \u2194 \u2200 q \u2208 n.primeFactors, q % 4 \u2260 3",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact p.Prime",
+        "body": "\u27e8hpp\u27e9",
+        "children": []
+      },
+      {
+        "name": "hcp",
+        "type": "p.Coprime n",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hp\u2081",
+        "type": "",
+        "body": "ZMod.exists_sq_eq_neg_one_iff.mpr <| H _ <|",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SumTwoSquares",
+    "name": "Nat.eq_sq_add_sq_of_isSquare_mod_neg_one",
+    "statement": "\u2115} (h : IsSquare (-1 : ZMod n)) : \u2203 x y : \u2115, n = x ^ 2 + y ^ 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact p.Prime",
+        "body": "\u27e8hpp\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SumTwoSquares",
+    "name": "ZMod.isSquare_neg_one_of_eq_sq_add_sq_of_isCoprime",
+    "statement": "\u2124} (h : n = x ^ 2 + y ^ 2) (hc : IsCoprime x y) : IsSquare (-1 : ZMod n.natAbs)",
+    "have_tree": [
+      {
+        "name": "hc2",
+        "type": "IsCoprime (x ^ 2) (y ^ 2)",
+        "body": "hc.pow",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SumTwoSquares",
+    "name": "Nat.eq_sq_add_sq_iff",
+    "statement": "\u2115} : (\u2203 x y, n = x ^ 2 + y ^ 2) \u2194 \u2200 q \u2208 n.primeFactors, q % 4 = 3 \u2192 Even (padicValNat q n)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "q \u2223 b \u2192 q \u2208 b.primeFactors",
+        "body": "by grind",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fact q.Prime",
+        "body": "\u27e8prime_of_mem_primeFactors hq\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.primeFactors_mono <| Dvd.intro_left _ hab",
+        "children": []
+      }
+    ]
+  }
+]

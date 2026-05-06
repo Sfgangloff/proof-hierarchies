@@ -1,0 +1,77 @@
+[
+  {
+    "module": "LinearMap",
+    "name": "trace_eq_zero_of_mapsTo_ne",
+    "statement": "IsInternal N) [IsNoetherian R M] (\u03c3 : \u03b9 \u2192 \u03b9) (h\u03c3 : \u2200 i, \u03c3 i \u2260 i) {f : Module.End R M} (hf : \u2200 i, MapsTo f (N i) (N <| \u03c3 i)) : trace R M f = 0",
+    "have_tree": [
+      {
+        "name": "hN",
+        "type": "{i | N i \u2260 \u22a5}.Finite",
+        "body": "WellFoundedGT.finite_ne_bot_of_iSupIndep",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearMap",
+    "name": "trace_comp_eq_zero_of_commute_of_trace_restrict_eq_zero",
+    "statement": "Module.End R M} (h_comm : Commute f g) (hf : \u2a06 \u03bc, f.maxGenEigenspace \u03bc = \u22a4) (hg : \u2200 \u03bc, trace R _ (g.restrict (f.mapsTo_maxGenEigenspace_of_comm h_comm \u03bc)) = 0) : trace R _ (g \u2218\u2097 f) = 0",
+    "have_tree": [
+      {
+        "name": "hds",
+        "type": "",
+        "body": "DirectSum.isInternal_submodule_of_iSupIndep_of_iSup_eq_top",
+        "children": []
+      },
+      {
+        "name": "h_fin",
+        "type": "{\u03bc | f.maxGenEigenspace \u03bc \u2260 \u22a5}.Finite",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hf'",
+        "type": "",
+        "body": "f.mapsTo_maxGenEigenspace_of_comm (Commute.refl _) \u03bc",
+        "children": []
+      },
+      {
+        "name": "hg'",
+        "type": "",
+        "body": "f.mapsTo_maxGenEigenspace_of_comm h_comm \u03bc",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "f.isNilpotent_restrict_maxGenEigenspace_sub_algebraMap \u03bc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LinearMap",
+    "name": "trace_eq_sum_trace_restrict_of_eq_biSup",
+    "statement": "Finset \u03b9) (h : iSupIndep <| fun i : s \u21a6 N i) {f : Module.End R M} (hf : \u2200 i, MapsTo f (N i) (N i)) (p : Submodule R M) (hp : p = \u2a06 i \u2208 s, N i) (hp' : MapsTo f p p",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "\u2200 i, MapsTo (restrict f hp') (N' i) (N' i)",
+        "body": "fun i x hx' \u21a6 by simpa using hf i hx'",
+        "children": []
+      },
+      {
+        "name": "_i1",
+        "type": "\u2200 i, Module.Finite R (N' i)",
+        "body": "fun i \u21a6 Module.Finite.equiv (e i).symm",
+        "children": []
+      },
+      {
+        "name": "_i2",
+        "type": "\u2200 i, Module.Free R (N' i)",
+        "body": "fun i \u21a6 Module.Free.of_equiv (e i).symm",
+        "children": []
+      }
+    ]
+  }
+]

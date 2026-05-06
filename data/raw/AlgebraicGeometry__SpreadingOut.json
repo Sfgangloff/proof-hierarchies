@@ -1,0 +1,92 @@
+[
+  {
+    "module": "SpreadingOut",
+    "name": "injective_germ_basicOpen",
+    "statement": "X.Opens) (hU : IsAffineOpen U) (x : X) (hx : x \u2208 U) (f : \u0393(X, U)) (hf : x \u2208 X.basicOpen f) (H : Function.Injective (X.presheaf.germ U x hx)) : Function.Injective (X.presheaf.germ (X.basicOpen f) x hf)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hU.isLocalization_basicOpen f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SpreadingOut",
+    "name": "spread_out_unique_of_isGermInjective",
+    "statement": "X} [X.IsGermInjectiveAt x] (f g : X \u27f6 Y) (e : f x = g x) (H : f.stalkMap x = Y.presheaf.stalkSpecializes (Inseparable.of_eq e.symm).specializes \u226b g.stalkMap x) : \u2203 (U : X.Opens), x \u2208 U \u2227 U.\u03b9 \u226b f = U.\u03b9 \u226b g",
+    "have_tree": [
+      {
+        "name": "hxV'",
+        "type": "g x \u2208 V",
+        "body": "e \u25b8 hxV",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAffine V",
+        "body": "hV",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "ConcreteCategory.mono_of_injective _ HU",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SpreadingOut",
+    "name": "exists_lift_of_germInjective_aux",
+    "statement": "X.Opens} {x : X} (hxU) (\u03c6 : A \u27f6 X.presheaf.stalk x) (\u03c6RA : R \u27f6 A) (\u03c6RX : R \u27f6 \u0393(X, U)) (h\u03c6RA : RingHom.FiniteType \u03c6RA.hom) (e : \u03c6RA \u226b \u03c6 = \u03c6RX \u226b X.presheaf.germ U x hxU) : \u2203 (V : X.Opens) (hxV : x \u2208 V), V \u2264 U \u2227 RingHom.range \u03c6.hom \u2264 RingHom.range (X.presheaf.germ V x hxV).hom",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "x \u2208 s.inf W \u2293 U",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SpreadingOut",
+    "name": "exists_lift_of_germInjective",
+    "statement": "X} [X.IsGermInjectiveAt x] {U : X.Opens} (hxU : x \u2208 U) (\u03c6 : A \u27f6 X.presheaf.stalk x) (\u03c6RA : R \u27f6 A) (\u03c6RX : R \u27f6 \u0393(X, U)) (h\u03c6RA : RingHom.FiniteType \u03c6RA.hom) (e : \u03c6RA \u226b \u03c6 = \u03c6RX \u226b X.presheaf.germ U x hxU) : \u2203 (V : X.Opens) (hxV : x \u2208 V) (\u03c6' : A \u27f6 \u0393(X, V)) (i : V \u2264 U), IsAffineOpen V \u2227 \u03c6 = \u03c6' \u226b X.presheaf.germ V x hxV \u2227 \u03c6RX \u226b X.presheaf.map i.hom.op = \u03c6RA \u226b \u03c6'",
+    "have_tree": [
+      {
+        "name": "hf'",
+        "type": "RingHom.range (X.presheaf.germ V x hxV).hom \u2264 RingHom.range f.hom",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SpreadingOut",
+    "name": "spread_out_of_isGermInjective",
+    "statement": "X} [X.IsGermInjectiveAt x] {y : Y} (e : sX x = sY y) (\u03c6 : Y.presheaf.stalk y \u27f6 X.presheaf.stalk x) (h : sY.stalkMap y \u226b \u03c6 = S.presheaf.stalkSpecializes (Inseparable.of_eq e).specializes \u226b sX.stalkMap x) : \u2203 (U : X.Opens) (hxU : x \u2208 U) (f : U.toScheme \u27f6 Y), Spec.map \u03c6 \u226b Y.fromSpecStalk y = U.fromSpecStalkOfMem x hxU \u226b f \u2227 f \u226b sY = U.\u03b9 \u226b sX",
+    "have_tree": [
+      {
+        "name": "hyU",
+        "type": "sY y \u2208 U",
+        "body": "e \u25b8 hxU",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SpreadingOut",
+    "name": "spread_out_of_isGermInjective'",
+    "statement": "X} [X.IsGermInjectiveAt x] (\u03c6 : Spec (X.presheaf.stalk x) \u27f6 Y) (h : \u03c6 \u226b sY = X.fromSpecStalk x \u226b sX) : \u2203 (U : X.Opens) (hxU : x \u2208 U) (f : U.toScheme \u27f6 Y), \u03c6 = U.fromSpecStalkOfMem x hxU \u226b f \u2227 f \u226b sY = U.\u03b9 \u226b sX",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "spread_out_of_isGermInjective sX sY ?_ (Scheme.stalkClosedPointTo \u03c6) ?_",
+        "children": []
+      }
+    ]
+  }
+]

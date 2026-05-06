@@ -1,0 +1,119 @@
+[
+  {
+    "module": "Spectrum",
+    "name": "mem_resolventSet_of_norm_lt_mul",
+    "statement": "A} {k : \ud835\udd5c} (h : \u2016a\u2016 * \u2016(1 : A)\u2016 < \u2016k\u2016) : k \u2208 \u03c1 a",
+    "have_tree": [
+      {
+        "name": "hk",
+        "type": "k \u2260 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Spectrum",
+    "name": "spectralRadius_le_pow_nnnorm_pow_one_div",
+    "statement": "A) (n : \u2115) : spectralRadius \ud835\udd5c a \u2264 (\u2016a ^ (n + 1)\u2016\u208a : \u211d\u22650\u221e) ^ (1 / (n + 1) : \u211d) * (\u2016(1 : A)\u2016\u208a : \u211d\u22650\u221e) ^ (1 / (n + 1) : \u211d)",
+    "have_tree": [
+      {
+        "name": "pow_mem",
+        "type": "k ^ (n + 1) \u2208 \u03c3 (a ^ (n + 1))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Spectrum",
+    "name": "hasFPowerSeriesOnBall_inverse_one_sub_smul",
+    "statement": "A) : HasFPowerSeriesOnBall (fun z : \ud835\udd5c => Ring.inverse (1 - z \u2022 a)) (fun n => ContinuousMultilinearMap.mkPiRing \ud835\udd5c (Fin n) (a ^ n)) 0 \u2016a\u2016\u208a\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "norm_lt",
+        "type": "\u2016y \u2022 a\u2016 < 1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Spectrum",
+    "name": "_root_.Subalgebra.frontier_spectrum",
+    "statement": "frontier (\u03c3 \ud835\udd5c x) \u2286 \u03c3 \ud835\udd5c (x : A)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "CompleteSpace S",
+        "body": "hS.completeSpace_coe",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Spectrum",
+    "name": "Subalgebra.spectrum_sUnion_connectedComponentIn",
+    "statement": "\u03c3 \ud835\udd5c x = \u03c3 \ud835\udd5c (x : A) \u222a (\u22c3 z \u2208 (\u03c3 \ud835\udd5c x \\ \u03c3 \ud835\udd5c (x : A)), connectedComponentIn (\u03c3 \ud835\udd5c (x : A))\u1d9c z)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "CompleteSpace S",
+        "body": "hS.completeSpace_coe",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Spectrum",
+    "name": "Subalgebra.spectrum_eq_of_isPreconnected_compl",
+    "statement": "IsPreconnected (\u03c3 \ud835\udd5c (x : A))\u1d9c) : \u03c3 \ud835\udd5c x = \u03c3 \ud835\udd5c (x : A)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(spectrum.isBounded (x : A)).union <|",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Spectrum",
+    "name": "spectralRadius_eq",
+    "statement": "Type*} [NormedField \ud835\udd5c\u2081] [NormedField \ud835\udd5c\u2082] [NormedRing A] [NormedAlgebra \ud835\udd5c\u2081 A] [NormedAlgebra \ud835\udd5c\u2082 A] [NormedAlgebra \ud835\udd5c\u2081 \ud835\udd5c\u2082] [IsScalarTower \ud835\udd5c\u2081 \ud835\udd5c\u2082 A] {f : \ud835\udd5c\u2082 \u2192 \ud835\udd5c\u2081} {a : A} (h : SpectrumRestricts a f) : spectralRadius \ud835\udd5c\u2081 a = spectralRadius \ud835\udd5c\u2082 a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "algebraMap_isometry \ud835\udd5c\u2081 \ud835\udd5c\u2082 |>.nnnorm_map_of_map_zero (map_zero _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Spectrum",
+    "name": "nnreal_iff_spectralRadius_le",
+    "statement": "A} {t : \u211d\u22650} (ht : spectralRadius \u211d a \u2264 t) : SpectrumRestricts a ContinuousMap.realToNNReal \u2194 spectralRadius \u211d (algebraMap \u211d A t - a) \u2264 t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "spectrum \u211d a \u2286 Set.Icc (-t) t",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Spectrum",
+    "name": "_root_.NNReal.spectralRadius_mem_spectrum",
+    "statement": "Type*} [NormedRing A] [NormedAlgebra \u211d A] [CompleteSpace A] {a : A} (ha : (spectrum \u211d a).Nonempty) (ha' : SpectrumRestricts a ContinuousMap.realToNNReal) : (spectralRadius \u211d a).toNNReal \u2208 spectrum \u211d\u22650 a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 \u2264 x",
+        "body": "ha'.rightInvOn hx\u2081 \u25b8 NNReal.zero_le_coe",
+        "children": []
+      }
+    ]
+  }
+]

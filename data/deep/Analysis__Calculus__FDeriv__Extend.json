@@ -1,0 +1,117 @@
+[
+  {
+    "module": "Extend",
+    "name": "hasFDerivWithinAt_closure_of_tendsto_fderiv",
+    "statement": "E \u2192 F} {s : Set E} {x : E} {f' : E \u2192L[\u211d] F} (f_diff : DifferentiableOn \u211d f s) (s_conv : Convex \u211d s) (s_open : IsOpen s) (f_cont : \u2200 y \u2208 closure s, ContinuousWithinAt f s y) (h : Tendsto (fun y => fderiv \u211d f y) (\ud835\udcdd[s] x) (\ud835\udcdd f')) : HasFDerivWithinAt f f' (closure s) x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "B \u2229 closure s \u2286 closure (B \u2229 s)",
+        "body": "isOpen_ball.inter_closure",
+        "children": []
+      },
+      {
+        "name": "conv",
+        "type": "Convex \u211d (B \u2229 s)",
+        "body": "(convex_ball _ _).inter s_conv",
+        "children": []
+      },
+      {
+        "name": "diff",
+        "type": "DifferentiableOn \u211d f (B \u2229 s)",
+        "body": "f_diff.mono inter_subset_right",
+        "children": []
+      },
+      {
+        "name": "bound",
+        "type": "\u2200 z \u2208 B \u2229 s, \u2016fderivWithin \u211d f (B \u2229 s) z - f'\u2016 \u2264 \u03b5",
+        "body": "by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "h\u03b4 z",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "fderivWithin \u211d f (B \u2229 s) z = fderiv \u211d f z",
+            "body": "by",
+            "children": [
+              {
+                "name": "op",
+                "type": "IsOpen (B \u2229 s)",
+                "body": "isOpen_ball.inter s_open",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "f_cont'",
+        "type": "\u2200 y \u2208 closure s, ContinuousWithinAt (f - \u21d1f') s y",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(B \u2229 s) \u00d7\u02e2 (B \u2229 s) \u2286 s \u00d7\u02e2 s",
+            "body": "by gcongr <;> exact inter_subset_right",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u2200 u v, f v - f u - (f' v - f' u) = f v - f' v - (f u - f' u)",
+            "body": "by intros; abel",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Extend",
+    "name": "hasDerivAt_of_hasDerivAt_of_ne",
+    "statement": "\u211d \u2192 E} {x : \u211d} (f_diff : \u2200 y \u2260 x, HasDerivAt f (g y) y) (hf : ContinuousAt f x) (hg : ContinuousAt g x) : HasDerivAt f (g x) x",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "HasDerivWithinAt f (g x) (Ici x) x",
+        "body": "by",
+        "children": [
+          {
+            "name": "diff",
+            "type": "DifferentiableOn \u211d f (Ioi x)",
+            "body": "fun y hy =>",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Tendsto g (\ud835\udcdd[>] x) (\ud835\udcdd (g x))",
+            "body": "tendsto_inf_left hg",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "B",
+        "type": "HasDerivWithinAt f (g x) (Iic x) x",
+        "body": "by",
+        "children": [
+          {
+            "name": "diff",
+            "type": "DifferentiableOn \u211d f (Iio x)",
+            "body": "fun y hy =>",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Tendsto g (\ud835\udcdd[<] x) (\ud835\udcdd (g x))",
+            "body": "tendsto_inf_left hg",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

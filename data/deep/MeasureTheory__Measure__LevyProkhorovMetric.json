@@ -1,0 +1,128 @@
+[
+  {
+    "module": "LevyProkhorovMetric",
+    "name": "measure_le_measure_closure_of_levyProkhorovEDist_eq_zero",
+    "statement": "Measure \u03a9} (hLP : levyProkhorovEDist \u03bc \u03bd = 0) {s : Set \u03a9} (s_mble : MeasurableSet s) (h_finite : \u2203 \u03b4 > 0, \u03bd (thickening \u03b4 s) \u2260 \u221e) : \u03bc s \u2264 \u03bd (closure s)",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "Tendsto (fun \u03b5 \u21a6 \u03bd (thickening \u03b5.toReal s)) (\ud835\udcdd[>] (0 : \u211d\u22650\u221e)) (\ud835\udcdd (\u03bd (closure s)))",
+        "body": "by",
+        "children": [
+          {
+            "name": "aux",
+            "type": "Tendsto ENNReal.toReal (\ud835\udcdd[>] 0) (\ud835\udcdd[>] 0)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "obs",
+        "type": "",
+        "body": "Tendsto.add key (tendsto_nhdsWithin_of_tendsto_nhds tendsto_id)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LevyProkhorovMetric",
+    "name": "LevyProkhorov.continuous_toMeasure_probabilityMeasure",
+    "statement": "Continuous (toMeasure (\u03b1",
+    "have_tree": [
+      {
+        "name": "norm_f_pos",
+        "type": "0 < \u2016f\u2016",
+        "body": "lt_of_le_of_ne (norm_nonneg _) (fun a => f_zero a.symm)",
+        "children": [
+          {
+            "name": "\u03b5_of_room",
+            "type": "",
+            "body": "Tendsto.add (tendsto_iff_dist_tendsto_zero.mp h\u03bcs) \u03b5s_lim",
+            "children": []
+          },
+          {
+            "name": "\u03b5_of_room'",
+            "type": "Tendsto (fun n \u21a6 dist (\u03bcs n) \u03bd + \u03b5s n) atTop (\ud835\udcdd[>] 0)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "key",
+            "type": "",
+            "body": "(tendsto_integral_meas_thickening_le f (A := Ioc 0 \u2016f\u2016) (by simp) P).comp \u03b5_of_room'",
+            "children": []
+          },
+          {
+            "name": "aux",
+            "type": "\u2200 (z : \u211d), Iio (z + \u03b4 / 2) \u2208 \ud835\udcdd z",
+            "body": "fun z \u21a6 Iio_mem_nhds (by linarith)",
+            "children": []
+          },
+          {
+            "name": "bound",
+            "type": "",
+            "body": "BoundedContinuousFunction.integral_le_of_levyProkhorovEDist_lt",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LevyProkhorovMetric",
+    "name": "continuous_ofMeasure_probabilityMeasure",
+    "statement": "Continuous (ofMeasure (\u03b1",
+    "have_tree": [
+      {
+        "name": "third_\u03b5_pos",
+        "type": "0 < \u03b5 / 3",
+        "body": "by linarith",
+        "children": []
+      },
+      {
+        "name": "third_\u03b5_pos'",
+        "type": "0 < ENNReal.ofReal (\u03b5 / 3)",
+        "body": "ofReal_pos.mpr third_\u03b5_pos",
+        "children": [
+          {
+            "name": "exhaust",
+            "type": "",
+            "body": "@tendsto_measure_biUnion_Ici_zero_of_pairwise_disjoint \u03a9 _ P.toMeasure _",
+            "children": []
+          },
+          {
+            "name": "rewr",
+            "type": "\u22c3 i, \u22c3 (_ : N \u2264 i), Es i = (\u22c3 i, \u22c3 (_ : i < N), Es i)\u1d9c",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Js_finite",
+        "type": "Set.Finite {J | J \u2286 Iio N}",
+        "body": "Finite.finite_subsets <| finite_Iio N",
+        "children": []
+      },
+      {
+        "name": "Gs_open",
+        "type": "\u2200 (J : Set \u2115), IsOpen (thickening (\u03b5 / 3) (\u22c3 j \u2208 J, Es j))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "B_subset",
+        "type": "B \u2286 (\u22c3 i \u2208 JB, thickening (\u03b5 / 3) (Es i)) \u222a (\u22c3 j \u2208 Iio N, Es j)\u1d9c",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "subset_thickB",
+        "type": "\u22c3 i \u2208 JB, thickening (\u03b5 / 3) (Es i) \u2286 thickening \u03b4 B",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

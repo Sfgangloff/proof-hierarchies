@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Splits",
+    "name": "splits_X_sub_C_mul_iff",
+    "statement": "R} : Splits ((X - C a) * f) \u2194 Splits f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.eq_prod_roots",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Splits",
+    "name": "splits_mul_iff",
+    "statement": "f \u2260 0) (hg\u2080 : g \u2260 0) : Splits (f * g) \u2194 Splits f \u2227 Splits g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "dvd_iff_isRoot.mpr ha",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "ih (by aesop) hg\u2080 (f * g) rfl (splits_X_sub_C_mul_iff.mp h) hn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Splits",
+    "name": "map_sub_sprod_roots_eq_prod_map_eval",
+    "statement": "Multiset R) (g : R[X]) (hg : g.Monic) (hg' : g.Splits) : ((s \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod = (s.map g.eval).prod",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hg'.eq_prod_roots",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Splits",
+    "name": "splits_iff_comp_splits_of_natDegree_eq_one",
+    "statement": "R[X]} (hg : g.natDegree = 1) : f.Splits \u2194 (f.comp g).Splits",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "a \u2260 0",
+        "body": "by contrapose! hg; simp [hg]",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "module": "Ostrowski",
+    "name": "exists_minimal_nat_zero_lt_and_lt_one",
+    "statement": "\u2203 p : \u2115, (0 < f p \u2227 f p < 1) \u2227 \u2200 m : \u2115, 0 < f m \u2227 f m < 1 \u2192 p \u2264 m",
+    "have_tree": [
+      {
+        "name": "hP",
+        "type": "P.Nonempty",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ostrowski",
+    "name": "is_prime_of_minimal_nat_zero_lt_and_lt_one",
+    "statement": "p.Prime",
+    "have_tree": [
+      {
+        "name": "hap",
+        "type": "a < a * b",
+        "body": "lt_mul_of_one_lt_right (by lia) (by lia)",
+        "children": []
+      },
+      {
+        "name": "hbp",
+        "type": "b < a * b",
+        "body": "lt_mul_of_one_lt_left (by lia) (by lia)",
+        "children": []
+      },
+      {
+        "name": "ha",
+        "type": "",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hb",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ostrowski",
+    "name": "eq_one_of_not_dvd",
+    "statement": "\u2115} (hpm : \u00ac p \u2223 m) : f m = 1",
+    "have_tree": [
+      {
+        "name": "hm\u2080",
+        "type": "0 < f m",
+        "body": "f.pos <| Nat.cast_ne_zero.mpr fun H \u21a6 hpm <| H \u25b8 dvd_zero p",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ostrowski",
+    "name": "exists_pos_eq_pow_neg",
+    "statement": "\u2203 t : \u211d, 0 < t \u2227 f p = p ^ (-t)",
+    "have_tree": [
+      {
+        "name": "pprime",
+        "type": "",
+        "body": "is_prime_of_minimal_nat_zero_lt_and_lt_one hp0 hp1 hmin",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ostrowski",
+    "name": "equiv_padic_of_bounded",
+    "statement": "\u2203! p, \u2203 (_ : Fact p.Prime), f.IsEquiv (padic p)",
+    "have_tree": [
+      {
+        "name": "hprime",
+        "type": "",
+        "body": "is_prime_of_minimal_nat_zero_lt_and_lt_one hfp.1 hfp.2 hmin",
+        "children": []
+      },
+      {
+        "name": "hprime_fact",
+        "type": "Fact p.Prime",
+        "body": "\u27e8hprime\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ostrowski",
+    "name": "one_lt_of_not_bounded",
+    "statement": "\u00ac \u2200 n : \u2115, f n \u2264 1) {n\u2080 : \u2115} (hn\u2080 : 1 < n\u2080) : 1 < f n\u2080",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 \u2264 logb n\u2080 n",
+        "body": "logb_nonneg (one_lt_cast.mpr hn\u2080) (mod_cast Nat.one_le_of_lt h\u2080.bot_lt)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 < logb n\u2080 n",
+        "body": "logb_pos (mod_cast hn\u2080) (by norm_cast; lia)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ostrowski",
+    "name": "equiv_real_of_unbounded",
+    "statement": "f.IsEquiv real",
+    "have_tree": [
+      {
+        "name": "oneltm",
+        "type": "1 < m",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(logb (\u2191m) (f \u2191m))\u207b\u00b9 \u2260 0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

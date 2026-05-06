@@ -1,0 +1,40 @@
+[
+  {
+    "module": "AdmissibleCardPowDegree",
+    "name": "exists_partition_polynomial_aux",
+    "statement": "\u2115) {\u03b5 : \u211d} (h\u03b5 : 0 < \u03b5) {b : Fq[X]} (hb : b \u2260 0) (A : Fin n \u2192 Fq[X]) : \u2203 t : Fin n \u2192 Fin (Fintype.card Fq ^ \u2308-log \u03b5 / log (Fintype.card Fq)\u2309\u208a), \u2200 i\u2080 i\u2081 : Fin n, t i\u2080 = t i\u2081 \u2194 (cardPowDegree (A i\u2081 % b - A i\u2080 % b) : \u211d) < cardPowDegree b \u2022 \u03b5",
+    "have_tree": [
+      {
+        "name": "hb\u03b5",
+        "type": "0 < cardPowDegree b \u2022 \u03b5",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(Classical.choose_spec (hg j\u2081)).2",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "(Classical.choose_spec (hg j\u2080)).2",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "j\u2080 = j\u2081",
+            "body": "(Classical.choose_spec (hg j\u2080)).1.symm.trans",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "exists_nonempty_j \u27e8t' i, \u27e8i, rfl\u27e9, fun i' hi' => anti_archim' hi ((ht' _ _).mp hi')\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

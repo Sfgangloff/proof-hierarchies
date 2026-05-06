@@ -1,0 +1,86 @@
+[
+  {
+    "module": "Division",
+    "name": "monomial_dvd_monomial",
+    "statement": "R} {i j : \u03c3 \u2192\u2080 \u2115} : monomial i r \u2223 monomial j s \u2194 (s = 0 \u2228 i \u2264 j) \u2227 r \u2223 s",
+    "have_tree": [
+      {
+        "name": "hj",
+        "type": "",
+        "body": "hx j",
+        "children": []
+      },
+      {
+        "name": "hi",
+        "type": "",
+        "body": "hx i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Division",
+    "name": "eq_modMonomial_single",
+    "statement": "Type*} {i : \u03c3} {p q r : MvPolynomial \u03c3 R} (h : p = X i * q + r) (hr : \u2200 n \u2208 r.support, n i = 0) : r = p.modMonomial (Finsupp.single i 1)",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "id h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Division",
+    "name": "X_dvd_mul_iff",
+    "statement": "X i \u2223 p * q \u2194 X i \u2223 p \u2228 X i \u2223 q",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NoZeroDivisors (MvPolynomial \u03c3 R)",
+        "body": "",
+        "children": [
+          {
+            "name": "hp",
+            "type": "",
+            "body": "p.modMonomial_add_divMonomial_single i",
+            "children": []
+          },
+          {
+            "name": "hq",
+            "type": "",
+            "body": "q.modMonomial_add_divMonomial_single i",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Division",
+    "name": "dvd_X_mul_iff",
+    "statement": "p \u2223 X i * q \u2194 p \u2223 q \u2228 (X i \u2223 p \u2227 p.divMonomial (Finsupp.single i 1) \u2223 q)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "X i \u2223 p \u2228 X i \u2223 r",
+        "body": "by simp [\u2190 X_dvd_mul_iff, \u2190 hp]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Division",
+    "name": "dvd_monomial_mul_iff_exists",
+    "statement": "\u03c3 \u2192\u2080 \u2115} : p \u2223 monomial n 1 * q \u2194 \u2203 m r, m \u2264 n \u2227 r \u2223 q \u2227 p = monomial m 1 * r",
+    "have_tree": [
+      {
+        "name": "hnn'",
+        "type": "n' \u2264 n",
+        "body": "by simp [\u2190 hn']",
+        "children": []
+      }
+    ]
+  }
+]

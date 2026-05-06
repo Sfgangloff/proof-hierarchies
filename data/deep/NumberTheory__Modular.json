@@ -1,0 +1,98 @@
+[
+  {
+    "module": "Modular",
+    "name": "tendsto_normSq_coprime_pair",
+    "statement": "Filter.Tendsto (fun p : Fin 2 \u2192 \u2124 => normSq ((p 0 : \u2102) * z + p 1)) cofinite atTop",
+    "have_tree": [
+      {
+        "name": "f_def",
+        "type": "\u21d1f = fun p : Fin 2 \u2192 \u211d => (p 0 : \u2102) * \u2191z + p 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "LinearMap.ker f = \u22a5",
+        "body": "by",
+        "children": [
+          {
+            "name": "hz",
+            "type": "(z : \u2102).im \u2260 0",
+            "body": "z.2.ne'",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hf'",
+        "type": "IsClosedEmbedding f",
+        "body": "f.isClosedEmbedding_of_injective hf",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "Tendsto (fun p : Fin 2 \u2192 \u2124 => ((\u2191) : \u2124 \u2192 \u211d) \u2218 p) cofinite (cocompact _)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "exists_smul_mem_fd",
+    "statement": "\u210d) : \u2203 g : SL(2, \u2124), g \u2022 z \u2208 \ud835\udc9f",
+    "have_tree": [
+      {
+        "name": "hg\u2080'",
+        "type": "\u2200 g' : SL(2, \u2124), (g' \u2022 z).im \u2264 (g \u2022 z).im",
+        "body": "by",
+        "children": [
+          {
+            "name": "hg''",
+            "type": "(g \u2022 z).im = (g\u2080 \u2022 z).im",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Modular",
+    "name": "c_eq_zero",
+    "statement": "z \u2208 \ud835\udc9f\u1d52) (hg : g \u2022 z \u2208 \ud835\udc9f\u1d52) : g 1 0 = 0",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "\u2200 {g' : SL(2, \u2124)}, g' \u2022 z \u2208 \ud835\udc9f\u1d52 \u2192 g' 1 0 \u2260 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "had",
+            "type": "T ^ (-a) * g' = S * T ^ d",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h\u2081",
+            "type": "w = S \u2022 T ^ d \u2022 z",
+            "body": "by simp only [w, \u2190 mul_smul, had]",
+            "children": []
+          },
+          {
+            "name": "h\u2082",
+            "type": "1 < normSq w",
+            "body": "one_lt_normSq_T_zpow_smul hg' (-a)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hn",
+        "type": "g 1 0 \u2260 -1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

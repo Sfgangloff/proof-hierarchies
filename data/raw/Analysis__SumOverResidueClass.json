@@ -1,0 +1,34 @@
+[
+  {
+    "module": "SumOverResidueClass",
+    "name": "summable_indicator_mod_iff_summable",
+    "statement": "Type*} [AddCommGroup R] [TopologicalSpace R] [IsTopologicalAddGroup R] (m : \u2115) [hm : NeZero m] (k : \u2115) (f : \u2115 \u2192 R) : Summable ({n : \u2115 | (n : ZMod m) = k}.indicator f) \u2194 Summable fun n \u21a6 f (m * n + k)",
+    "have_tree": [
+      {
+        "name": "hg",
+        "type": "Function.Injective g",
+        "body": "fun m n hmn \u21a6 by simpa [g, hm.ne] using hmn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SumOverResidueClass",
+    "name": "not_summable_of_antitone_of_neg",
+    "statement": "\u2115 \u2192 \u211d} (hf : Antitone f) {n : \u2115} (hn : f n < 0) : \u00ac Summable f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.tendsto_atTop_zero",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "f (max n N) \u2264 f n",
+        "body": "hf (n.le_max_left N)",
+        "children": []
+      }
+    ]
+  }
+]

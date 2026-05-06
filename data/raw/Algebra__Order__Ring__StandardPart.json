@@ -1,0 +1,47 @@
+[
+  {
+    "module": "StandardPart",
+    "name": "stdPart_inv",
+    "statement": "K) : stdPart x\u207b\u00b9 = (stdPart x)\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "hx'",
+        "type": "0 \u2264 mk x\u207b\u00b9",
+        "body": "by simp_all",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StandardPart",
+    "name": "stdPart_eq",
+    "statement": "\u211d \u2192+*o K) {r : \u211d} (hl : \u2200 s < r, f s \u2264 x) (hr : \u2200 s > r, x \u2264 f s) : stdPart x = r",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "0 \u2264 mk x",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StandardPart",
+    "name": "stdPart_eq_sInf",
+    "statement": "\u211d \u2192+*o K) (x : K) : stdPart x = sInf {r | x < f r}",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "{r | x < f r}.Nonempty",
+        "body": "\u27e8b, by simpa using hb\u27e9",
+        "children": []
+      },
+      {
+        "name": "hb",
+        "type": "BddBelow {r | x < f r}",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

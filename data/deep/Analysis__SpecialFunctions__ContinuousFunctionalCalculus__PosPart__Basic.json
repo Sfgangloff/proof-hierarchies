@@ -1,0 +1,58 @@
+[
+  {
+    "module": "Basic",
+    "name": "posPart_negPart_unique",
+    "statement": "A} (habc : a = b - c) (hbc : b * c = 0) (hb : 0 \u2264 b",
+    "have_tree": [
+      {
+        "name": "hb'",
+        "type": "IsSelfAdjoint b",
+        "body": ".of_nonneg hb",
+        "children": []
+      },
+      {
+        "name": "hc'",
+        "type": "IsSelfAdjoint (-c)",
+        "body": ".neg <| .of_nonneg hc",
+        "children": []
+      },
+      {
+        "name": "ha",
+        "type": "IsSelfAdjoint a",
+        "body": "habc \u25b8 hb'.sub <| .of_nonneg hc",
+        "children": []
+      },
+      {
+        "name": "hs",
+        "type": "CompactSpace s",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fact (0 \u2208 s)",
+        "body": "\u27e8by aesop\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "C(s, \u211d)\u2080) : (cfc\u2099HomSuperset hc' hcs f) * (cfc\u2099HomSuperset hb' hbs g) = 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "(cfc\u2099HomSuperset ha has) = \u03c8",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "ContinuousMapZero.UniqueHom \u211d A",
+            "body": "inferInstance",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

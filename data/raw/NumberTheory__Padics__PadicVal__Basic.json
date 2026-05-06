@@ -1,0 +1,123 @@
+[
+  {
+    "module": "Basic",
+    "name": "defn",
+    "statement": "\u2115) [hp : Fact p.Prime] {q : \u211a} {n d : \u2124} (hqz : q \u2260 0) (qdf : q = n /. d) : padicValRat p q = multiplicity (p : \u2124) n - multiplicity (p : \u2124) d",
+    "have_tree": [
+      {
+        "name": "hd",
+        "type": "d \u2260 0",
+        "body": "Rat.mk_denom_ne_zero_of_ne_zero hqz qdf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "mul",
+    "statement": "\u211a} (hq : q \u2260 0) (hr : r \u2260 0) : padicValRat p (q * r) = padicValRat p q + padicValRat p r",
+    "have_tree": [
+      {
+        "name": "hq'",
+        "type": "q.num /. q.den \u2260 0",
+        "body": "by rwa [Rat.num_divInt_den]",
+        "children": []
+      },
+      {
+        "name": "hr'",
+        "type": "r.num /. r.den \u2260 0",
+        "body": "by rwa [Rat.num_divInt_den]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "le_padicValRat_add_of_le",
+    "statement": "\u211a} (hqr : q + r \u2260 0) (h : padicValRat p q \u2264 padicValRat p r) : padicValRat p q \u2264 padicValRat p (q + r)",
+    "have_tree": [
+      {
+        "name": "hqn",
+        "type": "q.num \u2260 0",
+        "body": "Rat.num_ne_zero.2 hq",
+        "children": []
+      },
+      {
+        "name": "hrn",
+        "type": "r.num \u2260 0",
+        "body": "Rat.num_ne_zero.2 hr",
+        "children": []
+      },
+      {
+        "name": "hqrd",
+        "type": "q.num * r.den + q.den * r.num \u2260 0",
+        "body": "Rat.mk_num_ne_zero_of_ne_zero hqr hqreq",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "add_eq_min",
+    "statement": "\u211a} (hqr : q + r \u2260 0) (hq : q \u2260 0) (hr : r \u2260 0) (hval : padicValRat p q \u2260 padicValRat p r) : padicValRat p (q + r) = min (padicValRat p q) (padicValRat p r)",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "min_le_padicValRat_add (p := p) hqr",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "min_le_padicValRat_add (p := p) (ne_of_eq_of_ne (add_neg_cancel_right q r) hq)",
+        "children": []
+      },
+      {
+        "name": "h3",
+        "type": "",
+        "body": "min_le_padicValRat_add (p := p) (ne_of_eq_of_ne (add_neg_cancel_right r q) hr)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "padicValNat_add_le_self",
+    "statement": "\u2115} [hp : Fact p.Prime] (ha : p < a) : padicValNat p a + p \u2264 a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "padicValNat p k < k",
+        "body": "by calc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "sub_one_mul_padicValNat_factorial_lt_of_ne_zero",
+    "statement": "Fact p.Prime] {n : \u2115} (hn : n \u2260 0) : (p - 1) * padicValNat p n.factorial < n",
+    "have_tree": [
+      {
+        "name": "hnil",
+        "type": "p.digits n \u2260 []",
+        "body": "Nat.digits_ne_nil_iff_ne_zero.mpr hn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "sub_one_mul_padicValNat_choose_eq_sub_sum_digits'",
+    "statement": "\u2115} [hp : Fact p.Prime] : (p - 1) * padicValNat p (choose (n + k) k) = (p.digits k).sum + (p.digits n).sum - (p.digits (n + k)).sum",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "k \u2264 n + k",
+        "body": "by exact Nat.le_add_left k n",
+        "children": []
+      }
+    ]
+  }
+]

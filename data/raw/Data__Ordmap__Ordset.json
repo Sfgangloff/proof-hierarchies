@@ -1,0 +1,208 @@
+[
+  {
+    "module": "Ordset",
+    "name": "Valid'.dual",
+    "statement": "\u2200 {t : Ordnode \u03b1} {o\u2081 o\u2082}, Valid' o\u2081 t o\u2082 \u2192 @Valid' \u03b1\u1d52\u1d48 _ o\u2082 (dual t) o\u2081 | .nil, _, _, h => valid'_nil h.1.dual | .node _ l _ r, _, _, \u27e8\u27e8ol, Or\u27e9, \u27e8rfl, sl, sr\u27e9, \u27e8b, bl, br\u27e9\u27e9 => let \u27e8ol', sl', bl'\u27e9",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Valid'.dual h; rwa [dual_dual, OrderDual.Preorder.dual_dual] at this\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ordset",
+    "name": "Valid'.node4L_lemma\u2082",
+    "statement": "\u2115} (mr\u2082 : b + c + 1 \u2264 3 * d) : c \u2264 3 * d",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "2 * size l \u2264 size ml + size mr + 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Nat.mul_le_mul_left ratio lr\u2081",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "le_trans this (add_le_add_right mr\u2081 _)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Ordset",
+    "name": "Valid'.rotateL",
+    "statement": "\u03b1} {r o\u2081 o\u2082} (hl : Valid' o\u2081 l x) (hr : Valid' x r o\u2082) (H1 : \u00acsize l + size r \u2264 1) (H2 : delta * size l < size r) (H3 : 2 * size r \u2264 9 * size l + 5 \u2228 size r \u2264 3) : Valid' o\u2081 (@rotateL \u03b1 l x r) o\u2082",
+    "have_tree": [
+      {
+        "name": "H3p",
+        "type": "size l > 0 \u2192 2 * (size rl + size rr) \u2264 9 * size l + 3",
+        "body": "fun l0 : 1 \u2264 size l =>",
+        "children": []
+      },
+      {
+        "name": "hlp",
+        "type": "size l > 0 \u2192 \u00acsize rl + size rr \u2264 1",
+        "body": "fun l0 hb =>",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hr.3.1",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Ordset",
+    "name": "Valid'.balanceR_aux",
+    "statement": "\u03b1} {r o\u2081 o\u2082} (hl : Valid' o\u2081 l x) (hr : Valid' x r o\u2082) (H\u2081 : size r = 0 \u2192 size l \u2264 1) (H\u2082 : 1 \u2264 size r \u2192 1 \u2264 size l \u2192 size l \u2264 delta * size r) (H\u2083 : 2 * @size \u03b1 r \u2264 9 * size l + 5 \u2228 size r \u2264 3) : Valid' o\u2081 (@balanceR \u03b1 l x r) o\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hr.dual.balanceL_aux hl.dual",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ordset",
+    "name": "Valid'.eraseMax_aux",
+    "statement": "Valid' o\u2081 (.node s l x r) o\u2082) : Valid' o\u2081 (@eraseMax \u03b1 (.node' l x r)) \u2191(findMax' x r) \u2227 size (.node' l x r) = size (eraseMax (.node' l x r)) + 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "H.2.eq_node'; rw [this] at H; clear this",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "H.2.2.2.eq_node'; rw [this] at H \u22a2",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Ordset",
+    "name": "Valid'.eraseMin_aux",
+    "statement": "\u03b1} {r o\u2081 o\u2082} (H : Valid' o\u2081 (.node s l x r) o\u2082) : Valid' \u2191(findMin' l x) (@eraseMin \u03b1 (.node' l x r)) o\u2082 \u2227 size (.node' l x r) = size (eraseMin (.node' l x r)) + 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "H.dual.eraseMax_aux",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ordset",
+    "name": "Valid'.merge_aux",
+    "statement": "Valid' o\u2081 l o\u2082) (hr : Valid' o\u2081 r o\u2082) (sep : l.All fun x => r.All fun y => x < y) : Valid' o\u2081 (@merge \u03b1 l r) o\u2082 \u2227 size (merge l r) = size l + size r",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Valid'.merge_aux\u2081 hr.dual hl.dual h_1 v.dual",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ordset",
+    "name": "Valid'.map_aux",
+    "statement": "\u03b1 \u2192 \u03b2} (f_strict_mono : StrictMono f) {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) : Valid' (Option.map f a\u2081) (map f t) (Option.map f a\u2082) \u2227 (map f t).size = t.size",
+    "have_tree": [
+      {
+        "name": "t_ih_l'",
+        "type": "",
+        "body": "t_ih_l h.left",
+        "children": []
+      },
+      {
+        "name": "t_ih_r'",
+        "type": "",
+        "body": "t_ih_r h.right",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ordset",
+    "name": "Valid'.erase_aux",
+    "statement": "\u03b1) {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) : Valid' a\u2081 (erase x t) a\u2082 \u2227 Raised (erase x t).size t.size",
+    "have_tree": [
+      {
+        "name": "t_ih_l'",
+        "type": "",
+        "body": "t_ih_l h.left",
+        "children": []
+      },
+      {
+        "name": "t_ih_r'",
+        "type": "",
+        "body": "t_ih_r h.right",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ordset",
+    "name": "size_erase_of_mem",
+    "statement": "\u03b1} {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) (h_mem : x \u2208 t) : size (erase x t) = size t - 1",
+    "have_tree": [
+      {
+        "name": "t_ih_l'",
+        "type": "",
+        "body": "t_ih_l h.left",
+        "children": []
+      },
+      {
+        "name": "t_ih_r'",
+        "type": "",
+        "body": "t_ih_r h.right",
+        "children": [
+          {
+            "name": "t_l_h",
+            "type": "",
+            "body": "Valid'.erase_aux x h.left",
+            "children": []
+          },
+          {
+            "name": "h_pos_t_l_size",
+            "type": "",
+            "body": "pos_size_of_mem h.left.sz h_mem",
+            "children": []
+          },
+          {
+            "name": "t_r_h",
+            "type": "",
+            "body": "Valid'.erase_aux x h.right",
+            "children": []
+          },
+          {
+            "name": "h_pos_t_r_size",
+            "type": "",
+            "body": "pos_size_of_mem h.right.sz h_mem",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

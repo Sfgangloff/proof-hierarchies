@@ -1,0 +1,124 @@
+[
+  {
+    "module": "Basic",
+    "name": "exists_pow_Uniformizer",
+    "statement": "K\u2080} (hr : r \u2260 0) (\u03c0 : Uniformizer v) : \u2203 n : \u2115, \u2203 u : K\u2080\u02e3, r = (\u03c0.1 ^ n).1 * u.1",
+    "have_tree": [
+      {
+        "name": "hr\u2080",
+        "type": "v r \u2260 0",
+        "body": "by rw [ne_eq, zero_iff, Subring.coe_eq_zero_iff]; exact hr",
+        "children": []
+      },
+      {
+        "name": "hvr",
+        "type": "vr \u2208 (valueGroup v)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hm\u2080",
+        "type": "0 \u2264 m",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_unit_a",
+        "type": "IsUnit a",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Uniformizer.is_generator",
+    "statement": "Uniformizer v) : maximalIdeal v.valuationSubring = Ideal.span {\u03c0.1}",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "Not (IsUnit x)",
+        "body": "fun h \u21a6",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "valuationSubring_not_isField",
+    "statement": "\u00ac IsField K\u2080",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h\u03c0.ne_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isUniformizer_of_maximalIdeal_eq_span",
+    "statement": "K\u2080} (hr : maximalIdeal v.valuationSubring = Ideal.span {r}) : IsUniformizer v r",
+    "have_tree": [
+      {
+        "name": "hr\u2080",
+        "type": "r \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "maximalIdeal",
+    "statement": "HeightOneSpectrum A where asIdeal",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial \u21a5(valueGroup (valuation K (maximalIdeal A)))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_lift_of_le_one",
+    "statement": "K} (H : ((maximalIdeal A).valuation K) x \u2264 (1 : \u2124\u1d50\u2070)) : \u2203 a : A, algebraMap A K a = x",
+    "have_tree": [
+      {
+        "name": "h_mn",
+        "type": "m \u2264 n",
+        "body": "by",
+        "children": [
+          {
+            "name": "v_\u03c0_lt_one",
+            "type": "",
+            "body": "(intValuation_lt_one_iff_dvd (maximalIdeal A) \u03c0).mpr",
+            "children": []
+          },
+          {
+            "name": "v_\u03c0_ne_zero",
+            "type": "(maximalIdeal A).intValuation \u03c0 \u2260 0",
+            "body": "intValuation_ne_zero _ _ h\u03c0.ne_zero",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "associated_of_valuation_eq",
+    "statement": "K) (h : ((maximalIdeal A).valuation K) x = ((maximalIdeal A).valuation K) y) : \u2203 u : A\u02e3, u \u2022 x = y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(y / x) \u2208 MonoidHom.mker (((maximalIdeal A).valuation K))",
+        "body": "by simp_all",
+        "children": []
+      }
+    ]
+  }
+]

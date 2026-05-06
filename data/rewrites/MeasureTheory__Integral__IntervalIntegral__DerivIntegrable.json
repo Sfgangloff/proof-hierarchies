@@ -1,0 +1,600 @@
+[
+  {
+    "original": {
+      "module": "DerivIntegrable",
+      "name": "MonotoneOn.exists_tendsto_deriv_liminf_lintegral_enorm_le",
+      "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hab : a \u2264 b) (hf : MonotoneOn f (Icc a b)) : \u2203 G : (\u2115 \u2192 \u211d \u2192 \u211d), (\u2200\u1d50 x \u2202volume.restrict (Icc a b), Filter.Tendsto (fun (n : \u2115) \u21a6 G n x) Filter.atTop (\ud835\udcdd (deriv f x))) \u2227 (\u2200 (n : \u2115), AEStronglyMeasurable (G n) (volume.restrict (Icc a b))) \u2227 liminf (fun (n : \u2115) \u21a6 \u222b\u207b (x : \u211d) in Icc a b, \u2016G n x\u2016\u2091) atTop \u2264 ENNReal.ofReal (f b - f a)",
+      "have_tree": [
+        {
+          "name": "hg",
+          "type": "Monotone g",
+          "body": "monotoneOn_univ.mp <| hf.comp (by grind [MonotoneOn]) (by grind [MapsTo])",
+          "children": []
+        },
+        {
+          "name": "hfg",
+          "type": "EqOn f g (Ioo a b)",
+          "body": "by grind [EqOn]",
+          "children": []
+        },
+        {
+          "name": "h\u2081",
+          "type": "\u2200\u1d50 x, x \u2260 a",
+          "body": "by simp [ae_iff, measure_singleton]",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "\u2200\u1d50 x, x \u2260 b",
+          "body": "by simp [ae_iff, measure_singleton]",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hg.monotoneOn (Icc a (b + (n : \u211d)\u207b\u00b9)) |>.intervalIntegrable_slope hab (by simp)",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          3,
+          0
+        ],
+        "result": {
+          "module": "DerivIntegrable",
+          "name": "MonotoneOn.exists_tendsto_deriv_liminf_lintegral_enorm_le",
+          "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hab : a \u2264 b) (hf : MonotoneOn f (Icc a b)) : \u2203 G : (\u2115 \u2192 \u211d \u2192 \u211d), (\u2200\u1d50 x \u2202volume.restrict (Icc a b), Filter.Tendsto (fun (n : \u2115) \u21a6 G n x) Filter.atTop (\ud835\udcdd (deriv f x))) \u2227 (\u2200 (n : \u2115), AEStronglyMeasurable (G n) (volume.restrict (Icc a b))) \u2227 liminf (fun (n : \u2115) \u21a6 \u222b\u207b (x : \u211d) in Icc a b, \u2016G n x\u2016\u2091) atTop \u2264 ENNReal.ofReal (f b - f a)",
+          "have_tree": [
+            {
+              "name": "hg",
+              "type": "Monotone g",
+              "body": "monotoneOn_univ.mp <| hf.comp (by grind [MonotoneOn]) (by grind [MapsTo])",
+              "children": []
+            },
+            {
+              "name": "hfg",
+              "type": "EqOn f g (Ioo a b)",
+              "body": "by grind [EqOn]",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "\u2200\u1d50 x, x \u2260 a",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "\u2200\u1d50 x, x \u2260 b",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          3
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "DerivIntegrable",
+          "name": "MonotoneOn.exists_tendsto_deriv_liminf_lintegral_enorm_le",
+          "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hab : a \u2264 b) (hf : MonotoneOn f (Icc a b)) : \u2203 G : (\u2115 \u2192 \u211d \u2192 \u211d), (\u2200\u1d50 x \u2202volume.restrict (Icc a b), Filter.Tendsto (fun (n : \u2115) \u21a6 G n x) Filter.atTop (\ud835\udcdd (deriv f x))) \u2227 (\u2200 (n : \u2115), AEStronglyMeasurable (G n) (volume.restrict (Icc a b))) \u2227 liminf (fun (n : \u2115) \u21a6 \u222b\u207b (x : \u211d) in Icc a b, \u2016G n x\u2016\u2091) atTop \u2264 ENNReal.ofReal (f b - f a)",
+          "have_tree": [
+            {
+              "name": "hg",
+              "type": "Monotone g",
+              "body": "monotoneOn_univ.mp <| hf.comp (by grind [MonotoneOn]) (by grind [MapsTo])",
+              "children": []
+            },
+            {
+              "name": "hfg",
+              "type": "EqOn f g (Ioo a b)",
+              "body": "by grind [EqOn]",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "\u2200\u1d50 x, x \u2260 a",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hg.monotoneOn (Icc a (b + (n : \u211d)\u207b\u00b9)) |>.intervalIntegrable_slope hab (by simp)",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "\u2200\u1d50 x, x \u2260 b",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "DerivIntegrable",
+          "name": "MonotoneOn.exists_tendsto_deriv_liminf_lintegral_enorm_le",
+          "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hab : a \u2264 b) (hf : MonotoneOn f (Icc a b)) : \u2203 G : (\u2115 \u2192 \u211d \u2192 \u211d), (\u2200\u1d50 x \u2202volume.restrict (Icc a b), Filter.Tendsto (fun (n : \u2115) \u21a6 G n x) Filter.atTop (\ud835\udcdd (deriv f x))) \u2227 (\u2200 (n : \u2115), AEStronglyMeasurable (G n) (volume.restrict (Icc a b))) \u2227 liminf (fun (n : \u2115) \u21a6 \u222b\u207b (x : \u211d) in Icc a b, \u2016G n x\u2016\u2091) atTop \u2264 ENNReal.ofReal (f b - f a)",
+          "have_tree": [
+            {
+              "name": "hfg",
+              "type": "EqOn f g (Ioo a b)",
+              "body": "by grind [EqOn]",
+              "children": []
+            },
+            {
+              "name": "hg",
+              "type": "Monotone g",
+              "body": "monotoneOn_univ.mp <| hf.comp (by grind [MonotoneOn]) (by grind [MapsTo])",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "\u2200\u1d50 x, x \u2260 a",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "\u2200\u1d50 x, x \u2260 b",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hg.monotoneOn (Icc a (b + (n : \u211d)\u207b\u00b9)) |>.intervalIntegrable_slope hab (by simp)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "DerivIntegrable",
+          "name": "MonotoneOn.exists_tendsto_deriv_liminf_lintegral_enorm_le",
+          "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hab : a \u2264 b) (hf : MonotoneOn f (Icc a b)) : \u2203 G : (\u2115 \u2192 \u211d \u2192 \u211d), (\u2200\u1d50 x \u2202volume.restrict (Icc a b), Filter.Tendsto (fun (n : \u2115) \u21a6 G n x) Filter.atTop (\ud835\udcdd (deriv f x))) \u2227 (\u2200 (n : \u2115), AEStronglyMeasurable (G n) (volume.restrict (Icc a b))) \u2227 liminf (fun (n : \u2115) \u21a6 \u222b\u207b (x : \u211d) in Icc a b, \u2016G n x\u2016\u2091) atTop \u2264 ENNReal.ofReal (f b - f a)",
+          "have_tree": [
+            {
+              "name": "hg",
+              "type": "Monotone g",
+              "body": "monotoneOn_univ.mp <| hf.comp (by grind [MonotoneOn]) (by grind [MapsTo])",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "\u2200\u1d50 x, x \u2260 a",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            },
+            {
+              "name": "hfg",
+              "type": "EqOn f g (Ioo a b)",
+              "body": "by grind [EqOn]",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "\u2200\u1d50 x, x \u2260 b",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hg.monotoneOn (Icc a (b + (n : \u211d)\u207b\u00b9)) |>.intervalIntegrable_slope hab (by simp)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "DerivIntegrable",
+          "name": "MonotoneOn.exists_tendsto_deriv_liminf_lintegral_enorm_le",
+          "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hab : a \u2264 b) (hf : MonotoneOn f (Icc a b)) : \u2203 G : (\u2115 \u2192 \u211d \u2192 \u211d), (\u2200\u1d50 x \u2202volume.restrict (Icc a b), Filter.Tendsto (fun (n : \u2115) \u21a6 G n x) Filter.atTop (\ud835\udcdd (deriv f x))) \u2227 (\u2200 (n : \u2115), AEStronglyMeasurable (G n) (volume.restrict (Icc a b))) \u2227 liminf (fun (n : \u2115) \u21a6 \u222b\u207b (x : \u211d) in Icc a b, \u2016G n x\u2016\u2091) atTop \u2264 ENNReal.ofReal (f b - f a)",
+          "have_tree": [
+            {
+              "name": "hg",
+              "type": "Monotone g",
+              "body": "monotoneOn_univ.mp <| hf.comp (by grind [MonotoneOn]) (by grind [MapsTo])",
+              "children": []
+            },
+            {
+              "name": "hfg",
+              "type": "EqOn f g (Ioo a b)",
+              "body": "by grind [EqOn]",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "\u2200\u1d50 x, x \u2260 b",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hg.monotoneOn (Icc a (b + (n : \u211d)\u207b\u00b9)) |>.intervalIntegrable_slope hab (by simp)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h\u2081",
+              "type": "\u2200\u1d50 x, x \u2260 a",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "DerivIntegrable",
+      "name": "MonotoneOn.intervalIntegral_deriv_mem_uIcc",
+      "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hf : MonotoneOn f (uIcc a b)) : \u222b x in a..b, deriv f x \u2208 uIcc 0 (f b - f a)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "f b \u2264 f a",
+          "body": "hf (by simp) (by simp) (by linarith)",
+          "children": []
+        },
+        {
+          "name": "h\u2081",
+          "type": "\u2200\u1d50 x, x \u2260 a",
+          "body": "by simp [ae_iff, measure_singleton]",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "\u2200\u1d50 x, x \u2260 b",
+          "body": "by simp [ae_iff, measure_singleton]",
+          "children": []
+        },
+        {
+          "name": "integrable_f_deriv",
+          "type": "",
+          "body": "integrable_of_tendsto hGf hG hG'\u2080",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "f a \u2264 f b",
+          "body": "hf (by simp [hab]) (by simp [hab]) hab",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "DerivIntegrable",
+          "name": "MonotoneOn.intervalIntegral_deriv_mem_uIcc",
+          "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hf : MonotoneOn f (uIcc a b)) : \u222b x in a..b, deriv f x \u2208 uIcc 0 (f b - f a)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "\u2200\u1d50 x, x \u2260 a",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "f b \u2264 f a",
+              "body": "hf (by simp) (by simp) (by linarith)",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "\u2200\u1d50 x, x \u2260 b",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            },
+            {
+              "name": "integrable_f_deriv",
+              "type": "",
+              "body": "integrable_of_tendsto hGf hG hG'\u2080",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "f a \u2264 f b",
+              "body": "hf (by simp [hab]) (by simp [hab]) hab",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "DerivIntegrable",
+          "name": "MonotoneOn.intervalIntegral_deriv_mem_uIcc",
+          "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hf : MonotoneOn f (uIcc a b)) : \u222b x in a..b, deriv f x \u2208 uIcc 0 (f b - f a)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "f b \u2264 f a",
+              "body": "hf (by simp) (by simp) (by linarith)",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "\u2200\u1d50 x, x \u2260 b",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "\u2200\u1d50 x, x \u2260 a",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            },
+            {
+              "name": "integrable_f_deriv",
+              "type": "",
+              "body": "integrable_of_tendsto hGf hG hG'\u2080",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "f a \u2264 f b",
+              "body": "hf (by simp [hab]) (by simp [hab]) hab",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "DerivIntegrable",
+          "name": "MonotoneOn.intervalIntegral_deriv_mem_uIcc",
+          "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hf : MonotoneOn f (uIcc a b)) : \u222b x in a..b, deriv f x \u2208 uIcc 0 (f b - f a)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "f b \u2264 f a",
+              "body": "hf (by simp) (by simp) (by linarith)",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "\u2200\u1d50 x, x \u2260 a",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            },
+            {
+              "name": "integrable_f_deriv",
+              "type": "",
+              "body": "integrable_of_tendsto hGf hG hG'\u2080",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "\u2200\u1d50 x, x \u2260 b",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "f a \u2264 f b",
+              "body": "hf (by simp [hab]) (by simp [hab]) hab",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "DerivIntegrable",
+          "name": "MonotoneOn.intervalIntegral_deriv_mem_uIcc",
+          "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hf : MonotoneOn f (uIcc a b)) : \u222b x in a..b, deriv f x \u2208 uIcc 0 (f b - f a)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "f b \u2264 f a",
+              "body": "hf (by simp) (by simp) (by linarith)",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "\u2200\u1d50 x, x \u2260 a",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "\u2200\u1d50 x, x \u2260 b",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "f a \u2264 f b",
+              "body": "hf (by simp [hab]) (by simp [hab]) hab",
+              "children": []
+            },
+            {
+              "name": "integrable_f_deriv",
+              "type": "",
+              "body": "integrable_of_tendsto hGf hG hG'\u2080",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "DerivIntegrable",
+      "name": "BoundedVariationOn.intervalIntegrable_deriv",
+      "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hf : BoundedVariationOn f (uIcc a b)) : IntervalIntegrable (deriv f) volume a b",
+      "have_tree": [
+        {
+          "name": "h\u2082",
+          "type": "\u2200\u1d50 x, x \u2260 max a b",
+          "body": "by simp [ae_iff, measure_singleton]",
+          "children": []
+        },
+        {
+          "name": "hx\u2085",
+          "type": "x \u2208 uIcc a b",
+          "body": "Ioc_subset_Icc_self hx\u2084",
+          "children": []
+        },
+        {
+          "name": "hx\u2086",
+          "type": "uIcc a b \u2208 \ud835\udcdd x",
+          "body": "Icc_mem_nhds hx\u2084.left (lt_of_le_of_ne hx\u2084.right hx\u2083)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "DerivIntegrable",
+          "name": "BoundedVariationOn.intervalIntegrable_deriv",
+          "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hf : BoundedVariationOn f (uIcc a b)) : IntervalIntegrable (deriv f) volume a b",
+          "have_tree": [
+            {
+              "name": "hx\u2085",
+              "type": "x \u2208 uIcc a b",
+              "body": "Ioc_subset_Icc_self hx\u2084",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "\u2200\u1d50 x, x \u2260 max a b",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            },
+            {
+              "name": "hx\u2086",
+              "type": "uIcc a b \u2208 \ud835\udcdd x",
+              "body": "Icc_mem_nhds hx\u2084.left (lt_of_le_of_ne hx\u2084.right hx\u2083)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "DerivIntegrable",
+          "name": "BoundedVariationOn.intervalIntegrable_deriv",
+          "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hf : BoundedVariationOn f (uIcc a b)) : IntervalIntegrable (deriv f) volume a b",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "\u2200\u1d50 x, x \u2260 max a b",
+              "body": "by simp [ae_iff, measure_singleton]",
+              "children": []
+            },
+            {
+              "name": "hx\u2086",
+              "type": "uIcc a b \u2208 \ud835\udcdd x",
+              "body": "Icc_mem_nhds hx\u2084.left (lt_of_le_of_ne hx\u2084.right hx\u2083)",
+              "children": []
+            },
+            {
+              "name": "hx\u2085",
+              "type": "x \u2208 uIcc a b",
+              "body": "Ioc_subset_Icc_self hx\u2084",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,2297 @@
+[
+  {
+    "original": {
+      "module": "UnifTight",
+      "name": "tendsto_Lp_of_tendsto_ae_of_meas",
+      "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 n, StronglyMeasurable (f n)) (hg : StronglyMeasurable g) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+      "have_tree": [
+        {
+          "name": "h\u03b5'",
+          "type": "0 < \u03b5 / 3",
+          "body": "ENNReal.div_pos h\u03b5.ne' (ofNat_ne_top)",
+          "children": []
+        },
+        {
+          "name": "hmE",
+          "type": "",
+          "body": "hmEf.union hmEg",
+          "children": []
+        },
+        {
+          "name": "hfmE",
+          "type": "",
+          "body": "(measure_union_le Ef Eg).trans_lt (add_lt_top.mpr \u27e8h\u03bcEf, h\u03bcEg\u27e9)",
+          "children": []
+        },
+        {
+          "name": "hgE'",
+          "type": "",
+          "body": "MemLp.restrict E hg'",
+          "children": []
+        },
+        {
+          "name": "huiE",
+          "type": "",
+          "body": "hui.restrict E",
+          "children": []
+        },
+        {
+          "name": "ffmE",
+          "type": "",
+          "body": "Fact.mk hfmE",
+          "children": []
+        },
+        {
+          "name": "hInner",
+          "type": "",
+          "body": "tendsto_Lp_finite_of_tendsto_ae_of_meas hp hp' hf hg hgE' huiE hfgE",
+          "children": []
+        },
+        {
+          "name": "hmfngE",
+          "type": "AEStronglyMeasurable _ \u03bc",
+          "body": "(((hf n).sub hg).indicator hmE).aestronglyMeasurable",
+          "children": []
+        },
+        {
+          "name": "hfngE\u03b5",
+          "type": "",
+          "body": "calc",
+          "children": []
+        },
+        {
+          "name": "hmgEc",
+          "type": "AEStronglyMeasurable _ \u03bc",
+          "body": "(hg.indicator hmE.compl).aestronglyMeasurable",
+          "children": []
+        },
+        {
+          "name": "hgEc\u03b5",
+          "type": "",
+          "body": "calc",
+          "children": []
+        },
+        {
+          "name": "hmfnEc",
+          "type": "AEStronglyMeasurable _ \u03bc",
+          "body": "((hf n).indicator hmE.compl).aestronglyMeasurable",
+          "children": []
+        },
+        {
+          "name": "hfnEc\u03b5",
+          "type": "eLpNorm (E\u1d9c.indicator (f n)) p \u03bc \u2264 \u03b5 / 3",
+          "body": "calc",
+          "children": []
+        },
+        {
+          "name": "hmfngEc",
+          "type": "AEStronglyMeasurable _ \u03bc",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "hfngEc\u03b5",
+          "type": "",
+          "body": "calc",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae_of_meas",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 n, StronglyMeasurable (f n)) (hg : StronglyMeasurable g) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "hmE",
+              "type": "",
+              "body": "hmEf.union hmEg",
+              "children": []
+            },
+            {
+              "name": "h\u03b5'",
+              "type": "0 < \u03b5 / 3",
+              "body": "ENNReal.div_pos h\u03b5.ne' (ofNat_ne_top)",
+              "children": []
+            },
+            {
+              "name": "hfmE",
+              "type": "",
+              "body": "(measure_union_le Ef Eg).trans_lt (add_lt_top.mpr \u27e8h\u03bcEf, h\u03bcEg\u27e9)",
+              "children": []
+            },
+            {
+              "name": "hgE'",
+              "type": "",
+              "body": "MemLp.restrict E hg'",
+              "children": []
+            },
+            {
+              "name": "huiE",
+              "type": "",
+              "body": "hui.restrict E",
+              "children": []
+            },
+            {
+              "name": "ffmE",
+              "type": "",
+              "body": "Fact.mk hfmE",
+              "children": []
+            },
+            {
+              "name": "hInner",
+              "type": "",
+              "body": "tendsto_Lp_finite_of_tendsto_ae_of_meas hp hp' hf hg hgE' huiE hfgE",
+              "children": []
+            },
+            {
+              "name": "hmfngE",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(((hf n).sub hg).indicator hmE).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfngE\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmgEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(hg.indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hgEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfnEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "((hf n).indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfnEc\u03b5",
+              "type": "eLpNorm (E\u1d9c.indicator (f n)) p \u03bc \u2264 \u03b5 / 3",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfngEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hfngEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae_of_meas",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 n, StronglyMeasurable (f n)) (hg : StronglyMeasurable g) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "h\u03b5'",
+              "type": "0 < \u03b5 / 3",
+              "body": "ENNReal.div_pos h\u03b5.ne' (ofNat_ne_top)",
+              "children": []
+            },
+            {
+              "name": "hfmE",
+              "type": "",
+              "body": "(measure_union_le Ef Eg).trans_lt (add_lt_top.mpr \u27e8h\u03bcEf, h\u03bcEg\u27e9)",
+              "children": []
+            },
+            {
+              "name": "hmE",
+              "type": "",
+              "body": "hmEf.union hmEg",
+              "children": []
+            },
+            {
+              "name": "hgE'",
+              "type": "",
+              "body": "MemLp.restrict E hg'",
+              "children": []
+            },
+            {
+              "name": "huiE",
+              "type": "",
+              "body": "hui.restrict E",
+              "children": []
+            },
+            {
+              "name": "ffmE",
+              "type": "",
+              "body": "Fact.mk hfmE",
+              "children": []
+            },
+            {
+              "name": "hInner",
+              "type": "",
+              "body": "tendsto_Lp_finite_of_tendsto_ae_of_meas hp hp' hf hg hgE' huiE hfgE",
+              "children": []
+            },
+            {
+              "name": "hmfngE",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(((hf n).sub hg).indicator hmE).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfngE\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmgEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(hg.indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hgEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfnEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "((hf n).indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfnEc\u03b5",
+              "type": "eLpNorm (E\u1d9c.indicator (f n)) p \u03bc \u2264 \u03b5 / 3",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfngEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hfngEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae_of_meas",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 n, StronglyMeasurable (f n)) (hg : StronglyMeasurable g) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "h\u03b5'",
+              "type": "0 < \u03b5 / 3",
+              "body": "ENNReal.div_pos h\u03b5.ne' (ofNat_ne_top)",
+              "children": []
+            },
+            {
+              "name": "hmE",
+              "type": "",
+              "body": "hmEf.union hmEg",
+              "children": []
+            },
+            {
+              "name": "hgE'",
+              "type": "",
+              "body": "MemLp.restrict E hg'",
+              "children": []
+            },
+            {
+              "name": "hfmE",
+              "type": "",
+              "body": "(measure_union_le Ef Eg).trans_lt (add_lt_top.mpr \u27e8h\u03bcEf, h\u03bcEg\u27e9)",
+              "children": []
+            },
+            {
+              "name": "huiE",
+              "type": "",
+              "body": "hui.restrict E",
+              "children": []
+            },
+            {
+              "name": "ffmE",
+              "type": "",
+              "body": "Fact.mk hfmE",
+              "children": []
+            },
+            {
+              "name": "hInner",
+              "type": "",
+              "body": "tendsto_Lp_finite_of_tendsto_ae_of_meas hp hp' hf hg hgE' huiE hfgE",
+              "children": []
+            },
+            {
+              "name": "hmfngE",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(((hf n).sub hg).indicator hmE).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfngE\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmgEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(hg.indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hgEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfnEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "((hf n).indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfnEc\u03b5",
+              "type": "eLpNorm (E\u1d9c.indicator (f n)) p \u03bc \u2264 \u03b5 / 3",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfngEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hfngEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae_of_meas",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 n, StronglyMeasurable (f n)) (hg : StronglyMeasurable g) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "h\u03b5'",
+              "type": "0 < \u03b5 / 3",
+              "body": "ENNReal.div_pos h\u03b5.ne' (ofNat_ne_top)",
+              "children": []
+            },
+            {
+              "name": "hmE",
+              "type": "",
+              "body": "hmEf.union hmEg",
+              "children": []
+            },
+            {
+              "name": "hfmE",
+              "type": "",
+              "body": "(measure_union_le Ef Eg).trans_lt (add_lt_top.mpr \u27e8h\u03bcEf, h\u03bcEg\u27e9)",
+              "children": []
+            },
+            {
+              "name": "huiE",
+              "type": "",
+              "body": "hui.restrict E",
+              "children": []
+            },
+            {
+              "name": "hgE'",
+              "type": "",
+              "body": "MemLp.restrict E hg'",
+              "children": []
+            },
+            {
+              "name": "ffmE",
+              "type": "",
+              "body": "Fact.mk hfmE",
+              "children": []
+            },
+            {
+              "name": "hInner",
+              "type": "",
+              "body": "tendsto_Lp_finite_of_tendsto_ae_of_meas hp hp' hf hg hgE' huiE hfgE",
+              "children": []
+            },
+            {
+              "name": "hmfngE",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(((hf n).sub hg).indicator hmE).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfngE\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmgEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(hg.indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hgEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfnEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "((hf n).indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfnEc\u03b5",
+              "type": "eLpNorm (E\u1d9c.indicator (f n)) p \u03bc \u2264 \u03b5 / 3",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfngEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hfngEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae_of_meas",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 n, StronglyMeasurable (f n)) (hg : StronglyMeasurable g) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "h\u03b5'",
+              "type": "0 < \u03b5 / 3",
+              "body": "ENNReal.div_pos h\u03b5.ne' (ofNat_ne_top)",
+              "children": []
+            },
+            {
+              "name": "hmE",
+              "type": "",
+              "body": "hmEf.union hmEg",
+              "children": []
+            },
+            {
+              "name": "hfmE",
+              "type": "",
+              "body": "(measure_union_le Ef Eg).trans_lt (add_lt_top.mpr \u27e8h\u03bcEf, h\u03bcEg\u27e9)",
+              "children": []
+            },
+            {
+              "name": "hgE'",
+              "type": "",
+              "body": "MemLp.restrict E hg'",
+              "children": []
+            },
+            {
+              "name": "ffmE",
+              "type": "",
+              "body": "Fact.mk hfmE",
+              "children": []
+            },
+            {
+              "name": "huiE",
+              "type": "",
+              "body": "hui.restrict E",
+              "children": []
+            },
+            {
+              "name": "hInner",
+              "type": "",
+              "body": "tendsto_Lp_finite_of_tendsto_ae_of_meas hp hp' hf hg hgE' huiE hfgE",
+              "children": []
+            },
+            {
+              "name": "hmfngE",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(((hf n).sub hg).indicator hmE).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfngE\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmgEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(hg.indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hgEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfnEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "((hf n).indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfnEc\u03b5",
+              "type": "eLpNorm (E\u1d9c.indicator (f n)) p \u03bc \u2264 \u03b5 / 3",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfngEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hfngEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          5,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae_of_meas",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 n, StronglyMeasurable (f n)) (hg : StronglyMeasurable g) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "h\u03b5'",
+              "type": "0 < \u03b5 / 3",
+              "body": "ENNReal.div_pos h\u03b5.ne' (ofNat_ne_top)",
+              "children": []
+            },
+            {
+              "name": "hmE",
+              "type": "",
+              "body": "hmEf.union hmEg",
+              "children": []
+            },
+            {
+              "name": "hfmE",
+              "type": "",
+              "body": "(measure_union_le Ef Eg).trans_lt (add_lt_top.mpr \u27e8h\u03bcEf, h\u03bcEg\u27e9)",
+              "children": []
+            },
+            {
+              "name": "hgE'",
+              "type": "",
+              "body": "MemLp.restrict E hg'",
+              "children": []
+            },
+            {
+              "name": "huiE",
+              "type": "",
+              "body": "hui.restrict E",
+              "children": []
+            },
+            {
+              "name": "hInner",
+              "type": "",
+              "body": "tendsto_Lp_finite_of_tendsto_ae_of_meas hp hp' hf hg hgE' huiE hfgE",
+              "children": []
+            },
+            {
+              "name": "ffmE",
+              "type": "",
+              "body": "Fact.mk hfmE",
+              "children": []
+            },
+            {
+              "name": "hmfngE",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(((hf n).sub hg).indicator hmE).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfngE\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmgEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(hg.indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hgEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfnEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "((hf n).indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfnEc\u03b5",
+              "type": "eLpNorm (E\u1d9c.indicator (f n)) p \u03bc \u2264 \u03b5 / 3",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfngEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hfngEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae_of_meas",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 n, StronglyMeasurable (f n)) (hg : StronglyMeasurable g) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "h\u03b5'",
+              "type": "0 < \u03b5 / 3",
+              "body": "ENNReal.div_pos h\u03b5.ne' (ofNat_ne_top)",
+              "children": []
+            },
+            {
+              "name": "hmE",
+              "type": "",
+              "body": "hmEf.union hmEg",
+              "children": []
+            },
+            {
+              "name": "hfmE",
+              "type": "",
+              "body": "(measure_union_le Ef Eg).trans_lt (add_lt_top.mpr \u27e8h\u03bcEf, h\u03bcEg\u27e9)",
+              "children": []
+            },
+            {
+              "name": "hgE'",
+              "type": "",
+              "body": "MemLp.restrict E hg'",
+              "children": []
+            },
+            {
+              "name": "huiE",
+              "type": "",
+              "body": "hui.restrict E",
+              "children": []
+            },
+            {
+              "name": "ffmE",
+              "type": "",
+              "body": "Fact.mk hfmE",
+              "children": []
+            },
+            {
+              "name": "hmfngE",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(((hf n).sub hg).indicator hmE).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hInner",
+              "type": "",
+              "body": "tendsto_Lp_finite_of_tendsto_ae_of_meas hp hp' hf hg hgE' huiE hfgE",
+              "children": []
+            },
+            {
+              "name": "hfngE\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmgEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(hg.indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hgEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfnEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "((hf n).indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfnEc\u03b5",
+              "type": "eLpNorm (E\u1d9c.indicator (f n)) p \u03bc \u2264 \u03b5 / 3",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfngEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hfngEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          7,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae_of_meas",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 n, StronglyMeasurable (f n)) (hg : StronglyMeasurable g) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "h\u03b5'",
+              "type": "0 < \u03b5 / 3",
+              "body": "ENNReal.div_pos h\u03b5.ne' (ofNat_ne_top)",
+              "children": []
+            },
+            {
+              "name": "hmE",
+              "type": "",
+              "body": "hmEf.union hmEg",
+              "children": []
+            },
+            {
+              "name": "hfmE",
+              "type": "",
+              "body": "(measure_union_le Ef Eg).trans_lt (add_lt_top.mpr \u27e8h\u03bcEf, h\u03bcEg\u27e9)",
+              "children": []
+            },
+            {
+              "name": "hgE'",
+              "type": "",
+              "body": "MemLp.restrict E hg'",
+              "children": []
+            },
+            {
+              "name": "huiE",
+              "type": "",
+              "body": "hui.restrict E",
+              "children": []
+            },
+            {
+              "name": "ffmE",
+              "type": "",
+              "body": "Fact.mk hfmE",
+              "children": []
+            },
+            {
+              "name": "hInner",
+              "type": "",
+              "body": "tendsto_Lp_finite_of_tendsto_ae_of_meas hp hp' hf hg hgE' huiE hfgE",
+              "children": []
+            },
+            {
+              "name": "hfngE\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfngE",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(((hf n).sub hg).indicator hmE).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hmgEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(hg.indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hgEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfnEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "((hf n).indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfnEc\u03b5",
+              "type": "eLpNorm (E\u1d9c.indicator (f n)) p \u03bc \u2264 \u03b5 / 3",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfngEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hfngEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          8,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae_of_meas",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 n, StronglyMeasurable (f n)) (hg : StronglyMeasurable g) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "h\u03b5'",
+              "type": "0 < \u03b5 / 3",
+              "body": "ENNReal.div_pos h\u03b5.ne' (ofNat_ne_top)",
+              "children": []
+            },
+            {
+              "name": "hmE",
+              "type": "",
+              "body": "hmEf.union hmEg",
+              "children": []
+            },
+            {
+              "name": "hfmE",
+              "type": "",
+              "body": "(measure_union_le Ef Eg).trans_lt (add_lt_top.mpr \u27e8h\u03bcEf, h\u03bcEg\u27e9)",
+              "children": []
+            },
+            {
+              "name": "hgE'",
+              "type": "",
+              "body": "MemLp.restrict E hg'",
+              "children": []
+            },
+            {
+              "name": "huiE",
+              "type": "",
+              "body": "hui.restrict E",
+              "children": []
+            },
+            {
+              "name": "ffmE",
+              "type": "",
+              "body": "Fact.mk hfmE",
+              "children": []
+            },
+            {
+              "name": "hInner",
+              "type": "",
+              "body": "tendsto_Lp_finite_of_tendsto_ae_of_meas hp hp' hf hg hgE' huiE hfgE",
+              "children": []
+            },
+            {
+              "name": "hmfngE",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(((hf n).sub hg).indicator hmE).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hmgEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(hg.indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfngE\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hgEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfnEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "((hf n).indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfnEc\u03b5",
+              "type": "eLpNorm (E\u1d9c.indicator (f n)) p \u03bc \u2264 \u03b5 / 3",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfngEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hfngEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          9,
+          11,
+          12,
+          13,
+          14
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae_of_meas",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 n, StronglyMeasurable (f n)) (hg : StronglyMeasurable g) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "h\u03b5'",
+              "type": "0 < \u03b5 / 3",
+              "body": "ENNReal.div_pos h\u03b5.ne' (ofNat_ne_top)",
+              "children": []
+            },
+            {
+              "name": "hmE",
+              "type": "",
+              "body": "hmEf.union hmEg",
+              "children": []
+            },
+            {
+              "name": "hfmE",
+              "type": "",
+              "body": "(measure_union_le Ef Eg).trans_lt (add_lt_top.mpr \u27e8h\u03bcEf, h\u03bcEg\u27e9)",
+              "children": []
+            },
+            {
+              "name": "hgE'",
+              "type": "",
+              "body": "MemLp.restrict E hg'",
+              "children": []
+            },
+            {
+              "name": "huiE",
+              "type": "",
+              "body": "hui.restrict E",
+              "children": []
+            },
+            {
+              "name": "ffmE",
+              "type": "",
+              "body": "Fact.mk hfmE",
+              "children": []
+            },
+            {
+              "name": "hInner",
+              "type": "",
+              "body": "tendsto_Lp_finite_of_tendsto_ae_of_meas hp hp' hf hg hgE' huiE hfgE",
+              "children": []
+            },
+            {
+              "name": "hmfngE",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(((hf n).sub hg).indicator hmE).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfngE\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hgEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmgEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(hg.indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hmfnEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "((hf n).indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfnEc\u03b5",
+              "type": "eLpNorm (E\u1d9c.indicator (f n)) p \u03bc \u2264 \u03b5 / 3",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfngEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hfngEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          11,
+          10,
+          12,
+          13,
+          14
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae_of_meas",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 n, StronglyMeasurable (f n)) (hg : StronglyMeasurable g) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "h\u03b5'",
+              "type": "0 < \u03b5 / 3",
+              "body": "ENNReal.div_pos h\u03b5.ne' (ofNat_ne_top)",
+              "children": []
+            },
+            {
+              "name": "hmE",
+              "type": "",
+              "body": "hmEf.union hmEg",
+              "children": []
+            },
+            {
+              "name": "hfmE",
+              "type": "",
+              "body": "(measure_union_le Ef Eg).trans_lt (add_lt_top.mpr \u27e8h\u03bcEf, h\u03bcEg\u27e9)",
+              "children": []
+            },
+            {
+              "name": "hgE'",
+              "type": "",
+              "body": "MemLp.restrict E hg'",
+              "children": []
+            },
+            {
+              "name": "huiE",
+              "type": "",
+              "body": "hui.restrict E",
+              "children": []
+            },
+            {
+              "name": "ffmE",
+              "type": "",
+              "body": "Fact.mk hfmE",
+              "children": []
+            },
+            {
+              "name": "hInner",
+              "type": "",
+              "body": "tendsto_Lp_finite_of_tendsto_ae_of_meas hp hp' hf hg hgE' huiE hfgE",
+              "children": []
+            },
+            {
+              "name": "hmfngE",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(((hf n).sub hg).indicator hmE).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfngE\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmgEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(hg.indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hmfnEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "((hf n).indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hgEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hfnEc\u03b5",
+              "type": "eLpNorm (E\u1d9c.indicator (f n)) p \u03bc \u2264 \u03b5 / 3",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfngEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hfngEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          11,
+          13,
+          14
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae_of_meas",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 n, StronglyMeasurable (f n)) (hg : StronglyMeasurable g) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "h\u03b5'",
+              "type": "0 < \u03b5 / 3",
+              "body": "ENNReal.div_pos h\u03b5.ne' (ofNat_ne_top)",
+              "children": []
+            },
+            {
+              "name": "hmE",
+              "type": "",
+              "body": "hmEf.union hmEg",
+              "children": []
+            },
+            {
+              "name": "hfmE",
+              "type": "",
+              "body": "(measure_union_le Ef Eg).trans_lt (add_lt_top.mpr \u27e8h\u03bcEf, h\u03bcEg\u27e9)",
+              "children": []
+            },
+            {
+              "name": "hgE'",
+              "type": "",
+              "body": "MemLp.restrict E hg'",
+              "children": []
+            },
+            {
+              "name": "huiE",
+              "type": "",
+              "body": "hui.restrict E",
+              "children": []
+            },
+            {
+              "name": "ffmE",
+              "type": "",
+              "body": "Fact.mk hfmE",
+              "children": []
+            },
+            {
+              "name": "hInner",
+              "type": "",
+              "body": "tendsto_Lp_finite_of_tendsto_ae_of_meas hp hp' hf hg hgE' huiE hfgE",
+              "children": []
+            },
+            {
+              "name": "hmfngE",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(((hf n).sub hg).indicator hmE).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfngE\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmgEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(hg.indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hgEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hfnEc\u03b5",
+              "type": "eLpNorm (E\u1d9c.indicator (f n)) p \u03bc \u2264 \u03b5 / 3",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfnEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "((hf n).indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hmfngEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hfngEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          12,
+          14
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae_of_meas",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 n, StronglyMeasurable (f n)) (hg : StronglyMeasurable g) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "h\u03b5'",
+              "type": "0 < \u03b5 / 3",
+              "body": "ENNReal.div_pos h\u03b5.ne' (ofNat_ne_top)",
+              "children": []
+            },
+            {
+              "name": "hmE",
+              "type": "",
+              "body": "hmEf.union hmEg",
+              "children": []
+            },
+            {
+              "name": "hfmE",
+              "type": "",
+              "body": "(measure_union_le Ef Eg).trans_lt (add_lt_top.mpr \u27e8h\u03bcEf, h\u03bcEg\u27e9)",
+              "children": []
+            },
+            {
+              "name": "hgE'",
+              "type": "",
+              "body": "MemLp.restrict E hg'",
+              "children": []
+            },
+            {
+              "name": "huiE",
+              "type": "",
+              "body": "hui.restrict E",
+              "children": []
+            },
+            {
+              "name": "ffmE",
+              "type": "",
+              "body": "Fact.mk hfmE",
+              "children": []
+            },
+            {
+              "name": "hInner",
+              "type": "",
+              "body": "tendsto_Lp_finite_of_tendsto_ae_of_meas hp hp' hf hg hgE' huiE hfgE",
+              "children": []
+            },
+            {
+              "name": "hmfngE",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(((hf n).sub hg).indicator hmE).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfngE\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmgEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(hg.indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hgEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfnEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "((hf n).indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hmfngEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hfnEc\u03b5",
+              "type": "eLpNorm (E\u1d9c.indicator (f n)) p \u03bc \u2264 \u03b5 / 3",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hfngEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          14,
+          13
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae_of_meas",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 n, StronglyMeasurable (f n)) (hg : StronglyMeasurable g) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "h\u03b5'",
+              "type": "0 < \u03b5 / 3",
+              "body": "ENNReal.div_pos h\u03b5.ne' (ofNat_ne_top)",
+              "children": []
+            },
+            {
+              "name": "hmE",
+              "type": "",
+              "body": "hmEf.union hmEg",
+              "children": []
+            },
+            {
+              "name": "hfmE",
+              "type": "",
+              "body": "(measure_union_le Ef Eg).trans_lt (add_lt_top.mpr \u27e8h\u03bcEf, h\u03bcEg\u27e9)",
+              "children": []
+            },
+            {
+              "name": "hgE'",
+              "type": "",
+              "body": "MemLp.restrict E hg'",
+              "children": []
+            },
+            {
+              "name": "huiE",
+              "type": "",
+              "body": "hui.restrict E",
+              "children": []
+            },
+            {
+              "name": "ffmE",
+              "type": "",
+              "body": "Fact.mk hfmE",
+              "children": []
+            },
+            {
+              "name": "hInner",
+              "type": "",
+              "body": "tendsto_Lp_finite_of_tendsto_ae_of_meas hp hp' hf hg hgE' huiE hfgE",
+              "children": []
+            },
+            {
+              "name": "hmfngE",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(((hf n).sub hg).indicator hmE).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfngE\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmgEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "(hg.indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hgEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfnEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "((hf n).indicator hmE.compl).aestronglyMeasurable",
+              "children": []
+            },
+            {
+              "name": "hfnEc\u03b5",
+              "type": "eLpNorm (E\u1d9c.indicator (f n)) p \u03bc \u2264 \u03b5 / 3",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hfngEc\u03b5",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "hmfngEc",
+              "type": "AEStronglyMeasurable _ \u03bc",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "UnifTight",
+      "name": "tendsto_Lp_of_tendsto_ae",
+      "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (haef : \u2200 n, AEStronglyMeasurable (f n) \u03bc) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+      "have_tree": [
+        {
+          "name": "hf",
+          "type": "",
+          "body": "fun n => (haef n).stronglyMeasurable_mk",
+          "children": []
+        },
+        {
+          "name": "hff'",
+          "type": "",
+          "body": "fun n => (haef n).ae_eq_mk (\u03bc := \u03bc)",
+          "children": []
+        },
+        {
+          "name": "hui'",
+          "type": "",
+          "body": "hui.ae_eq hff'",
+          "children": []
+        },
+        {
+          "name": "hut'",
+          "type": "",
+          "body": "hut.aeeq hff'",
+          "children": []
+        },
+        {
+          "name": "hg",
+          "type": "",
+          "body": "hg'.aestronglyMeasurable.stronglyMeasurable_mk",
+          "children": []
+        },
+        {
+          "name": "hgg'",
+          "type": "",
+          "body": "hg'.aestronglyMeasurable.ae_eq_mk (\u03bc := \u03bc)",
+          "children": []
+        },
+        {
+          "name": "hg''",
+          "type": "",
+          "body": "hg'.ae_eq hgg'",
+          "children": []
+        },
+        {
+          "name": "haefg'",
+          "type": "",
+          "body": "ae_tendsto_ae_congr hff' hgg' hfg",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (haef : \u2200 n, AEStronglyMeasurable (f n) \u03bc) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "hff'",
+              "type": "",
+              "body": "fun n => (haef n).ae_eq_mk (\u03bc := \u03bc)",
+              "children": []
+            },
+            {
+              "name": "hf",
+              "type": "",
+              "body": "fun n => (haef n).stronglyMeasurable_mk",
+              "children": []
+            },
+            {
+              "name": "hui'",
+              "type": "",
+              "body": "hui.ae_eq hff'",
+              "children": []
+            },
+            {
+              "name": "hut'",
+              "type": "",
+              "body": "hut.aeeq hff'",
+              "children": []
+            },
+            {
+              "name": "hg",
+              "type": "",
+              "body": "hg'.aestronglyMeasurable.stronglyMeasurable_mk",
+              "children": []
+            },
+            {
+              "name": "hgg'",
+              "type": "",
+              "body": "hg'.aestronglyMeasurable.ae_eq_mk (\u03bc := \u03bc)",
+              "children": []
+            },
+            {
+              "name": "hg''",
+              "type": "",
+              "body": "hg'.ae_eq hgg'",
+              "children": []
+            },
+            {
+              "name": "haefg'",
+              "type": "",
+              "body": "ae_tendsto_ae_congr hff' hgg' hfg",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (haef : \u2200 n, AEStronglyMeasurable (f n) \u03bc) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "hf",
+              "type": "",
+              "body": "fun n => (haef n).stronglyMeasurable_mk",
+              "children": []
+            },
+            {
+              "name": "hui'",
+              "type": "",
+              "body": "hui.ae_eq hff'",
+              "children": []
+            },
+            {
+              "name": "hff'",
+              "type": "",
+              "body": "fun n => (haef n).ae_eq_mk (\u03bc := \u03bc)",
+              "children": []
+            },
+            {
+              "name": "hut'",
+              "type": "",
+              "body": "hut.aeeq hff'",
+              "children": []
+            },
+            {
+              "name": "hg",
+              "type": "",
+              "body": "hg'.aestronglyMeasurable.stronglyMeasurable_mk",
+              "children": []
+            },
+            {
+              "name": "hgg'",
+              "type": "",
+              "body": "hg'.aestronglyMeasurable.ae_eq_mk (\u03bc := \u03bc)",
+              "children": []
+            },
+            {
+              "name": "hg''",
+              "type": "",
+              "body": "hg'.ae_eq hgg'",
+              "children": []
+            },
+            {
+              "name": "haefg'",
+              "type": "",
+              "body": "ae_tendsto_ae_congr hff' hgg' hfg",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5,
+          6,
+          7
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (haef : \u2200 n, AEStronglyMeasurable (f n) \u03bc) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "hf",
+              "type": "",
+              "body": "fun n => (haef n).stronglyMeasurable_mk",
+              "children": []
+            },
+            {
+              "name": "hff'",
+              "type": "",
+              "body": "fun n => (haef n).ae_eq_mk (\u03bc := \u03bc)",
+              "children": []
+            },
+            {
+              "name": "hut'",
+              "type": "",
+              "body": "hut.aeeq hff'",
+              "children": []
+            },
+            {
+              "name": "hui'",
+              "type": "",
+              "body": "hui.ae_eq hff'",
+              "children": []
+            },
+            {
+              "name": "hg",
+              "type": "",
+              "body": "hg'.aestronglyMeasurable.stronglyMeasurable_mk",
+              "children": []
+            },
+            {
+              "name": "hgg'",
+              "type": "",
+              "body": "hg'.aestronglyMeasurable.ae_eq_mk (\u03bc := \u03bc)",
+              "children": []
+            },
+            {
+              "name": "hg''",
+              "type": "",
+              "body": "hg'.ae_eq hgg'",
+              "children": []
+            },
+            {
+              "name": "haefg'",
+              "type": "",
+              "body": "ae_tendsto_ae_congr hff' hgg' hfg",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5,
+          6,
+          7
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (haef : \u2200 n, AEStronglyMeasurable (f n) \u03bc) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "hf",
+              "type": "",
+              "body": "fun n => (haef n).stronglyMeasurable_mk",
+              "children": []
+            },
+            {
+              "name": "hff'",
+              "type": "",
+              "body": "fun n => (haef n).ae_eq_mk (\u03bc := \u03bc)",
+              "children": []
+            },
+            {
+              "name": "hui'",
+              "type": "",
+              "body": "hui.ae_eq hff'",
+              "children": []
+            },
+            {
+              "name": "hg",
+              "type": "",
+              "body": "hg'.aestronglyMeasurable.stronglyMeasurable_mk",
+              "children": []
+            },
+            {
+              "name": "hut'",
+              "type": "",
+              "body": "hut.aeeq hff'",
+              "children": []
+            },
+            {
+              "name": "hgg'",
+              "type": "",
+              "body": "hg'.aestronglyMeasurable.ae_eq_mk (\u03bc := \u03bc)",
+              "children": []
+            },
+            {
+              "name": "hg''",
+              "type": "",
+              "body": "hg'.ae_eq hgg'",
+              "children": []
+            },
+            {
+              "name": "haefg'",
+              "type": "",
+              "body": "ae_tendsto_ae_congr hff' hgg' hfg",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4,
+          6,
+          7
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (haef : \u2200 n, AEStronglyMeasurable (f n) \u03bc) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "hf",
+              "type": "",
+              "body": "fun n => (haef n).stronglyMeasurable_mk",
+              "children": []
+            },
+            {
+              "name": "hff'",
+              "type": "",
+              "body": "fun n => (haef n).ae_eq_mk (\u03bc := \u03bc)",
+              "children": []
+            },
+            {
+              "name": "hui'",
+              "type": "",
+              "body": "hui.ae_eq hff'",
+              "children": []
+            },
+            {
+              "name": "hut'",
+              "type": "",
+              "body": "hut.aeeq hff'",
+              "children": []
+            },
+            {
+              "name": "hgg'",
+              "type": "",
+              "body": "hg'.aestronglyMeasurable.ae_eq_mk (\u03bc := \u03bc)",
+              "children": []
+            },
+            {
+              "name": "hg",
+              "type": "",
+              "body": "hg'.aestronglyMeasurable.stronglyMeasurable_mk",
+              "children": []
+            },
+            {
+              "name": "hg''",
+              "type": "",
+              "body": "hg'.ae_eq hgg'",
+              "children": []
+            },
+            {
+              "name": "haefg'",
+              "type": "",
+              "body": "ae_tendsto_ae_congr hff' hgg' hfg",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          5,
+          7
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (haef : \u2200 n, AEStronglyMeasurable (f n) \u03bc) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "hf",
+              "type": "",
+              "body": "fun n => (haef n).stronglyMeasurable_mk",
+              "children": []
+            },
+            {
+              "name": "hff'",
+              "type": "",
+              "body": "fun n => (haef n).ae_eq_mk (\u03bc := \u03bc)",
+              "children": []
+            },
+            {
+              "name": "hui'",
+              "type": "",
+              "body": "hui.ae_eq hff'",
+              "children": []
+            },
+            {
+              "name": "hut'",
+              "type": "",
+              "body": "hut.aeeq hff'",
+              "children": []
+            },
+            {
+              "name": "hg",
+              "type": "",
+              "body": "hg'.aestronglyMeasurable.stronglyMeasurable_mk",
+              "children": []
+            },
+            {
+              "name": "hg''",
+              "type": "",
+              "body": "hg'.ae_eq hgg'",
+              "children": []
+            },
+            {
+              "name": "hgg'",
+              "type": "",
+              "body": "hg'.aestronglyMeasurable.ae_eq_mk (\u03bc := \u03bc)",
+              "children": []
+            },
+            {
+              "name": "haefg'",
+              "type": "",
+              "body": "ae_tendsto_ae_congr hff' hgg' hfg",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          6
+        ],
+        "result": {
+          "module": "UnifTight",
+          "name": "tendsto_Lp_of_tendsto_ae",
+          "statement": "1 \u2264 p) (hp' : p \u2260 \u221e) {f : \u2115 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (haef : \u2200 n, AEStronglyMeasurable (f n) \u03bc) (hg' : MemLp g p \u03bc) (hui : UnifIntegrable f p \u03bc) (hut : UnifTight f p \u03bc) (hfg : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) atTop (\ud835\udcdd (g x))) : Tendsto (fun n => eLpNorm (f n - g) p \u03bc) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "hf",
+              "type": "",
+              "body": "fun n => (haef n).stronglyMeasurable_mk",
+              "children": []
+            },
+            {
+              "name": "hff'",
+              "type": "",
+              "body": "fun n => (haef n).ae_eq_mk (\u03bc := \u03bc)",
+              "children": []
+            },
+            {
+              "name": "hui'",
+              "type": "",
+              "body": "hui.ae_eq hff'",
+              "children": []
+            },
+            {
+              "name": "hut'",
+              "type": "",
+              "body": "hut.aeeq hff'",
+              "children": []
+            },
+            {
+              "name": "hg",
+              "type": "",
+              "body": "hg'.aestronglyMeasurable.stronglyMeasurable_mk",
+              "children": []
+            },
+            {
+              "name": "hgg'",
+              "type": "",
+              "body": "hg'.aestronglyMeasurable.ae_eq_mk (\u03bc := \u03bc)",
+              "children": []
+            },
+            {
+              "name": "haefg'",
+              "type": "",
+              "body": "ae_tendsto_ae_congr hff' hgg' hfg",
+              "children": []
+            },
+            {
+              "name": "hg''",
+              "type": "",
+              "body": "hg'.ae_eq hgg'",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

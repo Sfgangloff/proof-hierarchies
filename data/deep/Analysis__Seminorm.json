@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Seminorm",
+    "name": "rescale_to_shell_zpow",
+    "statement": "Seminorm \ud835\udd5c E) {c : \ud835\udd5c} (hc : 1 < \u2016c\u2016) {\u03b5 : \u211d} (\u03b5pos : 0 < \u03b5) {x : E} (hx : p x \u2260 0) : \u2203 n : \u2124, c ^ n \u2260 0 \u2227 p (c ^ n \u2022 x) < \u03b5 \u2227 (\u03b5 / \u2016c\u2016 \u2264 p (c ^ n \u2022 x)) \u2227 (\u2016c ^ n\u2016\u207b\u00b9 \u2264 \u03b5\u207b\u00b9 * \u2016c\u2016 * p x)",
+    "have_tree": [
+      {
+        "name": "x\u03b5pos",
+        "type": "0 < (p x) / \u03b5",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "cpos",
+        "type": "0 < \u2016c\u2016",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "cnpos",
+        "type": "0 < \u2016c ^ (n + 1)\u2016",
+        "body": "by rw [norm_zpow]; exact x\u03b5pos.trans hn.2",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u03b5\u207b\u00b9 * \u2016c\u2016 * p x = \u03b5\u207b\u00b9 * p x * \u2016c\u2016",
+            "body": "by ring",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,91 @@
+[
+  {
+    "module": "Infinite",
+    "name": "fixedField_fixingSubgroup",
+    "statement": "IntermediateField k K) [IsGalois k K] : IntermediateField.fixedField L.fixingSubgroup = L",
+    "have_tree": [
+      {
+        "name": "mem",
+        "type": "x \u2208 (adjoin L {x}).1",
+        "body": "subset_adjoin _ _ rfl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IntermediateField.fixedField (\u22a4 : Subgroup ((adjoin L {x}) \u2243\u2090[L] (adjoin L {x}))) = \u22a5",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u27e8x, mem\u27e9 \u2208 (\u22a5 : IntermediateField L (adjoin L {x}))",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hx ((IntermediateField.fixingSubgroupEquiv L).symm \u03c3)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Infinite",
+    "name": "fixingSubgroup_fixedField",
+    "statement": "ClosedSubgroup Gal(K/k)) [IsGalois k K] : (IntermediateField.fixedField H).fixingSubgroup = H.1",
+    "have_tree": [
+      {
+        "name": "nhds",
+        "type": "H.carrier\u1d9c \u2208 nhds \u03c3",
+        "body": "H.isClosed'.isOpen_compl.mem_nhds h",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hL.out",
+        "children": []
+      },
+      {
+        "name": "compl",
+        "type": "\u03c3 \u2022 L'.1.fixingSubgroup.carrier \u2286 H.carrier\u1d9c",
+        "body": "by",
+        "children": [
+          {
+            "name": "sub'",
+            "type": "\u03c3 \u2022 b \u2286 H.carrier\u1d9c",
+            "body": "Set.smul_set_subset_iff.mpr sub",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "fix",
+        "type": "\u2200 x \u2208 IntermediateField.fixedField H.toSubgroup \u2293 \u2191L', \u03c3 x = x",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(restrictNormalHom L') \u03c3 \u2208 (Subgroup.map (restrictNormalHom L') H.1)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "h \u2208 \u03c3 \u2022 L'.1.fixingSubgroup.carrier",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "((restrictNormalHom L') h \u27e8y,hy\u27e9).1 = ((restrictNormalHom L') \u03c3 \u27e8y,hy\u27e9).1",
+            "body": "by rw [eq]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

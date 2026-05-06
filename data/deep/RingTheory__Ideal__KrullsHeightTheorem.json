@@ -1,0 +1,114 @@
+[
+  {
+    "module": "KrullsHeightTheorem",
+    "name": "Ideal.mem_minimalPrimes_span_of_mem_minimalPrimes_span_insert",
+    "statement": "Ideal R} [q.IsPrime] (hqp : q < p) (x : R) (s : Set R) (hp : p \u2208 (span (insert x s)).minimalPrimes) (t : Set R) (htq : t \u2286 q) (hsp : s \u2286 (span (insert x t)).radical) : q \u2208 (span t).minimalPrimes",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "Function.Surjective f",
+        "body": "Quotient.mk_surjective",
+        "children": []
+      },
+      {
+        "name": "hI'q",
+        "type": "span t \u2264 q",
+        "body": "span_le.mpr htq",
+        "children": []
+      },
+      {
+        "name": "hI'p",
+        "type": "span t \u2264 p",
+        "body": "hI'q.trans hqp.le",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "minimalPrimes_isPrime hp",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(p.map f).IsPrime",
+        "body": "map_isPrime_of_surjective hf (by rwa [mk_ker])",
+        "children": [
+          {
+            "name": "h_lt",
+            "type": "q.map f < p.map f",
+            "body": "(map_mono hqp.le).lt_of_not_ge fun e \u21a6 hqp.not_ge <| by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "(q.map f).IsPrime",
+            "body": "map_isPrime_of_surjective hf (by rwa [mk_ker])",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "(p.map f).FiniteHeight",
+            "body": "\u27e8Or.inr (h.trans_lt (WithTop.coe_lt_top 1)).ne\u27e9",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "(primeHeight_strict_mono h_lt).trans_le h",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "minimal_primes_comap_of_surjective hf this",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "map_le_iff_le_comap.mp hxr (subset_span rfl)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "KrullsHeightTheorem",
+    "name": "Ideal.height_le_height_add_spanFinrank_of_le",
+    "statement": "Ideal R} [p.IsPrime] (hrp : I \u2264 p) : p.height \u2264 (p.map (Quotient.mk I)).height + I.spanFinrank",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "p'.IsPrime",
+        "body": "isPrime_map_quotientMk_of_isPrime hrp",
+        "children": []
+      },
+      {
+        "name": "hsp'",
+        "type": "(s : Set (R \u29f8 I)) \u2286 (p' : Set _)",
+        "body": "fun _ hx \u21a6 hps.1.2 (subset_span hx)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Set.SurjOn (Ideal.Quotient.mk I) p s",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hI",
+        "type": "I.FG",
+        "body": "IsNoetherian.noetherian I",
+        "children": [
+          {
+            "name": "_",
+            "type": "(Submodule.FG.finite_generators hI).toFinset.card = I.spanFinrank",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,99 @@
+[
+  {
+    "original": {
+      "module": "CompareExp",
+      "name": "isLittleO_log_norm_re",
+      "statement": "IsExpCmpFilter l) : (fun z => Real.log \u2016z\u2016) =o[l] re",
+      "have_tree": [
+        {
+          "name": "h2",
+          "type": "0 < \u221a2",
+          "body": "by simp",
+          "children": []
+        },
+        {
+          "name": "hz'",
+          "type": "1 \u2264 \u2016z\u2016",
+          "body": "hz.trans (re_le_norm z)",
+          "children": []
+        },
+        {
+          "name": "hm\u2080",
+          "type": "0 < max z.re |z.im|",
+          "body": "lt_max_iff.2 (Or.inl <| one_pos.trans_le hz)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "CompareExp",
+          "name": "isLittleO_log_norm_re",
+          "statement": "IsExpCmpFilter l) : (fun z => Real.log \u2016z\u2016) =o[l] re",
+          "have_tree": [
+            {
+              "name": "hz'",
+              "type": "1 \u2264 \u2016z\u2016",
+              "body": "hz.trans (re_le_norm z)",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "0 < \u221a2",
+              "body": "by simp",
+              "children": []
+            },
+            {
+              "name": "hm\u2080",
+              "type": "0 < max z.re |z.im|",
+              "body": "lt_max_iff.2 (Or.inl <| one_pos.trans_le hz)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "CompareExp",
+          "name": "isLittleO_log_norm_re",
+          "statement": "IsExpCmpFilter l) : (fun z => Real.log \u2016z\u2016) =o[l] re",
+          "have_tree": [
+            {
+              "name": "h2",
+              "type": "0 < \u221a2",
+              "body": "by simp",
+              "children": []
+            },
+            {
+              "name": "hm\u2080",
+              "type": "0 < max z.re |z.im|",
+              "body": "lt_max_iff.2 (Or.inl <| one_pos.trans_le hz)",
+              "children": []
+            },
+            {
+              "name": "hz'",
+              "type": "1 \u2264 \u2016z\u2016",
+              "body": "hz.trans (re_le_norm z)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

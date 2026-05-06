@@ -1,0 +1,61 @@
+[
+  {
+    "module": "MahlerBasis",
+    "name": "norm_ascPochhammer_le",
+    "statement": "\u2115) (x : \u2124_[p]) : \u2016(ascPochhammer \u2124_[p] k).eval x\u2016 \u2264 \u2016(k.factorial : \u2124_[p])\u2016",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "ContinuousAt f x",
+        "body": "Polynomial.continuousAt _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MahlerBasis",
+    "name": "bojanic_mahler_step2",
+    "statement": "C(\u2124_[p], E)} {s t : \u2115} (hst : \u2200 x y : \u2124_[p], \u2016x - y\u2016 \u2264 p ^ (-t : \u2124) \u2192 \u2016f x - f y\u2016 \u2264 \u2016f\u2016 / p ^ s) (n : \u2115) : \u2016\u0394_[1]^[n + p ^ t] f 0\u2016 \u2264 max \u2191((Finset.range (p ^ t - 1)).sup fun j \u21a6 \u2016\u0394_[1]^[n + (j + 1)] f 0\u2016\u208a / p) (\u2016f\u2016 / p ^ s)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < (p ^ t).choose (i + 1)",
+        "body": "Nat.choose_pos (by lia)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MahlerBasis",
+    "name": "fwdDiff_tendsto_zero",
+    "statement": "C(\u2124_[p], E)) : Tendsto (\u0394_[1]^[\u00b7] f 0) atTop (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Tendsto (fun s \u21a6 \u2016f\u2016 / p ^ s) _ _",
+        "body": "tendsto_const_nhds.div_atTop",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 < \u2016f\u2016 / p ^ s",
+            "body": "div_pos (norm_pos_iff.mpr hf) (mod_cast pow_pos hp.out.pos _)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "MahlerBasis",
+    "name": "mahlerSeries_apply_nat",
+    "statement": "Tendsto a atTop (\ud835\udcdd 0)) {m n : \u2115} (hmn : m \u2264 n) : mahlerSeries a (m : \u2124_[p]) = \u2211 i \u2208 range (n + 1), m.choose i \u2022 a i",
+    "have_tree": [
+      {
+        "name": "aux",
+        "type": "Summable fun i \u21a6 m.choose (i + (n + 1)) \u2022 a (i + (n + 1))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

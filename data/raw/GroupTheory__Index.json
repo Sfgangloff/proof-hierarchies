@@ -1,0 +1,86 @@
+[
+  {
+    "module": "Index",
+    "name": "index_dvd_two_iff",
+    "statement": "H.index \u2223 2 \u2194 \u2203 a, \u2200 b, (b * a \u2208 H) \u2228 (b \u2208 H) where mp hH",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.le_succ_iff.mp (Nat.le_of_dvd two_pos hH)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Index",
+    "name": "finite_quotient_of_finite_quotient_of_index_ne_zero",
+    "statement": "Type*} [MulAction G X] [Finite <| MulAction.orbitRel.Quotient G X] (hi : H.index \u2260 0) : Finite <| MulAction.orbitRel.Quotient H X",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "fintypeOfIndexNeZero hi",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Index",
+    "name": "finite_quotient_of_pretransitive_of_index_ne_zero",
+    "statement": "Type*} [MulAction G X] [MulAction.IsPretransitive G X] (hi : H.index \u2260 0) : Finite <| MulAction.orbitRel.Quotient H X",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(MulAction.pretransitive_iff_subsingleton_quotient G X).1 inferInstance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Index",
+    "name": "exists_pow_mem_of_index_ne_zero",
+    "statement": "H.index \u2260 0) (a : G) : \u2203 n, 0 < n \u2227 n \u2264 H.index \u2227 a ^ n \u2208 H",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "Function.Injective f",
+        "body": "by",
+        "children": [
+          {
+            "name": "hc'",
+            "type": "",
+            "body": "hc n\u2081 n\u2082",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(fintypeOfIndexNeZero h).finite",
+        "children": []
+      },
+      {
+        "name": "hcard",
+        "type": "",
+        "body": "Nat.card_le_card_of_injective f hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Index",
+    "name": "index_strictAnti",
+    "statement": "H < K) [H.FiniteIndex] : K.index < H.index",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "K.index \u2260 0",
+        "body": "(finiteIndex_of_le h.le).index_ne_zero",
+        "children": []
+      }
+    ]
+  }
+]

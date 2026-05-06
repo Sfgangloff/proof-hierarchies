@@ -1,0 +1,85 @@
+[
+  {
+    "module": "Radical",
+    "name": "Ideal.IsHomogeneous.isPrime_of_homogeneous_mem_or_mem",
+    "statement": "Ideal A} (hI : I.IsHomogeneous \ud835\udc9c) (I_ne_top : I \u2260 \u22a4) (homogeneous_mem_or_mem : \u2200 {x y : A}, IsHomogeneousElem \ud835\udc9c x \u2192 IsHomogeneousElem \ud835\udc9c y \u2192 x * y \u2208 I \u2192 x \u2208 I \u2228 y \u2208 I) : Ideal.IsPrime I",
+    "have_tree": [
+      {
+        "name": "mem_max\u2081",
+        "type": "max\u2081 \u2208 set\u2081",
+        "body": "max'_mem set\u2081 (nonempty x rid\u2081)",
+        "children": []
+      },
+      {
+        "name": "mem_max\u2082",
+        "type": "max\u2082 \u2208 set\u2082",
+        "body": "max'_mem set\u2082 (nonempty y rid\u2082)",
+        "children": []
+      },
+      {
+        "name": "mem_I",
+        "type": "proj \ud835\udc9c max\u2081 x * proj \ud835\udc9c max\u2082 y \u2208 I",
+        "body": "by",
+        "children": [
+          {
+            "name": "mem_antidiag",
+            "type": "(max\u2081, max\u2082) \u2208 antidiag",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "eq_add_sum",
+            "type": "",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "max_lt",
+            "type": "max\u2081 < i \u2228 max\u2082 < j",
+            "body": "by",
+            "children": [
+              {
+                "name": "notMem",
+                "type": "i \u2209 set\u2081",
+                "body": "fun h =>",
+                "children": []
+              },
+              {
+                "name": "notMem",
+                "type": "j \u2209 set\u2082",
+                "body": "fun h =>",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "notMem_I",
+        "type": "proj \ud835\udc9c max\u2081 x * proj \ud835\udc9c max\u2082 y \u2209 I",
+        "body": "by",
+        "children": [
+          {
+            "name": "neither_mem",
+            "type": "proj \ud835\udc9c max\u2081 x \u2209 I \u2227 proj \ud835\udc9c max\u2082 y \u2209 I",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Radical",
+    "name": "Ideal.IsPrime.homogeneousCore",
+    "statement": "Ideal A} (h : I.IsPrime) : (I.homogeneousCore \ud835\udc9c).toIdeal.IsPrime",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "h.mem_or_mem (Ideal.toIdeal_homogeneousCore_le \ud835\udc9c I hxy)",
+        "children": []
+      }
+    ]
+  }
+]

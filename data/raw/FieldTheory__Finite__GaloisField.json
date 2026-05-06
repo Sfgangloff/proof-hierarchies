@@ -1,0 +1,185 @@
+[
+  {
+    "module": "GaloisField",
+    "name": "GaloisField",
+    "statement": "= SplittingField (X ^ p ^ n - X : (ZMod p)[X]) deriving Inhabited, Field, CharP _ p, Algebra (ZMod p), Finite, FiniteDimensional (ZMod p), IsSplittingField (ZMod p) _ (X ^ p ^ n - X)  namespace GaloisField  variable (p : \u2115) [h_prime : Fact p.Prime] (n : \u2115)  set_option backward.isDefEq.respectTransparency false in theorem finrank {n} (h : n \u2260 0) : Module.finrank (ZMod p) (GaloisField p n) = n",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "1 < p",
+        "body": "h_prime.out.one_lt",
+        "children": []
+      },
+      {
+        "name": "aux",
+        "type": "g_poly \u2260 0",
+        "body": "FiniteField.X_pow_card_pow_sub_X_ne_zero _ h hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GaloisField",
+    "name": "splits_zmod_X_pow_sub_X",
+    "statement": "Splits (X ^ p - X : (ZMod p)[X])",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "1 < p",
+        "body": "h_prime.out.one_lt",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "FiniteField.X_pow_card_sub_X_natDegree_eq (ZMod p) hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GaloisField",
+    "name": "equivZmodP",
+    "statement": "GaloisField p 1 \u2243\u2090[ZMod p] ZMod p",
+    "have_tree": [
+      {
+        "name": "inst",
+        "type": "IsSplittingField (ZMod p) (ZMod p) (X ^ p ^ 1 - X)",
+        "body": "by rw [h]; infer_instance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GaloisField",
+    "name": "algebraMap_norm_eq_pow",
+    "statement": "K'} : algebraMap K K' (Algebra.norm K x) = x ^ ((Nat.card K' - 1) / (Nat.card K - 1))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Finite.of_injective _ (algebraMap K K').injective",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite K",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite K'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GaloisField",
+    "name": "unitsMap_norm_surjective",
+    "statement": "Function.Surjective (Units.map <| Algebra.norm K (S",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Finite.of_injective_finite_range (algebraMap K K').injective",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Fintype.ofFinite K'\u02e3",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "GaloisField",
+    "name": "norm_surjective",
+    "statement": "Function.Surjective (Algebra.norm K (S",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "CharP K p",
+        "body": "by rw [\u2190 Algebra.charP_iff (ZMod p) K p]; exact ZMod.charP p",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "CharP K' p",
+        "body": "by rw [\u2190 Algebra.charP_iff (ZMod p) K' p]; exact ZMod.charP p",
+        "children": []
+      },
+      {
+        "name": "hGalK",
+        "type": "",
+        "body": "GaloisField.algEquivGaloisFieldOfFintype p n hK",
+        "children": []
+      },
+      {
+        "name": "hK'Gal",
+        "type": "",
+        "body": "(GaloisField.algEquivGaloisFieldOfFintype p n' hK').symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GaloisField",
+    "name": "nonempty_algHom_of_finrank_dvd",
+    "statement": "Module.finrank F K \u2223 Module.finrank F L) : Nonempty (K \u2192\u2090[F] L)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Finite.of_injective _ (algebraMap F L).injective",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite F",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Module.finite_of_finrank_pos (Nat.pos_of_dvd_of_pos h Module.finrank_pos)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Module.finite_of_finite F (M := K)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite K",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite L",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GaloisField",
+    "name": "natCard_algHom_of_finrank_dvd",
+    "statement": "Module.finrank F K \u2223 Module.finrank F L) : Nat.card (K \u2192\u2090[F] L) = Module.finrank F K",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Finite.of_injective _ (algebraMap K L).injective",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Substitution",
+    "name": "subst_self",
+    "statement": "subst (MvPowerSeries.X : \u03c3 \u2192 MvPowerSeries \u03c3 R) = id",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "aeval_unique (\u03b5 := AlgHom.id R (MvPowerSeries \u03c3 R)) continuous_id",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Substitution",
+    "name": "coeff_subst",
+    "statement": "HasSubst a) (f : MvPowerSeries \u03c3 R) (e : \u03c4 \u2192\u2080 \u2115) : coeff e (subst a f) = finsum (fun d \u21a6 coeff d f \u2022 (coeff e (d.prod fun s e => (a s) ^ e)))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "((hasSum_aeval ha.hasEval f).map (coeff e) (continuous_coeff S e))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Substitution",
+    "name": "eval\u2082_subst",
+    "statement": "HasSubst a) {b : \u03c4 \u2192 T} (hb : HasEval b) (f : MvPowerSeries \u03c3 R) : eval\u2082 (algebraMap S T) b (subst a f) = eval\u2082 (algebraMap R T) (fun s \u21a6 eval\u2082 (algebraMap S T) b (a s)) f",
+    "have_tree": [
+      {
+        "name": "h\u03b5",
+        "type": "Continuous \u03b5",
+        "body": "continuous_aeval hb",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,185 @@
+[
+  {
+    "module": "PrimitiveRoots",
+    "name": "_root_.IsPrimitiveRoot.lcm_totient_le_finrank",
+    "statement": "\u2115} {x y : L} (hx : IsPrimitiveRoot x p) (hy : IsPrimitiveRoot y q) (hirr : Irreducible (cyclotomic (Nat.lcm p q) K)) : (Nat.lcm p q).totient \u2264 Module.finrank K L",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsPrimitiveRoot z k",
+        "body": "hx.pow_mul_pow_lcm hy hppos.ne' hqpos.ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "dvd_of_isCyclotomicExtension",
+    "statement": "K} {l : \u2115} (h\u03b6 : IsPrimitiveRoot \u03b6 l) (hl : l \u2260 0) : l \u2223 2 * n",
+    "have_tree": [
+      {
+        "name": "hl",
+        "type": "NeZero l",
+        "body": "\u27e8hl\u27e9",
+        "children": []
+      },
+      {
+        "name": "hroot",
+        "type": "",
+        "body": "IsCyclotomicExtension.zeta_spec n \u211a K",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "IsPrimitiveRoot.lcm_totient_le_finrank h\u03b6 hroot",
+        "children": []
+      },
+      {
+        "name": "ineq",
+        "type": "",
+        "body": "Nat.totient_super_multiplicative n r",
+        "children": []
+      },
+      {
+        "name": "rpos",
+        "type": "0 < r",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "exists_neg_pow_of_isOfFinOrder",
+    "statement": "Odd n) {\u03b6 x : K} (h\u03b6 : IsPrimitiveRoot \u03b6 n) (hx : IsOfFinOrder x) : \u2203 r : \u2115, x = (-\u03b6) ^ r",
+    "have_tree": [
+      {
+        "name": "hneg\u03b6",
+        "type": "IsPrimitiveRoot (-\u03b6) (2 * n)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hlzero",
+        "type": "NeZero l",
+        "body": "\u27e8fun h \u21a6 by simp [h] at hl\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "norm_eq_one_of_linearly_ordered",
+    "statement": "Type*} [Field K] [LinearOrder K] [IsStrictOrderedRing K] [Algebra K L] (hodd : Odd n) : norm K \u03b6 = 1",
+    "have_tree": [
+      {
+        "name": "hz",
+        "type": "",
+        "body": "congr_arg (norm K) ((IsPrimitiveRoot.iff_def _ n).1 h\u03b6).1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "sub_one_norm_isPrimePow",
+    "statement": "IsPrimePow n) [IsCyclotomicExtension {n} K L] (hirr : Irreducible (cyclotomic n K)) (h : n \u2260 2) : norm K (\u03b6 - 1) = n.minFac",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(lt_of_le_of_ne (succ_le_of_lt (IsPrimePow.one_lt hn)) h.symm)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "norm_pow_sub_one_of_prime_pow_ne_two",
+    "statement": "\u2115} (h\u03b6 : IsPrimitiveRoot \u03b6 (p ^ (k + 1))) [hpri : Fact p.Prime] [IsCyclotomicExtension {p ^ (k + 1)} K L] (hirr : Irreducible (cyclotomic (p ^ (k + 1)) K)) (hs : s \u2264 k) (htwo : p ^ (k - s + 1) \u2260 2) : norm K (\u03b6 ^ p ^ s - 1) = (p : K) ^ p ^ s",
+    "have_tree": [
+      {
+        "name": "hirr\u2081",
+        "type": "Irreducible (cyclotomic (p ^ (k - s + 1)) K)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u03b7",
+        "type": "IsPrimitiveRoot (\u03b7 + 1) (p ^ (k + 1 - s))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsCyclotomicExtension {p ^ (k - s + 1)} K K\u27ee\u03b7\u27ef",
+        "body": "by",
+        "children": [
+          {
+            "name": "H",
+            "type": "",
+            "body": "IntermediateField.adjoin_simple_toSubalgebra_of_isAlgebraic",
+            "children": []
+          },
+          {
+            "name": "h\u03b7'",
+            "type": "IsPrimitiveRoot (\u03b7 + 1) (p ^ (k + 1 - s))",
+            "body": "by simpa using h\u03b7",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsCyclotomicExtension.finiteDimensional {p ^ (k + 1)} K L",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsCyclotomicExtension.isGalois {p ^ (k + 1)} K L",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "h\u03b7.sub_one_norm_isPrimePow ?_ hirr\u2081 htwo",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Module.finrank_mul_finrank K K\u27ee\u03b7\u27ef L",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "norm_pow_sub_one_two",
+    "statement": "\u2115} (h\u03b6 : IsPrimitiveRoot \u03b6 (2 ^ (k + 1))) [IsCyclotomicExtension {2 ^ (k + 1)} K L] (hirr : Irreducible (cyclotomic (2 ^ (k + 1)) K)) : norm K (\u03b6 ^ 2 ^ k - 1) = (-2 : K) ^ 2 ^ k",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h\u03b6.pow_of_dvd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PrimitiveRoots",
+    "name": "norm_sub_one_two",
+    "statement": "\u2115} (h\u03b6 : IsPrimitiveRoot \u03b6 (2 ^ k)) (hk : 2 \u2264 k) [H : IsCyclotomicExtension {2 ^ k} K L] (hirr : Irreducible (cyclotomic (2 ^ k) K)) : norm K (\u03b6 - 1) = 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "2 < 2 ^ k",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

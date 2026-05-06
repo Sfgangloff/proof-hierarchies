@@ -1,0 +1,260 @@
+[
+  {
+    "module": "PellMatiyasevic",
+    "name": "eq_pell_lem",
+    "statement": "\u2200 (n) (b : \u2124\u221a(d a1)), 1 \u2264 b \u2192 IsPell b \u2192 b \u2264 pellZd a1 n \u2192 \u2203 n, b = pellZd a1 n | 0, _ => fun h1 _ hl => \u27e80, @Zsqrtd.le_antisymm _ (dnsq a1) _ _ hl h1\u27e9 | n + 1, b => fun h1 hp h => have a1p : (0 : \u2124\u221a(d a1)) \u2264 \u27e8a, 1\u27e9",
+    "have_tree": [
+      {
+        "name": "t",
+        "type": "",
+        "body": "mul_le_mul_of_nonneg_right h am1p",
+        "children": []
+      },
+      {
+        "name": "bm",
+        "type": "(_ * \u27e8_, _\u27e9 : \u2124\u221ad a1) = 1",
+        "body": "Pell.isPell_norm.1 hp",
+        "children": []
+      },
+      {
+        "name": "y0l",
+        "type": "(0 : \u2124\u221ad a1) < \u27e8x - x, y - -y\u27e9",
+        "body": "",
+        "children": [
+          {
+            "name": "t",
+            "type": "",
+            "body": "mul_le_mul_of_nonneg_left hn (le_trans zero_le_one h1)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "yl2",
+        "type": "(\u27e8_, _\u27e9 : \u2124\u221a_) < \u27e8_, _\u27e9",
+        "body": "",
+        "children": [
+          {
+            "name": "t",
+            "type": "",
+            "body": "mul_le_mul_of_nonneg_right",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PellMatiyasevic",
+    "name": "dvd_of_ysq_dvd",
+    "statement": "yn a1 n * yn a1 n \u2223 yn a1 t) : yn a1 n \u2223 t",
+    "have_tree": [
+      {
+        "name": "nt",
+        "type": "n \u2223 t",
+        "body": "(y_dvd_iff a1 n t).1 <| dvd_of_mul_left_dvd h",
+        "children": [
+          {
+            "name": "_",
+            "type": "yn a1 n \u2223 k * xn a1 n ^ (k - 1)",
+            "body": "",
+            "children": [
+              {
+                "name": "xm",
+                "type": "",
+                "body": "(xy_modEq_yn a1 n k).right; rw [\u2190 ke] at xm",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PellMatiyasevic",
+    "name": "eq_of_xn_modEq'",
+    "statement": "0 < i) (hin : i \u2264 n) (j4n : j \u2264 4 * n) (h : xn a1 j \u2261 xn a1 i [MOD xn a1 n]) : j = i \u2228 j + i = 4 * n",
+    "have_tree": [
+      {
+        "name": "i2n",
+        "type": "i \u2264 2 * n",
+        "body": "by apply le_trans hin; rw [two_mul]; apply Nat.le_add_left",
+        "children": [
+          {
+            "name": "j42n",
+            "type": "4 * n - j \u2264 2 * n",
+            "body": "by lia",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PellMatiyasevic",
+    "name": "xy_modEq_of_modEq",
+    "statement": "1 < a) (b1 : 1 < b) (h : a \u2261 b [MOD c]) : \u2200 n, xn a1 n \u2261 xn b1 n [MOD c] \u2227 yn a1 n \u2261 yn b1 n [MOD c] | 0 => by simp [Nat.ModEq.refl] | 1 => by simpa [Nat.ModEq.refl] | n + 2 => \u27e8(xy_modEq_of_modEq a1 b1 h n).left.add_right_cancel <| by rw [xn_succ_succ a1, xn_succ_succ b1] exact (h.mul_left _).mul (xy_modEq_of_modEq _ _ h (n + 1)).left, (xy_modEq_of_modEq a1 b1 h n).right.add_right_cancel <| by rw [yn_succ_succ a1, yn_succ_succ b1] exact (h.mul_left _).mul (xy_modEq_of_modEq _ _ h (n + 1)).right\u27e9  theorem matiyasevic {a k x y} : (\u2203 a1 : 1 < a, xn a1 k = x \u2227 yn a1 k = y) \u2194 1 < a \u2227 k \u2264 y \u2227 (x = 1 \u2227 y = 0 \u2228 \u2203 u v s t b : \u2115, x * x - (a * a - 1) * y * y = 1 \u2227 u * u - (a * a - 1) * v * v = 1 \u2227 s * s - (b * b - 1) * t * t = 1 \u2227 1 < b \u2227 b \u2261 1 [MOD 4 * y] \u2227 b \u2261 a [MOD u] \u2227 0 < v \u2227 y * y \u2223 v \u2227 s \u2261 x [MOD u] \u2227 t \u2261 k [MOD 4 * y])",
+    "have_tree": [
+      {
+        "name": "ky",
+        "type": "k \u2264 y",
+        "body": "yn_ge_n a1 k",
+        "children": []
+      },
+      {
+        "name": "yv",
+        "type": "y * y \u2223 v",
+        "body": "(ysq_dvd_yy a1 k).trans <| (y_dvd_iff _ _ _).2 <| dvd_mul_left _ _",
+        "children": []
+      },
+      {
+        "name": "uco",
+        "type": "Nat.Coprime u (4 * y)",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "2 \u2223 v",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Nat.Coprime u 2",
+            "body": "(xy_coprime a1 m).coprime_dvd_right this",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "m1",
+        "type": "1 < m",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 < k * y",
+            "body": "mul_pos kpos (strictMono_y a1 kpos)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "vp",
+        "type": "0 < v",
+        "body": "strictMono_y a1 (lt_trans zero_lt_one m1)",
+        "children": []
+      },
+      {
+        "name": "b1",
+        "type": "1 < b",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "xn a1 1 < u",
+            "body": "strictMono_x a1 m1",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "a < u",
+            "body": "by simpa using this",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "sx",
+        "type": "s \u2261 x [MOD u]",
+        "body": "(xy_modEq_of_modEq b1 a1 ba k).left",
+        "children": []
+      },
+      {
+        "name": "tk",
+        "type": "t \u2261 k [MOD 4 * y]",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "4 * y \u2223 b - 1",
+            "body": "",
+            "children": [
+              {
+                "name": "iln",
+                "type": "i \u2264 n",
+                "body": "",
+                "children": []
+              },
+              {
+                "name": "yd",
+                "type": "4 * yn a1 i \u2223 4 * n",
+                "body": "by gcongr; exact dvd_of_ysq_dvd a1 yv",
+                "children": []
+              },
+              {
+                "name": "jk",
+                "type": "j \u2261 k [MOD 4 * yn a1 i]",
+                "body": "",
+                "children": [
+                  {
+                    "name": "_",
+                    "type": "4 * yn a1 i \u2223 b - 1",
+                    "body": "",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "ki",
+                "type": "k + i < 4 * yn a1 i",
+                "body": "",
+                "children": []
+              },
+              {
+                "name": "ji",
+                "type": "j \u2261 i [MOD 4 * n]",
+                "body": "",
+                "children": [
+                  {
+                    "name": "_",
+                    "type": "xn a1 j \u2261 xn a1 i [MOD xn a1 n]",
+                    "body": "",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "_",
+                "type": "i % (4 * yn a1 i) = k % (4 * yn a1 i)",
+                "body": "(ji.of_dvd yd).symm.trans jk",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PellMatiyasevic",
+    "name": "eq_pow_of_pell_lem",
+    "statement": "\u2115} (hy0 : y \u2260 0) (hk0 : k \u2260 0) (hyk : y ^ k < a) : (\u2191(y ^ k) : \u2124) < 2 * a * y - y * y - 1",
+    "have_tree": [
+      {
+        "name": "hya",
+        "type": "y < a",
+        "body": "(Nat.le_self_pow hk0 _).trans_lt hyk",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hya.le",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

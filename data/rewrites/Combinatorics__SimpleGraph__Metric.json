@@ -1,0 +1,149 @@
+[
+  {
+    "original": {
+      "module": "Metric",
+      "name": "Adj.diff_dist_adj",
+      "statement": "G.Adj v w) : G.dist u w = G.dist u v \u2228 G.dist u w = G.dist u v + 1 \u2228 G.dist u w = G.dist u v - 1",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "G.dist u w \u2264 G.dist u v + G.dist v w",
+          "body": "hadj.reachable.dist_triangle_right u",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "G.dist u v \u2264 G.dist u w + G.dist w v",
+          "body": "huw.dist_triangle_left v",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Metric",
+          "name": "Adj.diff_dist_adj",
+          "statement": "G.Adj v w) : G.dist u w = G.dist u v \u2228 G.dist u w = G.dist u v + 1 \u2228 G.dist u w = G.dist u v - 1",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "G.dist u v \u2264 G.dist u w + G.dist w v",
+              "body": "huw.dist_triangle_left v",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "G.dist u w \u2264 G.dist u v + G.dist v w",
+              "body": "hadj.reachable.dist_triangle_right u",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Metric",
+      "name": "Walk.exists_adj_adj_not_adj_ne",
+      "statement": "G.Walk v w} (hp : p.length = G.dist v w) (hl : 1 < G.dist v w) : \u2203 (x a b : V), G.Adj x a \u2227 G.Adj a b \u2227 \u00ac G.Adj x b \u2227 x \u2260 b",
+      "have_tree": [
+        {
+          "name": "hnp",
+          "type": "\u00acp.Nil",
+          "body": "by simpa [nil_iff_length_eq, hp] using Nat.ne_zero_of_lt hl",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "p.tail.tail.length < p.tail.length",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "p.tail.length < p.length",
+          "body": "by rw [\u2190 p.length_tail_add_one hnp]; lia",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Metric",
+          "name": "Walk.exists_adj_adj_not_adj_ne",
+          "statement": "G.Walk v w} (hp : p.length = G.dist v w) (hl : 1 < G.dist v w) : \u2203 (x a b : V), G.Adj x a \u2227 G.Adj a b \u2227 \u00ac G.Adj x b \u2227 x \u2260 b",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "p.tail.tail.length < p.tail.length",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hnp",
+              "type": "\u00acp.Nil",
+              "body": "by simpa [nil_iff_length_eq, hp] using Nat.ne_zero_of_lt hl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "p.tail.length < p.length",
+              "body": "by rw [\u2190 p.length_tail_add_one hnp]; lia",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Metric",
+          "name": "Walk.exists_adj_adj_not_adj_ne",
+          "statement": "G.Walk v w} (hp : p.length = G.dist v w) (hl : 1 < G.dist v w) : \u2203 (x a b : V), G.Adj x a \u2227 G.Adj a b \u2227 \u00ac G.Adj x b \u2227 x \u2260 b",
+          "have_tree": [
+            {
+              "name": "hnp",
+              "type": "\u00acp.Nil",
+              "body": "by simpa [nil_iff_length_eq, hp] using Nat.ne_zero_of_lt hl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "p.tail.length < p.length",
+              "body": "by rw [\u2190 p.length_tail_add_one hnp]; lia",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "p.tail.tail.length < p.tail.length",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

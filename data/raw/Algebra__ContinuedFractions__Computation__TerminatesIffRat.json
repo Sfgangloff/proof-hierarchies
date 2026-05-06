@@ -1,0 +1,86 @@
+[
+  {
+    "module": "TerminatesIffRat",
+    "name": "coe_stream_nth_rat_eq",
+    "statement": "v = (\u2191q : K)) (n : \u2115) : ((IntFractPair.stream q n).map (mapFr (\u2191)) : Option <| IntFractPair K) = IntFractPair.stream v n",
+    "have_tree": [
+      {
+        "name": "coe_of_fr",
+        "type": "",
+        "body": "coe_of_rat_eq this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TerminatesIffRat",
+    "name": "stream_succ_nth_fr_num_lt_nth_fr_num_rat",
+    "statement": "IntFractPair \u211a} (stream_nth_eq : IntFractPair.stream q n = some ifp_n) (stream_succ_nth_eq : IntFractPair.stream q (n + 1) = some ifp_succ_n) : ifp_succ_n.fr.num < ifp_n.fr.num",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < ifp_n.fr",
+        "body": "lt_of_le_of_ne zero_le_ifp_n_fract <| ifp_n_fract_ne_zero.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TerminatesIffRat",
+    "name": "stream_nth_fr_num_le_fr_num_sub_n_rat",
+    "statement": "\u2200 {ifp_n : IntFractPair \u211a}, IntFractPair.stream q n = some ifp_n \u2192 ifp_n.fr.num \u2264 (IntFractPair.of q).fr.num - n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "ifp_succ_n.fr.num < ifp_n.fr.num",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TerminatesIffRat",
+    "name": "exists_nth_stream_eq_none_of_rat",
+    "statement": "\u211a) : \u2203 n : \u2115, IntFractPair.stream q n = none",
+    "have_tree": [
+      {
+        "name": "ifp_fr_num_le_q_fr_num_sub_n",
+        "type": "ifp.fr.num \u2264 fract_q_num - n",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 \u2264 fract_q_num",
+            "body": "Rat.num_nonneg.mpr (Int.fract_nonneg q)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "0 \u2264 ifp.fr",
+        "body": "(nth_stream_fr_nonneg_lt_one stream_nth_eq).left",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 \u2264 ifp.fr.num",
+        "body": "Rat.num_nonneg.mpr this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TerminatesIffRat",
+    "name": "terminates_iff_rat",
+    "statement": "K) : (of v).Terminates \u2194 \u2203 q : \u211a, v = (q : K)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(of q).Terminates",
+        "body": "terminates_of_rat q",
+        "children": []
+      }
+    ]
+  }
+]

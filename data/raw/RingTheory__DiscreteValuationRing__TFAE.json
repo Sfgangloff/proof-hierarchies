@@ -1,0 +1,72 @@
+[
+  {
+    "module": "TFAE",
+    "name": "exists_maximalIdeal_pow_eq_of_principal",
+    "statement": "(maximalIdeal R).IsPrincipal) (I : Ideal R) (hI : I \u2260 \u22a5) : \u2203 n : \u2115, I = maximalIdeal R ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hx'",
+        "type": "",
+        "body": "IsDiscreteValuationRing.irreducible_of_span_eq_maximalIdeal x this hx",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200 b \u2208 f, Associated x b",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "TFAE",
+    "name": "maximalIdeal_isPrincipal_of_isDedekindDomain",
+    "statement": "(maximalIdeal R).IsPrincipal",
+    "have_tree": [
+      {
+        "name": "hle",
+        "type": "Ideal.span {a} \u2264 maximalIdeal R",
+        "body": "by rwa [Ideal.span_le, Set.singleton_subset_iff]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2203 n, maximalIdeal R ^ n \u2264 Ideal.span {a}",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hb\u2084",
+        "type": "b \u2260 0",
+        "body": "by rintro rfl; apply hb\u2082; exact zero_mem _",
+        "children": []
+      },
+      {
+        "name": "ha\u2083",
+        "type": "algebraMap R K a \u2260 0",
+        "body": "IsFractionRing.to_map_eq_zero_iff.not.mpr ha\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TFAE",
+    "name": "IsDiscreteValuationRing.TFAE",
+    "statement": "\u00acIsField R) : List.TFAE [IsDiscreteValuationRing R, ValuationRing R, IsDedekindDomain R, IsIntegrallyClosed R \u2227 \u2203! P : Ideal R, P \u2260 \u22a5 \u2227 P.IsPrime, (maximalIdeal R).IsPrincipal, finrank (ResidueField R) (CotangentSpace R) = 1, \u2200 (I) (_ : I \u2260 \u22a5), \u2203 n : \u2115, I = maximalIdeal R ^ n]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "maximalIdeal R \u2260 \u22a5",
+        "body": "isField_iff_maximalIdeal_eq.not.mp h",
+        "children": []
+      }
+    ]
+  }
+]

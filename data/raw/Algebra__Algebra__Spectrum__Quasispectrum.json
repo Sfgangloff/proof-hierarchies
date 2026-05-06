@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Quasispectrum",
+    "name": "quasispectrum_eq_spectrum_inr",
+    "statement": "Type*) {A : Type*} [CommRing R] [NonUnitalRing A] [Module R A] [IsScalarTower R A A] [SMulCommClass R A A] (a : A) : quasispectrum R a = spectrum R (a : Unitization R A)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "{ r | \u00ac IsUnit r} \u2286 spectrum R _",
+        "body": "mem_spectrum_inr_of_not_isUnit a",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Quasispectrum",
+    "name": "quasispectrum_eq_spectrum_inr'",
+    "statement": "Type*) {A : Type*} [Semifield R] [Field S] [NonUnitalRing A] [Algebra R S] [Module S A] [IsScalarTower S A A] [SMulCommClass S A A] [Module R A] [IsScalarTower R S A] (a : A) : quasispectrum R a = spectrum R (a : Unitization S A)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Set.singleton_subset_iff.mpr (zero_mem_spectrum_inr R S a)",
+        "children": []
+      }
+    ]
+  }
+]

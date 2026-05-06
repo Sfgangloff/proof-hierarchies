@@ -1,0 +1,40 @@
+[
+  {
+    "module": "Kaplansky",
+    "name": "span_notMem_kaplanskySet",
+    "statement": "R} (ha : a \u2260 0) (H : \u2200 I \u2260 (\u22a5 : Ideal R), I.IsPrime \u2192 \u2203 x \u2208 I, Prime x) : span {a} \u2209 kaplanskySet (closure {r : R | Prime r}).toSubsemigroup",
+    "have_tree": [
+      {
+        "name": "hT\u2083",
+        "type": "T \u2260 \u22a5",
+        "body": "fun h\u2082 \u21a6 ha (span_singleton_eq_bot.1 ((h\u2082 \u25b8 hT\u2082) _ h (zero_le _)))",
+        "children": []
+      },
+      {
+        "name": "Tpri",
+        "type": "",
+        "body": "isPrime_of_maximally_disjoint T _ hT (fun J hJ H \u21a6 hJ.ne (hT\u2082 J H hJ.le).symm)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Kaplansky",
+    "name": "of_exists_prime_mem_of_isPrime",
+    "statement": "\u2200 I \u2260 (\u22a5 : Ideal R), I.IsPrime \u2192 \u2203 x \u2208 I, Prime x) : UniqueFactorizationMonoid R",
+    "have_tree": [
+      {
+        "name": "ha\u2082",
+        "type": "",
+        "body": "span_notMem_kaplanskySet ha H",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "divisor_closure_eq_closure _ _ (hsubset hx\u2082)",
+        "children": []
+      }
+    ]
+  }
+]

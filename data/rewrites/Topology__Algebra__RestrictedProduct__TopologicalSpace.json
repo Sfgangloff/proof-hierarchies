@@ -1,0 +1,296 @@
+[
+  {
+    "original": {
+      "module": "TopologicalSpace",
+      "name": "continuous_dom_prod_right",
+      "statement": "Type*} [TopologicalSpace X] [TopologicalSpace Y] {f : \u03a0\u02b3 i, [R i, A i] \u00d7 Y \u2192 X} : Continuous f \u2194 \u2200 (S : Set \u03b9) (hS : cofinite \u2264 \ud835\udcdf S), Continuous (f \u2218 (Prod.map (inclusion R A hS) id))",
+      "have_tree": [
+        {
+          "name": "hS",
+          "type": "cofinite \u2264 \ud835\udcdf S",
+          "body": "le_principal_iff.mpr x.2",
+          "children": []
+        },
+        {
+          "name": "hxS",
+          "type": "\u2200 i \u2208 S, x i \u2208 A i",
+          "body": "fun i hi \u21a6 hi",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "TopologicalSpace",
+          "name": "continuous_dom_prod_right",
+          "statement": "Type*} [TopologicalSpace X] [TopologicalSpace Y] {f : \u03a0\u02b3 i, [R i, A i] \u00d7 Y \u2192 X} : Continuous f \u2194 \u2200 (S : Set \u03b9) (hS : cofinite \u2264 \ud835\udcdf S), Continuous (f \u2218 (Prod.map (inclusion R A hS) id))",
+          "have_tree": [
+            {
+              "name": "hxS",
+              "type": "\u2200 i \u2208 S, x i \u2208 A i",
+              "body": "fun i hi \u21a6 hi",
+              "children": []
+            },
+            {
+              "name": "hS",
+              "type": "cofinite \u2264 \ud835\udcdf S",
+              "body": "le_principal_iff.mpr x.2",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "TopologicalSpace",
+      "name": "continuous_dom_prod_left",
+      "statement": "Type*} [TopologicalSpace X] [TopologicalSpace Y] {f : Y \u00d7 \u03a0\u02b3 i, [R i, A i] \u2192 X} : Continuous f \u2194 \u2200 (S : Set \u03b9) (hS : cofinite \u2264 \ud835\udcdf S), Continuous (f \u2218 (Prod.map id (inclusion R A hS)))",
+      "have_tree": [
+        {
+          "name": "hS",
+          "type": "cofinite \u2264 \ud835\udcdf S",
+          "body": "le_principal_iff.mpr x.2",
+          "children": []
+        },
+        {
+          "name": "hxS",
+          "type": "\u2200 i \u2208 S, x i \u2208 A i",
+          "body": "fun i hi \u21a6 hi",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "TopologicalSpace",
+          "name": "continuous_dom_prod_left",
+          "statement": "Type*} [TopologicalSpace X] [TopologicalSpace Y] {f : Y \u00d7 \u03a0\u02b3 i, [R i, A i] \u2192 X} : Continuous f \u2194 \u2200 (S : Set \u03b9) (hS : cofinite \u2264 \ud835\udcdf S), Continuous (f \u2218 (Prod.map id (inclusion R A hS)))",
+          "have_tree": [
+            {
+              "name": "hxS",
+              "type": "\u2200 i \u2208 S, x i \u2208 A i",
+              "body": "fun i hi \u21a6 hi",
+              "children": []
+            },
+            {
+              "name": "hS",
+              "type": "cofinite \u2264 \ud835\udcdf S",
+              "body": "le_principal_iff.mpr x.2",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "TopologicalSpace",
+      "name": "continuous_dom_prod",
+      "statement": "\u03b9 \u2192 Type*} {A' : (i : \u03b9) \u2192 Set (R' i)} [\u2200 i, TopologicalSpace (R' i)] (hAopen' : \u2200 i, IsOpen (A' i)) {X : Type*} [TopologicalSpace X] {f : \u03a0\u02b3 i, [R i, A i] \u00d7 \u03a0\u02b3 i, [R' i, A' i] \u2192 X} : Continuous f \u2194 \u2200 (S : Set \u03b9) (hS : cofinite \u2264 \ud835\udcdf S), Continuous (f \u2218 (Prod.map (inclusion R A hS) (inclusion R' A' hS)))",
+      "have_tree": [
+        {
+          "name": "hU",
+          "type": "cofinite \u2264 \ud835\udcdf (S \u2229 T)",
+          "body": "inf_principal \u25b8 le_inf hS hT",
+          "children": []
+        },
+        {
+          "name": "hSU",
+          "type": "\ud835\udcdf U \u2264 \ud835\udcdf S",
+          "body": "principal_mono.mpr inter_subset_left",
+          "children": []
+        },
+        {
+          "name": "hTU",
+          "type": "\ud835\udcdf U \u2264 \ud835\udcdf T",
+          "body": "principal_mono.mpr inter_subset_right",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "TopologicalSpace",
+          "name": "continuous_dom_prod",
+          "statement": "\u03b9 \u2192 Type*} {A' : (i : \u03b9) \u2192 Set (R' i)} [\u2200 i, TopologicalSpace (R' i)] (hAopen' : \u2200 i, IsOpen (A' i)) {X : Type*} [TopologicalSpace X] {f : \u03a0\u02b3 i, [R i, A i] \u00d7 \u03a0\u02b3 i, [R' i, A' i] \u2192 X} : Continuous f \u2194 \u2200 (S : Set \u03b9) (hS : cofinite \u2264 \ud835\udcdf S), Continuous (f \u2218 (Prod.map (inclusion R A hS) (inclusion R' A' hS)))",
+          "have_tree": [
+            {
+              "name": "hSU",
+              "type": "\ud835\udcdf U \u2264 \ud835\udcdf S",
+              "body": "principal_mono.mpr inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "hU",
+              "type": "cofinite \u2264 \ud835\udcdf (S \u2229 T)",
+              "body": "inf_principal \u25b8 le_inf hS hT",
+              "children": []
+            },
+            {
+              "name": "hTU",
+              "type": "\ud835\udcdf U \u2264 \ud835\udcdf T",
+              "body": "principal_mono.mpr inter_subset_right",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "TopologicalSpace",
+          "name": "continuous_dom_prod",
+          "statement": "\u03b9 \u2192 Type*} {A' : (i : \u03b9) \u2192 Set (R' i)} [\u2200 i, TopologicalSpace (R' i)] (hAopen' : \u2200 i, IsOpen (A' i)) {X : Type*} [TopologicalSpace X] {f : \u03a0\u02b3 i, [R i, A i] \u00d7 \u03a0\u02b3 i, [R' i, A' i] \u2192 X} : Continuous f \u2194 \u2200 (S : Set \u03b9) (hS : cofinite \u2264 \ud835\udcdf S), Continuous (f \u2218 (Prod.map (inclusion R A hS) (inclusion R' A' hS)))",
+          "have_tree": [
+            {
+              "name": "hU",
+              "type": "cofinite \u2264 \ud835\udcdf (S \u2229 T)",
+              "body": "inf_principal \u25b8 le_inf hS hT",
+              "children": []
+            },
+            {
+              "name": "hTU",
+              "type": "\ud835\udcdf U \u2264 \ud835\udcdf T",
+              "body": "principal_mono.mpr inter_subset_right",
+              "children": []
+            },
+            {
+              "name": "hSU",
+              "type": "\ud835\udcdf U \u2264 \ud835\udcdf S",
+              "body": "principal_mono.mpr inter_subset_left",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "TopologicalSpace",
+      "name": "mapAlong_continuous",
+      "statement": "\u2200 j, Continuous (\u03c6 j)) : Continuous (mapAlong R\u2081 R\u2082 f hf \u03c6 h\u03c6)",
+      "have_tree": [
+        {
+          "name": "hT",
+          "type": "\ud835\udcd5\u2082 \u2264 \ud835\udcdf T",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hf'",
+          "type": "Tendsto f (\ud835\udcdf T) (\ud835\udcdf S)",
+          "body": "by aesop",
+          "children": []
+        },
+        {
+          "name": "h\u03c6'",
+          "type": "\u2200\u1da0 j in \ud835\udcdf T, MapsTo (\u03c6 j) (A\u2081 (f j)) (A\u2082 j)",
+          "body": "by aesop",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "TopologicalSpace",
+          "name": "mapAlong_continuous",
+          "statement": "\u2200 j, Continuous (\u03c6 j)) : Continuous (mapAlong R\u2081 R\u2082 f hf \u03c6 h\u03c6)",
+          "have_tree": [
+            {
+              "name": "hf'",
+              "type": "Tendsto f (\ud835\udcdf T) (\ud835\udcdf S)",
+              "body": "by aesop",
+              "children": []
+            },
+            {
+              "name": "hT",
+              "type": "\ud835\udcd5\u2082 \u2264 \ud835\udcdf T",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h\u03c6'",
+              "type": "\u2200\u1da0 j in \ud835\udcdf T, MapsTo (\u03c6 j) (A\u2081 (f j)) (A\u2082 j)",
+              "body": "by aesop",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "TopologicalSpace",
+          "name": "mapAlong_continuous",
+          "statement": "\u2200 j, Continuous (\u03c6 j)) : Continuous (mapAlong R\u2081 R\u2082 f hf \u03c6 h\u03c6)",
+          "have_tree": [
+            {
+              "name": "hT",
+              "type": "\ud835\udcd5\u2082 \u2264 \ud835\udcdf T",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h\u03c6'",
+              "type": "\u2200\u1da0 j in \ud835\udcdf T, MapsTo (\u03c6 j) (A\u2081 (f j)) (A\u2082 j)",
+              "body": "by aesop",
+              "children": []
+            },
+            {
+              "name": "hf'",
+              "type": "Tendsto f (\ud835\udcdf T) (\ud835\udcdf S)",
+              "body": "by aesop",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

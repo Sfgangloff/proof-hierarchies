@@ -1,0 +1,153 @@
+[
+  {
+    "module": "Basic",
+    "name": "resultant_eq_prod_roots_sub",
+    "statement": "Type*} [Field K] (f g : K[X]) (hf : f.Monic) (hg : g.Monic) (hf' : f.Splits) (hg' : g.Splits) : resultant f g = ((f.roots \u00d7\u02e2 g.roots).map fun ij \u21a6 ij.1 - ij.2).prod",
+    "have_tree": [
+      {
+        "name": "hr'",
+        "type": "r \u2260 0",
+        "body": "by simpa [hg.ne_zero] using hf.ne_zero",
+        "children": []
+      },
+      {
+        "name": "hr\u2080",
+        "type": "f %\u2098 g \u2260 0",
+        "body": "by simpa [modByMonic_eq_zero_iff_dvd, hg]",
+        "children": []
+      },
+      {
+        "name": "hrd",
+        "type": "r.natDegree < g.natDegree",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hr",
+        "type": "r.Monic",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "IH _ (by simp; lia)",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "this (f.map (algebraMap R K)) (g.map (algebraMap R K)) n (natDegree_map_le.trans hg)",
+            "children": []
+          },
+          {
+            "name": "H",
+            "type": "(C f.leadingCoeff\u207b\u00b9 * f).Monic",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "this (C f.leadingCoeff\u207b\u00b9 * f) g n hg (.mul (.C _) hf) hR (by simpa) H",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "this f (C g.leadingCoeff\u207b\u00b9 * g) n (by simpa [hg0, natDegree_C_mul]) hf hR hfm (by simpa)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "resultant_eq_prod_roots_sub (f.map (algebraMap R L))",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "IH (g\u2081.map \u03c6) (g\u2082.map \u03c6)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "resultant_dvd_leadingCoeff_pow",
+    "statement": "R[X]) (H : IsCoprime f g) : \u2203 n, resultant f g \u2223 f.leadingCoeff ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "H",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "resultant_mul_right f b g _ le_rfl",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "natDegree_add_eq_left_of_natDegree_lt H",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "resultant_integralNormalization",
+    "statement": "R[X]) (hg : g.natDegree \u2260 0) : resultant (f.scaleRoots g.leadingCoeff) g.integralNormalization = g.leadingCoeff ^ (f.natDegree * (g.natDegree - 1)) * resultant f g",
+    "have_tree": [
+      {
+        "name": "h\u03c6",
+        "type": "Function.Surjective \u03c6",
+        "body": "fun x \u21a6 \u27e8.X x, by simp [\u03c6, MvPolynomial.eval\u2082Hom]\u27e9",
+        "children": []
+      },
+      {
+        "name": "hfl",
+        "type": "f.leadingCoeff = \u03c6 f'.leadingCoeff",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hgl",
+        "type": "g.leadingCoeff = \u03c6 g'.leadingCoeff",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "resultant_scaleRoots f g g.leadingCoeff",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "IH (g.map \u03c6) (\u03c6 r)",
+            "children": []
+          },
+          {
+            "name": "hfl",
+            "type": "f.leadingCoeff = \u03c6 f'.leadingCoeff",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hgl",
+            "type": "g.leadingCoeff = \u03c6 g'.leadingCoeff",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

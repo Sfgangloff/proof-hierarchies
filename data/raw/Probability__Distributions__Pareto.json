@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Pareto",
+    "name": "paretoPDFReal_pos",
+    "statement": "0 < t) (hr : 0 < r) (hx : t \u2264 x) : 0 < paretoPDFReal t r x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < x",
+        "body": "by linarith",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pareto",
+    "name": "isProbabilityMeasure_paretoMeasure",
+    "statement": "0 < t) (hr : 0 < r) : IsProbabilityMeasure (paretoMeasure t r) where measure_univ",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsProbabilityMeasure (paretoMeasure t r)",
+        "body": "isProbabilityMeasure_paretoMeasure ht hr",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Pareto",
+    "name": "cdf_paretoMeasure_eq_lintegral",
+    "statement": "0 < t) (hr : 0 < r) (x : \u211d) : cdf (paretoMeasure t r) x = ENNReal.toReal (\u222b\u207b x in Iic x, paretoPDF t r x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsProbabilityMeasure (paretoMeasure t r)",
+        "body": "isProbabilityMeasure_paretoMeasure ht hr",
+        "children": []
+      }
+    ]
+  }
+]

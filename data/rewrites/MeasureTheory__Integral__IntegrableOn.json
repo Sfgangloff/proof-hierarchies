@@ -1,0 +1,257 @@
+[
+  {
+    "original": {
+      "module": "IntegrableOn",
+      "name": "IntegrableOn.of_ae_diff_eq_zero",
+      "statement": "\u03b1 \u2192 \u03b5'} (hf : IntegrableOn f s \u03bc) (ht : NullMeasurableSet t \u03bc) (h't : \u2200\u1d50 x \u2202\u03bc, x \u2208 t \\ s \u2192 f x = 0) : IntegrableOn f t \u03bc",
+      "have_tree": [
+        {
+          "name": "hu",
+          "type": "IntegrableOn f u \u03bc",
+          "body": "hf.mono_set fun x hx => hx.1",
+          "children": []
+        },
+        {
+          "name": "A",
+          "type": "IntegrableOn f v \u03bc",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "B",
+          "type": "IntegrableOn f (t \\ v) \u03bc",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "IntegrableOn",
+          "name": "IntegrableOn.of_ae_diff_eq_zero",
+          "statement": "\u03b1 \u2192 \u03b5'} (hf : IntegrableOn f s \u03bc) (ht : NullMeasurableSet t \u03bc) (h't : \u2200\u1d50 x \u2202\u03bc, x \u2208 t \\ s \u2192 f x = 0) : IntegrableOn f t \u03bc",
+          "have_tree": [
+            {
+              "name": "A",
+              "type": "IntegrableOn f v \u03bc",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hu",
+              "type": "IntegrableOn f u \u03bc",
+              "body": "hf.mono_set fun x hx => hx.1",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "IntegrableOn f (t \\ v) \u03bc",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "IntegrableOn",
+          "name": "IntegrableOn.of_ae_diff_eq_zero",
+          "statement": "\u03b1 \u2192 \u03b5'} (hf : IntegrableOn f s \u03bc) (ht : NullMeasurableSet t \u03bc) (h't : \u2200\u1d50 x \u2202\u03bc, x \u2208 t \\ s \u2192 f x = 0) : IntegrableOn f t \u03bc",
+          "have_tree": [
+            {
+              "name": "hu",
+              "type": "IntegrableOn f u \u03bc",
+              "body": "hf.mono_set fun x hx => hx.1",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "IntegrableOn f (t \\ v) \u03bc",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "IntegrableOn f v \u03bc",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "IntegrableOn",
+      "name": "IntegrableAtFilter.eq_zero_of_tendsto",
+      "statement": "\u03b1 \u2192 E} (h : IntegrableAtFilter f l \u03bc) (h' : \u2200 s \u2208 l, \u03bc s = \u221e) {a : E} (hf : Tendsto f l (\ud835\udcdd a)) : a = 0",
+      "have_tree": [
+        {
+          "name": "hv",
+          "type": "IntegrableOn f v \u03bc",
+          "body": "hu.mono_set inter_subset_left",
+          "children": []
+        },
+        {
+          "name": "vl",
+          "type": "v \u2208 l",
+          "body": "inter_mem ul ((tendsto_order.1 hf.norm).1 _ h\u03b5)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "\u03bc.restrict v v < \u221e",
+          "body": "lt_of_le_of_lt (measure_mono inter_subset_right)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "\u03bc v \u2260 \u221e",
+          "body": "ne_of_lt (by simpa only [Measure.restrict_apply_self])",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "IntegrableOn",
+          "name": "IntegrableAtFilter.eq_zero_of_tendsto",
+          "statement": "\u03b1 \u2192 E} (h : IntegrableAtFilter f l \u03bc) (h' : \u2200 s \u2208 l, \u03bc s = \u221e) {a : E} (hf : Tendsto f l (\ud835\udcdd a)) : a = 0",
+          "have_tree": [
+            {
+              "name": "vl",
+              "type": "v \u2208 l",
+              "body": "inter_mem ul ((tendsto_order.1 hf.norm).1 _ h\u03b5)",
+              "children": []
+            },
+            {
+              "name": "hv",
+              "type": "IntegrableOn f v \u03bc",
+              "body": "hu.mono_set inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03bc.restrict v v < \u221e",
+              "body": "lt_of_le_of_lt (measure_mono inter_subset_right)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03bc v \u2260 \u221e",
+              "body": "ne_of_lt (by simpa only [Measure.restrict_apply_self])",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "IntegrableOn",
+          "name": "IntegrableAtFilter.eq_zero_of_tendsto",
+          "statement": "\u03b1 \u2192 E} (h : IntegrableAtFilter f l \u03bc) (h' : \u2200 s \u2208 l, \u03bc s = \u221e) {a : E} (hf : Tendsto f l (\ud835\udcdd a)) : a = 0",
+          "have_tree": [
+            {
+              "name": "hv",
+              "type": "IntegrableOn f v \u03bc",
+              "body": "hu.mono_set inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03bc.restrict v v < \u221e",
+              "body": "lt_of_le_of_lt (measure_mono inter_subset_right)",
+              "children": []
+            },
+            {
+              "name": "vl",
+              "type": "v \u2208 l",
+              "body": "inter_mem ul ((tendsto_order.1 hf.norm).1 _ h\u03b5)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03bc v \u2260 \u221e",
+              "body": "ne_of_lt (by simpa only [Measure.restrict_apply_self])",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "IntegrableOn",
+          "name": "IntegrableAtFilter.eq_zero_of_tendsto",
+          "statement": "\u03b1 \u2192 E} (h : IntegrableAtFilter f l \u03bc) (h' : \u2200 s \u2208 l, \u03bc s = \u221e) {a : E} (hf : Tendsto f l (\ud835\udcdd a)) : a = 0",
+          "have_tree": [
+            {
+              "name": "hv",
+              "type": "IntegrableOn f v \u03bc",
+              "body": "hu.mono_set inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "vl",
+              "type": "v \u2208 l",
+              "body": "inter_mem ul ((tendsto_order.1 hf.norm).1 _ h\u03b5)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03bc v \u2260 \u221e",
+              "body": "ne_of_lt (by simpa only [Measure.restrict_apply_self])",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u03bc.restrict v v < \u221e",
+              "body": "lt_of_le_of_lt (measure_mono inter_subset_right)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

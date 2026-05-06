@@ -1,0 +1,48 @@
+[
+  {
+    "module": "Loop",
+    "name": "isBasis_iff_empty_of_subset_loops",
+    "statement": "X \u2286 M.loops) : M.IsBasis I X \u2194 I = \u2205",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(closure_eq_loops_of_subset hX) \u25b8 h.isBasis_closure_right",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Loop",
+    "name": "IsNonloop.closure_eq_closure_iff_isCircuit_of_ne",
+    "statement": "M.IsNonloop e) (hef : e \u2260 f) : M.closure {e} = M.closure {f} \u2194 M.IsCircuit {e, f}",
+    "have_tree": [
+      {
+        "name": "hclosure",
+        "type": "",
+        "body": "(h.closure_diff_singleton_eq e).trans",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Loop",
+    "name": "IsBase.isColoop_iff_forall_notMem_fundCircuit",
+    "statement": "M.IsBase B) (he : e \u2208 B) : M.IsColoop e \u2194 \u2200 x \u2208 M.E \\ B, e \u2209 M.fundCircuit x B",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "M.E \\ {e} \u2286 M.closure (B \\ {e})",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_cct",
+            "type": "",
+            "body": "(hB.fundCircuit_isCircuit hxE hx).mem_closure_diff_singleton_of_mem",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Conditional",
+    "name": "condIndepSets_iff",
+    "statement": "Set (Set \u03a9)) (hs1 : \u2200 s \u2208 s1, MeasurableSet s) (hs2 : \u2200 s \u2208 s2, MeasurableSet s) (\u03bc : Measure \u03a9) [IsFiniteMeasure \u03bc] : CondIndepSets m' hm' s1 s2 \u03bc \u2194 \u2200 (t1 t2 : Set \u03a9) (_ : t1 \u2208 s1) (_ : t2 \u2208 s2), (\u03bc\u27e6t1 \u2229 t2 | m'\u27e7) =\u1d50[\u03bc] (\u03bc\u27e6t1 | m'\u27e7) * (\u03bc\u27e6t2 | m'\u27e7)",
+    "have_tree": [
+      {
+        "name": "hs1_eq",
+        "type": "\u2200 s \u2208 s1, (fun \u03c9 \u21a6 ENNReal.toReal (condExpKernel \u03bc m' \u03c9 s)) =\u1d50[\u03bc] \u03bc\u27e6s | m'\u27e7",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hs2_eq",
+        "type": "\u2200 s \u2208 s2, (fun \u03c9 \u21a6 ENNReal.toReal (condExpKernel \u03bc m' \u03c9 s)) =\u1d50[\u03bc] \u03bc\u27e6s | m'\u27e7",
+        "body": "",
+        "children": [
+          {
+            "name": "h_ne_top",
+            "type": "condExpKernel \u03bc m' \u03c9 (s \u2229 t) \u2260 \u221e",
+            "body": "measure_ne_top (condExpKernel \u03bc m' \u03c9) _",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

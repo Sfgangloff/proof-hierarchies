@@ -1,0 +1,149 @@
+[
+  {
+    "original": {
+      "module": "Exponent",
+      "name": "exponent_dvd_iff_forall_pow_eq_one",
+      "statement": "\u2115} : exponent G \u2223 n \u2194 \u2200 g : G, g ^ n = 1",
+      "have_tree": [
+        {
+          "name": "h\u2082",
+          "type": "n % exponent G < exponent G",
+          "body": "Nat.mod_lt _ (exponent_pos_of_exists n hpos hG)",
+          "children": []
+        },
+        {
+          "name": "h\u2083",
+          "type": "exponent G \u2264 n % exponent G",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Exponent",
+          "name": "exponent_dvd_iff_forall_pow_eq_one",
+          "statement": "\u2115} : exponent G \u2223 n \u2194 \u2200 g : G, g ^ n = 1",
+          "have_tree": [
+            {
+              "name": "h\u2083",
+              "type": "exponent G \u2264 n % exponent G",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "n % exponent G < exponent G",
+              "body": "Nat.mod_lt _ (exponent_pos_of_exists n hpos hG)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Exponent",
+      "name": "exists_orderOf_eq_exponent",
+      "statement": "ExponentExists G) : \u2203 g : G, orderOf g = exponent G",
+      "have_tree": [
+        {
+          "name": "he",
+          "type": "",
+          "body": "hG.exponent_ne_zero",
+          "children": []
+        },
+        {
+          "name": "hpk",
+          "type": "p ^ k \u2223 orderOf t",
+          "body": "Nat.ordProj_dvd _ _",
+          "children": []
+        },
+        {
+          "name": "hcoprime",
+          "type": "(orderOf (t ^ p ^ k)).Coprime (orderOf g)",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Exponent",
+          "name": "exists_orderOf_eq_exponent",
+          "statement": "ExponentExists G) : \u2203 g : G, orderOf g = exponent G",
+          "have_tree": [
+            {
+              "name": "hpk",
+              "type": "p ^ k \u2223 orderOf t",
+              "body": "Nat.ordProj_dvd _ _",
+              "children": []
+            },
+            {
+              "name": "he",
+              "type": "",
+              "body": "hG.exponent_ne_zero",
+              "children": []
+            },
+            {
+              "name": "hcoprime",
+              "type": "(orderOf (t ^ p ^ k)).Coprime (orderOf g)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Exponent",
+          "name": "exists_orderOf_eq_exponent",
+          "statement": "ExponentExists G) : \u2203 g : G, orderOf g = exponent G",
+          "have_tree": [
+            {
+              "name": "he",
+              "type": "",
+              "body": "hG.exponent_ne_zero",
+              "children": []
+            },
+            {
+              "name": "hcoprime",
+              "type": "(orderOf (t ^ p ^ k)).Coprime (orderOf g)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hpk",
+              "type": "p ^ k \u2223 orderOf t",
+              "body": "Nat.ordProj_dvd _ _",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,266 @@
+[
+  {
+    "module": "Normed",
+    "name": "isLittleO_pow_pow_of_lt_left",
+    "statement": "\u211d} (h\u2081 : 0 \u2264 r\u2081) (h\u2082 : r\u2081 < r\u2082) : (fun n : \u2115 \u21a6 r\u2081 ^ n) =o[atTop] fun n \u21a6 r\u2082 ^ n",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "0 < r\u2082",
+        "body": "h\u2081.trans_lt h\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "TFAE_exists_lt_isLittleO_pow",
+    "statement": "\u2115 \u2192 \u211d) (R : \u211d) : TFAE [\u2203 a \u2208 Ioo (-R) R, f =o[atTop] (a ^ \u00b7), \u2203 a \u2208 Ioo 0 R, f =o[atTop] (a ^ \u00b7), \u2203 a \u2208 Ioo (-R) R, f =O[atTop] (a ^ \u00b7), \u2203 a \u2208 Ioo 0 R, f =O[atTop] (a ^ \u00b7), \u2203 a < R, \u2203 C : \u211d, (0 < C \u2228 0 < R) \u2227 \u2200 n, |f n| \u2264 C * a ^ n, \u2203 a \u2208 Ioo 0 R, \u2203 C > 0, \u2200 n, |f n| \u2264 C * a ^ n, \u2203 a < R, \u2200\u1da0 n in atTop, |f n| \u2264 a ^ n, \u2203 a \u2208 Ioo 0 R, \u2200\u1da0 n in atTop, |f n| \u2264 a ^ n]",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "Ico 0 R \u2286 Ioo (-R) R",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "Ioo 0 R \u2286 Ioo (-R) R",
+        "body": "Subset.trans Ioo_subset_Ico_self A",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "isLittleO_pow_const_const_pow_of_one_lt",
+    "statement": "Type*} [NormedRing R] (k : \u2115) {r : \u211d} (hr : 1 < r) : (fun n \u21a6 (n : R) ^ k : \u2115 \u2192 R) =o[atTop] fun n \u21a6 r ^ n",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "0 \u2264 r'",
+        "body": "zero_le_one.trans h1.le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "tendsto_pow_const_mul_const_pow_of_abs_lt_one",
+    "statement": "\u2115) {r : \u211d} (hr : |r| < 1) : Tendsto (fun n \u21a6 (n : \u211d) ^ k * r ^ n : \u2115 \u2192 \u211d) atTop (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "hr'",
+        "type": "1 < |r|\u207b\u00b9",
+        "body": "(one_lt_inv\u2080 (abs_pos.2 h0)).2 hr",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "AbsoluteValue.tendsto_div_one_add_pow_nhds_one",
+    "statement": "AbsoluteValue R S} {a : R} (ha : v a < 1) : atTop.Tendsto (fun (n : \u2115) \u21a6 v (1 / (1 + a ^ n))) (\ud835\udcdd 1)",
+    "have_tree": [
+      {
+        "name": "h_add",
+        "type": "",
+        "body": "(tendsto_pow_atTop_nhds_zero_of_lt_one (v.nonneg _) ha).const_add 1",
+        "children": []
+      },
+      {
+        "name": "h_sub",
+        "type": "",
+        "body": "(tendsto_pow_atTop_nhds_zero_of_lt_one (v.nonneg _) ha).const_sub 1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "tsum_geometric_le_of_norm_lt_one",
+    "statement": "R) (h : \u2016x\u2016 < 1) : \u2016\u2211' n : \u2115, x ^ n\u2016 \u2264 \u2016(1 : R)\u2016 - 1 + (1 - \u2016x\u2016)\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 \u2264 (1 - \u2016x\u2016)\u207b\u00b9",
+        "body": "inv_nonneg.2 (by linarith)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "hasSum_geometric_of_norm_lt_one",
+    "statement": "\u2016\u03be\u2016 < 1) : HasSum (fun n : \u2115 \u21a6 \u03be ^ n) (1 - \u03be)\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "xi_ne_one",
+        "type": "\u03be \u2260 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "Tendsto (fun n \u21a6 (\u03be ^ n - 1) * (\u03be - 1)\u207b\u00b9) atTop (\ud835\udcdd ((0 - 1) * (\u03be - 1)\u207b\u00b9))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "summable_pow_mul_geometric_of_norm_lt_one",
+    "statement": "\u2115) {r : R} (hr : \u2016r\u2016 < 1) : Summable (fun n \u21a6 (n : R) ^ k * r ^ n : \u2115 \u2192 R)",
+    "have_tree": [
+      {
+        "name": "mP",
+        "type": "Monic P",
+        "body": "Monic.comp_X_add_C (monic_ascPochhammer \u2115 k) _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "NormedAddCommGroup.cauchy_series_of_le_geometric''",
+    "statement": "\u211d} {u : \u2115 \u2192 \u03b1} {N : \u2115} {r : \u211d} (hr\u2080 : 0 < r) (hr\u2081 : r < 1) (h : \u2200 n \u2265 N, \u2016u n\u2016 \u2264 C * r ^ n) : CauchySeq fun n \u21a6 \u2211 k \u2208 range (n + 1), u k",
+    "have_tree": [
+      {
+        "name": "hC",
+        "type": "0 \u2264 C",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "not_summable_of_ratio_test_tendsto_gt_one",
+    "statement": "Type*} [SeminormedAddCommGroup \u03b1] {f : \u2115 \u2192 \u03b1} {l : \u211d} (hl : 1 < l) (h : Tendsto (fun n \u21a6 \u2016f (n + 1)\u2016 / \u2016f n\u2016) atTop (\ud835\udcdd l)) : \u00acSummable f",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "\u2200\u1da0 n in atTop, \u2016f n\u2016 \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "summable_powerSeries_of_norm_lt",
+    "statement": "\u03b1} (h : CauchySeq fun n \u21a6 \u2211 i \u2208 range n, f i * w ^ i) (hz : \u2016z\u2016 < \u2016w\u2016) : Summable fun n \u21a6 f n * z ^ n",
+    "have_tree": [
+      {
+        "name": "hw",
+        "type": "0 < \u2016w\u2016",
+        "body": "(norm_nonneg z).trans_lt hz",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "Antitone.cauchySeq_series_mul_of_tendsto_zero_of_bounded",
+    "statement": "Antitone f) (hf0 : Tendsto f atTop (\ud835\udcdd 0)) (hzb : \u2200 n, \u2016\u2211 i \u2208 range n, z i\u2016 \u2264 b) : CauchySeq fun n \u21a6 \u2211 i \u2208 range n, f i \u2022 z i",
+    "have_tree": [
+      {
+        "name": "hfa'",
+        "type": "Monotone fun n \u21a6 -f n",
+        "body": "fun _ _ hab \u21a6 neg_le_neg <| hfa hab",
+        "children": []
+      },
+      {
+        "name": "hf0'",
+        "type": "Tendsto (fun n \u21a6 -f n) atTop (\ud835\udcdd 0)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "Monotone.tendsto_le_alternating_series",
+    "statement": "Tendsto (fun n \u21a6 \u2211 i \u2208 range n, (-1) ^ i * f i) atTop (\ud835\udcdd l)) (hfm : Monotone f) (k : \u2115) : l \u2264 \u2211 i \u2208 range (2 * k), (-1) ^ i * f i",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "Antitone (fun n \u21a6 \u2211 i \u2208 range (2 * n), (-1) ^ i * f i)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "Monotone.alternating_series_le_tendsto",
+    "statement": "Tendsto (fun n \u21a6 \u2211 i \u2208 range n, (-1) ^ i * f i) atTop (\ud835\udcdd l)) (hfm : Monotone f) (k : \u2115) : \u2211 i \u2208 range (2 * k + 1), (-1) ^ i * f i \u2264 l",
+    "have_tree": [
+      {
+        "name": "hm",
+        "type": "Monotone (fun n \u21a6 \u2211 i \u2208 range (2 * n + 1), (-1) ^ i * f i)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "Antitone.alternating_series_le_tendsto",
+    "statement": "Tendsto (fun n \u21a6 \u2211 i \u2208 range n, (-1) ^ i * f i) atTop (\ud835\udcdd l)) (hfa : Antitone f) (k : \u2115) : \u2211 i \u2208 range (2 * k), (-1) ^ i * f i \u2264 l",
+    "have_tree": [
+      {
+        "name": "hm",
+        "type": "Monotone (fun n \u21a6 \u2211 i \u2208 range (2 * n), (-1) ^ i * f i)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "Antitone.tendsto_le_alternating_series",
+    "statement": "Tendsto (fun n \u21a6 \u2211 i \u2208 range n, (-1) ^ i * f i) atTop (\ud835\udcdd l)) (hfa : Antitone f) (k : \u2115) : l \u2264 \u2211 i \u2208 range (2 * k + 1), (-1) ^ i * f i",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "Antitone (fun n \u21a6 \u2211 i \u2208 range (2 * n + 1), (-1) ^ i * f i)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "alternating_series_error_bound",
+    "statement": "\u2115 \u2192 E) (hfa : Antitone f) (hfs : Summable f) (n : \u2115) : |(\u2211' i : \u2115, (-1) ^ i * f i) - (\u2211 i \u2208 range n, (-1) ^ i * f i)| \u2264 f n",
+    "have_tree": [
+      {
+        "name": "upper",
+        "type": "",
+        "body": "hfa.alternating_series_le_tendsto h",
+        "children": []
+      },
+      {
+        "name": "lower",
+        "type": "",
+        "body": "hfa.tendsto_le_alternating_series h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Normed",
+    "name": "Real.summable_pow_div_factorial",
+    "statement": "\u211d) : Summable (fun n \u21a6 x ^ n / n ! : \u2115 \u2192 \u211d)",
+    "have_tree": [
+      {
+        "name": "B",
+        "type": "\u2016x\u2016 / (\u230a\u2016x\u2016\u230b\u208a + 1) < 1",
+        "body": "(div_lt_one A).2 (Nat.lt_floor_add_one _)",
+        "children": []
+      }
+    ]
+  }
+]

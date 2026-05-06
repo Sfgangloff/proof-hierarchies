@@ -1,0 +1,152 @@
+[
+  {
+    "original": {
+      "module": "RemovableSingularity",
+      "name": "differentiableOn_update_limUnder_of_isLittleO",
+      "statement": "\u2102 \u2192 E} {s : Set \u2102} {c : \u2102} (hc : s \u2208 \ud835\udcdd c) (hd : DifferentiableOn \u2102 f (s \\ {c})) (ho : (fun z => f z - f c) =o[\ud835\udcdd[\u2260] c] fun z => (z - c)\u207b\u00b9) : DifferentiableOn \u2102 (update f c (limUnder (\ud835\udcdd[\u2260] c) f)) s",
+      "have_tree": [
+        {
+          "name": "hc",
+          "type": "Tendsto f (\ud835\udcdd[\u2260] c) (\ud835\udcdd (deriv F c))",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "H",
+          "type": "",
+          "body": "ho.tendsto_inv_smul_nhds_zero",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "RemovableSingularity",
+          "name": "differentiableOn_update_limUnder_of_isLittleO",
+          "statement": "\u2102 \u2192 E} {s : Set \u2102} {c : \u2102} (hc : s \u2208 \ud835\udcdd c) (hd : DifferentiableOn \u2102 f (s \\ {c})) (ho : (fun z => f z - f c) =o[\ud835\udcdd[\u2260] c] fun z => (z - c)\u207b\u00b9) : DifferentiableOn \u2102 (update f c (limUnder (\ud835\udcdd[\u2260] c) f)) s",
+          "have_tree": [
+            {
+              "name": "H",
+              "type": "",
+              "body": "ho.tendsto_inv_smul_nhds_zero",
+              "children": []
+            },
+            {
+              "name": "hc",
+              "type": "Tendsto f (\ud835\udcdd[\u2260] c) (\ud835\udcdd (deriv F c))",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "RemovableSingularity",
+      "name": "tendsto_limUnder_of_differentiable_on_punctured_nhds_of_isLittleO",
+      "statement": "\u2102 \u2192 E} {c : \u2102} (hd : \u2200\u1da0 z in \ud835\udcdd[\u2260] c, DifferentiableAt \u2102 f z) (ho : (fun z => f z - f c) =o[\ud835\udcdd[\u2260] c] fun z => (z - c)\u207b\u00b9) : Tendsto f (\ud835\udcdd[\u2260] c) (\ud835\udcdd <| limUnder (\ud835\udcdd[\u2260] c) f)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "DifferentiableOn \u2102 f ({z | z \u2260 c \u2192 DifferentiableAt \u2102 f z} \\ {c})",
+          "body": "fun z hz =>",
+          "children": []
+        },
+        {
+          "name": "H",
+          "type": "",
+          "body": "differentiableOn_update_limUnder_of_isLittleO hd this ho",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "RemovableSingularity",
+          "name": "tendsto_limUnder_of_differentiable_on_punctured_nhds_of_isLittleO",
+          "statement": "\u2102 \u2192 E} {c : \u2102} (hd : \u2200\u1da0 z in \ud835\udcdd[\u2260] c, DifferentiableAt \u2102 f z) (ho : (fun z => f z - f c) =o[\ud835\udcdd[\u2260] c] fun z => (z - c)\u207b\u00b9) : Tendsto f (\ud835\udcdd[\u2260] c) (\ud835\udcdd <| limUnder (\ud835\udcdd[\u2260] c) f)",
+          "have_tree": [
+            {
+              "name": "H",
+              "type": "",
+              "body": "differentiableOn_update_limUnder_of_isLittleO hd this ho",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "DifferentiableOn \u2102 f ({z | z \u2260 c \u2192 DifferentiableAt \u2102 f z} \\ {c})",
+              "body": "fun z hz =>",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "RemovableSingularity",
+      "name": "two_pi_I_inv_smul_circleIntegral_sub_sq_inv_smul_of_differentiable",
+      "statement": "Set \u2102} (hU : IsOpen U) {c w\u2080 : \u2102} {R : \u211d} {f : \u2102 \u2192 E} (hc : closedBall c R \u2286 U) (hf : DifferentiableOn \u2102 f U) (hw\u2080 : w\u2080 \u2208 ball c R) : ((2 * \u03c0 * I : \u2102)\u207b\u00b9 \u2022 \u222e z in C(c, R), ((z - w\u2080) ^ 2)\u207b\u00b9 \u2022 f z) = deriv f w\u2080",
+      "have_tree": [
+        {
+          "name": "hf'",
+          "type": "DifferentiableOn \u2102 (dslope f w\u2080) U",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "h0",
+          "type": "",
+          "body": "(hf'.diffContOnCl_ball hc).two_pi_i_inv_smul_circleIntegral_sub_inv_smul hw\u2080",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "RemovableSingularity",
+          "name": "two_pi_I_inv_smul_circleIntegral_sub_sq_inv_smul_of_differentiable",
+          "statement": "Set \u2102} (hU : IsOpen U) {c w\u2080 : \u2102} {R : \u211d} {f : \u2102 \u2192 E} (hc : closedBall c R \u2286 U) (hf : DifferentiableOn \u2102 f U) (hw\u2080 : w\u2080 \u2208 ball c R) : ((2 * \u03c0 * I : \u2102)\u207b\u00b9 \u2022 \u222e z in C(c, R), ((z - w\u2080) ^ 2)\u207b\u00b9 \u2022 f z) = deriv f w\u2080",
+          "have_tree": [
+            {
+              "name": "h0",
+              "type": "",
+              "body": "(hf'.diffContOnCl_ball hc).two_pi_i_inv_smul_circleIntegral_sub_inv_smul hw\u2080",
+              "children": []
+            },
+            {
+              "name": "hf'",
+              "type": "DifferentiableOn \u2102 (dslope f w\u2080) U",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

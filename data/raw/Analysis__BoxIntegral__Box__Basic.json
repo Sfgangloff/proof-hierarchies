@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Basic",
+    "name": "iUnion_Ioo_of_tendsto",
+    "statement": "Box \u03b9} {J : \u2115 \u2192 Box \u03b9} (hJ : Monotone J) (hl : Tendsto (lower \u2218 J) atTop (\ud835\udcdd I.lower)) (hu : Tendsto (upper \u2218 J) atTop (\ud835\udcdd I.upper)) : \u22c3 n, Box.Ioo (J n) = Box.Ioo I",
+    "have_tree": [
+      {
+        "name": "hl'",
+        "type": "\u2200 i, Antitone fun n \u21a6 (J n).lower i",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hu'",
+        "type": "\u2200 i, Monotone fun n \u21a6 (J n).upper i",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "distortion_eq_of_sub_eq_div",
+    "statement": "Box \u03b9} {r : \u211d} (h : \u2200 i, I.upper i - I.lower i = (J.upper i - J.lower i) / r) : distortion I = distortion J",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < r",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "div_nonpos_of_nonneg_of_nonpos (sub_nonneg.2 <| J.lower_le_upper i) (not_lt.1 hr)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hn0",
+        "type": "",
+        "body": "(map_ne_zero Real.nnabs).2 this.ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "dist_le_distortion_mul",
+    "statement": "Box \u03b9) (i : \u03b9) : dist I.lower I.upper \u2264 I.distortion * (I.upper i - I.lower i)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "I.lower i - I.upper i < 0",
+        "body": "sub_neg.2 (I.lower_lt_upper i)",
+        "children": []
+      }
+    ]
+  }
+]

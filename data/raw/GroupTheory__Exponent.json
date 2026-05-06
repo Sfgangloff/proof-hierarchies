@@ -1,0 +1,111 @@
+[
+  {
+    "module": "Exponent",
+    "name": "exponent_min",
+    "statement": "\u2115) (hpos : 0 < m) (hm : m < exponent G) : \u2203 g : G, g ^ m \u2260 1",
+    "have_tree": [
+      {
+        "name": "hcon",
+        "type": "exponent G \u2264 m",
+        "body": "exponent_min' m hpos h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exponent",
+    "name": "exponent_dvd_iff_forall_pow_eq_one",
+    "statement": "\u2115} : exponent G \u2223 n \u2194 \u2200 g : G, g ^ n = 1",
+    "have_tree": [
+      {
+        "name": "h\u2082",
+        "type": "n % exponent G < exponent G",
+        "body": "Nat.mod_lt _ (exponent_pos_of_exists n hpos hG)",
+        "children": []
+      },
+      {
+        "name": "h\u2083",
+        "type": "exponent G \u2264 n % exponent G",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exponent",
+    "name": "_root_.Nat.Prime.exists_orderOf_eq_pow_factorization_exponent",
+    "statement": "\u2115} (hp : p.Prime) : \u2203 g : G, orderOf g = p ^ (exponent G).factorization p",
+    "have_tree": [
+      {
+        "name": "he",
+        "type": "0 < exponent G",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exponent",
+    "name": "exponent_ne_zero_iff_range_orderOf_finite",
+    "statement": "\u2200 g : G, 0 < orderOf g) : exponent G \u2260 0 \u2194 (Set.range (orderOf : G \u2192 \u2115)).Finite",
+    "have_tree": [
+      {
+        "name": "htpos",
+        "type": "0 < t.prod id",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exponent",
+    "name": "exponent_eq_zero_iff_range_orderOf_infinite",
+    "statement": "\u2200 g : G, 0 < orderOf g) : exponent G = 0 \u2194 (Set.range (orderOf : G \u2192 \u2115)).Infinite",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "exponent_ne_zero_iff_range_orderOf_finite h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exponent",
+    "name": "_root_.Submonoid.pow_exponent_eq_one",
+    "statement": "Submonoid G} {g : G} (g_in_s : g \u2208 S) : g ^ (Monoid.exponent S) = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Monoid.pow_exponent_eq_one (\u27e8g, g_in_s\u27e9 : S)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exponent",
+    "name": "exists_orderOf_eq_exponent",
+    "statement": "ExponentExists G) : \u2203 g : G, orderOf g = exponent G",
+    "have_tree": [
+      {
+        "name": "he",
+        "type": "",
+        "body": "hG.exponent_ne_zero",
+        "children": []
+      },
+      {
+        "name": "hpk",
+        "type": "p ^ k \u2223 orderOf t",
+        "body": "Nat.ordProj_dvd _ _",
+        "children": []
+      },
+      {
+        "name": "hcoprime",
+        "type": "(orderOf (t ^ p ^ k)).Coprime (orderOf g)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,296 @@
+[
+  {
+    "original": {
+      "module": "Composition",
+      "name": "index_exists",
+      "statement": "\u2115} (h : j < n) : \u2203 i : \u2115, j < c.sizeUpTo (i + 1) \u2227 i < c.length",
+      "have_tree": [
+        {
+          "name": "n_pos",
+          "type": "0 < n",
+          "body": "lt_of_le_of_lt (zero_le j) h",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "0 < c.blocks.sum",
+          "body": "by rwa [\u2190 c.blocks_sum] at n_pos",
+          "children": []
+        },
+        {
+          "name": "length_pos",
+          "type": "0 < c.blocks.length",
+          "body": "length_pos_of_sum_pos (blocks c) this",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Composition",
+          "name": "index_exists",
+          "statement": "\u2115} (h : j < n) : \u2203 i : \u2115, j < c.sizeUpTo (i + 1) \u2227 i < c.length",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "0 < c.blocks.sum",
+              "body": "by rwa [\u2190 c.blocks_sum] at n_pos",
+              "children": []
+            },
+            {
+              "name": "n_pos",
+              "type": "0 < n",
+              "body": "lt_of_le_of_lt (zero_le j) h",
+              "children": []
+            },
+            {
+              "name": "length_pos",
+              "type": "0 < c.blocks.length",
+              "body": "length_pos_of_sum_pos (blocks c) this",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Composition",
+          "name": "index_exists",
+          "statement": "\u2115} (h : j < n) : \u2203 i : \u2115, j < c.sizeUpTo (i + 1) \u2227 i < c.length",
+          "have_tree": [
+            {
+              "name": "n_pos",
+              "type": "0 < n",
+              "body": "lt_of_le_of_lt (zero_le j) h",
+              "children": []
+            },
+            {
+              "name": "length_pos",
+              "type": "0 < c.blocks.length",
+              "body": "length_pos_of_sum_pos (blocks c) this",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "0 < c.blocks.sum",
+              "body": "by rwa [\u2190 c.blocks_sum] at n_pos",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Composition",
+      "name": "sizeUpTo_index_le",
+      "statement": "Fin n) : c.sizeUpTo (c.index j) \u2264 j",
+      "have_tree": [
+        {
+          "name": "i\u2081_lt_i",
+          "type": "i\u2081 < i",
+          "body": "Nat.pred_lt (ne_of_gt i_pos)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "Nat.find_min (c.index_exists j.2) i\u2081_lt_i",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Composition",
+          "name": "sizeUpTo_index_le",
+          "statement": "Fin n) : c.sizeUpTo (c.index j) \u2264 j",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "Nat.find_min (c.index_exists j.2) i\u2081_lt_i",
+              "children": []
+            },
+            {
+              "name": "i\u2081_lt_i",
+              "type": "i\u2081 < i",
+              "body": "Nat.pred_lt (ne_of_gt i_pos)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Composition",
+      "name": "blocks_partial_sum",
+      "statement": "\u2115} (h : i < c.boundaries.card) : (c.blocks.take i).sum = c.boundary \u27e8i, h\u27e9",
+      "have_tree": [
+        {
+          "name": "A",
+          "type": "i < c.blocks.length",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "B",
+          "type": "i < c.boundaries.card",
+          "body": "lt_of_lt_of_le A (by simp [blocks, length])",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Composition",
+          "name": "blocks_partial_sum",
+          "statement": "\u2115} (h : i < c.boundaries.card) : (c.blocks.take i).sum = c.boundary \u27e8i, h\u27e9",
+          "have_tree": [
+            {
+              "name": "B",
+              "type": "i < c.boundaries.card",
+              "body": "lt_of_lt_of_le A (by simp [blocks, length])",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "i < c.blocks.length",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Composition",
+      "name": "Composition.toCompositionAsSet_blocks",
+      "statement": "Composition n) : c.toCompositionAsSet.blocks = c.blocks",
+      "have_tree": [
+        {
+          "name": "i_lt",
+          "type": "i < d.boundaries.card",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "i_lt'",
+          "type": "i < c.boundaries.card",
+          "body": "i_lt",
+          "children": []
+        },
+        {
+          "name": "i_lt''",
+          "type": "i < c.length + 1",
+          "body": "by rwa [c.card_boundaries_eq_succ_length] at i_lt'",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Composition",
+          "name": "Composition.toCompositionAsSet_blocks",
+          "statement": "Composition n) : c.toCompositionAsSet.blocks = c.blocks",
+          "have_tree": [
+            {
+              "name": "i_lt'",
+              "type": "i < c.boundaries.card",
+              "body": "i_lt",
+              "children": []
+            },
+            {
+              "name": "i_lt",
+              "type": "i < d.boundaries.card",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "i_lt''",
+              "type": "i < c.length + 1",
+              "body": "by rwa [c.card_boundaries_eq_succ_length] at i_lt'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Composition",
+          "name": "Composition.toCompositionAsSet_blocks",
+          "statement": "Composition n) : c.toCompositionAsSet.blocks = c.blocks",
+          "have_tree": [
+            {
+              "name": "i_lt",
+              "type": "i < d.boundaries.card",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "i_lt''",
+              "type": "i < c.length + 1",
+              "body": "by rwa [c.card_boundaries_eq_succ_length] at i_lt'",
+              "children": []
+            },
+            {
+              "name": "i_lt'",
+              "type": "i < c.boundaries.card",
+              "body": "i_lt",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

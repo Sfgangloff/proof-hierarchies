@@ -1,0 +1,98 @@
+[
+  {
+    "module": "Concrete",
+    "name": "cycleOf_formPerm",
+    "statement": "Nodup l) (hn : 2 \u2264 l.length) (x) : cycleOf l.attach.formPerm x = l.attach.formPerm",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "2 \u2264 l.attach.length",
+        "body": "by rwa [\u2190 length_attach] at hn",
+        "children": []
+      },
+      {
+        "name": "hl",
+        "type": "l.attach.Nodup",
+        "body": "by rwa [\u2190 nodup_attach] at hl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Concrete",
+    "name": "nodup_toList",
+    "statement": "Perm \u03b1) (x : \u03b1) : Nodup (toList p x)",
+    "have_tree": [
+      {
+        "name": "hc",
+        "type": "IsCycle (cycleOf p x)",
+        "body": "isCycle_cycleOf p hx",
+        "children": []
+      },
+      {
+        "name": "hn'",
+        "type": "\u00acorderOf (p.cycleOf x) \u2223 n.succ",
+        "body": "Nat.not_dvd_of_pos_of_lt n.zero_lt_succ hn",
+        "children": []
+      },
+      {
+        "name": "hm'",
+        "type": "\u00acorderOf (p.cycleOf x) \u2223 m.succ",
+        "body": "Nat.not_dvd_of_pos_of_lt m.zero_lt_succ hm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Concrete",
+    "name": "toList_formPerm_nil",
+    "statement": "\u03b1) : toList (formPerm ([] : List \u03b1)) x = []",
+    "have_tree": [
+      {
+        "name": "hc",
+        "type": "l.formPerm.IsCycle",
+        "body": "List.isCycle_formPerm hn hl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Concrete",
+    "name": "toList_formPerm_isRotated_self",
+    "statement": "List \u03b1) (hl : 2 \u2264 l.length) (hn : Nodup l) (x : \u03b1) (hx : x \u2208 l) : toList (formPerm l) x ~r l",
+    "have_tree": [
+      {
+        "name": "hr",
+        "type": "l ~r l.rotate k",
+        "body": "\u27e8k, rfl\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Concrete",
+    "name": "toCycle",
+    "statement": "Perm \u03b1) (hf : IsCycle f) : Cycle \u03b1",
+    "have_tree": [
+      {
+        "name": "hc",
+        "type": "SameCycle f x y",
+        "body": "IsCycle.sameCycle hf hx hy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Concrete",
+    "name": "isoCycle",
+    "statement": "{ f : Perm \u03b1 // IsCycle f } \u2243 { s : Cycle \u03b1 // s.Nodup \u2227 s.Nontrivial } where toFun f",
+    "have_tree": [
+      {
+        "name": "hl",
+        "type": "2 \u2264 s.length",
+        "body": "by simpa using Cycle.length_nontrivial ht",
+        "children": []
+      }
+    ]
+  }
+]

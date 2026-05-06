@@ -1,0 +1,152 @@
+[
+  {
+    "module": "NormalizedTrace",
+    "name": "normalizedTraceAux_eq_of_finiteDimensional",
+    "statement": "K) : normalizedTraceAux F K a = (Module.finrank F K : F)\u207b\u00b9 \u2022 trace F K a",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "(Nat.cast_ne_zero (R := F)).mpr <|",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalizedTrace",
+    "name": "normalizedTrace",
+    "statement": "K \u2192\u2097[F] F where toFun",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional F F\u27eea\u27ef",
+        "body": "adjoin.finiteDimensional (IsIntegral.isIntegral a)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "FiniteDimensional F F\u27eeb\u27ef",
+        "body": "adjoin.finiteDimensional (IsIntegral.isIntegral b)",
+        "children": []
+      },
+      {
+        "name": "ha",
+        "type": "a \u2208 E",
+        "body": "(le_sup_left : F\u27eea\u27ef \u2264 E) <| mem_adjoin_simple_self F a",
+        "children": []
+      },
+      {
+        "name": "hb",
+        "type": "b \u2208 E",
+        "body": "(le_sup_right : F\u27eeb\u27ef \u2264 E) <| mem_adjoin_simple_self F b",
+        "children": []
+      },
+      {
+        "name": "hab",
+        "type": "a + b \u2208 E",
+        "body": "IntermediateField.add_mem E ha hb",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "FiniteDimensional F F\u27eea\u27ef",
+        "body": "adjoin.finiteDimensional (IsIntegral.isIntegral a)",
+        "children": []
+      },
+      {
+        "name": "ha",
+        "type": "a \u2208 E",
+        "body": "mem_adjoin_simple_self F a",
+        "children": []
+      },
+      {
+        "name": "hma",
+        "type": "m \u2022 a \u2208 E",
+        "body": "smul_mem E ha",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalizedTrace",
+    "name": "normalizedTrace_minpoly",
+    "statement": "K) : normalizedTrace F K a = ((minpoly F a).natDegree : F)\u207b\u00b9 \u2022 -(minpoly F a).nextCoeff",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "IsIntegral F a",
+        "body": "IsIntegral.isIntegral a",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalizedTrace",
+    "name": "normalizedTrace_algebraMap_of_lifts",
+    "statement": "K) (h : minpoly E a \u2208 Polynomial.lifts (algebraMap F E)) : algebraMap F E (normalizedTrace F K a) = normalizedTrace E K a",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "IsIntegral F a",
+        "body": "IsIntegral.isIntegral a",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalizedTrace",
+    "name": "normalizedTrace_trans_apply_aux",
+    "statement": "K) : normalizedTrace F E (normalizedTrace E K a) = normalizedTrace F K a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional E E\u27eea\u27ef",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "FiniteDimensional F E'",
+        "body": "Module.Finite.trans E E\u27eea\u27ef",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NormalizedTrace",
+    "name": "normalizedTrace_trans_apply",
+    "statement": "K) : normalizedTrace F E (normalizedTrace E K a) = normalizedTrace F K a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional F E\u2080",
+        "body": "IntermediateField.finiteDimensional_adjoin",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.IsIntegral E\u2080 E",
+        "body": "IsIntegral.tower_top F",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.IsIntegral E\u2080 K",
+        "body": "IsIntegral.trans E",
+        "children": []
+      },
+      {
+        "name": "hsub",
+        "type": "S \u2286 (algebraMap E\u2080 E).range",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hlifts",
+        "type": "",
+        "body": "(Polynomial.lifts_iff_coeffs_subset_range _).mpr hsub",
+        "children": []
+      }
+    ]
+  }
+]

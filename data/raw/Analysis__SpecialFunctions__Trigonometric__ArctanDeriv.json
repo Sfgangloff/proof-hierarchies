@@ -1,0 +1,41 @@
+[
+  {
+    "module": "ArctanDeriv",
+    "name": "deriv_tan",
+    "statement": "\u211d) : deriv tan x = 1 / cos x ^ 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u00acDifferentiableAt \u211d tan x",
+        "body": "mt differentiableAt_tan.1 (Classical.not_not.2 h)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ArctanDeriv",
+    "name": "hasStrictDerivAt_arctan",
+    "statement": "\u211d) : HasStrictDerivAt arctan (1 / (1 + x ^ 2)) x",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "cos (arctan x) \u2260 0",
+        "body": "(cos_arctan_pos x).ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ArctanDeriv",
+    "name": "contDiff_arctan",
+    "statement": "WithTop \u2115\u221e} : ContDiff \u211d n arctan",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "cos (arctan x) \u2260 0",
+        "body": "(cos_arctan_pos x).ne'",
+        "children": []
+      }
+    ]
+  }
+]

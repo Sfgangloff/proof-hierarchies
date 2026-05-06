@@ -1,0 +1,152 @@
+[
+  {
+    "original": {
+      "module": "Tangent",
+      "name": "IsTangentAt.eq_of_isTangentAt",
+      "statement": "Sphere P} {p q : P} {as : AffineSubspace \u211d P} (hp : s.IsTangentAt p as) (hq : s.IsTangentAt q as) : p = q",
+      "have_tree": [
+        {
+          "name": "hqp",
+          "type": "",
+          "body": "hp.inner_left_eq_zero_of_mem hq.mem_space",
+          "children": []
+        },
+        {
+          "name": "hpq",
+          "type": "",
+          "body": "hq.inner_left_eq_zero_of_mem hp.mem_space",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Tangent",
+          "name": "IsTangentAt.eq_of_isTangentAt",
+          "statement": "Sphere P} {p q : P} {as : AffineSubspace \u211d P} (hp : s.IsTangentAt p as) (hq : s.IsTangentAt q as) : p = q",
+          "have_tree": [
+            {
+              "name": "hpq",
+              "type": "",
+              "body": "hq.inner_left_eq_zero_of_mem hp.mem_space",
+              "children": []
+            },
+            {
+              "name": "hqp",
+              "type": "",
+              "body": "hp.inner_left_eq_zero_of_mem hq.mem_space",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Tangent",
+      "name": "IsTangentAt.dist_eq_of_mem_of_mem",
+      "statement": "Sphere P} {p\u2081 p\u2082 q : P} {as\u2081 as\u2082 : AffineSubspace \u211d P} (h\u2081 : s.IsTangentAt p\u2081 as\u2081) (h\u2082 : s.IsTangentAt p\u2082 as\u2082) (hq_mem\u2081 : q \u2208 as\u2081) (hq_mem\u2082 : q \u2208 as\u2082) : dist q p\u2081 = dist q p\u2082",
+      "have_tree": [
+        {
+          "name": "h1",
+          "type": "",
+          "body": "dist_sq_eq_of_mem h\u2081 hq_mem\u2081",
+          "children": []
+        },
+        {
+          "name": "h2",
+          "type": "",
+          "body": "dist_sq_eq_of_mem h\u2082 hq_mem\u2082",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Tangent",
+          "name": "IsTangentAt.dist_eq_of_mem_of_mem",
+          "statement": "Sphere P} {p\u2081 p\u2082 q : P} {as\u2081 as\u2082 : AffineSubspace \u211d P} (h\u2081 : s.IsTangentAt p\u2081 as\u2081) (h\u2082 : s.IsTangentAt p\u2082 as\u2082) (hq_mem\u2081 : q \u2208 as\u2081) (hq_mem\u2082 : q \u2208 as\u2082) : dist q p\u2081 = dist q p\u2082",
+          "have_tree": [
+            {
+              "name": "h2",
+              "type": "",
+              "body": "dist_sq_eq_of_mem h\u2082 hq_mem\u2082",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "",
+              "body": "dist_sq_eq_of_mem h\u2081 hq_mem\u2081",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Tangent",
+      "name": "IsTangentAt.eq_orthRadius_of_finrank_add_one_eq",
+      "statement": "Sphere P} {as : AffineSubspace \u211d P} {p : P} (ht : s.IsTangentAt p as) (hr : s.radius \u2260 0) (hfr : Module.finrank \u211d as.direction + 1 = Module.finrank \u211d V) : as = s.orthRadius p",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "FiniteDimensional \u211d V",
+          "body": "Module.finite_of_finrank_eq_succ hfr.symm",
+          "children": []
+        },
+        {
+          "name": "hp",
+          "type": "p \u2260 s.center",
+          "body": "fun h \u21a6 (h \u25b8 s.center_mem_iff).not.2 hr ht.mem_sphere",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Tangent",
+          "name": "IsTangentAt.eq_orthRadius_of_finrank_add_one_eq",
+          "statement": "Sphere P} {as : AffineSubspace \u211d P} {p : P} (ht : s.IsTangentAt p as) (hr : s.radius \u2260 0) (hfr : Module.finrank \u211d as.direction + 1 = Module.finrank \u211d V) : as = s.orthRadius p",
+          "have_tree": [
+            {
+              "name": "hp",
+              "type": "p \u2260 s.center",
+              "body": "fun h \u21a6 (h \u25b8 s.center_mem_iff).not.2 hr ht.mem_sphere",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "FiniteDimensional \u211d V",
+              "body": "Module.finite_of_finrank_eq_succ hfr.symm",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

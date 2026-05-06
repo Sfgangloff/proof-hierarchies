@@ -1,0 +1,86 @@
+[
+  {
+    "module": "Basic",
+    "name": "eq_orthogonalProjectionFn_of_mem_of_inner_eq_zero",
+    "statement": "E} (hvm : v \u2208 K) (hvo : \u2200 w \u2208 K, \u27eau - v, w\u27eb = 0) : K.orthogonalProjectionFn u = v",
+    "have_tree": [
+      {
+        "name": "hvs",
+        "type": "K.orthogonalProjectionFn u - v \u2208 K",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "orthogonalProjection",
+    "statement": "E \u2192L[\ud835\udd5c] K",
+    "have_tree": [
+      {
+        "name": "hm",
+        "type": "K.orthogonalProjectionFn x + K.orthogonalProjectionFn y \u2208 K",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hm",
+        "type": "c \u2022 K.orthogonalProjectionFn x \u2208 K",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.LinearIsometry.map_starProjection'",
+    "statement": "Type*} [NormedAddCommGroup E] [NormedAddCommGroup E'] [InnerProductSpace \ud835\udd5c E] [InnerProductSpace \ud835\udd5c E'] (f : E \u2192\u2097\u1d62[\ud835\udd5c] E') (p : Submodule \ud835\udd5c E) [p.HasOrthogonalProjection] [(p.map (f : E \u2192\u2097[\ud835\udd5c] E')).HasOrthogonalProjection] (x : E) : f (p.starProjection x) = (p.map (f : E \u2192\u2097[\ud835\udd5c] E')).starProjection (f x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(p.map f.toLinearMap).HasOrthogonalProjection",
+        "body": "\u2039_\u203a",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "starProjection_singleton",
+    "statement": "E} (w : E) : (\ud835\udd5c \u2219 v).starProjection w = (\u27eav, w\u27eb / ((\u2016v\u2016 ^ 2 : \u211d) : \ud835\udd5c)) \u2022 v",
+    "have_tree": [
+      {
+        "name": "hv'",
+        "type": "\u2016v\u2016 \u2260 0",
+        "body": "ne_of_gt (norm_pos_iff.mpr hv)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "starProjection_comp_starProjection_of_le",
+    "statement": "Submodule \ud835\udd5c E} [U.HasOrthogonalProjection] [V.HasOrthogonalProjection] (h : U \u2264 V) : U.starProjection \u2218L V.starProjection = U.starProjection",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hp.isClosed_range.completeSpace_coe",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.LinearMap.isSymmetricProjection_iff_eq_coe_starProjection_range",
+    "statement": "E \u2192\u2097[\ud835\udd5c] E} : p.IsSymmetricProjection \u2194 \u2203 (_ : (LinearMap.range p).HasOrthogonalProjection), p = (LinearMap.range p).starProjection",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(LinearMap.range p).HasOrthogonalProjection",
+        "body": "hp.hasOrthogonalProjection_range",
+        "children": []
+      }
+    ]
+  }
+]

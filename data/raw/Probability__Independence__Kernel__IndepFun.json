@@ -1,0 +1,129 @@
+[
+  {
+    "module": "IndepFun",
+    "name": "iIndepFun_iff_measure_inter_preimage_eq_mul",
+    "statement": "Type*} {\u03b2 : \u03b9 \u2192 Type*} (m : \u2200 x, MeasurableSpace (\u03b2 x)) (f : \u2200 i, \u03a9 \u2192 \u03b2 i) : iIndepFun f \u03ba \u03bc \u2194 \u2200 (S : Finset \u03b9) {sets : \u2200 i : \u03b9, Set (\u03b2 i)} (_H : \u2200 i, i \u2208 S \u2192 MeasurableSet[m i] (sets i)), \u2200\u1d50 a \u2202\u03bc, \u03ba a (\u22c2 i \u2208 S, (f i) \u207b\u00b9' (sets i)) = \u220f i \u2208 S, \u03ba a ((f i) \u207b\u00b9' (sets i))",
+    "have_tree": [
+      {
+        "name": "h_meas\u03b2",
+        "type": "\u2200 i \u2208 S, MeasurableSet[m i] (sets\u03b2 i)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IndepFun",
+    "name": "iIndepFun.comp",
+    "statement": "\u03b9 \u2192 Type*} {m\u03b2 : \u2200 i, MeasurableSpace (\u03b2 i)} {m\u03b3 : \u2200 i, MeasurableSpace (\u03b3 i)} {f : \u2200 i, \u03a9 \u2192 \u03b2 i} (h : iIndepFun f \u03ba \u03bc) (g : \u2200 i, \u03b2 i \u2192 \u03b3 i) (hg : \u2200 i, Measurable (g i)) : iIndepFun (fun i \u21a6 g i \u2218 f i) \u03ba \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h t (sets := fun i \u21a6 g i \u207b\u00b9' (s i)) (fun i a \u21a6 hg i (hs i a))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IndepFun",
+    "name": "iIndepFun.comp\u2080",
+    "statement": "\u03b9 \u2192 Type*} {m\u03b2 : \u2200 i, MeasurableSpace (\u03b2 i)} {m\u03b3 : \u2200 i, MeasurableSpace (\u03b3 i)} {f : \u2200 i, \u03a9 \u2192 \u03b2 i} (h : iIndepFun f \u03ba \u03bc) (g : \u2200 i, \u03b2 i \u2192 \u03b3 i) (hf : \u2200 i, AEMeasurable (f i) (\u03ba \u2218\u2098 \u03bc)) (hg : \u2200 i, AEMeasurable (g i) ((\u03ba \u2218\u2098 \u03bc).map (f i))) : iIndepFun (fun i \u21a6 g i \u2218 f i) \u03ba \u03bc",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "iIndepFun (fun i \u21a6 ((hg i).mk (g i)) \u2218 f i) \u03ba \u03bc",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IndepFun",
+    "name": "IndepFun.comp\u2080",
+    "statement": "MeasurableSpace \u03b2} {m\u03b2' : MeasurableSpace \u03b2'} {m\u03b3 : MeasurableSpace \u03b3} {m\u03b3' : MeasurableSpace \u03b3'} {\u03c6 : \u03b2 \u2192 \u03b3} {\u03c8 : \u03b2' \u2192 \u03b3'} (hfg : IndepFun f g \u03ba \u03bc) (hf : AEMeasurable f (\u03ba \u2218\u2098 \u03bc)) (hg : AEMeasurable g (\u03ba \u2218\u2098 \u03bc)) (h\u03c6 : AEMeasurable \u03c6 ((\u03ba \u2218\u2098 \u03bc).map f)) (h\u03c8 : AEMeasurable \u03c8 ((\u03ba \u2218\u2098 \u03bc).map g)) : IndepFun (\u03c6 \u2218 f) (\u03c8 \u2218 g) \u03ba \u03bc",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "IndepFun ((h\u03c6.mk \u03c6) \u2218 f) ((h\u03c8.mk \u03c8) \u2218 g) \u03ba \u03bc",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u03c6_ae",
+        "type": "",
+        "body": "ae_of_ae_map hf h\u03c6.ae_eq_mk",
+        "children": []
+      },
+      {
+        "name": "h\u03c8_ae",
+        "type": "",
+        "body": "ae_of_ae_map hg h\u03c8.ae_eq_mk",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IndepFun",
+    "name": "iIndepFun.indepFun_finset",
+    "statement": "Finset \u03b9) (hST : Disjoint S T) (hf_Indep : iIndepFun f \u03ba \u03bc) (hf_meas : \u2200 i, Measurable (f i)) : IndepFun (fun a (i : S) => f i a) (fun a (i : T) => f i a) \u03ba \u03bc",
+    "have_tree": [
+      {
+        "name": "h\u03c0S_pi",
+        "type": "IsPiSystem \u03c0S",
+        "body": "by exact IsPiSystem.comap (@isPiSystem_pi _ _ ?_) _",
+        "children": []
+      },
+      {
+        "name": "h\u03c0T_pi",
+        "type": "IsPiSystem \u03c0T",
+        "body": "by exact IsPiSystem.comap (@isPiSystem_pi _ _ ?_) _",
+        "children": []
+      },
+      {
+        "name": "h_meas_s'",
+        "type": "\u2200 i \u2208 S, MeasurableSet (sets_s' i)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_meas_t'",
+        "type": "\u2200 i \u2208 T, MeasurableSet (sets_t' i)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_meas_inter",
+        "type": "\u2200 i \u2208 S \u222a T, MeasurableSet (sets_s' i \u2229 sets_t' i)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IndepFun",
+    "name": "iIndepFun.indepFun_finsetProd_of_notMem\u2080",
+    "statement": "iIndepFun f \u03ba \u03bc) (hf_meas : \u2200 i, AEMeasurable (f i) (\u03ba \u2218\u2098 \u03bc)) {s : Finset \u03b9} {i : \u03b9} (hi : i \u2209 s) : IndepFun (\u220f j \u2208 s, f j) (f i) \u03ba \u03bc",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "IndepFun (\u220f j \u2208 s, (hf_meas j).mk (f j)) ((hf_meas i).mk (f i)) \u03ba \u03bc",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IndepFun",
+    "name": "iIndepSet.iIndepFun_indicator",
+    "statement": "MeasurableSpace \u03b2} {s : \u03b9 \u2192 Set \u03a9} (hs : iIndepSet s \u03ba \u03bc) : iIndepFun (fun n => (s n).indicator fun _\u03c9 => (1 : \u03b2)) \u03ba \u03bc",
+    "have_tree": [
+      {
+        "name": "hsi",
+        "type": "MeasurableSet[generateFrom {s i}] (s i)",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

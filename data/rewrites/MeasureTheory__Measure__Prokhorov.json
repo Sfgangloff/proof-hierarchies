@@ -1,0 +1,457 @@
+[
+  {
+    "original": {
+      "module": "Prokhorov",
+      "name": "isCompact_setOf_finiteMeasure_le_of_compactSpace",
+      "statement": "\u211d\u22650) : IsCompact {\u03bc : FiniteMeasure E | \u03bc.mass \u2264 C}",
+      "have_tree": [
+        {
+          "name": "\u03bclim_le",
+          "type": "\u03bclim univ \u2264 ENNReal.ofReal C",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "\u03bclim univ \u2264 ENNReal.ofReal (\u039b' o)",
+              "body": "RealRMK.rieszMeasure_le_of_eq_one \u039b'",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Prokhorov",
+          "name": "isCompact_setOf_finiteMeasure_le_of_compactSpace",
+          "statement": "\u211d\u22650) : IsCompact {\u03bc : FiniteMeasure E | \u03bc.mass \u2264 C}",
+          "have_tree": [
+            {
+              "name": "\u03bclim_le",
+              "type": "\u03bclim univ \u2264 ENNReal.ofReal C",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Prokhorov",
+          "name": "isCompact_setOf_finiteMeasure_le_of_compactSpace",
+          "statement": "\u211d\u22650) : IsCompact {\u03bc : FiniteMeasure E | \u03bc.mass \u2264 C}",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "\u03bclim univ \u2264 ENNReal.ofReal (\u039b' o)",
+              "body": "RealRMK.rieszMeasure_le_of_eq_one \u039b'",
+              "children": []
+            },
+            {
+              "name": "\u03bclim_le",
+              "type": "\u03bclim univ \u2264 ENNReal.ofReal C",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Prokhorov",
+      "name": "isCompact_setOf_finiteMeasure_le_of_isCompact",
+      "statement": "\u211d\u22650) {K : Set E} (hK : IsCompact K) : IsCompact {\u03bc : FiniteMeasure E | \u03bc.mass \u2264 C \u2227 \u03bc K\u1d9c = 0}",
+      "have_tree": [
+        {
+          "name": "hf",
+          "type": "IsClosedEmbedding f",
+          "body": "IsClosedEmbedding.subtypeVal hK.isClosed",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "CompactSpace K",
+          "body": "isCompact_iff_compactSpace.mp hK",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Prokhorov",
+          "name": "isCompact_setOf_finiteMeasure_le_of_isCompact",
+          "statement": "\u211d\u22650) {K : Set E} (hK : IsCompact K) : IsCompact {\u03bc : FiniteMeasure E | \u03bc.mass \u2264 C \u2227 \u03bc K\u1d9c = 0}",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "CompactSpace K",
+              "body": "isCompact_iff_compactSpace.mp hK",
+              "children": []
+            },
+            {
+              "name": "hf",
+              "type": "IsClosedEmbedding f",
+              "body": "IsClosedEmbedding.subtypeVal hK.isClosed",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Prokhorov",
+      "name": "isCompact_setOf_finiteMeasure_mass_le_compl_isCompact_le",
+      "statement": "\u2115 \u2192 \u211d\u22650} {K : \u2115 \u2192 Set E} (C : \u211d\u22650) (hu : Tendsto u atTop (\ud835\udcdd 0)) (hK : \u2200 n, IsCompact (K n)) (h : NormalSpace E \u2228 Monotone K) : IsCompact {\u03bc : FiniteMeasure E | \u03bc.mass \u2264 C \u2227 \u2200 n, \u03bc (K n)\u1d9c \u2264 u n}",
+      "have_tree": [
+        {
+          "name": "L",
+          "type": "Tendsto id f (\ud835\udcdd \u03bc)",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "Tendsto (fun n \u21a6 \u222b x, g x \u2202(\u2211 i \u2208 Finset.range n, \u03bd i)) atTop (\ud835\udcdd (\u222b x, g x \u2202\u03bc))",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "I2",
+              "type": "\u2200\u1da0 n in atTop, \u2016g\u2016 * u n < \u03b5 / 3",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "(NNReal.tendsto_coe.2 hu).const_mul (\u2016g\u2016)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Prokhorov",
+          "name": "isCompact_setOf_finiteMeasure_mass_le_compl_isCompact_le",
+          "statement": "\u2115 \u2192 \u211d\u22650} {K : \u2115 \u2192 Set E} (C : \u211d\u22650) (hu : Tendsto u atTop (\ud835\udcdd 0)) (hK : \u2200 n, IsCompact (K n)) (h : NormalSpace E \u2228 Monotone K) : IsCompact {\u03bc : FiniteMeasure E | \u03bc.mass \u2264 C \u2227 \u2200 n, \u03bc (K n)\u1d9c \u2264 u n}",
+          "have_tree": [
+            {
+              "name": "L",
+              "type": "Tendsto id f (\ud835\udcdd \u03bc)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "I2",
+                  "type": "\u2200\u1da0 n in atTop, \u2016g\u2016 * u n < \u03b5 / 3",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "(NNReal.tendsto_coe.2 hu).const_mul (\u2016g\u2016)",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          1,
+          0
+        ],
+        "result": {
+          "module": "Prokhorov",
+          "name": "isCompact_setOf_finiteMeasure_mass_le_compl_isCompact_le",
+          "statement": "\u2115 \u2192 \u211d\u22650} {K : \u2115 \u2192 Set E} (C : \u211d\u22650) (hu : Tendsto u atTop (\ud835\udcdd 0)) (hK : \u2200 n, IsCompact (K n)) (h : NormalSpace E \u2228 Monotone K) : IsCompact {\u03bc : FiniteMeasure E | \u03bc.mass \u2264 C \u2227 \u2200 n, \u03bc (K n)\u1d9c \u2264 u n}",
+          "have_tree": [
+            {
+              "name": "L",
+              "type": "Tendsto id f (\ud835\udcdd \u03bc)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Tendsto (fun n \u21a6 \u222b x, g x \u2202(\u2211 i \u2208 Finset.range n, \u03bd i)) atTop (\ud835\udcdd (\u222b x, g x \u2202\u03bc))",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "I2",
+                  "type": "\u2200\u1da0 n in atTop, \u2016g\u2016 * u n < \u03b5 / 3",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          1
+        ],
+        "result": {
+          "module": "Prokhorov",
+          "name": "isCompact_setOf_finiteMeasure_mass_le_compl_isCompact_le",
+          "statement": "\u2115 \u2192 \u211d\u22650} {K : \u2115 \u2192 Set E} (C : \u211d\u22650) (hu : Tendsto u atTop (\ud835\udcdd 0)) (hK : \u2200 n, IsCompact (K n)) (h : NormalSpace E \u2228 Monotone K) : IsCompact {\u03bc : FiniteMeasure E | \u03bc.mass \u2264 C \u2227 \u2200 n, \u03bc (K n)\u1d9c \u2264 u n}",
+          "have_tree": [
+            {
+              "name": "L",
+              "type": "Tendsto id f (\ud835\udcdd \u03bc)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Tendsto (fun n \u21a6 \u222b x, g x \u2202(\u2211 i \u2208 Finset.range n, \u03bd i)) atTop (\ud835\udcdd (\u222b x, g x \u2202\u03bc))",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "(NNReal.tendsto_coe.2 hu).const_mul (\u2016g\u2016)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          1,
+          0
+        ],
+        "result": {
+          "module": "Prokhorov",
+          "name": "isCompact_setOf_finiteMeasure_mass_le_compl_isCompact_le",
+          "statement": "\u2115 \u2192 \u211d\u22650} {K : \u2115 \u2192 Set E} (C : \u211d\u22650) (hu : Tendsto u atTop (\ud835\udcdd 0)) (hK : \u2200 n, IsCompact (K n)) (h : NormalSpace E \u2228 Monotone K) : IsCompact {\u03bc : FiniteMeasure E | \u03bc.mass \u2264 C \u2227 \u2200 n, \u03bc (K n)\u1d9c \u2264 u n}",
+          "have_tree": [
+            {
+              "name": "L",
+              "type": "Tendsto id f (\ud835\udcdd \u03bc)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Tendsto (fun n \u21a6 \u222b x, g x \u2202(\u2211 i \u2208 Finset.range n, \u03bd i)) atTop (\ud835\udcdd (\u222b x, g x \u2202\u03bc))",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "I2",
+                  "type": "\u2200\u1da0 n in atTop, \u2016g\u2016 * u n < \u03b5 / 3",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Prokhorov",
+          "name": "isCompact_setOf_finiteMeasure_mass_le_compl_isCompact_le",
+          "statement": "\u2115 \u2192 \u211d\u22650} {K : \u2115 \u2192 Set E} (C : \u211d\u22650) (hu : Tendsto u atTop (\ud835\udcdd 0)) (hK : \u2200 n, IsCompact (K n)) (h : NormalSpace E \u2228 Monotone K) : IsCompact {\u03bc : FiniteMeasure E | \u03bc.mass \u2264 C \u2227 \u2200 n, \u03bc (K n)\u1d9c \u2264 u n}",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Tendsto (fun n \u21a6 \u222b x, g x \u2202(\u2211 i \u2208 Finset.range n, \u03bd i)) atTop (\ud835\udcdd (\u222b x, g x \u2202\u03bc))",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "L",
+              "type": "Tendsto id f (\ud835\udcdd \u03bc)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "I2",
+                  "type": "\u2200\u1da0 n in atTop, \u2016g\u2016 * u n < \u03b5 / 3",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "(NNReal.tendsto_coe.2 hu).const_mul (\u2016g\u2016)",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Prokhorov",
+          "name": "isCompact_setOf_finiteMeasure_mass_le_compl_isCompact_le",
+          "statement": "\u2115 \u2192 \u211d\u22650} {K : \u2115 \u2192 Set E} (C : \u211d\u22650) (hu : Tendsto u atTop (\ud835\udcdd 0)) (hK : \u2200 n, IsCompact (K n)) (h : NormalSpace E \u2228 Monotone K) : IsCompact {\u03bc : FiniteMeasure E | \u03bc.mass \u2264 C \u2227 \u2200 n, \u03bc (K n)\u1d9c \u2264 u n}",
+          "have_tree": [
+            {
+              "name": "I2",
+              "type": "\u2200\u1da0 n in atTop, \u2016g\u2016 * u n < \u03b5 / 3",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "(NNReal.tendsto_coe.2 hu).const_mul (\u2016g\u2016)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "L",
+              "type": "Tendsto id f (\ud835\udcdd \u03bc)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Tendsto (fun n \u21a6 \u222b x, g x \u2202(\u2211 i \u2208 Finset.range n, \u03bd i)) atTop (\ud835\udcdd (\u222b x, g x \u2202\u03bc))",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0,
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Prokhorov",
+          "name": "isCompact_setOf_finiteMeasure_mass_le_compl_isCompact_le",
+          "statement": "\u2115 \u2192 \u211d\u22650} {K : \u2115 \u2192 Set E} (C : \u211d\u22650) (hu : Tendsto u atTop (\ud835\udcdd 0)) (hK : \u2200 n, IsCompact (K n)) (h : NormalSpace E \u2228 Monotone K) : IsCompact {\u03bc : FiniteMeasure E | \u03bc.mass \u2264 C \u2227 \u2200 n, \u03bc (K n)\u1d9c \u2264 u n}",
+          "have_tree": [
+            {
+              "name": "L",
+              "type": "Tendsto id f (\ud835\udcdd \u03bc)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "Tendsto (fun n \u21a6 \u222b x, g x \u2202(\u2211 i \u2208 Finset.range n, \u03bd i)) atTop (\ud835\udcdd (\u222b x, g x \u2202\u03bc))",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "(NNReal.tendsto_coe.2 hu).const_mul (\u2016g\u2016)",
+                  "children": []
+                },
+                {
+                  "name": "I2",
+                  "type": "\u2200\u1da0 n in atTop, \u2016g\u2016 * u n < \u03b5 / 3",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Prokhorov",
+          "name": "isCompact_setOf_finiteMeasure_mass_le_compl_isCompact_le",
+          "statement": "\u2115 \u2192 \u211d\u22650} {K : \u2115 \u2192 Set E} (C : \u211d\u22650) (hu : Tendsto u atTop (\ud835\udcdd 0)) (hK : \u2200 n, IsCompact (K n)) (h : NormalSpace E \u2228 Monotone K) : IsCompact {\u03bc : FiniteMeasure E | \u03bc.mass \u2264 C \u2227 \u2200 n, \u03bc (K n)\u1d9c \u2264 u n}",
+          "have_tree": [
+            {
+              "name": "L",
+              "type": "Tendsto id f (\ud835\udcdd \u03bc)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "I2",
+                  "type": "\u2200\u1da0 n in atTop, \u2016g\u2016 * u n < \u03b5 / 3",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "(NNReal.tendsto_coe.2 hu).const_mul (\u2016g\u2016)",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "_",
+                  "type": "Tendsto (fun n \u21a6 \u222b x, g x \u2202(\u2211 i \u2208 Finset.range n, \u03bd i)) atTop (\ud835\udcdd (\u222b x, g x \u2202\u03bc))",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

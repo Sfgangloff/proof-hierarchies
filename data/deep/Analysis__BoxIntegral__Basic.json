@@ -1,0 +1,144 @@
+[
+  {
+    "module": "Basic",
+    "name": "dist_integralSum_sum_integral_le_of_memBaseSet_of_iUnion_eq",
+    "statement": "Integrable I l f vol) (h0 : 0 < \u03b5) (h\u03c0 : l.MemBaseSet I c (h.convergenceR \u03b5 c) \u03c0) {\u03c0\u2080 : Prepartition I} (hU : \u03c0.iUnion = \u03c0\u2080.iUnion) : dist (integralSum f vol \u03c0) (\u2211 J \u2208 \u03c0\u2080.boxes, integral J l f vol) \u2264 \u03b5",
+    "have_tree": [
+      {
+        "name": "H0",
+        "type": "0 < (#\u03c0\u2080.boxes + 1 : \u211d)",
+        "body": "Nat.cast_add_one_pos _",
+        "children": []
+      },
+      {
+        "name": "\u03b4'0",
+        "type": "0 < \u03b4'",
+        "body": "div_pos \u03b40 H0",
+        "children": [
+          {
+            "name": "Hle",
+            "type": "J \u2264 I",
+            "body": "\u03c0\u2080.le_of_mem hJ",
+            "children": []
+          },
+          {
+            "name": "HJi",
+            "type": "Integrable J l f vol",
+            "body": "h.to_subbox Hle",
+            "children": []
+          },
+          {
+            "name": "hJd",
+            "type": "J.distortion \u2264 C",
+            "body": "le_trans (Finset.le_sup hJ) (le_max_left _ _)",
+            "children": []
+          },
+          {
+            "name": "hC\u2081",
+            "type": "l.MemBaseSet J C (HJi.convergenceR \u03b4' C) \u03c0J",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hC\u2082",
+            "type": "l.MemBaseSet J C (h.convergenceR \u03b4' C) \u03c0J",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "l.MemBaseSet I C (h.convergenceR \u03b4' C) (\u03c0\u2080.biUnionTagged \u03c0i)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hU'",
+        "type": "\u03c0.iUnion = (\u03c0\u2080.biUnionTagged \u03c0i).iUnion",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.dist_integralSum_le_of_memBaseSet h0 \u03b4'0 h\u03c0 this hU'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "integrable_of_bounded_and_ae_continuousWithinAt",
+    "statement": "Box \u03b9} {f : \u211d\u207f \u2192 E} (hb : \u2203 C : \u211d, \u2200 x \u2208 Box.Icc I, \u2016f x\u2016 \u2264 C) (\u03bc : Measure \u211d\u207f) [IsLocallyFiniteMeasure \u03bc] (hc : \u2200\u1d50 x \u2202(\u03bc.restrict (Box.Icc I)), ContinuousWithinAt f (Box.Icc I) x) : Integrable I l f \u03bc.toBoxAdditive.toSMul",
+    "have_tree": [
+      {
+        "name": "C0",
+        "type": "0 \u2264 C",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "\u03b5\u20820'",
+        "type": "ENNReal.ofReal \u03b5\u2082 \u2260 0",
+        "body": "ne_of_gt <| ofReal_pos.2 \u03b5\u20820",
+        "children": []
+      },
+      {
+        "name": "\u03bc'D",
+        "type": "\u03bc' D = 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "comp",
+        "type": "IsCompact (Box.Icc I \\ U)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 x \u2208 (Box.Icc I \\ U), oscillationWithin f (Box.Icc I) x < (ENNReal.ofReal \u03b5\u2081)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "\u03bcI",
+        "type": "\u03bc I < \u22a4",
+        "body": "lt_of_le_of_lt (\u03bc.mono I.coe_subset_Icc) I.isCompact_Icc.measure_lt_top",
+        "children": []
+      },
+      {
+        "name": "hB'",
+        "type": "B' \u2286 B",
+        "body": "B.filter_subset (fun J \u21a6 J.toSet \u2286 U)",
+        "children": []
+      },
+      {
+        "name": "\u03bcJ_ne_top",
+        "type": "\u2200 J \u2208 B, \u03bc J \u2260 \u22a4",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "un",
+        "type": "\u2200 S \u2286 B, \u22c3 J \u2208 S, J.toSet \u2286 I.toSet",
+        "body": "",
+        "children": [
+          {
+            "name": "hx",
+            "type": "x \u2208 Box.Icc I \\ U",
+            "body": "\u27e8Box.coe_subset_Icc ((le_of_mem' _ J hJ.1) xJ), xnU\u27e9",
+            "children": []
+          },
+          {
+            "name": "ineq",
+            "type": "edist (f (t\u2081 J)) (f (t\u2082 J)) \u2264 ediam (f '' (ball x r \u2229 (Box.Icc I)))",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

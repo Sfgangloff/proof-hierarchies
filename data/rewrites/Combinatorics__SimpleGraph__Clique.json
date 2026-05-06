@@ -1,0 +1,210 @@
+[
+  {
+    "original": {
+      "module": "Clique",
+      "name": "exists_of_maximal_cliqueFree_not_adj",
+      "statement": "Maximal (fun H \u21a6 H.CliqueFree (n + 1)) G) {x y : \u03b1} (hne : x \u2260 y) (hn : \u00ac G.Adj x y) : \u2203 s, x \u2209 s \u2227 y \u2209 s \u2227 G.IsNClique n (insert x s) \u2227 G.IsNClique n (insert y s)",
+      "have_tree": [
+        {
+          "name": "h1",
+          "type": "",
+          "body": "h.1.mem_of_sup_edge_isNClique hc",
+          "children": []
+        },
+        {
+          "name": "h2",
+          "type": "",
+          "body": "h.1.mem_of_sup_edge_isNClique (edge_comm .. \u25b8 hc)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Clique",
+          "name": "exists_of_maximal_cliqueFree_not_adj",
+          "statement": "Maximal (fun H \u21a6 H.CliqueFree (n + 1)) G) {x y : \u03b1} (hne : x \u2260 y) (hn : \u00ac G.Adj x y) : \u2203 s, x \u2209 s \u2227 y \u2209 s \u2227 G.IsNClique n (insert x s) \u2227 G.IsNClique n (insert y s)",
+          "have_tree": [
+            {
+              "name": "h2",
+              "type": "",
+              "body": "h.1.mem_of_sup_edge_isNClique (edge_comm .. \u25b8 hc)",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "",
+              "body": "h.1.mem_of_sup_edge_isNClique hc",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Clique",
+      "name": "IsMaximumClique.isMaximalClique",
+      "statement": "Finset \u03b1) (M : G.IsMaximumClique s) : Maximal G.IsClique s",
+      "have_tree": [
+        {
+          "name": "fint",
+          "type": "",
+          "body": "ofFinite t",
+          "children": []
+        },
+        {
+          "name": "ne",
+          "type": "s \u2260 t.toFinset",
+          "body": "fun a \u21a6 by subst a; simp_all[Set.coe_toFinset, not_true_eq_false]",
+          "children": []
+        },
+        {
+          "name": "hle",
+          "type": "#t.toFinset \u2264 #s",
+          "body": "M.maximum t.toFinset (by simp [Set.coe_toFinset, ht])",
+          "children": []
+        },
+        {
+          "name": "hlt",
+          "type": "#s < #t.toFinset",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Clique",
+          "name": "IsMaximumClique.isMaximalClique",
+          "statement": "Finset \u03b1) (M : G.IsMaximumClique s) : Maximal G.IsClique s",
+          "have_tree": [
+            {
+              "name": "ne",
+              "type": "s \u2260 t.toFinset",
+              "body": "fun a \u21a6 by subst a; simp_all[Set.coe_toFinset, not_true_eq_false]",
+              "children": []
+            },
+            {
+              "name": "fint",
+              "type": "",
+              "body": "ofFinite t",
+              "children": []
+            },
+            {
+              "name": "hle",
+              "type": "#t.toFinset \u2264 #s",
+              "body": "M.maximum t.toFinset (by simp [Set.coe_toFinset, ht])",
+              "children": []
+            },
+            {
+              "name": "hlt",
+              "type": "#s < #t.toFinset",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Clique",
+          "name": "IsMaximumClique.isMaximalClique",
+          "statement": "Finset \u03b1) (M : G.IsMaximumClique s) : Maximal G.IsClique s",
+          "have_tree": [
+            {
+              "name": "fint",
+              "type": "",
+              "body": "ofFinite t",
+              "children": []
+            },
+            {
+              "name": "hle",
+              "type": "#t.toFinset \u2264 #s",
+              "body": "M.maximum t.toFinset (by simp [Set.coe_toFinset, ht])",
+              "children": []
+            },
+            {
+              "name": "ne",
+              "type": "s \u2260 t.toFinset",
+              "body": "fun a \u21a6 by subst a; simp_all[Set.coe_toFinset, not_true_eq_false]",
+              "children": []
+            },
+            {
+              "name": "hlt",
+              "type": "#s < #t.toFinset",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Clique",
+          "name": "IsMaximumClique.isMaximalClique",
+          "statement": "Finset \u03b1) (M : G.IsMaximumClique s) : Maximal G.IsClique s",
+          "have_tree": [
+            {
+              "name": "fint",
+              "type": "",
+              "body": "ofFinite t",
+              "children": []
+            },
+            {
+              "name": "ne",
+              "type": "s \u2260 t.toFinset",
+              "body": "fun a \u21a6 by subst a; simp_all[Set.coe_toFinset, not_true_eq_false]",
+              "children": []
+            },
+            {
+              "name": "hlt",
+              "type": "#s < #t.toFinset",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hle",
+              "type": "#t.toFinset \u2264 #s",
+              "body": "M.maximum t.toFinset (by simp [Set.coe_toFinset, ht])",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

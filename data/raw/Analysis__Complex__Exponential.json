@@ -1,0 +1,72 @@
+[
+  {
+    "module": "Exponential",
+    "name": "exp_add",
+    "statement": "exp (x + y) = exp x * exp y",
+    "have_tree": [
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "Nat.choose_mul_factorial_mul_factorial (Nat.le_of_lt_succ <| Finset.mem_range.1 hi)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exponential",
+    "name": "exp_bound'",
+    "statement": "\u211d} (h1 : 0 \u2264 x) (h2 : x \u2264 1) {n : \u2115} (hn : 0 < n) : Real.exp x \u2264 (\u2211 m \u2208 Finset.range n, x ^ m / m.factorial) + x ^ n * (n + 1) / (n.factorial * n)",
+    "have_tree": [
+      {
+        "name": "h4",
+        "type": "|x| \u2264 1",
+        "body": "by rwa [h3]",
+        "children": []
+      },
+      {
+        "name": "h'",
+        "type": "",
+        "body": "Real.exp_bound h4 hn",
+        "children": []
+      },
+      {
+        "name": "h''",
+        "type": "",
+        "body": "(abs_sub_le_iff.1 h').1",
+        "children": []
+      },
+      {
+        "name": "t",
+        "type": "",
+        "body": "sub_le_iff_le_add'.1 h''",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exponential",
+    "name": "exp_approx_start",
+    "statement": "\u211d) (h : |exp x - expNear 0 x a| \u2264 |x| ^ 0 / Nat.factorial 0 * b) : |exp x - a| \u2264 b",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "0 < 1 - (1 + x + x ^ 2) * (1 - x)",
+        "body": "calc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Exponential",
+    "name": "add_one_lt_exp",
+    "statement": "\u211d} (hx : x \u2260 0) : x + 1 < Real.exp x",
+    "have_tree": [
+      {
+        "name": "hx'",
+        "type": "0 < x + 1",
+        "body": "by linarith",
+        "children": []
+      }
+    ]
+  }
+]

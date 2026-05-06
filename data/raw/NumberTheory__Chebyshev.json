@@ -1,0 +1,148 @@
+[
+  {
+    "module": "Chebyshev",
+    "name": "psi_eq_zero_of_lt_two",
+    "statement": "\u211d} (hx : x < 2) : \u03c8 x = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "lt_of_le_of_lt (le_floor_iff' hn.1.ne.symm |>.mp hn.2) hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Chebyshev",
+    "name": "theta_eq_zero_of_lt_two",
+    "statement": "\u211d} (hx : x < 2) : \u03b8 x = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "lt_of_le_of_lt (le_floor_iff' hn.1.1.ne.symm |>.mp hn.1.2) hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Chebyshev",
+    "name": "sum_PrimePow_eq_sum_sum",
+    "statement": "Type*} [AddCommMonoid R] (f : \u2115 \u2192 R) {x : \u211d} (hx : 0 \u2264 x) : \u2211 n \u2208 Ioc 0 \u230ax\u230b\u208a with IsPrimePow n, f n = \u2211 k \u2208 Icc 1 \u230alog x / log 2\u230b\u208a, \u2211 p \u2208 Ioc 0 \u230ax ^ ((1 : \u211d) / k)\u230b\u208a with p.Prime, f (p ^ k)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "one_le_floor_iff _ |>.mp <| le_trans (one_le_cast.mp h.2.one_le) h.1.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Chebyshev",
+    "name": "integrableOn_theta_div_id_mul_log_sq",
+    "statement": "\u211d) : IntegrableOn (fun t \u21a6 \u03b8 t / (t * log t ^ 2)) (Set.Icc 2 x) volume",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x \u2260 0",
+        "body": "by linarith [hx.1]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "x * log x ^ 2 \u2260 0",
+        "body": "mul_ne_zero this <| by simp; grind",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Chebyshev",
+    "name": "primeCounting_eq_theta_div_log_add_integral",
+    "statement": "\u211d} (hx : 2 \u2264 x) : \u03c0 \u230ax\u230b\u208a = \u03b8 x / log x + \u222b t in 2..x, \u03b8 t / (t * log t ^ 2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "z \u2260 0",
+        "body": "by linarith",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "log z \u2260 0",
+        "body": "by apply log_ne_zero_of_pos_of_ne_one <;> linarith",
+        "children": []
+      },
+      {
+        "name": "hz\u2080",
+        "type": "z \u2260 0",
+        "body": "by linarith",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "log z ^ 2 \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Chebyshev",
+    "name": "intervalIntegrable_one_div_log_sq",
+    "statement": "\u211d} (one_lt_a : 1 < a) (one_lt_b : 1 < b) : IntervalIntegrable (fun x \u21a6 1 / log x ^ 2) MeasureTheory.volume a b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x \u2260 0",
+        "body": "by grind",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "log x ^ 2 \u2260 0",
+        "body": "pow_ne_zero _ (log_ne_zero.mpr (by grind))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Chebyshev",
+    "name": "integral_one_div_log_sq_le_explicit",
+    "statement": "\u211d} (hx : 4 \u2264 x) : \u222b t in 2..x, 1 / log t ^ 2 \u2264 4 * x / (log x) ^ 2 + x.sqrt / log 2 ^ 2",
+    "have_tree": [
+      {
+        "name": "two_le_sqrt",
+        "type": "2 \u2264 x.sqrt",
+        "body": "Real.le_sqrt_of_sq_le <| by norm_num [hx]",
+        "children": []
+      },
+      {
+        "name": "sqrt_le_x",
+        "type": "x.sqrt \u2264 x",
+        "body": "sqrt_le_left (by linarith) |>.mpr (by bound)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Chebyshev",
+    "name": "eventually_primeCounting_le",
+    "statement": "\u211d} (\u03b5pos : 0 < \u03b5) : \u2200\u1da0 x in atTop, \u03c0 \u230ax\u230b\u208a \u2264 (log 4 + \u03b5) * x / log x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "integral_theta_div_log_sq_isLittleO.bound \u03b5pos",
+        "children": []
+      },
+      {
+        "name": "hl",
+        "type": "0 \u2264 log x",
+        "body": "by bound",
+        "children": []
+      }
+    ]
+  }
+]

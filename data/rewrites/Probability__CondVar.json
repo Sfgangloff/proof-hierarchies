@@ -1,0 +1,99 @@
+[
+  {
+    "original": {
+      "module": "CondVar",
+      "name": "condVar_ae_eq_condExp_sq_sub_sq_condExp",
+      "statement": "m \u2264 m\u2080) [IsFiniteMeasure \u03bc] (hX : MemLp X 2 \u03bc) : Var[X; \u03bc | m] =\u1d50[\u03bc] \u03bc[X ^ 2 | m] - \u03bc[X | m] ^ 2",
+      "have_tree": [
+        {
+          "name": "aux\u2080",
+          "type": "Integrable (X ^ 2) \u03bc",
+          "body": "hX.integrable_sq",
+          "children": []
+        },
+        {
+          "name": "aux\u2081",
+          "type": "Integrable (2 * X * \u03bc[X | m]) \u03bc",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "aux\u2082",
+          "type": "Integrable (\u03bc[X | m] ^ 2) \u03bc",
+          "body": "hX.condExp.integrable_sq",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "CondVar",
+          "name": "condVar_ae_eq_condExp_sq_sub_sq_condExp",
+          "statement": "m \u2264 m\u2080) [IsFiniteMeasure \u03bc] (hX : MemLp X 2 \u03bc) : Var[X; \u03bc | m] =\u1d50[\u03bc] \u03bc[X ^ 2 | m] - \u03bc[X | m] ^ 2",
+          "have_tree": [
+            {
+              "name": "aux\u2081",
+              "type": "Integrable (2 * X * \u03bc[X | m]) \u03bc",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "aux\u2080",
+              "type": "Integrable (X ^ 2) \u03bc",
+              "body": "hX.integrable_sq",
+              "children": []
+            },
+            {
+              "name": "aux\u2082",
+              "type": "Integrable (\u03bc[X | m] ^ 2) \u03bc",
+              "body": "hX.condExp.integrable_sq",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "CondVar",
+          "name": "condVar_ae_eq_condExp_sq_sub_sq_condExp",
+          "statement": "m \u2264 m\u2080) [IsFiniteMeasure \u03bc] (hX : MemLp X 2 \u03bc) : Var[X; \u03bc | m] =\u1d50[\u03bc] \u03bc[X ^ 2 | m] - \u03bc[X | m] ^ 2",
+          "have_tree": [
+            {
+              "name": "aux\u2080",
+              "type": "Integrable (X ^ 2) \u03bc",
+              "body": "hX.integrable_sq",
+              "children": []
+            },
+            {
+              "name": "aux\u2082",
+              "type": "Integrable (\u03bc[X | m] ^ 2) \u03bc",
+              "body": "hX.condExp.integrable_sq",
+              "children": []
+            },
+            {
+              "name": "aux\u2081",
+              "type": "Integrable (2 * X * \u03bc[X | m]) \u03bc",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

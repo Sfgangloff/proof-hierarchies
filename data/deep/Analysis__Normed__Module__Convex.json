@@ -1,0 +1,40 @@
+[
+  {
+    "module": "Convex",
+    "name": "convexHull_sphere_eq_closedBall",
+    "statement": "Type*} [NormedAddCommGroup F] [NormedSpace \u211d F] [Nontrivial F] (x : F) {r : \u211d} (hr : 0 \u2264 r) : convexHull \u211d (sphere x r) = closedBall x r",
+    "have_tree": [
+      {
+        "name": "zero_mem",
+        "type": "(0 : F) \u2208 U",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Invertible (2 : \u211d)",
+            "body": "by use 2\u207b\u00b9 <;> grind",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hr\u2081",
+        "type": "r\u207b\u00b9 * \u2016x\u2016 \u2264 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hz",
+        "type": "z \u2208 U",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "StarConvex.smul_mem (hU.starConvex zero_mem) hz (by positivity) hr\u2081",
+        "children": []
+      }
+    ]
+  }
+]

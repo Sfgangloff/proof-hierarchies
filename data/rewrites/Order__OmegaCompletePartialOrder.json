@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "OmegaCompletePartialOrder",
+      "name": "\u03c9Sup_total",
+      "statement": "Chain \u03b1} {x : \u03b1} (h : \u2200 i, c i \u2264 x \u2228 x \u2264 c i) : \u03c9Sup c \u2264 x \u2228 x \u2264 \u03c9Sup c",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "\u2203 i, \u00acc i \u2264 x",
+          "body": "by simp only [not_forall] at this \u22a2; assumption",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "x \u2264 c i",
+          "body": "(h i).resolve_left hx",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "OmegaCompletePartialOrder",
+          "name": "\u03c9Sup_total",
+          "statement": "Chain \u03b1} {x : \u03b1} (h : \u2200 i, c i \u2264 x \u2228 x \u2264 c i) : \u03c9Sup c \u2264 x \u2228 x \u2264 \u03c9Sup c",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "x \u2264 c i",
+              "body": "(h i).resolve_left hx",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2203 i, \u00acc i \u2264 x",
+              "body": "by simp only [not_forall] at this \u22a2; assumption",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "OmegaCompletePartialOrder",
+      "name": "\u03c9Sup_eq_some",
+      "statement": "Chain (Part \u03b1)} {a : \u03b1} (h : some a \u2208 c) : Part.\u03c9Sup c = some a",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "\u2203 a, some a \u2208 c",
+          "body": "\u27e8a, h\u27e9",
+          "children": []
+        },
+        {
+          "name": "a'",
+          "type": "some (Classical.choose this) \u2208 c",
+          "body": "Classical.choose_spec this",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "OmegaCompletePartialOrder",
+          "name": "\u03c9Sup_eq_some",
+          "statement": "Chain (Part \u03b1)} {a : \u03b1} (h : some a \u2208 c) : Part.\u03c9Sup c = some a",
+          "have_tree": [
+            {
+              "name": "a'",
+              "type": "some (Classical.choose this) \u2208 c",
+              "body": "Classical.choose_spec this",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u2203 a, some a \u2208 c",
+              "body": "\u27e8a, h\u27e9",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,99 @@
+[
+  {
+    "module": "Spectrum",
+    "name": "orthogonalFamily_eigenspaces",
+    "statement": "T.IsSymmetric) : OrthogonalFamily \ud835\udd5c (fun \u03bc => eigenspace T \u03bc) fun \u03bc => (eigenspace T \u03bc).subtype\u2097\u1d62",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "",
+        "body": "hT.conj_eigenvalue_eq_self (hasEigenvalue_of_hasEigenvector \u27e8hv, hv'\u27e9)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Spectrum",
+    "name": "orthogonalComplement_iSup_eigenspaces",
+    "statement": "T.IsSymmetric) (\u03bc : \ud835\udd5c) : eigenspace (T.restrict hT.orthogonalComplement_iSup_eigenspaces_invariant) \u03bc = \u22a5",
+    "have_tree": [
+      {
+        "name": "H\u2082",
+        "type": "eigenspace T \u03bc \u27c2 p",
+        "body": "(Submodule.isOrtho_orthogonal_right _).mono_left (le_iSup _ _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Spectrum",
+    "name": "orthogonalComplement_iSup_eigenspaces_eq_bot",
+    "statement": "T.IsSymmetric) : (\u2a06 \u03bc, eigenspace T \u03bc)\u15ee = \u22a5",
+    "have_tree": [
+      {
+        "name": "hT'",
+        "type": "IsSymmetric _",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Spectrum",
+    "name": "hasEigenvector_eigenvectorBasis_helper",
+    "statement": "T.IsSymmetric) (hn : Module.finrank \ud835\udd5c E = n) (i : Fin n) : HasEigenvector T (hT.unsortedEigenvalues hn i) (hT.unsortedEigenvectorBasis hn i)",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "HasEigenvector T \u03bc v",
+        "body": "by",
+        "children": [
+          {
+            "name": "H\u2081",
+            "type": "v \u2208 eigenspace T \u03bc",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "H\u2082",
+            "type": "v \u2260 0",
+            "body": "by simpa using (hT.unsortedEigenvectorBasis hn).toBasis.ne_zero i",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Spectrum",
+    "name": "sort_roots_charpoly_eq_eigenvalues",
+    "statement": "T.IsSymmetric) (hn : Module.finrank \ud835\udd5c E = n) : (T.charpoly.roots.map RCLike.re).sort (\u00b7 \u2265 \u00b7) = List.ofFn (hT.eigenvalues hn)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hn.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Spectrum",
+    "name": "orthogonalComplement_iSup_eigenspaces_eq_bot",
+    "statement": "IsCompactOperator T) (hT' : T.IsSymmetric) : (\u2a06 \u03bc, eigenspace (T : Module.End \ud835\udd5c E) \u03bc)\u15ee = \u22a5",
+    "have_tree": [
+      {
+        "name": "hS_compact",
+        "type": "IsCompactOperator S",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hS_symm",
+        "type": "S.IsSymmetric",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

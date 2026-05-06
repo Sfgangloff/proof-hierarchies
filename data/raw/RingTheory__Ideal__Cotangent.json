@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Cotangent",
+    "name": "Ideal.mapCotangent_ker_of_surjective",
+    "statement": "Function.Surjective (algebraMap A B)) {I : Ideal B} {J : Ideal A} (eq : I.comap (algebraMap A B) = RingHom.ker (algebraMap A B) \u2294 J) : (Ideal.mapCotangent J I (Algebra.ofId A B) (le_of_le_of_eq le_sup_right eq.symm)).ker = (Submodule.comap J.subtype ((RingHom.ker (algebraMap A B)) \u2293 J)).map J.toCotangent",
+    "have_tree": [
+      {
+        "name": "eqmap",
+        "type": "",
+        "body": "Ideal.eq_map_of_comap_eq_ker_sup _ surj eq",
+        "children": [
+          {
+            "name": "_",
+            "type": "Function.Surjective (Algebra.ofId A B)",
+            "body": "surj",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "y + z \u2208 J",
+            "body": "by simp [hyz]",
+            "children": []
+          },
+          {
+            "name": "zmemJ",
+            "type": "",
+            "body": "(Ideal.add_mem_iff_right J (Ideal.pow_le_self (by omega) hy)).mp this",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

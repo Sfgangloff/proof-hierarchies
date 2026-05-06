@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Cofix",
+    "name": "Cofix.corec",
+    "statement": "TypeVec n} {\u03b2 : Type u} (g : \u03b2 \u2192 F (\u03b1.append1 \u03b2)) : \u03b2 \u2192 Cofix F \u03b1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 x y, r x y \u2192 Mcongr x y",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cofix",
+    "name": "Cofix.bisim_aux",
+    "statement": "TypeVec n} (r : Cofix F \u03b1 \u2192 Cofix F \u03b1 \u2192 Prop) (h' : \u2200 x, r x x) (h : \u2200 x y, r x y \u2192 appendFun id (Quot.mk r) <$$> Cofix.dest x = appendFun id (Quot.mk r) <$$> Cofix.dest y) : \u2200 x y, r x y \u2192 x = y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsPrecongr r'",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cofix",
+    "name": "Cofix.bisim_rel",
+    "statement": "TypeVec n} (r : Cofix F \u03b1 \u2192 Cofix F \u03b1 \u2192 Prop) (h : \u2200 x y, r x y \u2192 appendFun id (Quot.mk r) <$$> Cofix.dest x = appendFun id (Quot.mk r) <$$> Cofix.dest y) : \u2200 x y, r x y \u2192 x = y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 x y, r x y \u2192 r' x y",
+        "body": "fun x y h => Or.inr h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Cofix",
+    "name": "liftR_map_last'",
+    "statement": "TypeVec n} {\u03b9} (R : \u03b9 \u2192 \u03b9 \u2192 Prop) (x : F (\u03b1 ::: \u03b9)) (f : \u03b9 \u2192 \u03b9) (hh : \u2200 x : \u03b9, R (f x) x) : LiftR' (RelLast' _ R) ((id ::: f) <$$> x) x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "liftR_map_last R x f id hh",
+        "children": []
+      }
+    ]
+  }
+]

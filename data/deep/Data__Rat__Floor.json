@@ -1,0 +1,117 @@
+[
+  {
+    "module": "Floor",
+    "name": "num_lt_succ_floor_mul_den",
+    "statement": "\u211a) : q.num < (\u230aq\u230b + 1) * q.den",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(\u230aq\u230b : \u211a) = q - fract q",
+        "body": "eq_sub_of_add_eq <| floor_add_fract q",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(q - fract q + 1) * q.den = q.num + (1 - fract q) * q.den",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 < 1 - fract q",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "fract q < 1",
+            "body": "fract_lt_one q",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "0 + fract q < 1",
+            "body": "by simp [this]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Floor",
+    "name": "fract_inv_num_lt_num_of_pos",
+    "statement": "\u211a} (q_pos : 0 < q) : (fract q\u207b\u00b9).num < q.num",
+    "have_tree": [
+      {
+        "name": "q_num_pos",
+        "type": "0 < q.num",
+        "body": "Rat.num_pos.mpr q_pos",
+        "children": []
+      },
+      {
+        "name": "q_num_abs_eq_q_num",
+        "type": "(q.num.natAbs : \u2124) = q.num",
+        "body": "Int.natAbs_of_nonneg q_num_pos.le",
+        "children": []
+      },
+      {
+        "name": "q_inv_eq",
+        "type": "q\u207b\u00b9 = q_inv",
+        "body": "by rw [q_inv_def, inv_def, divInt_eq_div, Int.cast_natCast]",
+        "children": [
+          {
+            "name": "_",
+            "type": "((q.den - q.num * \u230aq_inv\u230b : \u211a) / q.num).num = q.den - q.num * \u230aq_inv\u230b",
+            "body": "by",
+            "children": [
+              {
+                "name": "tmp",
+                "type": "",
+                "body": "Nat.coprime_sub_mul_floor_rat_div_of_coprime q.reduced.symm",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "q_inv_num_denom_ineq",
+        "type": "q\u207b\u00b9.num - \u230aq\u207b\u00b9\u230b * q\u207b\u00b9.den < q\u207b\u00b9.den",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "q\u207b\u00b9.num < (\u230aq\u207b\u00b9\u230b + 1) * q\u207b\u00b9.den",
+            "body": "Rat.num_lt_succ_floor_mul_den q\u207b\u00b9",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "q\u207b\u00b9.num < \u230aq\u207b\u00b9\u230b * q\u207b\u00b9.den + q\u207b\u00b9.den",
+            "body": "by rwa [right_distrib, one_mul] at this",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "q_inv.num = q.den \u2227 q_inv.den = q.num.natAbs",
+        "body": "by",
+        "children": [
+          {
+            "name": "coprime_q_denom_q_num",
+            "type": "q.den.Coprime q.num.natAbs",
+            "body": "q.reduced.symm",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Int.natAbs q.den = q.den",
+            "body": "by simp",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

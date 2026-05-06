@@ -1,0 +1,73 @@
+[
+  {
+    "module": "Basic",
+    "name": "cos_half",
+    "statement": "\u211d} (hl : -\u03c0 \u2264 x) (hr : x \u2264 \u03c0) : cos (x / 2) = \u221a((1 + cos x) / 2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 \u2264 cos (x / 2)",
+        "body": "cos_nonneg_of_mem_Icc <| by constructor <;> linarith",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "sin_lt_sin_of_lt_of_le_pi_div_two",
+    "statement": "\u211d} (hx\u2081 : -(\u03c0 / 2) \u2264 x) (hy\u2082 : y \u2264 \u03c0 / 2) (hxy : x < y) : sin x < sin y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < sin ((y - x) / 2)",
+        "body": "by apply sin_pos_of_pos_of_lt_pi <;> linarith",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 < cos ((y + x) / 2)",
+        "body": "by refine cos_pos_of_mem_Ioo \u27e8?_, ?_\u27e9 <;> linarith",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "quadratic_root_cos_pi_div_five",
+    "statement": "letI c",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "s \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "tan_pi_div_four",
+    "statement": "tan (\u03c0 / 4) = 1",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "\u221a2 / 2 > 0",
+        "body": "by positivity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "norm_exp_mul_exp_add_exp_neg_le_of_abs_im_le",
+    "statement": "\u211d} (ha : a \u2264 0) {z : \u2102} (hz : |z.im| \u2264 b) (hb : b \u2264 \u03c0 / 2) : \u2016exp (a * (exp z + exp (-z)))\u2016 \u2264 Real.exp (a * Real.cos b * Real.exp |z.re|)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Real.exp |z.re| \u2264 Real.exp z.re + Real.exp (-z.re)",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

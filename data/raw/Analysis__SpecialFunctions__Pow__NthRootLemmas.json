@@ -1,0 +1,41 @@
+[
+  {
+    "module": "NthRootLemmas",
+    "name": "nthRoot.pow_go_le",
+    "statement": "guess \u2264 fuel) (n a : \u2115) : go n a fuel guess ^ (n + 2) \u2264 a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "guess \u2264 a / guess ^ (n + 1)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NthRootLemmas",
+    "name": "nthRoot.lt_pow_go_succ_aux0",
+    "statement": "b \u2260 0) : a \u2264 ((a ^ (n + 1) / b ^ n) + n * b) / (n + 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Commute.all (b : \u2124) (a - b)).pow_add_mul_le_add_pow_of_sq_nonneg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "NthRootLemmas",
+    "name": "nthRoot.always_exists",
+    "statement": "\u2115) : \u2203 c, c ^ (n + 1) \u2264 a \u2227 a < (c + 1) ^ (n + 1)",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "\u2203 c, a < (c + 1) ^ (n + 1)",
+        "body": "\u27e8a, Nat.le_self_pow (by positivity) (a + 1)\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

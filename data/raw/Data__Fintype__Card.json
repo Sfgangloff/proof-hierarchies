@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Card",
+    "name": "Finite.exists_univ_list",
+    "statement": "\u2203 l : List \u03b1, l.Nodup \u2227 \u2200 x : \u03b1, x \u2208 l",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "And.intro (@univ \u03b1 _).2 (@mem_univ_val \u03b1 _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "surjective_of_injective",
+    "statement": "\u03b1 \u2192 \u03b1} (hinj : Injective f) : Surjective f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Classical.propDecidable",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "x \u2208 image f univ",
+        "body": "h\u2081.symm \u25b8 mem_univ x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Card",
+    "name": "injective_iff_surjective_of_equiv",
+    "statement": "\u03b1 \u2192 \u03b2} (e : \u03b1 \u2243 \u03b2) : Injective f \u2194 Surjective f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Injective (e.symm \u2218 f) \u2194 Surjective (e.symm \u2218 f)",
+        "body": "injective_iff_surjective",
+        "children": []
+      }
+    ]
+  }
+]

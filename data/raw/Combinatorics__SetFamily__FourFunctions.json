@@ -1,0 +1,121 @@
+[
+  {
+    "module": "FourFunctions",
+    "name": "collapse_nonneg",
+    "statement": "0 \u2264 f) : 0 \u2264 collapse \ud835\udc9c a f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hsu.trans <| subset_insert a _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "htu.trans <| subset_insert a _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "insert_subset_insert a hsu",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "insert_subset_insert a htu",
+        "children": []
+      },
+      {
+        "name": "has",
+        "type": "",
+        "body": "notMem_mono hsu hu",
+        "children": []
+      },
+      {
+        "name": "hat",
+        "type": "",
+        "body": "notMem_mono htu hu",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "a \u2209 s \u2229 t",
+        "body": "notMem_mono (inter_subset_left.trans hsu) hu",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "notMem_union.2 \u27e8has, hat\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourFunctions",
+    "name": "Finset.four_functions_theorem",
+    "statement": "Finset \u03b1) (h\u2081 : 0 \u2264 f\u2081) (h\u2082 : 0 \u2264 f\u2082) (h\u2083 : 0 \u2264 f\u2083) (h\u2084 : 0 \u2264 f\u2084) (h : \u2200 \u2983s\u2984, s \u2286 u \u2192 \u2200 \u2983t\u2984, t \u2286 u \u2192 f\u2081 s * f\u2082 t \u2264 f\u2083 (s \u2229 t) * f\u2084 (s \u222a t)) {\ud835\udc9c \u212c : Finset (Finset \u03b1)} (h\ud835\udc9c : \ud835\udc9c \u2286 u.powerset) (h\u212c : \u212c \u2286 u.powerset) : (\u2211 s \u2208 \ud835\udc9c, f\u2081 s) * \u2211 s \u2208 \u212c, f\u2082 s \u2264 (\u2211 s \u2208 \ud835\udc9c \u22bc \u212c, f\u2083 s) * \u2211 s \u2208 \ud835\udc9c \u22bb \u212c, f\u2084 s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\ud835\udc9c \u22bc \u212c \u2286 powerset (insert a u)",
+        "body": "by simpa using infs_subset h\ud835\udc9c h\u212c",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\ud835\udc9c \u22bb \u212c \u2286 powerset (insert a u)",
+        "body": "by simpa using sups_subset h\ud835\udc9c h\u212c",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourFunctions",
+    "name": "four_functions_theorem_aux",
+    "statement": "0 \u2264 f\u2081) (h\u2082 : 0 \u2264 f\u2082) (h\u2083 : 0 \u2264 f\u2083) (h\u2084 : 0 \u2264 f\u2084) (h : \u2200 s t, f\u2081 s * f\u2082 t \u2264 f\u2083 (s \u2229 t) * f\u2084 (s \u222a t)) (\ud835\udc9c \u212c : Finset (Finset \u03b1)) : (\u2211 s \u2208 \ud835\udc9c, f\u2081 s) * \u2211 s \u2208 \u212c, f\u2082 s \u2264 (\u2211 s \u2208 \ud835\udc9c \u22bc \u212c, f\u2083 s) * \u2211 s \u2208 \ud835\udc9c \u22bb \u212c, f\u2084 s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite \u03b1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourFunctions",
+    "name": "four_functions_theorem",
+    "statement": "0 \u2264 f\u2081) (h\u2082 : 0 \u2264 f\u2082) (h\u2083 : 0 \u2264 f\u2083) (h\u2084 : 0 \u2264 f\u2084) (h : \u2200 a b, f\u2081 a * f\u2082 b \u2264 f\u2083 (a \u2293 b) * f\u2084 (a \u2294 b)) (s t : Finset \u03b1) : (\u2211 a \u2208 s, f\u2081 a) * \u2211 a \u2208 t, f\u2082 a \u2264 (\u2211 a \u2208 s \u22bc t, f\u2083 a) * \u2211 a \u2208 s \u22bb t, f\u2084 a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite L",
+        "body": "(s.finite_toSet.union t.finite_toSet).latticeClosure.to_subtype",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "four_functions_theorem_aux (extend g (f\u2081 \u2218 (\u2191)) 0) (extend g (f\u2082 \u2218 (\u2191)) 0)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FourFunctions",
+    "name": "holley",
+    "statement": "0 \u2264 \u03bc) (hf : 0 \u2264 f) (hg : 0 \u2264 g) (h\u03bc : Monotone \u03bc) (hfg : \u2211 a, f a = \u2211 a, g a) (h : \u2200 a b, f a * g b \u2264 f (a \u2293 b) * g (a \u2294 b)) : \u2211 a, \u03bc a * f a \u2264 \u2211 a, \u03bc a * g a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "four_functions_theorem g (\u03bc * f) f (\u03bc * g) hg.le (mul_nonneg h\u03bc\u2080 hf.le) hf.le",
+        "children": []
+      }
+    ]
+  }
+]

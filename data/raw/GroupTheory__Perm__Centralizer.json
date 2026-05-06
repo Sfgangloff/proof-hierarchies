@@ -1,0 +1,93 @@
+[
+  {
+    "module": "Centralizer",
+    "name": "Subgroup.Centralizer.toConjAct_smul_mem_cycleFactorsFinset",
+    "statement": "Perm \u03b1} (k_mem : k \u2208 centralizer {g}) (c_mem : c \u2208 g.cycleFactorsFinset) : ConjAct.toConjAct k \u2022 c \u2208 g.cycleFactorsFinset",
+    "have_tree": [
+      {
+        "name": "this",
+        "type": "",
+        "body": "cycleFactorsFinset_conj_eq (ConjAct.toConjAct (k : Perm \u03b1)) g",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Centralizer",
+    "name": "ofPermHomFun_apply_of_cycleOf_mem",
+    "statement": "\u03b1} {c : g.cycleFactorsFinset} (hx : x \u2208 c.val.support) {m : \u2124} (hm : (g ^ m) (a c) = x) : ofPermHomFun a \u03c4 x = (g ^ m) (a ((\u03c4 : Perm g.cycleFactorsFinset) c))",
+    "have_tree": [
+      {
+        "name": "hx''",
+        "type": "g.cycleOf x \u2208 g.cycleFactorsFinset",
+        "body": "hx' \u25b8 c.prop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Centralizer",
+    "name": "ofPermHom",
+    "statement": "range_toPermHom' g \u2192* Perm \u03b1 where toFun \u03c4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "g.cycleFactorsFinset_pairwise_disjoint c.prop d.prop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Centralizer",
+    "name": "toCentralizer",
+    "statement": "range_toPermHom' g \u2192* centralizer {g} where toFun \u03c4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ofPermHomFun_commute_zpow_apply a \u03c4 x 1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Centralizer",
+    "name": "kerParam_apply",
+    "statement": "Perm (Function.fixedPoints g)} {v : (c : g.cycleFactorsFinset) \u2192 Subgroup.zpowers c.val} {x : \u03b1} : kerParam g (u, v) x = if hx : g.cycleOf x \u2208 g.cycleFactorsFinset then (v \u27e8g.cycleOf x, hx\u27e9 : Perm \u03b1) x else ofSubtype u x",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "cycleFactorsFinset_pairwise_disjoint g a.2 hx ha1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Centralizer",
+    "name": "cycleType_kerParam_apply_apply",
+    "statement": "cycleType (kerParam g \u27e8k, v\u27e9) = cycleType k + \u2211 c, (v c).val.cycleType",
+    "have_tree": [
+      {
+        "name": "hU",
+        "type": "U.Pairwise fun i j \u21a6 (v i).val.Disjoint (v j).val",
+        "body": "fun c _ d _ h \u21a6 by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Centralizer",
+    "name": "card_of_cycleType_singleton",
+    "statement": "\u2115} (hn' : 2 \u2264 n) (h\u03b1 : n \u2264 card \u03b1) : #({g | g.cycleType = {n}} : Finset (Perm \u03b1)) = (n - 1)! * (choose (card \u03b1) n)",
+    "have_tree": [
+      {
+        "name": "hn\u2080",
+        "type": "n \u2260 0",
+        "body": "by lia",
+        "children": []
+      }
+    ]
+  }
+]

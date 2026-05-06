@@ -1,0 +1,98 @@
+[
+  {
+    "module": "Basic",
+    "name": "Cospherical.affineIndependent",
+    "statement": "Set P} (hs : Cospherical s) {p : Fin 3 \u2192 P} (hps : Set.range p \u2286 s) (hpi : Function.Injective p) : AffineIndependent \u211d p",
+    "have_tree": [
+      {
+        "name": "hv0",
+        "type": "v \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hs'",
+        "type": "",
+        "body": "fun i => hs (p i) (Set.mem_of_mem_of_subset (Set.mem_range_self _) hps)",
+        "children": [
+          {
+            "name": "hf0'",
+            "type": "",
+            "body": "hf 0",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hfi",
+        "type": "Function.Injective f",
+        "body": "by",
+        "children": [
+          {
+            "name": "hi",
+            "type": "",
+            "body": "hf i",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hfn0",
+        "type": "\u2200 i, i \u2260 0 \u2192 f i \u2260 0",
+        "body": "fun i => (hfi.ne_iff' hf0).2",
+        "children": [
+          {
+            "name": "hsdi",
+            "type": "",
+            "body": "hsd i",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Sphere.dist_center_lt_radius_of_sbtw",
+    "statement": "P} {s : Sphere P} (hp\u2081 : p\u2081 \u2208 s) (hp\u2082 : p\u2082 \u2208 s) (hp : Sbtw \u211d p\u2081 p p\u2082) : dist s.center p < s.radius",
+    "have_tree": [
+      {
+        "name": "ht\u2080'",
+        "type": "0 < t",
+        "body": "lt_of_le_of_ne ht\u2080 fun h => hne\u2081 <| by",
+        "children": []
+      },
+      {
+        "name": "ht\u2081'",
+        "type": "t < 1",
+        "body": "lt_of_le_of_ne ht\u2081 fun h => hne\u2082 <| by",
+        "children": []
+      },
+      {
+        "name": "huv",
+        "type": "u \u2260 v",
+        "body": "fun h => hne\u2081 <| by",
+        "children": []
+      },
+      {
+        "name": "hmem",
+        "type": "",
+        "body": "(strictConvex_closedBall \u211d (0 : V) s.radius)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isDiameter_iff_mem_and_mem_and_wbtw",
+    "statement": "s.IsDiameter p\u2081 p\u2082 \u2194 p\u2081 \u2208 s \u2227 p\u2082 \u2208 s \u2227 Wbtw \u211d p\u2081 s.center p\u2082",
+    "have_tree": [
+      {
+        "name": "hd",
+        "type": "",
+        "body": "hr.dist_add_dist",
+        "children": []
+      }
+    ]
+  }
+]

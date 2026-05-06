@@ -1,0 +1,53 @@
+[
+  {
+    "module": "OpenMapping",
+    "name": "AnalyticAt.eventually_constant_or_nhds_le_map_nhds",
+    "statement": "E} (hg : AnalyticAt \u2102 g z\u2080) : (\u2200\u1da0 z in \ud835\udcdd z\u2080, g z = g z\u2080) \u2228 \ud835\udcdd (g z\u2080) \u2264 map g (\ud835\udcdd z\u2080)",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "\u2200 z \u2208 sphere (0 : E) 1, AnalyticOnNhd \u2102 (gray z) (ball 0 r)",
+        "body": "by",
+        "children": [
+          {
+            "name": "h3",
+            "type": "\u2200 t \u2208 ball (0 : \u2102) r, gray w t = g z\u2080",
+            "body": "by",
+            "children": [
+              {
+                "name": "e1",
+                "type": "IsPreconnected (ball (0 : \u2102) r)",
+                "body": "(convex_ball 0 r).isPreconnected",
+                "children": []
+              },
+              {
+                "name": "e2",
+                "type": "w \u2208 sphere (0 : E) 1",
+                "body": "by simp [w, norm_smul, inv_mul_cancel\u2080 h']",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "h4",
+            "type": "\u2016z - z\u2080\u2016 < r",
+            "body": "by simpa [dist_eq_norm] using mem_ball.mp hz",
+            "children": []
+          },
+          {
+            "name": "h7",
+            "type": "",
+            "body": "h1.eventually_constant_or_nhds_le_map_nhds_aux.resolve_left hrz",
+            "children": []
+          },
+          {
+            "name": "h10",
+            "type": "Continuous fun t : \u2102 => z\u2080 + t \u2022 z",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

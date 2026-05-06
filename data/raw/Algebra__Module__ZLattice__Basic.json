@@ -1,0 +1,200 @@
+[
+  {
+    "module": "Basic",
+    "name": "setFinite_inter",
+    "statement": "Set E} (hs : Bornology.IsBounded s) : Set.Finite (s \u2229 span \u2124 (Set.range b))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "DiscreteTopology (span \u2124 (Set.range b))",
+        "body": "inferInstance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "measure_fundamentalDomain",
+    "statement": "Measure E) [BorelSpace E] [Measure.IsAddHaarMeasure \u03bc] (b\u2080 : Basis \u03b9 \u211d E) : \u03bc (fundamentalDomain b) = ENNReal.ofReal |b\u2080.det b| * \u03bc (fundamentalDomain b\u2080)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional \u211d E",
+        "body": "b.finiteDimensional_of_finite",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "fundamentalDomain_ae_parallelepiped",
+    "statement": "Measure E) [BorelSpace E] [Measure.IsAddHaarMeasure \u03bc] : fundamentalDomain b =\u1d50[\u03bc] parallelepiped b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional \u211d E",
+        "body": "b.finiteDimensional_of_finite",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "ZLattice.FG",
+    "statement": "IsZLattice K L] : L.FG",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype s",
+        "body": "h_lind.setFinite.fintype",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "((fundamentalDomain b) \u2229 L).Finite",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "DiscreteTopology L.toAddSubgroup",
+            "body": "(inferInstance : DiscreteTopology L)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "ZLattice.module_free",
+    "statement": "Module.Free \u2124 L",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.Finite \u2124 L",
+        "body": "module_finite K L",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module \u211a E",
+        "body": "Module.compHom E (algebraMap \u211a K)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAddTorsionFree E",
+        "body": ".of_module_rat _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "ZLattice.rank",
+    "statement": "IsZLattice K L] : finrank \u2124 L = finrank K E",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.Finite \u2124 L",
+        "body": "module_finite K L",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module \u211a E",
+        "body": "Module.compHom E (algebraMap \u211a K)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAddTorsionFree E",
+        "body": ".of_module_rat _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "LinearIndependent \u2124 b",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "Fintype t",
+            "body": "Set.Finite.fintype ((Set.range b).toFinite.subset ht_inc)",
+            "children": []
+          },
+          {
+            "name": "h",
+            "type": "LinearIndepOn \u2124 id (Set.range b)",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "DiscreteTopology L.toAddSubgroup",
+                "body": "(inferInstance : DiscreteTopology L)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "ofZLatticeBasis",
+    "statement": "Basis \u03b9 K E",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.Finite \u2124 L",
+        "body": "ZLattice.module_finite K L",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Free \u2124 L",
+        "body": "ZLattice.module_free K L",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "Fintype.ofEquiv _ e",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Real.finrank_eq_int_finrank_of_discrete",
+    "statement": "Type*} [NormedAddCommGroup E] [NormedSpace \u211d E] [FiniteDimensional \u211d E] {s : Set E} (hs : DiscreteTopology (span \u2124 s)) : Set.finrank \u211d s = Set.finrank \u2124 s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "DiscreteTopology L",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsZLattice \u211d L",
+        "body": "\u27e8eq_top_iff.mpr <|",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsZLattice.isCompact_range_of_periodic",
+    "statement": "Type*} [NormedAddCommGroup E] [NormedSpace \u211d E] [FiniteDimensional \u211d E] [TopologicalSpace F] (L : Submodule \u2124 E) [DiscreteTopology L] [IsZLattice \u211d L] (f : E \u2192 F) (hf : Continuous f) (hf' : \u2200 z w, w \u2208 L \u2192 f (z + w) = f z) : IsCompact (Set.range f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ZLattice.module_free \u211d L",
+        "children": []
+      }
+    ]
+  }
+]

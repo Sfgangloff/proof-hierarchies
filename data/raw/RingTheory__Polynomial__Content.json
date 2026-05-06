@@ -1,0 +1,78 @@
+[
+  {
+    "module": "Content",
+    "name": "_root_.Irreducible.isPrimitive",
+    "statement": "Polynomial R} (hp : Irreducible p) (hp' : p.natDegree \u2260 0) : p.IsPrimitive",
+    "have_tree": [
+      {
+        "name": "hr",
+        "type": "r \u2260 0",
+        "body": "by rintro rfl; simp_all",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Content",
+    "name": "aeval_primPart_eq_zero",
+    "statement": "Type*} [Ring S] [IsDomain S] [Algebra R S] [Module.IsTorsionFree R S] {p : R[X]} {s : S} (hpzero : p \u2260 0) (hp : aeval s p = 0) : aeval s p.primPart = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsDomain R",
+        "body": "{ Module.nontrivial R S with }",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Content",
+    "name": "exists_primitive_lcm_of_isPrimitive",
+    "statement": "R[X]} (hp : p.IsPrimitive) (hq : q.IsPrimitive) : \u2203 r : R[X], r.IsPrimitive \u2227 \u2200 s : R[X], p \u2223 s \u2227 q \u2223 s \u2194 r \u2223 s",
+    "have_tree": [
+      {
+        "name": "s0",
+        "type": "s \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hs",
+        "type": "",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hcancel",
+        "type": "",
+        "body": "natDegree_cancelLeads_lt_of_natDegree_le_natDegree hs sC",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hC0",
+        "type": "",
+        "body": "rprim.ne_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Content",
+    "name": "degree_gcd_le_left",
+    "statement": "R[X]} (hp : p \u2260 0) (q) : (gcd p q).degree \u2264 p.degree",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "natDegree_le_iff_degree_le.mp (natDegree_le_of_dvd (gcd_dvd_left p q) hp)",
+        "children": []
+      }
+    ]
+  }
+]

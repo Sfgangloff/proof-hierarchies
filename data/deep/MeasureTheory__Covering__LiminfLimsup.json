@@ -1,0 +1,72 @@
+[
+  {
+    "module": "LiminfLimsup",
+    "name": "blimsup_cthickening_ae_le_of_eventually_mul_le",
+    "statement": "\u2115 \u2192 Prop) {s : \u2115 \u2192 Set \u03b1} {M : \u211d} (hM : 0 < M) {r\u2081 r\u2082 : \u2115 \u2192 \u211d} (hr : Tendsto r\u2081 atTop (\ud835\udcdd[>] 0)) (hMr : \u2200\u1da0 i in atTop, M * r\u2081 i \u2264 r\u2082 i) : (blimsup (fun i => cthickening (r\u2081 i) (s i)) atTop p : Set \u03b1) \u2264\u1d50[\u03bc] (blimsup (fun i => cthickening (r\u2082 i) (s i)) atTop p : Set \u03b1)",
+    "have_tree": [
+      {
+        "name": "hRp",
+        "type": "0 \u2264 R\u2081",
+        "body": "fun i => le_max_left 0 (r\u2081 i)",
+        "children": [
+          {
+            "name": "hs",
+            "type": "\u2200 i, IsClosed (closure (s i))",
+            "body": "fun i => isClosed_closure",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LiminfLimsup",
+    "name": "blimsup_cthickening_mul_ae_eq",
+    "statement": "\u2115 \u2192 Prop) (s : \u2115 \u2192 Set \u03b1) {M : \u211d} (hM : 0 < M) (r : \u2115 \u2192 \u211d) (hr : Tendsto r atTop (\ud835\udcdd 0)) : (blimsup (fun i => cthickening (M * r i) (s i)) atTop p : Set \u03b1) =\u1d50[\u03bc] (blimsup (fun i => cthickening (r i) (s i)) atTop p : Set \u03b1)",
+    "have_tree": [
+      {
+        "name": "hr'",
+        "type": "Tendsto (fun i => M * r i) atTop (\ud835\udcdd[>] 0)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hr'",
+        "type": "Tendsto r' atTop (\ud835\udcdd[>] 0)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2080",
+        "type": "\u2200 i, p i \u2227 0 < r i \u2192 cthickening (r i) (s i) = cthickening (r' i) (s i)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "\u2200 i, p i \u2227 0 < r i \u2192 cthickening (M * r i) (s i) = cthickening (M * r' i) (s i)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "\u2200 i, p i \u2227 r i \u2264 0 \u2192 cthickening (M * r i) (s i) = cthickening (r i) (s i)",
+        "body": "by",
+        "children": [
+          {
+            "name": "hi'",
+            "type": "M * r i \u2264 0",
+            "body": "mul_nonpos_of_nonneg_of_nonpos hM.le hi",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hp",
+        "type": "p = fun i => p i \u2227 0 < r i \u2228 p i \u2227 r i \u2264 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

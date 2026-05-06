@@ -1,0 +1,354 @@
+[
+  {
+    "original": {
+      "module": "Infinite",
+      "name": "exists_infinite_primes",
+      "statement": "\u2115) : \u2203 p, n \u2264 p \u2227 Prime p",
+      "have_tree": [
+        {
+          "name": "f1",
+          "type": "n ! + 1 \u2260 1",
+          "body": "ne_of_gt <| succ_lt_succ <| factorial_pos _",
+          "children": []
+        },
+        {
+          "name": "pp",
+          "type": "Prime p",
+          "body": "minFac_prime f1",
+          "children": []
+        },
+        {
+          "name": "np",
+          "type": "n \u2264 p",
+          "body": "",
+          "children": [
+            {
+              "name": "h\u2081",
+              "type": "p \u2223 n !",
+              "body": "dvd_factorial (minFac_pos _) h",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "p \u2223 1",
+              "body": "(Nat.dvd_add_iff_right h\u2081).2 (minFac_dvd _)",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          2,
+          0
+        ],
+        "result": {
+          "module": "Infinite",
+          "name": "exists_infinite_primes",
+          "statement": "\u2115) : \u2203 p, n \u2264 p \u2227 Prime p",
+          "have_tree": [
+            {
+              "name": "f1",
+              "type": "n ! + 1 \u2260 1",
+              "body": "ne_of_gt <| succ_lt_succ <| factorial_pos _",
+              "children": []
+            },
+            {
+              "name": "pp",
+              "type": "Prime p",
+              "body": "minFac_prime f1",
+              "children": []
+            },
+            {
+              "name": "np",
+              "type": "n \u2264 p",
+              "body": "",
+              "children": [
+                {
+                  "name": "h\u2082",
+                  "type": "p \u2223 1",
+                  "body": "(Nat.dvd_add_iff_right h\u2081).2 (minFac_dvd _)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          2,
+          1
+        ],
+        "result": {
+          "module": "Infinite",
+          "name": "exists_infinite_primes",
+          "statement": "\u2115) : \u2203 p, n \u2264 p \u2227 Prime p",
+          "have_tree": [
+            {
+              "name": "f1",
+              "type": "n ! + 1 \u2260 1",
+              "body": "ne_of_gt <| succ_lt_succ <| factorial_pos _",
+              "children": []
+            },
+            {
+              "name": "pp",
+              "type": "Prime p",
+              "body": "minFac_prime f1",
+              "children": []
+            },
+            {
+              "name": "np",
+              "type": "n \u2264 p",
+              "body": "",
+              "children": [
+                {
+                  "name": "h\u2081",
+                  "type": "p \u2223 n !",
+                  "body": "dvd_factorial (minFac_pos _) h",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Infinite",
+          "name": "exists_infinite_primes",
+          "statement": "\u2115) : \u2203 p, n \u2264 p \u2227 Prime p",
+          "have_tree": [
+            {
+              "name": "f1",
+              "type": "n ! + 1 \u2260 1",
+              "body": "ne_of_gt <| succ_lt_succ <| factorial_pos _",
+              "children": []
+            },
+            {
+              "name": "pp",
+              "type": "Prime p",
+              "body": "minFac_prime f1",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "p \u2223 n !",
+              "body": "dvd_factorial (minFac_pos _) h",
+              "children": []
+            },
+            {
+              "name": "np",
+              "type": "n \u2264 p",
+              "body": "",
+              "children": [
+                {
+                  "name": "h\u2082",
+                  "type": "p \u2223 1",
+                  "body": "(Nat.dvd_add_iff_right h\u2081).2 (minFac_dvd _)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Infinite",
+          "name": "exists_infinite_primes",
+          "statement": "\u2115) : \u2203 p, n \u2264 p \u2227 Prime p",
+          "have_tree": [
+            {
+              "name": "f1",
+              "type": "n ! + 1 \u2260 1",
+              "body": "ne_of_gt <| succ_lt_succ <| factorial_pos _",
+              "children": []
+            },
+            {
+              "name": "pp",
+              "type": "Prime p",
+              "body": "minFac_prime f1",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "p \u2223 1",
+              "body": "(Nat.dvd_add_iff_right h\u2081).2 (minFac_dvd _)",
+              "children": []
+            },
+            {
+              "name": "np",
+              "type": "n \u2264 p",
+              "body": "",
+              "children": [
+                {
+                  "name": "h\u2081",
+                  "type": "p \u2223 n !",
+                  "body": "dvd_factorial (minFac_pos _) h",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Infinite",
+          "name": "exists_infinite_primes",
+          "statement": "\u2115) : \u2203 p, n \u2264 p \u2227 Prime p",
+          "have_tree": [
+            {
+              "name": "pp",
+              "type": "Prime p",
+              "body": "minFac_prime f1",
+              "children": []
+            },
+            {
+              "name": "f1",
+              "type": "n ! + 1 \u2260 1",
+              "body": "ne_of_gt <| succ_lt_succ <| factorial_pos _",
+              "children": []
+            },
+            {
+              "name": "np",
+              "type": "n \u2264 p",
+              "body": "",
+              "children": [
+                {
+                  "name": "h\u2081",
+                  "type": "p \u2223 n !",
+                  "body": "dvd_factorial (minFac_pos _) h",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "p \u2223 1",
+                  "body": "(Nat.dvd_add_iff_right h\u2081).2 (minFac_dvd _)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Infinite",
+          "name": "exists_infinite_primes",
+          "statement": "\u2115) : \u2203 p, n \u2264 p \u2227 Prime p",
+          "have_tree": [
+            {
+              "name": "f1",
+              "type": "n ! + 1 \u2260 1",
+              "body": "ne_of_gt <| succ_lt_succ <| factorial_pos _",
+              "children": []
+            },
+            {
+              "name": "np",
+              "type": "n \u2264 p",
+              "body": "",
+              "children": [
+                {
+                  "name": "h\u2081",
+                  "type": "p \u2223 n !",
+                  "body": "dvd_factorial (minFac_pos _) h",
+                  "children": []
+                },
+                {
+                  "name": "h\u2082",
+                  "type": "p \u2223 1",
+                  "body": "(Nat.dvd_add_iff_right h\u2081).2 (minFac_dvd _)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "pp",
+              "type": "Prime p",
+              "body": "minFac_prime f1",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          2
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Infinite",
+          "name": "exists_infinite_primes",
+          "statement": "\u2115) : \u2203 p, n \u2264 p \u2227 Prime p",
+          "have_tree": [
+            {
+              "name": "f1",
+              "type": "n ! + 1 \u2260 1",
+              "body": "ne_of_gt <| succ_lt_succ <| factorial_pos _",
+              "children": []
+            },
+            {
+              "name": "pp",
+              "type": "Prime p",
+              "body": "minFac_prime f1",
+              "children": []
+            },
+            {
+              "name": "np",
+              "type": "n \u2264 p",
+              "body": "",
+              "children": [
+                {
+                  "name": "h\u2082",
+                  "type": "p \u2223 1",
+                  "body": "(Nat.dvd_add_iff_right h\u2081).2 (minFac_dvd _)",
+                  "children": []
+                },
+                {
+                  "name": "h\u2081",
+                  "type": "p \u2223 n !",
+                  "body": "dvd_factorial (minFac_pos _) h",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

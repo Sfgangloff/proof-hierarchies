@@ -1,0 +1,83 @@
+[
+  {
+    "module": "Hamiltonian",
+    "name": "not_isHamiltonian_of_isBridge",
+    "statement": "SimpleGraph V) (h_order : 3 \u2264 Fintype.card V) (e : Sym2 V) (he : G.IsBridge e) : \u00acG.IsHamiltonian",
+    "have_tree": [
+      {
+        "name": "hxne",
+        "type": "x \u2260 y",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hne",
+        "type": "Fintype.card V \u2260 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "1 < Fintype.card V",
+            "body": "by omega",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "he_not_in_cycle",
+        "type": "s(x, y) \u2209 c.edges",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hcycleX",
+        "type": "cX.IsCycle",
+        "body": "hcHam.isCycle.rotate (hcHam.mem_support x)",
+        "children": []
+      },
+      {
+        "name": "he_not_in_cX",
+        "type": "s(x, y) \u2209 cX.edges",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hyX",
+        "type": "y \u2208 cX.support",
+        "body": "by",
+        "children": [
+          {
+            "name": "hc_not_nil",
+            "type": "\u00ac c.Nil",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "c.tail.support = c.support.tail",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "hperm",
+            "type": "cX.support.tail.Perm c.support.tail",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "y \u2208 cX.support.tail",
+            "body": "hperm.symm.mem_iff.mp hy_tail",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "he_not_in_p",
+        "type": "s(x, y) \u2209 p.edges",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

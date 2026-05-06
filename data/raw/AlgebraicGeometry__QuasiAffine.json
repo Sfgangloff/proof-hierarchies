@@ -1,0 +1,85 @@
+[
+  {
+    "module": "QuasiAffine",
+    "name": "IsQuasiAffine.of_isImmersion",
+    "statement": "X.IsQuasiAffine",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsImmersion (X.toSpec\u0393 \u226b Spec.map f.appTop)",
+        "body": "by rw [\u2190 toSpec\u0393_naturality]; infer_instance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsImmersion X.toSpec\u0393",
+        "body": ".of_comp _ (Spec.map f.appTop)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QuasiAffine",
+    "name": "IsQuasiAffine.of_forall_exists_mem_basicOpen",
+    "statement": "Scheme.{u}) [CompactSpace X] (H : \u2200 x : X, \u2203 r : \u0393(X, \u22a4), IsAffineOpen (X.basicOpen r) \u2227 x \u2208 X.basicOpen r) : IsQuasiAffine X",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "QuasiSeparatedSpace X",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isLocalization_basicOpen_of_qcqs isCompact_univ isQuasiSeparated_univ r",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QuasiAffine",
+    "name": "IsQuasiAffine.of_isAffineHom",
+    "statement": "X.IsQuasiAffine",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "QuasiCompact.compactSpace_of_compactSpace f",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "QuasiAffine",
+    "name": "isPullback_toSpec\u0393_toSpec\u0393",
+    "statement": "X \u27f6 Y) [IsAffineHom f] [Y.IsQuasiAffine] : IsPullback f X.toSpec\u0393 Y.toSpec\u0393 (Spec.map f.appTop)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "QuasiCompact.compactSpace_of_compactSpace f",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Scheme.IsQuasiAffine.of_isAffineHom f",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "isLocalization_basicOpen_of_qcqs isCompact_univ isQuasiSeparated_univ r",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "isLocalization_basicOpen_of_qcqs isCompact_univ isQuasiSeparated_univ (f.appTop r)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

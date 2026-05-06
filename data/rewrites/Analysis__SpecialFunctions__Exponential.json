@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Exponential",
+      "name": "hasFDerivAt_exp_smul_const_of_mem_ball",
+      "statement": "\ud835\udd38) (t : \ud835\udd4a) (htx : t \u2022 x \u2208 Metric.eball (0 : \ud835\udd38) (expSeries \ud835\udd42 \ud835\udd38).radius) : HasFDerivAt (fun u : \ud835\udd4a => exp (u \u2022 x)) (exp (t \u2022 x) \u2022 (1 : \ud835\udd4a \u2192L[\ud835\udd42] \ud835\udd4a).smulRight x) t",
+      "have_tree": [
+        {
+          "name": "hpos",
+          "type": "0 < (expSeries \ud835\udd42 \ud835\udd38).radius",
+          "body": "(zero_le _).trans_lt htx",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Commute (t \u2022 x) (h \u2022 x)",
+          "body": "((Commute.refl x).smul_left t).smul_right h",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Exponential",
+          "name": "hasFDerivAt_exp_smul_const_of_mem_ball",
+          "statement": "\ud835\udd38) (t : \ud835\udd4a) (htx : t \u2022 x \u2208 Metric.eball (0 : \ud835\udd38) (expSeries \ud835\udd42 \ud835\udd38).radius) : HasFDerivAt (fun u : \ud835\udd4a => exp (u \u2022 x)) (exp (t \u2022 x) \u2022 (1 : \ud835\udd4a \u2192L[\ud835\udd42] \ud835\udd4a).smulRight x) t",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Commute (t \u2022 x) (h \u2022 x)",
+              "body": "((Commute.refl x).smul_left t).smul_right h",
+              "children": []
+            },
+            {
+              "name": "hpos",
+              "type": "0 < (expSeries \ud835\udd42 \ud835\udd38).radius",
+              "body": "(zero_le _).trans_lt htx",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

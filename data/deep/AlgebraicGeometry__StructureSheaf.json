@@ -1,0 +1,22 @@
+[
+  {
+    "module": "StructureSheaf",
+    "name": "normalize_finite_fraction_representation",
+    "statement": "Opens (PrimeSpectrum.Top R)) (s : (structureSheaf R).1.obj (op U)) {\u03b9 : Type*} (t : Finset \u03b9) (a h : \u03b9 \u2192 R) (iDh : \u2200 i : \u03b9, PrimeSpectrum.basicOpen (h i) \u27f6 U) (h_cover : U \u2264 \u2a06 i \u2208 t, PrimeSpectrum.basicOpen (h i)) (hs : \u2200 i : \u03b9, (const R (a i) (h i) (PrimeSpectrum.basicOpen (h i)) fun _ hy => hy) = (structureSheaf R).1.map (iDh i).op s) : \u2203 (a' h' : \u03b9 \u2192 R) (iDh' : \u2200 i : \u03b9, PrimeSpectrum.basicOpen (h' i) \u27f6 U), (U \u2264 \u2a06 i \u2208 t, PrimeSpectrum.basicOpen (h' i)) \u2227 (\u2200 (i) (_ : i \u2208 t) (j) (_ : j \u2208 t), a' i * h' j = h' i * a' j) \u2227 \u2200 i \u2208 t, (structureSheaf R).1.map (iDh' i).op s = const R (a' i) (h' i) (PrimeSpectrum.basicOpen (h' i)) fun _ hy => hy",
+    "have_tree": [
+      {
+        "name": "n_spec",
+        "type": "",
+        "body": "fun p : \u03b9 \u00d7 \u03b9 => (exists_power p.fst p.snd).choose_spec",
+        "children": [
+          {
+            "name": "n_le_N",
+            "type": "n (i, j) \u2264 N",
+            "body": "Finset.le_sup (Finset.mem_product.mpr \u27e8hi, hj\u27e9)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

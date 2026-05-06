@@ -1,0 +1,41 @@
+[
+  {
+    "module": "CoverEntropy",
+    "name": "IsDynCoverOf.iterate_le_pow",
+    "statement": "MapsTo T F F) [U.IsSymm] (n : \u2115) {s : Finset X} (h : IsDynCoverOf T F U m s) : \u2203 t : Finset X, IsDynCoverOf T F (U \u25cb U) (m * n) t \u2227 t.card \u2264 s.card ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty X",
+        "body": "F_nemp.nonempty",
+        "children": []
+      },
+      {
+        "name": "s_nemp",
+        "type": "",
+        "body": "h.nonempty F_nemp",
+        "children": [
+          {
+            "name": "_",
+            "type": "Nonempty s",
+            "body": "Finset.Nonempty.coe_sort s_nemp",
+            "children": []
+          },
+          {
+            "name": "key",
+            "type": "\u2200 k : Fin n, \u2203 z : s, y \u2208 T^[m * k] \u207b\u00b9' ball z (dynEntourage T U m)",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "",
+                "body": "h (MapsTo.iterate F_inv (m * k) y_F)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

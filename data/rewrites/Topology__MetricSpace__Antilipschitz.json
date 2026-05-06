@@ -1,0 +1,99 @@
+[
+  {
+    "original": {
+      "module": "Antilipschitz",
+      "name": "properSpace",
+      "statement": "Type*} [MetricSpace \u03b1] {K : \u211d\u22650} {f : \u03b1 \u2192 \u03b2} [ProperSpace \u03b1] (hK : AntilipschitzWith K f) (f_cont : Continuous f) (hf : Function.Surjective f) : ProperSpace \u03b2",
+      "have_tree": [
+        {
+          "name": "A",
+          "type": "IsClosed K",
+          "body": "isClosed_closedBall.preimage f_cont",
+          "children": []
+        },
+        {
+          "name": "B",
+          "type": "IsBounded K",
+          "body": "hK.isBounded_preimage isBounded_closedBall",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "IsCompact K",
+          "body": "isCompact_iff_isClosed_bounded.2 \u27e8A, B\u27e9",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Antilipschitz",
+          "name": "properSpace",
+          "statement": "Type*} [MetricSpace \u03b1] {K : \u211d\u22650} {f : \u03b1 \u2192 \u03b2} [ProperSpace \u03b1] (hK : AntilipschitzWith K f) (f_cont : Continuous f) (hf : Function.Surjective f) : ProperSpace \u03b2",
+          "have_tree": [
+            {
+              "name": "B",
+              "type": "IsBounded K",
+              "body": "hK.isBounded_preimage isBounded_closedBall",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "IsClosed K",
+              "body": "isClosed_closedBall.preimage f_cont",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsCompact K",
+              "body": "isCompact_iff_isClosed_bounded.2 \u27e8A, B\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Antilipschitz",
+          "name": "properSpace",
+          "statement": "Type*} [MetricSpace \u03b1] {K : \u211d\u22650} {f : \u03b1 \u2192 \u03b2} [ProperSpace \u03b1] (hK : AntilipschitzWith K f) (f_cont : Continuous f) (hf : Function.Surjective f) : ProperSpace \u03b2",
+          "have_tree": [
+            {
+              "name": "A",
+              "type": "IsClosed K",
+              "body": "isClosed_closedBall.preimage f_cont",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsCompact K",
+              "body": "isCompact_iff_isClosed_bounded.2 \u27e8A, B\u27e9",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "IsBounded K",
+              "body": "hK.isBounded_preimage isBounded_closedBall",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,111 @@
+[
+  {
+    "module": "PadicNumbers",
+    "name": "norm_mul",
+    "statement": "PadicSeq p) : (f * g).norm = f.norm * g.norm",
+    "have_tree": [
+      {
+        "name": "hg",
+        "type": "f * g \u2248 0",
+        "body": "mul_equiv_zero' _ hf",
+        "children": [
+          {
+            "name": "hf",
+            "type": "f * g \u2248 0",
+            "body": "mul_equiv_zero _ hg",
+            "children": []
+          },
+          {
+            "name": "hfg",
+            "type": "",
+            "body": "mul_not_equiv_zero hf hg",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PadicNumbers",
+    "name": "add_eq_max_of_ne",
+    "statement": "PadicSeq p} (hfgne : f.norm \u2260 g.norm) : (f + g).norm = max f.norm g.norm",
+    "have_tree": [
+      {
+        "name": "hfg",
+        "type": "\u00acf + g \u2248 0",
+        "body": "mt norm_eq_of_add_equiv_zero hfgne",
+        "children": [
+          {
+            "name": "_",
+            "type": "LimZero (f - 0)",
+            "body": "hf",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "f + g \u2248 g",
+            "body": "show LimZero (f + g - g) by simpa only [sub_zero, add_sub_cancel_right]",
+            "children": []
+          },
+          {
+            "name": "h1",
+            "type": "(f + g).norm = g.norm",
+            "body": "norm_equiv this",
+            "children": []
+          },
+          {
+            "name": "h2",
+            "type": "f.norm = 0",
+            "body": "(norm_zero_iff _).2 hf",
+            "children": [
+              {
+                "name": "_",
+                "type": "LimZero (g - 0)",
+                "body": "hg",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "f + g \u2248 f",
+                "body": "show LimZero (f + g - f) by simpa only [add_sub_cancel_left, sub_zero]",
+                "children": []
+              },
+              {
+                "name": "h1",
+                "type": "(f + g).norm = f.norm",
+                "body": "norm_equiv this",
+                "children": []
+              },
+              {
+                "name": "h2",
+                "type": "g.norm = 0",
+                "body": "(norm_zero_iff _).2 hg",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PadicNumbers",
+    "name": "defn",
+    "statement": "PadicSeq p) {\u03b5 : \u211a} (h\u03b5 : 0 < \u03b5) : \u2203 N, \u2200 i \u2265 N, padicNormE (Padic.mk f - f i : \u211a_[p]) < \u03b5",
+    "have_tree": [
+      {
+        "name": "hne",
+        "type": "\u00acf - const (padicNorm p) (f i) \u2248 0",
+        "body": "fun h \u21a6 by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "stationaryPoint_spec hne le_rfl hngen",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

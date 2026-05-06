@@ -1,0 +1,60 @@
+[
+  {
+    "module": "SemiringInverse",
+    "name": "detp_neg_one_diagonal",
+    "statement": "n \u2192 R) : detp (-1) (diagonal d) = 0",
+    "have_tree": [
+      {
+        "name": "h\u03c31",
+        "type": "\u03c3 \u2260 1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SemiringInverse",
+    "name": "mul_adjp_apply_eq",
+    "statement": "(A * adjp s A) i i = detp s A",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "sum_fiberwise_eq_sum_filter (ofSign s) univ (\u00b7 i) fun \u03c3 \u21a6 \u220f k, A k (\u03c3 k)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SemiringInverse",
+    "name": "detp_smul_add_adjp",
+    "statement": "A * B = 1) : detp 1 B \u2022 A + adjp (-1) B = detp (-1) B \u2022 A + adjp 1 B",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "congr(A * $(mul_adjp_add_detp B))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SemiringInverse",
+    "name": "detp_smul_adjp",
+    "statement": "A * B = 1) : A + (detp 1 A \u2022 adjp (-1) B + detp (-1) A \u2022 adjp 1 B) = detp 1 A \u2022 adjp 1 B + detp (-1) A \u2022 adjp (-1) B",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "",
+        "body": "detp_mul A B",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "detp_smul_add_adjp hAB",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,111 @@
+[
+  {
+    "module": "Basic",
+    "name": "_root_.Submodule.eq_top_of_finrank_eq",
+    "statement": "Submodule K V} (h : finrank K S = finrank K V) : S = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "LinearIndepOn K id (Subtype.val '' Basis.ofVectorSpaceIndex K S)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "bS.span_eq",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "basisSingleton",
+    "statement": "Type*) [Unique \u03b9] (h : finrank K V = 1) (v : V) (hv : v \u2260 0) : Basis \u03b9 K V",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "b.repr v default \u2260 0",
+        "body": "mt Module.basisUnique_repr_eq_zero_iff.mp hv",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "surjective_of_injective",
+    "statement": "V \u2192\u2097[K] V} (hinj : Injective f) : Surjective f",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "rank_range_of_injective _ hinj",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "injective_iff_surjective",
+    "statement": "V \u2192\u2097[K] V} : Injective f \u2194 Surjective f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Function.RightInverse g f",
+        "body": "LinearMap.ext_iff.1 hg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "FiniteDimensional.exists_mul_eq_one",
+    "statement": "Type*) {K : Type*} [Field F] [Ring K] [IsDomain K] [Algebra F K] [FiniteDimensional F K] {x : K} (H : x \u2260 0) : \u2203 y, x * y = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Function.Surjective (LinearMap.mulLeft F x)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Submodule.isAtom_iff_finrank_eq_one",
+    "statement": "Submodule K V} : IsAtom S \u2194 finrank K S = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "K \u2219 v \u2260 \u22a5",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "FiniteDimensional K T",
+        "body": ".of_injective (inclusion hT.le) (inclusion_injective hT.le)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_smul_eq_of_finrank_eq_one",
+    "statement": "finrank K V = 1) {x : V} (hx : x \u2260 0) (y : V) : \u2203 (c : K), c \u2022 x = y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional K V",
+        "body": ".of_finrank_eq_succ h",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "y \u2208 Submodule.span K {x}",
+        "body": "by rw [this]; exact mem_top",
+        "children": []
+      }
+    ]
+  }
+]

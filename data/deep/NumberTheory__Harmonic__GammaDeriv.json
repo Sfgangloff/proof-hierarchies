@@ -1,0 +1,99 @@
+[
+  {
+    "module": "GammaDeriv",
+    "name": "hasDerivAt_Gamma_one_half",
+    "statement": "HasDerivAt Gamma (-\u221a\u03c0 * (\u03b3 + 2 * log 2)) (1 / 2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u211d} (hs : 0 < s) : DifferentiableAt \u211d Gamma s",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u211d} (hs : 0 < s) : DifferentiableAt \u211d (fun s \u21a6 Gamma (2 * s)) s",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "HasDerivAt.rpow (hasDerivAt_const (1 / 2 : \u211d) (2 : \u211d))",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "GammaDeriv",
+    "name": "hasDerivAt_Gamma\u2102_one",
+    "statement": "HasDerivAt Gamma\u2102 (-(\u03b3 + log (2 * \u03c0)) / \u03c0) 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "HasDerivAt (fun s : \u2102 \u21a6 2 * (2 * \u03c0 : \u2102) ^ (-s)) (-log (2 * \u03c0) / \u03c0) 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(hasDerivAt_neg' (1 : \u2102)).const_cpow (c := 2 * \u03c0)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "this.mul hasDerivAt_Gamma_one",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GammaDeriv",
+    "name": "hasDerivAt_Gamma\u211d_one",
+    "statement": "HasDerivAt Gamma\u211d (-(\u03b3 + log (4 * \u03c0)) / 2) 1",
+    "have_tree": [
+      {
+        "name": "aux",
+        "type": "(\u03c0 : \u2102) ^ (1 / 2 : \u2102) = \u2191\u221a\u03c0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "aux2",
+        "type": "(\u221a\u03c0 : \u2102) \u2260 0",
+        "body": "by rw [ofReal_ne_zero]; positivity",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "HasDerivAt f (-log \u03c0 / 2 / \u221a\u03c0) 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "((hasDerivAt_neg (1 : \u2102)).div_const 2).const_cpow (c := \u03c0) (Or.inr (by simp))",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hg",
+        "type": "HasDerivAt g (-\u221a\u03c0 * (\u03b3 + 2 * log 2) / 2) 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hasDerivAt_Gamma_one_half.comp 1 (?_ : HasDerivAt (fun s : \u2102 \u21a6 s / 2) (1 / 2) 1)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

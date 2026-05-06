@@ -1,0 +1,185 @@
+[
+  {
+    "module": "Limits",
+    "name": "pullbackMap",
+    "statement": "C} {f : X \u27f6 S} [HasPullbacksAlong f] {g : Y \u27f6 S} {f' : X' \u27f6 S} {g' : Y' \u27f6 S} {i\u2081 : X \u27f6 X'} [HasPullbacksAlong g'] {i\u2082 : Y \u27f6 Y'} (h\u2081 : P i\u2081) (h\u2082 : P i\u2082) (e\u2081 : f = i\u2081 \u226b f') (e\u2082 : g = i\u2082 \u226b g') : P (pullback.map f g f' g' i\u2081 i\u2082 (\ud835\udfd9 _) ((Category.comp_id _).trans e\u2081) ((Category.comp_id _).trans e\u2082))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "HasPullbacksAlong (Over.mk f).hom",
+        "body": "by cat_disch",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Limits",
+    "name": "pushoutMap",
+    "statement": "C} {f : S \u27f6 X} {g : S \u27f6 Y} {f' : S \u27f6 X'} {g' : S \u27f6 Y'} {i\u2081 : X \u27f6 X'} [HasPushoutsAlong f] [HasPushoutsAlong g'] {i\u2082 : Y \u27f6 Y'} (h\u2081 : P i\u2081) (h\u2082 : P i\u2082) (e\u2081 : f' = f \u226b i\u2081) (e\u2082 : g' = g \u226b i\u2082) : P (pushout.map f g f' g' i\u2081 i\u2082 (\ud835\udfd9 _) (by simp [e\u2081]) (by simp [e\u2082]))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "HasPushoutsAlong (Under.mk g').hom",
+        "body": "by cat_disch",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Limits",
+    "name": "colimitsOfShape_le_of_final",
+    "statement": "Type*} [Category* J'] (F : J \u2964 J') [F.Final] : W.colimitsOfShape J' \u2264 W.colimitsOfShape J",
+    "have_tree": [
+      {
+        "name": "h\u2081'",
+        "type": "IsColimit (c\u2081.whisker F)",
+        "body": "(Functor.Final.isColimitWhiskerEquiv F c\u2081).symm h\u2081",
+        "children": []
+      },
+      {
+        "name": "h\u2082'",
+        "type": "IsColimit (c\u2082.whisker F)",
+        "body": "(Functor.Final.isColimitWhiskerEquiv F c\u2082).symm h\u2082",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "h\u2081'.fac (Cocone.mk c\u2082.pt (Functor.whiskerLeft F f \u226b Functor.whiskerLeft F c\u2082.\u03b9)) j",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Limits",
+    "name": "le_colimitsOfShape_punit",
+    "statement": "W \u2264 W.colimitsOfShape (Discrete PUnit.{w + 1})",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "initialIsInitial (C := Discrete (PUnit.{w + 1}))",
+        "children": []
+      },
+      {
+        "name": "hc\u2081",
+        "type": "IsColimit c\u2081",
+        "body": "colimitOfDiagramInitial h _",
+        "children": []
+      },
+      {
+        "name": "hc\u2082",
+        "type": "IsColimit c\u2082",
+        "body": "colimitOfDiagramInitial h _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Limits",
+    "name": "IsStableUnderProductsOfShape",
+    "statement": "Type*)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "HasLimit X\u2081",
+        "body": "\u27e8c\u2081, hc\u2081\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasLimit X\u2082",
+        "body": "\u27e8c\u2082, hc\u2082\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasProduct fun j \u21a6 X\u2081.obj (Discrete.mk j)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasProduct fun j \u21a6 X\u2082.obj (Discrete.mk j)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hf'",
+        "type": "",
+        "body": "hW _ _ \u03c6 (fun j => hf (Discrete.mk j))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Limits",
+    "name": "IsStableUnderCoproductsOfShape.mk",
+    "statement": "Type*) [W.RespectsIso] (hW : \u2200 (X\u2081 X\u2082 : J \u2192 C) [HasCoproduct X\u2081] [HasCoproduct X\u2082] (f : \u2200 j, X\u2081 j \u27f6 X\u2082 j) (_ : \u2200 (j : J), W (f j)), W (Limits.Sigma.map f)) : W.IsStableUnderCoproductsOfShape J where condition X\u2081 X\u2082 c\u2081 c\u2082 hc\u2081 hc\u2082 f hf \u03b1 h\u03b1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "HasColimit X\u2081",
+        "body": "\u27e8c\u2081, hc\u2081\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasColimit X\u2082",
+        "body": "\u27e8c\u2082, hc\u2082\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasCoproduct fun j \u21a6 X\u2081.obj (Discrete.mk j)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasCoproduct fun j \u21a6 X\u2082.obj (Discrete.mk j)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hf'",
+        "type": "",
+        "body": "hW _ _ \u03c6 (fun j => hf (Discrete.mk j))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Limits",
+    "name": "universally",
+    "statement": "MorphismProperty C) : MorphismProperty C",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsPullback (\ud835\udfd9 _) (i\u2081 \u226b e.hom) i\u2081 e.inv",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsPullback (\ud835\udfd9 _) i\u2082 (i\u2082 \u226b e.inv) e.inv",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Limits",
+    "name": "universally_mk'",
+    "statement": "MorphismProperty C) [P.RespectsIso] {X Y : C} (g : X \u27f6 Y) (H : \u2200 {T : C} (f : T \u27f6 Y) [HasPullback f g], P (pullback.fst f g)) : universally P g",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.hasPullback",
+        "children": []
+      }
+    ]
+  }
+]

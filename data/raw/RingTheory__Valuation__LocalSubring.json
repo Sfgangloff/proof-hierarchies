@@ -1,0 +1,124 @@
+[
+  {
+    "module": "LocalSubring",
+    "name": "LocalSubring.map_maximalIdeal_eq_top_of_isMax",
+    "statement": "LocalSubring K} (hR : IsMax R) {S : Subring K} (hS : R.toSubring < S) : (maximalIdeal R.toSubring).map (Subring.inclusion hS.le) = \u22a4",
+    "have_tree": [
+      {
+        "name": "h_RleS\u2098",
+        "type": "R \u2264 fS\u2098",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocalSubring",
+    "name": "LocalSubring.mem_of_isMax_of_isIntegral",
+    "statement": "LocalSubring K} (hR : IsMax R) {x : K} (hx : IsIntegral R.toSubring x) : x \u2208 R.toSubring",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Algebra.IsIntegral R.toSubring S",
+        "body": "Algebra.IsIntegral.adjoin (by simpa)",
+        "children": [
+          {
+            "name": "hRS",
+            "type": "R.toSubring \u2264 S.toSubring",
+            "body": "fun r hr \u21a6 algebraMap_mem S \u27e8r, hr\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LocalSubring",
+    "name": "ValuationSubring.isMax_toLocalSubring",
+    "statement": "ValuationSubring K) : IsMax R.toLocalSubring",
+    "have_tree": [
+      {
+        "name": "hx0",
+        "type": "x \u2260 0",
+        "body": "by rintro rfl; exact h' R.zero_mem",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsUnit (Subring.inclusion hS.1 \u27e8x\u207b\u00b9, h\u27e9)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocalSubring",
+    "name": "LocalSubring.exists_valuationRing_of_isMax",
+    "statement": "LocalSubring K} (hR : IsMax R) : \u2203 R' : ValuationSubring K, R'.toLocalSubring = R",
+    "have_tree": [
+      {
+        "name": "hx0",
+        "type": "x \u2260 0",
+        "body": "fun e \u21a6 hx (e \u25b8 zero_mem _)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "R.toSubring < S.toSubring",
+        "body": "SetLike.lt_iff_le_and_exists.mpr",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "IsUnit p.leadingCoeff",
+        "body": "of_not_not fun h \u21a6 by simpa using sub_mem h hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocalSubring",
+    "name": "LocalSubring.exists_le_valuationSubring",
+    "statement": "LocalSubring K) : \u2203 B : ValuationSubring K, A \u2264 B.toLocalSubring",
+    "have_tree": [
+      {
+        "name": "inst",
+        "type": "Nonempty s",
+        "body": "\u27e8\u27e8y, hys\u27e9\u27e9",
+        "children": []
+      },
+      {
+        "name": "hdir",
+        "type": "",
+        "body": "H.directed.mono_comp _ LocalSubring.toSubring_mono",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocalSubring",
+    "name": "iInf_valuationSubring_superset",
+    "statement": "Set K} : (\u2a05 V : {V : ValuationSubring K // s \u2286 V.toSubring}, V.1.toSubring) = (integralClosure (Subring.closure s) K).toSubring",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsIntegrallyClosedIn V.toSubring K",
+        "body": "inferInstanceAs (IsIntegrallyClosedIn V K)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LocalSubring",
+    "name": "bijective_rangeRestrict_comp_of_valuationRing",
+    "statement": "R \u2192+* S) (g : S \u2192+* K) (h : g.comp f = algebraMap R K) [IsLocalHom f] : Function.Bijective (g.rangeRestrict.comp f)",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "(algebraMap R K).range \u2264 g.range",
+        "body": "fun x \u27e8a, ha\u27e9 \u21a6 \u27e8f a, by simp [\u2190 ha, \u2190 h]\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

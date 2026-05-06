@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Cyclic",
+    "name": "card_orderOf_eq_totient_aux\u2082",
+    "statement": "\u2115} (hd : d \u2223 Fintype.card \u03b1) : #{a : \u03b1 | orderOf a = d} = \u03c6 d",
+    "have_tree": [
+      {
+        "name": "hc0",
+        "type": "0 < c",
+        "body": "Fintype.card_pos_iff.2 \u27e81\u27e9",
+        "children": [
+          {
+            "name": "_",
+            "type": "m = d",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hmc",
+            "type": "m \u2223 c",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Cyclic",
+    "name": "prime_card",
+    "statement": "(Nat.card \u03b1).Prime",
+    "have_tree": [
+      {
+        "name": "h\u03b1",
+        "type": "Nontrivial \u03b1",
+        "body": "IsSimpleGroup.toNontrivial",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2115) : orderOf g \u2223 n \u2228 n.Coprime (orderOf g)",
+        "body": "by",
+        "children": [
+          {
+            "name": "hgn",
+            "type": "g \u2208 Subgroup.zpowers (g ^ n)",
+            "body": "by simp_all only [ne_eq, orderOf_eq_one_iff,",
+            "children": []
+          },
+          {
+            "name": "hgn_int",
+            "type": "g \u2208 Subgroup.zpowers (g ^ (n : \u2124))",
+            "body": "by simpa [zpow_natCast]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

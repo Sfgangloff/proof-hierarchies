@@ -1,0 +1,166 @@
+[
+  {
+    "module": "Convolution",
+    "name": "continuousOn_convolution_right_with_param",
+    "statement": "P \u2192 G \u2192 E'} {s : Set P} {k : Set G} (hk : IsCompact k) (hgs : \u2200 p, \u2200 x, p \u2208 s \u2192 x \u2209 k \u2192 g p x = 0) (hf : LocallyIntegrable f \u03bc) (hg : ContinuousOn \u21bfg (s \u00d7\u02e2 univ)) : ContinuousOn (fun q : P \u00d7 G => (f \u22c6[L, \u03bc] g q.1) q.2) (s \u00d7\u02e2 univ)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "LocallyCompactSpace G",
+        "body": "by",
+        "children": [
+          {
+            "name": "A",
+            "type": "support (g p) \u2286 k",
+            "body": "support_subset_iff'.2 (fun y hy \u21a6 hgs p y hp hy)",
+            "children": []
+          },
+          {
+            "name": "B",
+            "type": "Continuous (g p)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "k'_comp",
+        "type": "IsCompact k'",
+        "body": "IsCompact.vadd_set hk.neg t_comp",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "ContinuousOn g'.uncurry (s' \u00d7\u02e2 univ)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "ContinuousOn (fun a \u21a6 \u222b x, L (f x) (g' a x) \u2202\u03bc) s'",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Convolution",
+    "name": "_root_.HasCompactSupport.continuous_convolution_right",
+    "statement": "HasCompactSupport g) (hf : LocallyIntegrable f \u03bc) (hg : Continuous g) : Continuous (f \u22c6[L, \u03bc] g)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "ContinuousOn \u21bfg' (univ \u00d7\u02e2 univ)",
+        "body": "(hg.comp continuous_snd).continuousOn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Convolution",
+    "name": "dist_convolution_le'",
+    "statement": "G} {R \u03b5 : \u211d} {z\u2080 : E'} (h\u03b5 : 0 \u2264 \u03b5) (hif : Integrable f \u03bc) (hf : support f \u2286 ball (0 : G) R) (hmg : AEStronglyMeasurable g \u03bc) (hg : \u2200 x \u2208 ball x\u2080 R, dist (g x) z\u2080 \u2264 \u03b5) : dist ((f \u22c6[L, \u03bc] g : G \u2192 F) x\u2080) (\u222b t, L (f t) z\u2080 \u2202\u03bc) \u2264 (\u2016L\u2016 * \u222b x, \u2016f x\u2016 \u2202\u03bc) * \u03b5",
+    "have_tree": [
+      {
+        "name": "hfg",
+        "type": "ConvolutionExistsAt f g x\u2080 L \u03bc",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "\u2200 t, dist (L (f t) (g (x\u2080 - t))) (L (f t) z\u2080) \u2264 \u2016L (f t)\u2016 * \u03b5",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h3",
+        "type": "\u2200 t, \u2016L (f t)\u2016 \u2264 \u2016L\u2016 * \u2016f t\u2016",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Convolution",
+    "name": "dist_convolution_le",
+    "statement": "G \u2192 \u211d} {x\u2080 : G} {R \u03b5 : \u211d} {z\u2080 : E'} (h\u03b5 : 0 \u2264 \u03b5) (hf : support f \u2286 ball (0 : G) R) (hnf : \u2200 x, 0 \u2264 f x) (hintf : \u222b x, f x \u2202\u03bc = 1) (hmg : AEStronglyMeasurable g \u03bc) (hg : \u2200 x \u2208 ball x\u2080 R, dist (g x) z\u2080 \u2264 \u03b5) : dist ((f \u22c6[lsmul \u211d \u211d, \u03bc] g : G \u2192 E') x\u2080) z\u2080 \u2264 \u03b5",
+    "have_tree": [
+      {
+        "name": "hif",
+        "type": "Integrable f \u03bc",
+        "body": "integrable_of_integral_eq_one hintf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Convolution",
+    "name": "convolution_tendsto_right",
+    "statement": "\u03b9 \u2192 G \u2192 E'} {l : Filter \u03b9} {x\u2080 : G} {z\u2080 : E'} {\u03c6 : \u03b9 \u2192 G \u2192 \u211d} {k : \u03b9 \u2192 G} (hn\u03c6 : \u2200\u1da0 i in l, \u2200 x, 0 \u2264 \u03c6 i x) (hi\u03c6 : \u2200\u1da0 i in l, \u222b x, \u03c6 i x \u2202\u03bc = 1) -- todo: we could weaken this to \"the integral tends to 1\" (h\u03c6 : Tendsto (fun n => support (\u03c6 n)) l (\ud835\udcdd 0).smallSets) (hmg : \u2200\u1da0 i in l, AEStronglyMeasurable (g i) \u03bc) (hcg : Tendsto (uncurry g) (l \u00d7\u02e2 \ud835\udcdd x\u2080) (\ud835\udcdd z\u2080)) (hk : Tendsto k l (\ud835\udcdd x\u2080)) : Tendsto (fun i : \u03b9 => (\u03c6 i \u22c6[lsmul \u211d \u211d, \u03bc] g i : G \u2192 E') (k i)) l (\ud835\udcdd z\u2080)",
+    "have_tree": [
+      {
+        "name": "h2\u03b5",
+        "type": "0 < \u03b5 / 3",
+        "body": "div_pos h\u03b5 (by simp)",
+        "children": []
+      },
+      {
+        "name": "h2k",
+        "type": "",
+        "body": "hk.eventually (ball_mem_nhds x\u2080 <| half_pos h\u03b4)",
+        "children": []
+      },
+      {
+        "name": "h2\u03c6",
+        "type": "",
+        "body": "h\u03c6 (ball (0 : G) _) <| ball_mem_nhds _ (half_pos h\u03b4)",
+        "children": []
+      },
+      {
+        "name": "hgi",
+        "type": "dist (g i (k i)) z\u2080 < \u03b5 / 3",
+        "body": "hg\u03b4 hpi (hki.trans <| half_lt_self h\u03b4)",
+        "children": []
+      },
+      {
+        "name": "h1",
+        "type": "\u2200 x' \u2208 ball (k i) (\u03b4 / 2), dist (g i x') (g i (k i)) \u2264 \u03b5 / 3 + \u03b5 / 3",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "dist_convolution_le (add_pos h2\u03b5 h2\u03b5).le h\u03c6i hn\u03c6i hi\u03c6i hmgi h1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Convolution",
+    "name": "convolution_precompR_apply",
+    "statement": "G \u2192 E'' \u2192L[\ud835\udd5c] E'} (hf : LocallyIntegrable f \u03bc) (hcg : HasCompactSupport g) (hg : Continuous g) (x\u2080 : G) (x : E'') : (f \u22c6[L.precompR E'', \u03bc] g) x\u2080 x = (f \u22c6[L, \u03bc] fun a => g a x) x\u2080",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hcg.convolutionExists_right (L.precompR E'' :) hf hg x\u2080",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Convolution",
+    "name": "posConvolution_eq_convolution_indicator",
+    "statement": "\u211d \u2192 E) (g : \u211d \u2192 E') (L : E \u2192L[\u211d] E' \u2192L[\u211d] F) (\u03bd : Measure \u211d",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "t \u2264 0 \u2228 t \u2208 Ioo 0 x \u2228 x \u2264 t",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

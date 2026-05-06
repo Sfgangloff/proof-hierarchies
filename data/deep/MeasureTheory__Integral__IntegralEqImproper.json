@@ -1,0 +1,192 @@
+[
+  {
+    "module": "IntegralEqImproper",
+    "name": "tendsto_limUnder_of_hasDerivAt_of_integrableOn_Ioi",
+    "statement": "\u2200 x \u2208 Ioi a, HasDerivAt f (f' x) x) (f'int : IntegrableOn f' (Ioi a)) : Tendsto f atTop (\ud835\udcdd (limUnder atTop f))",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2200\u1da0 (n : \u2115) in atTop, \u222b (x : \u211d) in Ici \u2191n, \u2016f' x\u2016 < \u03b5",
+        "body": "by",
+        "children": [
+          {
+            "name": "B",
+            "type": "\u22c2 (n : \u2115), Ici (n : \u211d) = \u2205",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "B",
+        "type": "\u2200\u1da0 (n : \u2115) in atTop, a < n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegralEqImproper",
+    "name": "tendsto_zero_of_hasDerivAt_of_integrableOn_Ioi",
+    "statement": "\u2200 x \u2208 Ioi a, HasDerivAt f (f' x) x) (f'int : IntegrableOn f' (Ioi a)) (fint : IntegrableOn f (Ioi a)) : Tendsto f atTop (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "Fderiv",
+        "type": "\u2200 x \u2208 Ioi a, HasDerivAt (F \u2218 f) (F (f' x)) x",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "Fint",
+        "type": "IntegrableOn (F \u2218 f) (Ioi a)",
+        "body": "by apply F.integrable_comp fint",
+        "children": []
+      },
+      {
+        "name": "F'int",
+        "type": "IntegrableOn (F \u2218 f') (Ioi a)",
+        "body": "by apply F.integrable_comp f'int",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "Tendsto (F \u2218 f) atTop (\ud835\udcdd (limUnder atTop (F \u2218 f)))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "limUnder atTop (F \u2218 f) = F 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "IntegrableAtFilter (F \u2218 f) atTop",
+            "body": "by exact \u27e8Ioi a, Ioi_mem_atTop _, Fint\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "IntegralEqImproper",
+    "name": "tendsto_limUnder_of_hasDerivAt_of_integrableOn_Iic",
+    "statement": "\u2200 x \u2208 Iic a, HasDerivAt f (f' x) x) (f'int : IntegrableOn f' (Iic a)) : Tendsto f atBot (\ud835\udcdd (limUnder atBot f))",
+    "have_tree": [
+      {
+        "name": "hdg",
+        "type": "\u2200 x \u2208 Ioi (-a), HasDerivAt g (-f' (-x)) x",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "-x \u2208 Iic a",
+            "body": "by simp only [mem_Iic, mem_Ioi, neg_le] at *; exact hx.le",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "L",
+        "type": "Tendsto g atTop (\ud835\udcdd (limUnder atTop g))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Tendsto (fun x \u21a6 g (-x)) atBot (\ud835\udcdd (limUnder atTop g))",
+        "body": "L.comp tendsto_neg_atBot_atTop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegralEqImproper",
+    "name": "tendsto_zero_of_hasDerivAt_of_integrableOn_Iic",
+    "statement": "\u2200 x \u2208 Iic a, HasDerivAt f (f' x) x) (f'int : IntegrableOn f' (Iic a)) (fint : IntegrableOn f (Iic a)) : Tendsto f atBot (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "Fderiv",
+        "type": "\u2200 x \u2208 Iic a, HasDerivAt (F \u2218 f) (F (f' x)) x",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "Fint",
+        "type": "IntegrableOn (F \u2218 f) (Iic a)",
+        "body": "by apply F.integrable_comp fint",
+        "children": []
+      },
+      {
+        "name": "F'int",
+        "type": "IntegrableOn (F \u2218 f') (Iic a)",
+        "body": "by apply F.integrable_comp f'int",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "Tendsto (F \u2218 f) atBot (\ud835\udcdd (limUnder atBot (F \u2218 f)))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "limUnder atBot (F \u2218 f) = F 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "IntegrableAtFilter (F \u2218 f) atBot",
+            "body": "by exact \u27e8Iic a, Iic_mem_atBot _, Fint\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "IntegralEqImproper",
+    "name": "integral_comp_smul_deriv_Ioi",
+    "statement": "\u211d \u2192 \u211d} {g : \u211d \u2192 E} {a : \u211d} (hf : ContinuousOn f <| Ici a) (hft : Tendsto f atTop atTop) (hff' : \u2200 x \u2208 Ioi a, HasDerivWithinAt f (f' x) (Ioi x) x) (hg_cont : ContinuousOn g <| f '' Ioi a) (hg1 : IntegrableOn g <| f '' Ici a) (hg2 : IntegrableOn (fun x => f' x \u2022 (g \u2218 f) x) (Ici a)) : (\u222b x in Ioi a, f' x \u2022 (g \u2218 f) x) = \u222b u in Ioi (f a), g u",
+    "have_tree": [
+      {
+        "name": "eq",
+        "type": "\u2200 b : \u211d, a < b \u2192 (\u222b x in a..b, f' x \u2022 (g \u2218 f) x) = \u222b u in f a..f b, g u",
+        "body": "fun b hb \u21a6 by",
+        "children": [
+          {
+            "name": "i1",
+            "type": "Ioo (min a b) (max a b) \u2286 Ioi a",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "i2",
+            "type": "[[a, b]] \u2286 Ici a",
+            "body": "by rw [uIcc_of_le hb.le]; exact Icc_subset_Ici_self",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "t2",
+        "type": "",
+        "body": "intervalIntegral_tendsto_integral_Ioi _ hg2 tendsto_id",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Ioi (f a) \u2286 f '' Ici a",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "t1",
+        "type": "",
+        "body": "(intervalIntegral_tendsto_integral_Ioi _ (hg1.mono_set this) tendsto_id).comp hft",
+        "children": []
+      }
+    ]
+  }
+]

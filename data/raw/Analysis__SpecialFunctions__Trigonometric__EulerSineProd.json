@@ -1,0 +1,86 @@
+[
+  {
+    "module": "EulerSineProd",
+    "name": "antideriv_cos_comp_const_mul",
+    "statement": "z \u2260 0) (x : \u211d) : HasDerivAt (fun y : \u211d => Complex.sin (2 * z * y) / (2 * z)) (Complex.cos (2 * z * x)) x",
+    "have_tree": [
+      {
+        "name": "c",
+        "type": "",
+        "body": "b.comp_ofReal.div_const (2 * z)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EulerSineProd",
+    "name": "antideriv_sin_comp_const_mul",
+    "statement": "z \u2260 0) (x : \u211d) : HasDerivAt (fun y : \u211d => -Complex.cos (2 * z * y) / (2 * z)) (Complex.sin (2 * z * x)) x",
+    "have_tree": [
+      {
+        "name": "c",
+        "type": "",
+        "body": "(b.comp_ofReal.div_const (2 * z)).fun_neg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EulerSineProd",
+    "name": "integral_sin_mul_sin_mul_cos_pow_eq",
+    "statement": "2 \u2264 n) (hz : z \u2260 0) : (\u222b x in (0 : \u211d)..\u03c0 / 2, Complex.sin (2 * z * x) * sin x * (cos x : \u2102) ^ (n - 1)) = (n / (2 * z) * \u222b x in (0 : \u211d)..\u03c0 / 2, Complex.cos (2 * z * x) * (cos x : \u2102) ^ n) - (n - 1) / (2 * z) * \u222b x in (0 : \u211d)..\u03c0 / 2, Complex.cos (2 * z * x) * (cos x : \u2102) ^ (n - 2)",
+    "have_tree": [
+      {
+        "name": "c",
+        "type": "",
+        "body": "HasDerivAt.comp (x : \u2102) (hasDerivAt_pow (n - 1) _) (Complex.hasDerivAt_cos x)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EulerSineProd",
+    "name": "integral_cos_mul_cos_pow",
+    "statement": "2 \u2264 n) (hz : z \u2260 0) : (((1 : \u2102) - (4 : \u2102) * z ^ 2 / (n : \u2102) ^ 2) * \u222b x in (0 : \u211d)..\u03c0 / 2, Complex.cos (2 * z * x) * (cos x : \u2102) ^ n) = (n - 1 : \u2102) / n * \u222b x in (0 : \u211d)..\u03c0 / 2, Complex.cos (2 * z * x) * (cos x : \u2102) ^ (n - 2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "integral_cos_mul_cos_pow_aux hn hz",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EulerSineProd",
+    "name": "integral_cos_pow_eq",
+    "statement": "\u2115) : (\u222b x in (0 : \u211d)..\u03c0 / 2, cos x ^ n) = 1 / 2 * \u222b x in (0 : \u211d)..\u03c0, sin x ^ n",
+    "have_tree": [
+      {
+        "name": "L",
+        "type": "IntervalIntegrable _ volume 0 (\u03c0 / 2)",
+        "body": "(continuous_sin.pow n).intervalIntegrable _ _",
+        "children": []
+      },
+      {
+        "name": "R",
+        "type": "IntervalIntegrable _ volume (\u03c0 / 2) \u03c0",
+        "body": "(continuous_sin.pow n).intervalIntegrable _ _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EulerSineProd",
+    "name": "tendsto_integral_cos_pow_mul_div",
+    "statement": "\u211d \u2192 \u2102} (hf : ContinuousOn f (Icc 0 (\u03c0 / 2))) : Tendsto (fun n : \u2115 => (\u222b x in (0 : \u211d)..\u03c0 / 2, (cos x : \u2102) ^ n * f x) / (\u222b x in (0 : \u211d)..\u03c0 / 2, cos x ^ n : \u211d)) atTop (\ud835\udcdd <| f 0)",
+    "have_tree": [
+      {
+        "name": "c_zero_pos",
+        "type": "0 < cos 0",
+        "body": "by rw [cos_zero]; exact zero_lt_one",
+        "children": []
+      }
+    ]
+  }
+]

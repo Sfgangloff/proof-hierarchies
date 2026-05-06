@@ -1,0 +1,149 @@
+[
+  {
+    "original": {
+      "module": "Sum",
+      "name": "Finset.exists_equiv_extend_of_card_eq",
+      "statement": "Finset \u03b2} (h\u03b1t : Fintype.card \u03b1 = #t) {s : Finset \u03b1} {f : \u03b1 \u2192 \u03b2} (hfst : Finset.image f s \u2286 t) (hfs : Set.InjOn f s) : \u2203 g : \u03b1 \u2243 t, \u2200 i \u2208 s, (g i : \u03b2) = f i",
+      "have_tree": [
+        {
+          "name": "hfst'",
+          "type": "Finset.image f s \u2286 t",
+          "body": "(Finset.image_mono _ (s.subset_insert a)).trans hfst",
+          "children": []
+        },
+        {
+          "name": "hfs'",
+          "type": "Set.InjOn f s",
+          "body": "hfs.mono (s.subset_insert a)",
+          "children": []
+        },
+        {
+          "name": "hfat",
+          "type": "f a \u2208 t",
+          "body": "hfst (mem_image_of_mem _ (s.mem_insert_self a))",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Sum",
+          "name": "Finset.exists_equiv_extend_of_card_eq",
+          "statement": "Finset \u03b2} (h\u03b1t : Fintype.card \u03b1 = #t) {s : Finset \u03b1} {f : \u03b1 \u2192 \u03b2} (hfst : Finset.image f s \u2286 t) (hfs : Set.InjOn f s) : \u2203 g : \u03b1 \u2243 t, \u2200 i \u2208 s, (g i : \u03b2) = f i",
+          "have_tree": [
+            {
+              "name": "hfs'",
+              "type": "Set.InjOn f s",
+              "body": "hfs.mono (s.subset_insert a)",
+              "children": []
+            },
+            {
+              "name": "hfst'",
+              "type": "Finset.image f s \u2286 t",
+              "body": "(Finset.image_mono _ (s.subset_insert a)).trans hfst",
+              "children": []
+            },
+            {
+              "name": "hfat",
+              "type": "f a \u2208 t",
+              "body": "hfst (mem_image_of_mem _ (s.mem_insert_self a))",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Sum",
+          "name": "Finset.exists_equiv_extend_of_card_eq",
+          "statement": "Finset \u03b2} (h\u03b1t : Fintype.card \u03b1 = #t) {s : Finset \u03b1} {f : \u03b1 \u2192 \u03b2} (hfst : Finset.image f s \u2286 t) (hfs : Set.InjOn f s) : \u2203 g : \u03b1 \u2243 t, \u2200 i \u2208 s, (g i : \u03b2) = f i",
+          "have_tree": [
+            {
+              "name": "hfst'",
+              "type": "Finset.image f s \u2286 t",
+              "body": "(Finset.image_mono _ (s.subset_insert a)).trans hfst",
+              "children": []
+            },
+            {
+              "name": "hfat",
+              "type": "f a \u2208 t",
+              "body": "hfst (mem_image_of_mem _ (s.mem_insert_self a))",
+              "children": []
+            },
+            {
+              "name": "hfs'",
+              "type": "Set.InjOn f s",
+              "body": "hfs.mono (s.subset_insert a)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Sum",
+      "name": "Set.MapsTo.exists_equiv_extend_of_card_eq",
+      "statement": "Finset \u03b2} (h\u03b1t : Fintype.card \u03b1 = #t) {s : Set \u03b1} {f : \u03b1 \u2192 \u03b2} (hfst : s.MapsTo f t) (hfs : Set.InjOn f s) : \u2203 g : \u03b1 \u2243 t, \u2200 i \u2208 s, (g i : \u03b2) = f i",
+      "have_tree": [
+        {
+          "name": "hfst'",
+          "type": "s'.image f \u2286 t",
+          "body": "by simpa [s', \u2190 Finset.coe_subset] using hfst",
+          "children": []
+        },
+        {
+          "name": "hfs'",
+          "type": "Set.InjOn f s'",
+          "body": "by simpa [s'] using hfs",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Sum",
+          "name": "Set.MapsTo.exists_equiv_extend_of_card_eq",
+          "statement": "Finset \u03b2} (h\u03b1t : Fintype.card \u03b1 = #t) {s : Set \u03b1} {f : \u03b1 \u2192 \u03b2} (hfst : s.MapsTo f t) (hfs : Set.InjOn f s) : \u2203 g : \u03b1 \u2243 t, \u2200 i \u2208 s, (g i : \u03b2) = f i",
+          "have_tree": [
+            {
+              "name": "hfs'",
+              "type": "Set.InjOn f s'",
+              "body": "by simpa [s'] using hfs",
+              "children": []
+            },
+            {
+              "name": "hfst'",
+              "type": "s'.image f \u2286 t",
+              "body": "by simpa [s', \u2190 Finset.coe_subset] using hfst",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

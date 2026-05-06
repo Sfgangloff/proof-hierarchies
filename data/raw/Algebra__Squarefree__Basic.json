@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Basic",
+    "name": "Squarefree.eq_zero_or_one_of_pow_of_not_isUnit",
+    "statement": "R} {n : \u2115} (h : Squarefree (x ^ n)) (h' : \u00ac IsUnit x) : n = 0 \u2228 n = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x * x \u2223 x ^ n",
+        "body": "by rw [\u2190 sq]; exact pow_dvd_pow x h'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "squarefree_iff_no_irreducibles",
+    "statement": "R} (hx\u2080 : x \u2260 0) : Squarefree x \u2194 \u2200 p, Irreducible p \u2192 \u00ac (p * p \u2223 x)",
+    "have_tree": [
+      {
+        "name": "hd\u2080",
+        "type": "d \u2260 0",
+        "body": "ne_zero_of_dvd_ne_zero (ne_zero_of_dvd_ne_zero hx\u2080 hd) (dvd_mul_left d d)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "pow_dvd_of_squarefree_of_pow_succ_dvd_mul_right",
+    "statement": "\u2115} (hx : Squarefree x) (hp : Prime p) (h : p ^ (k + 1) \u2223 x * y) : p ^ k \u2223 y",
+    "have_tree": [
+      {
+        "name": "hx'",
+        "type": "\u00ac p \u2223 x'",
+        "body": "fun contra \u21a6 hp.not_unit <| hx p (mul_dvd_mul_left p contra)",
+        "children": []
+      }
+    ]
+  }
+]

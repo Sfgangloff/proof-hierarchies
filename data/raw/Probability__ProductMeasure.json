@@ -1,0 +1,41 @@
+[
+  {
+    "module": "ProductMeasure",
+    "name": "map_piSingleton",
+    "statement": "(n : \u2115) \u2192 Measure (X n)) [\u2200 n, SigmaFinite (\u03bc n)] (n : \u2115) : (\u03bc (n + 1)).map (piSingleton n) = Measure.pi (fun i : Ioc n (n + 1) \u21a6 \u03bc i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Subsingleton (Ioc n (n + 1))",
+        "body": "by rw [Nat.Ioc_succ_singleton]; infer_instance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ProductMeasure",
+    "name": "piContent_tendsto_zero",
+    "statement": "\u2115 \u2192 Set (\u03a0 i, X i)} (A_mem : \u2200 n, A n \u2208 measurableCylinders X) (A_anti : Antitone A) (A_inter : \u22c2 n, A n = \u2205) : Tendsto (fun n \u21a6 piContent \u03bc (A n)) atTop (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 i, Nonempty (X i)",
+        "body": "fun i \u21a6 nonempty_of_isProbabilityMeasure (\u03bc i)",
+        "children": []
+      },
+      {
+        "name": "B_anti",
+        "type": "Antitone B",
+        "body": "fun m n hmn \u21a6 Set.preimage_mono <| A_anti hmn",
+        "children": [
+          {
+            "name": "count_u",
+            "type": "Countable u",
+            "body": "Set.countable_iUnion (fun n \u21a6 (s n).countable_toSet)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

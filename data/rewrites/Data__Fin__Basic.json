@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "modNat_rev",
+      "statement": "Fin (m * n)) : i.rev.modNat = i.modNat.rev",
+      "have_tree": [
+        {
+          "name": "H\u2081",
+          "type": "i % n + 1 \u2264 n",
+          "body": "i.modNat.is_lt",
+          "children": []
+        },
+        {
+          "name": "H\u2082",
+          "type": "i / n < m",
+          "body": "i.divNat.is_lt",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "modNat_rev",
+          "statement": "Fin (m * n)) : i.rev.modNat = i.modNat.rev",
+          "have_tree": [
+            {
+              "name": "H\u2082",
+              "type": "i / n < m",
+              "body": "i.divNat.is_lt",
+              "children": []
+            },
+            {
+              "name": "H\u2081",
+              "type": "i % n + 1 \u2264 n",
+              "body": "i.modNat.is_lt",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "module": "ADEInequality",
+    "name": "lt_three",
+    "statement": "\u2115+} (hpq : p \u2264 q) (hqr : q \u2264 r) (H : 1 < sumInv {p, q, r}) : p < 3",
+    "have_tree": [
+      {
+        "name": "h3q",
+        "type": "",
+        "body": "H.trans hpq",
+        "children": []
+      },
+      {
+        "name": "h3r",
+        "type": "",
+        "body": "h3q.trans hqr",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ADEInequality",
+    "name": "lt_four",
+    "statement": "\u2115+} (hqr : q \u2264 r) (H : 1 < sumInv {2, q, r}) : q < 4",
+    "have_tree": [
+      {
+        "name": "h4r",
+        "type": "",
+        "body": "H.trans hqr",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ADEInequality",
+    "name": "admissible_of_one_lt_sumInv_aux'",
+    "statement": "\u2115+} (hpq : p \u2264 q) (hqr : q \u2264 r) (H : 1 < sumInv {p, q, r}) : Admissible {p, q, r}",
+    "have_tree": [
+      {
+        "name": "hp3",
+        "type": "p < 3",
+        "body": "lt_three hpq hqr H",
+        "children": []
+      },
+      {
+        "name": "hq4",
+        "type": "q < 4",
+        "body": "lt_four hqr H",
+        "children": []
+      },
+      {
+        "name": "hr6",
+        "type": "r < 6",
+        "body": "lt_six H",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ADEInequality",
+    "name": "admissible_of_one_lt_sumInv_aux",
+    "statement": "\u2200 {pqr : List \u2115+} (_ : pqr.SortedLE) (_ : pqr.length = 3) (_ : 1 < sumInv pqr), Admissible pqr | [p, q, r], hs, _, H => by obtain \u27e8\u27e8hpq, -\u27e9, hqr\u27e9 : (p \u2264 q \u2227 p \u2264 r) \u2227 q \u2264 r",
+    "have_tree": [
+      {
+        "name": "hS",
+        "type": "S.SortedLE",
+        "body": "(pairwise_sort _ _).sortedLE",
+        "children": []
+      }
+    ]
+  }
+]

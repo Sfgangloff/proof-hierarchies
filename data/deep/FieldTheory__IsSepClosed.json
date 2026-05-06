@@ -1,0 +1,40 @@
+[
+  {
+    "module": "IsSepClosed",
+    "name": "exists_root_C_mul_X_pow_add_C_mul_X_add_C",
+    "statement": "\u2115} (a b c : k) (hn : (n : k) = 0) (hn' : 2 \u2264 n) (hb : b \u2260 0) : \u2203 x, a * x ^ n + b * x + c = 0",
+    "have_tree": [
+      {
+        "name": "hdeg",
+        "type": "f.degree \u2260 0",
+        "body": "degree_ne_of_natDegree_ne <| by",
+        "children": [
+          {
+            "name": "h0",
+            "type": "n \u2260 0",
+            "body": "by linarith only [hn']",
+            "children": []
+          },
+          {
+            "name": "h1",
+            "type": "n \u2260 1",
+            "body": "by linarith only [hn']",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "1 \u2264 n",
+            "body": "le_trans one_le_two hn'",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hsep",
+        "type": "f.Separable",
+        "body": "separable_C_mul_X_pow_add_C_mul_X_add_C a b c hn hb.isUnit",
+        "children": []
+      }
+    ]
+  }
+]

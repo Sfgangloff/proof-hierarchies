@@ -1,0 +1,123 @@
+[
+  {
+    "module": "Gronwall",
+    "name": "le_gronwallBound_of_liminf_deriv_right_le",
+    "statement": "\u211d \u2192 \u211d} {\u03b4 K \u03b5 : \u211d} {a b : \u211d} (hf : ContinuousOn f (Icc a b)) (hf' : \u2200 x \u2208 Ico a b, \u2200 r, f' x < r \u2192 \u2203\u1da0 z in \ud835\udcdd[>] x, (z - x)\u207b\u00b9 * (f z - f x) < r) (ha : f a \u2264 \u03b4) (bound : \u2200 x \u2208 Ico a b, f' x \u2264 K * f x + \u03b5) : \u2200 x \u2208 Icc a b, f x \u2264 gronwallBound \u03b4 K \u03b5 (x - a)",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "\u2200 x \u2208 Icc a b, \u2200 \u03b5' \u2208 Ioi \u03b5, f x \u2264 gronwallBound \u03b4 K \u03b5' (x - a)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gronwall",
+    "name": "dist_le_of_approx_trajectories_ODE_of_mem",
+    "statement": "\u2200 t \u2208 Ico a b, LipschitzOnWith K (v t) (s t)) (hf : ContinuousOn f (Icc a b)) (hf' : \u2200 t \u2208 Ico a b, HasDerivWithinAt f (f' t) (Ici t) t) (f_bound : \u2200 t \u2208 Ico a b, dist (f' t) (v t (f t)) \u2264 \u03b5f) (hfs : \u2200 t \u2208 Ico a b, f t \u2208 s t) (hg : ContinuousOn g (Icc a b)) (hg' : \u2200 t \u2208 Ico a b, HasDerivWithinAt g (g' t) (Ici t) t) (g_bound : \u2200 t \u2208 Ico a b, dist (g' t) (v t (g t)) \u2264 \u03b5g) (hgs : \u2200 t \u2208 Ico a b, g t \u2208 s t) (ha : dist (f a) (g a) \u2264 \u03b4) : \u2200 t \u2208 Icc a b, dist (f t) (g t) \u2264 gronwallBound \u03b4 K (\u03b5f + \u03b5g) (t - a)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "dist_triangle4_right (f' t) (g' t) (v t (f t)) (v t (g t))",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(hv t ht).dist_le_mul _ (hfs t ht) _ (hgs t ht)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gronwall",
+    "name": "dist_le_of_approx_trajectories_ODE",
+    "statement": "\u2200 t, LipschitzWith K (v t)) (hf : ContinuousOn f (Icc a b)) (hf' : \u2200 t \u2208 Ico a b, HasDerivWithinAt f (f' t) (Ici t) t) (f_bound : \u2200 t \u2208 Ico a b, dist (f' t) (v t (f t)) \u2264 \u03b5f) (hg : ContinuousOn g (Icc a b)) (hg' : \u2200 t \u2208 Ico a b, HasDerivWithinAt g (g' t) (Ici t) t) (g_bound : \u2200 t \u2208 Ico a b, dist (g' t) (v t (g t)) \u2264 \u03b5g) (ha : dist (f a) (g a) \u2264 \u03b4) : \u2200 t \u2208 Icc a b, dist (f t) (g t) \u2264 gronwallBound \u03b4 K (\u03b5f + \u03b5g) (t - a)",
+    "have_tree": [
+      {
+        "name": "hfs",
+        "type": "\u2200 t \u2208 Ico a b, f t \u2208 @univ E",
+        "body": "fun _ _ => trivial",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gronwall",
+    "name": "dist_le_of_trajectories_ODE_of_mem",
+    "statement": "\u2200 t \u2208 Ico a b, LipschitzOnWith K (v t) (s t)) (hf : ContinuousOn f (Icc a b)) (hf' : \u2200 t \u2208 Ico a b, HasDerivWithinAt f (v t (f t)) (Ici t) t) (hfs : \u2200 t \u2208 Ico a b, f t \u2208 s t) (hg : ContinuousOn g (Icc a b)) (hg' : \u2200 t \u2208 Ico a b, HasDerivWithinAt g (v t (g t)) (Ici t) t) (hgs : \u2200 t \u2208 Ico a b, g t \u2208 s t) (ha : dist (f a) (g a) \u2264 \u03b4) : \u2200 t \u2208 Icc a b, dist (f t) (g t) \u2264 \u03b4 * exp (K * (t - a))",
+    "have_tree": [
+      {
+        "name": "f_bound",
+        "type": "\u2200 t \u2208 Ico a b, dist (v t (f t)) (v t (f t)) \u2264 0",
+        "body": "by intros; rw [dist_self]",
+        "children": []
+      },
+      {
+        "name": "g_bound",
+        "type": "\u2200 t \u2208 Ico a b, dist (v t (g t)) (v t (g t)) \u2264 0",
+        "body": "by intros; rw [dist_self]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gronwall",
+    "name": "dist_le_of_trajectories_ODE",
+    "statement": "\u2200 t, LipschitzWith K (v t)) (hf : ContinuousOn f (Icc a b)) (hf' : \u2200 t \u2208 Ico a b, HasDerivWithinAt f (v t (f t)) (Ici t) t) (hg : ContinuousOn g (Icc a b)) (hg' : \u2200 t \u2208 Ico a b, HasDerivWithinAt g (v t (g t)) (Ici t) t) (ha : dist (f a) (g a) \u2264 \u03b4) : \u2200 t \u2208 Icc a b, dist (f t) (g t) \u2264 \u03b4 * exp (K * (t - a))",
+    "have_tree": [
+      {
+        "name": "hfs",
+        "type": "\u2200 t \u2208 Ico a b, f t \u2208 @univ E",
+        "body": "fun _ _ => trivial",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gronwall",
+    "name": "ODE_solution_unique_of_mem_Icc_left",
+    "statement": "\u2200 t \u2208 Ioc a b, LipschitzOnWith K (v t) (s t)) (hf : ContinuousOn f (Icc a b)) (hf' : \u2200 t \u2208 Ioc a b, HasDerivWithinAt f (v t (f t)) (Iic t) t) (hfs : \u2200 t \u2208 Ioc a b, f t \u2208 s t) (hg : ContinuousOn g (Icc a b)) (hg' : \u2200 t \u2208 Ioc a b, HasDerivWithinAt g (v t (g t)) (Iic t) t) (hgs : \u2200 t \u2208 Ioc a b, g t \u2208 s t) (hb : f b = g b) : EqOn f g (Icc a b)",
+    "have_tree": [
+      {
+        "name": "hv'",
+        "type": "\u2200 t \u2208 Ico (-b) (-a), LipschitzOnWith K (Neg.neg \u2218 (v (-t))) (s (-t))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hmt1",
+        "type": "MapsTo Neg.neg (Icc (-b) (-a)) (Icc a b)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hmt2",
+        "type": "MapsTo Neg.neg (Ico (-b) (-a)) (Ioc a b)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Gronwall",
+    "name": "ODE_solution_unique",
+    "statement": "\u2200 t, LipschitzWith K (v t)) (hf : ContinuousOn f (Icc a b)) (hf' : \u2200 t \u2208 Ico a b, HasDerivWithinAt f (v t (f t)) (Ici t) t) (hg : ContinuousOn g (Icc a b)) (hg' : \u2200 t \u2208 Ico a b, HasDerivWithinAt g (v t (g t)) (Ici t) t) (ha : f a = g a) : EqOn f g (Icc a b)",
+    "have_tree": [
+      {
+        "name": "hfs",
+        "type": "\u2200 t \u2208 Ico a b, f t \u2208 univ",
+        "body": "fun _ _ => trivial",
+        "children": []
+      }
+    ]
+  }
+]

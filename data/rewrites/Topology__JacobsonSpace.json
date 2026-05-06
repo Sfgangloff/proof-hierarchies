@@ -1,0 +1,335 @@
+[
+  {
+    "original": {
+      "module": "JacobsonSpace",
+      "name": "Set.Finite.isDiscrete_of_subset_closedPoints",
+      "statement": "Set X} (hs : s.Finite) (hs' : s \u2286 closedPoints X) : IsDiscrete s",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "T1Space s",
+          "body": "\u27e8fun x \u21a6 by convert (hs' x.2).preimage continuous_subtype_val; aesop\u27e9",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Finite s",
+          "body": "hs",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "JacobsonSpace",
+          "name": "Set.Finite.isDiscrete_of_subset_closedPoints",
+          "statement": "Set X} (hs : s.Finite) (hs' : s \u2286 closedPoints X) : IsDiscrete s",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Finite s",
+              "body": "hs",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "T1Space s",
+              "body": "\u27e8fun x \u21a6 by convert (hs' x.2).preimage continuous_subtype_val; aesop\u27e9",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "JacobsonSpace",
+      "name": "jacobsonSpace_iff_locallyClosed",
+      "statement": "JacobsonSpace X \u2194 \u2200 Z, Z.Nonempty \u2192 IsLocallyClosed Z \u2192 (Z \u2229 closedPoints X).Nonempty",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Z \u2286 closure Z \\ Z",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "H _ H' (isClosed_closure.isOpen_compl.isLocallyClosed.inter hZ.isLocallyClosed)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "JacobsonSpace",
+          "name": "jacobsonSpace_iff_locallyClosed",
+          "statement": "JacobsonSpace X \u2194 \u2200 Z, Z.Nonempty \u2192 IsLocallyClosed Z \u2192 (Z \u2229 closedPoints X).Nonempty",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "H _ H' (isClosed_closure.isOpen_compl.isLocallyClosed.inter hZ.isLocallyClosed)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Z \u2286 closure Z \\ Z",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "JacobsonSpace",
+      "name": "subsingleton_image_closure_of_finite_of_isPreirreducible",
+      "statement": "Set X} (hS : IsLocallyClosed S) (hS' : IsPreirreducible S) (hf\u2081 : Continuous f) (hf\u2082 : IsClosedMap f) (hfS : (f '' S).Finite) : (f '' closure S).Subsingleton",
+      "have_tree": [
+        {
+          "name": "H\u2081",
+          "type": "IsIrreducible (S \u2229 closedPoints X)",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "H\u2082",
+          "type": "f '' (S \u2229 closedPoints X) \u2286 closedPoints Y",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "H\u2083",
+          "type": "",
+          "body": "((hfS.subset (Set.image_mono Set.inter_subset_left)).isDiscrete_of_subset_closedPoints",
+          "children": []
+        },
+        {
+          "name": "H\u2084",
+          "type": "IsClosed (f '' (S \u2229 closedPoints X))",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "image_closure_subset_closure_image (s := S \u2229 closedPoints X) hf\u2081",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "JacobsonSpace",
+          "name": "subsingleton_image_closure_of_finite_of_isPreirreducible",
+          "statement": "Set X} (hS : IsLocallyClosed S) (hS' : IsPreirreducible S) (hf\u2081 : Continuous f) (hf\u2082 : IsClosedMap f) (hfS : (f '' S).Finite) : (f '' closure S).Subsingleton",
+          "have_tree": [
+            {
+              "name": "H\u2082",
+              "type": "f '' (S \u2229 closedPoints X) \u2286 closedPoints Y",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "H\u2081",
+              "type": "IsIrreducible (S \u2229 closedPoints X)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "H\u2083",
+              "type": "",
+              "body": "((hfS.subset (Set.image_mono Set.inter_subset_left)).isDiscrete_of_subset_closedPoints",
+              "children": []
+            },
+            {
+              "name": "H\u2084",
+              "type": "IsClosed (f '' (S \u2229 closedPoints X))",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "image_closure_subset_closure_image (s := S \u2229 closedPoints X) hf\u2081",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "JacobsonSpace",
+          "name": "subsingleton_image_closure_of_finite_of_isPreirreducible",
+          "statement": "Set X} (hS : IsLocallyClosed S) (hS' : IsPreirreducible S) (hf\u2081 : Continuous f) (hf\u2082 : IsClosedMap f) (hfS : (f '' S).Finite) : (f '' closure S).Subsingleton",
+          "have_tree": [
+            {
+              "name": "H\u2081",
+              "type": "IsIrreducible (S \u2229 closedPoints X)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "H\u2083",
+              "type": "",
+              "body": "((hfS.subset (Set.image_mono Set.inter_subset_left)).isDiscrete_of_subset_closedPoints",
+              "children": []
+            },
+            {
+              "name": "H\u2082",
+              "type": "f '' (S \u2229 closedPoints X) \u2286 closedPoints Y",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "H\u2084",
+              "type": "IsClosed (f '' (S \u2229 closedPoints X))",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "image_closure_subset_closure_image (s := S \u2229 closedPoints X) hf\u2081",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "JacobsonSpace",
+          "name": "subsingleton_image_closure_of_finite_of_isPreirreducible",
+          "statement": "Set X} (hS : IsLocallyClosed S) (hS' : IsPreirreducible S) (hf\u2081 : Continuous f) (hf\u2082 : IsClosedMap f) (hfS : (f '' S).Finite) : (f '' closure S).Subsingleton",
+          "have_tree": [
+            {
+              "name": "H\u2081",
+              "type": "IsIrreducible (S \u2229 closedPoints X)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "H\u2082",
+              "type": "f '' (S \u2229 closedPoints X) \u2286 closedPoints Y",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "H\u2084",
+              "type": "IsClosed (f '' (S \u2229 closedPoints X))",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "H\u2083",
+              "type": "",
+              "body": "((hfS.subset (Set.image_mono Set.inter_subset_left)).isDiscrete_of_subset_closedPoints",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "image_closure_subset_closure_image (s := S \u2229 closedPoints X) hf\u2081",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "JacobsonSpace",
+          "name": "subsingleton_image_closure_of_finite_of_isPreirreducible",
+          "statement": "Set X} (hS : IsLocallyClosed S) (hS' : IsPreirreducible S) (hf\u2081 : Continuous f) (hf\u2082 : IsClosedMap f) (hfS : (f '' S).Finite) : (f '' closure S).Subsingleton",
+          "have_tree": [
+            {
+              "name": "H\u2081",
+              "type": "IsIrreducible (S \u2229 closedPoints X)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "H\u2082",
+              "type": "f '' (S \u2229 closedPoints X) \u2286 closedPoints Y",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "H\u2083",
+              "type": "",
+              "body": "((hfS.subset (Set.image_mono Set.inter_subset_left)).isDiscrete_of_subset_closedPoints",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "image_closure_subset_closure_image (s := S \u2229 closedPoints X) hf\u2081",
+              "children": []
+            },
+            {
+              "name": "H\u2084",
+              "type": "IsClosed (f '' (S \u2229 closedPoints X))",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

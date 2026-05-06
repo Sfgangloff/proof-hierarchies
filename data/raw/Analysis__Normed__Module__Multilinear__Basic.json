@@ -1,0 +1,86 @@
+[
+  {
+    "module": "Basic",
+    "name": "norm_map_coord_zero",
+    "statement": "MultilinearMap \ud835\udd5c E G) (hf : Continuous f) {m : \u2200 i, E i} {i : \u03b9} (hi : \u2016m i\u2016 = 0) : \u2016f m\u2016 = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Inseparable (update m i 0) m",
+        "body": "inseparable_pi.2 <|",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "bound_of_shell_of_norm_map_coord_zero",
+    "statement": "MultilinearMap \ud835\udd5c E G) (hf\u2080 : \u2200 {m i}, \u2016m i\u2016 = 0 \u2192 \u2016f m\u2016 = 0) {\u03b5 : \u03b9 \u2192 \u211d} {C : \u211d} (h\u03b5 : \u2200 i, 0 < \u03b5 i) {c : \u03b9 \u2192 \ud835\udd5c} (hc : \u2200 i, 1 < \u2016c i\u2016) (hf : \u2200 m : \u2200 i, E i, (\u2200 i, \u03b5 i / \u2016c i\u2016 \u2264 \u2016m i\u2016) \u2192 (\u2200 i, \u2016m i\u2016 < \u03b5 i) \u2192 \u2016f m\u2016 \u2264 C * \u220f i, \u2016m i\u2016) (m : \u2200 i, E i) : \u2016f m\u2016 \u2264 C * \u220f i, \u2016m i\u2016",
+    "have_tree": [
+      {
+        "name": "h\u03b40",
+        "type": "0 < \u220f i, \u2016\u03b4 i\u2016",
+        "body": "prod_pos fun i _ => norm_pos_iff.2 (h\u03b40 i)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_bound_of_continuous",
+    "statement": "MultilinearMap \ud835\udd5c E G) (hf : Continuous f) : \u2203 C : \u211d, 0 < C \u2227 \u2200 m, \u2016f m\u2016 \u2264 C * \u220f i, \u2016m i\u2016",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < (\u2016c\u2016 / \u03b5) ^ Fintype.card \u03b9",
+        "body": "pow_pos (div_pos (zero_lt_one.trans hc) \u03b50) _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "continuous_of_bound",
+    "statement": "MultilinearMap \ud835\udd5c E G) (C : \u211d) (H : \u2200 m, \u2016f m\u2016 \u2264 C * \u220f i, \u2016m i\u2016) : Continuous f",
+    "have_tree": [
+      {
+        "name": "D_pos",
+        "type": "0 \u2264 D",
+        "body": "le_trans zero_le_one (le_max_right _ _)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "max \u2016m'\u2016 \u2016m\u2016 \u2264 \u2016m\u2016 + 1",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "uniformity_eq_seminorm",
+    "statement": "\ud835\udce4 (ContinuousMultilinearMap \ud835\udd5c E G) = \u2a05 r > 0, \ud835\udcdf {f | \u2016-f.1 + f.2\u2016 < r}",
+    "have_tree": [
+      {
+        "name": "hc\u2080",
+        "type": "0 < \u2016c\u2016",
+        "body": "one_pos.trans hc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "iteratedFDerivComponent",
+    "statement": "Type*} [Fintype \u03b1] (f : ContinuousMultilinearMap \ud835\udd5c E\u2081 G) {s : Set \u03b9} (e : \u03b1 \u2243 s) [DecidablePred (\u00b7 \u2208 s)] : ContinuousMultilinearMap \ud835\udd5c (fun (i : {a : \u03b9 // a \u2209 s}) \u21a6 E\u2081 i) (ContinuousMultilinearMap \ud835\udd5c (fun (_ : \u03b1) \u21a6 (\u2200 i, E\u2081 i)) G)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 x, x \u2208 s.toFinset\u1d9c \u2194 (fun x \u21a6 x \u2209 s) x",
+        "body": "by simp",
+        "children": []
+      }
+    ]
+  }
+]

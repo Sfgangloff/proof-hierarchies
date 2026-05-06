@@ -1,0 +1,87 @@
+[
+  {
+    "module": "IsSheafFor",
+    "name": "extend_agrees",
+    "statement": "FamilyOfElements P R} (t : x.Compatible) {f : Y \u27f6 X} (hf : R f) : x.sieveExtend f (le_generate R Y _ hf) = x f hf",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "(le_generate R Y _ hf).choose_spec",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsSheafFor",
+    "name": "isSeparatedFor_top",
+    "statement": "C\u1d52\u1d56 \u2964 Type w) : IsSeparatedFor P (\u22a4 : Presieve X)",
+    "have_tree": [
+      {
+        "name": "q\u2081",
+        "type": "",
+        "body": "h\u2081 (\ud835\udfd9 X) (by tauto)",
+        "children": []
+      },
+      {
+        "name": "q\u2082",
+        "type": "",
+        "body": "h\u2082 (\ud835\udfd9 X) (by tauto)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsSheafFor",
+    "name": "isSheafFor_pullback_iff",
+    "statement": "C\u1d52\u1d56 \u2964 Type w) {X : C} (R : Sieve X) {Y : C} (f : Y \u27f6 X) [IsIso f] : IsSheafFor P (Sieve.pullback f R).arrows \u2194 IsSheafFor P R.arrows",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Sieve.pullback_ofArrows_of_iso _ g (asIso f)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsSheafFor",
+    "name": "isSheafFor_over_map_op_comp_ofArrows_iff",
+    "statement": "C} (p : B \u27f6 B') (P : (Over B')\u1d52\u1d56 \u2964 Type w) {X : Over B} {Y : I \u2192 Over B} (f : \u2200 i, Y i \u27f6 X) : IsSheafFor ((Over.map p).op \u22d9 P) (Presieve.ofArrows _ f) \u2194 IsSheafFor P (Presieve.ofArrows _ (fun i \u21a6 (Over.map p).map (f i)))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "s.property i\u2081 i\u2082 (Over.mk (g\u2081.left \u226b (f i\u2081).left \u226b X.hom))",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Over.w (f i\u2082)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "IsSheafFor",
+    "name": "isSheafFor_bind",
+    "statement": "C\u1d52\u1d56 \u2964 Type*) (U : Sieve X) (B : \u2200 \u2983Y\u2984 \u2983f : Y \u27f6 X\u2984, U f \u2192 Sieve Y) (hU : Presieve.IsSheafFor P (U : Presieve X)) (hB : \u2200 \u2983Y\u2984 \u2983f : Y \u27f6 X\u2984 (hf : U f), Presieve.IsSheafFor P (B hf : Presieve Y)) (hB' : \u2200 \u2983Y\u2984 \u2983f : Y \u27f6 X\u2984 (h : U f) \u2983Z\u2984 (g : Z \u27f6 Y), Presieve.IsSeparatedFor P (((B h).pullback g) : Presieve Z)) : Presieve.IsSheafFor P (Sieve.bind (U : Presieve X) B : Presieve X)",
+    "have_tree": [
+      {
+        "name": "hT",
+        "type": "t.Compatible",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Sieve.bind U B (m \u226b l \u226b h \u226b f)",
+            "body": "by simpa using (bind_comp f hf hm : Sieve.bind U B _)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

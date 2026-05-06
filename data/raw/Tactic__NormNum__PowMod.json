@@ -1,0 +1,53 @@
+[
+  {
+    "module": "PowMod",
+    "name": "natPow_one_natMod",
+    "statement": "Nat.mod (Nat.pow a (nat_lit 1)) m = Nat.mod a m",
+    "have_tree": [
+      {
+        "name": "m'",
+        "type": "Q(\u2115)",
+        "body": "mkRawNatLit (m.natLit! - 1)",
+        "children": [
+          {
+            "name": "m''",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit (m'.natLit! - 1)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "c",
+        "type": "Q(\u2115)",
+        "body": "mkRawNatLit (a.natLit! % m.natLit!)",
+        "children": []
+      },
+      {
+        "name": "c\u2080",
+        "type": "Q(\u2115)",
+        "body": "mkRawNatLit (a.natLit! % m.natLit!)",
+        "children": [
+          {
+            "name": "c",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit ((c\u2080' * c\u2080') % m')",
+            "children": []
+          },
+          {
+            "name": "c",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit ((c\u2080' * ((c\u2080' * a') % m')) % m')",
+            "children": []
+          },
+          {
+            "name": "hi",
+            "type": "Q(\u2115)",
+            "body": "mkRawNatLit (b' >>> d)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

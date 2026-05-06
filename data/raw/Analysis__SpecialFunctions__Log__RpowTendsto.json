@@ -1,0 +1,46 @@
+[
+  {
+    "module": "RpowTendsto",
+    "name": "Real.norm_inv_mul_rpow_sub_one_sub_log_le",
+    "statement": "\u211d} (p_pos : 0 < p) (x_pos : 0 < x) (hx : \u2016p * log x\u2016 \u2264 1) : \u2016p\u207b\u00b9 * (x ^ p - 1) - log x\u2016 \u2264 p * \u2016log x\u2016 ^ 2",
+    "have_tree": [
+      {
+        "name": "pinv_nonneg",
+        "type": "0 \u2264 p\u207b\u00b9",
+        "body": "by grind [_root_.inv_nonneg]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "RpowTendsto",
+    "name": "Real.tendstoLocallyUniformlyOn_rpow_sub_one_log",
+    "statement": "TendstoLocallyUniformlyOn (fun (p : \u211d) (x : \u211d) => p\u207b\u00b9 * (x ^ p - 1)) log (\ud835\udcdd[>] 0) (Ioi 0)",
+    "have_tree": [
+      {
+        "name": "hxs",
+        "type": "\u2200 x \u2208 s, x \u2260 0",
+        "body": "by grind",
+        "children": []
+      },
+      {
+        "name": "pbound_pos",
+        "type": "0 < pbound",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "hx'",
+        "type": "\u2016p * log x\u2016 \u2264 1",
+        "body": "calc",
+        "children": []
+      },
+      {
+        "name": "pinv_nonneg",
+        "type": "0 \u2264 p\u207b\u00b9",
+        "body": "by grind [_root_.inv_nonneg]",
+        "children": []
+      }
+    ]
+  }
+]

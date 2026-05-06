@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Factors",
+    "name": "cycleFactorsFinset_eq_list_toFinset",
+    "statement": "Perm \u03b1} {l : List (Perm \u03b1)} (hn : l.Nodup) : \u03c3.cycleFactorsFinset = l.toFinset \u2194 (\u2200 f : Perm \u03b1, f \u2208 l \u2192 f.IsCycle) \u2227 l.Pairwise Disjoint \u2227 l.prod = \u03c3",
+    "have_tree": [
+      {
+        "name": "ht",
+        "type": "cycleFactorsFinset \u03c3 = l'.toFinset",
+        "body": "by",
+        "children": [
+          {
+            "name": "hn'",
+            "type": "l'.Nodup",
+            "body": "nodup_of_pairwise_disjoint_cycles hc' hd'",
+            "children": []
+          },
+          {
+            "name": "hperm",
+            "type": "l ~ l'",
+            "body": "List.perm_of_nodup_nodup_toFinset_eq hn hn' h.symm",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

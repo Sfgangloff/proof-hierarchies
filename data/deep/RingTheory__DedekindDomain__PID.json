@@ -1,0 +1,58 @@
+[
+  {
+    "module": "PID",
+    "name": "FractionalIdeal.isPrincipal.of_finite_maximals_of_inv",
+    "statement": "Type*} [CommRing A] [Algebra R A] {S : Submonoid R} [IsLocalization S A] (hS : S \u2264 R\u2070) (hf : {I : Ideal R | I.IsMaximal}.Finite) (I I' : FractionalIdeal S A) (hinv : I * I' = 1) : Submodule.IsPrincipal (I : Submodule R A)",
+    "have_tree": [
+      {
+        "name": "hinv'",
+        "type": "",
+        "body": "hinv",
+        "children": []
+      },
+      {
+        "name": "coprime",
+        "type": "\u2200 M \u2208 s, \u2200 M' \u2208 s.erase M, M \u2294 M' = \u22a4",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "nle",
+        "type": "\u2200 M \u2208 s, \u00ac\u2a05 M' \u2208 s.erase M, M' \u2264 M",
+        "body": "fun M hM =>",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 M \u2208 s, \u2203 a \u2208 I, \u2203 b \u2208 I', a * b \u2209 IsLocalization.coeSubmodule A M",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hv",
+        "type": "v \u2208 I'",
+        "body": "Submodule.sum_mem _ fun M hM => Submodule.smul_mem _ _ <| hb M hM",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 a \u2208 I, \u2200 b \u2208 I', \u2203 c, algebraMap R _ c = a * b",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hmem",
+        "type": "a M * v \u2208 IsLocalization.coeSubmodule A M",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Submodule.mul_mem_mul (ha M hM) (Submodule.mem_span_singleton_self v)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

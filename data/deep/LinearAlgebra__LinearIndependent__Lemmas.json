@@ -1,0 +1,90 @@
+[
+  {
+    "module": "Lemmas",
+    "name": "exists_of_linearIndepOn_of_finite_span",
+    "statement": "Set V} {t : Finset V} (hs : LinearIndepOn K id s) (hst : s \u2286 (span K \u2191t : Submodule K V)) : \u2203 t' : Finset V, \u2191t' \u2286 s \u222a \u2191t \u2227 s \u2286 \u2191t' \u2227 t'.card = t.card",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "s = \u2191s'",
+        "body": "eq_of_linearIndepOn_id_of_span_subtype hs hs' <| by simpa using hss'",
+        "children": []
+      },
+      {
+        "name": "hb\u2081s",
+        "type": "b\u2081 \u2209 s",
+        "body": "fun h => by",
+        "children": [
+          {
+            "name": "_",
+            "type": "b\u2081 \u2208 s \u2229 \u2191(insert b\u2081 t)",
+            "body": "\u27e8h, Finset.mem_insert_self _ _\u27e9",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hb\u2081s'",
+        "type": "b\u2081 \u2209 s'",
+        "body": "fun h => hb\u2081s <| hs' h",
+        "children": []
+      },
+      {
+        "name": "hst",
+        "type": "s \u2229 \u2191t = \u2205",
+        "body": "",
+        "children": [
+          {
+            "name": "hb\u2081u",
+            "type": "b\u2081 \u2209 u",
+            "body": "fun h => (hust h).elim hb\u2081s hb\u2081t",
+            "children": []
+          },
+          {
+            "name": "hb\u2082t'",
+            "type": "b\u2082 \u2209 s' \u222a t",
+            "body": "fun h => hb\u2082t <| subset_span h",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "s \u2286 (span K \u2191(insert b\u2082 s' \u222a t) : Submodule K V)",
+            "body": "fun b\u2083 hb\u2083 => by",
+            "children": [
+              {
+                "name": "_",
+                "type": "\u2191(s' \u222a insert b\u2081 t) \u2286 insert b\u2081 (insert b\u2082 \u2191(s' \u222a t) : Set V)",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "hb\u2083",
+                "type": "b\u2083 \u2208 span K (insert b\u2081 (insert b\u2082 \u2191(s' \u222a t) : Set V))",
+                "body": "",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "s \u2286 (span K (insert b\u2081 \u2191(s' \u222a t)) : Submodule K V)",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "hb\u2081",
+                "type": "b\u2081 \u2208 span K (insert b\u2082 \u2191(s' \u222a t))",
+                "body": "",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "eq",
+        "type": "((t.filter fun x => x \u2208 s) \u222a t.filter fun x => x \u2209 s) = t",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

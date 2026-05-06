@@ -1,0 +1,67 @@
+[
+  {
+    "module": "CantorSet",
+    "name": "ofDigits_zero_two_sequence_mem_cantorSet",
+    "statement": "\u2115 \u2192 Fin 3} (h : \u2200 n, a n \u2260 1) : ofDigits a \u2208 cantorSet",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(ofDigits fun i \u21a6 a (i + 1)) \u2208 preCantorSet i",
+        "body": "ih (by solve_by_elim)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CantorSet",
+    "name": "ofDigits_zero_two_sequence_unique",
+    "statement": "\u2115 \u2192 Fin 3} (ha : \u2200 n, a n \u2260 1) (hb : \u2200 n, b n \u2260 1) (h : ofDigits a = ofDigits b) : a = b",
+    "have_tree": [
+      {
+        "name": "h2",
+        "type": "a n0 \u2260 b n0",
+        "body": "by simpa using Nat.find_spec h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CantorSet",
+    "name": "ofDigits_cantorToTernary_sum_le",
+    "statement": "\u211d} (hx : x \u2208 cantorSet) {n : \u2115} : \u2211 i \u2208 Finset.range n, ofDigitsTerm (cantorToTernary x) i \u2264 x",
+    "have_tree": [
+      {
+        "name": "h_mem",
+        "type": "",
+        "body": "cantorSequence_mem_cantorSet hx n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CantorSet",
+    "name": "le_ofDigits_cantorToTernary_sum",
+    "statement": "\u211d} (hx : x \u2208 cantorSet) {n : \u2115} : x - (3\u207b\u00b9 : \u211d) ^ n \u2264 \u2211 i \u2208 Finset.range n, ofDigitsTerm (cantorToTernary x) i",
+    "have_tree": [
+      {
+        "name": "h_mem",
+        "type": "",
+        "body": "cantorSequence_mem_cantorSet hx n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CantorSet",
+    "name": "cantorSetEquivNatToBool",
+    "statement": "cantorSet \u2243 (\u2115 \u2192 Bool) where toFun",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ofDigits_cantorToTernary (ofDigits_bool_to_fin_three_mem_cantorSet y)",
+        "children": []
+      }
+    ]
+  }
+]

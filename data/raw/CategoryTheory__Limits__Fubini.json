@@ -1,0 +1,181 @@
+[
+  {
+    "module": "Fubini",
+    "name": "coconeOfCoconeUncurry",
+    "statement": "DiagramOfCocones F} (Q : \u2200 j, IsColimit (D.obj j)) (c : Cocone (uncurry.obj F)) : Cocone D.coconePoints where pt",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "@NatTrans.naturality _ _ _ _ _ _ c.\u03b9 (j, k) (j', k) (f, \ud835\udfd9 k)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fubini",
+    "name": "coneOfConeUncurryIsLimit",
+    "statement": "DiagramOfCones F} (Q : \u2200 j, IsLimit (D.obj j)) {c : Cone (uncurry.obj F)} (P : IsLimit c) : IsLimit (coneOfConeUncurry Q c) where lift s",
+    "have_tree": [
+      {
+        "name": "w",
+        "type": "",
+        "body": "(D.map fj).w k'",
+        "children": []
+      },
+      {
+        "name": "n",
+        "type": "",
+        "body": "s.\u03c0.naturality fj",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fubini",
+    "name": "IsLimit.ofConeOfConeUncurry",
+    "statement": "DiagramOfCones F} (Q : \u2200 j, IsLimit (D.obj j)) {c : Cone (uncurry.obj F)} (P : IsLimit (coneOfConeUncurry Q c)) : IsLimit c",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "(Q p.1).fac ((Cone.postcompose (E p.1).hom).obj <|",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "(P.fac (S s) p.1)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fubini",
+    "name": "coconeOfCoconeUncurryIsColimit",
+    "statement": "DiagramOfCocones F} (Q : \u2200 j, IsColimit (D.obj j)) {c : Cocone (uncurry.obj F)} (P : IsColimit c) : IsColimit (coconeOfCoconeUncurry Q c) where desc s",
+    "have_tree": [
+      {
+        "name": "w",
+        "type": "",
+        "body": "(D.map fj).w k",
+        "children": []
+      },
+      {
+        "name": "n",
+        "type": "",
+        "body": "s.\u03b9.naturality fj",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fubini",
+    "name": "IsColimit.ofCoconeUncurry",
+    "statement": "DiagramOfCocones F} (Q : \u2200 j, IsColimit (D.obj j)) {c : Cocone (uncurry.obj F)} (P : IsColimit (coconeOfCoconeUncurry Q c)) : IsColimit c",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "(Q p.1).fac ((Cocone.precompose (E p.1).inv).obj <|",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "(P.fac (S s) p.1)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fubini",
+    "name": "coneOfHasLimitCurryCompLim",
+    "statement": "Cone G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Q.obj x.1).w f\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fubini",
+    "name": "limitUncurryIsoLimitCompLim",
+    "statement": "limit (uncurry.obj F) \u2245 limit (F \u22d9 lim)",
+    "have_tree": [
+      {
+        "name": "Q'",
+        "type": "",
+        "body": "coneOfConeUncurryIsLimit Q P",
+        "children": []
+      },
+      {
+        "name": "Q''",
+        "type": "",
+        "body": "limit.isLimit (F \u22d9 lim)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fubini",
+    "name": "coconeOfHasColimitCurryCompColim",
+    "statement": "Cocone G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(Q.obj y.1).w f\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fubini",
+    "name": "colimitUncurryIsoColimitCompColim",
+    "statement": "colimit (uncurry.obj F) \u2245 colimit (F \u22d9 colim)",
+    "have_tree": [
+      {
+        "name": "Q'",
+        "type": "",
+        "body": "coconeOfCoconeUncurryIsColimit Q P",
+        "children": []
+      },
+      {
+        "name": "Q''",
+        "type": "",
+        "body": "colimit.isColimit (F \u22d9 colim)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fubini",
+    "name": "limitIsoLimitCurryCompLim",
+    "statement": "limit G \u2245 limit (curry.obj G \u22d9 lim)",
+    "have_tree": [
+      {
+        "name": "i",
+        "type": "G \u2245 uncurry.obj ((@curry J _ K _ C _).obj G)",
+        "body": "currying.symm.unitIso.app G",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fubini",
+    "name": "colimitIsoColimitCurryCompColim",
+    "statement": "colimit G \u2245 colimit (curry.obj G \u22d9 colim)",
+    "have_tree": [
+      {
+        "name": "i",
+        "type": "G \u2245 uncurry.obj ((@curry J _ K _ C _).obj G)",
+        "body": "currying.symm.unitIso.app G",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,429 @@
+[
+  {
+    "module": "Measurable",
+    "name": "isOpen_A",
+    "statement": "E \u2192L[\ud835\udd5c] F) (r \u03b5 : \u211d) : IsOpen (A f L r \u03b5)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "s \u2208 Ioc (r / 2) r",
+        "body": "\u27e8s_gt, le_of_lt (s_lt.trans_le r'_mem.2)\u27e9",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "ball x' s \u2286 ball x r'",
+        "body": "ball_subset (le_of_lt hx')",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Measurable",
+    "name": "mem_A_of_differentiable",
+    "statement": "\u211d} (h\u03b5 : 0 < \u03b5) {x : E} (hx : DifferentiableAt \ud835\udd5c f x) : \u2203 R > 0, \u2200 r \u2208 Ioo (0 : \u211d) R, x \u2208 A f (fderiv \ud835\udd5c f x) r \u03b5",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "r \u2208 Ioc (r / 2) r",
+        "body": "right_mem_Ioc.2 <| half_lt_self hr.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Measurable",
+    "name": "D_subset_differentiable_set",
+    "statement": "Set (E \u2192L[\ud835\udd5c] F)} (hK : IsComplete K) : D f K \u2286 { x | DifferentiableAt \ud835\udd5c f x \u2227 fderiv \ud835\udd5c f x \u2208 K }",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mem_iInter.1 hx e",
+        "children": []
+      },
+      {
+        "name": "J1",
+        "type": "\u2016L e p q - L e p r\u2016 \u2264 4 * \u2016c\u2016 * (1 / 2) ^ e",
+        "body": "by",
+        "children": [
+          {
+            "name": "I1",
+            "type": "x \u2208 A f (L e p q) ((1 / 2) ^ p) ((1 / 2) ^ e)",
+            "body": "(hn e p q hp hq).2.1",
+            "children": []
+          },
+          {
+            "name": "I2",
+            "type": "x \u2208 A f (L e p r) ((1 / 2) ^ p) ((1 / 2) ^ e)",
+            "body": "(hn e p r hp (le_max_left _ _)).2.1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "J2",
+        "type": "\u2016L e p r - L e' p' r\u2016 \u2264 4 * \u2016c\u2016 * (1 / 2) ^ e",
+        "body": "by",
+        "children": [
+          {
+            "name": "I1",
+            "type": "x \u2208 A f (L e p r) ((1 / 2) ^ r) ((1 / 2) ^ e)",
+            "body": "(hn e p r hp (le_max_left _ _)).2.2",
+            "children": []
+          },
+          {
+            "name": "I2",
+            "type": "x \u2208 A f (L e' p' r) ((1 / 2) ^ r) ((1 / 2) ^ e')",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "J3",
+        "type": "\u2016L e' p' r - L e' p' q'\u2016 \u2264 4 * \u2016c\u2016 * (1 / 2) ^ e",
+        "body": "by",
+        "children": [
+          {
+            "name": "I1",
+            "type": "x \u2208 A f (L e' p' r) ((1 / 2) ^ p') ((1 / 2) ^ e')",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "I2",
+            "type": "x \u2208 A f (L e' p' q') ((1 / 2) ^ p') ((1 / 2) ^ e')",
+            "body": "(hn e' p' q' hp' hq').2.1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "CauchySeq L0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "Lf'",
+        "type": "\u2200 e p, n e \u2264 p \u2192 \u2016L e (n e) p - f'\u2016 \u2264 12 * \u2016c\u2016 * (1 / 2) ^ e",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasFDerivAt f f' x",
+        "body": "by",
+        "children": [
+          {
+            "name": "pos",
+            "type": "0 < 4 + 12 * \u2016c\u2016",
+            "body": "by positivity",
+            "children": []
+          },
+          {
+            "name": "yzero",
+            "type": "0 < \u2016y\u2016",
+            "body": "norm_pos_iff.mpr y_pos",
+            "children": []
+          },
+          {
+            "name": "y_lt",
+            "type": "\u2016y\u2016 < (1 / 2) ^ (n e + 1)",
+            "body": "by simpa using mem_ball_iff_norm.1 hy",
+            "children": []
+          },
+          {
+            "name": "yone",
+            "type": "\u2016y\u2016 \u2264 1",
+            "body": "le_trans y_lt.le (pow_le_one\u2080 (by norm_num) (by norm_num))",
+            "children": []
+          },
+          {
+            "name": "k_gt",
+            "type": "n e < k",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "m_ge",
+            "type": "n e \u2264 m",
+            "body": "Nat.le_sub_one_of_lt k_gt",
+            "children": []
+          },
+          {
+            "name": "J1",
+            "type": "\u2016f (x + y) - f x - L e (n e) m (x + y - x)\u2016 \u2264 (1 / 2) ^ e * (1 / 2) ^ m",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "J2",
+            "type": "\u2016f (x + y) - f x - L e (n e) m y\u2016 \u2264 4 * (1 / 2) ^ e * \u2016y\u2016",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Measurable",
+    "name": "A_mem_nhdsGT",
+    "statement": "F} {r \u03b5 x : \u211d} (hx : x \u2208 A f L r \u03b5) : A f L r \u03b5 \u2208 \ud835\udcdd[>] x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "s \u2208 Ioc (r / 2) r",
+        "body": "\u27e8s_gt, le_of_lt (s_lt.trans_le rr'.2)\u27e9",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "Icc x' (x' + s) \u2286 Icc x (x + r')",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Measurable",
+    "name": "le_of_mem_A",
+    "statement": "\u211d} {L : F} {x : \u211d} (hx : x \u2208 A f L r \u03b5) {y z : \u211d} (hy : y \u2208 Icc x (x + r / 2)) (hz : z \u2208 Icc x (x + r / 2)) : \u2016f z - f y - (z - y) \u2022 L\u2016 \u2264 \u03b5 * r",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "x + r / 2 \u2264 x + r'",
+        "body": "by linarith [r'mem.1]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Measurable",
+    "name": "mem_A_of_differentiable",
+    "statement": "\u211d} (h\u03b5 : 0 < \u03b5) {x : \u211d} (hx : DifferentiableWithinAt \u211d f (Ici x) x) : \u2203 R > 0, \u2200 r \u2208 Ioo (0 : \u211d) R, x \u2208 A f (derivWithin f (Ici x) x) r \u03b5",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hx.hasDerivWithinAt",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "r \u2208 Ioc (r / 2) r",
+        "body": "\u27e8half_lt_self hr.1, le_rfl\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Measurable",
+    "name": "D_subset_differentiable_set",
+    "statement": "Set F} (hK : IsComplete K) : D f K \u2286 { x | DifferentiableWithinAt \u211d f (Ici x) x \u2227 derivWithin f (Ici x) x \u2208 K }",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mem_iInter.1 hx e",
+        "children": []
+      },
+      {
+        "name": "J1",
+        "type": "\u2016L e p q - L e p r\u2016 \u2264 4 * (1 / 2) ^ e",
+        "body": "by",
+        "children": [
+          {
+            "name": "I1",
+            "type": "x \u2208 A f (L e p q) ((1 / 2) ^ p) ((1 / 2) ^ e)",
+            "body": "(hn e p q hp hq).2.1",
+            "children": []
+          },
+          {
+            "name": "I2",
+            "type": "x \u2208 A f (L e p r) ((1 / 2) ^ p) ((1 / 2) ^ e)",
+            "body": "(hn e p r hp (le_max_left _ _)).2.1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "J2",
+        "type": "\u2016L e p r - L e' p' r\u2016 \u2264 4 * (1 / 2) ^ e",
+        "body": "by",
+        "children": [
+          {
+            "name": "I1",
+            "type": "x \u2208 A f (L e p r) ((1 / 2) ^ r) ((1 / 2) ^ e)",
+            "body": "(hn e p r hp (le_max_left _ _)).2.2",
+            "children": []
+          },
+          {
+            "name": "I2",
+            "type": "x \u2208 A f (L e' p' r) ((1 / 2) ^ r) ((1 / 2) ^ e')",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "J3",
+        "type": "\u2016L e' p' r - L e' p' q'\u2016 \u2264 4 * (1 / 2) ^ e",
+        "body": "by",
+        "children": [
+          {
+            "name": "I1",
+            "type": "x \u2208 A f (L e' p' r) ((1 / 2) ^ p') ((1 / 2) ^ e')",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "I2",
+            "type": "x \u2208 A f (L e' p' q') ((1 / 2) ^ p') ((1 / 2) ^ e')",
+            "body": "(hn e' p' q' hp' hq').2.1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "CauchySeq L0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "Lf'",
+        "type": "\u2200 e p, n e \u2264 p \u2192 \u2016L e (n e) p - f'\u2016 \u2264 12 * (1 / 2) ^ e",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "HasDerivWithinAt f f' (Ici x) x",
+        "body": "by",
+        "children": [
+          {
+            "name": "yzero",
+            "type": "0 < y - x",
+            "body": "sub_pos.2 xy",
+            "children": []
+          },
+          {
+            "name": "y_le",
+            "type": "y - x \u2264 (1 / 2) ^ (n e + 1)",
+            "body": "by linarith [hy.2]",
+            "children": []
+          },
+          {
+            "name": "yone",
+            "type": "y - x \u2264 1",
+            "body": "le_trans y_le (pow_le_one\u2080 (by norm_num) (by norm_num))",
+            "children": []
+          },
+          {
+            "name": "k_gt",
+            "type": "n e < k",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "m_ge",
+            "type": "n e \u2264 m",
+            "body": "Nat.le_sub_one_of_lt k_gt",
+            "children": []
+          },
+          {
+            "name": "J",
+            "type": "\u2016f y - f x - (y - x) \u2022 L e (n e) m\u2016 \u2264 4 * (1 / 2) ^ e * \u2016y - x\u2016",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Measurable",
+    "name": "isOpen_A_with_param",
+    "statement": "\u211d} (hf : Continuous f.uncurry) (L : E \u2192L[\ud835\udd5c] F) : IsOpen {p : \u03b1 \u00d7 E | p.2 \u2208 A (f p.1) L r s}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "ProperSpace E",
+        "body": ".of_locallyCompactSpace \ud835\udd5c",
+        "children": [
+          {
+            "name": "C",
+            "type": "(closedBall x t \u00d7\u02e2 closedBall x t).Nonempty",
+            "body": "by simp; linarith",
+            "children": []
+          },
+          {
+            "name": "D",
+            "type": "(y, z) \u2208 closedBall x t \u00d7\u02e2 closedBall x t",
+            "body": "mem_prod.2 \u27e8hy, hz\u27e9",
+            "children": []
+          },
+          {
+            "name": "D",
+            "type": "({a} \u00d7\u02e2 closedBall x t).EqOn f.uncurry (fun p \u21a6 f a p.2)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "u \u00d7\u02e2 ball x (t - t') \u2208 \ud835\udcdd (a, x)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "dyx",
+        "type": "dist y x \u2264 t",
+        "body": "by linarith [dist_triangle y x' x]",
+        "children": []
+      },
+      {
+        "name": "dzx",
+        "type": "dist z x \u2264 t",
+        "body": "by linarith [dist_triangle z x' x]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Measurable",
+    "name": "measurableSet_of_differentiableAt_of_isComplete_with_param",
+    "statement": "Continuous f.uncurry) {K : Set (E \u2192L[\ud835\udd5c] F)} (hK : IsComplete K) : MeasurableSet {p : \u03b1 \u00d7 E | DifferentiableAt \ud835\udd5c (f p.1) p.2 \u2227 fderiv \ud835\udd5c (f p.1) p.2 \u2208 K}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "ProperSpace E",
+        "body": ".of_locallyCompactSpace \ud835\udd5c",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Measurable",
+    "name": "stronglyMeasurable_deriv_with_param",
+    "statement": "SecondCountableTopologyEither \u03b1 F] {f : \u03b1 \u2192 \ud835\udd5c \u2192 F} (hf : Continuous f.uncurry) : StronglyMeasurable (fun (p : \u03b1 \u00d7 \ud835\udd5c) \u21a6 deriv (f p.1) p.2)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "deriv (f p.1) p.2 \u2208 closure (Submodule.span \ud835\udd5c (range (f p.1)))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "range (f p.1) \u2286 range (f.uncurry)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

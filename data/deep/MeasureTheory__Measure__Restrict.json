@@ -1,0 +1,104 @@
+[
+  {
+    "module": "Restrict",
+    "name": "nullMeasurableSet_restrict",
+    "statement": "NullMeasurableSet s \u03bc) {t : Set \u03b1} : NullMeasurableSet t (\u03bc.restrict s) \u2194 NullMeasurableSet (t \u2229 s) \u03bc",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "(t' \u2229 s : Set \u03b1) =\u1d50[\u03bc] (t \u2229 s : Set \u03b1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200\u1d50 x \u2202\u03bc, x \u2208 s \u2192 (x \u2208 t') = (x \u2208 t)",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "B",
+        "type": "(t' \u2229 s' : Set \u03b1) =\u1d50[\u03bc] (t' \u2229 s : Set \u03b1)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "NullMeasurableSet (t \u2229 s) (\u03bc.restrict s)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Restrict",
+    "name": "MeasureTheory.Measure.sum_restrict_le",
+    "statement": "MeasurableSpace \u03b1} {\u03bc : Measure \u03b1} {s : \u03b9 \u2192 Set \u03b1} {M : \u2115} (hs_meas : \u2200 i, MeasurableSet (s i)) (hs : \u2200 y, {i | y \u2208 s i}.encard \u2264 M) : Measure.sum (fun i \u21a6 \u03bc.restrict (s i)) \u2264 M \u2022 \u03bc.restrict (\u22c3 i, s i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "MeasurableSet (P C)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u03b9} (hi : i \u2208 F) : s i \u2286 \u22c3 C \u2208 G i, P C",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "iUnion_P",
+        "type": "\u22c3 C \u2208 Cs, P C \u2286 \u22c3 i, s i",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hx",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "Finset.nonempty_iff_ne_empty.mpr <| Finset.notMem_singleton.mp C_nonempty",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u03b9} {C : Finset \u03b9} (hiC : i \u2208 C) : P C \u2286 s i",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "i \u2208 F) {C : Finset \u03b9} {x : \u03b1} (hx : x \u2208 P C) (hxs : x \u2208 s i) : i \u2208 C",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "C\u2081 \u2208 Cs) {x : \u03b1} (hx : x \u2208 P C\u2081 \u2229 P C\u2082) : C\u2081 \u2286 C\u2082",
+        "body": "",
+        "children": [
+          {
+            "name": "hCM",
+            "type": "(C : Set \u03b9).encard \u2264 M",
+            "body": "",
+            "children": [
+              {
+                "name": "_",
+                "type": "",
+                "body": "Set.nonempty_iff_ne_empty.mpr hPC",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

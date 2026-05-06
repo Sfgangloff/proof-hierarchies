@@ -1,0 +1,85 @@
+[
+  {
+    "module": "Inertia",
+    "name": "inertiaDeg_of_subsingleton",
+    "statement": "p.IsMaximal] [hQ : Subsingleton (S \u29f8 P)] : inertiaDeg p P = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Ideal.Quotient.subsingleton_iff.mp hQ",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Inertia",
+    "name": "inertiaDeg_pos",
+    "statement": "0 < inertiaDeg p P",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial (S \u29f8 P)",
+        "body": "Quotient.nontrivial_of_liesOver_of_isPrime P p",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Inertia",
+    "name": "inertiaDeg_le_inertiaDeg",
+    "statement": "Type*} [CommRing T] [Algebra R T] [Algebra S T] [IsScalarTower R S T] [Module.Finite R T] (Q : Ideal T) [P.LiesOver p] [Q.LiesOver P] [p.IsPrime] : inertiaDeg P Q \u2264 inertiaDeg p Q",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Q.LiesOver p",
+        "body": "LiesOver.trans Q P p",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsScalarTower (R \u29f8 p) (S \u29f8 P) (T \u29f8 Q)",
+        "body": "IsScalarTower.of_algebraMap_eq <| by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Inertia",
+    "name": "absNorm_eq_pow_inertiaDeg_of_liesOver",
+    "statement": "Type*} [CommRing S] [IsDedekindDomain S] [Module.Free \u2124 S] [IsDedekindDomain R] [Module.Free \u2124 R] [Algebra S R] [Module.Finite S R] (P : Ideal R) (p : Ideal S) [P.LiesOver p] (hp : p.IsPrime) (hp_ne_bot : p \u2260 \u22a5) : absNorm P = absNorm p ^ (p.inertiaDeg P)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "p.IsMaximal",
+        "body": "hp.isMaximal hp_ne_bot",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Inertia",
+    "name": "inertiaDeg_algebra_tower",
+    "statement": "Ideal R) (P : Ideal S) (I : Ideal T) [p.IsMaximal] [P.IsMaximal] [P.LiesOver p] [I.LiesOver P] : inertiaDeg p I = inertiaDeg p P * inertiaDeg P I",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "P.over_def p",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "I.over_def P",
+        "children": []
+      },
+      {
+        "name": "h\u2083",
+        "type": "",
+        "body": "(LiesOver.trans I P p).over",
+        "children": []
+      }
+    ]
+  }
+]

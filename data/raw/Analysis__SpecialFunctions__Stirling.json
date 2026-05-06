@@ -1,0 +1,80 @@
+[
+  {
+    "module": "Stirling",
+    "name": "log_stirlingSeq_diff_le_geo_sum",
+    "statement": "\u2115) : log (stirlingSeq (n + 1)) - log (stirlingSeq (n + 2)) \u2264 ((1 : \u211d) / (2 * \u2191(n + 1) + 1)) ^ 2 / (1 - ((1 : \u211d) / (2 * \u2191(n + 1) + 1)) ^ 2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(hasSum_geometric_of_lt_one h_nonneg ?_).mul_left (((1 : \u211d) / (2 * \u2191(n + 1) + 1)) ^ 2)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stirling",
+    "name": "log_stirlingSeq_diff_le",
+    "statement": "\u2115) : log (stirlingSeq n) - log (stirlingSeq (n + 1)) \u2264 1 / (12 * n * (n + 1))",
+    "have_tree": [
+      {
+        "name": "hr1",
+        "type": "r < 1",
+        "body": "by grw [hr, \u2190 n.zero_le]; norm_num",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stirling",
+    "name": "log_stirlingSeq_bounded_by_constant",
+    "statement": "\u2115) : 1 - 12\u207b\u00b9 - log 2 / 2 \u2264 log (stirlingSeq (n + 1))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "log_stirlingSeq_bounded_aux n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stirling",
+    "name": "stirlingSeq'_pos",
+    "statement": "\u2115) : 0 < stirlingSeq (n + 1)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "log_stirlingSeq_bounded_by_constant",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stirling",
+    "name": "stirlingSeq'_antitone",
+    "statement": "Antitone (stirlingSeq \u2218 succ)",
+    "have_tree": [
+      {
+        "name": "hx'",
+        "type": "x \u2208 lowerBounds (Set.range (stirlingSeq \u2218 succ))",
+        "body": "by simpa [lowerBounds] using hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Stirling",
+    "name": "factorial_isEquivalent_stirling",
+    "statement": "(fun n \u21a6 n ! : \u2115 \u2192 \u211d) ~[atTop] fun n \u21a6 Real.sqrt (2 * n * \u03c0) * (n / exp 1) ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "sqrt \u03c0 \u2260 0",
+        "body": "by positivity",
+        "children": []
+      }
+    ]
+  }
+]

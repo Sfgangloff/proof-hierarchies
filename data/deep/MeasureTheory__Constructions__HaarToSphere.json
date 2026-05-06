@@ -1,0 +1,59 @@
+[
+  {
+    "module": "HaarToSphere",
+    "name": "ball_subset_sector_of_small_epsilon",
+    "statement": "Type*} [NormedAddCommGroup E] [NormedSpace \u211d E] (x : E) (hx : \u2016x\u2016 = 1) (\u03b5 : \u211d) (h\u03b5 : 0 < \u03b5) (h\u03b52 : \u03b5 \u2264 2) : ball ((1 - \u03b5 / 4) \u2022 x) (\u03b5 / 4) \u2286 Ioo (0 : \u211d) 1 \u2022 (ball x \u03b5 \u2229 sphere (0 : E) 1)",
+    "have_tree": [
+      {
+        "name": "habs",
+        "type": "|1 - \u03b5 / 4| = 1 - \u03b5 / 4",
+        "body": "abs_of_nonneg (by linarith)",
+        "children": []
+      },
+      {
+        "name": "hy\u2080",
+        "type": "y \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "1 - \u03b5 / 4 < \u03b5 / 4",
+            "body": "by simpa [norm_smul, habs, hx] using hy",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hy\u2081",
+        "type": "\u2016y\u2016 < 1",
+        "body": "calc",
+        "children": []
+      },
+      {
+        "name": "hu\u2081",
+        "type": "\u2016u\u2016 = 1",
+        "body": "by simp [u, hy\u2080, norm_smul]",
+        "children": []
+      },
+      {
+        "name": "hyx",
+        "type": "",
+        "body": "calc",
+        "children": []
+      },
+      {
+        "name": "huy",
+        "type": "dist u y \u2264 dist x y",
+        "body": "by",
+        "children": [
+          {
+            "name": "H",
+            "type": "u - y = (1 - \u2016y\u2016) \u2022 u",
+            "body": "by simp [u, hy\u2080, sub_smul]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

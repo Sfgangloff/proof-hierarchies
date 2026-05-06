@@ -1,0 +1,67 @@
+[
+  {
+    "module": "EssSup",
+    "name": "essSup_const",
+    "statement": "\u03b2) (h\u03bc : \u03bc \u2260 0) : essSup (fun _ : \u03b1 => c) \u03bc = c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "NeZero.mk h\u03bc; essSup_const' _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EssSup",
+    "name": "essInf_const",
+    "statement": "\u03b2) (h\u03bc : \u03bc \u2260 0) : essInf (fun _ : \u03b1 => c) \u03bc = c",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "NeZero.mk h\u03bc; essInf_const' _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EssSup",
+    "name": "essSup_map_measure",
+    "statement": "AEMeasurable g (Measure.map f \u03bc)) (hf : AEMeasurable f \u03bc) : essSup g (Measure.map f \u03bc) = essSup (g \u2218 f) \u03bc",
+    "have_tree": [
+      {
+        "name": "h_eq",
+        "type": "",
+        "body": "ae_of_ae_map hf hg.ae_eq_mk",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "EssSup",
+    "name": "essSup_restrict_eq_of_support_subset",
+    "statement": "Set \u03b1} {f : \u03b1 \u2192 \u211d\u22650\u221e} (hsf : f.support \u2286 s) : essSup f (\u03bc.restrict s) = essSup f \u03bc",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "0 < (\u03bc.restrict t) t",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "0 < (\u03bc.restrict s) t",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u03bc.restrict t \u2264 \u03bc.restrict s",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

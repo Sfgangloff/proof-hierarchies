@@ -1,0 +1,58 @@
+[
+  {
+    "module": "ContinuousMapDense",
+    "name": "exists_continuous_eLpNorm_sub_le_of_closed",
+    "statement": "p \u2260 \u221e) {s u : Set \u03b1} (s_closed : IsClosed s) (u_open : IsOpen u) (hsu : s \u2286 u) (hs : \u03bc s \u2260 \u221e) (c : E) {\u03b5 : \u211d\u22650\u221e} (h\u03b5 : \u03b5 \u2260 0) : \u2203 f : \u03b1 \u2192 E, Continuous f \u2227 eLpNorm (fun x => f x - s.indicator (fun _y => c) x) p \u03bc \u2264 \u03b5 \u2227 (\u2200 x, \u2016f x\u2016 \u2264 \u2016c\u2016) \u2227 Function.support f \u2286 u \u2227 MemLp f p \u03bc",
+    "have_tree": [
+      {
+        "name": "\u03b7pos",
+        "type": "(0 : \u211d\u22650\u221e) < \u03b7",
+        "body": "ENNReal.coe_lt_coe.2 \u03b7_pos",
+        "children": []
+      },
+      {
+        "name": "hsv",
+        "type": "s \u2286 v",
+        "body": "subset_inter hsu sV",
+        "children": []
+      },
+      {
+        "name": "h\u03bcv",
+        "type": "\u03bc v < \u221e",
+        "body": "(measure_mono inter_subset_right).trans_lt h'V",
+        "children": []
+      },
+      {
+        "name": "g_norm",
+        "type": "\u2200 x, \u2016g x\u2016 = g x",
+        "body": "fun x => by rw [Real.norm_eq_abs, abs_of_nonneg (hg_range x).1]",
+        "children": []
+      },
+      {
+        "name": "gc_bd0",
+        "type": "\u2200 x, \u2016g x \u2022 c\u2016 \u2264 \u2016c\u2016",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "gc_support",
+        "type": "(Function.support fun x : \u03b1 => g x \u2022 c) \u2286 v",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "gc_mem",
+        "type": "MemLp (fun x => g x \u2022 c) p \u03bc",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "eLpNorm (v.indicator fun _x => (1 : \u211d)) p \u03bc < \u22a4",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

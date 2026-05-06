@@ -1,0 +1,72 @@
+[
+  {
+    "module": "Monoid",
+    "name": "Topology.IsInducing.separatelyContinuousMul",
+    "statement": "Type*} [Mul M] [Mul N] [FunLike F M N] [MulHomClass F M N] [TopologicalSpace M] [TopologicalSpace N] [SeparatelyContinuousMul N] (f : F) (hf : IsInducing f) : SeparatelyContinuousMul M where continuous_const_mul",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "((opHomeomorph.isInducing.comp hf).comp (opHomeomorph.symm.isInducing)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Monoid",
+    "name": "exists_mem_nhds_zero_mul_subset",
+    "statement": "Set M} (hK : IsCompact K) (hU : U \u2208 \ud835\udcdd 0) : \u2203 V \u2208 \ud835\udcdd 0, K * V \u2286 U",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "tendsto_mul (show U \u2208 \ud835\udcdd (x * 0) by simpa using hU)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Monoid",
+    "name": "tendsto_mul_coprod_nhds_zero_inf_of_disjoint_cocompact",
+    "statement": "Filter (M \u00d7 M)} (hl : Disjoint l (cocompact (M \u00d7 M))) : Tendsto (fun x : M \u00d7 M \u21a6 x.1 * x.2) ((\ud835\udcdd 0).coprod (\ud835\udcdd 0) \u2293 l) (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "calc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Monoid",
+    "name": "tendsto_mul_cocompact_nhds_zero",
+    "statement": "\u03b1 \u2192 M} {g : \u03b2 \u2192 M} (f_cont : Continuous f) (g_cont : Continuous g) (hf : Tendsto f (cocompact \u03b1) (\ud835\udcdd 0)) (hg : Tendsto g (cocompact \u03b2) (\ud835\udcdd 0)) : Tendsto (fun i : \u03b1 \u00d7 \u03b2 \u21a6 f i.1 * g i.2) (cocompact (\u03b1 \u00d7 \u03b2)) (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "K_compact",
+        "type": "IsCompact K",
+        "body": ".prod (hf.isCompact_insert_range_of_cocompact f_cont)",
+        "children": []
+      },
+      {
+        "name": "K_mem_l",
+        "type": "K \u2208 l",
+        "body": "eventually_map.mpr <| .of_forall fun \u27e8x, y\u27e9 \u21a6",
+        "children": []
+      },
+      {
+        "name": "l_compact",
+        "type": "Disjoint l (cocompact (M \u00d7 M))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "l_le_coprod",
+        "type": "l \u2264 (\ud835\udcdd 0).coprod (\ud835\udcdd 0)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,149 @@
+[
+  {
+    "module": "Basic",
+    "name": "preservesColimitsOfShape_of_isCardinalAccessible_of_essentiallySmall",
+    "statement": "Type u\u2083) [Category.{v\u2083} J] [EssentiallySmall.{w} J] [IsCardinalFiltered J \u03ba] : PreservesColimitsOfShape J F",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsCardinalFiltered.of_equivalence \u03ba (equivSmallModel.{w} J)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "F.preservesColimitsOfShape_of_isCardinalAccessible \u03ba (SmallModel.{w} J)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isCardinalAccessible_of_le",
+    "statement": "Cardinal.{w}} [Fact \u03ba'.IsRegular] (h : \u03ba \u2264 \u03ba') : F.IsCardinalAccessible \u03ba' where preservesColimitOfShape {J _ _}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsCardinalFiltered.of_le J h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isCardinalAccessible_of_natIso",
+    "statement": "G.IsCardinalAccessible \u03ba where preservesColimitOfShape J _ h\u03ba",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "F.preservesColimitsOfShape_of_isCardinalAccessible \u03ba J",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isAccessible_of_isCardinalAccessible",
+    "statement": "Cardinal.{w}) [Fact \u03ba.IsRegular] [IsCardinalAccessible F \u03ba] : IsAccessible.{w} F where exists_cardinal",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (\u03baF \u2294 \u03baG).IsRegular",
+        "body": "\u27e8iteInduction (fun _ \u21a6 Fact.out) (fun _ \u21a6 Fact.out)\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isCardinalAccessible_of_le F (by simp : \u03baF \u2264 \u03baF \u2294 \u03baG)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isCardinalAccessible_of_le G (by simp : \u03baG \u2264 \u03baF \u2294 \u03baG)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isCardinalPresentable_of_equivalence",
+    "statement": "Type u\u2083} [Category.{v\u2083} C'] [IsCardinalPresentable X \u03ba] (e : C \u224c C') : IsCardinalPresentable (e.functor.obj X) \u03ba",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesColimitsOfShape_of_isCardinalPresentable X \u03ba J",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsCardinalPresentable.exists_hom_of_isColimit",
+    "statement": "Type u\u2082} [Category.{v\u2082} J] [EssentiallySmall.{w} J] [IsCardinalFiltered J \u03ba] {F : J \u2964 C} {c : Cocone F} (hc : IsColimit c) (f : X \u27f6 c.pt) : \u2203 (j : J) (f' : X \u27f6 F.obj j), f' \u226b c.\u03b9.app j = f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesColimitsOfShape_of_isCardinalPresentable_of_essentiallySmall X \u03ba J",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsCardinalPresentable.exists_eq_of_isColimit",
+    "statement": "Type u\u2082} [Category.{v\u2082} J] [EssentiallySmall.{w} J] [IsCardinalFiltered J \u03ba] {F : J \u2964 C} {c : Cocone F} (hc : IsColimit c) {i\u2081 i\u2082 : J} (f\u2081 : X \u27f6 F.obj i\u2081) (f\u2082 : X \u27f6 F.obj i\u2082) (hf : f\u2081 \u226b c.\u03b9.app i\u2081 = f\u2082 \u226b c.\u03b9.app i\u2082) : \u2203 (j : J) (u : i\u2081 \u27f6 j) (v : i\u2082 \u27f6 j), f\u2081 \u226b F.map u = f\u2082 \u226b F.map v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesColimitsOfShape_of_isCardinalPresentable_of_essentiallySmall X \u03ba J",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isFiltered_of_isCardinalFiltered J \u03ba",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsCardinalPresentable.exists_eq_of_isColimit'",
+    "statement": "Type u\u2082} [Category.{v\u2082} J] [EssentiallySmall.{w} J] [IsCardinalFiltered J \u03ba] {F : J \u2964 C} {c : Cocone F} (hc : IsColimit c) {i : J} (f\u2081 f\u2082 : X \u27f6 F.obj i) (hf : f\u2081 \u226b c.\u03b9.app i = f\u2082 \u226b c.\u03b9.app i) : \u2203 (j : J) (u : i \u27f6 j), f\u2081 \u226b F.map u = f\u2082 \u226b F.map u",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "preservesColimitsOfShape_of_isCardinalPresentable_of_essentiallySmall X \u03ba J",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isFiltered_of_isCardinalFiltered J \u03ba",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isCardinalPresentable_iff_isCardinalAccessible_uliftCoyoneda_obj",
+    "statement": "IsCardinalPresentable X \u03ba \u2194 (uliftCoyoneda.{t}.obj (op X)).IsCardinalAccessible \u03ba",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Functor.preservesColimitsOfShape_of_isCardinalAccessible",
+        "children": []
+      }
+    ]
+  }
+]

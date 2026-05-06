@@ -1,0 +1,176 @@
+[
+  {
+    "module": "Final",
+    "name": "final_of_colimit_comp_coyoneda_iso_pUnit",
+    "statement": "\u2200 d, colimit (F \u22d9 coyoneda.obj (op d)) \u2245 PUnit) : Final F",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty (StructuredArrow d F)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(I d).inv PUnit.unit",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "t",
+        "type": "",
+        "body": "Types.colimit_eq.{v, v} e",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Final",
+    "name": "final_of_comp_full_faithful",
+    "statement": "Final F where out d",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Final ((F \u22d9 G) \u22d9 G.inv)",
+        "body": "final_of_natIso i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Final",
+    "name": "initial_comp_equivalence",
+    "statement": "Initial (F \u22d9 G)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Initial ((F \u22d9 G) \u22d9 G.inv)",
+        "body": "initial_of_natIso i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Final",
+    "name": "initial_of_initial_comp",
+    "statement": "Initial G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Final (F.op \u22d9 G.op)",
+        "body": "show Final (F \u22d9 G).op from inferInstance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Final",
+    "name": "final_of_comp_full_faithful'",
+    "statement": "Final G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "final_of_comp_full_faithful F G",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Final",
+    "name": "initial_of_comp_full_faithful'",
+    "statement": "Initial G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "initial_of_comp_full_faithful F G",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Final",
+    "name": "IsFilteredOrEmpty.of_final",
+    "statement": "C \u2964 D) [Final F] [IsFilteredOrEmpty C] : IsFilteredOrEmpty D where cocone_objs X Y",
+    "have_tree": [
+      {
+        "name": "h\u2080",
+        "type": "P (StructuredArrow.mk (f \u226b Final.homToLift F Y))",
+        "body": "\u27e8_, \ud835\udfd9 _, \ud835\udfd9 _, by simp\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Final",
+    "name": "IsCofilteredOrEmpty.of_initial",
+    "statement": "C \u2964 D) [Initial F] [IsCofilteredOrEmpty C] : IsCofilteredOrEmpty D",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsFilteredOrEmpty D\u1d52\u1d56",
+        "body": "IsFilteredOrEmpty.of_final F.op",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Final",
+    "name": "IsCofiltered.of_initial",
+    "statement": "C \u2964 D) [Initial F] [IsCofiltered C] : IsCofiltered D",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsFiltered D\u1d52\u1d56",
+        "body": "IsFiltered.of_final F.op",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Final",
+    "name": "Grothendieck.fiberwiseColimitMapCompEquivalence",
+    "statement": "Type u\u2081} [Category.{v\u2081} C] {F G : C \u2964 Cat.{v\u2082, u\u2082}} (\u03b1 : F \u27f6 G) [\u2200 X, Final (\u03b1.app X).toFunctor] (H : Grothendieck G \u2964 Type u\u2082) : fiberwiseColimit (map \u03b1 \u22d9 H) \u2245 fiberwiseColimit H",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Functor.congr_obj congr($(\u03b1.naturality f).toFunctor) d",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Final",
+    "name": "Grothendieck.final_map",
+    "statement": "C \u2964 Cat.{v\u2082, u\u2082}} (\u03b1 : F \u27f6 G) [h\u03b1 : \u2200 X, Final (\u03b1.app X).toFunctor] : Final (map \u03b1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 X, Final (\u03b1'.app X).toFunctor",
+        "body": "fun X =>",
+        "children": []
+      },
+      {
+        "name": "h\u03b1'",
+        "type": "(map \u03b1').Final",
+        "body": "final_map_small _",
+        "children": []
+      },
+      {
+        "name": "i",
+        "type": "",
+        "body": "mapWhiskerLeftIsoConjPreMap sC.symm (whiskerRight \u03b1 Cat.asSmallFunctor)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "final_of_natIso i",
+        "children": []
+      }
+    ]
+  }
+]

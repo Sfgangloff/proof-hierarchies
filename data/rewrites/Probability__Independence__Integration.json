@@ -1,0 +1,579 @@
+[
+  {
+    "original": {
+      "module": "Integration",
+      "name": "lintegral_mul_indicator_eq_lintegral_mul_lintegral_indicator",
+      "statement": "MeasurableSpace \u03a9} {\u03bc : Measure \u03a9} (hMf : Mf \u2264 m\u03a9) (c : \u211d\u22650\u221e) {T : Set \u03a9} (h_meas_T : MeasurableSet T) (h_ind : IndepSets {s | MeasurableSet[Mf] s} {T} \u03bc) (h_meas_f : Measurable[Mf] f) : (\u222b\u207b \u03c9, f \u03c9 * T.indicator (fun _ => c) \u03c9 \u2202\u03bc) = (\u222b\u207b \u03c9, f \u03c9 \u2202\u03bc) * \u222b\u207b \u03c9, T.indicator (fun _ => c) \u03c9 \u2202\u03bc",
+      "have_tree": [
+        {
+          "name": "h_measM_f'",
+          "type": "Measurable f'",
+          "body": "h_meas_f'.mono hMf le_rfl",
+          "children": []
+        },
+        {
+          "name": "h_measM_f",
+          "type": "\u2200 n, Measurable (f n)",
+          "body": "fun n => (h_meas_f n).mono hMf le_rfl",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Integration",
+          "name": "lintegral_mul_indicator_eq_lintegral_mul_lintegral_indicator",
+          "statement": "MeasurableSpace \u03a9} {\u03bc : Measure \u03a9} (hMf : Mf \u2264 m\u03a9) (c : \u211d\u22650\u221e) {T : Set \u03a9} (h_meas_T : MeasurableSet T) (h_ind : IndepSets {s | MeasurableSet[Mf] s} {T} \u03bc) (h_meas_f : Measurable[Mf] f) : (\u222b\u207b \u03c9, f \u03c9 * T.indicator (fun _ => c) \u03c9 \u2202\u03bc) = (\u222b\u207b \u03c9, f \u03c9 \u2202\u03bc) * \u222b\u207b \u03c9, T.indicator (fun _ => c) \u03c9 \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "h_measM_f",
+              "type": "\u2200 n, Measurable (f n)",
+              "body": "fun n => (h_meas_f n).mono hMf le_rfl",
+              "children": []
+            },
+            {
+              "name": "h_measM_f'",
+              "type": "Measurable f'",
+              "body": "h_meas_f'.mono hMf le_rfl",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Integration",
+      "name": "lintegral_mul_eq_lintegral_mul_lintegral_of_independent_measurableSpace",
+      "statement": "MeasurableSpace \u03a9} {\u03bc : Measure \u03a9} (hMf : Mf \u2264 m\u03a9) (hMg : Mg \u2264 m\u03a9) (h_ind : Indep Mf Mg \u03bc) (h_meas_f : Measurable[Mf] f) (h_meas_g : Measurable[Mg] g) : \u222b\u207b \u03c9, f \u03c9 * g \u03c9 \u2202\u03bc = (\u222b\u207b \u03c9, f \u03c9 \u2202\u03bc) * \u222b\u207b \u03c9, g \u03c9 \u2202\u03bc",
+      "have_tree": [
+        {
+          "name": "h_measM_f",
+          "type": "Measurable f",
+          "body": "h_meas_f.mono hMf le_rfl",
+          "children": [
+            {
+              "name": "h_measM_f'",
+              "type": "Measurable f'",
+              "body": "h_measMg_f'.mono hMg le_rfl",
+              "children": []
+            },
+            {
+              "name": "h_measM_f'",
+              "type": "\u2200 n, Measurable (f' n)",
+              "body": "fun n => (h_meas_f' n).mono hMg le_rfl",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Integration",
+          "name": "lintegral_mul_eq_lintegral_mul_lintegral_of_independent_measurableSpace",
+          "statement": "MeasurableSpace \u03a9} {\u03bc : Measure \u03a9} (hMf : Mf \u2264 m\u03a9) (hMg : Mg \u2264 m\u03a9) (h_ind : Indep Mf Mg \u03bc) (h_meas_f : Measurable[Mf] f) (h_meas_g : Measurable[Mg] g) : \u222b\u207b \u03c9, f \u03c9 * g \u03c9 \u2202\u03bc = (\u222b\u207b \u03c9, f \u03c9 \u2202\u03bc) * \u222b\u207b \u03c9, g \u03c9 \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "h_measM_f",
+              "type": "Measurable f",
+              "body": "h_meas_f.mono hMf le_rfl",
+              "children": [
+                {
+                  "name": "h_measM_f'",
+                  "type": "\u2200 n, Measurable (f' n)",
+                  "body": "fun n => (h_meas_f' n).mono hMg le_rfl",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          1
+        ],
+        "result": {
+          "module": "Integration",
+          "name": "lintegral_mul_eq_lintegral_mul_lintegral_of_independent_measurableSpace",
+          "statement": "MeasurableSpace \u03a9} {\u03bc : Measure \u03a9} (hMf : Mf \u2264 m\u03a9) (hMg : Mg \u2264 m\u03a9) (h_ind : Indep Mf Mg \u03bc) (h_meas_f : Measurable[Mf] f) (h_meas_g : Measurable[Mg] g) : \u222b\u207b \u03c9, f \u03c9 * g \u03c9 \u2202\u03bc = (\u222b\u207b \u03c9, f \u03c9 \u2202\u03bc) * \u222b\u207b \u03c9, g \u03c9 \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "h_measM_f",
+              "type": "Measurable f",
+              "body": "h_meas_f.mono hMf le_rfl",
+              "children": [
+                {
+                  "name": "h_measM_f'",
+                  "type": "Measurable f'",
+                  "body": "h_measMg_f'.mono hMg le_rfl",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Integration",
+          "name": "lintegral_mul_eq_lintegral_mul_lintegral_of_independent_measurableSpace",
+          "statement": "MeasurableSpace \u03a9} {\u03bc : Measure \u03a9} (hMf : Mf \u2264 m\u03a9) (hMg : Mg \u2264 m\u03a9) (h_ind : Indep Mf Mg \u03bc) (h_meas_f : Measurable[Mf] f) (h_meas_g : Measurable[Mg] g) : \u222b\u207b \u03c9, f \u03c9 * g \u03c9 \u2202\u03bc = (\u222b\u207b \u03c9, f \u03c9 \u2202\u03bc) * \u222b\u207b \u03c9, g \u03c9 \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "h_measM_f'",
+              "type": "Measurable f'",
+              "body": "h_measMg_f'.mono hMg le_rfl",
+              "children": []
+            },
+            {
+              "name": "h_measM_f",
+              "type": "Measurable f",
+              "body": "h_meas_f.mono hMf le_rfl",
+              "children": [
+                {
+                  "name": "h_measM_f'",
+                  "type": "\u2200 n, Measurable (f' n)",
+                  "body": "fun n => (h_meas_f' n).mono hMg le_rfl",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Integration",
+          "name": "lintegral_mul_eq_lintegral_mul_lintegral_of_independent_measurableSpace",
+          "statement": "MeasurableSpace \u03a9} {\u03bc : Measure \u03a9} (hMf : Mf \u2264 m\u03a9) (hMg : Mg \u2264 m\u03a9) (h_ind : Indep Mf Mg \u03bc) (h_meas_f : Measurable[Mf] f) (h_meas_g : Measurable[Mg] g) : \u222b\u207b \u03c9, f \u03c9 * g \u03c9 \u2202\u03bc = (\u222b\u207b \u03c9, f \u03c9 \u2202\u03bc) * \u222b\u207b \u03c9, g \u03c9 \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "h_measM_f'",
+              "type": "\u2200 n, Measurable (f' n)",
+              "body": "fun n => (h_meas_f' n).mono hMg le_rfl",
+              "children": []
+            },
+            {
+              "name": "h_measM_f",
+              "type": "Measurable f",
+              "body": "h_meas_f.mono hMf le_rfl",
+              "children": [
+                {
+                  "name": "h_measM_f'",
+                  "type": "Measurable f'",
+                  "body": "h_measMg_f'.mono hMg le_rfl",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Integration",
+          "name": "lintegral_mul_eq_lintegral_mul_lintegral_of_independent_measurableSpace",
+          "statement": "MeasurableSpace \u03a9} {\u03bc : Measure \u03a9} (hMf : Mf \u2264 m\u03a9) (hMg : Mg \u2264 m\u03a9) (h_ind : Indep Mf Mg \u03bc) (h_meas_f : Measurable[Mf] f) (h_meas_g : Measurable[Mg] g) : \u222b\u207b \u03c9, f \u03c9 * g \u03c9 \u2202\u03bc = (\u222b\u207b \u03c9, f \u03c9 \u2202\u03bc) * \u222b\u207b \u03c9, g \u03c9 \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "h_measM_f",
+              "type": "Measurable f",
+              "body": "h_meas_f.mono hMf le_rfl",
+              "children": [
+                {
+                  "name": "h_measM_f'",
+                  "type": "\u2200 n, Measurable (f' n)",
+                  "body": "fun n => (h_meas_f' n).mono hMg le_rfl",
+                  "children": []
+                },
+                {
+                  "name": "h_measM_f'",
+                  "type": "Measurable f'",
+                  "body": "h_measMg_f'.mono hMg le_rfl",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Integration",
+      "name": "IndepFun.integrable_mul",
+      "statement": "Type*} [MeasurableSpace \u03b2] {X Y : \u03a9 \u2192 \u03b2} [NormedDivisionRing \u03b2] [BorelSpace \u03b2] (hXY : X \u27c2\u1d62[\u03bc] Y) (hX : Integrable X \u03bc) (hY : Integrable Y \u03bc) : Integrable (X * Y) \u03bc",
+      "have_tree": [
+        {
+          "name": "hXY'",
+          "type": "nX \u27c2\u1d62[\u03bc] nY",
+          "body": "hXY.comp measurable_enorm measurable_enorm",
+          "children": []
+        },
+        {
+          "name": "hnX",
+          "type": "AEMeasurable nX \u03bc",
+          "body": "hX.1.aemeasurable.enorm",
+          "children": []
+        },
+        {
+          "name": "hnY",
+          "type": "AEMeasurable nY \u03bc",
+          "body": "hY.1.aemeasurable.enorm",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Integration",
+          "name": "IndepFun.integrable_mul",
+          "statement": "Type*} [MeasurableSpace \u03b2] {X Y : \u03a9 \u2192 \u03b2} [NormedDivisionRing \u03b2] [BorelSpace \u03b2] (hXY : X \u27c2\u1d62[\u03bc] Y) (hX : Integrable X \u03bc) (hY : Integrable Y \u03bc) : Integrable (X * Y) \u03bc",
+          "have_tree": [
+            {
+              "name": "hnX",
+              "type": "AEMeasurable nX \u03bc",
+              "body": "hX.1.aemeasurable.enorm",
+              "children": []
+            },
+            {
+              "name": "hXY'",
+              "type": "nX \u27c2\u1d62[\u03bc] nY",
+              "body": "hXY.comp measurable_enorm measurable_enorm",
+              "children": []
+            },
+            {
+              "name": "hnY",
+              "type": "AEMeasurable nY \u03bc",
+              "body": "hY.1.aemeasurable.enorm",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Integration",
+          "name": "IndepFun.integrable_mul",
+          "statement": "Type*} [MeasurableSpace \u03b2] {X Y : \u03a9 \u2192 \u03b2} [NormedDivisionRing \u03b2] [BorelSpace \u03b2] (hXY : X \u27c2\u1d62[\u03bc] Y) (hX : Integrable X \u03bc) (hY : Integrable Y \u03bc) : Integrable (X * Y) \u03bc",
+          "have_tree": [
+            {
+              "name": "hXY'",
+              "type": "nX \u27c2\u1d62[\u03bc] nY",
+              "body": "hXY.comp measurable_enorm measurable_enorm",
+              "children": []
+            },
+            {
+              "name": "hnY",
+              "type": "AEMeasurable nY \u03bc",
+              "body": "hY.1.aemeasurable.enorm",
+              "children": []
+            },
+            {
+              "name": "hnX",
+              "type": "AEMeasurable nX \u03bc",
+              "body": "hX.1.aemeasurable.enorm",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Integration",
+      "name": "IndepFun.integrable_left_of_integrable_mul",
+      "statement": "Type*} [MeasurableSpace \u03b2] {X Y : \u03a9 \u2192 \u03b2} [NormedDivisionRing \u03b2] [OpensMeasurableSpace \u03b2] (hXY : X \u27c2\u1d62[\u03bc] Y) (h'XY : Integrable (X * Y) \u03bc) (hX : AEStronglyMeasurable X \u03bc) (hY : AEStronglyMeasurable Y \u03bc) (h'Y : \u00acY =\u1d50[\u03bc] 0) : Integrable X \u03bc",
+      "have_tree": [
+        {
+          "name": "I",
+          "type": "(\u222b\u207b \u03c9, \u2016Y \u03c9\u2016\u2091 \u2202\u03bc) \u2260 0",
+          "body": "fun H \u21a6 by",
+          "children": []
+        },
+        {
+          "name": "J",
+          "type": "(\u2016X \u00b7\u2016\u2091) \u27c2\u1d62[\u03bc] (\u2016Y \u00b7\u2016\u2091)",
+          "body": "hXY.comp measurable_enorm measurable_enorm",
+          "children": []
+        },
+        {
+          "name": "A",
+          "type": "\u222b\u207b \u03c9, \u2016X \u03c9 * Y \u03c9\u2016\u2091 \u2202\u03bc < \u221e",
+          "body": "h'XY.2",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Integration",
+          "name": "IndepFun.integrable_left_of_integrable_mul",
+          "statement": "Type*} [MeasurableSpace \u03b2] {X Y : \u03a9 \u2192 \u03b2} [NormedDivisionRing \u03b2] [OpensMeasurableSpace \u03b2] (hXY : X \u27c2\u1d62[\u03bc] Y) (h'XY : Integrable (X * Y) \u03bc) (hX : AEStronglyMeasurable X \u03bc) (hY : AEStronglyMeasurable Y \u03bc) (h'Y : \u00acY =\u1d50[\u03bc] 0) : Integrable X \u03bc",
+          "have_tree": [
+            {
+              "name": "J",
+              "type": "(\u2016X \u00b7\u2016\u2091) \u27c2\u1d62[\u03bc] (\u2016Y \u00b7\u2016\u2091)",
+              "body": "hXY.comp measurable_enorm measurable_enorm",
+              "children": []
+            },
+            {
+              "name": "I",
+              "type": "(\u222b\u207b \u03c9, \u2016Y \u03c9\u2016\u2091 \u2202\u03bc) \u2260 0",
+              "body": "fun H \u21a6 by",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "\u222b\u207b \u03c9, \u2016X \u03c9 * Y \u03c9\u2016\u2091 \u2202\u03bc < \u221e",
+              "body": "h'XY.2",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Integration",
+          "name": "IndepFun.integrable_left_of_integrable_mul",
+          "statement": "Type*} [MeasurableSpace \u03b2] {X Y : \u03a9 \u2192 \u03b2} [NormedDivisionRing \u03b2] [OpensMeasurableSpace \u03b2] (hXY : X \u27c2\u1d62[\u03bc] Y) (h'XY : Integrable (X * Y) \u03bc) (hX : AEStronglyMeasurable X \u03bc) (hY : AEStronglyMeasurable Y \u03bc) (h'Y : \u00acY =\u1d50[\u03bc] 0) : Integrable X \u03bc",
+          "have_tree": [
+            {
+              "name": "I",
+              "type": "(\u222b\u207b \u03c9, \u2016Y \u03c9\u2016\u2091 \u2202\u03bc) \u2260 0",
+              "body": "fun H \u21a6 by",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "\u222b\u207b \u03c9, \u2016X \u03c9 * Y \u03c9\u2016\u2091 \u2202\u03bc < \u221e",
+              "body": "h'XY.2",
+              "children": []
+            },
+            {
+              "name": "J",
+              "type": "(\u2016X \u00b7\u2016\u2091) \u27c2\u1d62[\u03bc] (\u2016Y \u00b7\u2016\u2091)",
+              "body": "hXY.comp measurable_enorm measurable_enorm",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Integration",
+      "name": "IndepFun.integrable_right_of_integrable_mul",
+      "statement": "Type*} [MeasurableSpace \u03b2] {X Y : \u03a9 \u2192 \u03b2} [NormedDivisionRing \u03b2] [OpensMeasurableSpace \u03b2] (hXY : X \u27c2\u1d62[\u03bc] Y) (h'XY : Integrable (X * Y) \u03bc) (hX : AEStronglyMeasurable X \u03bc) (hY : AEStronglyMeasurable Y \u03bc) (h'X : \u00acX =\u1d50[\u03bc] 0) : Integrable Y \u03bc",
+      "have_tree": [
+        {
+          "name": "I",
+          "type": "\u222b\u207b \u03c9, \u2016X \u03c9\u2016\u2091 \u2202\u03bc \u2260 0",
+          "body": "fun H \u21a6 by",
+          "children": []
+        },
+        {
+          "name": "A",
+          "type": "\u222b\u207b \u03c9, \u2016X \u03c9 * Y \u03c9\u2016\u2091 \u2202\u03bc < \u221e",
+          "body": "h'XY.2",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Integration",
+          "name": "IndepFun.integrable_right_of_integrable_mul",
+          "statement": "Type*} [MeasurableSpace \u03b2] {X Y : \u03a9 \u2192 \u03b2} [NormedDivisionRing \u03b2] [OpensMeasurableSpace \u03b2] (hXY : X \u27c2\u1d62[\u03bc] Y) (h'XY : Integrable (X * Y) \u03bc) (hX : AEStronglyMeasurable X \u03bc) (hY : AEStronglyMeasurable Y \u03bc) (h'X : \u00acX =\u1d50[\u03bc] 0) : Integrable Y \u03bc",
+          "have_tree": [
+            {
+              "name": "A",
+              "type": "\u222b\u207b \u03c9, \u2016X \u03c9 * Y \u03c9\u2016\u2091 \u2202\u03bc < \u221e",
+              "body": "h'XY.2",
+              "children": []
+            },
+            {
+              "name": "I",
+              "type": "\u222b\u207b \u03c9, \u2016X \u03c9\u2016\u2091 \u2202\u03bc \u2260 0",
+              "body": "fun H \u21a6 by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Integration",
+      "name": "IndepFun.integral_fun_comp_mul_comp",
+      "statement": "Type*} {m\ud835\udce7 : MeasurableSpace \ud835\udce7} {m\ud835\udce8 : MeasurableSpace \ud835\udce8} {X : \u03a9 \u2192 \ud835\udce7} {Y : \u03a9 \u2192 \ud835\udce8} {f : \ud835\udce7 \u2192 \ud835\udd5c} {g : \ud835\udce8 \u2192 \ud835\udd5c} (hXY : X \u27c2\u1d62[\u03bc] Y) (hX : AEMeasurable X \u03bc) (hY : AEMeasurable Y \u03bc) (hf : AEStronglyMeasurable f (\u03bc.map X)) (hg : AEStronglyMeasurable g (\u03bc.map Y)) : \u222b \u03c9, f (X \u03c9) * g (Y \u03c9) \u2202\u03bc = (\u222b \u03c9, f (X \u03c9) \u2202\u03bc) * \u222b \u03c9, g (Y \u03c9) \u2202\u03bc",
+      "have_tree": [
+        {
+          "name": "hfXgY",
+          "type": "",
+          "body": "(hXY.comp\u2080 hX hY hf.aemeasurable hg.aemeasurable)",
+          "children": []
+        },
+        {
+          "name": "hfX",
+          "type": "",
+          "body": "(hf.comp_aemeasurable hX)",
+          "children": []
+        },
+        {
+          "name": "hgY",
+          "type": "",
+          "body": "(hg.comp_aemeasurable hY)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Integration",
+          "name": "IndepFun.integral_fun_comp_mul_comp",
+          "statement": "Type*} {m\ud835\udce7 : MeasurableSpace \ud835\udce7} {m\ud835\udce8 : MeasurableSpace \ud835\udce8} {X : \u03a9 \u2192 \ud835\udce7} {Y : \u03a9 \u2192 \ud835\udce8} {f : \ud835\udce7 \u2192 \ud835\udd5c} {g : \ud835\udce8 \u2192 \ud835\udd5c} (hXY : X \u27c2\u1d62[\u03bc] Y) (hX : AEMeasurable X \u03bc) (hY : AEMeasurable Y \u03bc) (hf : AEStronglyMeasurable f (\u03bc.map X)) (hg : AEStronglyMeasurable g (\u03bc.map Y)) : \u222b \u03c9, f (X \u03c9) * g (Y \u03c9) \u2202\u03bc = (\u222b \u03c9, f (X \u03c9) \u2202\u03bc) * \u222b \u03c9, g (Y \u03c9) \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "hfX",
+              "type": "",
+              "body": "(hf.comp_aemeasurable hX)",
+              "children": []
+            },
+            {
+              "name": "hfXgY",
+              "type": "",
+              "body": "(hXY.comp\u2080 hX hY hf.aemeasurable hg.aemeasurable)",
+              "children": []
+            },
+            {
+              "name": "hgY",
+              "type": "",
+              "body": "(hg.comp_aemeasurable hY)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Integration",
+          "name": "IndepFun.integral_fun_comp_mul_comp",
+          "statement": "Type*} {m\ud835\udce7 : MeasurableSpace \ud835\udce7} {m\ud835\udce8 : MeasurableSpace \ud835\udce8} {X : \u03a9 \u2192 \ud835\udce7} {Y : \u03a9 \u2192 \ud835\udce8} {f : \ud835\udce7 \u2192 \ud835\udd5c} {g : \ud835\udce8 \u2192 \ud835\udd5c} (hXY : X \u27c2\u1d62[\u03bc] Y) (hX : AEMeasurable X \u03bc) (hY : AEMeasurable Y \u03bc) (hf : AEStronglyMeasurable f (\u03bc.map X)) (hg : AEStronglyMeasurable g (\u03bc.map Y)) : \u222b \u03c9, f (X \u03c9) * g (Y \u03c9) \u2202\u03bc = (\u222b \u03c9, f (X \u03c9) \u2202\u03bc) * \u222b \u03c9, g (Y \u03c9) \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "hfXgY",
+              "type": "",
+              "body": "(hXY.comp\u2080 hX hY hf.aemeasurable hg.aemeasurable)",
+              "children": []
+            },
+            {
+              "name": "hgY",
+              "type": "",
+              "body": "(hg.comp_aemeasurable hY)",
+              "children": []
+            },
+            {
+              "name": "hfX",
+              "type": "",
+              "body": "(hf.comp_aemeasurable hX)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Operations",
+    "name": "recENNReal_coe_ennreal",
+    "statement": "EReal \u2192 Sort*} (coe : \u2200 x : \u211d\u22650\u221e, motive x) (neg_coe : \u2200 x : \u211d\u22650\u221e, 0 < x \u2192 motive (-x)) (x : \u211d\u22650\u221e) : recENNReal coe neg_coe x = coe x",
+    "have_tree": [
+      {
+        "name": "H\u2081",
+        "type": "0 \u2264 y",
+        "body": "hy \u25b8 coe_ennreal_nonneg x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Operations",
+    "name": "induction\u2082_symm_neg",
+    "statement": "EReal \u2192 EReal \u2192 Prop} (symm : \u2200 {x y}, P x y \u2192 P y x) (neg_left : \u2200 {x y}, P x y \u2192 P (-x) y) (top_top : P \u22a4 \u22a4) (top_pos : \u2200 x : \u211d, 0 < x \u2192 P \u22a4 x) (top_zero : P \u22a4 0) (coe_coe : \u2200 x y : \u211d, P x y) : \u2200 x y, P x y",
+    "have_tree": [
+      {
+        "name": "neg_right",
+        "type": "\u2200 {x y}, P x y \u2192 P x (-y)",
+        "body": "fun h => symm <| neg_left <| symm h",
+        "children": []
+      }
+    ]
+  }
+]

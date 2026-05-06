@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "ModEq",
+      "name": "gcd_eq",
+      "statement": "a \u2261 b [MOD m]) : gcd a m = gcd b m",
+      "have_tree": [
+        {
+          "name": "h1",
+          "type": "",
+          "body": "gcd_dvd_right a m",
+          "children": []
+        },
+        {
+          "name": "h2",
+          "type": "",
+          "body": "gcd_dvd_right b m",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "ModEq",
+          "name": "gcd_eq",
+          "statement": "a \u2261 b [MOD m]) : gcd a m = gcd b m",
+          "have_tree": [
+            {
+              "name": "h2",
+              "type": "",
+              "body": "gcd_dvd_right b m",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "",
+              "body": "gcd_dvd_right a m",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "ModEq",
+      "name": "cancel_left_div_gcd",
+      "statement": "0 < m) (h : c * a \u2261 c * b [MOD m]) : a \u2261 b [MOD m / gcd m c]",
+      "have_tree": [
+        {
+          "name": "hmd",
+          "type": "",
+          "body": "gcd_dvd_left m c",
+          "children": []
+        },
+        {
+          "name": "hcd",
+          "type": "",
+          "body": "gcd_dvd_right m c",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "ModEq",
+          "name": "cancel_left_div_gcd",
+          "statement": "0 < m) (h : c * a \u2261 c * b [MOD m]) : a \u2261 b [MOD m / gcd m c]",
+          "have_tree": [
+            {
+              "name": "hcd",
+              "type": "",
+              "body": "gcd_dvd_right m c",
+              "children": []
+            },
+            {
+              "name": "hmd",
+              "type": "",
+              "body": "gcd_dvd_left m c",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

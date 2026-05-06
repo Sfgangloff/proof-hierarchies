@@ -1,0 +1,404 @@
+[
+  {
+    "original": {
+      "module": "HomologicalFunctor",
+      "name": "isHomological_of_localization",
+      "statement": "C \u2964 D) [L.CommShift \u2124] [L.IsTriangulated] [L.mapArrow.EssSurj] (F : D \u2964 A) (G : C \u2964 A) (e : L \u22d9 F \u2245 G) [G.IsHomological] : F.IsHomological",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "F.PreservesZeroMorphisms",
+          "body": "preservesZeroMorphisms_of_map_zero_object",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "(L \u22d9 F).IsHomological",
+          "body": "IsHomological.of_iso e.symm",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "HomologicalFunctor",
+          "name": "isHomological_of_localization",
+          "statement": "C \u2964 D) [L.CommShift \u2124] [L.IsTriangulated] [L.mapArrow.EssSurj] (F : D \u2964 A) (G : C \u2964 A) (e : L \u22d9 F \u2245 G) [G.IsHomological] : F.IsHomological",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "(L \u22d9 F).IsHomological",
+              "body": "IsHomological.of_iso e.symm",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "F.PreservesZeroMorphisms",
+              "body": "preservesZeroMorphisms_of_map_zero_object",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "HomologicalFunctor",
+      "name": "mem_homologicalKernel_trW_iff",
+      "statement": "C} (f : X \u27f6 Y) : F.homologicalKernel.trW f \u2194 \u2200 (n : \u2124), IsIso ((F.shift n).map f)",
+      "have_tree": [
+        {
+          "name": "h\u2081",
+          "type": "",
+          "body": "fun n => (F.homologySequence_exact\u2083 _ hT n _ rfl).isZero_X\u2082_iff",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "",
+          "body": "fun n => F.homologySequence_mono_shift_map_mor\u2081_iff _ hT n _ rfl",
+          "children": []
+        },
+        {
+          "name": "h\u2083",
+          "type": "",
+          "body": "fun n => F.homologySequence_epi_shift_map_mor\u2081_iff _ hT n",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "(h (m + 1)).1",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(h m).2",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          2,
+          0
+        ],
+        "result": {
+          "module": "HomologicalFunctor",
+          "name": "mem_homologicalKernel_trW_iff",
+          "statement": "C} (f : X \u27f6 Y) : F.homologicalKernel.trW f \u2194 \u2200 (n : \u2124), IsIso ((F.shift n).map f)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "fun n => (F.homologySequence_exact\u2083 _ hT n _ rfl).isZero_X\u2082_iff",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "fun n => F.homologySequence_mono_shift_map_mor\u2081_iff _ hT n _ rfl",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "fun n => F.homologySequence_epi_shift_map_mor\u2081_iff _ hT n",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "(h m).2",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          2,
+          1
+        ],
+        "result": {
+          "module": "HomologicalFunctor",
+          "name": "mem_homologicalKernel_trW_iff",
+          "statement": "C} (f : X \u27f6 Y) : F.homologicalKernel.trW f \u2194 \u2200 (n : \u2124), IsIso ((F.shift n).map f)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "fun n => (F.homologySequence_exact\u2083 _ hT n _ rfl).isZero_X\u2082_iff",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "fun n => F.homologySequence_mono_shift_map_mor\u2081_iff _ hT n _ rfl",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "fun n => F.homologySequence_epi_shift_map_mor\u2081_iff _ hT n",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "(h (m + 1)).1",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "HomologicalFunctor",
+          "name": "mem_homologicalKernel_trW_iff",
+          "statement": "C} (f : X \u27f6 Y) : F.homologicalKernel.trW f \u2194 \u2200 (n : \u2124), IsIso ((F.shift n).map f)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "fun n => (F.homologySequence_exact\u2083 _ hT n _ rfl).isZero_X\u2082_iff",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "fun n => F.homologySequence_mono_shift_map_mor\u2081_iff _ hT n _ rfl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(h (m + 1)).1",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "fun n => F.homologySequence_epi_shift_map_mor\u2081_iff _ hT n",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "(h m).2",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "HomologicalFunctor",
+          "name": "mem_homologicalKernel_trW_iff",
+          "statement": "C} (f : X \u27f6 Y) : F.homologicalKernel.trW f \u2194 \u2200 (n : \u2124), IsIso ((F.shift n).map f)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "fun n => (F.homologySequence_exact\u2083 _ hT n _ rfl).isZero_X\u2082_iff",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "fun n => F.homologySequence_mono_shift_map_mor\u2081_iff _ hT n _ rfl",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(h m).2",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "fun n => F.homologySequence_epi_shift_map_mor\u2081_iff _ hT n",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "(h (m + 1)).1",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "HomologicalFunctor",
+          "name": "mem_homologicalKernel_trW_iff",
+          "statement": "C} (f : X \u27f6 Y) : F.homologicalKernel.trW f \u2194 \u2200 (n : \u2124), IsIso ((F.shift n).map f)",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "fun n => F.homologySequence_mono_shift_map_mor\u2081_iff _ hT n _ rfl",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "fun n => (F.homologySequence_exact\u2083 _ hT n _ rfl).isZero_X\u2082_iff",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "fun n => F.homologySequence_epi_shift_map_mor\u2081_iff _ hT n",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "(h (m + 1)).1",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "(h m).2",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "HomologicalFunctor",
+          "name": "mem_homologicalKernel_trW_iff",
+          "statement": "C} (f : X \u27f6 Y) : F.homologicalKernel.trW f \u2194 \u2200 (n : \u2124), IsIso ((F.shift n).map f)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "fun n => (F.homologySequence_exact\u2083 _ hT n _ rfl).isZero_X\u2082_iff",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "fun n => F.homologySequence_epi_shift_map_mor\u2081_iff _ hT n",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "(h (m + 1)).1",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "(h m).2",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "fun n => F.homologySequence_mono_shift_map_mor\u2081_iff _ hT n _ rfl",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          2
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "HomologicalFunctor",
+          "name": "mem_homologicalKernel_trW_iff",
+          "statement": "C} (f : X \u27f6 Y) : F.homologicalKernel.trW f \u2194 \u2200 (n : \u2124), IsIso ((F.shift n).map f)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "fun n => (F.homologySequence_exact\u2083 _ hT n _ rfl).isZero_X\u2082_iff",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "fun n => F.homologySequence_mono_shift_map_mor\u2081_iff _ hT n _ rfl",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "fun n => F.homologySequence_epi_shift_map_mor\u2081_iff _ hT n",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "(h m).2",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "(h (m + 1)).1",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

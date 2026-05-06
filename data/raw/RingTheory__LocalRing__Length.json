@@ -1,0 +1,102 @@
+[
+  {
+    "module": "Length",
+    "name": "CovBy.length_restrictScalars",
+    "statement": "Submodule B M} (h : p \u22d6 q) : length A q = Module.length A p + Module.length (ResidueField A) (ResidueField B)",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "IsSimpleModule B (q \u29f8 f.range)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Function.Injective f",
+        "body": "inclusion_injective _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Function.Surjective g",
+        "body": "e.surjective.comp f.range.mkQ_surjective",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Function.Exact f g",
+        "body": "exact_iff.mpr ((e.ker_comp f.range.mkQ).trans f.range.ker_mkQ)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Length",
+    "name": "IsLocalRing.length_restrictScalars",
+    "statement": "length A M = length B M * Module.length (ResidueField A) (ResidueField B)",
+    "have_tree": [
+      {
+        "name": "ne",
+        "type": "length (ResidueField A) (ResidueField B) \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Length",
+    "name": "CovBy.length_baseChange",
+    "statement": "Submodule A M} (h : p \u22d6 q) : length B (q.baseChange B) = length B (p.baseChange B) + length B (B \u29f8 (maximalIdeal A).map (algebraMap A B))",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "IsSimpleModule A (q \u29f8 f.range)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Function.Injective f",
+        "body": "inclusion_injective _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Function.Surjective g",
+        "body": "e.surjective.comp f.range.mkQ_surjective",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Function.Exact f g",
+        "body": "exact_iff.mpr (by simp [f, g])",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "FaithfullyFlat A B",
+        "body": "FaithfullyFlat.of_flat_of_isLocalHom",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Length",
+    "name": "IsLocalRing.length_baseChange",
+    "statement": "length B (B \u2297[A] M) = length A M * length B (B \u29f8 (maximalIdeal A).map (algebraMap A B))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FaithfullyFlat A B",
+        "body": "FaithfullyFlat.of_flat_of_isLocalHom",
+        "children": []
+      },
+      {
+        "name": "ne",
+        "type": "length B (B \u29f8 (maximalIdeal A).map (algebraMap A B)) \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,340 @@
+[
+  {
+    "module": "Lemmas",
+    "name": "root_sub_root_mem_of_mem_of_mem",
+    "statement": "\u03b1 k + \u03b1 i - \u03b1 j \u2208 \u03a6) (hkj : k \u2260 j) (hk' : \u03b1 k + \u03b1 i \u2208 \u03a6) : \u03b1 k - \u03b1 j \u2208 \u03a6",
+    "have_tree": [
+      {
+        "name": "hli",
+        "type": "l \u2260 i",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hkl",
+        "type": "l \u2260 k",
+        "body": "by rintro rfl; exact hij <| by simpa [add_sub_assoc, sub_eq_zero] using hl",
+        "children": []
+      },
+      {
+        "name": "hki",
+        "type": "P.pairingIn \u2124 i k \u2264 -2",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "P.pairingIn \u2124 i k = -2) : \u00acP.pairingIn \u2124 k i = -2",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "Module.IsReflexive R M",
+                "body": ".of_isPerfPair P.toLinearMap",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "P.pairingIn_pairingIn_mem_set_of_isCrystallographic i k",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "P.pairingIn \u2124 l i = 1 - P.pairingIn \u2124 j i",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "chainBotCoeff_mul_chainTopCoeff.aux_1",
+    "statement": "P.pairingIn \u2124 k i = 0) : have : Module.IsReflexive R M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "chainBotCoeff_mul_chainTopCoeff.isNotG2 hi hj hij h\u2081 h\u2082 h\u2083",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAddTorsionFree M",
+        "body": ".of_isTorsionFree R M",
+        "children": []
+      },
+      {
+        "name": "hnk_ne",
+        "type": "n \u2260 k",
+        "body": "by rintro rfl; simp [sub_eq_zero, hij, add_sub_assoc] at hn",
+        "children": []
+      },
+      {
+        "name": "hkj_ne",
+        "type": "k \u2260 j \u2227 P.root k \u2260 -P.root j",
+        "body": "(IsReduced.linearIndependent_iff _).mp <|",
+        "children": []
+      },
+      {
+        "name": "hnk_notMem",
+        "type": "P.root n - P.root k \u2209 range P.root",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "aux\u2080",
+        "type": "P.pairingIn \u2124 j i = - P.pairingIn \u2124 m i",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "aux\u2081",
+        "type": "P.pairingIn \u2124 j i = 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "key\u2081",
+        "type": "P.pairingIn \u2124 i k = 0",
+        "body": "by rwa [pairingIn_eq_zero_iff]",
+        "children": []
+      },
+      {
+        "name": "key\u2082",
+        "type": "P.pairingIn \u2124 i m = 0",
+        "body": "P.pairingIn_eq_zero_iff.mp <| by simpa [aux\u2081] using aux\u2080",
+        "children": []
+      },
+      {
+        "name": "key\u2083",
+        "type": "P.pairingIn \u2124 j k = 2",
+        "body": "by",
+        "children": [
+          {
+            "name": "hn\u2081",
+            "type": "P.pairingIn \u2124 n k = 2 + P.pairingIn \u2124 i k - P.pairingIn \u2124 j k",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hn\u2082",
+            "type": "P.pairingIn \u2124 n k \u2264 0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "key\u2084",
+        "type": "P.pairingIn \u2124 l j = 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "hij",
+            "type": "P.pairing i j = 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hkj",
+            "type": "P.pairing k j = 1",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "",
+                "body": "P.pairingIn_pairingIn_mem_set_of_isCrystal_of_isRed' j k (by aesop) (by aesop)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "hik_mem",
+        "type": "P.root i + P.root k \u2208 range P.root",
+        "body": "\u27e8l, by rw [\u2190 h\u2081, add_comm]\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "chainBotCoeff_mul_chainTopCoeff.aux_2",
+    "statement": "P.pairingIn \u2124 k i < 0) (hkj' : 0 < P.pairingIn \u2124 k j) : have : Module.IsReflexive R M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "chainBotCoeff_mul_chainTopCoeff.isNotG2 hi hj hij h\u2081 h\u2082 h\u2083",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAddTorsionFree M",
+        "body": ".of_isTorsionFree R M",
+        "children": []
+      },
+      {
+        "name": "hkj_ne",
+        "type": "k \u2260 j \u2227 P.root k \u2260 -P.root j",
+        "body": "(IsReduced.linearIndependent_iff _).mp <|",
+        "children": []
+      },
+      {
+        "name": "hlj_mem",
+        "type": "P.root l - P.root j \u2208 range P.root",
+        "body": "by rwa [\u2190 h\u2081]",
+        "children": []
+      },
+      {
+        "name": "aux\u2080",
+        "type": "P.pairingIn \u2124 j i = P.pairingIn \u2124 k i",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "zero_le_pairingIn_of_root_sub_mem hlj_mem; lia",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "B.rootLength i = B.rootLength j \u2227 B.rootLength j < B.rootLength k",
+        "body": "by",
+        "children": [
+          {
+            "name": "hij_le",
+            "type": "B.rootLength i \u2264 B.rootLength j",
+            "body": "B.rootLength_le_of_pairingIn_eq <| Or.inl aux\u2081",
+            "children": []
+          },
+          {
+            "name": "hjk_lt",
+            "type": "B.rootLength j < B.rootLength k",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "aux\u2085",
+        "type": "P.pairingIn \u2124 k i = -1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "P.pairingIn_pairingIn_mem_set_of_length_eq_of_ne aux hij (b.root_ne_neg_of_ne hi hj hij)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "aux\u2086",
+        "type": "B.rootLength k \u2264 B.rootLength i",
+        "body": "B.rootLength_le_of_pairingIn_eq <| Or.inl aux\u2085",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "chainBotCoeff_mul_chainTopCoeff",
+    "statement": "(P.chainBotCoeff i m + 1) * (P.chainTopCoeff j k + 1) = (P.chainTopCoeff j l + 1) * (P.chainBotCoeff i k + 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "chainBotCoeff_mul_chainTopCoeff.isNotG2 hi hj hij h\u2081 h\u2082 h\u2083",
+        "children": []
+      },
+      {
+        "name": "him_mem",
+        "type": "P.root i + P.root m \u2208 range P.root",
+        "body": "by rw [\u2190 h\u2082]; convert h\u2083 using 1; abel",
+        "children": []
+      },
+      {
+        "name": "hik_mem",
+        "type": "P.root k + P.root i \u2208 range P.root",
+        "body": "h\u2081 \u25b8 mem_range_self l",
+        "children": []
+      },
+      {
+        "name": "hjk_mem",
+        "type": "P.root j + P.root (-k) \u2208 range P.root",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hjl_mem",
+        "type": "P.root j + P.root (-l) \u2208 range P.root",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2081'",
+        "type": "P.root (-k) - P.root i = P.root (-l)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2082'",
+        "type": "P.root (-k) + P.root j = P.root (-m)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2083'",
+        "type": "P.root (-k) + P.root j - P.root i \u2208 range P.root",
+        "body": "by grind",
+        "children": []
+      },
+      {
+        "name": "aux\u2081",
+        "type": "\u00ac (P.chainBotCoeff i m = 1 \u2227 P.chainBotCoeff j (-l) = 0)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "aux\u2082",
+        "type": "\u00ac(P.chainBotCoeff j (-l) = 1 \u2227 P.chainBotCoeff i m = 0)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "aux\u2083",
+        "type": "P.chainBotCoeff i m = 0 \u2228 P.chainBotCoeff i m = 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "P.chainBotCoeff_if_one_zero him_mem",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "aux\u2084",
+        "type": "P.chainBotCoeff j (-l) = 0 \u2228 P.chainBotCoeff j (-l) = 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "P.chainBotCoeff_if_one_zero hjl_mem",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

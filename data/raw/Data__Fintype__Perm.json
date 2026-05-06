@@ -1,0 +1,35 @@
+[
+  {
+    "module": "Perm",
+    "name": "permsOfList",
+    "statement": "List \u03b1 \u2192 List (Perm \u03b1) | [] => [1] | a :: l => permsOfList l ++ l.flatMap fun b => (permsOfList l).map fun f => Equiv.swap a b * f  theorem length_permsOfList : \u2200 l : List \u03b1, length (permsOfList l) = l.length ! | [] => rfl | a :: l => by simp [Nat.factorial_succ, permsOfList, length_permsOfList, succ_mul, add_comm]  theorem mem_permsOfList_of_mem {l : List \u03b1} {f : Perm \u03b1} (h : \u2200 x, f x \u2260 x \u2192 x \u2208 l) : f \u2208 permsOfList l",
+    "have_tree": [
+      {
+        "name": "hfa'",
+        "type": "f (f a) \u2260 f a",
+        "body": "mt (fun h => f.injective h) hfa",
+        "children": [
+          {
+            "name": "hxa",
+            "type": "x \u2260 a",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Perm",
+    "name": "nodup_permsOfList",
+    "statement": "\u2200 {l : List \u03b1}, l.Nodup \u2192 (permsOfList l).Nodup | [], _ => by simp [permsOfList] | a :: l, hl => by have hl' : l.Nodup",
+    "have_tree": [
+      {
+        "name": "hxa",
+        "type": "x \u2260 g.symm x",
+        "body": "fun h => (List.nodup_cons.1 hl).1 (h \u25b8 hx)",
+        "children": []
+      }
+    ]
+  }
+]

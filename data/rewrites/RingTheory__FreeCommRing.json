@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "FreeCommRing",
+      "name": "induction_on",
+      "statement": "FreeCommRing \u03b1 \u2192 Prop} (z : FreeCommRing \u03b1) (neg_one : motive (-1)) (of : \u2200 b, motive (of b)) (add : \u2200 x y, motive x \u2192 motive y \u2192 motive (x + y)) (mul : \u2200 x y, motive x \u2192 motive y \u2192 motive (x * y)) : motive z",
+      "have_tree": [
+        {
+          "name": "neg",
+          "type": "\u2200 x, motive x \u2192 motive (-x)",
+          "body": "fun x ih => neg_one_mul x \u25b8 mul _ _ neg_one ih",
+          "children": []
+        },
+        {
+          "name": "one",
+          "type": "motive 1",
+          "body": "neg_neg (1 : FreeCommRing \u03b1) \u25b8 neg _ neg_one",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "FreeCommRing",
+          "name": "induction_on",
+          "statement": "FreeCommRing \u03b1 \u2192 Prop} (z : FreeCommRing \u03b1) (neg_one : motive (-1)) (of : \u2200 b, motive (of b)) (add : \u2200 x y, motive x \u2192 motive y \u2192 motive (x + y)) (mul : \u2200 x y, motive x \u2192 motive y \u2192 motive (x * y)) : motive z",
+          "have_tree": [
+            {
+              "name": "one",
+              "type": "motive 1",
+              "body": "neg_neg (1 : FreeCommRing \u03b1) \u25b8 neg _ neg_one",
+              "children": []
+            },
+            {
+              "name": "neg",
+              "type": "\u2200 x, motive x \u2192 motive (-x)",
+              "body": "fun x ih => neg_one_mul x \u25b8 mul _ _ neg_one ih",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

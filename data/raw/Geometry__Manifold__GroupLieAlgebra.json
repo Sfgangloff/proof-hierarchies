@@ -1,0 +1,71 @@
+[
+  {
+    "module": "GroupLieAlgebra",
+    "name": "GroupLieAlgebra.bracket_def",
+    "statement": "GroupLieAlgebra I G) : \u2045v, w\u2046 = mlieBracket I (mulInvariantVectorField v) (mulInvariantVectorField w) (1 : G)",
+    "have_tree": [
+      {
+        "name": "M",
+        "type": "minSmoothness \ud835\udd5c 3 \u2260 0",
+        "body": "lt_of_lt_of_le (by simp) le_minSmoothness |>.ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GroupLieAlgebra",
+    "name": "mpullback_mulInvariantVectorField",
+    "statement": "G) (v : GroupLieAlgebra I G) : mpullback I I (g * \u00b7) (mulInvariantVectorField v) = mulInvariantVectorField v",
+    "have_tree": [
+      {
+        "name": "M",
+        "type": "minSmoothness \ud835\udd5c 3 \u2260 0",
+        "body": "lt_of_lt_of_le (by simp) le_minSmoothness |>.ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GroupLieAlgebra",
+    "name": "contMDiff_mulInvariantVectorField",
+    "statement": "GroupLieAlgebra I G) : CMDiff (minSmoothness \ud835\udd5c 2) (fun (g : G) \u21a6 (mulInvariantVectorField v g : TangentBundle I G))",
+    "have_tree": [
+      {
+        "name": "M",
+        "type": "minSmoothness \ud835\udd5c 3 \u2260 0",
+        "body": "lt_of_lt_of_le (by simp) le_minSmoothness |>.ne'",
+        "children": []
+      },
+      {
+        "name": "sfg",
+        "type": "CMDiff (minSmoothness \ud835\udd5c 2) fg",
+        "body": "contMDiff_zeroSection _ _",
+        "children": []
+      },
+      {
+        "name": "sfv",
+        "type": "CMDiff (minSmoothness \ud835\udd5c 2) fv",
+        "body": "contMDiff_const",
+        "children": []
+      },
+      {
+        "name": "S\u2081",
+        "type": "CMDiff (minSmoothness \ud835\udd5c 2) F\u2081",
+        "body": "sfg.prodMk sfv",
+        "children": []
+      },
+      {
+        "name": "S\u2082",
+        "type": "CMDiff (minSmoothness \ud835\udd5c 2) F\u2082",
+        "body": "contMDiff_equivTangentBundleProd_symm",
+        "children": []
+      },
+      {
+        "name": "S\u2083",
+        "type": "CMDiff (minSmoothness \ud835\udd5c 2) F\u2083",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,131 @@
+[
+  {
+    "module": "SmoothNumbers",
+    "name": "mem_factoredNumbers_of_dvd",
+    "statement": "Finset \u2115} {m k : \u2115} (h : m \u2208 factoredNumbers s) (h' : k \u2223 m) : k \u2208 factoredNumbers s",
+    "have_tree": [
+      {
+        "name": "hk",
+        "type": "",
+        "body": "ne_zero_of_dvd_ne_zero h\u2081 h'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SmoothNumbers",
+    "name": "mul_mem_factoredNumbers",
+    "statement": "Finset \u2115} {m n : \u2115} (hm : m \u2208 factoredNumbers s) (hn : n \u2208 factoredNumbers s) : m * n \u2208 factoredNumbers s",
+    "have_tree": [
+      {
+        "name": "hm'",
+        "type": "",
+        "body": "primeFactors_subset_of_mem_factoredNumbers hm",
+        "children": []
+      },
+      {
+        "name": "hn'",
+        "type": "",
+        "body": "primeFactors_subset_of_mem_factoredNumbers hn",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SmoothNumbers",
+    "name": "prod_mem_factoredNumbers",
+    "statement": "Finset \u2115) (n : \u2115) : (n.primeFactorsList.filter (\u00b7 \u2208 s)).prod \u2208 factoredNumbers s",
+    "have_tree": [
+      {
+        "name": "h\u2080",
+        "type": "(n.primeFactorsList.filter (\u00b7 \u2208 s)).prod \u2260 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SmoothNumbers",
+    "name": "factoredNumbers_compl",
+    "statement": "\u2115} {s : Finset \u2115} (h : primesBelow N \u2264 s) : (factoredNumbers s)\u1d9c \\ {0} \u2286 {n | N \u2264 n}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "N \u2264 p",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SmoothNumbers",
+    "name": "pow_mul_mem_factoredNumbers",
+    "statement": "Finset \u2115} {p n : \u2115} (hp : p.Prime) (e : \u2115) (hn : n \u2208 factoredNumbers s) : p ^ e * n \u2208 factoredNumbers (insert p s)",
+    "have_tree": [
+      {
+        "name": "hp'",
+        "type": "",
+        "body": "pow_ne_zero e hp.ne_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SmoothNumbers",
+    "name": "pow_mul_mem_smoothNumbers",
+    "statement": "\u2115} (hp : p \u2260 0) (e : \u2115) (hn : n \u2208 smoothNumbers p) : p ^ e * n \u2208 smoothNumbers (succ p)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NoZeroDivisors \u2115",
+        "body": "inferInstance -- this is needed twice --> speed-up",
+        "children": []
+      },
+      {
+        "name": "hp'",
+        "type": "",
+        "body": "pow_ne_zero e hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SmoothNumbers",
+    "name": "smoothNumbersUpTo_card_add_roughNumbersUpTo_card",
+    "statement": "\u2115) : #(smoothNumbersUpTo N k) + #(roughNumbersUpTo N k) = N",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "n \u2208 smoothNumbers k \u2192 n \u2260 0",
+        "body": "ne_zero_of_mem_smoothNumbers",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SmoothNumbers",
+    "name": "eq_prod_primes_mul_sq_of_mem_smoothNumbers",
+    "statement": "\u2115} (h : n \u2208 smoothNumbers k) : \u2203 s \u2208 k.primesBelow.powerset, \u2203 m, n = m ^ 2 * (s.prod id)",
+    "have_tree": [
+      {
+        "name": "hl",
+        "type": "l \u2208 smoothNumbers k",
+        "body": "mem_smoothNumbers_of_dvd h (Dvd.intro_left (m ^ 2) H\u2081)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SmoothNumbers",
+    "name": "roughNumbersUpTo_eq_biUnion",
+    "statement": "roughNumbersUpTo N k = ((N + 1).primesBelow \\ k.primesBelow).biUnion fun p \u21a6 {m \u2208 Finset.range (N + 1) | m \u2260 0 \u2227 p \u2223 m}",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "m \u2260 0 \u2192 p \u2223 m \u2192 \u00ac m < p",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

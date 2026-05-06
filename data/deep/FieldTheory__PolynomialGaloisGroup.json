@@ -1,0 +1,67 @@
+[
+  {
+    "module": "PolynomialGaloisGroup",
+    "name": "splits_in_splittingField_of_comp",
+    "statement": "q.natDegree \u2260 0) : (p.map (algebraMap F (p.comp q).SplittingField)).Splits",
+    "have_tree": [
+      {
+        "name": "key1",
+        "type": "\u2200 {r : F[X]}, Irreducible r \u2192 P r",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_normal",
+            "type": "Normal F (r.comp q).SplittingField",
+            "body": "SplittingField.instNormal (r.comp q)",
+            "children": []
+          },
+          {
+            "name": "qx_int",
+            "type": "",
+            "body": "Normal.isIntegral h_normal (aeval x q)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "key2",
+        "type": "\u2200 {p\u2081 p\u2082 : F[X]}, P p\u2081 \u2192 P p\u2082 \u2192 P (p\u2081 * p\u2082)",
+        "body": "by",
+        "children": [
+          {
+            "name": "key",
+            "type": "",
+            "body": "mul_splits_in_splittingField_of_mul h\u2081 h\u2082 hp\u2081 hp\u2082",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PolynomialGaloisGroup",
+    "name": "prime_degree_dvd_card",
+    "statement": "Irreducible p) (p_deg : p.natDegree.Prime) : p.natDegree \u2223 Nat.card p.Gal",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "p.degree \u2260 0",
+        "body": "fun h =>",
+        "children": []
+      },
+      {
+        "name": "h\u03b1",
+        "type": "IsIntegral F \u03b1",
+        "body": ".of_finite F \u03b1",
+        "children": [
+          {
+            "name": "key",
+            "type": "",
+            "body": "(minpoly.irreducible h\u03b1).dvd_symm p_irr this",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

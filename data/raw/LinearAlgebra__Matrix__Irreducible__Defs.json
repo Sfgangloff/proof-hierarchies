@@ -1,0 +1,117 @@
+[
+  {
+    "module": "Defs",
+    "name": "IsIrreducible.exists_pos",
+    "statement": "IsIrreducible A) (i : n) : \u2203 j, 0 < A i j",
+    "have_tree": [
+      {
+        "name": "h_le",
+        "type": "1 \u2264 p.length",
+        "body": "Nat.succ_le_of_lt hp_pos",
+        "children": []
+      },
+      {
+        "name": "hlen_ne",
+        "type": "p\u2081.length \u2260 0",
+        "body": "by simp [hp\u2081_len]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "pow_apply_pos_iff_nonempty_path",
+    "statement": "\u2200 i j, 0 \u2264 A i j) (k : \u2115) (i j : n) : letI",
+    "have_tree": [
+      {
+        "name": "hAm_nonneg",
+        "type": "0 \u2264 (A ^ m) i l",
+        "body": "pow_apply_nonneg hA m i l",
+        "children": []
+      },
+      {
+        "name": "hA_nonneg'",
+        "type": "0 \u2264 A l j",
+        "body": "hA l j",
+        "children": []
+      },
+      {
+        "name": "h_Am",
+        "type": "0 < (A ^ m) i l",
+        "body": "by by_contra! h; simp [le_antisymm h hAm_nonneg] at hl_pos",
+        "children": []
+      },
+      {
+        "name": "h_A",
+        "type": "0 < A l j",
+        "body": "by by_contra! h; simp [le_antisymm h hA_nonneg'] at hl_pos",
+        "children": [
+          {
+            "name": "h_Am_pos",
+            "type": "0 < (A ^ m) i b",
+            "body": "(ih i b).mpr \u27e8q, hp_len\u27e9",
+            "children": []
+          },
+          {
+            "name": "h_prod",
+            "type": "0 < (A ^ m) i b * A b j",
+            "body": "mul_pos h_Am_pos h_A_pos.down",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "isIrreducible_iff_exists_pow_pos",
+    "statement": "\u2200 i j, 0 \u2264 A i j) : IsIrreducible A \u2194 \u2200 i j, \u2203 k > 0, 0 < (A ^ k) i j",
+    "have_tree": [
+      {
+        "name": "hpos",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "transposePath",
+    "statement": "n} (p : @Quiver.Path n A.toQuiver i j) : @Quiver.Path n A\u1d40.toQuiver j i",
+    "have_tree": [
+      {
+        "name": "eT",
+        "type": "0 < (A\u1d40) c b",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "IsIrreducible.transpose",
+    "statement": "IsIrreducible A) : IsIrreducible A\u1d40",
+    "have_tree": [
+      {
+        "name": "hA_T_nonneg",
+        "type": "\u2200 i j, 0 \u2264 A\u1d40 i j",
+        "body": "fun i j => by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "isIrreducible_transpose_iff",
+    "statement": "A\u1d40.IsIrreducible \u2194 A.IsIrreducible",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u00ac A.IsIrreducible",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

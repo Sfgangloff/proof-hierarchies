@@ -1,0 +1,53 @@
+[
+  {
+    "module": "Completion",
+    "name": "lim_inv",
+    "statement": "CauSeq \u03b2 abv} (hf : \u00acLimZero f) : lim (inv f hf) = (lim f)\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "hl",
+        "type": "lim f \u2260 0",
+        "body": "by rwa [\u2190 lim_eq_zero_iff] at hf",
+        "children": [
+          {
+            "name": "h\u2081",
+            "type": "\u2200 (g f : CauSeq \u03b2 abv) (hf : \u00acLimZero f), LimZero (g - f * inv f hf * g)",
+            "body": "",
+            "children": [
+              {
+                "name": "h\u2082",
+                "type": "g - f * inv f hf * g = 1 * g - f * inv f hf * g",
+                "body": "by rw [one_mul g]",
+                "children": []
+              },
+              {
+                "name": "h\u2083",
+                "type": "f * inv f hf * g = (f * inv f hf) * g",
+                "body": "by simp [mul_assoc]",
+                "children": []
+              },
+              {
+                "name": "h\u2084",
+                "type": "g - f * inv f hf * g = (1 - f * inv f hf) * g",
+                "body": "by rw [h\u2082, h\u2083, \u2190 sub_mul]",
+                "children": []
+              },
+              {
+                "name": "h\u2085",
+                "type": "g - f * inv f hf * g = g * (1 - f * inv f hf)",
+                "body": "by rw [h\u2084, mul_comm]",
+                "children": []
+              },
+              {
+                "name": "h\u2086",
+                "type": "g - f * inv f hf * g = g * (1 - inv f hf * f)",
+                "body": "by rw [h\u2085, mul_comm f]",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

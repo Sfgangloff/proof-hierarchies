@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Metrizable",
+    "name": "aemeasurable_of_tendsto_metrizable_ae",
+    "statement": "Measure \u03b1} {f : \u03b9 \u2192 \u03b1 \u2192 \u03b2} {g : \u03b1 \u2192 \u03b2} (u : Filter \u03b9) [hu : NeBot u] [IsCountablyGenerated u] (hf : \u2200 n, AEMeasurable (f n) \u03bc) (h_tendsto : \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) u (\ud835\udcdd (g x))) : AEMeasurable g \u03bc",
+    "have_tree": [
+      {
+        "name": "h'f",
+        "type": "\u2200 n, AEMeasurable (f (v n)) \u03bc",
+        "body": "fun n => hf (v n)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Metrizable",
+    "name": "aemeasurable_of_unif_approx",
+    "statement": "Measure \u03b1} {g : \u03b1 \u2192 \u03b2} (hf : \u2200 \u03b5 > (0 : \u211d), \u2203 f : \u03b1 \u2192 \u03b2, AEMeasurable f \u03bc \u2227 \u2200\u1d50 x \u2202\u03bc, dist (f x) (g x) \u2264 \u03b5) : AEMeasurable g \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200\u1d50 x \u2202\u03bc, \u2200 n, dist (f n x) (g x) \u2264 u n",
+        "body": "ae_all_iff.2 fun n => (Hf n).2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Metrizable",
+    "name": "measurable_limit_of_tendsto_metrizable_ae",
+    "statement": "Measure \u03b1} {f : \u03b9 \u2192 \u03b1 \u2192 \u03b2} {L : Filter \u03b9} [L.IsCountablyGenerated] (hf : \u2200 n, AEMeasurable (f n) \u03bc) (h_ae_tendsto : \u2200\u1d50 x \u2202\u03bc, \u2203 l : \u03b2, Tendsto (fun n => f n x) L (\ud835\udcdd l)) : \u2203 f_lim : \u03b1 \u2192 \u03b2, Measurable f_lim \u2227 \u2200\u1d50 x \u2202\u03bc, Tendsto (fun n => f n x) L (\ud835\udcdd (f_lim x))",
+    "have_tree": [
+      {
+        "name": "h_f_lim_meas",
+        "type": "Measurable f_lim",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

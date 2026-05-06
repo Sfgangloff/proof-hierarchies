@@ -1,0 +1,73 @@
+[
+  {
+    "module": "SumFourSquares",
+    "name": "sq_add_sq_of_two_mul_sq_add_sq",
+    "statement": "\u2124} (h : 2 * m = x ^ 2 + y ^ 2) : m = ((x - y) / 2) ^ 2 + ((x + y) / 2) ^ 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Even (x ^ 2 + y ^ 2)",
+        "body": "by simp [\u2190 h]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SumFourSquares",
+    "name": "lt_of_sum_four_squares_eq_mul",
+    "statement": "\u2115} (h : a ^ 2 + b ^ 2 + c ^ 2 + d ^ 2 = k * m) (ha : 2 * a < m) (hb : 2 * b < m) (hc : 2 * c < m) (hd : 2 * d < m) : k < m",
+    "have_tree": [
+      {
+        "name": "hk\u2080",
+        "type": "0 < k",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SumFourSquares",
+    "name": "Prime.sum_four_squares",
+    "statement": "\u2115} (hp : p.Prime) : \u2203 a b c d : \u2115, a ^ 2 + b ^ 2 + c ^ 2 + d ^ 2 = p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk hp",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero m",
+        "body": "\u27e8hm\u2080.ne'\u27e9",
+        "children": [
+          {
+            "name": "hm\u2082",
+            "type": "m < 2 * m",
+            "body": "by simpa [two_mul]",
+            "children": [
+              {
+                "name": "_",
+                "type": "m * m \u2223 m * p",
+                "body": "habcd \u25b8 \u27e8a ^ 2 + b ^ 2 + c ^ 2 + d ^ 2, by ring\u27e9",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "hrm",
+            "type": "r < m",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "congr_arg\u2082 (\u00b7 * Nat.cast \u00b7) hr habcd",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

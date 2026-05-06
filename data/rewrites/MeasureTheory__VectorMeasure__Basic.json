@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "dirac",
+      "statement": "\u03b2) (v : M) : VectorMeasure \u03b2 M where measureOf' s",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "MeasurableSet (\u22c3 i, f i)",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Disjoint (f i) (f j)",
+          "body": "f_disj hi",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "dirac",
+          "statement": "\u03b2) (v : M) : VectorMeasure \u03b2 M where measureOf' s",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Disjoint (f i) (f j)",
+              "body": "f_disj hi",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "MeasurableSet (\u22c3 i, f i)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "toMeasureOfZeroLE",
+      "statement": "SignedMeasure \u03b1) (i : Set \u03b1) (hi\u2081 : MeasurableSet i) (hi\u2082 : 0 \u2264[i] s) : Measure \u03b1",
+      "have_tree": [
+        {
+          "name": "h\u2081",
+          "type": "\u2200 n, MeasurableSet (i \u2229 f n)",
+          "body": "fun n => hi\u2081.inter (hf\u2081 n)",
+          "children": []
+        },
+        {
+          "name": "h",
+          "type": "\u2200 n, 0 \u2264 s (i \u2229 f n)",
+          "body": "fun n =>",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "toMeasureOfZeroLE",
+          "statement": "SignedMeasure \u03b1) (i : Set \u03b1) (hi\u2081 : MeasurableSet i) (hi\u2082 : 0 \u2264[i] s) : Measure \u03b1",
+          "have_tree": [
+            {
+              "name": "h",
+              "type": "\u2200 n, 0 \u2264 s (i \u2229 f n)",
+              "body": "fun n =>",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "\u2200 n, MeasurableSet (i \u2229 f n)",
+              "body": "fun n => hi\u2081.inter (hf\u2081 n)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

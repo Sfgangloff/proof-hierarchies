@@ -1,0 +1,123 @@
+[
+  {
+    "module": "PGroup",
+    "name": "iff_card",
+    "statement": "IsPGroup p G \u2194 \u2203 n : \u2115, Nat.card G = p ^ n",
+    "have_tree": [
+      {
+        "name": "hG",
+        "type": "Nat.card G \u2260 0",
+        "body": "Nat.card_pos.ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PGroup",
+    "name": "card_modEq_card_fixedPoints",
+    "statement": "Nat.card \u03b1 \u2261 Nat.card (fixedPoints G \u03b1) [MOD p]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite \u03b1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite (fixedPoints G \u03b1)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PGroup",
+    "name": "nonempty_fixed_point_of_prime_not_dvd_card",
+    "statement": "\u00acp \u2223 Nat.card \u03b1) : (fixedPoints G \u03b1).Nonempty",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite \u03b1",
+        "body": "Nat.finite_of_card_ne_zero (fun h \u21a6 (h \u25b8 hp\u03b1) (dvd_zero p))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PGroup",
+    "name": "exists_fixed_point_of_prime_dvd_card_of_fixed_point",
+    "statement": "p \u2223 Nat.card \u03b1) {a : \u03b1} (ha : a \u2208 fixedPoints G \u03b1) : \u2203 b, b \u2208 fixedPoints G \u03b1 \u2227 a \u2260 b",
+    "have_tree": [
+      {
+        "name": "hpf",
+        "type": "p \u2223 Nat.card (fixedPoints G \u03b1)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h\u03b1",
+        "type": "1 < Nat.card (fixedPoints G \u03b1)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PGroup",
+    "name": "center_nontrivial",
+    "statement": "Nontrivial (Subgroup.center G)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(hG.of_equiv ConjAct.toConjAct).exists_fixed_point_of_prime_dvd_card_of_fixed_point G",
+        "children": []
+      },
+      {
+        "name": "dvd",
+        "type": "p \u2223 Nat.card G",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PGroup",
+    "name": "le_or_disjoint_of_coprime",
+    "statement": "Fact p.Prime] {P : Subgroup G} (hP : IsPGroup p P) {H : Subgroup G} [H.Normal] (h_cop : (Nat.card H).Coprime H.index) : P \u2264 H \u2228 Disjoint H P",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite G",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h3",
+        "type": "(Nat.card H).Coprime (Nat.card P) \u2228 H.index.Coprime (Nat.card P)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PGroup",
+    "name": "card_center_eq_prime_pow",
+    "statement": "Nat.card G = p ^ n) (hn : 0 < n) : \u2203 k > 0, Nat.card (center G) = p ^ k",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite G",
+        "body": "Nat.finite_of_card_ne_zero (hGpn \u25b8 pow_ne_zero n (NeZero.ne p))",
+        "children": []
+      },
+      {
+        "name": "hcG",
+        "type": "",
+        "body": "to_subgroup (of_card hGpn) (center G)",
+        "children": []
+      }
+    ]
+  }
+]

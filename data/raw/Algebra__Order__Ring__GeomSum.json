@@ -1,0 +1,41 @@
+[
+  {
+    "module": "GeomSum",
+    "name": "geom_sum_alternating_of_le_neg_one",
+    "statement": "x + 1 \u2264 0) (n : \u2115) : if Even n then (\u2211 i \u2208 range n, x ^ i) \u2264 0 else 1 \u2264 \u2211 i \u2208 range n, x ^ i",
+    "have_tree": [
+      {
+        "name": "hx0",
+        "type": "x \u2264 0",
+        "body": "(le_add_of_nonneg_right zero_le_one).trans hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GeomSum",
+    "name": "geom_sum_alternating_of_lt_neg_one",
+    "statement": "x + 1 < 0) (hn : 1 < n) : if Even n then \u2211 i \u2208 range n, x ^ i < 0 else 1 < \u2211 i \u2208 range n, x ^ i",
+    "have_tree": [
+      {
+        "name": "hx0",
+        "type": "x < 0",
+        "body": "(le_add_of_nonneg_right zero_le_one).trans_lt hx",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "GeomSum",
+    "name": "geom_sum_eq_zero_iff_neg_one",
+    "statement": "n \u2260 0) : \u2211 i \u2208 range n, x ^ i = 0 \u2194 x = -1 \u2227 Even n",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "",
+        "body": "eq_or_ne x (-1)",
+        "children": []
+      }
+    ]
+  }
+]

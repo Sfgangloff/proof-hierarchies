@@ -1,0 +1,99 @@
+[
+  {
+    "original": {
+      "module": "SpecificAsymptotics",
+      "name": "Asymptotics.IsEquivalent.log",
+      "statement": "Type*} {l : Filter \u03b1} {f g : \u03b1 \u2192 \u211d} (hfg : f ~[l] g) (g_tendsto : Tendsto g l atTop) : (fun n \u21a6 Real.log (f n)) ~[l] (fun n \u21a6 Real.log (g n))",
+      "have_tree": [
+        {
+          "name": "hg",
+          "type": "",
+          "body": "g_tendsto.eventually_ne_atTop 0",
+          "children": []
+        },
+        {
+          "name": "hf",
+          "type": "",
+          "body": "hfg.symm.tendsto_atTop g_tendsto |>.eventually_ne_atTop 0",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "hfg.log (by norm_num) |>.congr' <| by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "SpecificAsymptotics",
+          "name": "Asymptotics.IsEquivalent.log",
+          "statement": "Type*} {l : Filter \u03b1} {f g : \u03b1 \u2192 \u211d} (hfg : f ~[l] g) (g_tendsto : Tendsto g l atTop) : (fun n \u21a6 Real.log (f n)) ~[l] (fun n \u21a6 Real.log (g n))",
+          "have_tree": [
+            {
+              "name": "hf",
+              "type": "",
+              "body": "hfg.symm.tendsto_atTop g_tendsto |>.eventually_ne_atTop 0",
+              "children": []
+            },
+            {
+              "name": "hg",
+              "type": "",
+              "body": "g_tendsto.eventually_ne_atTop 0",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hfg.log (by norm_num) |>.congr' <| by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "SpecificAsymptotics",
+          "name": "Asymptotics.IsEquivalent.log",
+          "statement": "Type*} {l : Filter \u03b1} {f g : \u03b1 \u2192 \u211d} (hfg : f ~[l] g) (g_tendsto : Tendsto g l atTop) : (fun n \u21a6 Real.log (f n)) ~[l] (fun n \u21a6 Real.log (g n))",
+          "have_tree": [
+            {
+              "name": "hg",
+              "type": "",
+              "body": "g_tendsto.eventually_ne_atTop 0",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hfg.log (by norm_num) |>.congr' <| by",
+              "children": []
+            },
+            {
+              "name": "hf",
+              "type": "",
+              "body": "hfg.symm.tendsto_atTop g_tendsto |>.eventually_ne_atTop 0",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,189 @@
+[
+  {
+    "module": "SobolevInequality",
+    "name": "T_insert_le_T_lmarginal_singleton",
+    "statement": "0 \u2264 p) (s : Finset \u03b9) (hp : (s.card : \u211d) * p \u2264 1) (i : \u03b9) (hi : i \u2209 s) {f : (\u2200 i, A i) \u2192 \u211d\u22650\u221e} (hf : Measurable f) : T \u03bc p f (insert i s) \u2264 T \u03bc p (\u222b\u22ef\u222b\u207b_{i}, f \u2202\u03bc) s",
+    "have_tree": [
+      {
+        "name": "hF\u2080",
+        "type": "Measurable fun t \u21a6 f (X t)",
+        "body": "hf.comp <| measurable_update _",
+        "children": []
+      },
+      {
+        "name": "hk'",
+        "type": "0 \u2264 1 - k * p",
+        "body": "by linarith only [hp]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SobolevInequality",
+    "name": "T_lmarginal_antitone",
+    "statement": "0 \u2264 p) (hp : (#\u03b9 - 1 : \u211d) * p \u2264 1) {f : (\u2200 i, A i) \u2192 \u211d\u22650\u221e} (hf : Measurable f) : Antitone (fun s \u21a6 T \u03bc p (\u222b\u22ef\u222b\u207b_s\u1d9c, f \u2202\u03bc) s)",
+    "have_tree": [
+      {
+        "name": "hi'",
+        "type": "s\u1d9c.Nonempty",
+        "body": "\u27e8i, by rwa [Finset.mem_compl]\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SobolevInequality",
+    "name": "lintegral_prod_lintegral_pow_le",
+    "statement": "\u211d} (hp : Real.HolderConjugate #\u03b9 p) {f} (hf : Measurable f) : \u222b\u207b x, \u220f i, (\u222b\u207b x\u1d62, f (update x i x\u1d62) \u2202\u03bc i) ^ ((1 : \u211d) / (#\u03b9 - 1 : \u211d)) \u2202.pi \u03bc \u2264 (\u222b\u207b x, f x \u2202.pi \u03bc) ^ p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial \u03b9",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SobolevInequality",
+    "name": "lintegral_pow_le_pow_lintegral_fderiv",
+    "statement": "E \u2192 F} (hu : ContDiff \u211d 1 u) (h2u : HasCompactSupport u) {p : \u211d} (hp : Real.HolderConjugate (finrank \u211d E) p) : \u222b\u207b x, \u2016u x\u2016\u2091 ^ p \u2202\u03bc \u2264 lintegralPowLePowLIntegralFDerivConst \u03bc p * (\u222b\u207b x, \u2016fderiv \u211d u x\u2016\u2091 \u2202\u03bc) ^ p",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "Real.HolderConjugate #\u03b9 p",
+        "body": "by rwa [h\u03b9card]",
+        "children": []
+      },
+      {
+        "name": "h0p",
+        "type": "0 \u2264 p",
+        "body": "hp.symm.nonneg",
+        "children": []
+      },
+      {
+        "name": "hc",
+        "type": "0 < c",
+        "body": "addHaarScalarFactor_pos_of_isAddHaarMeasure ..",
+        "children": []
+      },
+      {
+        "name": "hv",
+        "type": "ContDiff \u211d 1 v",
+        "body": "hu.comp e.symm.contDiff",
+        "children": []
+      },
+      {
+        "name": "h2v",
+        "type": "HasCompactSupport v",
+        "body": "h2u.comp_homeomorph e.symm.toHomeomorph",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SobolevInequality",
+    "name": "eLpNorm_le_eLpNorm_fderiv_of_eq_inner",
+    "statement": "E \u2192 F'} (hu : ContDiff \u211d 1 u) (h2u : HasCompactSupport u) {p p' : \u211d\u22650} (hp : 1 \u2264 p) (hn : 0 < finrank \u211d E) (hp' : (p' : \u211d)\u207b\u00b9 = p\u207b\u00b9 - (finrank \u211d E : \u211d)\u207b\u00b9) : eLpNorm u p' \u03bc \u2264 eLpNormLESNormFDerivOfEqInnerConst \u03bc p * eLpNorm (fderiv \u211d u) p \u03bc",
+    "have_tree": [
+      {
+        "name": "h0n",
+        "type": "2 \u2264 n",
+        "body": "Nat.succ_le_of_lt <| Nat.one_lt_cast.mp <| hp.trans_lt h2p",
+        "children": []
+      },
+      {
+        "name": "hn",
+        "type": "NNReal.HolderConjugate n n'",
+        "body": ".conjExponent (by norm_cast)",
+        "children": []
+      },
+      {
+        "name": "hq",
+        "type": "Real.HolderConjugate p q",
+        "body": ".conjExponent hp",
+        "children": []
+      },
+      {
+        "name": "h0p",
+        "type": "p \u2260 0",
+        "body": "zero_lt_one.trans hp |>.ne'",
+        "children": []
+      },
+      {
+        "name": "h7u",
+        "type": "",
+        "body": "hu.continuous -- for fun_prop",
+        "children": []
+      },
+      {
+        "name": "hv",
+        "type": "ContDiff \u211d 1 v",
+        "body": "hu.norm_rpow h1\u03b3",
+        "children": []
+      },
+      {
+        "name": "h2v",
+        "type": "HasCompactSupport v",
+        "body": "h2u.norm.rpow_const h4\u03b3",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SobolevInequality",
+    "name": "eLpNorm_le_eLpNorm_fderiv_of_eq",
+    "statement": "E \u2192 F} (hu : ContDiff \u211d 1 u) (h2u : HasCompactSupport u) {p p' : \u211d\u22650} (hp : 1 \u2264 p) (hn : 0 < finrank \u211d E) (hp' : (p' : \u211d)\u207b\u00b9 = p\u207b\u00b9 - (finrank \u211d E : \u211d)\u207b\u00b9) : eLpNorm u p' \u03bc \u2264 SNormLESNormFDerivOfEqConst F \u03bc p * eLpNorm (fderiv \u211d u) p \u03bc",
+    "have_tree": [
+      {
+        "name": "hv",
+        "type": "ContDiff \u211d 1 v",
+        "body": "e.contDiff.comp hu",
+        "children": []
+      },
+      {
+        "name": "h2v",
+        "type": "HasCompactSupport v",
+        "body": "h2u.comp_left e.map_zero",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "eLpNorm_le_eLpNorm_fderiv_of_eq_inner \u03bc hv h2v hp hn hp'",
+        "children": []
+      },
+      {
+        "name": "h4v",
+        "type": "\u2200 x, \u2016fderiv \u211d v x\u2016 \u2264 C\u2082 * \u2016fderiv \u211d u x\u2016",
+        "body": "fun x \u21a6 calc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SobolevInequality",
+    "name": "eLpNorm_le_eLpNorm_fderiv_of_le",
+    "statement": "E \u2192 F} {s : Set E} (hu : ContDiff \u211d 1 u) (h2u : u.support \u2286 s) {p q : \u211d\u22650} (hp : 1 \u2264 p) (h2p : p < finrank \u211d E) (hpq : p\u207b\u00b9 - (finrank \u211d E : \u211d)\u207b\u00b9 \u2264 (q : \u211d)\u207b\u00b9) (hs : Bornology.IsBounded s) : eLpNorm u q \u03bc \u2264 eLpNormLESNormFDerivOfLeConst F \u03bc s p q * eLpNorm (fderiv \u211d u) p \u03bc",
+    "have_tree": [
+      {
+        "name": "h2u'",
+        "type": "HasCompactSupport u",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

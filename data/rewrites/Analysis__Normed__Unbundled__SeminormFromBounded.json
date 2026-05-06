@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "SeminormFromBounded",
+      "name": "map_pow_ne_zero",
+      "statement": "0 \u2264 f) {x : R} (hx : IsUnit x) (hfx : f x \u2260 0) (n : \u2115) (f_mul : \u2200 x y : R, f (x * y) \u2264 c * f x * f y) : f (x ^ n) \u2260 0",
+      "have_tree": [
+        {
+          "name": "h1",
+          "type": "f 1 \u2260 0",
+          "body": "map_one_ne_zero (Function.ne_iff.mpr \u27e8x, hfx\u27e9) f_nonneg f_mul",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "f 1 \u2264 0",
+          "body": "by simpa [\u2190 mul_pow, hxn] using f_mul (x ^ n) (hx.unit\u207b\u00b9 ^ n)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "SeminormFromBounded",
+          "name": "map_pow_ne_zero",
+          "statement": "0 \u2264 f) {x : R} (hx : IsUnit x) (hfx : f x \u2260 0) (n : \u2115) (f_mul : \u2200 x y : R, f (x * y) \u2264 c * f x * f y) : f (x ^ n) \u2260 0",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "f 1 \u2264 0",
+              "body": "by simpa [\u2190 mul_pow, hxn] using f_mul (x ^ n) (hx.unit\u207b\u00b9 ^ n)",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "f 1 \u2260 0",
+              "body": "map_one_ne_zero (Function.ne_iff.mpr \u27e8x, hfx\u27e9) f_nonneg f_mul",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

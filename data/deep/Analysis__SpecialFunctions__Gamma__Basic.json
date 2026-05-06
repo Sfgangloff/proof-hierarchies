@@ -1,0 +1,66 @@
+[
+  {
+    "module": "Basic",
+    "name": "partialGamma_add_one",
+    "statement": "\u2102} (hs : 0 < s.re) {X : \u211d} (hX : 0 \u2264 X) : partialGamma (s + 1) X = s * partialGamma s X - (-X).exp * X ^ s",
+    "have_tree": [
+      {
+        "name": "d1",
+        "type": "HasDerivAt (fun y : \u211d => (-y).exp) (-(-x).exp) x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "d2",
+        "type": "HasDerivAt (fun y : \u211d => (y : \u2102) ^ s) (s * x ^ (s - 1)) x",
+        "body": "by",
+        "children": [
+          {
+            "name": "t",
+            "type": "",
+            "body": "@HasDerivAt.cpow_const _ _ _ s (hasDerivAt_id \u2191x) ?_",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "cont",
+        "type": "",
+        "body": "(continuous_ofReal.comp continuous_neg.rexp).mul (continuous_ofReal_cpow_const hs)",
+        "children": []
+      },
+      {
+        "name": "der_ible",
+        "type": "",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "int_eval",
+        "type": "",
+        "body": "integral_eq_sub_of_hasDerivAt_of_le hX cont.continuousOn F_der_I der_ible",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Gamma_eq_GammaAux",
+    "statement": "\u2102) (n : \u2115) (h1 : -s.re < \u2191n) : Gamma s = GammaAux n s",
+    "have_tree": [
+      {
+        "name": "u",
+        "type": "\u2200 k : \u2115, GammaAux (\u230a1 - s.re\u230b\u208a + k) s = Gamma s",
+        "body": "fun k \u21a6 by",
+        "children": [
+          {
+            "name": "i0",
+            "type": "",
+            "body": "Nat.sub_one_lt_floor (1 - s.re)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

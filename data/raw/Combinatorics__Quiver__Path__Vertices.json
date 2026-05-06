@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Vertices",
+    "name": "end_mem_vertices",
+    "statement": "V} (p : Path a b) : b \u2208 p.vertices",
+    "have_tree": [
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "getLast_mem (l := p.vertices) (vertices_ne_nil p)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Vertices",
+    "name": "exists_eq_comp_and_length_eq_of_lt_length",
+    "statement": "\u2115) (hn : n < p.vertices.length) : \u2203 (v : V) (p\u2081 : Path a v) (p\u2082 : Path v b), p = p\u2081.comp p\u2082 \u2227 p\u2081.length = n \u2227 v = p.vertices[n]",
+    "have_tree": [
+      {
+        "name": "hn_le_len",
+        "type": "n \u2264 p.length",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Vertices",
+    "name": "exists_eq_comp_and_notMem_tail_of_mem_vertices",
+    "statement": "V} (hv : v \u2208 p.vertices) : \u2203 (p\u2081 : Path a v) (p\u2082 : Path v b), p = p\u2081.comp p\u2082 \u2227 v \u2209 p\u2082.vertices.tail",
+    "have_tree": [
+      {
+        "name": "h_no_tail",
+        "type": "v \u2209 q\u2082'.vertices.tail",
+        "body": "by grind [vertices_cons, end_cons]",
+        "children": []
+      }
+    ]
+  }
+]

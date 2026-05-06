@@ -1,0 +1,105 @@
+[
+  {
+    "module": "Basic",
+    "name": "Finite.ofFinset",
+    "statement": "Set \u03b1} (s : Finset \u03b1) (H : \u2200 x, x \u2208 s \u2194 x \u2208 p) : p.Finite",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinset s H; p.toFinite",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "finite_univ",
+    "statement": "(@univ \u03b1).Finite",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "finite_insert",
+    "statement": "(insert a s).Finite \u2194 s.Finite where mp hs",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hs.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Finite.of_finite_image",
+    "statement": "Set \u03b1} {f : \u03b1 \u2192 \u03b2} (h : (f '' s).Finite) (hi : Set.InjOn f s) : s.Finite",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.to_subtype",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Finite.surjOn_iff_bijOn_of_mapsTo",
+    "statement": "s.Finite) (hm : MapsTo f s s) : SurjOn f s s \u2194 BijOn f s s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite s",
+        "body": "finite_coe_iff.mpr hs",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Finite.injOn_iff_bijOn_of_mapsTo",
+    "statement": "s.Finite) (hm : MapsTo f s s) : InjOn f s \u2194 BijOn f s s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite s",
+        "body": "finite_coe_iff.mpr hs",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "not_injOn_infinite_finite_image",
+    "statement": "\u03b1 \u2192 \u03b2} {s : Set \u03b1} (h_inf : s.Infinite) (h_fin : (f '' s).Finite) : \u00acInjOn f s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite (f '' s)",
+        "body": "finite_coe_iff.mpr h_fin",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Infinite s",
+        "body": "infinite_coe_iff.mpr h_inf",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "not_injective_infinite_finite",
+        "children": []
+      }
+    ]
+  }
+]

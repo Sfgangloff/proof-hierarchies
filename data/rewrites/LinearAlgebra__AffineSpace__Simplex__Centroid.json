@@ -1,0 +1,1726 @@
+[
+  {
+    "original": {
+      "module": "Centroid",
+      "name": "centroid_eq_affineCombination",
+      "statement": "Simplex k P n) : s.centroid = affineCombination k univ s.points (centroidWeights k univ)",
+      "have_tree": [
+        {
+          "name": "hssubset",
+          "type": "t \u2282 Set.univ",
+          "body": "by grind",
+          "children": []
+        },
+        {
+          "name": "h1",
+          "type": "",
+          "body": "AffineIndependent.eq_zero_of_affineCombination_mem_affineSpan s.independent hw h",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "centroid_eq_affineCombination",
+          "statement": "Simplex k P n) : s.centroid = affineCombination k univ s.points (centroidWeights k univ)",
+          "have_tree": [
+            {
+              "name": "h1",
+              "type": "",
+              "body": "AffineIndependent.eq_zero_of_affineCombination_mem_affineSpan s.independent hw h",
+              "children": []
+            },
+            {
+              "name": "hssubset",
+              "type": "t \u2282 Set.univ",
+              "body": "by grind",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Centroid",
+      "name": "median_eq_line_point_centroid",
+      "statement": "Simplex k P n) (i : Fin (n + 1)) : s.median i = line[k, s.points i, s.centroid]",
+      "have_tree": [
+        {
+          "name": "h1",
+          "type": "s.median i \u2264 line[k, s.points i, s.centroid]",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "h2",
+          "type": "line[k, s.points i, s.centroid] \u2264 s.median i",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "median_eq_line_point_centroid",
+          "statement": "Simplex k P n) (i : Fin (n + 1)) : s.median i = line[k, s.points i, s.centroid]",
+          "have_tree": [
+            {
+              "name": "h2",
+              "type": "line[k, s.points i, s.centroid] \u2264 s.median i",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "s.median i \u2264 line[k, s.points i, s.centroid]",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Centroid",
+      "name": "eq_centroid_of_forall_mem_median",
+      "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+      "have_tree": [
+        {
+          "name": "hi",
+          "type": "",
+          "body": "h i",
+          "children": []
+        },
+        {
+          "name": "hi",
+          "type": "LinearIndependent k u",
+          "body": "by",
+          "children": [
+            {
+              "name": "hindep",
+              "type": "AffineIndependent k p",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "affineIndependent_points_update_centroid s i\u2080",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h1",
+              "type": "",
+              "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+              "children": []
+            },
+            {
+              "name": "f_inj",
+              "type": "Function.Injective f",
+              "body": "by intro x y hxy; grind",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "",
+              "body": "h1.comp f f_inj",
+              "children": []
+            },
+            {
+              "name": "hcard'",
+              "type": "1 < #s'",
+              "body": "by grind",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "h_disjoint",
+          "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "affineIndependent_points_update_centroid s i\u2080",
+                  "children": []
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0,
+          0
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          1
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "affineIndependent_points_update_centroid s i\u2080",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0,
+          0
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          2
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "affineIndependent_points_update_centroid s i\u2080",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0,
+          0
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          3
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "affineIndependent_points_update_centroid s i\u2080",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0,
+          0
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          4
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "affineIndependent_points_update_centroid s i\u2080",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0,
+          0
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hindep",
+              "type": "AffineIndependent k p",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "affineIndependent_points_update_centroid s i\u2080",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "",
+              "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "affineIndependent_points_update_centroid s i\u2080",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 2,
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "f_inj",
+              "type": "Function.Injective f",
+              "body": "by intro x y hxy; grind",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "affineIndependent_points_update_centroid s i\u2080",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 3,
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "",
+              "body": "h1.comp f f_inj",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "affineIndependent_points_update_centroid s i\u2080",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 4,
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hcard'",
+              "type": "1 < #s'",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "affineIndependent_points_update_centroid s i\u2080",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1,
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "affineIndependent_points_update_centroid s i\u2080",
+                  "children": []
+                },
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "affineIndependent_points_update_centroid s i\u2080",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "affineIndependent_points_update_centroid s i\u2080",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          1
+        ],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "affineIndependent_points_update_centroid s i\u2080",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          1
+        ],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "affineIndependent_points_update_centroid s i\u2080",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          1
+        ],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "affineIndependent_points_update_centroid s i\u2080",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          1
+        ],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "eq_centroid_of_forall_mem_median",
+          "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "",
+              "body": "h i",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "LinearIndependent k u",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hindep",
+                  "type": "AffineIndependent k p",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "_",
+                      "type": "",
+                      "body": "affineIndependent_points_update_centroid s i\u2080",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "h1",
+                  "type": "",
+                  "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+                  "children": []
+                },
+                {
+                  "name": "f_inj",
+                  "type": "Function.Injective f",
+                  "body": "by intro x y hxy; grind",
+                  "children": []
+                },
+                {
+                  "name": "hcard'",
+                  "type": "1 < #s'",
+                  "body": "by grind",
+                  "children": []
+                },
+                {
+                  "name": "h2",
+                  "type": "",
+                  "body": "h1.comp f f_inj",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_disjoint",
+              "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Centroid",
+      "name": "affineSpan_range_medial",
+      "statement": "Simplex k P n) : affineSpan k (Set.range (s.medial.points)) = affineSpan k (Set.range (s.points))",
+      "have_tree": [
+        {
+          "name": "hmem1",
+          "type": "s.medial.points 0 \u2208 affineSpan k (Set.range s.medial.points)",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "hmem2",
+          "type": "s.medial.points 0 \u2208 affineSpan k (Set.range s.points)",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Centroid",
+          "name": "affineSpan_range_medial",
+          "statement": "Simplex k P n) : affineSpan k (Set.range (s.medial.points)) = affineSpan k (Set.range (s.points))",
+          "have_tree": [
+            {
+              "name": "hmem2",
+              "type": "s.medial.points 0 \u2208 affineSpan k (Set.range s.points)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hmem1",
+              "type": "s.medial.points 0 \u2208 affineSpan k (Set.range s.medial.points)",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

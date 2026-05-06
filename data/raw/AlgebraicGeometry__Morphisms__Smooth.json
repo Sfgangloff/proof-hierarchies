@@ -1,0 +1,149 @@
+[
+  {
+    "module": "Smooth",
+    "name": "Smooth.iff_forall_exists_isStandardSmooth",
+    "statement": "X \u27f6 Y) : Smooth f \u2194 \u2200 (x : X), \u2203 (U : Y.Opens) (_ : IsAffineOpen U) (V : X.Opens) (_ : IsAffineOpen V) (_ : x \u2208 V) (e : V \u2264 f \u207b\u00b9\u1d41 U), (f.appLE U V e).hom.IsStandardSmooth",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "HasRingHomProperty @Smooth.{u} (Locally IsStandardSmooth)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Smooth",
+    "name": "formallySmooth_stalkMap_iff",
+    "statement": "X \u27f6 Y} {x : X} (U : Y.Opens) (hU : IsAffineOpen U) (V : X.Opens) (hV : IsAffineOpen V) (hVU : V \u2264 f \u207b\u00b9\u1d41 U) (hx : x \u2208 V) : letI",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(hV.primeIdealOf \u27e8x, hx\u27e9).asIdeal.LiesOver (hU.primeIdealOf \u27e8f x, hVU hx\u27e9).asIdeal",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Smooth",
+    "name": "exists_smooth_of_formallySmooth_stalk",
+    "statement": "X \u27f6 Y) [LocallyOfFinitePresentation f] (x : X) (H : (f.stalkMap x).hom.FormallySmooth) : \u2203 (U : Y.Opens) (_ : IsAffineOpen U) (V : X.Opens) (_ : IsAffineOpen V) (hVU : V \u2264 f \u207b\u00b9\u1d41 U), x \u2208 V \u2227 (f.appLE U V hVU).hom.Smooth",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "f.finitePresentation_appLE hU hV hVU",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.IsSmoothAt _ _",
+        "body": "(formallySmooth_stalkMap_iff U hU V hV hVU hxV).mp H",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Smooth",
+    "name": "Scheme.Hom.mem_smoothLocus",
+    "statement": "X \u27f6 Y} [LocallyOfFinitePresentation f] {x : X} : x \u2208 f.smoothLocus \u2194 (f.stalkMap x).hom.FormallySmooth",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "f.smooth_appLE hU hV hVU",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Smooth",
+    "name": "Scheme.Hom.smoothLocus_eq_top_iff",
+    "statement": "X \u27f6 Y} [LocallyOfFinitePresentation f] : f.smoothLocus = \u22a4 \u2194 Smooth f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsAffine _",
+        "body": "hU",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAffine _",
+        "body": "hV",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Smooth",
+    "name": "Scheme.Hom.genericPoint_mem_smoothLocus_of_perfectField",
+    "statement": "Type u} [Field K] [PerfectField K] [IsIntegral X] (f : X \u27f6 Spec (.of K)) [LocallyOfFinitePresentation f] : genericPoint X \u2208 f.smoothLocus",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "LocallyOfFiniteType.stalkMap f (genericPoint X)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.IsAlgebraic K K'",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "PerfectField ((Spec (.of K)).presheaf.stalk (f (genericPoint X)))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Smooth",
+    "name": "Scheme.Hom.dense_smoothLocus_of_perfectField",
+    "statement": "Type u} [Field K] [PerfectField K] [IsReduced X] (f : X \u27f6 Spec (.of K)) [LocallyOfFinitePresentation f] : Dense (f.smoothLocus : Set X)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "this (U.\u03b9 \u226b f) (isCompact_iff_compactSpace.mp hU.isCompact) \u27e8x, hxU\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsNoetherian X",
+        "body": "{ __ := LocallyOfFiniteType.isLocallyNoetherian f }",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "AlgebraicGeometry.IsIntegral U",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "IrreducibleSpace U",
+            "body": "isIrreducible_iff_irreducibleSpace.mp",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "U.\u03b9 (genericPoint U) \u2208 f.smoothLocus",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(U.\u03b9 \u226b f).genericPoint_mem_smoothLocus_of_perfectField",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

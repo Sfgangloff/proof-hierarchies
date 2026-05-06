@@ -1,0 +1,73 @@
+[
+  {
+    "module": "Basic",
+    "name": "isOrthogonal_of_forall_apply_same",
+    "statement": "Type*} [FunLike F M M] [LinearMapClass F R M M] (f : F) (h : IsLeftRegular (2 : R)) (hB : B.IsSymm) (hf : \u2200 x, B (f x) (f x) = B x x) : B.IsOrthogonal f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf (x + y)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsSymm.nondegenerate_restrict_of_isCompl_ker",
+    "statement": "M \u2192\u2097[R] M \u2192\u2097[R] R} (hB : B.IsSymm) {W : Submodule R M} (hW : IsCompl W (LinearMap.ker B)) : (B.domRestrict\u2081\u2082 W W).Nondegenerate",
+    "have_tree": [
+      {
+        "name": "hB'",
+        "type": "(B.domRestrict\u2081\u2082 W W).IsRefl",
+        "body": "fun x y \u21a6 hB.isRefl (W.subtype x) (W.subtype y)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "apply_apply_same_eq_zero_iff",
+    "statement": "\u2200 x, 0 \u2264 B x x) (hB : B.IsSymm) {x : M} : B x x = 0 \u2194 x \u2208 LinearMap.ker B",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "B.apply_sq_le_of_symm hs hB x y",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "nondegenerate_restrict_iff_disjoint_ker",
+    "statement": "\u2200 x, 0 \u2264 B x x) (hB : B.IsSymm) {W : Submodule R M} : (B.domRestrict\u2081\u2082 W W).Nondegenerate \u2194 Disjoint W (LinearMap.ker B)",
+    "have_tree": [
+      {
+        "name": "hB'",
+        "type": "(B.domRestrict\u2081\u2082 W W).IsRefl",
+        "body": "fun x y \u21a6 hB.isRefl (W.subtype x) (W.subtype y)",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "x \u2208 W \u2293 LinearMap.ker B",
+        "body": "\u27e8hx, h\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "apply_mul_apply_lt_iff_linearIndependent",
+    "statement": "\u2200 x, x \u2260 0 \u2192 0 < B x x) (x y : M) : B x y * B y x < B x x * B y y \u2194 LinearIndependent R ![x, y]",
+    "have_tree": [
+      {
+        "name": "hrs",
+        "type": "r * r * s * s \u2260 0",
+        "body": "by simp [hr, hs]",
+        "children": []
+      }
+    ]
+  }
+]

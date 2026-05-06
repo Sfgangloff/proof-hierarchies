@@ -1,0 +1,199 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "mul_nonneg_of_three",
+      "statement": "R) : 0 \u2264 a * b \u2228 0 \u2264 b * c \u2228 0 \u2264 c * a",
+      "have_tree": [
+        {
+          "name": "or_a",
+          "type": "",
+          "body": "le_total 0 a",
+          "children": []
+        },
+        {
+          "name": "or_b",
+          "type": "",
+          "body": "le_total 0 b",
+          "children": []
+        },
+        {
+          "name": "or_c",
+          "type": "",
+          "body": "le_total 0 c",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "mul_nonneg_of_three",
+          "statement": "R) : 0 \u2264 a * b \u2228 0 \u2264 b * c \u2228 0 \u2264 c * a",
+          "have_tree": [
+            {
+              "name": "or_b",
+              "type": "",
+              "body": "le_total 0 b",
+              "children": []
+            },
+            {
+              "name": "or_a",
+              "type": "",
+              "body": "le_total 0 a",
+              "children": []
+            },
+            {
+              "name": "or_c",
+              "type": "",
+              "body": "le_total 0 c",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "mul_nonneg_of_three",
+          "statement": "R) : 0 \u2264 a * b \u2228 0 \u2264 b * c \u2228 0 \u2264 c * a",
+          "have_tree": [
+            {
+              "name": "or_a",
+              "type": "",
+              "body": "le_total 0 a",
+              "children": []
+            },
+            {
+              "name": "or_c",
+              "type": "",
+              "body": "le_total 0 c",
+              "children": []
+            },
+            {
+              "name": "or_b",
+              "type": "",
+              "body": "le_total 0 b",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "mul_nonneg_iff_pos_imp_nonneg",
+      "statement": "0 \u2264 a * b \u2194 (0 < a \u2192 0 \u2264 b) \u2227 (0 < b \u2192 0 \u2264 a)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "le_total a 0",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "le_total b 0",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "mul_nonneg_iff_pos_imp_nonneg",
+          "statement": "0 \u2264 a * b \u2194 (0 < a \u2192 0 \u2264 b) \u2227 (0 < b \u2192 0 \u2264 a)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "le_total b 0",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "le_total a 0",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "max_mul_mul_le_max_mul_max",
+      "statement": "R) (ha : 0 \u2264 a) (hd : 0 \u2264 d) : max (a * b) (d * c) \u2264 max a c * max d b",
+      "have_tree": [
+        {
+          "name": "ba",
+          "type": "b * a \u2264 max d b * max c a",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "cd",
+          "type": "c * d \u2264 max a c * max b d",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "max_mul_mul_le_max_mul_max",
+          "statement": "R) (ha : 0 \u2264 a) (hd : 0 \u2264 d) : max (a * b) (d * c) \u2264 max a c * max d b",
+          "have_tree": [
+            {
+              "name": "cd",
+              "type": "c * d \u2264 max a c * max b d",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "ba",
+              "type": "b * a \u2264 max d b * max c a",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "module": "Complex",
+    "name": "Complex.norm_eventually_eq_of_mdifferentiableAt_of_isLocalMax",
+    "statement": "M \u2192 F} {c : M} (hd : \u2200\u1da0 z in \ud835\udcdd c, MDiffAt f z) (hc : IsLocalMax (norm \u2218 f) c) : \u2200\u1da0 y in \ud835\udcdd c, \u2016f y\u2016 = \u2016f c\u2016",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "e.target \u2208 \ud835\udcdd (e c)",
+        "body": "H\u2081 \u25b8 extChartAt_target_mem_nhdsWithin c",
+        "children": []
+      },
+      {
+        "name": "hys",
+        "type": "e.symm y \u2208 (chartAt H c).source",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Complex",
+    "name": "norm_eqOn_of_isPreconnected_of_isMaxOn",
+    "statement": "M \u2192 F} {U : Set M} {c : M} (hd : MDiff[U] f) (hc : IsPreconnected U) (ho : IsOpen U) (hcU : c \u2208 U) (hm : IsMaxOn (norm \u2218 f) U c) : EqOn (norm \u2218 f) (const M \u2016f c\u2016) U",
+    "have_tree": [
+      {
+        "name": "hVo",
+        "type": "IsOpen V",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hVne",
+        "type": "(U \u2229 V).Nonempty",
+        "body": "\u27e8c, hcU, hcU, rfl\u27e9",
+        "children": []
+      },
+      {
+        "name": "hWo",
+        "type": "IsOpen W",
+        "body": "hd.continuousOn.norm.isOpen_inter_preimage ho isOpen_ne",
+        "children": []
+      },
+      {
+        "name": "hdVW",
+        "type": "Disjoint V W",
+        "body": "disjoint_compl_right.mono inf_le_right inf_le_right",
+        "children": []
+      },
+      {
+        "name": "hUVW",
+        "type": "U \u2286 V \u222a W",
+        "body": "fun x hx => (eq_or_ne \u2016f x\u2016 \u2016f c\u2016).imp (.intro hx) (.intro hx)",
+        "children": []
+      }
+    ]
+  }
+]

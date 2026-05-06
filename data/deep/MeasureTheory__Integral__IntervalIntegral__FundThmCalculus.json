@@ -1,0 +1,124 @@
+[
+  {
+    "module": "FundThmCalculus",
+    "name": "sub_le_integral_of_hasDeriv_right_of_le_Ico",
+    "statement": "a \u2264 b) (hcont : ContinuousOn g (Icc a b)) (hderiv : \u2200 x \u2208 Ico a b, HasDerivWithinAt g (g' x) (Ioi x) x) (\u03c6int : IntegrableOn \u03c6 (Icc a b)) (h\u03c6g : \u2200 x \u2208 Ico a b, g' x \u2264 \u03c6 x) : g b - g a \u2264 \u222b y in a..b, \u03c6 y",
+    "have_tree": [
+      {
+        "name": "s_closed",
+        "type": "IsClosed s",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "ContinuousOn (fun t => (g t - g a, \u222b u in a..t, (G' u).toReal)) (Icc a b)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "main",
+        "type": "Icc a b \u2286 {t | g t - g a \u2264 \u222b u in a..t, (G' u).toReal}",
+        "body": "by",
+        "children": [
+          {
+            "name": "I1",
+            "type": "\u2200\u1da0 u in \ud835\udcdd[>] t, (u - t) * y \u2264 \u222b w in t..u, (G' w).toReal",
+            "body": "by",
+            "children": [
+              {
+                "name": "B",
+                "type": "\u2200\u1da0 u in \ud835\udcdd t, (y : EReal) < G' u",
+                "body": "G'cont.lowerSemicontinuousAt _ _ y_lt_G'",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "Ioo t (min M b) \u2208 \ud835\udcdd[>] t",
+                "body": "Ioo_mem_nhdsGT (lt_min hM ht.right.right)",
+                "children": []
+              },
+              {
+                "name": "I",
+                "type": "Icc t u \u2286 Icc a b",
+                "body": "Icc_subset_Icc ht.2.1 (hu.2.le.trans (min_le_right _ _))",
+                "children": [
+                  {
+                    "name": "C2",
+                    "type": "\u2200\u1d50 x : \u211d \u2202volume.restrict (Icc t u), x \u2208 Icc t u",
+                    "body": "",
+                    "children": []
+                  },
+                  {
+                    "name": "_",
+                    "type": "x \u2208 Ioo m M",
+                    "body": "by",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "I2",
+            "type": "\u2200\u1da0 u in \ud835\udcdd[>] t, g u - g t \u2264 (u - t) * y",
+            "body": "by",
+            "children": [
+              {
+                "name": "g'_lt_y",
+                "type": "g' t < y",
+                "body": "EReal.coe_lt_coe_iff.1 g'_lt_y'",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "",
+                "body": "mul_le_mul_of_nonneg_left hu.le (sub_pos.2 t_lt_u.out).le",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "I3",
+            "type": "\u2200\u1da0 u in \ud835\udcdd[>] t, g u - g t \u2264 \u222b w in t..u, (G' w).toReal",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "I4",
+            "type": "\u2200\u1da0 u in \ud835\udcdd[>] t, u \u2208 Ioc t (min v b)",
+            "body": "Ioc_mem_nhdsGT <| lt_min t_lt_v ht.2.2",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "FundThmCalculus",
+    "name": "sub_le_integral_of_hasDeriv_right_of_le",
+    "statement": "a \u2264 b) (hcont : ContinuousOn g (Icc a b)) (hderiv : \u2200 x \u2208 Ioo a b, HasDerivWithinAt g (g' x) (Ioi x) x) (\u03c6int : IntegrableOn \u03c6 (Icc a b)) (h\u03c6g : \u2200 x \u2208 Ioo a b, g' x \u2264 \u03c6 x) : g b - g a \u2264 \u222b y in a..b, \u03c6 y",
+    "have_tree": [
+      {
+        "name": "s_closed",
+        "type": "IsClosed s",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "ContinuousOn (fun t => (g b - g t, \u222b u in t..b, \u03c6 u)) (Icc a b)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "A",
+        "type": "closure (Ioc a b) \u2286 s",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

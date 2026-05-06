@@ -1,0 +1,105 @@
+[
+  {
+    "module": "Integral",
+    "name": "Convex.integral_mem",
+    "statement": "Convex \u211d s) (hsc : IsClosed s) (hf : \u2200\u1d50 x \u2202\u03bc, f x \u2208 s) (hfi : Integrable f \u03bc) : (\u222b x, f x \u2202\u03bc) \u2208 s",
+    "have_tree": [
+      {
+        "name": "hg",
+        "type": "\u2200\u1d50 x \u2202\u03bc, g x \u2208 closure (range g \u2229 s)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "Convex.set_average_mem",
+    "statement": "Convex \u211d s) (hsc : IsClosed s) (h0 : \u03bc t \u2260 0) (ht : \u03bc t \u2260 \u221e) (hfs : \u2200\u1d50 x \u2202\u03bc.restrict t, f x \u2208 s) (hfi : IntegrableOn f t \u03bc) : (\u2a0d x in t, f x \u2202\u03bc) \u2208 s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk ht.lt_top",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "NeZero.mk h0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "ConvexOn.set_average_mem_epigraph",
+    "statement": "ConvexOn \u211d s g) (hgc : ContinuousOn g s) (hsc : IsClosed s) (h0 : \u03bc t \u2260 0) (ht : \u03bc t \u2260 \u221e) (hfs : \u2200\u1d50 x \u2202\u03bc.restrict t, f x \u2208 s) (hfi : IntegrableOn f t \u03bc) (hgi : IntegrableOn (g \u2218 f) t \u03bc) : (\u2a0d x in t, f x \u2202\u03bc, \u2a0d x in t, g (f x) \u2202\u03bc) \u2208 {p : E \u00d7 \u211d | p.1 \u2208 s \u2227 g p.1 \u2264 p.2}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fact.mk ht.lt_top",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "NeZero.mk h0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "ae_eq_const_or_exists_average_ne_compl",
+    "statement": "Integrable f \u03bc) : f =\u1d50[\u03bc] const \u03b1 (\u2a0d x, f x \u2202\u03bc) \u2228 \u2203 t, MeasurableSet t \u2227 \u03bc t \u2260 0 \u2227 \u03bc t\u1d9c \u2260 0 \u2227 (\u2a0d x in t, f x \u2202\u03bc) \u2260 \u2a0d x in t\u1d9c, f x \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "average_mem_openSegment_compl_self ht.nullMeasurableSet h\u2080 h\u2080' hfi",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "StrictConvex.ae_eq_const_or_average_mem_interior",
+    "statement": "StrictConvex \u211d s) (hsc : IsClosed s) (hfs : \u2200\u1d50 x \u2202\u03bc, f x \u2208 s) (hfi : Integrable f \u03bc) : f =\u1d50[\u03bc] const \u03b1 (\u2a0d x, f x \u2202\u03bc) \u2228 (\u2a0d x, f x \u2202\u03bc) \u2208 interior s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 {t}, \u03bc t \u2260 0 \u2192 (\u2a0d x in t, f x \u2202\u03bc) \u2208 s",
+        "body": "fun ht =>",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "StrictConvexOn.ae_eq_const_or_map_average_lt",
+    "statement": "StrictConvexOn \u211d s g) (hgc : ContinuousOn g s) (hsc : IsClosed s) (hfs : \u2200\u1d50 x \u2202\u03bc, f x \u2208 s) (hfi : Integrable f \u03bc) (hgi : Integrable (g \u2218 f) \u03bc) : f =\u1d50[\u03bc] const \u03b1 (\u2a0d x, f x \u2202\u03bc) \u2228 g (\u2a0d x, f x \u2202\u03bc) < \u2a0d x, g (f x) \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 {t}, \u03bc t \u2260 0 \u2192 (\u2a0d x in t, f x \u2202\u03bc) \u2208 s \u2227 g (\u2a0d x in t, f x \u2202\u03bc) \u2264 \u2a0d x in t, g (f x) \u2202\u03bc",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integral",
+    "name": "ae_eq_const_or_norm_integral_lt_of_norm_le_const",
+    "statement": "\u2200\u1d50 x \u2202\u03bc, \u2016f x\u2016 \u2264 C) : f =\u1d50[\u03bc] const \u03b1 (\u2a0d x, f x \u2202\u03bc) \u2228 \u2016\u222b x, f x \u2202\u03bc\u2016 < \u03bc.real univ * C",
+    "have_tree": [
+      {
+        "name": "h\u03bc",
+        "type": "0 < \u03bc.real univ",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

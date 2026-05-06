@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Fuglede",
+    "name": "expMulMulExp_const",
+    "statement": "SemiconjBy x a b) (z : \u2102) : expMulMulExp a b x z = x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsBounded (Set.range (expMulMulExp a b x))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fuglede",
+    "name": "SemiconjBy.star_right_of_unital",
+    "statement": "SemiconjBy x a b) : SemiconjBy x (star a) (star b)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsAddTorsionFree A",
+        "body": "IsAddTorsionFree.of_module_rat A",
+        "children": [
+          {
+            "name": "hcomm",
+            "type": "",
+            "body": "star_comm_self (x := a) |>.symm.smul_left x |>.smul_right (-x)",
+            "children": []
+          },
+          {
+            "name": "h\u2083",
+            "type": "",
+            "body": "h_deriv\u2082 (-a) (star a)",
+            "children": []
+          },
+          {
+            "name": "h\u2084",
+            "type": "",
+            "body": "h_deriv\u2082 (star a) (-a)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

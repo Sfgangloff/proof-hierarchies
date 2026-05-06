@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Lemmas",
+    "name": "mul_neg",
+    "statement": "\u03b1} (ha : a < 0) (hb : 0 < b) : b * a < 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(-b)*a > 0",
+        "body": "mul_pos_of_neg_of_neg (neg_neg_of_pos hb) ha",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "mul_nonpos",
+    "statement": "\u03b1} (ha : a \u2264 0) (hb : 0 < b) : b * a \u2264 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(-b)*a \u2265 0",
+        "body": "mul_nonneg_of_nonpos_of_nonpos (le_of_lt (neg_neg_of_pos hb)) ha",
+        "children": []
+      }
+    ]
+  }
+]

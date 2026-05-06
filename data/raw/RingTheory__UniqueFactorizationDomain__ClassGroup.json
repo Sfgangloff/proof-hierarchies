@@ -1,0 +1,59 @@
+[
+  {
+    "module": "ClassGroup",
+    "name": "isPrincipal_of_exists_mul_ne_zero_isPrincipal",
+    "statement": "Ideal R} (hJ : \u2203 K : Ideal R, J * K \u2260 0 \u2227 (J * K).IsPrincipal) : J.IsPrincipal",
+    "have_tree": [
+      {
+        "name": "hxmemJK",
+        "type": "x \u2208 J * K",
+        "body": "by simp [hJK]",
+        "children": []
+      },
+      {
+        "name": "hK'",
+        "type": "K' \u2264 span {g}",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hxJg",
+        "type": "x \u2208 J * span {g}",
+        "body": "mul_mono_right hK' hxT",
+        "children": []
+      },
+      {
+        "name": "hx0",
+        "type": "x \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ClassGroup",
+    "name": "isPrincipal_of_isUnit_fractionalIdeal",
+    "statement": "Ideal R) (hI : IsUnit (I : FractionalIdeal R\u2070 (FractionRing R))) : I.IsPrincipal",
+    "have_tree": [
+      {
+        "name": "ha0'",
+        "type": "",
+        "body": "spanSingleton_mul_inv (R\u2081 := R) (FractionRing R)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ClassGroup",
+    "name": "isPrincipal_fractionalIdeal_of_isUnit",
+    "statement": "(FractionalIdeal R\u2070 (FractionRing R))\u02e3) : (I : Submodule R (FractionRing R)).IsPrincipal",
+    "have_tree": [
+      {
+        "name": "hJprin",
+        "type": "J.IsPrincipal",
+        "body": "isPrincipal_of_isUnit_fractionalIdeal J hJunit",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,148 @@
+[
+  {
+    "module": "SimpleFuncDenseLp",
+    "name": "tendsto_approxOn_Lp_eLpNorm",
+    "statement": "\u03b2 \u2192 E} (hf : Measurable f) {s : Set E} {y\u2080 : E} (h\u2080 : y\u2080 \u2208 s) [SeparableSpace s] (hp_ne_top : p \u2260 \u221e) {\u03bc : Measure \u03b2} (h\u03bc : \u2200\u1d50 x \u2202\u03bc, f x \u2208 closure s) (hi : eLpNorm (fun x => f x - y\u2080) p \u03bc < \u221e) : Tendsto (fun n => eLpNorm (\u21d1(approxOn f hf s y\u2080 h\u2080 n) - f) p \u03bc) atTop (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "0 < p.toReal",
+        "body": "toReal_pos hp_zero hp_ne_top",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Measurable fun x => \u2016approxOn f hf s y\u2080 h\u2080 n x - f x\u2016\u2091 ^ p.toReal",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_fin",
+        "type": "(\u222b\u207b a : \u03b2, \u2016f a - y\u2080\u2016\u2091 ^ p.toReal \u2202\u03bc) \u2260 \u22a4",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "Tendsto (fun n => (approxOn f hf s y\u2080 h\u2080 n) a - f a) atTop (\ud835\udcdd (f a - f a))",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "SimpleFuncDenseLp",
+    "name": "memLp_approxOn",
+    "statement": "\u03b2 \u2192 E} {\u03bc : Measure \u03b2} (fmeas : Measurable f) (hf : MemLp f p \u03bc) {s : Set E} {y\u2080 : E} (h\u2080 : y\u2080 \u2208 s) [SeparableSpace s] (hi\u2080 : MemLp (fun _ => y\u2080) p \u03bc) (n : \u2115) : MemLp (approxOn f fmeas s y\u2080 h\u2080 n) p \u03bc",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "MemLp (fun x => approxOn f fmeas s y\u2080 h\u2080 n x - y\u2080) p \u03bc",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hf'",
+        "type": "MemLp (fun x => \u2016f x - y\u2080\u2016) p \u03bc",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_meas",
+            "type": "Measurable fun x => \u2016f x - y\u2080\u2016",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u2200\u1d50 x \u2202\u03bc, \u2016approxOn f fmeas s y\u2080 h\u2080 n x - y\u2080\u2016 \u2264 \u2016\u2016f x - y\u2080\u2016 + \u2016f x - y\u2080\u2016\u2016",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SimpleFuncDenseLp",
+    "name": "coeSimpleFuncNonnegToLpNonneg",
+    "statement": "{ g : Lp.simpleFunc G p \u03bc // 0 \u2264 g } \u2192 { g : Lp G p \u03bc // 0 \u2264 g }",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "SeparableSpace ((range (g : \u03b1 \u2192 G) \u222a {0}) \u2229 { y | 0 \u2264 y } : Set G)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "g_meas",
+        "type": "Measurable (g : \u03b1 \u2192 G)",
+        "body": "(Lp.stronglyMeasurable (g : Lp G p \u03bc)).measurable",
+        "children": []
+      },
+      {
+        "name": "hx_nonneg",
+        "type": "\u2200 n, 0 \u2264 x n",
+        "body": "by",
+        "children": [
+          {
+            "name": "A",
+            "type": "(range (g : \u03b1 \u2192 G) \u222a {0} : Set G) \u2229 { y | 0 \u2264 y } \u2286 { y | 0 \u2264 y }",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hx_memLp",
+        "type": "\u2200 n, MemLp (x n) p \u03bc",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h_toLp",
+        "type": "",
+        "body": "fun n => MemLp.coeFn_toLp (hx_memLp n)",
+        "children": []
+      },
+      {
+        "name": "hx_nonneg_Lp",
+        "type": "\u2200 n, 0 \u2264 toLp (x n) (hx_memLp n)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SimpleFuncDenseLp",
+    "name": "MemLp.induction",
+    "statement": "Fact (1 \u2264 p)] (hp_ne_top : p \u2260 \u221e) (motive : (\u03b1 \u2192 E) \u2192 Prop) (indicator : \u2200 (c : E) \u2983s\u2984, MeasurableSet s \u2192 \u03bc s < \u221e \u2192 motive (s.indicator fun _ => c)) (add : \u2200 \u2983f g : \u03b1 \u2192 E\u2984, Disjoint (support f) (support g) \u2192 MemLp f p \u03bc \u2192 MemLp g p \u03bc \u2192 motive f \u2192 motive g \u2192 motive (f + g)) (closed : IsClosed { f : Lp E p \u03bc | motive f }) (ae : \u2200 \u2983f g\u2984, f =\u1d50[\u03bc] g \u2192 MemLp f p \u03bc \u2192 motive f \u2192 motive g) : \u2200 \u2983f : \u03b1 \u2192 E\u2984, MemLp f p \u03bc \u2192 motive f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 f : SimpleFunc \u03b1 E, MemLp f p \u03bc \u2192 motive f",
+        "body": "by",
+        "children": [
+          {
+            "name": "hp_pos",
+            "type": "p \u2260 0",
+            "body": "(lt_of_lt_of_le zero_lt_one _i.elim).ne'",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u2200 f : Lp.simpleFunc E p \u03bc, motive f",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 f : Lp E p \u03bc, motive f",
+        "body": "fun f =>",
+        "children": []
+      }
+    ]
+  }
+]

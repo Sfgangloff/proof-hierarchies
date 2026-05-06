@@ -1,0 +1,46 @@
+[
+  {
+    "module": "LucasPrimality",
+    "name": "lucas_primality",
+    "statement": "\u2115) (a : ZMod p) (ha : a ^ (p - 1) = 1) (hd : \u2200 q : \u2115, q.Prime \u2192 q \u2223 p - 1 \u2192 a ^ ((p - 1) / q) \u2260 1) : p.Prime",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "p \u2260 0 \u2227 p \u2260 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hp1",
+        "type": "1 < p",
+        "body": "Nat.one_lt_iff_ne_zero_and_ne_one.2 h",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero p",
+        "body": "\u27e8h.1\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LucasPrimality",
+    "name": "reverse_lucas_primality",
+    "statement": "\u2115) (hP : p.Prime) : \u2203 a : ZMod p, a ^ (p - 1) = 1 \u2227 \u2200 q : \u2115, q.Prime \u2192 q \u2223 p - 1 \u2192 a ^ ((p - 1) / q) \u2260 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact p.Prime",
+        "body": "\u27e8hP\u27e9",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "tsub_pos_iff_lt.2 hP.one_lt",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,91 @@
+[
+  {
+    "module": "Factorization",
+    "name": "factorization_factorial_mul_succ",
+    "statement": "\u2115} (hp : p.Prime) : (p * (n + 1))!.factorization p = (p * n)!.factorization p + (n + 1).factorization p + 1",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "2 \u2264 p",
+        "body": "hp.two_le",
+        "children": []
+      },
+      {
+        "name": "h1",
+        "type": "1 \u2264 p * n + 1",
+        "body": "Nat.le_add_left _ _",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "p * n + 1 \u2264 p * (n + 1)",
+        "body": "by linarith",
+        "children": []
+      },
+      {
+        "name": "h3",
+        "type": "p * n + 1 \u2264 p * (n + 1) + 1",
+        "body": "by lia",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Factorization",
+    "name": "factorization_choose'",
+    "statement": "\u2115} (hp : p.Prime) (hnb : log p (n + k) < b) : (choose (n + k) k).factorization p = #{i \u2208 Ico 1 b | p ^ i \u2264 k % p ^ i + n % p ^ i}",
+    "have_tree": [
+      {
+        "name": "h2",
+        "type": "",
+        "body": "(add_tsub_cancel_right n k) \u25b8 choose_mul_factorial_mul_factorial (le_add_left k n)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Factorization",
+    "name": "factorization_le_factorization_choose_add",
+    "statement": "\u2115} : \u2200 {n k : \u2115}, k \u2264 n \u2192 k \u2260 0 \u2192 n.factorization p \u2264 (choose n k).factorization p + k.factorization p | n, 0, _, _ => by tauto | 0, x + 1, _, _ => by simp | n + 1, k + 1, hkn, hk => by rw [\u2190 Pi.add_apply, \u2190 coe_add, \u2190 factorization_mul (ne_of_gt <| choose_pos hkn) (zero_ne_add_one k).symm] refine factorization_le_factorization_of_dvd_right ?_ (zero_ne_add_one n).symm (Nat.mul_ne_zero (ne_of_gt <| choose_pos hkn) (by positivity)) rw [\u2190 add_one_mul_choose_eq] exact dvd_mul_right _ _  variable {p n k : \u2115}  theorem factorization_choose_prime_pow_add_factorization (hp : p.Prime) (hkn : k \u2264 p ^ n) (hk0 : k \u2260 0) : (choose (p ^ n) k).factorization p + k.factorization p = n",
+    "have_tree": [
+      {
+        "name": "filter_le_Ico",
+        "type": "",
+        "body": "(Ico 1 n.succ).card_filter_le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Factorization",
+    "name": "factorization_choose_le_log",
+    "statement": "(choose n k).factorization p \u2264 log p n",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "p.Prime",
+        "body": "Not.imp_symm (choose n k).factorization_eq_zero_of_not_prime h",
+        "children": []
+      },
+      {
+        "name": "hkn",
+        "type": "k \u2264 n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Factorization",
+    "name": "factorization_choose_of_lt_three_mul",
+    "statement": "p \u2260 2) (hk : p \u2264 k) (hk' : p \u2264 n - k) (hn : n < 3 * p) : (choose n k).factorization p = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "3 \u2264 p",
+        "body": "lt_of_le_of_ne hp.two_le hp'.symm",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Real",
+      "name": "lintegral_gaussianPDFReal_eq_one",
+      "statement": "\u211d) {v : \u211d\u22650} (h : v \u2260 0) : \u222b\u207b x, ENNReal.ofReal (gaussianPDFReal \u03bc v x) = 1",
+      "have_tree": [
+        {
+          "name": "hfm",
+          "type": "AEStronglyMeasurable (gaussianPDFReal \u03bc v) volume",
+          "body": "by fun_prop",
+          "children": []
+        },
+        {
+          "name": "hf",
+          "type": "0 \u2264\u2090\u209b gaussianPDFReal \u03bc v",
+          "body": "ae_of_all _ (gaussianPDFReal_nonneg \u03bc v)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Real",
+          "name": "lintegral_gaussianPDFReal_eq_one",
+          "statement": "\u211d) {v : \u211d\u22650} (h : v \u2260 0) : \u222b\u207b x, ENNReal.ofReal (gaussianPDFReal \u03bc v x) = 1",
+          "have_tree": [
+            {
+              "name": "hf",
+              "type": "0 \u2264\u2090\u209b gaussianPDFReal \u03bc v",
+              "body": "ae_of_all _ (gaussianPDFReal_nonneg \u03bc v)",
+              "children": []
+            },
+            {
+              "name": "hfm",
+              "type": "AEStronglyMeasurable (gaussianPDFReal \u03bc v) volume",
+              "body": "by fun_prop",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

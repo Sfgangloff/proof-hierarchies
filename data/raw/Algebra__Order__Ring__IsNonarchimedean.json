@@ -1,0 +1,54 @@
+[
+  {
+    "module": "IsNonarchimedean",
+    "name": "add_eq_right_of_lt",
+    "statement": "Type*} [AddGroup \u03b1] [FunLike F \u03b1 R] [AddGroupSeminormClass F \u03b1 R] {f : F} (hna : IsNonarchimedean f) {x y : \u03b1} (h_lt : f x < f y) : f (x + y) = f y",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "f (x + y) \u2264 f y",
+        "body": "(hna x y).trans_eq (max_eq_right_of_lt h_lt)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsNonarchimedean",
+    "name": "add_eq_left_of_lt",
+    "statement": "Type*} [AddGroup \u03b1] [FunLike F \u03b1 R] [AddGroupSeminormClass F \u03b1 R] {f : F} (hna : IsNonarchimedean f) {x y : \u03b1} (h_lt : f y < f x) : f (x + y) = f x",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "f (x + y) \u2264 f x",
+        "body": "(hna x y).trans_eq (max_eq_left_of_lt h_lt)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsNonarchimedean",
+    "name": "finset_image_add",
+    "statement": "Type*} [AddCommMonoid \u03b1] [FunLike F \u03b1 R] [ZeroHomClass F \u03b1 R] [NonnegHomClass F \u03b1 R] [Nonempty \u03b2] {f : F} (hna : IsNonarchimedean f) (g : \u03b2 \u2192 \u03b1) (t : Finset \u03b2) : \u2203 b : \u03b2, (t.Nonempty \u2192 b \u2208 t) \u2227 f (t.sum g) \u2264 f (g b)",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "t.Nonempty \u2194 t.val \u2260 0",
+        "body": "by simp [Finset.nonempty_iff_ne_empty]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IsNonarchimedean",
+    "name": "apply_sum_eq_of_lt",
+    "statement": "Type*} [AddCommGroup \u03b1] [FunLike F \u03b1 R] [AddGroupSeminormClass F \u03b1 R] {f : F} (nonarch : IsNonarchimedean f) {s : Finset \u03b2} {l : \u03b2 \u2192 \u03b1} {k : \u03b2} (hk : k \u2208 s) (hmax : \u2200 j \u2208 s, j \u2260 k \u2192 f (l j) < f (l k)) : f (\u2211 i \u2208 s, l i) = f (l k)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "s.Nonempty",
+        "body": "by use k",
+        "children": []
+      }
+    ]
+  }
+]

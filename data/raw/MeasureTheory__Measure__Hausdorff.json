@@ -1,0 +1,122 @@
+[
+  {
+    "module": "Hausdorff",
+    "name": "borel_le_caratheodory",
+    "statement": "IsMetric \u03bc) : borel X \u2264 \u03bc.caratheodory",
+    "have_tree": [
+      {
+        "name": "Ssep'",
+        "type": "\u2200 n, Metric.AreSeparated (S n) (s \u2229 t)",
+        "body": "fun n =>",
+        "children": []
+      },
+      {
+        "name": "S_sub",
+        "type": "\u2200 n, S n \u2286 s \\ t",
+        "body": "fun n =>",
+        "children": []
+      },
+      {
+        "name": "hSs",
+        "type": "\u2200 n, \u03bc (s \u2229 t) + \u03bc (S n) \u2264 \u03bc s",
+        "body": "fun n =>",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 n, S n \u2286 S (n + 1)",
+        "body": "fun n x hx =>",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "infEDist y t < (\u2191(2 * j + r))\u207b\u00b9",
+        "body": "not_le.1 fun hle => hy.2 \u27e8hy.1, hle\u27e9",
+        "children": []
+      },
+      {
+        "name": "hxz",
+        "type": "(\u2191(2 * i + 1 + r))\u207b\u00b9 \u2264 edist x z",
+        "body": "le_infEDist.1 hx.2 _ hzt",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hausdorff",
+    "name": "mkMetric'_isMetric",
+    "statement": "Set X \u2192 \u211d\u22650\u221e) : (mkMetric' m).IsMetric",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u03b5 < ediam u",
+        "body": "\u03b5r.trans_le ((hr x hxs y hyt).trans <| edist_le_ediam_of_mem hxu hyu)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hausdorff",
+    "name": "hausdorffMeasure_zero_singleton",
+    "statement": "X) : \u03bcH[0] ({x} : Set X) = 1",
+    "have_tree": [
+      {
+        "name": "ht",
+        "type": "\u2200\u1da0 n in atTop, \u2200 i, ediam (t n i) \u2264 r n",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "(t m).Nonempty",
+        "body": "\u27e8x, hm\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hausdorff",
+    "name": "hausdorffMeasure_image_le",
+    "statement": "HolderOnWith C r f s) (hr : 0 < r) {d : \u211d} (hd : 0 \u2264 d) : \u03bcH[d] (f '' s) \u2264 (C : \u211d\u22650\u221e) ^ d * \u03bcH[r * d] s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(f '' s).Subsingleton",
+        "body": "by simpa [ediam_eq_zero_iff] using h.ediam_image_le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hausdorff",
+    "name": "hausdorffMeasure_preimage_le",
+    "statement": "AntilipschitzWith K f) (hd : 0 \u2264 d) (s : Set Y) : \u03bcH[d] (f \u207b\u00b9' s) \u2264 (K : \u211d\u22650\u221e) ^ d * \u03bcH[d] s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(f \u207b\u00b9' s).Subsingleton",
+        "body": "subsingleton_univ.anti (subset_univ _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hausdorff",
+    "name": "hausdorffMeasure_smul_right_image",
+    "statement": "E) (s : Set \u211d) : \u03bcH[1] ((fun r => r \u2022 v) '' s) = \u2016v\u2016\u208a \u2022 \u03bcH[1] s",
+    "have_tree": [
+      {
+        "name": "hn",
+        "type": "\u2016v\u2016 \u2260 0",
+        "body": "norm_ne_zero_iff.mpr hv",
+        "children": []
+      },
+      {
+        "name": "iso_smul",
+        "type": "Isometry (LinearMap.toSpanSingleton \u211d E (\u2016v\u2016\u207b\u00b9 \u2022 v))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

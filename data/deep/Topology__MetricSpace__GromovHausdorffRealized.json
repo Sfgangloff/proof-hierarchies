@@ -1,0 +1,40 @@
+[
+  {
+    "module": "GromovHausdorffRealized",
+    "name": "hausdorffDist_optimal_le_HD",
+    "statement": "f \u2208 candidatesB X Y) : hausdorffDist (range (optimalGHInjl X Y)) (range (optimalGHInjr X Y)) \u2264 HD f",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2200 x \u2208 range (optimalGHInjl X Y), \u2203 y \u2208 range (optimalGHInjr X Y), dist x y \u2264 r",
+        "body": "by",
+        "children": [
+          {
+            "name": "I1",
+            "type": "(\u2a06 x, \u2a05 y, optimalGHDist X Y (inl x, inr y)) < r",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "I",
+            "type": "\u2a05 y, optimalGHDist X Y (inl z, inr y) < r",
+            "body": "lt_of_le_of_lt I2 I1",
+            "children": []
+          },
+          {
+            "name": "I1",
+            "type": "(\u2a06 y, \u2a05 x, optimalGHDist X Y (inl x, inr y)) < r",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "I",
+            "type": "\u2a05 x, optimalGHDist X Y (inl x, inr z) < r",
+            "body": "lt_of_le_of_lt I2 I1",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

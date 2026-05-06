@@ -1,0 +1,66 @@
+[
+  {
+    "module": "Basic",
+    "name": "IsPrimitiveRoot.not_coprime_norm_of_mk_eq_one",
+    "statement": "absNorm I \u2260 1) {n : \u2115} {\u03b6 : K} (hn : 2 \u2264 n) (h\u03b6 : IsPrimitiveRoot \u03b6 n) (h : letI _ : NeZero n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (p.Prime)",
+        "body": "\u27e8hp\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Ideal.torsionMapQuot_apply",
+    "statement": "(\ud835\udcde K)\u02e3} (hx : x \u2208 torsion K) : torsionMapQuot I \u27e8x, hx\u27e9 = Ideal.Quotient.mk I x",
+    "have_tree": [
+      {
+        "name": "h\u03bc",
+        "type": "IsPrimitiveRoot \u03bc t",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "IsPrimitiveRoot.idealQuotient_mk",
+    "statement": "\u2115} [NeZero n] {\u03b6 : (\ud835\udcde K)} (h\u03b6 : IsPrimitiveRoot \u03b6 n) (hI\u2081 : absNorm I \u2260 1) (hI\u2082 : (absNorm I).Coprime n) : IsPrimitiveRoot (Ideal.Quotient.mk I \u03b6) n",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "IsPrimitiveRoot h\u03b6.toRootsOfUnity n",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "NumberField.torsionOrder_dvd_absNorm_sub_one",
+    "statement": "Ideal (\ud835\udcde K)} (hP\u2080 : P \u2260 \u22a5) (hP\u2081 : P.IsPrime) (hP\u2082 : (absNorm P).Coprime (torsionOrder K)) : torsionOrder K \u2223 absNorm P - 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "P.IsMaximal",
+        "body": "Ring.DimensionLEOne.maximalOfPrime hP\u2080 hP\u2081",
+        "children": []
+      },
+      {
+        "name": "hP\u2083",
+        "type": "absNorm P \u2260 1",
+        "body": "absNorm_eq_one_iff.not.mpr <| IsPrime.ne_top hP\u2081",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "Subgroup.card_dvd_of_injective _ (torsionMapQuot_injective hP\u2083 hP\u2082)",
+        "children": []
+      }
+    ]
+  }
+]

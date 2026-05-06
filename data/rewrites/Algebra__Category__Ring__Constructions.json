@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Constructions",
+      "name": "isPushout_of_isLocalization",
+      "statement": "Type u} [CommRing R] [CommRing R\u2098] [Algebra R R\u2098] [CommRing S] [CommRing S\u2098] [Algebra S S\u2098] (f : R \u2192+* S) (f\u2098 : R\u2098 \u2192+* S\u2098) (H : f\u2098.comp (algebraMap _ _) = (algebraMap _ _).comp f) (M : Submonoid R) [IsLocalization M R\u2098] [IsLocalization (M.map f) S\u2098] : IsPushout (CommRingCat.ofHom f) (CommRingCat.ofHom (algebraMap R R\u2098)) (CommRingCat.ofHom (algebraMap S S\u2098)) (CommRingCat.ofHom f\u2098)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "IsScalarTower R S S\u2098",
+          "body": ".of_algebraMap_eq' H",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "IsLocalization (Algebra.algebraMapSubmonoid S M) S\u2098",
+          "body": "\u2039_\u203a",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Constructions",
+          "name": "isPushout_of_isLocalization",
+          "statement": "Type u} [CommRing R] [CommRing R\u2098] [Algebra R R\u2098] [CommRing S] [CommRing S\u2098] [Algebra S S\u2098] (f : R \u2192+* S) (f\u2098 : R\u2098 \u2192+* S\u2098) (H : f\u2098.comp (algebraMap _ _) = (algebraMap _ _).comp f) (M : Submonoid R) [IsLocalization M R\u2098] [IsLocalization (M.map f) S\u2098] : IsPushout (CommRingCat.ofHom f) (CommRingCat.ofHom (algebraMap R R\u2098)) (CommRingCat.ofHom (algebraMap S S\u2098)) (CommRingCat.ofHom f\u2098)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsLocalization (Algebra.algebraMapSubmonoid S M) S\u2098",
+              "body": "\u2039_\u203a",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsScalarTower R S S\u2098",
+              "body": ".of_algebraMap_eq' H",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Constructions",
+      "name": "pullbackConeIsLimit",
+      "statement": "CommRingCat.{u}} (f : A \u27f6 C) (g : B \u27f6 C) : IsLimit (pullbackCone f g)",
+      "have_tree": [
+        {
+          "name": "eq1",
+          "type": "",
+          "body": "(congr_arg (fun f : s.pt \u2192+* A => f x) (congrArg Hom.hom e\u2081) :)",
+          "children": []
+        },
+        {
+          "name": "eq2",
+          "type": "",
+          "body": "(congr_arg (fun f : s.pt \u2192+* B => f x) (congrArg Hom.hom e\u2082) :)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Constructions",
+          "name": "pullbackConeIsLimit",
+          "statement": "CommRingCat.{u}} (f : A \u27f6 C) (g : B \u27f6 C) : IsLimit (pullbackCone f g)",
+          "have_tree": [
+            {
+              "name": "eq2",
+              "type": "",
+              "body": "(congr_arg (fun f : s.pt \u2192+* B => f x) (congrArg Hom.hom e\u2082) :)",
+              "children": []
+            },
+            {
+              "name": "eq1",
+              "type": "",
+              "body": "(congr_arg (fun f : s.pt \u2192+* A => f x) (congrArg Hom.hom e\u2081) :)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

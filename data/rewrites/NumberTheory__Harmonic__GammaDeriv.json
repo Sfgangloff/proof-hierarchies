@@ -1,0 +1,274 @@
+[
+  {
+    "original": {
+      "module": "GammaDeriv",
+      "name": "hasDerivAt_Gamma\u2102_one",
+      "statement": "HasDerivAt Gamma\u2102 (-(\u03b3 + log (2 * \u03c0)) / \u03c0) 1",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "(hasDerivAt_neg' (1 : \u2102)).const_cpow (c := 2 * \u03c0)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "this.mul hasDerivAt_Gamma_one",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "GammaDeriv",
+          "name": "hasDerivAt_Gamma\u2102_one",
+          "statement": "HasDerivAt Gamma\u2102 (-(\u03b3 + log (2 * \u03c0)) / \u03c0) 1",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "this.mul hasDerivAt_Gamma_one",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(hasDerivAt_neg' (1 : \u2102)).const_cpow (c := 2 * \u03c0)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "GammaDeriv",
+      "name": "hasDerivAt_Gamma\u211d_one",
+      "statement": "HasDerivAt Gamma\u211d (-(\u03b3 + log (4 * \u03c0)) / 2) 1",
+      "have_tree": [
+        {
+          "name": "hf",
+          "type": "HasDerivAt f (-log \u03c0 / 2 / \u221a\u03c0) 1",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "((hasDerivAt_neg (1 : \u2102)).div_const 2).const_cpow (c := \u03c0) (Or.inr (by simp))",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "hg",
+          "type": "HasDerivAt g (-\u221a\u03c0 * (\u03b3 + 2 * log 2) / 2) 1",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hasDerivAt_Gamma_one_half.comp 1 (?_ : HasDerivAt (fun s : \u2102 \u21a6 s / 2) (1 / 2) 1)",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "GammaDeriv",
+          "name": "hasDerivAt_Gamma\u211d_one",
+          "statement": "HasDerivAt Gamma\u211d (-(\u03b3 + log (4 * \u03c0)) / 2) 1",
+          "have_tree": [
+            {
+              "name": "hf",
+              "type": "HasDerivAt f (-log \u03c0 / 2 / \u221a\u03c0) 1",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hg",
+              "type": "HasDerivAt g (-\u221a\u03c0 * (\u03b3 + 2 * log 2) / 2) 1",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hasDerivAt_Gamma_one_half.comp 1 (?_ : HasDerivAt (fun s : \u2102 \u21a6 s / 2) (1 / 2) 1)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "GammaDeriv",
+          "name": "hasDerivAt_Gamma\u211d_one",
+          "statement": "HasDerivAt Gamma\u211d (-(\u03b3 + log (4 * \u03c0)) / 2) 1",
+          "have_tree": [
+            {
+              "name": "hf",
+              "type": "HasDerivAt f (-log \u03c0 / 2 / \u221a\u03c0) 1",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "((hasDerivAt_neg (1 : \u2102)).div_const 2).const_cpow (c := \u03c0) (Or.inr (by simp))",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hg",
+              "type": "HasDerivAt g (-\u221a\u03c0 * (\u03b3 + 2 * log 2) / 2) 1",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "GammaDeriv",
+          "name": "hasDerivAt_Gamma\u211d_one",
+          "statement": "HasDerivAt Gamma\u211d (-(\u03b3 + log (4 * \u03c0)) / 2) 1",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "((hasDerivAt_neg (1 : \u2102)).div_const 2).const_cpow (c := \u03c0) (Or.inr (by simp))",
+              "children": []
+            },
+            {
+              "name": "hf",
+              "type": "HasDerivAt f (-log \u03c0 / 2 / \u221a\u03c0) 1",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hg",
+              "type": "HasDerivAt g (-\u221a\u03c0 * (\u03b3 + 2 * log 2) / 2) 1",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hasDerivAt_Gamma_one_half.comp 1 (?_ : HasDerivAt (fun s : \u2102 \u21a6 s / 2) (1 / 2) 1)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "GammaDeriv",
+          "name": "hasDerivAt_Gamma\u211d_one",
+          "statement": "HasDerivAt Gamma\u211d (-(\u03b3 + log (4 * \u03c0)) / 2) 1",
+          "have_tree": [
+            {
+              "name": "hf",
+              "type": "HasDerivAt f (-log \u03c0 / 2 / \u221a\u03c0) 1",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "((hasDerivAt_neg (1 : \u2102)).div_const 2).const_cpow (c := \u03c0) (Or.inr (by simp))",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "hasDerivAt_Gamma_one_half.comp 1 (?_ : HasDerivAt (fun s : \u2102 \u21a6 s / 2) (1 / 2) 1)",
+              "children": []
+            },
+            {
+              "name": "hg",
+              "type": "HasDerivAt g (-\u221a\u03c0 * (\u03b3 + 2 * log 2) / 2) 1",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "GammaDeriv",
+          "name": "hasDerivAt_Gamma\u211d_one",
+          "statement": "HasDerivAt Gamma\u211d (-(\u03b3 + log (4 * \u03c0)) / 2) 1",
+          "have_tree": [
+            {
+              "name": "hg",
+              "type": "HasDerivAt g (-\u221a\u03c0 * (\u03b3 + 2 * log 2) / 2) 1",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hasDerivAt_Gamma_one_half.comp 1 (?_ : HasDerivAt (fun s : \u2102 \u21a6 s / 2) (1 / 2) 1)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hf",
+              "type": "HasDerivAt f (-log \u03c0 / 2 / \u221a\u03c0) 1",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "((hasDerivAt_neg (1 : \u2102)).div_const 2).const_cpow (c := \u03c0) (Or.inr (by simp))",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

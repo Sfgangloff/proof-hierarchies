@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Semantics",
+    "name": "realize_toFormula",
+    "statement": "L.BoundedFormula \u03b1 n) (v : \u03b1 \u2295 (Fin n) \u2192 M) : \u03c6.toFormula.Realize v \u2194 \u03c6.Realize (v \u2218 Sum.inl) (v \u2218 Sum.inr)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "ih3 (Sum.elim (v \u2218 Sum.inl) (snoc (v \u2218 Sum.inr) a))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Semantics",
+    "name": "realize_boundedFormula",
+    "statement": "L.BoundedFormula \u03b1 n) {v : \u03b1 \u2192 M} {xs : Fin n \u2192 M} : \u03c6.Realize (g \u2218 v) (g \u2218 xs) \u2194 \u03c6.Realize v xs",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "h (g a)",
+        "children": []
+      },
+      {
+        "name": "h'",
+        "type": "",
+        "body": "h (EquivLike.inv g a)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Semantics",
+    "name": "model_distinctConstantsTheory",
+    "statement": "Type w} [L[[\u03b1]].Structure M] (s : Set \u03b1) : M \u22a8 L.distinctConstantsTheory s \u2194 Set.InjOn (fun i : \u03b1 => (L.con i : M)) s",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "h _ a b \u27e8\u27e8as, bs\u27e9, ab\u27e9 rfl",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,854 @@
+[
+  {
+    "original": {
+      "module": "KruskalKatona",
+      "name": "shadow_initSeg",
+      "statement": "s.Nonempty) : \u2202 (initSeg s) = initSeg (erase s <| min' s hs)",
+      "have_tree": [
+        {
+          "name": "hjk",
+          "type": "j \u2264 k",
+          "body": "min'_le _ _ (mem_compl.2 \u2039k \u2209 t\u203a)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "j \u2209 t",
+          "body": "mem_compl.1 (min'_mem _ _)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "KruskalKatona",
+          "name": "shadow_initSeg",
+          "statement": "s.Nonempty) : \u2202 (initSeg s) = initSeg (erase s <| min' s hs)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "j \u2209 t",
+              "body": "mem_compl.1 (min'_mem _ _)",
+              "children": []
+            },
+            {
+              "name": "hjk",
+              "type": "j \u2264 k",
+              "body": "min'_le _ _ (mem_compl.2 \u2039k \u2209 t\u203a)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "KruskalKatona",
+      "name": "toColex_compress_lt_toColex",
+      "statement": "U.Nonempty} {hV : V.Nonempty} (h : max' U hU < max' V hV) (hA : compress U V s \u2260 s) : toColex (compress U V s) < toColex s",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "a \u2209 V",
+          "body": "fun H \u21a6 ha.not_ge (le_max' _ _ H)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "a \u2209 U",
+          "body": "fun H \u21a6 ha.not_gt ((le_max' _ _ H).trans_lt h)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "KruskalKatona",
+          "name": "toColex_compress_lt_toColex",
+          "statement": "U.Nonempty} {hV : V.Nonempty} (h : max' U hU < max' V hV) (hA : compress U V s \u2260 s) : toColex (compress U V s) < toColex s",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "a \u2209 U",
+              "body": "fun H \u21a6 ha.not_gt ((le_max' _ _ H).trans_lt h)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "a \u2209 V",
+              "body": "fun H \u21a6 ha.not_ge (le_max' _ _ H)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "KruskalKatona",
+      "name": "isInitSeg_of_compressed",
+      "statement": "Finset (Finset \u03b1)} {r : \u2115} (h\u2081 : (\u212c : Set (Finset \u03b1)).Sized r) (h\u2082 : \u2200 U V, UsefulCompression U V \u2192 IsCompressed U V \u212c) : IsInitSeg \u212c r",
+      "have_tree": [
+        {
+          "name": "hAB",
+          "type": "A \u2260 B",
+          "body": "ne_of_mem_of_not_mem hA hB",
+          "children": []
+        },
+        {
+          "name": "hU",
+          "type": "(A \\ B).Nonempty",
+          "body": "sdiff_nonempty.2 fun h \u21a6 hAB <| eq_of_subset_of_card_le h hAB'.ge",
+          "children": []
+        },
+        {
+          "name": "hV",
+          "type": "(B \\ A).Nonempty",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "disj",
+          "type": "Disjoint (B \\ A) (A \\ B)",
+          "body": "disjoint_sdiff.mono_left sdiff_subset",
+          "children": []
+        },
+        {
+          "name": "smaller",
+          "type": "max' _ hV < max' _ hU",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "KruskalKatona",
+          "name": "isInitSeg_of_compressed",
+          "statement": "Finset (Finset \u03b1)} {r : \u2115} (h\u2081 : (\u212c : Set (Finset \u03b1)).Sized r) (h\u2082 : \u2200 U V, UsefulCompression U V \u2192 IsCompressed U V \u212c) : IsInitSeg \u212c r",
+          "have_tree": [
+            {
+              "name": "hU",
+              "type": "(A \\ B).Nonempty",
+              "body": "sdiff_nonempty.2 fun h \u21a6 hAB <| eq_of_subset_of_card_le h hAB'.ge",
+              "children": []
+            },
+            {
+              "name": "hAB",
+              "type": "A \u2260 B",
+              "body": "ne_of_mem_of_not_mem hA hB",
+              "children": []
+            },
+            {
+              "name": "hV",
+              "type": "(B \\ A).Nonempty",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "disj",
+              "type": "Disjoint (B \\ A) (A \\ B)",
+              "body": "disjoint_sdiff.mono_left sdiff_subset",
+              "children": []
+            },
+            {
+              "name": "smaller",
+              "type": "max' _ hV < max' _ hU",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "KruskalKatona",
+          "name": "isInitSeg_of_compressed",
+          "statement": "Finset (Finset \u03b1)} {r : \u2115} (h\u2081 : (\u212c : Set (Finset \u03b1)).Sized r) (h\u2082 : \u2200 U V, UsefulCompression U V \u2192 IsCompressed U V \u212c) : IsInitSeg \u212c r",
+          "have_tree": [
+            {
+              "name": "hAB",
+              "type": "A \u2260 B",
+              "body": "ne_of_mem_of_not_mem hA hB",
+              "children": []
+            },
+            {
+              "name": "hV",
+              "type": "(B \\ A).Nonempty",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hU",
+              "type": "(A \\ B).Nonempty",
+              "body": "sdiff_nonempty.2 fun h \u21a6 hAB <| eq_of_subset_of_card_le h hAB'.ge",
+              "children": []
+            },
+            {
+              "name": "disj",
+              "type": "Disjoint (B \\ A) (A \\ B)",
+              "body": "disjoint_sdiff.mono_left sdiff_subset",
+              "children": []
+            },
+            {
+              "name": "smaller",
+              "type": "max' _ hV < max' _ hU",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "KruskalKatona",
+          "name": "isInitSeg_of_compressed",
+          "statement": "Finset (Finset \u03b1)} {r : \u2115} (h\u2081 : (\u212c : Set (Finset \u03b1)).Sized r) (h\u2082 : \u2200 U V, UsefulCompression U V \u2192 IsCompressed U V \u212c) : IsInitSeg \u212c r",
+          "have_tree": [
+            {
+              "name": "hAB",
+              "type": "A \u2260 B",
+              "body": "ne_of_mem_of_not_mem hA hB",
+              "children": []
+            },
+            {
+              "name": "hU",
+              "type": "(A \\ B).Nonempty",
+              "body": "sdiff_nonempty.2 fun h \u21a6 hAB <| eq_of_subset_of_card_le h hAB'.ge",
+              "children": []
+            },
+            {
+              "name": "disj",
+              "type": "Disjoint (B \\ A) (A \\ B)",
+              "body": "disjoint_sdiff.mono_left sdiff_subset",
+              "children": []
+            },
+            {
+              "name": "hV",
+              "type": "(B \\ A).Nonempty",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "smaller",
+              "type": "max' _ hV < max' _ hU",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "KruskalKatona",
+          "name": "isInitSeg_of_compressed",
+          "statement": "Finset (Finset \u03b1)} {r : \u2115} (h\u2081 : (\u212c : Set (Finset \u03b1)).Sized r) (h\u2082 : \u2200 U V, UsefulCompression U V \u2192 IsCompressed U V \u212c) : IsInitSeg \u212c r",
+          "have_tree": [
+            {
+              "name": "hAB",
+              "type": "A \u2260 B",
+              "body": "ne_of_mem_of_not_mem hA hB",
+              "children": []
+            },
+            {
+              "name": "hU",
+              "type": "(A \\ B).Nonempty",
+              "body": "sdiff_nonempty.2 fun h \u21a6 hAB <| eq_of_subset_of_card_le h hAB'.ge",
+              "children": []
+            },
+            {
+              "name": "hV",
+              "type": "(B \\ A).Nonempty",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "smaller",
+              "type": "max' _ hV < max' _ hU",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "disj",
+              "type": "Disjoint (B \\ A) (A \\ B)",
+              "body": "disjoint_sdiff.mono_left sdiff_subset",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "KruskalKatona",
+      "name": "familyMeasure",
+      "statement": "Finset (Finset (Fin n))) : \u2115",
+      "have_tree": [
+        {
+          "name": "q",
+          "type": "\u2200 Q \u2208 {A \u2208 \ud835\udc9c | compress U V A \u2209 \ud835\udc9c}, compress U V Q \u2260 Q",
+          "body": "by grind",
+          "children": []
+        },
+        {
+          "name": "ne\u2082",
+          "type": "{A \u2208 \ud835\udc9c | compress U V A \u2209 \ud835\udc9c}.Nonempty",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "KruskalKatona",
+          "name": "familyMeasure",
+          "statement": "Finset (Finset (Fin n))) : \u2115",
+          "have_tree": [
+            {
+              "name": "ne\u2082",
+              "type": "{A \u2208 \ud835\udc9c | compress U V A \u2209 \ud835\udc9c}.Nonempty",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "q",
+              "type": "\u2200 Q \u2208 {A \u2208 \ud835\udc9c | compress U V A \u2209 \ud835\udc9c}, compress U V Q \u2260 Q",
+              "body": "by grind",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "KruskalKatona",
+      "name": "kruskal_katona_helper",
+      "statement": "\u2115} (\ud835\udc9c : Finset (Finset (Fin n))) (h : (\ud835\udc9c : Set (Finset (Fin n))).Sized r) : \u2203 \u212c : Finset (Finset (Fin n)), #(\u2202 \u212c) \u2264 #(\u2202 \ud835\udc9c) \u2227 #\ud835\udc9c = #\u212c \u2227 (\u212c : Set (Finset (Fin n))).Sized r \u2227 \u2200 U V, UsefulCompression U V \u2192 IsCompressed U V \u212c",
+      "have_tree": [
+        {
+          "name": "h\u2082",
+          "type": "\u2200 U\u2081 V\u2081, UsefulCompression U\u2081 V\u2081 \u2192 #U\u2081 < #U \u2192 IsCompressed U\u2081 V\u2081 \ud835\udc9c",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "p1",
+          "type": "#(\u2202 (\ud835\udcd2 U V \ud835\udc9c)) \u2264 #(\u2202 \ud835\udc9c)",
+          "body": "compression_improved _ hUV.2.1 h\u2082",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "familyMeasure_compression_lt_familyMeasure hmax hUV.2.2",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "KruskalKatona",
+          "name": "kruskal_katona_helper",
+          "statement": "\u2115} (\ud835\udc9c : Finset (Finset (Fin n))) (h : (\ud835\udc9c : Set (Finset (Fin n))).Sized r) : \u2203 \u212c : Finset (Finset (Fin n)), #(\u2202 \u212c) \u2264 #(\u2202 \ud835\udc9c) \u2227 #\ud835\udc9c = #\u212c \u2227 (\u212c : Set (Finset (Fin n))).Sized r \u2227 \u2200 U V, UsefulCompression U V \u2192 IsCompressed U V \u212c",
+          "have_tree": [
+            {
+              "name": "p1",
+              "type": "#(\u2202 (\ud835\udcd2 U V \ud835\udc9c)) \u2264 #(\u2202 \ud835\udc9c)",
+              "body": "compression_improved _ hUV.2.1 h\u2082",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "\u2200 U\u2081 V\u2081, UsefulCompression U\u2081 V\u2081 \u2192 #U\u2081 < #U \u2192 IsCompressed U\u2081 V\u2081 \ud835\udc9c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "familyMeasure_compression_lt_familyMeasure hmax hUV.2.2",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "KruskalKatona",
+          "name": "kruskal_katona_helper",
+          "statement": "\u2115} (\ud835\udc9c : Finset (Finset (Fin n))) (h : (\ud835\udc9c : Set (Finset (Fin n))).Sized r) : \u2203 \u212c : Finset (Finset (Fin n)), #(\u2202 \u212c) \u2264 #(\u2202 \ud835\udc9c) \u2227 #\ud835\udc9c = #\u212c \u2227 (\u212c : Set (Finset (Fin n))).Sized r \u2227 \u2200 U V, UsefulCompression U V \u2192 IsCompressed U V \u212c",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "\u2200 U\u2081 V\u2081, UsefulCompression U\u2081 V\u2081 \u2192 #U\u2081 < #U \u2192 IsCompressed U\u2081 V\u2081 \ud835\udc9c",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "familyMeasure_compression_lt_familyMeasure hmax hUV.2.2",
+              "children": []
+            },
+            {
+              "name": "p1",
+              "type": "#(\u2202 (\ud835\udcd2 U V \ud835\udc9c)) \u2264 #(\u2202 \ud835\udc9c)",
+              "body": "compression_improved _ hUV.2.1 h\u2082",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "KruskalKatona",
+      "name": "kruskal_katona_lovasz_form",
+      "statement": "i \u2264 r) (hrk : r \u2264 k) (hkn : k \u2264 n) (h\u2081 : (\ud835\udc9c : Set (Finset (Fin n))).Sized r) (h\u2082 : k.choose r \u2264 #\ud835\udc9c) : k.choose (r - i) \u2264 #(\u2202^[i] \ud835\udc9c)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "exists_subsuperset_card_eq hBk (Nat.le_add_left _ i) <| by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "toColex (image Fin.val B) < toColex (image Fin.val A)",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "KruskalKatona",
+          "name": "kruskal_katona_lovasz_form",
+          "statement": "i \u2264 r) (hrk : r \u2264 k) (hkn : k \u2264 n) (h\u2081 : (\ud835\udc9c : Set (Finset (Fin n))).Sized r) (h\u2082 : k.choose r \u2264 #\ud835\udc9c) : k.choose (r - i) \u2264 #(\u2202^[i] \ud835\udc9c)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "toColex (image Fin.val B) < toColex (image Fin.val A)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "exists_subsuperset_card_eq hBk (Nat.le_add_left _ i) <| by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "KruskalKatona",
+      "name": "erdos_ko_rado",
+      "statement": "Finset (Finset (Fin n))} {r : \u2115} (h\ud835\udc9c : (\ud835\udc9c : Set (Finset (Fin n))).Intersecting) (h\u2082 : (\ud835\udc9c : Set (Finset (Fin n))).Sized r) (h\u2083 : r \u2264 n / 2) : #\ud835\udc9c \u2264 (n - 1).choose (r - 1)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Disjoint \ud835\udc9c (\u2202^[n - 2 * r] \ud835\udc9c\u1d9c\u02e2)",
+          "body": "disjoint_right.2 fun A hAbar hA \u21a6 by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "r \u2264 n",
+          "body": "h\u2083.trans (Nat.div_le_self n 2)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "1 \u2264 n",
+          "body": "\u20391 \u2264 r\u203a.trans \u2039r \u2264 n\u203a",
+          "children": []
+        },
+        {
+          "name": "z",
+          "type": "(n - 1).choose (n - r) < #\ud835\udc9c\u1d9c\u02e2",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "kk",
+          "type": "",
+          "body": "kruskal_katona_lovasz_form (i := n - 2 * r) (by lia)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "calc",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "KruskalKatona",
+          "name": "erdos_ko_rado",
+          "statement": "Finset (Finset (Fin n))} {r : \u2115} (h\ud835\udc9c : (\ud835\udc9c : Set (Finset (Fin n))).Intersecting) (h\u2082 : (\ud835\udc9c : Set (Finset (Fin n))).Sized r) (h\u2083 : r \u2264 n / 2) : #\ud835\udc9c \u2264 (n - 1).choose (r - 1)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "r \u2264 n",
+              "body": "h\u2083.trans (Nat.div_le_self n 2)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Disjoint \ud835\udc9c (\u2202^[n - 2 * r] \ud835\udc9c\u1d9c\u02e2)",
+              "body": "disjoint_right.2 fun A hAbar hA \u21a6 by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "1 \u2264 n",
+              "body": "\u20391 \u2264 r\u203a.trans \u2039r \u2264 n\u203a",
+              "children": []
+            },
+            {
+              "name": "z",
+              "type": "(n - 1).choose (n - r) < #\ud835\udc9c\u1d9c\u02e2",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "kk",
+              "type": "",
+              "body": "kruskal_katona_lovasz_form (i := n - 2 * r) (by lia)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "KruskalKatona",
+          "name": "erdos_ko_rado",
+          "statement": "Finset (Finset (Fin n))} {r : \u2115} (h\ud835\udc9c : (\ud835\udc9c : Set (Finset (Fin n))).Intersecting) (h\u2082 : (\ud835\udc9c : Set (Finset (Fin n))).Sized r) (h\u2083 : r \u2264 n / 2) : #\ud835\udc9c \u2264 (n - 1).choose (r - 1)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Disjoint \ud835\udc9c (\u2202^[n - 2 * r] \ud835\udc9c\u1d9c\u02e2)",
+              "body": "disjoint_right.2 fun A hAbar hA \u21a6 by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "1 \u2264 n",
+              "body": "\u20391 \u2264 r\u203a.trans \u2039r \u2264 n\u203a",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "r \u2264 n",
+              "body": "h\u2083.trans (Nat.div_le_self n 2)",
+              "children": []
+            },
+            {
+              "name": "z",
+              "type": "(n - 1).choose (n - r) < #\ud835\udc9c\u1d9c\u02e2",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "kk",
+              "type": "",
+              "body": "kruskal_katona_lovasz_form (i := n - 2 * r) (by lia)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5
+        ],
+        "result": {
+          "module": "KruskalKatona",
+          "name": "erdos_ko_rado",
+          "statement": "Finset (Finset (Fin n))} {r : \u2115} (h\ud835\udc9c : (\ud835\udc9c : Set (Finset (Fin n))).Intersecting) (h\u2082 : (\ud835\udc9c : Set (Finset (Fin n))).Sized r) (h\u2083 : r \u2264 n / 2) : #\ud835\udc9c \u2264 (n - 1).choose (r - 1)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Disjoint \ud835\udc9c (\u2202^[n - 2 * r] \ud835\udc9c\u1d9c\u02e2)",
+              "body": "disjoint_right.2 fun A hAbar hA \u21a6 by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "r \u2264 n",
+              "body": "h\u2083.trans (Nat.div_le_self n 2)",
+              "children": []
+            },
+            {
+              "name": "z",
+              "type": "(n - 1).choose (n - r) < #\ud835\udc9c\u1d9c\u02e2",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "1 \u2264 n",
+              "body": "\u20391 \u2264 r\u203a.trans \u2039r \u2264 n\u203a",
+              "children": []
+            },
+            {
+              "name": "kk",
+              "type": "",
+              "body": "kruskal_katona_lovasz_form (i := n - 2 * r) (by lia)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5
+        ],
+        "result": {
+          "module": "KruskalKatona",
+          "name": "erdos_ko_rado",
+          "statement": "Finset (Finset (Fin n))} {r : \u2115} (h\ud835\udc9c : (\ud835\udc9c : Set (Finset (Fin n))).Intersecting) (h\u2082 : (\ud835\udc9c : Set (Finset (Fin n))).Sized r) (h\u2083 : r \u2264 n / 2) : #\ud835\udc9c \u2264 (n - 1).choose (r - 1)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Disjoint \ud835\udc9c (\u2202^[n - 2 * r] \ud835\udc9c\u1d9c\u02e2)",
+              "body": "disjoint_right.2 fun A hAbar hA \u21a6 by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "r \u2264 n",
+              "body": "h\u2083.trans (Nat.div_le_self n 2)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "1 \u2264 n",
+              "body": "\u20391 \u2264 r\u203a.trans \u2039r \u2264 n\u203a",
+              "children": []
+            },
+            {
+              "name": "kk",
+              "type": "",
+              "body": "kruskal_katona_lovasz_form (i := n - 2 * r) (by lia)",
+              "children": []
+            },
+            {
+              "name": "z",
+              "type": "(n - 1).choose (n - r) < #\ud835\udc9c\u1d9c\u02e2",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "calc",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4
+        ],
+        "result": {
+          "module": "KruskalKatona",
+          "name": "erdos_ko_rado",
+          "statement": "Finset (Finset (Fin n))} {r : \u2115} (h\ud835\udc9c : (\ud835\udc9c : Set (Finset (Fin n))).Intersecting) (h\u2082 : (\ud835\udc9c : Set (Finset (Fin n))).Sized r) (h\u2083 : r \u2264 n / 2) : #\ud835\udc9c \u2264 (n - 1).choose (r - 1)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Disjoint \ud835\udc9c (\u2202^[n - 2 * r] \ud835\udc9c\u1d9c\u02e2)",
+              "body": "disjoint_right.2 fun A hAbar hA \u21a6 by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "r \u2264 n",
+              "body": "h\u2083.trans (Nat.div_le_self n 2)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "1 \u2264 n",
+              "body": "\u20391 \u2264 r\u203a.trans \u2039r \u2264 n\u203a",
+              "children": []
+            },
+            {
+              "name": "z",
+              "type": "(n - 1).choose (n - r) < #\ud835\udc9c\u1d9c\u02e2",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "calc",
+              "children": []
+            },
+            {
+              "name": "kk",
+              "type": "",
+              "body": "kruskal_katona_lovasz_form (i := n - 2 * r) (by lia)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

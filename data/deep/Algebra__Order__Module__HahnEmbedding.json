@@ -1,0 +1,117 @@
+[
+  {
+    "module": "HahnEmbedding",
+    "name": "truncLT_mem_range_baseEmbedding",
+    "statement": "seed.baseEmbedding.domain) (c : FiniteArchimedeanClass M) : toLex (HahnSeries.truncLTLinearMap K c (ofLex (seed.baseEmbedding x))) \u2208 LinearMap.range seed.baseEmbedding.toFun",
+    "have_tree": [
+      {
+        "name": "hmem",
+        "type": "x.val \u2208 seed.baseEmbedding.domain",
+        "body": "x.prop",
+        "children": [
+          {
+            "name": "hcd",
+            "type": "\u00ac c.val \u2264 d.val",
+            "body": "not_le_of_gt hdc",
+            "children": []
+          },
+          {
+            "name": "hcd",
+            "type": "c.val \u2264 d.val",
+            "body": "hdc",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "HahnEmbedding",
+    "name": "eval_smul",
+    "statement": "K) (x : M) : f.eval (k \u2022 x) = k \u2022 f.eval x",
+    "have_tree": [
+      {
+        "name": "heq",
+        "type": "(k \u2022 y).val - k \u2022 x = k \u2022 (y.val - x)",
+        "body": "by simp [smul_sub]",
+        "children": []
+      },
+      {
+        "name": "hy'",
+        "type": "(k \u2022 y).val - k \u2022 x \u2208 ball K c",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h'",
+        "type": "\u00ac\u2203 y : f.val.domain, y.val - k \u2022 x \u2208 ball K c",
+        "body": "by",
+        "children": [
+          {
+            "name": "heq",
+            "type": "(k\u207b\u00b9 \u2022 y).val - x = k\u207b\u00b9 \u2022 (y.val - k \u2022 x)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "HahnEmbedding",
+    "name": "eval_lt",
+    "statement": "M} (hx : x \u2209 f.val.domain) (y : f.val.domain) (h : x < y.val) : f.eval x < f.val y",
+    "have_tree": [
+      {
+        "name": "hxy0",
+        "type": "y.val - x \u2260 0",
+        "body": "sub_ne_zero_of_ne h.ne.symm",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "z \u2260 x",
+        "body": "by rintro rfl; exact hx z.2",
+        "children": []
+      },
+      {
+        "name": "hzy",
+        "type": "z < y",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hzyne",
+        "type": "z.val - y.val \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hzyclass",
+        "type": "mk (y.val - x) hxy0 = mk (z.val - y.val) hzyne",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "y.val - z.val = y.val - x + (x - z.val)",
+            "body": "by abel",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hieq",
+        "type": "i = mk (y.val - x) hxy0",
+        "body": "by",
+        "children": [
+          {
+            "name": "hzy",
+            "type": "z.val - y.val \u2208 ball K i",
+            "body": "fun _ \u21a6 hi",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

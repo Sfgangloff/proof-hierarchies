@@ -1,0 +1,106 @@
+[
+  {
+    "module": "Basic",
+    "name": "map",
+    "statement": "W \u2243* H) : CoxeterSystem M H",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(FreeGroup.of i) * (FreeGroup.of i) \u2208 M.relationsSet",
+        "body": "\u27e8(i, i), by simp [relation]\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "simple_mul_simple_pow",
+    "statement": "B) : (s i * s i') ^ M i i' = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(FreeGroup.of i * FreeGroup.of i') ^ M i i' \u2208 M.relationsSet",
+        "body": "\u27e8(i, i'), rfl\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "simple_induction",
+    "statement": "W \u2192 Prop} (w : W) (simple : \u2200 i : B, p (s i)) (one : p 1) (mul : \u2200 w w' : W, p w \u2192 p w' \u2192 p (w * w')) : p w",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "cs.submonoid_closure_range_simple.symm \u25b8 Submonoid.mem_top w",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "simple_induction_left",
+    "statement": "W \u2192 Prop} (w : W) (one : p 1) (mul_simple_left : \u2200 (w : W) (i : B), p w \u2192 p (s i * w)) : p w",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "cs.submonoid_closure_range_simple.symm \u25b8 Submonoid.mem_top w",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "simple_induction_right",
+    "statement": "W \u2192 Prop} (w : W) (one : p 1) (mul_simple_right : \u2200 (w : W) (i : B), p w \u2192 p (w * s i)) : p w",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "cs.submonoid_closure_range_simple.symm \u25b8 Submonoid.mem_top w",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "listTake_alternatingWord",
+    "statement": "B) (p k : \u2115) (h : k < 2 * p) : List.take k (alternatingWord i j (2 * p)) = if Even k then alternatingWord i j k else alternatingWord j i k",
+    "have_tree": [
+      {
+        "name": "hk",
+        "type": "k < 2 * p",
+        "body": "by lia",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "prod_alternatingWord_eq_prod_alternatingWord_sub",
+    "statement": "B) (m : \u2115) (hm : m \u2264 M i i' * 2) : \u03c0 (alternatingWord i i' m) = \u03c0 (alternatingWord i' i (M i i' * 2 - m))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u00acEven (\u2191(M i i') * 2 - (2 * k + 1))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "wordProd_braidWord_eq",
+    "statement": "B) : \u03c0 (braidWord M i i') = \u03c0 (braidWord M i' i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "cs.prod_alternatingWord_eq_prod_alternatingWord_sub i i' (M i i')",
+        "children": []
+      }
+    ]
+  }
+]

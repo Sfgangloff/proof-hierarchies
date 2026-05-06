@@ -1,0 +1,90 @@
+[
+  {
+    "module": "Operations",
+    "name": "ContDiffOn.add",
+    "statement": "Set E} {f g : E \u2192 F} (hf : ContDiffOn \ud835\udd5c n f s) (hg : ContDiffOn \ud835\udd5c n g s) : ContDiffOn \ud835\udd5c n (fun x => f x + g x) s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(hf.eventually (by simp)).and (hg.eventually (by simp))",
+        "children": []
+      },
+      {
+        "name": "hft",
+        "type": "ContDiffOn \ud835\udd5c i f (s \u2229 t)",
+        "body": "fun a ha \u21a6 (h (by simp_all)).1.mono inter_subset_left",
+        "children": []
+      },
+      {
+        "name": "hgt",
+        "type": "ContDiffOn \ud835\udd5c i g (s \u2229 t)",
+        "body": "fun a ha \u21a6 (h (by simp_all)).2.mono inter_subset_left",
+        "children": []
+      },
+      {
+        "name": "hut",
+        "type": "UniqueDiffOn \ud835\udd5c (s \u2229 t)",
+        "body": "hu.inter ht",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Operations",
+    "name": "contDiffAt_ringInverse",
+    "statement": "R\u02e3) : ContDiffAt \ud835\udd5c n Ring.inverse (x : R)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "AnalyticOnNhd.contDiffOn (analyticOnNhd_inverse (\ud835\udd5c := \ud835\udd5c) (A := R)) (n := n)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Operations",
+    "name": "contDiffAt_map_inverse",
+    "statement": "E \u2243L[\ud835\udd5c] F) : ContDiffAt \ud835\udd5c n inverse (e : E \u2192L[\ud835\udd5c] F)",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "ContDiff \ud835\udd5c n O\u2081",
+        "body": "contDiff_id.clm_comp contDiff_const",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "ContDiff \ud835\udd5c n O\u2082",
+        "body": "contDiff_const.clm_comp contDiff_id",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Operations",
+    "name": "OpenPartialHomeomorph.contDiffAt_symm",
+    "statement": "OpenPartialHomeomorph E F) {f\u2080' : E \u2243L[\ud835\udd5c] F} {a : F} (ha : a \u2208 f.target) (hf\u2080' : HasFDerivAt f (f\u2080' : E \u2192L[\ud835\udd5c] F) (f.symm a)) (hf : ContDiffAt \ud835\udd5c n f (f.symm a)) : ContDiffAt \ud835\udd5c n f.symm a",
+    "have_tree": [
+      {
+        "name": "hf\u2080'",
+        "type": "",
+        "body": "f\u2080'.nhds",
+        "children": []
+      },
+      {
+        "name": "h_deriv\u2081",
+        "type": "ContDiffAt \ud835\udd5c n inverse (f' (f.symm a))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_deriv\u2082",
+        "type": "ContDiffAt \ud835\udd5c n f.symm a",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

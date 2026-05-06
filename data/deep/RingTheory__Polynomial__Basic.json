@@ -1,0 +1,84 @@
+[
+  {
+    "module": "Basic",
+    "name": "Polynomial.isNoetherianRing",
+    "statement": "IsNoetherianRing R] : IsNoetherianRing R[X]",
+    "have_tree": [
+      {
+        "name": "hm",
+        "type": "M \u2208 Set.range I.leadingCoeffNth",
+        "body": "WellFounded.min_mem _ _ _",
+        "children": []
+      },
+      {
+        "name": "hm2",
+        "type": "\u2200 k, I.leadingCoeffNth k \u2264 M",
+        "body": "fun k =>",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u00acM < I.leadingCoeffNth k",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hs2",
+        "type": "\u2200 {x}, x \u2208 I.degreeLE N \u2192 x \u2208 Ideal.span (\u2191s : Set R[X])",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "x \u2208 I.degreeLE N",
+            "body": "hs \u25b8 Submodule.subset_span hx",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Submodule.span R[X] \u2191s = Ideal.span \u2191s",
+            "body": "rfl",
+            "children": [
+              {
+                "name": "_",
+                "type": "(0 : R) \u2260 1",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "p.leadingCoeff \u2208 I.leadingCoeffNth N",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "hq0",
+                "type": "q \u2260 0",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "h1",
+                "type": "p.degree = (q * Polynomial.X ^ (k - q.natDegree)).degree",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "h2",
+                "type": "p.leadingCoeff = (q * Polynomial.X ^ (k - q.natDegree)).leadingCoeff",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "",
+                "body": "Polynomial.degree_sub_lt h1 hp0 h2",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

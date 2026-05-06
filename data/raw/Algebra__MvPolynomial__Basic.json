@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Basic",
+    "name": "C_mul_monomial",
+    "statement": "C a * monomial s a' = monomial s (a * a')",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "single_mul_single 0 s a a'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "coeff_X_pow",
+    "statement": "\u03c3) (m) (k : \u2115) : coeff m (X i ^ k : MvPolynomial \u03c3 R) = if Finsupp.single i k = m then 1 else 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "coeff_monomial m (Finsupp.single i k) (1 : R)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.IsRegular.monomial",
+    "statement": "\u03c3 \u2192\u2080 \u2115} {a : R} (ha : IsRegular a) : IsRegular (monomial m a)",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "congr_arg (coeff (m + d)) h",
+        "children": []
+      }
+    ]
+  }
+]

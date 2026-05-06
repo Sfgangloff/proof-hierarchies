@@ -1,0 +1,136 @@
+[
+  {
+    "module": "CompareExp",
+    "name": "eLpNorm'_le_eLpNormEssSup_mul_rpow_measure_univ",
+    "statement": "\u211d} (hq_pos : 0 < q) : eLpNorm' f q \u03bc \u2264 eLpNormEssSup f \u03bc * \u03bc Set.univ ^ (1 / q)",
+    "have_tree": [
+      {
+        "name": "h_le",
+        "type": "(\u222b\u207b a : \u03b1, \u2016f a\u2016\u2091 ^ q \u2202\u03bc) \u2264 \u222b\u207b _ : \u03b1, eLpNormEssSup f \u03bc ^ q \u2202\u03bc",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_nnnorm_le_eLpNorm_ess_sup",
+            "type": "",
+            "body": "enorm_ae_le_eLpNormEssSup f \u03bc",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "CompareExp",
+    "name": "eLpNorm_le_eLpNorm_mul_rpow_measure_univ",
+    "statement": "\u211d\u22650\u221e} (hpq : p \u2264 q) (hf : AEStronglyMeasurable f \u03bc) : eLpNorm f p \u03bc \u2264 eLpNorm f q \u03bc * \u03bc Set.univ ^ (1 / p.toReal - 1 / q.toReal)",
+    "have_tree": [
+      {
+        "name": "hp0_lt",
+        "type": "0 < p",
+        "body": "lt_of_le_of_ne (zero_le _) hp0.symm",
+        "children": []
+      },
+      {
+        "name": "hq0_lt",
+        "type": "0 < q",
+        "body": "lt_of_lt_of_le hp0_lt hpq",
+        "children": [
+          {
+            "name": "hp_pos",
+            "type": "0 < p.toReal",
+            "body": "ENNReal.toReal_pos hp0_lt.ne' hp_top",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hp_lt_top",
+        "type": "p < \u221e",
+        "body": "hpq.trans_lt (lt_top_iff_ne_top.mpr hq_top)",
+        "children": []
+      },
+      {
+        "name": "hp_pos",
+        "type": "0 < p.toReal",
+        "body": "ENNReal.toReal_pos hp0_lt.ne' hp_lt_top.ne",
+        "children": []
+      },
+      {
+        "name": "hpq_real",
+        "type": "p.toReal \u2264 q.toReal",
+        "body": "ENNReal.toReal_mono hq_top hpq",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CompareExp",
+    "name": "MemLp.mono_exponent",
+    "statement": "\u211d\u22650\u221e} [IsFiniteMeasure \u03bc] (hfq : MemLp f q \u03bc) (hpq : p \u2264 q) : MemLp f p \u03bc",
+    "have_tree": [
+      {
+        "name": "hp_pos",
+        "type": "0 < p.toReal",
+        "body": "ENNReal.toReal_pos hp0 hp_top",
+        "children": []
+      },
+      {
+        "name": "hq0",
+        "type": "q \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "hp_eq_zero",
+            "type": "p = 0",
+            "body": "le_antisymm (by rwa [hq_eq_zero] at hpq) (zero_le _)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hpq_real",
+        "type": "p.toReal \u2264 q.toReal",
+        "body": "ENNReal.toReal_mono hq_top hpq",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CompareExp",
+    "name": "eLpNorm_le_eLpNorm_mul_eLpNorm_of_nnnorm",
+    "statement": "\u211d\u22650\u221e} (hf : AEStronglyMeasurable f \u03bc) (hg : AEStronglyMeasurable g \u03bc) (b : E \u2192 F \u2192 G) (c : \u211d\u22650) (h : \u2200\u1d50 x \u2202\u03bc, \u2016b (f x) (g x)\u2016\u208a \u2264 c * \u2016f x\u2016\u208a * \u2016g x\u2016\u208a) [hpqr : HolderTriple p q r] : eLpNorm (fun x => b (f x) (g x)) r \u03bc \u2264 c * eLpNorm f p \u03bc * eLpNorm g q \u03bc",
+    "have_tree": [
+      {
+        "name": "hpqr",
+        "type": "",
+        "body": "hpqr.one_div_eq",
+        "children": []
+      },
+      {
+        "name": "hpqr'",
+        "type": "1 / r.toReal = 1 / p.toReal + 1 / q.toReal",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "congr(ENNReal.toReal $(hpqr))",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hr",
+        "type": "0 < r.toReal",
+        "body": "one_div_pos.mp <| by rw [hpqr']; positivity",
+        "children": []
+      },
+      {
+        "name": "hrp",
+        "type": "r.toReal < p.toReal",
+        "body": "lt_of_one_div_lt_one_div hp <|",
+        "children": []
+      }
+    ]
+  }
+]

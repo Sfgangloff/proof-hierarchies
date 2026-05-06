@@ -1,0 +1,86 @@
+[
+  {
+    "module": "Regular",
+    "name": "of_restrict",
+    "statement": "Measure \u03b1} {s : \u2115 \u2192 Set \u03b1} (h : \u2200 n, OuterRegular (\u03bc.restrict (s n))) (h' : \u2200 n, IsOpen (s n)) (h'' : univ \u2286 \u22c3 n, s n) : OuterRegular \u03bc",
+    "have_tree": [
+      {
+        "name": "HA",
+        "type": "\u03bc A < \u221e",
+        "body": "lt_of_lt_of_le hr le_top",
+        "children": []
+      },
+      {
+        "name": "hm",
+        "type": "\u2200 n, MeasurableSet (s n)",
+        "body": "fun n => (h' n).measurableSet",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 n, \u2203 U \u2287 A n, IsOpen U \u2227 \u03bc U < \u03bc (A n) + \u03b4 n",
+        "body": "by",
+        "children": [
+          {
+            "name": "H\u2081",
+            "type": "\u2200 t, \u03bc.restrict (s n) t = \u03bc (t \u2229 s n)",
+            "body": "fun t => restrict_apply' (hm n)",
+            "children": []
+          },
+          {
+            "name": "Ht",
+            "type": "\u03bc.restrict (s n) (A n) \u2260 \u221e",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "measurableSet_of_isOpen",
+    "statement": "InnerRegularWRT \u03bc p IsOpen) (hd : \u2200 \u2983s U\u2984, p s \u2192 IsOpen U \u2192 p (s \\ U)) : InnerRegularWRT \u03bc p fun s => MeasurableSet s \u2227 \u03bc s \u2260 \u221e",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "p \u2205",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 < \u03bc univ",
+            "body": "(bot_le.trans_lt hr).trans_le (measure_mono (subset_univ _))",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "weaklyRegular_of_finite",
+    "statement": "Measure \u03b1) [IsFiniteMeasure \u03bc] (H : InnerRegularWRT \u03bc IsClosed IsOpen) : WeaklyRegular \u03bc",
+    "have_tree": [
+      {
+        "name": "hfin",
+        "type": "\u2200 {s}, \u03bc s \u2260 \u221e",
+        "body": "@(measure_ne_top \u03bc)",
+        "children": [
+          {
+            "name": "\u03b50'",
+            "type": "\u03b5 / 2 \u2260 0",
+            "body": "(ENNReal.half_pos \u03b50).ne'",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Tendsto (fun t => (\u2211 k \u2208 t, \u03bc (s k)) + \u03b5 / 2) atTop (\ud835\udcdd <| \u03bc (\u22c3 n, s n) + \u03b5 / 2)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

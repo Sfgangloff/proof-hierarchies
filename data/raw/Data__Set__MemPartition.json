@@ -1,0 +1,41 @@
+[
+  {
+    "module": "MemPartition",
+    "name": "sUnion_memPartition",
+    "statement": "\u2115 \u2192 Set \u03b1) (n : \u2115) : \u22c3\u2080 memPartition f n = univ",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "x \u2208 \u22c3\u2080 memPartition f n",
+        "body": "by simp [ih]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MemPartition",
+    "name": "finite_memPartition",
+    "statement": "\u2115 \u2192 Set \u03b1) (n : \u2115) : Set.Finite (memPartition f n)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite (memPartition f n)",
+        "body": "Set.finite_coe_iff.mp ih",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MemPartition",
+    "name": "memPartitionSet_eq_iff",
+    "statement": "\u2115 \u2192 Set \u03b1} {n : \u2115} (a : \u03b1) {s : Set \u03b1} (hs : s \u2208 memPartition f n) : memPartitionSet f n a = s \u2194 a \u2208 s",
+    "have_tree": [
+      {
+        "name": "h_disj",
+        "type": "Disjoint s (memPartitionSet f n a)",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

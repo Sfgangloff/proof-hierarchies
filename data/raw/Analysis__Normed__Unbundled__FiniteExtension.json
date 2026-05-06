@@ -1,0 +1,59 @@
+[
+  {
+    "module": "FiniteExtension",
+    "name": "norm_mul_le_const_mul_norm",
+    "statement": "\u03b9} (hBi : B i = (1 : L)) (hna : IsNonarchimedean (Norm.norm : K \u2192 \u211d)) : \u2203 (c : \u211d) (_ : 0 < c), \u2200 x y : L, B.norm (x * y) \u2264 c * B.norm x * B.norm y",
+    "have_tree": [
+      {
+        "name": "hna'",
+        "type": "IsNonarchimedean (NormedField.toMulRingNorm K)",
+        "body": "hna",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteExtension",
+    "name": "norm_smul",
+    "statement": "Type*} [Fintype \u03b9] [Nonempty \u03b9] {B : Basis \u03b9 K L} {i : \u03b9} (hBi : B i = (1 : L)) (k : K) (y : L) : B.norm ((algebraMap K L) k * y) = B.norm ((algebraMap K L) k) * B.norm y",
+    "have_tree": [
+      {
+        "name": "hj'",
+        "type": "",
+        "body": "Finset.le_sup' (fun i \u21a6 \u2016B.repr ((algebraMap K L) k * y) i\u2016) (mem_univ i)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "FiniteExtension",
+    "name": "exists_nonarchimedean_pow_mul_seminorm_of_finiteDimensional",
+    "statement": "FiniteDimensional K L) (hna : IsNonarchimedean (norm : K \u2192 \u211d)) : \u2203 f : AlgebraNorm K L, IsPowMul f \u2227 (\u2200 (x : K), f ((algebraMap K L) x) = \u2016x\u2016) \u2227 IsNonarchimedean f",
+    "have_tree": [
+      {
+        "name": "hg_na",
+        "type": "IsNonarchimedean g",
+        "body": "Basis.norm_isNonarchimedean hna",
+        "children": []
+      },
+      {
+        "name": "hf_na",
+        "type": "IsNonarchimedean f",
+        "body": "seminormFromBounded_isNonarchimedean hg_nonneg hg_bdd hg_na",
+        "children": []
+      },
+      {
+        "name": "hf_1",
+        "type": "f 1 \u2264 1",
+        "body": "seminormFromBounded_one_le hg_nonneg hg_bdd",
+        "children": []
+      },
+      {
+        "name": "hF'_0",
+        "type": "F' \u2260 0",
+        "body": "DFunLike.ne_iff.mpr \u27e8(1 : L), by rw [hF'_1]; exact one_ne_zero\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

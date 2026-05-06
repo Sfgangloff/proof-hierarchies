@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Leibniz",
+    "name": "tendsto_sum_pi_div_four",
+    "statement": "Tendsto (fun k => \u2211 i \u2208 range k, (-1 : \u211d) ^ i / (2 * i + 1)) atTop (\ud835\udcdd (\u03c0 / 4))",
+    "have_tree": [
+      {
+        "name": "abel",
+        "type": "",
+        "body": "tendsto_tsum_powerSeries_nhdsWithin_lt h",
+        "children": []
+      },
+      {
+        "name": "m",
+        "type": "\ud835\udcdd[<] (1 : \u211d) \u2264 \ud835\udcdd 1",
+        "body": "tendsto_nhdsWithin_of_tendsto_nhds fun _ a \u21a6 a",
+        "children": []
+      },
+      {
+        "name": "q",
+        "type": "Tendsto (fun x : \u211d \u21a6 x ^ 2) (\ud835\udcdd[<] 1) (\ud835\udcdd[<] 1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "ny",
+            "type": "\u2016y\u2016 < 1",
+            "body": "by rw [norm_eq_abs, abs_lt]; constructor <;> linarith",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

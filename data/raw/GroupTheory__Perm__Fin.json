@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Fin",
+    "name": "cycleRange_of_le",
+    "statement": "i \u2264 j) : cycleRange j i = if i = j then 0 else i + 1",
+    "have_tree": [
+      {
+        "name": "iin",
+        "type": "i \u2208 Set.range (castLEEmb (n",
+        "body": "j + 1) (by lia)) := by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fin",
+    "name": "cycleRange_mk_zero",
+    "statement": "0 < n) : cycleRange \u27e80, h\u27e9 = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "NeZero n",
+        "body": ".of_pos h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Fin",
+    "name": "cycleIcc_of_le_of_le",
+    "statement": "i \u2264 k) (hkj : k \u2264 j) [NeZero n] : (cycleIcc i j) k = if k = j then i else k + 1",
+    "have_tree": [
+      {
+        "name": "hij",
+        "type": "i \u2264 j",
+        "body": "le_trans hik hkj",
+        "children": []
+      },
+      {
+        "name": "kin",
+        "type": "k \u2208 Set.range (natAdd_castLEEmb (Nat.sub_le n i))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

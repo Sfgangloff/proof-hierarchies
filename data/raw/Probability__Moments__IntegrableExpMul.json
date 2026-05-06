@@ -1,0 +1,210 @@
+[
+  {
+    "module": "IntegrableExpMul",
+    "name": "integrable_exp_mul_abs_add",
+    "statement": "Integrable (fun \u03c9 \u21a6 exp ((v + t) * X \u03c9)) \u03bc) (ht_int_neg : Integrable (fun \u03c9 \u21a6 exp ((v - t) * X \u03c9)) \u03bc) : Integrable (fun \u03c9 \u21a6 exp (t * |X \u03c9| + v * X \u03c9)) \u03bc",
+    "have_tree": [
+      {
+        "name": "h_int_add",
+        "type": "Integrable (fun a \u21a6 exp ((v + t) * X a) + exp ((v - t) * X a)) \u03bc",
+        "body": "",
+        "children": [
+          {
+            "name": "hX",
+            "type": "AEMeasurable X \u03bc",
+            "body": "aemeasurable_of_integrable_exp_mul ?_ ht_int_pos ht_int_neg",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "IntegrableExpMul",
+    "name": "integrable_exp_mul_abs",
+    "statement": "Integrable (fun \u03c9 \u21a6 exp (t * X \u03c9)) \u03bc) (ht_int_neg : Integrable (fun \u03c9 \u21a6 exp (-t * X \u03c9)) \u03bc) : Integrable (fun \u03c9 \u21a6 exp (t * |X \u03c9|)) \u03bc",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "integrable_exp_mul_abs_add (t := t) (\u03bc := \u03bc) (X := X) (v := 0) ?_ ?_",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrableExpMul",
+    "name": "integrable_rpow_abs_mul_exp_add_of_integrable_exp_mul",
+    "statement": "\u211d} (h_int_pos : Integrable (fun \u03c9 \u21a6 exp ((v + t) * X \u03c9)) \u03bc) (h_int_neg : Integrable (fun \u03c9 \u21a6 exp ((v - t) * X \u03c9)) \u03bc) (h_nonneg : 0 \u2264 x) (hx : x < |t|) {p : \u211d} (hp : 0 \u2264 p) : Integrable (fun a \u21a6 |X a| ^ p * exp (v * X a + x * |X a|)) \u03bc",
+    "have_tree": [
+      {
+        "name": "ht",
+        "type": "t \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hX",
+        "type": "AEMeasurable X \u03bc",
+        "body": "aemeasurable_of_integrable_exp_mul ?_ h_int_pos h_int_neg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrableExpMul",
+    "name": "integrable_rpow_mul_exp_of_integrable_exp_mul",
+    "statement": "t \u2260 0) (ht_int_pos : Integrable (fun \u03c9 \u21a6 exp ((v + t) * X \u03c9)) \u03bc) (ht_int_neg : Integrable (fun \u03c9 \u21a6 exp ((v - t) * X \u03c9)) \u03bc) {p : \u211d} (hp : 0 \u2264 p) : Integrable (fun \u03c9 \u21a6 X \u03c9 ^ p * exp (v * X \u03c9)) \u03bc",
+    "have_tree": [
+      {
+        "name": "hX",
+        "type": "AEMeasurable X \u03bc",
+        "body": "aemeasurable_of_integrable_exp_mul ?_ ht_int_pos ht_int_neg",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "integrable_rpow_abs_mul_exp_of_integrable_exp_mul ht ht_int_pos ht_int_neg hp",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "IntegrableExpMul",
+    "name": "integrable_rpow_abs_of_integrable_exp_mul",
+    "statement": "t \u2260 0) (ht_int_pos : Integrable (fun \u03c9 \u21a6 exp (t * X \u03c9)) \u03bc) (ht_int_neg : Integrable (fun \u03c9 \u21a6 exp (-t * X \u03c9)) \u03bc) {p : \u211d} (hp : 0 \u2264 p) : Integrable (fun \u03c9 \u21a6 |X \u03c9| ^ p) \u03bc",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "integrable_rpow_abs_mul_exp_of_integrable_exp_mul (\u03bc := \u03bc) (X := X) ht (v := 0) ?_ ?_ hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrableExpMul",
+    "name": "integrable_rpow_of_integrable_exp_mul",
+    "statement": "t \u2260 0) (ht_int_pos : Integrable (fun \u03c9 \u21a6 exp (t * X \u03c9)) \u03bc) (ht_int_neg : Integrable (fun \u03c9 \u21a6 exp (-t * X \u03c9)) \u03bc) {p : \u211d} (hp : 0 \u2264 p) : Integrable (fun \u03c9 \u21a6 X \u03c9 ^ p) \u03bc",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "integrable_rpow_mul_exp_of_integrable_exp_mul (\u03bc := \u03bc) (X := X) ht (v := 0) ?_ ?_ hp",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrableExpMul",
+    "name": "add_half_inf_sub_mem_Ioo",
+    "statement": "\u211d} (hv : v \u2208 Set.Ioo l u) : v + ((v - l) \u2293 (u - v)) / 2 \u2208 Set.Ioo l u",
+    "have_tree": [
+      {
+        "name": "h_pos",
+        "type": "0 < (v - l) \u2293 (u - v)",
+        "body": "by simp [hv.1, hv.2]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrableExpMul",
+    "name": "sub_half_inf_sub_mem_Ioo",
+    "statement": "\u211d} (hv : v \u2208 Set.Ioo l u) : v - ((v - l) \u2293 (u - v)) / 2 \u2208 Set.Ioo l u",
+    "have_tree": [
+      {
+        "name": "h_pos",
+        "type": "0 < (v - l) \u2293 (u - v)",
+        "body": "by simp [hv.1, hv.2]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrableExpMul",
+    "name": "aemeasurable_of_mem_interior_integrableExpSet",
+    "statement": "v \u2208 interior (integrableExpSet X \u03bc)) : AEMeasurable X \u03bc",
+    "have_tree": [
+      {
+        "name": "h_pos",
+        "type": "0 < (v - l) \u2293 (u - v)",
+        "body": "by simp [hvlu.1, hvlu.2]",
+        "children": []
+      },
+      {
+        "name": "ht",
+        "type": "0 < t",
+        "body": "half_pos h_pos",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrableExpMul",
+    "name": "integrable_rpow_abs_mul_exp_of_mem_interior_integrableExpSet",
+    "statement": "v \u2208 interior (integrableExpSet X \u03bc)) {p : \u211d} (hp : 0 \u2264 p) : Integrable (fun \u03c9 \u21a6 |X \u03c9| ^ p * exp (v * X \u03c9)) \u03bc",
+    "have_tree": [
+      {
+        "name": "h_pos",
+        "type": "0 < (v - l) \u2293 (u - v)",
+        "body": "by simp [hvlu.1, hvlu.2]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrableExpMul",
+    "name": "integrable_rpow_mul_exp_of_mem_interior_integrableExpSet",
+    "statement": "v \u2208 interior (integrableExpSet X \u03bc)) {p : \u211d} (hp : 0 \u2264 p) : Integrable (fun \u03c9 \u21a6 X \u03c9 ^ p * exp (v * X \u03c9)) \u03bc",
+    "have_tree": [
+      {
+        "name": "h_pos",
+        "type": "0 < (v - l) \u2293 (u - v)",
+        "body": "by simp [hvlu.1, hvlu.2]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrableExpMul",
+    "name": "memLp_of_mem_interior_integrableExpSet",
+    "statement": "0 \u2208 interior (integrableExpSet X \u03bc)) (p : \u211d\u22650) : MemLp X p \u03bc",
+    "have_tree": [
+      {
+        "name": "hX",
+        "type": "AEMeasurable X \u03bc",
+        "body": "aemeasurable_of_mem_interior_integrableExpSet h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrableExpMul",
+    "name": "integrable_rpow_abs_mul_cexp_of_re_mem_interior_integrableExpSet",
+    "statement": "z.re \u2208 interior (integrableExpSet X \u03bc)) {p : \u211d} (hp : 0 \u2264 p) : Integrable (fun \u03c9 \u21a6 (|X \u03c9| ^ p : \u211d) * cexp (z * X \u03c9)) \u03bc",
+    "have_tree": [
+      {
+        "name": "hX",
+        "type": "AEMeasurable X \u03bc",
+        "body": "aemeasurable_of_mem_interior_integrableExpSet hz",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "IntegrableExpMul",
+    "name": "integrable_rpow_mul_cexp_of_re_mem_interior_integrableExpSet",
+    "statement": "z.re \u2208 interior (integrableExpSet X \u03bc)) {p : \u211d} (hp : 0 \u2264 p) : Integrable (fun \u03c9 \u21a6 (X \u03c9 ^ p : \u211d) * cexp (z * X \u03c9)) \u03bc",
+    "have_tree": [
+      {
+        "name": "hX",
+        "type": "AEMeasurable X \u03bc",
+        "body": "aemeasurable_of_mem_interior_integrableExpSet hz",
+        "children": []
+      }
+    ]
+  }
+]

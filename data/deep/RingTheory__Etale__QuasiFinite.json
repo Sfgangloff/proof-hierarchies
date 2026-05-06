@@ -1,0 +1,76 @@
+[
+  {
+    "module": "QuasiFinite",
+    "name": "Algebra.exists_etale_isIdempotentElem_forall_liesOver_eq",
+    "statement": "Ideal R) [p.IsPrime] (q : Ideal S) [q.IsPrime] [q.LiesOver p] : \u2203 (R' : Type u) (_ : CommRing R') (_ : Algebra R R') (_ : Algebra.Etale R R') (P : Ideal R') (_ : P.IsPrime) (_ : P.LiesOver p) (e : R' \u2297[R] S) (_ : IsIdempotentElem e) (P' : Ideal (R' \u2297[R] S)) (_ : P'.IsPrime) (_ : P'.LiesOver P), P'.comap Algebra.TensorProduct.includeRight.toRingHom = q \u2227 e \u2209 P' \u2227 Function.Bijective (Ideal.ResidueField.map\u2090 p P (Algebra.ofId _ _) (P.over_def p)) \u2227 \u2200 P'' : Ideal (R' \u2297[R] S), P''.IsPrime \u2192 P''.LiesOver P \u2192 e \u2209 P'' \u2192 P'' = P'",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "",
+        "body": "Algebra.IsIntegral.isIntegral (R := R) s",
+        "children": []
+      },
+      {
+        "name": "hqm",
+        "type": "q.Monic",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hs'f",
+        "type": "aeval s' f = 0",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "he",
+        "type": "IsIdempotentElem e",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hP'q",
+        "type": "P'.1.comap Algebra.TensorProduct.includeRight.toRingHom = q",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hs'P'",
+        "type": "s' \u2209 P'.1",
+        "body": "mt (fun h \u21a6 hP'q.le h) hsq",
+        "children": []
+      },
+      {
+        "name": "ha'P'",
+        "type": "aeval s' a' \u2209 P'.1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hb'P'",
+        "type": "aeval s' b' \u2208 P'.1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "heP'",
+        "type": "e \u2209 P'.1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "P'.1.mul_mem_left (aeval s' d) hb'P'",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "s' \u2208 P''",
+        "body": "hs _ inferInstance H (by simp [Ideal.liesOver_iff, Ideal.under,",
+        "children": []
+      }
+    ]
+  }
+]

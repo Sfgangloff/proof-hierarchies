@@ -1,0 +1,66 @@
+[
+  {
+    "module": "Defs",
+    "name": "commute_cast",
+    "statement": "\u03b1) (q : \u211a\u22650) : Commute a q",
+    "have_tree": [
+      {
+        "name": "hd",
+        "type": "(d : \u03b1) \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Rat.divInt a b = _",
+            "body": "congr_arg NNRat.cast e",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hb'",
+        "type": "b \u2260 0",
+        "body": "by rintro rfl; exact hb Nat.cast_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "cast_divInt_of_ne_zero",
+    "statement": "\u2124) {b : \u2124} (b0 : (b : \u03b1) \u2260 0) : (a /. b : \u03b1) = a / b",
+    "have_tree": [
+      {
+        "name": "b0'",
+        "type": "b \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "d0",
+        "type": "(d : \u03b1) \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "dd",
+            "type": "",
+            "body": "den_dvd a b",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "(b : \u03b1) = (d : \u03b1) * (k : \u03b1)",
+            "body": "by rw [ke, Int.cast_mul, Int.cast_natCast]",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "congr_arg ((\u2191) : \u2124 \u2192 \u03b1)",
+        "children": []
+      }
+    ]
+  }
+]

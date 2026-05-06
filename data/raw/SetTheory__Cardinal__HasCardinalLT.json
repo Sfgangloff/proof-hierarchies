@@ -1,0 +1,47 @@
+[
+  {
+    "module": "HasCardinalLT",
+    "name": "hasCardinalLT_subtype_max",
+    "statement": "Type*} {P\u2081 P\u2082 : X \u2192 Prop} {\u03ba : Cardinal} (h\u03ba : Cardinal.aleph0 \u2264 \u03ba) (h\u2081 : HasCardinalLT (Subtype P\u2081) \u03ba) (h\u2082 : HasCardinalLT (Subtype P\u2082) \u03ba) : HasCardinalLT (Subtype (P\u2081 \u2294 P\u2082)) \u03ba",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "HasCardinalLT (Subtype P\u2081 \u2295 Subtype P\u2082) \u03ba",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HasCardinalLT",
+    "name": "hasCardinalLT_sigma",
+    "statement": "Type u} (\u03b1 : \u03b9 \u2192 Type v) (\u03ba : Cardinal.{w}) [Fact \u03ba.IsRegular] (h\u03b9 : HasCardinalLT \u03b9 \u03ba) (h\u03b1 : \u2200 i, HasCardinalLT (\u03b1 i) \u03ba) : HasCardinalLT (\u03a3 i, \u03b1 i) \u03ba",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (Cardinal.lift.{max u v} \u03ba).IsRegular",
+        "body": "\u27e8Cardinal.IsRegular.lift Fact.out\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasCardinalLT_sigma'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HasCardinalLT",
+    "name": "hasCardinalLT_prod",
+    "statement": "Type u} {T\u2082 : Type u'} {\u03ba : Cardinal.{w}} (h\u03ba : Cardinal.aleph0 \u2264 \u03ba) (h\u2081 : HasCardinalLT T\u2081 \u03ba) (h\u2082 : HasCardinalLT T\u2082 \u03ba) : HasCardinalLT (T\u2081 \u00d7 T\u2082) \u03ba",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hasCardinalLT_prod' (T\u2081 := ULift.{max u' w} T\u2081) (T\u2082 := ULift.{max u w} T\u2082)",
+        "children": []
+      }
+    ]
+  }
+]

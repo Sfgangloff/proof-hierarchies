@@ -1,0 +1,152 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "integral_Iio_sub_Iio",
+      "statement": "IntegrableOn f (Iio b) \u03bc) (hab : a \u2264 b) : \u222b x in Iio b, f x \u2202\u03bc - \u222b x in Iio a, f x \u2202\u03bc = \u222b x in Ico a b, f x \u2202\u03bc",
+      "have_tree": [
+        {
+          "name": "ha",
+          "type": "IntegrableOn f (Iio a) \u03bc",
+          "body": "hf.mono_set (Iio_subset_Iio hab)",
+          "children": []
+        },
+        {
+          "name": "h",
+          "type": "IntegrableOn f (Ico a b) \u03bc",
+          "body": "hf.mono_set Ico_subset_Iio_self",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "integral_Iio_sub_Iio",
+          "statement": "IntegrableOn f (Iio b) \u03bc) (hab : a \u2264 b) : \u222b x in Iio b, f x \u2202\u03bc - \u222b x in Iio a, f x \u2202\u03bc = \u222b x in Ico a b, f x \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "h",
+              "type": "IntegrableOn f (Ico a b) \u03bc",
+              "body": "hf.mono_set Ico_subset_Iio_self",
+              "children": []
+            },
+            {
+              "name": "ha",
+              "type": "IntegrableOn f (Iio a) \u03bc",
+              "body": "hf.mono_set (Iio_subset_Iio hab)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "integral_Ici_sub_Ici",
+      "statement": "IntegrableOn f (Ici a) \u03bc) (hab : a \u2264 b) : \u222b x in Ici a, f x \u2202\u03bc - \u222b x in Ici b, f x \u2202\u03bc = \u222b x in Ico a b, f x \u2202\u03bc",
+      "have_tree": [
+        {
+          "name": "ha",
+          "type": "IntegrableOn f (Ici b) \u03bc",
+          "body": "hf.mono_set (Ici_subset_Ici.2 hab)",
+          "children": []
+        },
+        {
+          "name": "h",
+          "type": "IntegrableOn f (Ico a b) \u03bc",
+          "body": "hf.mono_set Ico_subset_Ici_self",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "integral_Ici_sub_Ici",
+          "statement": "IntegrableOn f (Ici a) \u03bc) (hab : a \u2264 b) : \u222b x in Ici a, f x \u2202\u03bc - \u222b x in Ici b, f x \u2202\u03bc = \u222b x in Ico a b, f x \u2202\u03bc",
+          "have_tree": [
+            {
+              "name": "h",
+              "type": "IntegrableOn f (Ico a b) \u03bc",
+              "body": "hf.mono_set Ico_subset_Ici_self",
+              "children": []
+            },
+            {
+              "name": "ha",
+              "type": "IntegrableOn f (Ici b) \u03bc",
+              "body": "hf.mono_set (Ici_subset_Ici.2 hab)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "intervalIntegral_pos_of_pos_on",
+      "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hfi : IntervalIntegrable f volume a b) (hpos : \u2200 x : \u211d, x \u2208 Ioo a b \u2192 0 < f x) (hab : a < b) : 0 < \u222b x : \u211d in a..b, f x",
+      "have_tree": [
+        {
+          "name": "hsupp",
+          "type": "Ioo a b \u2286 support f \u2229 Ioc a b",
+          "body": "fun x hx =>",
+          "children": []
+        },
+        {
+          "name": "h\u2080",
+          "type": "0 \u2264\u1d50[volume.restrict (uIoc a b)] f",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "intervalIntegral_pos_of_pos_on",
+          "statement": "\u211d \u2192 \u211d} {a b : \u211d} (hfi : IntervalIntegrable f volume a b) (hpos : \u2200 x : \u211d, x \u2208 Ioo a b \u2192 0 < f x) (hab : a < b) : 0 < \u222b x : \u211d in a..b, f x",
+          "have_tree": [
+            {
+              "name": "h\u2080",
+              "type": "0 \u2264\u1d50[volume.restrict (uIoc a b)] f",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hsupp",
+              "type": "Ioo a b \u2286 support f \u2229 Ioc a b",
+              "body": "fun x hx =>",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

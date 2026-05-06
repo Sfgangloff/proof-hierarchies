@@ -1,0 +1,86 @@
+[
+  {
+    "module": "Basic",
+    "name": "exists_factorization_lt_of_lt",
+    "statement": "\u2115} (ha : a \u2260 0) (hab : a < b) : \u2203 p : \u2115, a.factorization p < b.factorization p",
+    "have_tree": [
+      {
+        "name": "hb",
+        "type": "b \u2260 0",
+        "body": "(ha.bot_lt.trans hab).ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "dvd_iff_div_factorization_eq_tsub",
+    "statement": "\u2115} (hd : d \u2260 0) (hdn : d \u2264 n) : d \u2223 n \u2194 (n / d).factorization = n.factorization - d.factorization",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "n / d \u2260 0",
+        "body": "by simp [*]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "ordCompl_dvd_ordCompl_of_dvd",
+    "statement": "\u2115} (hab : a \u2223 b) (p : \u2115) : ordCompl[p] a \u2223 ordCompl[p] b",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "",
+        "body": "(Nat.div_pos (ordProj_le p ha0) (ordProj_pos a p)).ne'",
+        "children": []
+      },
+      {
+        "name": "hb",
+        "type": "",
+        "body": "(Nat.div_pos (ordProj_le p hb0) (ordProj_pos b p)).ne'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "factorization_gcd",
+    "statement": "\u2115} (ha_pos : a \u2260 0) (hb_pos : b \u2260 0) : (gcd a b).factorization = a.factorization \u2293 b.factorization",
+    "have_tree": [
+      {
+        "name": "hea'",
+        "type": "",
+        "body": "(factorization_le_iff_dvd he_pos ha_pos).mpr hea",
+        "children": []
+      },
+      {
+        "name": "heb'",
+        "type": "",
+        "body": "(factorization_le_iff_dvd he_pos hb_pos).mpr heb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_eq_pow_of_pow_eq_pow",
+    "statement": "\u2115} (hmn : m \u2260 0 \u2228 n \u2260 0) (h : a ^ m = b ^ n) : letI g",
+    "have_tree": [
+      {
+        "name": "coprime",
+        "type": "m'.Coprime n'",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "g \u2260 0",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

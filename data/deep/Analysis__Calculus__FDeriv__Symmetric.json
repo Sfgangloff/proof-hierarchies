@@ -1,0 +1,245 @@
+[
+  {
+    "module": "Symmetric",
+    "name": "fderivWithin_fderivWithin_eq_of_mem_nhdsWithin",
+    "statement": "t \u2208 \ud835\udcdd[s] x) (hf : ContDiffWithinAt \ud835\udd5c 2 f t x) (hs : UniqueDiffOn \ud835\udd5c s) (ht : UniqueDiffOn \ud835\udd5c t) (hx : x \u2208 s) : fderivWithin \ud835\udd5c (fderivWithin \ud835\udd5c f s) s x = fderivWithin \ud835\udd5c (fderivWithin \ud835\udd5c f t) t x",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2200\u1da0 y in \ud835\udcdd[s] x, fderivWithin \ud835\udd5c f s y = fderivWithin \ud835\udd5c f t y",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200\u1da0 y in \ud835\udcdd[s] x, ContDiffWithinAt \ud835\udd5c 2 f t y",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "fderivWithin \ud835\udd5c (fderivWithin \ud835\udd5c f s) s x = fderivWithin \ud835\udd5c (fderivWithin \ud835\udd5c f t) s x",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Symmetric",
+    "name": "Convex.taylor_approx_two_segment",
+    "statement": "E} (hv : x + v \u2208 interior s) (hw : x + v + w \u2208 interior s) : (fun h : \u211d => f (x + h \u2022 v + h \u2022 w) - f (x + h \u2022 v) - h \u2022 f' x w - h ^ 2 \u2022 f'' v w - (h ^ 2 / 2) \u2022 f'' w w) =o[\ud835\udcdd[>] 0] fun h => h ^ 2",
+    "have_tree": [
+      {
+        "name": "E1",
+        "type": "\u2200\u1da0 h in \ud835\udcdd[>] (0 : \u211d), h * (\u2016v\u2016 + \u2016w\u2016) < \u03b4",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Filter.Tendsto (fun h => h * (\u2016v\u2016 + \u2016w\u2016)) (\ud835\udcdd[>] (0 : \u211d)) (\ud835\udcdd (0 * (\u2016v\u2016 + \u2016w\u2016)))",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "E2",
+        "type": "\u2200\u1da0 h in \ud835\udcdd[>] (0 : \u211d), (h : \u211d) < 1",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "xt_mem",
+        "type": "\u2200 t \u2208 Icc (0 : \u211d) 1, x + h \u2022 v + (t * h) \u2022 w \u2208 interior s",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "x + h \u2022 v \u2208 interior s",
+            "body": "s_conv.add_smul_mem_interior xs hv \u27e8hpos, h_lt_1.le\u27e9",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "g_deriv",
+        "type": "\u2200 t \u2208 Icc (0 : \u211d) 1, HasDerivWithinAt g (g' t) (Icc 0 1) t",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "g'_bound",
+        "type": "\u2200 t \u2208 Ico (0 : \u211d) 1, \u2016g' t\u2016 \u2264 \u03b5 * ((\u2016v\u2016 + \u2016w\u2016) * \u2016w\u2016) * h ^ 2",
+        "body": "by",
+        "children": [
+          {
+            "name": "I",
+            "type": "\u2016h \u2022 v + (t * h) \u2022 w\u2016 \u2264 h * (\u2016v\u2016 + \u2016w\u2016)",
+            "body": "",
+            "children": [
+              {
+                "name": "H",
+                "type": "x + h \u2022 v + (t * h) \u2022 w \u2208 Metric.ball x \u03b4 \u2229 interior s",
+                "body": "by",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "I",
+        "type": "\u2016g 1 - g 0\u2016 \u2264 \u03b5 * ((\u2016v\u2016 + \u2016w\u2016) * \u2016w\u2016) * h ^ 2",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Symmetric",
+    "name": "Convex.second_derivative_within_at_symmetric_of_mem_interior",
+    "statement": "E} (h4v : x + (4 : \u211d) \u2022 v \u2208 interior s) (h4w : x + (4 : \u211d) \u2022 w \u2208 interior s) : f'' w v = f'' v w",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "(fun h : \u211d => h ^ 2 \u2022 (f'' w v - f'' v w)) =o[\ud835\udcdd[>] 0] fun h => h ^ 2",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "(fun _ : \u211d => f'' w v - f'' v w) =o[\ud835\udcdd[>] 0] fun _ => (1 : \u211d)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(fun h : \u211d => 1 / h ^ 2) =O[\ud835\udcdd[>] 0] fun h => 1 / h ^ 2",
+            "body": "isBigO_refl _ _",
+            "children": []
+          },
+          {
+            "name": "C",
+            "type": "",
+            "body": "this.smul_isLittleO A",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Symmetric",
+    "name": "Convex.second_derivative_within_at_symmetric",
+    "statement": "Set E} (s_conv : Convex \u211d s) (hne : (interior s).Nonempty) {f : E \u2192 F} {f' : E \u2192 E \u2192L[\u211d] F} {f'' : E \u2192L[\u211d] E \u2192L[\u211d] F} (hf : \u2200 x \u2208 interior s, HasFDerivAt f (f' x) x) {x : E} (xs : x \u2208 s) (hx : HasFDerivWithinAt f' f'' (interior s) x) (v w : E) : f'' v w = f'' w v",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "\u2200 m : E, Filter.Tendsto (fun t : \u211d => x + (4 : \u211d) \u2022 (z + t \u2022 m)) (\ud835\udcdd 0) (\ud835\udcdd y)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "x + (4 : \u211d) \u2022 (z + (0 : \u211d) \u2022 m) = y",
+            "body": "by simp [hz]",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "B",
+        "type": "\u2200 m : E, \u2200\u1da0 t in \ud835\udcdd[>] (0 : \u211d), x + (4 : \u211d) \u2022 (z + t \u2022 m) \u2208 interior s",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "C",
+        "type": "\u2200 m : E, f'' m z = f'' z m",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "f'' (z + t m \u2022 m) (z + t 0 \u2022 (0 : E)) = f'' (z + t 0 \u2022 (0 : E)) (z + t m \u2022 m)",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "f'' (z + t v \u2022 v) (z + t w \u2022 w) = f'' (z + t w \u2022 w) (z + t v \u2022 v)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(t v * t w) \u2022 (f'' v) w = (t v * t w) \u2022 (f'' w) v",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Symmetric",
+    "name": "ContDiffWithinAt.isSymmSndFDerivWithinAt",
+    "statement": "WithTop \u2115\u221e} (hf : ContDiffWithinAt \ud835\udd5c n f s x) (hn : minSmoothness \ud835\udd5c 2 \u2264 n) (hs : UniqueDiffOn \ud835\udd5c s) (hx : x \u2208 closure (interior s)) (h'x : x \u2208 s) : IsSymmSndFDerivWithinAt \ud835\udd5c f s x",
+    "have_tree": [
+      {
+        "name": "h'u",
+        "type": "UniqueDiffOn \ud835\udd5c (s \u2229 u)",
+        "body": "hs.inter u_open",
+        "children": []
+      },
+      {
+        "name": "L",
+        "type": "\u2200\u1da0 k in atTop, y k \u2208 u",
+        "body": "y_lim (u_open.mem_nhds xu)",
+        "children": []
+      },
+      {
+        "name": "I",
+        "type": "\u2200\u1da0 k in atTop, IsSymmSndFDerivWithinAt \ud835\udd5c f s (y k)",
+        "body": "by",
+        "children": [
+          {
+            "name": "s_mem",
+            "type": "s \u2208 \ud835\udcdd (y k)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "IsSymmSndFDerivAt \ud835\udd5c f (y k)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "A",
+        "type": "ContinuousOn (fderivWithin \ud835\udd5c (fderivWithin \ud835\udd5c f s) s) (s \u2229 u)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "ContinuousOn (fderivWithin \ud835\udd5c (fderivWithin \ud835\udd5c f (s \u2229 u)) (s \u2229 u)) (s \u2229 u)",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Tendsto y atTop (\ud835\udcdd[s \u2229 u] x)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Continuous (fun (A : E \u2192L[\ud835\udd5c] E \u2192L[\ud835\udd5c] F) \u21a6 A v w)",
+            "body": "by fun_prop",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

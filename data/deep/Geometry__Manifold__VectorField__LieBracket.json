@@ -1,0 +1,97 @@
+[
+  {
+    "module": "LieBracket",
+    "name": "mpullbackWithin_mlieBracketWithin_aux",
+    "statement": "M \u2192 M'} {V W : \u03a0 (x : M'), TangentSpace I' x} {x\u2080 : M} {s : Set M} {t : Set M'} (hV : MDifferentiableWithinAt I' I'.tangent (fun x \u21a6 (V x : TangentBundle I' M')) t (f x\u2080)) (hW : MDifferentiableWithinAt I' I'.tangent (fun x \u21a6 (W x : TangentBundle I' M')) t (f x\u2080)) (hu : UniqueMDiffOn I s) (hf : ContMDiffOn I I' 2 f s) (hx\u2080 : x\u2080 \u2208 s) (ht : t \u2286 (extChartAt I' (f x\u2080)).source) (hst : MapsTo f s t) (hsymm : IsSymmSndFDerivWithinAt \ud835\udd5c ((extChartAt I' (f x\u2080)) \u2218 f \u2218 (extChartAt I x\u2080).symm) ((extChartAt I x\u2080).symm \u207b\u00b9' s \u2229 range I) (extChartAt I x\u2080 x\u2080)) : mpullbackWithin I I' f (mlieBracketWithin I' V W t) s x\u2080 = mlieBracketWithin I (mpullbackWithin I I' f V s) (mpullbackWithin I I' f W s) s x\u2080",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "(extChartAt I x\u2080).symm (extChartAt I x\u2080 x\u2080) = x\u2080",
+        "body": "by simp",
+        "children": []
+      },
+      {
+        "name": "A'",
+        "type": "x\u2080 = (extChartAt I x\u2080).symm (extChartAt I x\u2080 x\u2080)",
+        "body": "by simp",
+        "children": []
+      },
+      {
+        "name": "h'f",
+        "type": "MDifferentiableWithinAt I I' f s x\u2080",
+        "body": "(hf x\u2080 hx\u2080).mdifferentiableWithinAt two_ne_zero",
+        "children": []
+      },
+      {
+        "name": "hFx\u2080",
+        "type": "extChartAt I' (f x\u2080) (f x\u2080) = F (extChartAt I x\u2080 x\u2080)",
+        "body": "by simp [F]",
+        "children": [
+          {
+            "name": "h'y",
+            "type": "f ((extChartAt I x\u2080).symm y) \u2208 (extChartAt I' (f x\u2080)).source",
+            "body": "ht (hst hy.1)",
+            "children": []
+          },
+          {
+            "name": "h''y",
+            "type": "f ((extChartAt I x\u2080).symm y) \u2208 (chartAt H' (f x\u2080)).source",
+            "body": "by simpa using h'y",
+            "children": []
+          },
+          {
+            "name": "huy",
+            "type": "UniqueMDiffWithinAt \ud835\udcd8(\ud835\udd5c, E) ((extChartAt I x\u2080).symm \u207b\u00b9' s \u2229 range I) y",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LieBracket",
+    "name": "mpullbackWithin_mlieBracketWithin_of_isSymmSndFDerivWithinAt",
+    "statement": "M \u2192 M'} {V W : \u03a0 (x : M'), TangentSpace I' x} {x\u2080 : M} {s : Set M} {t : Set M'} (hV : MDifferentiableWithinAt I' I'.tangent (fun x \u21a6 (V x : TangentBundle I' M')) t (f x\u2080)) (hW : MDifferentiableWithinAt I' I'.tangent (fun x \u21a6 (W x : TangentBundle I' M')) t (f x\u2080)) (hu : UniqueMDiffOn I s) (hf : ContMDiffWithinAt I I' 2 f s x\u2080) (hx\u2080 : x\u2080 \u2208 s) (hst : f \u207b\u00b9' t \u2208 \ud835\udcdd[s] x\u2080) (hsymm : IsSymmSndFDerivWithinAt \ud835\udd5c ((extChartAt I' (f x\u2080)) \u2218 f \u2218 (extChartAt I x\u2080).symm) ((extChartAt I x\u2080).symm \u207b\u00b9' s \u2229 range I) (extChartAt I x\u2080 x\u2080)) : mpullbackWithin I I' f (mlieBracketWithin I' V W t) s x\u2080 = mlieBracketWithin I (mpullbackWithin I I' f V s) (mpullbackWithin I I' f W s) s x\u2080",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "(extChartAt I x\u2080).symm (extChartAt I x\u2080 x\u2080) = x\u2080",
+        "body": "by simp",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "CompleteSpace E'",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "f \u207b\u00b9' (extChartAt I' (f x\u2080)).source \u2208 \ud835\udcdd[s] x\u2080",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "u_mem",
+        "type": "u \u2208 \ud835\udcdd x\u2080",
+        "body": "u_open.mem_nhds x\u2080u",
+        "children": []
+      },
+      {
+        "name": "s'_eq",
+        "type": "s' =\u1da0[\ud835\udcdd x\u2080] s",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(extChartAt I x\u2080).symm \u207b\u00b9' u \u2208 \ud835\udcdd (extChartAt I x\u2080 x\u2080)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

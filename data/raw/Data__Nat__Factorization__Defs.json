@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Defs",
+    "name": "primeFactorsList_count_eq",
+    "statement": "\u2115} : n.primeFactorsList.count p = n.factorization p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.count_le p",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "factorization_prod",
+    "statement": "Type*} {S : Finset \u03b1} {g : \u03b1 \u2192 \u2115} (hS : \u2200 x \u2208 S, g x \u2260 0) : (S.prod g).factorization = S.sum fun x => (g x).factorization",
+    "have_tree": [
+      {
+        "name": "hT",
+        "type": "T.prod g \u2260 0",
+        "body": "prod_ne_zero_iff.mpr fun x hx => hS x (hTS hx)",
+        "children": []
+      }
+    ]
+  }
+]

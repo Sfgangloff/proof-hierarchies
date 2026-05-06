@@ -1,0 +1,227 @@
+[
+  {
+    "module": "VerySmallDoubling",
+    "name": "invMulSubgroup",
+    "statement": "Finset G) (h : #(A * A) < (3 / 2 : \u211a) * #A) : Subgroup G where carrier",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "A.Nonempty",
+        "body": "nonempty_of_doubling h",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "x \u2208 A) y (hy : y \u2208 A) : (1 / 2 : \u211a) * #A < #(x \u2022 A \u2229 y \u2022 A)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "(1 / 2 : \u211a) * #A < #(A \u2229 (a * b)\u207b\u00b9 \u2022 A)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2083",
+        "type": "(1 / 2 : \u211a) * #A < #(A \u2229 (c * d) \u2022 A)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "((A \u2229 (c * d) \u2022 A) \u2229 (A \u2229 (a * b)\u207b\u00b9 \u2022 A)).Nonempty",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "card_inter_add_card_union (A \u2229 (c * d) \u2022 A) (A \u2229 (a * b)\u207b\u00b9 \u2022 A)",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "(#((A \u2229 (c * d) \u2022 A) \u222a (A \u2229 (a * b)\u207b\u00b9 \u2022 A)) : \u211a) \u2264 #A",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "VerySmallDoubling",
+    "name": "doubling_lt_golden_ratio",
+    "statement": "1 < K) (hK\u03c6 : K < \u03c6) (hA\u2081 : #(A\u207b\u00b9 * A) \u2264 K * #A) (hA\u2082 : #(A * A\u207b\u00b9) \u2264 K * #A) : \u2203 (H : Subgroup G) (_ : Fintype H) (Z : Finset G), #Z \u2264 (2 - K) * K / ((\u03c6 - K) * (K - \u03c8)) \u2227 (H : Set G) * Z = A * A\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "K_pos",
+        "type": "0 < K",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "hK\u2080",
+        "type": "0 < K",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "hK\u03c6'",
+        "type": "0 < \u03c6 - K",
+        "body": "by linarith",
+        "children": []
+      },
+      {
+        "name": "hK\u03c8'",
+        "type": "0 < K - \u03c8",
+        "body": "by linarith [Real.goldenConj_neg]",
+        "children": []
+      },
+      {
+        "name": "hK\u2082'",
+        "type": "0 < 2 - K",
+        "body": "by linarith [Real.goldenRatio_lt_two]",
+        "children": []
+      },
+      {
+        "name": "const_pos",
+        "type": "0 < K * (2 - K) / ((\u03c6 - K) * (K - \u03c8))",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "S_nonempty",
+        "type": "S.Nonempty",
+        "body": "by simpa [S]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Finite H",
+        "body": "by simpa [H] using stabilizer_finite (by simpa) S.finite_toSet",
+        "children": []
+      },
+      {
+        "name": "H_mul_S",
+        "type": "(H : Set G) * S = S",
+        "body": "by simp [H, \u2190 stabilizer_coe_finset]",
+        "children": []
+      },
+      {
+        "name": "H_mul_Z",
+        "type": "(H : Set G) * Z = S",
+        "body": "by simp [hZ.2.1, H_mul_S]",
+        "children": []
+      },
+      {
+        "name": "H_toFinset_mul_Z",
+        "type": "Set.toFinset H * Z = S",
+        "body": "by simpa [\u2190 Finset.coe_inj]",
+        "children": []
+      },
+      {
+        "name": "card_H_mul_card_Z",
+        "type": "Fintype.card H * #Z = #S",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(#S : \u211d) \u2260 0",
+            "body": "by positivity",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "r z\u207b\u00b9 = r z",
+        "body": "by simp [r, inv_inv]",
+        "children": [
+          {
+            "name": "ineq",
+            "type": "#A * #A \u2264 ((2 - K) * l + (K - 1) * #S) * #A",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "0 < #A",
+            "body": "by positivity",
+            "children": [
+              {
+                "name": "_",
+                "type": "",
+                "body": "Real.goldenRatio_mul_goldenConj",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "",
+                "body": "Real.goldenRatio_add_goldenConj",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "hrw",
+            "type": "(2 - K) * #A \u2264 r w",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "(0 : \u211d) < #((z\u207b\u00b9 \u2022> A) \u2229 (w \u2022> A))",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "(#((A \u2229 z\u207b\u00b9 \u2022> A) \u2229 (A \u2229 w \u2022> A)) : \u211d) \u2264 #(z\u207b\u00b9 \u2022> A \u2229 w \u2022> A)",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "(#((A \u2229 z\u207b\u00b9 \u2022> A) \u222a (A \u2229 w \u2022> A)) : \u211d) \u2264 #A",
+                "body": "by",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "VerySmallDoubling",
+    "name": "exists_subgroup_isAtom",
+    "statement": "K < 1) (hS : S.Nonempty) : \u2203 (H : Subgroup G) (_ : Fintype H), IsAtom K S (Set.toFinset H)",
+    "have_tree": [
+      {
+        "name": "one_mem_carrier",
+        "type": "1 \u2208 n\u207b\u00b9 \u2022> N",
+        "body": "by simpa [mem_inv_smul_finset_iff]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "G) : x \u2208 x \u2022 n\u207b\u00b9 \u2022 N",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(n\u207b\u00b9 \u2022> N \u2229 a \u2022> n\u207b\u00b9 \u2022> N).Nonempty",
+            "body": "\u27e8a, by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "(n\u207b\u00b9 \u2022> N \u2229 a\u207b\u00b9 \u2022> n\u207b\u00b9 \u2022> N).Nonempty",
+            "body": "\u27e81, by simpa using \u27e8one_mem_carrier, ha\u27e9\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

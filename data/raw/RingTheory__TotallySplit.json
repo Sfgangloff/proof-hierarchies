@@ -1,0 +1,85 @@
+[
+  {
+    "module": "TotallySplit",
+    "name": "of_subsingleton",
+    "statement": "IsFiniteSplit R S",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Subsingleton S",
+        "body": "RingHom.codomain_trivial (algebraMap R S)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "TotallySplit",
+    "name": "exists_tensorProduct_of_etale",
+    "statement": "\u2115} (hn : Module.rankAtStalk (R",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsFiniteSplit R S",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsFiniteSplit R S",
+            "body": ".of_subsingleton",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "Nontrivial S",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsScalarTower S (S \u00d7 U) U",
+        "body": "IsScalarTower.of_algebraMap_eq' rfl",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Etale S U",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Etale S (S \u00d7 U)",
+            "body": "Etale.of_equiv e",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite S U",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Module.Finite S (S \u00d7 U)",
+            "body": "Module.Finite.equiv e.toLinearEquiv",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "Module.Finite (S \u00d7 U) U",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "Module.rankAtStalk (R",
+        "body": "S) U = n := by",
+        "children": []
+      }
+    ]
+  }
+]

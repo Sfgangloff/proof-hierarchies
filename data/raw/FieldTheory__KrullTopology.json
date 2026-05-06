@@ -1,0 +1,116 @@
+[
+  {
+    "module": "KrullTopology",
+    "name": "galBasis",
+    "statement": "Type*) [Field K] [Field L] [Algebra K L] : FilterBasis Gal(L/K) where sets",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional K E1",
+        "body": "h_E1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "FiniteDimensional K E2",
+        "body": "h_E2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "KrullTopology",
+    "name": "galGroupBasis",
+    "statement": "Type*) [Field K] [Field L] [Algebra K L] : GroupFilterBasis Gal(L/K) where toFilterBasis",
+    "have_tree": [
+      {
+        "name": "h_in_F",
+        "type": "\u03c3\u207b\u00b9 x \u2208 F",
+        "body": "\u27e8x, hx, by dsimp\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "KrullTopology",
+    "name": "IntermediateField.fixingSubgroup_isOpen",
+    "statement": "Type*} [Field K] [Field L] [Algebra K L] (E : IntermediateField K L) [FiniteDimensional K E] : IsOpen (E.fixingSubgroup : Set Gal(L/K))",
+    "have_tree": [
+      {
+        "name": "h_basis",
+        "type": "E.fixingSubgroup.carrier \u2208 galGroupBasis K L",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h_nhds",
+        "type": "",
+        "body": "GroupFilterBasis.mem_nhds_one (galGroupBasis K L) h_basis",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "KrullTopology",
+    "name": "krullTopology_t2",
+    "statement": "Type*} [Field K] [Field L] [Algebra K L] [Algebra.IsIntegral K L] : T2Space Gal(L/K)",
+    "have_tree": [
+      {
+        "name": "h\u03c6x",
+        "type": "\u03c6 x \u2260 x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h_nhds",
+        "type": "",
+        "body": "GroupFilterBasis.mem_nhds_one (galGroupBasis K L) h_basis",
+        "children": []
+      },
+      {
+        "name": "h_in_H",
+        "type": "w1 * w2\u207b\u00b9 \u2208 H",
+        "body": "H.mul_mem (hWH hw1) (H.inv_mem (hWH hw2))",
+        "children": []
+      },
+      {
+        "name": "hxE",
+        "type": "x \u2208 E",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "KrullTopology",
+    "name": "stabilizer_isOpen_of_isIntegral",
+    "statement": "L) : IsOpen (MulAction.stabilizer Gal(L/K) x : Set Gal(L/K))",
+    "have_tree": [
+      {
+        "name": "hL",
+        "type": "FiniteDimensional K E",
+        "body": "adjoin.finiteDimensional (Algebra.IsIntegral.isIntegral x)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "KrullTopology",
+    "name": "finrank_eq_fixingSubgroup_index",
+    "statement": "IntermediateField k K) [IsGalois k K] : Module.finrank k L = L.fixingSubgroup.index",
+    "have_tree": [
+      {
+        "name": "hle",
+        "type": "L \u2264 E",
+        "body": "by simpa only [fieldRange_val] using L.val.fieldRange_le_normalClosure",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "Module.finrank_mul_finrank k \u21a5L' \u21a5E",
+        "children": []
+      }
+    ]
+  }
+]

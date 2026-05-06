@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Max",
+      "name": "exists_next_right",
+      "statement": "\u03b1} {s : Finset \u03b1} (h : \u2203 y \u2208 s, x < y) : \u2203 y \u2208 s, x < y \u2227 \u2200 z \u2208 s, x < z \u2192 y \u2264 z",
+      "have_tree": [
+        {
+          "name": "Hne",
+          "type": "(s.filter (x < \u00b7)).Nonempty",
+          "body": "h.imp fun y hy => mem_filter.2 (by simpa)",
+          "children": []
+        },
+        {
+          "name": "aux",
+          "type": "",
+          "body": "mem_filter.1 (min'_mem _ Hne)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Max",
+          "name": "exists_next_right",
+          "statement": "\u03b1} {s : Finset \u03b1} (h : \u2203 y \u2208 s, x < y) : \u2203 y \u2208 s, x < y \u2227 \u2200 z \u2208 s, x < z \u2192 y \u2264 z",
+          "have_tree": [
+            {
+              "name": "aux",
+              "type": "",
+              "body": "mem_filter.1 (min'_mem _ Hne)",
+              "children": []
+            },
+            {
+              "name": "Hne",
+              "type": "(s.filter (x < \u00b7)).Nonempty",
+              "body": "h.imp fun y hy => mem_filter.2 (by simpa)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,159 @@
+[
+  {
+    "module": "BigOperators",
+    "name": "of_abv_le",
+    "statement": "\u2115) (hm : \u2200 m, n \u2264 m \u2192 abv (f m) \u2264 a m) : IsCauSeq abs (fun n \u21a6 \u2211 i \u2208 range n, a i) \u2192 IsCauSeq abv fun n \u21a6 \u2211 i \u2208 range n, f i",
+    "have_tree": [
+      {
+        "name": "hi\u2081",
+        "type": "",
+        "body": "hi j (le_trans (le_max_right n i) ji)",
+        "children": []
+      },
+      {
+        "name": "hi\u2082",
+        "type": "",
+        "body": "hi (max n i) (le_max_right n i)",
+        "children": []
+      },
+      {
+        "name": "sub_le",
+        "type": "",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "add_lt_add hi\u2081 hi\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BigOperators",
+    "name": "_root_.cauchy_product",
+    "statement": "IsCauSeq abs fun m \u21a6 \u2211 n \u2208 range m, abv (f n)) (hb : IsCauSeq abv fun m \u21a6 \u2211 n \u2208 range m, g n) (\u03b5 : \u03b1) (\u03b50 : 0 < \u03b5) : \u2203 i : \u2115, \u2200 j \u2265 i, abv ((\u2211 k \u2208 range j, f k) * \u2211 k \u2208 range j, g k - \u2211 n \u2208 range j, \u2211 m \u2208 range (n + 1), f m * g (n - m)) < \u03b5",
+    "have_tree": [
+      {
+        "name": "hP0",
+        "type": "0 < P",
+        "body": "lt_of_le_of_lt (abs_nonneg _) (hP 0)",
+        "children": []
+      },
+      {
+        "name": "hP\u03b50",
+        "type": "0 < \u03b5 / (2 * P)",
+        "body": "div_pos \u03b50 (mul_pos (show (2 : \u03b1) > 0 by simp) hP0)",
+        "children": []
+      },
+      {
+        "name": "hQ\u03b50",
+        "type": "0 < \u03b5 / (4 * Q)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hQ0",
+        "type": "Q \u2260 0",
+        "body": "fun h \u21a6 by simp [h] at hQ\u03b50",
+        "children": []
+      },
+      {
+        "name": "h2Q0",
+        "type": "2 * Q \u2260 0",
+        "body": "mul_ne_zero two_ne_zero hQ0",
+        "children": []
+      },
+      {
+        "name": "hNMK",
+        "type": "max N M + 1 < K",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hKN",
+        "type": "N < K",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hsumltP",
+        "type": "(\u2211 n \u2208 range (max N M + 1), abv (f n)) < P",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "lt_of_le_of_lt (abv_nonneg _ _) (hQ 0)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "BigOperators",
+    "name": "of_decreasing_bounded",
+    "statement": "\u2115 \u2192 \u03b1) {a : \u03b1} {m : \u2115} (ham : \u2200 n \u2265 m, |f n| \u2264 a) (hnm : \u2200 n \u2265 m, f n.succ \u2264 f n) : IsCauSeq abs f",
+    "have_tree": [
+      {
+        "name": "hl0",
+        "type": "l \u2260 0",
+        "body": "fun hl0 \u21a6",
+        "children": []
+      },
+      {
+        "name": "hfij",
+        "type": "f j \u2264 f i",
+        "body": "(Nat.rel_of_forall_rel_succ_of_le_of_le (\u00b7 \u2265 \u00b7) hnm hi.1 hj).le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BigOperators",
+    "name": "geo_series",
+    "statement": "\u03b2) (hx1 : abv x < 1) : IsCauSeq abv fun n \u21a6 \u2211 m \u2208 range n, x ^ m",
+    "have_tree": [
+      {
+        "name": "hx1'",
+        "type": "abv x \u2260 1",
+        "body": "fun h \u21a6 by simp [h] at hx1",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "0 < 1 - abv x",
+        "body": "sub_pos.2 hx1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "BigOperators",
+    "name": "series_ratio_test",
+    "statement": "\u2115 \u2192 \u03b2} (n : \u2115) (r : \u03b1) (hr0 : 0 \u2264 r) (hr1 : r < 1) (h : \u2200 m, n \u2264 m \u2192 abv (f m.succ) \u2264 r * abv (f m)) : IsCauSeq abv fun m \u21a6 \u2211 n \u2208 range m, f n",
+    "have_tree": [
+      {
+        "name": "har1",
+        "type": "|r| < 1",
+        "body": "by rwa [abs_of_nonneg hr0]",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "h m.pred (Nat.le_of_succ_le_succ (by rwa [Nat.succ_pred_eq_of_pos m_pos]))",
+            "children": []
+          },
+          {
+            "name": "kn",
+            "type": "k + n.succ \u2265 n.succ",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,48 @@
+[
+  {
+    "module": "SubGaussian",
+    "name": "of_rat",
+    "statement": "\u2200 t : \u211d, Integrable (fun \u03c9 \u21a6 exp (t * X \u03c9)) (\u03ba \u2218\u2098 \u03bd)) (h_mgf : \u2200 q : \u211a, \u2200\u1d50 \u03c9' \u2202\u03bd, mgf X (\u03ba \u03c9') q \u2264 exp (c * q ^ 2 / 2)) : Kernel.HasSubgaussianMGF X c \u03ba \u03bd where integrable_exp_mul",
+    "have_tree": [
+      {
+        "name": "h_int",
+        "type": "\u2200\u1d50 \u03c9' \u2202\u03bd, \u2200 t, Integrable (fun \u03c9 \u21a6 exp (t * X \u03c9)) (\u03ba \u03c9')",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2124)",
+            "body": "Measure.ae_integrable_of_integrable_comp (h_int n)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "SubGaussian",
+    "name": "measure_pos_eq_zero_of_hasSubGaussianMGF_zero",
+    "statement": "HasSubgaussianMGF X 0 \u03ba \u03bd) : \u2200\u1d50 \u03c9' \u2202\u03bd, (\u03ba \u03c9') {\u03c9 | 0 < X \u03c9} = 0",
+    "have_tree": [
+      {
+        "name": "hs",
+        "type": "{\u03c9 | 0 < X \u03c9} = \u22c3 \u03b5 : {\u03b5 : \u211a // 0 < \u03b5}, {\u03c9 | \u03b5 \u2264 X \u03c9}",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u211a) : \u2200\u1d50 \u03c9' \u2202\u03bd, 0 < \u03b5 \u2192 (\u03ba \u03c9') {\u03c9 | \u03b5 \u2264 X \u03c9} = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "hl",
+            "type": "Filter.Tendsto (fun t \u21a6 rexp (-(t * \u03b5))) Filter.atTop (\ud835\udcdd 0)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

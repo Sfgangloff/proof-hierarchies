@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Bernoulli",
+    "name": "sum_range_pow",
+    "statement": "\u2115) : (\u2211 k \u2208 range n, (k : \u211a) ^ p) = \u2211 i \u2208 range (p + 1), bernoulli i * ((p + 1).choose i) * (n : \u211a) ^ (p + 1 - i) / (p + 1)",
+    "have_tree": [
+      {
+        "name": "hne",
+        "type": "\u2200 m : \u2115, (m ! : \u211a) \u2260 0",
+        "body": "fun m => mod_cast factorial_ne_zero m",
+        "children": [
+          {
+            "name": "h",
+            "type": "m < q + 1",
+            "body": "by simpa using h",
+            "children": []
+          },
+          {
+            "name": "hexp",
+            "type": "exp \u211a - 1 \u2260 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h_r",
+            "type": "exp \u211a ^ n - 1 = X * mk fun p => coeff (p + 1) (exp \u211a ^ n)",
+            "body": "by",
+            "children": [
+              {
+                "name": "h_const",
+                "type": "C (constantCoeff (exp \u211a ^ n)) = 1",
+                "body": "by simp",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

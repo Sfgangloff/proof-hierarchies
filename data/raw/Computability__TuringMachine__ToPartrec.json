@@ -1,0 +1,104 @@
+[
+  {
+    "module": "ToPartrec",
+    "name": "tr_eval",
+    "statement": "eval (TM2.step tr) (init c v) = halt <$> Code.eval c v",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "StateTransition.tr_eval (b\u2081 := Cfg.halt v') tr_respects h\u2081",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ToPartrec",
+    "name": "head_supports",
+    "statement": "(q : \u039b').Supports S) : (head k q).Supports S",
+    "have_tree": [
+      {
+        "name": "W",
+        "type": "",
+        "body": "fun {q} => trStmts\u2081_self q",
+        "children": [
+          {
+            "name": "L",
+            "type": "",
+            "body": "@Finset.mem_union_left; have R := @Finset.mem_union_right",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "ToPartrec",
+    "name": "trStmts\u2081_supports",
+    "statement": "(q : \u039b').Supports S) (HS\u2081 : trStmts\u2081 q \u2286 S) : Supports (trStmts\u2081 q) S",
+    "have_tree": [
+      {
+        "name": "W",
+        "type": "",
+        "body": "fun {q} => trStmts\u2081_self q",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ToPartrec",
+    "name": "codeSupp'_supports",
+    "statement": "codeSupp c k \u2286 S) : Supports (codeSupp' c k) S",
+    "have_tree": [
+      {
+        "name": "H'",
+        "type": "",
+        "body": "H; simp only [codeSupp_cons, Finset.union_subset_iff] at H'",
+        "children": []
+      },
+      {
+        "name": "H'",
+        "type": "",
+        "body": "H; rw [codeSupp_comp] at H'; have H' := Finset.union_subset_right H'",
+        "children": []
+      },
+      {
+        "name": "H'",
+        "type": "",
+        "body": "H; simp only [codeSupp_case, Finset.union_subset_iff] at H'",
+        "children": []
+      },
+      {
+        "name": "H'",
+        "type": "",
+        "body": "H; simp only [codeSupp_fix, Finset.union_subset_iff] at H'",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ToPartrec",
+    "name": "contSupp_supports",
+    "statement": "contSupp k \u2286 S) : Supports (contSupp k) S",
+    "have_tree": [
+      {
+        "name": "H\u2081",
+        "type": "",
+        "body": "H; rw [contSupp_cons\u2081] at H\u2081; have H\u2082 := Finset.union_subset_right H\u2081",
+        "children": []
+      },
+      {
+        "name": "H'",
+        "type": "",
+        "body": "H; rw [contSupp_cons\u2082] at H'",
+        "children": []
+      },
+      {
+        "name": "H'",
+        "type": "",
+        "body": "H; rw [contSupp_comp] at H'; have H\u2082 := Finset.union_subset_right H'",
+        "children": []
+      }
+    ]
+  }
+]

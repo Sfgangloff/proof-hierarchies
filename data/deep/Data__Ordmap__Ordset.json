@@ -1,0 +1,128 @@
+[
+  {
+    "module": "Ordset",
+    "name": "Valid'.node4L_lemma\u2082",
+    "statement": "\u2115} (mr\u2082 : b + c + 1 \u2264 3 * d) : c \u2264 3 * d",
+    "have_tree": [
+      {
+        "name": "r1",
+        "type": "r.size = 1",
+        "body": "by lia",
+        "children": []
+      },
+      {
+        "name": "l1",
+        "type": "l.size = 1",
+        "body": "by lia",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "2 * size l \u2264 size ml + size mr + 1",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Nat.mul_le_mul_left ratio lr\u2081",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "le_trans this (add_le_add_right mr\u2081 _)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Ordset",
+    "name": "Valid'.rotateL",
+    "statement": "\u03b1} {r o\u2081 o\u2082} (hl : Valid' o\u2081 l x) (hr : Valid' x r o\u2082) (H1 : \u00acsize l + size r \u2264 1) (H2 : delta * size l < size r) (H3 : 2 * size r \u2264 9 * size l + 5 \u2228 size r \u2264 3) : Valid' o\u2081 (@rotateL \u03b1 l x r) o\u2082",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "size l = 0) : size rl + size rr \u2264 2",
+        "body": "by lia",
+        "children": []
+      },
+      {
+        "name": "H3p",
+        "type": "size l > 0 \u2192 2 * (size rl + size rr) \u2264 9 * size l + 3",
+        "body": "fun l0 : 1 \u2264 size l =>",
+        "children": []
+      },
+      {
+        "name": "ablem",
+        "type": "\u2200 {a b : \u2115}, 1 \u2264 a \u2192 a + b \u2264 2 \u2192 b \u2264 1",
+        "body": "by lia",
+        "children": []
+      },
+      {
+        "name": "hlp",
+        "type": "size l > 0 \u2192 \u00acsize rl + size rr \u2264 1",
+        "body": "fun l0 hb =>",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "hr.3.1",
+            "children": []
+          },
+          {
+            "name": "rr1",
+            "type": "size rr = 1",
+            "body": "le_antisymm (ablem rl0 H3) rr0",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Ordset",
+    "name": "size_erase_of_mem",
+    "statement": "\u03b1} {t a\u2081 a\u2082} (h : Valid' a\u2081 t a\u2082) (h_mem : x \u2208 t) : size (erase x t) = size t - 1",
+    "have_tree": [
+      {
+        "name": "t_ih_l'",
+        "type": "",
+        "body": "t_ih_l h.left",
+        "children": []
+      },
+      {
+        "name": "t_ih_r'",
+        "type": "",
+        "body": "t_ih_r h.right",
+        "children": [
+          {
+            "name": "t_l_h",
+            "type": "",
+            "body": "Valid'.erase_aux x h.left",
+            "children": []
+          },
+          {
+            "name": "h_pos_t_l_size",
+            "type": "",
+            "body": "pos_size_of_mem h.left.sz h_mem",
+            "children": []
+          },
+          {
+            "name": "t_r_h",
+            "type": "",
+            "body": "Valid'.erase_aux x h.right",
+            "children": []
+          },
+          {
+            "name": "h_pos_t_r_size",
+            "type": "",
+            "body": "pos_size_of_mem h.right.sz h_mem",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

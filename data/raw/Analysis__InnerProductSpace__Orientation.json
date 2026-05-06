@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Orientation",
+    "name": "det_to_matrix_orthonormalBasis_of_same_orientation",
+    "statement": "e.toBasis.orientation = f.toBasis.orientation) : e.toBasis.det f = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < e.toBasis.det f",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Orientation",
+    "name": "volumeForm_robust_neg",
+    "statement": "OrthonormalBasis (Fin n) \u211d E) (hb : b.toBasis.orientation \u2260 o) : o.volumeForm = -b.toBasis.det",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "positiveOrientation \u2260 o",
+        "body": "by rwa [b.toBasis.orientation_isEmpty] at hb",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Orientation",
+    "name": "volumeForm_neg_orientation",
+    "statement": "(-o).volumeForm = -o.volumeForm",
+    "have_tree": [
+      {
+        "name": "h\u2082",
+        "type": "e.toBasis.orientation \u2260 -o",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Orientation",
+    "name": "volumeForm_comp_linearIsometryEquiv",
+    "statement": "E \u2243\u2097\u1d62[\u211d] E) (h\u03c6 : 0 < LinearMap.det (\u03c6.toLinearEquiv : E \u2192\u2097[\u211d] E)) (x : Fin n \u2192 E) : o.volumeForm (\u03c6 \u2218 x) = o.volumeForm x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "FiniteDimensional \u211d E",
+        "body": ".of_fact_finrank_eq_succ n",
+        "children": []
+      }
+    ]
+  }
+]

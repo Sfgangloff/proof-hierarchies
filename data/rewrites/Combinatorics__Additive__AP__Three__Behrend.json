@@ -1,0 +1,199 @@
+[
+  {
+    "original": {
+      "module": "Behrend",
+      "name": "threeAPFree_image_sphere",
+      "statement": "ThreeAPFree ((sphere n d k).image (map (2 * d - 1)) : Set \u2115)",
+      "have_tree": [
+        {
+          "name": "hai",
+          "type": "",
+          "body": "mem_box.1 (sphere_subset_box ha) i",
+          "children": []
+        },
+        {
+          "name": "hbi",
+          "type": "",
+          "body": "mem_box.1 (sphere_subset_box hb) i",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Behrend",
+          "name": "threeAPFree_image_sphere",
+          "statement": "ThreeAPFree ((sphere n d k).image (map (2 * d - 1)) : Set \u2115)",
+          "have_tree": [
+            {
+              "name": "hbi",
+              "type": "",
+              "body": "mem_box.1 (sphere_subset_box hb) i",
+              "children": []
+            },
+            {
+              "name": "hai",
+              "type": "",
+              "body": "mem_box.1 (sphere_subset_box ha) i",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Behrend",
+      "name": "exp_neg_two_mul_le",
+      "statement": "\u211d} (hx : 0 < x) : exp (-2 * x) < exp (2 - \u2308x\u2309\u208a) / \u2308x\u2309\u208a",
+      "have_tree": [
+        {
+          "name": "h\u2081",
+          "type": "",
+          "body": "ceil_lt_add_one hx.le",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "1 - x \u2264 2 - \u2308x\u2309\u208a",
+          "body": "by linarith",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Behrend",
+          "name": "exp_neg_two_mul_le",
+          "statement": "\u211d} (hx : 0 < x) : exp (-2 * x) < exp (2 - \u2308x\u2309\u208a) / \u2308x\u2309\u208a",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "1 - x \u2264 2 - \u2308x\u2309\u208a",
+              "body": "by linarith",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "ceil_lt_add_one hx.le",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Behrend",
+      "name": "roth_lower_bound_explicit",
+      "statement": "4096 \u2264 N) : (N : \u211d) * exp (-4 * \u221a(log N)) < rothNumberNat N",
+      "have_tree": [
+        {
+          "name": "hd",
+          "type": "0 < dValue N",
+          "body": "dValue_pos (hN.trans' <| by norm_num1)",
+          "children": []
+        },
+        {
+          "name": "hn\u2082",
+          "type": "2 < n",
+          "body": "three_le_nValue <| hN.trans' <| by norm_num1",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "(2 * dValue N - 1) ^ n \u2264 N",
+          "body": "le_N (hN.trans' <| by norm_num1)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Behrend",
+          "name": "roth_lower_bound_explicit",
+          "statement": "4096 \u2264 N) : (N : \u211d) * exp (-4 * \u221a(log N)) < rothNumberNat N",
+          "have_tree": [
+            {
+              "name": "hn\u2082",
+              "type": "2 < n",
+              "body": "three_le_nValue <| hN.trans' <| by norm_num1",
+              "children": []
+            },
+            {
+              "name": "hd",
+              "type": "0 < dValue N",
+              "body": "dValue_pos (hN.trans' <| by norm_num1)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(2 * dValue N - 1) ^ n \u2264 N",
+              "body": "le_N (hN.trans' <| by norm_num1)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Behrend",
+          "name": "roth_lower_bound_explicit",
+          "statement": "4096 \u2264 N) : (N : \u211d) * exp (-4 * \u221a(log N)) < rothNumberNat N",
+          "have_tree": [
+            {
+              "name": "hd",
+              "type": "0 < dValue N",
+              "body": "dValue_pos (hN.trans' <| by norm_num1)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(2 * dValue N - 1) ^ n \u2264 N",
+              "body": "le_N (hN.trans' <| by norm_num1)",
+              "children": []
+            },
+            {
+              "name": "hn\u2082",
+              "type": "2 < n",
+              "body": "three_le_nValue <| hN.trans' <| by norm_num1",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,970 @@
+[
+  {
+    "original": {
+      "module": "Power",
+      "name": "mul_dist_eq_abs_sub_sq_dist",
+      "statement": "P} (hp : p \u2208 line[\u211d, a, b]) (hq : dist a q = dist b q) : dist a p * dist b p = |dist b q ^ 2 - dist p q ^ 2|",
+      "have_tree": [
+        {
+          "name": "h1",
+          "type": "",
+          "body": "vsub_sub_vsub_cancel_left a p m",
+          "children": []
+        },
+        {
+          "name": "h1'",
+          "type": "",
+          "body": "vsub_sub_vsub_cancel_left p a m",
+          "children": []
+        },
+        {
+          "name": "h2",
+          "type": "",
+          "body": "vsub_sub_vsub_cancel_left p q m",
+          "children": []
+        },
+        {
+          "name": "h3",
+          "type": "",
+          "body": "vsub_sub_vsub_cancel_left a q m",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Power",
+          "name": "mul_dist_eq_abs_sub_sq_dist",
+          "statement": "P} (hp : p \u2208 line[\u211d, a, b]) (hq : dist a q = dist b q) : dist a p * dist b p = |dist b q ^ 2 - dist p q ^ 2|",
+          "have_tree": [
+            {
+              "name": "h1'",
+              "type": "",
+              "body": "vsub_sub_vsub_cancel_left p a m",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "",
+              "body": "vsub_sub_vsub_cancel_left a p m",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "",
+              "body": "vsub_sub_vsub_cancel_left p q m",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "",
+              "body": "vsub_sub_vsub_cancel_left a q m",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Power",
+          "name": "mul_dist_eq_abs_sub_sq_dist",
+          "statement": "P} (hp : p \u2208 line[\u211d, a, b]) (hq : dist a q = dist b q) : dist a p * dist b p = |dist b q ^ 2 - dist p q ^ 2|",
+          "have_tree": [
+            {
+              "name": "h1",
+              "type": "",
+              "body": "vsub_sub_vsub_cancel_left a p m",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "",
+              "body": "vsub_sub_vsub_cancel_left p q m",
+              "children": []
+            },
+            {
+              "name": "h1'",
+              "type": "",
+              "body": "vsub_sub_vsub_cancel_left p a m",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "",
+              "body": "vsub_sub_vsub_cancel_left a q m",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Power",
+          "name": "mul_dist_eq_abs_sub_sq_dist",
+          "statement": "P} (hp : p \u2208 line[\u211d, a, b]) (hq : dist a q = dist b q) : dist a p * dist b p = |dist b q ^ 2 - dist p q ^ 2|",
+          "have_tree": [
+            {
+              "name": "h1",
+              "type": "",
+              "body": "vsub_sub_vsub_cancel_left a p m",
+              "children": []
+            },
+            {
+              "name": "h1'",
+              "type": "",
+              "body": "vsub_sub_vsub_cancel_left p a m",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "",
+              "body": "vsub_sub_vsub_cancel_left a q m",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "",
+              "body": "vsub_sub_vsub_cancel_left p q m",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Power",
+      "name": "cospherical_of_mul_dist_eq_mul_dist_of_angle_eq_pi_aux",
+      "statement": "P} (h : dist p\u2081 p * dist p\u2082 p = dist p\u2083 p * dist p\u2084 p) (hp\u2081p\u2082 : \u2220 p\u2081 p p\u2082 = \u03c0) (hp\u2083p\u2084 : \u2220 p\u2083 p p\u2084 = \u03c0) (hn : \u00ac Collinear \u211d ({p\u2081, p, p\u2083} : Set P)) : Cospherical ({p\u2081, p\u2082, p\u2083, p\u2084} : Set P)",
+      "have_tree": [
+        {
+          "name": "hcol_p\u2081pp\u2082",
+          "type": "",
+          "body": "hp\u2081p\u2082.wbtw.collinear",
+          "children": []
+        },
+        {
+          "name": "hcol_p\u2083pp\u2084",
+          "type": "",
+          "body": "hp\u2083p\u2084.wbtw.collinear",
+          "children": [
+            {
+              "name": "_",
+              "type": "AffineIndependent \u211d ![p\u2081, p, p\u2083]",
+              "body": "affineIndependent_iff_not_collinear_set.mpr hn",
+              "children": []
+            },
+            {
+              "name": "hne_pp\u2084",
+              "type": "",
+              "body": "hp\u2083p\u2084.ne_right",
+              "children": []
+            },
+            {
+              "name": "hne_pp\u2082",
+              "type": "",
+              "body": "hp\u2081p\u2082.ne_right",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Power",
+          "name": "cospherical_of_mul_dist_eq_mul_dist_of_angle_eq_pi_aux",
+          "statement": "P} (h : dist p\u2081 p * dist p\u2082 p = dist p\u2083 p * dist p\u2084 p) (hp\u2081p\u2082 : \u2220 p\u2081 p p\u2082 = \u03c0) (hp\u2083p\u2084 : \u2220 p\u2083 p p\u2084 = \u03c0) (hn : \u00ac Collinear \u211d ({p\u2081, p, p\u2083} : Set P)) : Cospherical ({p\u2081, p\u2082, p\u2083, p\u2084} : Set P)",
+          "have_tree": [
+            {
+              "name": "hcol_p\u2081pp\u2082",
+              "type": "",
+              "body": "hp\u2081p\u2082.wbtw.collinear",
+              "children": []
+            },
+            {
+              "name": "hcol_p\u2083pp\u2084",
+              "type": "",
+              "body": "hp\u2083p\u2084.wbtw.collinear",
+              "children": [
+                {
+                  "name": "hne_pp\u2084",
+                  "type": "",
+                  "body": "hp\u2083p\u2084.ne_right",
+                  "children": []
+                },
+                {
+                  "name": "hne_pp\u2082",
+                  "type": "",
+                  "body": "hp\u2081p\u2082.ne_right",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          1
+        ],
+        "result": {
+          "module": "Power",
+          "name": "cospherical_of_mul_dist_eq_mul_dist_of_angle_eq_pi_aux",
+          "statement": "P} (h : dist p\u2081 p * dist p\u2082 p = dist p\u2083 p * dist p\u2084 p) (hp\u2081p\u2082 : \u2220 p\u2081 p p\u2082 = \u03c0) (hp\u2083p\u2084 : \u2220 p\u2083 p p\u2084 = \u03c0) (hn : \u00ac Collinear \u211d ({p\u2081, p, p\u2083} : Set P)) : Cospherical ({p\u2081, p\u2082, p\u2083, p\u2084} : Set P)",
+          "have_tree": [
+            {
+              "name": "hcol_p\u2081pp\u2082",
+              "type": "",
+              "body": "hp\u2081p\u2082.wbtw.collinear",
+              "children": []
+            },
+            {
+              "name": "hcol_p\u2083pp\u2084",
+              "type": "",
+              "body": "hp\u2083p\u2084.wbtw.collinear",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "AffineIndependent \u211d ![p\u2081, p, p\u2083]",
+                  "body": "affineIndependent_iff_not_collinear_set.mpr hn",
+                  "children": []
+                },
+                {
+                  "name": "hne_pp\u2082",
+                  "type": "",
+                  "body": "hp\u2081p\u2082.ne_right",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          2
+        ],
+        "result": {
+          "module": "Power",
+          "name": "cospherical_of_mul_dist_eq_mul_dist_of_angle_eq_pi_aux",
+          "statement": "P} (h : dist p\u2081 p * dist p\u2082 p = dist p\u2083 p * dist p\u2084 p) (hp\u2081p\u2082 : \u2220 p\u2081 p p\u2082 = \u03c0) (hp\u2083p\u2084 : \u2220 p\u2083 p p\u2084 = \u03c0) (hn : \u00ac Collinear \u211d ({p\u2081, p, p\u2083} : Set P)) : Cospherical ({p\u2081, p\u2082, p\u2083, p\u2084} : Set P)",
+          "have_tree": [
+            {
+              "name": "hcol_p\u2081pp\u2082",
+              "type": "",
+              "body": "hp\u2081p\u2082.wbtw.collinear",
+              "children": []
+            },
+            {
+              "name": "hcol_p\u2083pp\u2084",
+              "type": "",
+              "body": "hp\u2083p\u2084.wbtw.collinear",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "AffineIndependent \u211d ![p\u2081, p, p\u2083]",
+                  "body": "affineIndependent_iff_not_collinear_set.mpr hn",
+                  "children": []
+                },
+                {
+                  "name": "hne_pp\u2084",
+                  "type": "",
+                  "body": "hp\u2083p\u2084.ne_right",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Power",
+          "name": "cospherical_of_mul_dist_eq_mul_dist_of_angle_eq_pi_aux",
+          "statement": "P} (h : dist p\u2081 p * dist p\u2082 p = dist p\u2083 p * dist p\u2084 p) (hp\u2081p\u2082 : \u2220 p\u2081 p p\u2082 = \u03c0) (hp\u2083p\u2084 : \u2220 p\u2083 p p\u2084 = \u03c0) (hn : \u00ac Collinear \u211d ({p\u2081, p, p\u2083} : Set P)) : Cospherical ({p\u2081, p\u2082, p\u2083, p\u2084} : Set P)",
+          "have_tree": [
+            {
+              "name": "hcol_p\u2081pp\u2082",
+              "type": "",
+              "body": "hp\u2081p\u2082.wbtw.collinear",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "AffineIndependent \u211d ![p\u2081, p, p\u2083]",
+              "body": "affineIndependent_iff_not_collinear_set.mpr hn",
+              "children": []
+            },
+            {
+              "name": "hcol_p\u2083pp\u2084",
+              "type": "",
+              "body": "hp\u2083p\u2084.wbtw.collinear",
+              "children": [
+                {
+                  "name": "hne_pp\u2084",
+                  "type": "",
+                  "body": "hp\u2083p\u2084.ne_right",
+                  "children": []
+                },
+                {
+                  "name": "hne_pp\u2082",
+                  "type": "",
+                  "body": "hp\u2081p\u2082.ne_right",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Power",
+          "name": "cospherical_of_mul_dist_eq_mul_dist_of_angle_eq_pi_aux",
+          "statement": "P} (h : dist p\u2081 p * dist p\u2082 p = dist p\u2083 p * dist p\u2084 p) (hp\u2081p\u2082 : \u2220 p\u2081 p p\u2082 = \u03c0) (hp\u2083p\u2084 : \u2220 p\u2083 p p\u2084 = \u03c0) (hn : \u00ac Collinear \u211d ({p\u2081, p, p\u2083} : Set P)) : Cospherical ({p\u2081, p\u2082, p\u2083, p\u2084} : Set P)",
+          "have_tree": [
+            {
+              "name": "hcol_p\u2081pp\u2082",
+              "type": "",
+              "body": "hp\u2081p\u2082.wbtw.collinear",
+              "children": []
+            },
+            {
+              "name": "hne_pp\u2084",
+              "type": "",
+              "body": "hp\u2083p\u2084.ne_right",
+              "children": []
+            },
+            {
+              "name": "hcol_p\u2083pp\u2084",
+              "type": "",
+              "body": "hp\u2083p\u2084.wbtw.collinear",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "AffineIndependent \u211d ![p\u2081, p, p\u2083]",
+                  "body": "affineIndependent_iff_not_collinear_set.mpr hn",
+                  "children": []
+                },
+                {
+                  "name": "hne_pp\u2082",
+                  "type": "",
+                  "body": "hp\u2081p\u2082.ne_right",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 2,
+        "result": {
+          "module": "Power",
+          "name": "cospherical_of_mul_dist_eq_mul_dist_of_angle_eq_pi_aux",
+          "statement": "P} (h : dist p\u2081 p * dist p\u2082 p = dist p\u2083 p * dist p\u2084 p) (hp\u2081p\u2082 : \u2220 p\u2081 p p\u2082 = \u03c0) (hp\u2083p\u2084 : \u2220 p\u2083 p p\u2084 = \u03c0) (hn : \u00ac Collinear \u211d ({p\u2081, p, p\u2083} : Set P)) : Cospherical ({p\u2081, p\u2082, p\u2083, p\u2084} : Set P)",
+          "have_tree": [
+            {
+              "name": "hcol_p\u2081pp\u2082",
+              "type": "",
+              "body": "hp\u2081p\u2082.wbtw.collinear",
+              "children": []
+            },
+            {
+              "name": "hne_pp\u2082",
+              "type": "",
+              "body": "hp\u2081p\u2082.ne_right",
+              "children": []
+            },
+            {
+              "name": "hcol_p\u2083pp\u2084",
+              "type": "",
+              "body": "hp\u2083p\u2084.wbtw.collinear",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "AffineIndependent \u211d ![p\u2081, p, p\u2083]",
+                  "body": "affineIndependent_iff_not_collinear_set.mpr hn",
+                  "children": []
+                },
+                {
+                  "name": "hne_pp\u2084",
+                  "type": "",
+                  "body": "hp\u2083p\u2084.ne_right",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Power",
+          "name": "cospherical_of_mul_dist_eq_mul_dist_of_angle_eq_pi_aux",
+          "statement": "P} (h : dist p\u2081 p * dist p\u2082 p = dist p\u2083 p * dist p\u2084 p) (hp\u2081p\u2082 : \u2220 p\u2081 p p\u2082 = \u03c0) (hp\u2083p\u2084 : \u2220 p\u2083 p p\u2084 = \u03c0) (hn : \u00ac Collinear \u211d ({p\u2081, p, p\u2083} : Set P)) : Cospherical ({p\u2081, p\u2082, p\u2083, p\u2084} : Set P)",
+          "have_tree": [
+            {
+              "name": "hcol_p\u2083pp\u2084",
+              "type": "",
+              "body": "hp\u2083p\u2084.wbtw.collinear",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "AffineIndependent \u211d ![p\u2081, p, p\u2083]",
+                  "body": "affineIndependent_iff_not_collinear_set.mpr hn",
+                  "children": []
+                },
+                {
+                  "name": "hne_pp\u2084",
+                  "type": "",
+                  "body": "hp\u2083p\u2084.ne_right",
+                  "children": []
+                },
+                {
+                  "name": "hne_pp\u2082",
+                  "type": "",
+                  "body": "hp\u2081p\u2082.ne_right",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hcol_p\u2081pp\u2082",
+              "type": "",
+              "body": "hp\u2081p\u2082.wbtw.collinear",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          1
+        ],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Power",
+          "name": "cospherical_of_mul_dist_eq_mul_dist_of_angle_eq_pi_aux",
+          "statement": "P} (h : dist p\u2081 p * dist p\u2082 p = dist p\u2083 p * dist p\u2084 p) (hp\u2081p\u2082 : \u2220 p\u2081 p p\u2082 = \u03c0) (hp\u2083p\u2084 : \u2220 p\u2083 p p\u2084 = \u03c0) (hn : \u00ac Collinear \u211d ({p\u2081, p, p\u2083} : Set P)) : Cospherical ({p\u2081, p\u2082, p\u2083, p\u2084} : Set P)",
+          "have_tree": [
+            {
+              "name": "hcol_p\u2081pp\u2082",
+              "type": "",
+              "body": "hp\u2081p\u2082.wbtw.collinear",
+              "children": []
+            },
+            {
+              "name": "hcol_p\u2083pp\u2084",
+              "type": "",
+              "body": "hp\u2083p\u2084.wbtw.collinear",
+              "children": [
+                {
+                  "name": "hne_pp\u2084",
+                  "type": "",
+                  "body": "hp\u2083p\u2084.ne_right",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "AffineIndependent \u211d ![p\u2081, p, p\u2083]",
+                  "body": "affineIndependent_iff_not_collinear_set.mpr hn",
+                  "children": []
+                },
+                {
+                  "name": "hne_pp\u2082",
+                  "type": "",
+                  "body": "hp\u2081p\u2082.ne_right",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          1
+        ],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Power",
+          "name": "cospherical_of_mul_dist_eq_mul_dist_of_angle_eq_pi_aux",
+          "statement": "P} (h : dist p\u2081 p * dist p\u2082 p = dist p\u2083 p * dist p\u2084 p) (hp\u2081p\u2082 : \u2220 p\u2081 p p\u2082 = \u03c0) (hp\u2083p\u2084 : \u2220 p\u2083 p p\u2084 = \u03c0) (hn : \u00ac Collinear \u211d ({p\u2081, p, p\u2083} : Set P)) : Cospherical ({p\u2081, p\u2082, p\u2083, p\u2084} : Set P)",
+          "have_tree": [
+            {
+              "name": "hcol_p\u2081pp\u2082",
+              "type": "",
+              "body": "hp\u2081p\u2082.wbtw.collinear",
+              "children": []
+            },
+            {
+              "name": "hcol_p\u2083pp\u2084",
+              "type": "",
+              "body": "hp\u2083p\u2084.wbtw.collinear",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "AffineIndependent \u211d ![p\u2081, p, p\u2083]",
+                  "body": "affineIndependent_iff_not_collinear_set.mpr hn",
+                  "children": []
+                },
+                {
+                  "name": "hne_pp\u2082",
+                  "type": "",
+                  "body": "hp\u2081p\u2082.ne_right",
+                  "children": []
+                },
+                {
+                  "name": "hne_pp\u2084",
+                  "type": "",
+                  "body": "hp\u2083p\u2084.ne_right",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Power",
+      "name": "cospherical_of_mul_dist_eq_mul_dist_of_angle_eq_pi",
+      "statement": "P} (h : dist p\u2081 p * dist p\u2082 p = dist p\u2083 p * dist p\u2084 p) (hp\u2081p\u2082 : \u2220 p\u2081 p p\u2082 = \u03c0) (hp\u2083p\u2084 : \u2220 p\u2083 p p\u2084 = \u03c0) (hn : \u00ac Collinear \u211d ({p\u2081, p, p\u2083} : Set P)) : Cospherical ({p\u2081, p\u2082, p\u2083, p\u2084} : Set P)",
+      "have_tree": [
+        {
+          "name": "hp\u2081p\u2082_sbtw",
+          "type": "Sbtw \u211d p\u2081 p p\u2082",
+          "body": "angle_eq_pi_iff_sbtw.mp hp\u2081p\u2082",
+          "children": []
+        },
+        {
+          "name": "hp\u2083p\u2084_sbtw",
+          "type": "Sbtw \u211d p\u2083 p p\u2084",
+          "body": "angle_eq_pi_iff_sbtw.mp hp\u2083p\u2084",
+          "children": []
+        },
+        {
+          "name": "hindep",
+          "type": "AffineIndependent \u211d ![p\u2081, p, p\u2083]",
+          "body": "affineIndependent_iff_not_collinear_set.mpr hn",
+          "children": []
+        },
+        {
+          "name": "hp\u2082",
+          "type": "p\u2082 \u2208 S",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hp\u2084",
+          "type": "p\u2084 \u2208 S",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hncol",
+          "type": "\u00ac Collinear \u211d {p\u2081', p', p\u2083'}",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Power",
+          "name": "cospherical_of_mul_dist_eq_mul_dist_of_angle_eq_pi",
+          "statement": "P} (h : dist p\u2081 p * dist p\u2082 p = dist p\u2083 p * dist p\u2084 p) (hp\u2081p\u2082 : \u2220 p\u2081 p p\u2082 = \u03c0) (hp\u2083p\u2084 : \u2220 p\u2083 p p\u2084 = \u03c0) (hn : \u00ac Collinear \u211d ({p\u2081, p, p\u2083} : Set P)) : Cospherical ({p\u2081, p\u2082, p\u2083, p\u2084} : Set P)",
+          "have_tree": [
+            {
+              "name": "hp\u2083p\u2084_sbtw",
+              "type": "Sbtw \u211d p\u2083 p p\u2084",
+              "body": "angle_eq_pi_iff_sbtw.mp hp\u2083p\u2084",
+              "children": []
+            },
+            {
+              "name": "hp\u2081p\u2082_sbtw",
+              "type": "Sbtw \u211d p\u2081 p p\u2082",
+              "body": "angle_eq_pi_iff_sbtw.mp hp\u2081p\u2082",
+              "children": []
+            },
+            {
+              "name": "hindep",
+              "type": "AffineIndependent \u211d ![p\u2081, p, p\u2083]",
+              "body": "affineIndependent_iff_not_collinear_set.mpr hn",
+              "children": []
+            },
+            {
+              "name": "hp\u2082",
+              "type": "p\u2082 \u2208 S",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hp\u2084",
+              "type": "p\u2084 \u2208 S",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hncol",
+              "type": "\u00ac Collinear \u211d {p\u2081', p', p\u2083'}",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Power",
+          "name": "cospherical_of_mul_dist_eq_mul_dist_of_angle_eq_pi",
+          "statement": "P} (h : dist p\u2081 p * dist p\u2082 p = dist p\u2083 p * dist p\u2084 p) (hp\u2081p\u2082 : \u2220 p\u2081 p p\u2082 = \u03c0) (hp\u2083p\u2084 : \u2220 p\u2083 p p\u2084 = \u03c0) (hn : \u00ac Collinear \u211d ({p\u2081, p, p\u2083} : Set P)) : Cospherical ({p\u2081, p\u2082, p\u2083, p\u2084} : Set P)",
+          "have_tree": [
+            {
+              "name": "hp\u2081p\u2082_sbtw",
+              "type": "Sbtw \u211d p\u2081 p p\u2082",
+              "body": "angle_eq_pi_iff_sbtw.mp hp\u2081p\u2082",
+              "children": []
+            },
+            {
+              "name": "hindep",
+              "type": "AffineIndependent \u211d ![p\u2081, p, p\u2083]",
+              "body": "affineIndependent_iff_not_collinear_set.mpr hn",
+              "children": []
+            },
+            {
+              "name": "hp\u2083p\u2084_sbtw",
+              "type": "Sbtw \u211d p\u2083 p p\u2084",
+              "body": "angle_eq_pi_iff_sbtw.mp hp\u2083p\u2084",
+              "children": []
+            },
+            {
+              "name": "hp\u2082",
+              "type": "p\u2082 \u2208 S",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hp\u2084",
+              "type": "p\u2084 \u2208 S",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hncol",
+              "type": "\u00ac Collinear \u211d {p\u2081', p', p\u2083'}",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5
+        ],
+        "result": {
+          "module": "Power",
+          "name": "cospherical_of_mul_dist_eq_mul_dist_of_angle_eq_pi",
+          "statement": "P} (h : dist p\u2081 p * dist p\u2082 p = dist p\u2083 p * dist p\u2084 p) (hp\u2081p\u2082 : \u2220 p\u2081 p p\u2082 = \u03c0) (hp\u2083p\u2084 : \u2220 p\u2083 p p\u2084 = \u03c0) (hn : \u00ac Collinear \u211d ({p\u2081, p, p\u2083} : Set P)) : Cospherical ({p\u2081, p\u2082, p\u2083, p\u2084} : Set P)",
+          "have_tree": [
+            {
+              "name": "hp\u2081p\u2082_sbtw",
+              "type": "Sbtw \u211d p\u2081 p p\u2082",
+              "body": "angle_eq_pi_iff_sbtw.mp hp\u2081p\u2082",
+              "children": []
+            },
+            {
+              "name": "hp\u2083p\u2084_sbtw",
+              "type": "Sbtw \u211d p\u2083 p p\u2084",
+              "body": "angle_eq_pi_iff_sbtw.mp hp\u2083p\u2084",
+              "children": []
+            },
+            {
+              "name": "hp\u2082",
+              "type": "p\u2082 \u2208 S",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hindep",
+              "type": "AffineIndependent \u211d ![p\u2081, p, p\u2083]",
+              "body": "affineIndependent_iff_not_collinear_set.mpr hn",
+              "children": []
+            },
+            {
+              "name": "hp\u2084",
+              "type": "p\u2084 \u2208 S",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hncol",
+              "type": "\u00ac Collinear \u211d {p\u2081', p', p\u2083'}",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5
+        ],
+        "result": {
+          "module": "Power",
+          "name": "cospherical_of_mul_dist_eq_mul_dist_of_angle_eq_pi",
+          "statement": "P} (h : dist p\u2081 p * dist p\u2082 p = dist p\u2083 p * dist p\u2084 p) (hp\u2081p\u2082 : \u2220 p\u2081 p p\u2082 = \u03c0) (hp\u2083p\u2084 : \u2220 p\u2083 p p\u2084 = \u03c0) (hn : \u00ac Collinear \u211d ({p\u2081, p, p\u2083} : Set P)) : Cospherical ({p\u2081, p\u2082, p\u2083, p\u2084} : Set P)",
+          "have_tree": [
+            {
+              "name": "hp\u2081p\u2082_sbtw",
+              "type": "Sbtw \u211d p\u2081 p p\u2082",
+              "body": "angle_eq_pi_iff_sbtw.mp hp\u2081p\u2082",
+              "children": []
+            },
+            {
+              "name": "hp\u2083p\u2084_sbtw",
+              "type": "Sbtw \u211d p\u2083 p p\u2084",
+              "body": "angle_eq_pi_iff_sbtw.mp hp\u2083p\u2084",
+              "children": []
+            },
+            {
+              "name": "hindep",
+              "type": "AffineIndependent \u211d ![p\u2081, p, p\u2083]",
+              "body": "affineIndependent_iff_not_collinear_set.mpr hn",
+              "children": []
+            },
+            {
+              "name": "hp\u2084",
+              "type": "p\u2084 \u2208 S",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hp\u2082",
+              "type": "p\u2082 \u2208 S",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hncol",
+              "type": "\u00ac Collinear \u211d {p\u2081', p', p\u2083'}",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4
+        ],
+        "result": {
+          "module": "Power",
+          "name": "cospherical_of_mul_dist_eq_mul_dist_of_angle_eq_pi",
+          "statement": "P} (h : dist p\u2081 p * dist p\u2082 p = dist p\u2083 p * dist p\u2084 p) (hp\u2081p\u2082 : \u2220 p\u2081 p p\u2082 = \u03c0) (hp\u2083p\u2084 : \u2220 p\u2083 p p\u2084 = \u03c0) (hn : \u00ac Collinear \u211d ({p\u2081, p, p\u2083} : Set P)) : Cospherical ({p\u2081, p\u2082, p\u2083, p\u2084} : Set P)",
+          "have_tree": [
+            {
+              "name": "hp\u2081p\u2082_sbtw",
+              "type": "Sbtw \u211d p\u2081 p p\u2082",
+              "body": "angle_eq_pi_iff_sbtw.mp hp\u2081p\u2082",
+              "children": []
+            },
+            {
+              "name": "hp\u2083p\u2084_sbtw",
+              "type": "Sbtw \u211d p\u2083 p p\u2084",
+              "body": "angle_eq_pi_iff_sbtw.mp hp\u2083p\u2084",
+              "children": []
+            },
+            {
+              "name": "hindep",
+              "type": "AffineIndependent \u211d ![p\u2081, p, p\u2083]",
+              "body": "affineIndependent_iff_not_collinear_set.mpr hn",
+              "children": []
+            },
+            {
+              "name": "hp\u2082",
+              "type": "p\u2082 \u2208 S",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hncol",
+              "type": "\u00ac Collinear \u211d {p\u2081', p', p\u2083'}",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hp\u2084",
+              "type": "p\u2084 \u2208 S",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Power",
+      "name": "dist_sq_eq_mul_dist_of_tangent_and_secant",
+      "statement": "P} {s : Sphere P} (ha : a \u2208 s) (hb : b \u2208 s) (hp : p \u2208 line[\u211d, a, b]) (h_tangent : s.IsTangentAt t (line[\u211d, p, t])) : dist p t ^ 2 = dist p a * dist p b",
+      "have_tree": [
+        {
+          "name": "hr",
+          "type": "",
+          "body": "radius_nonneg_of_mem ha",
+          "children": []
+        },
+        {
+          "name": "radius_le_dist",
+          "type": "",
+          "body": "h_tangent.isTangent.radius_le_dist_center (left_mem_affineSpan_pair \u211d p t)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Power",
+          "name": "dist_sq_eq_mul_dist_of_tangent_and_secant",
+          "statement": "P} {s : Sphere P} (ha : a \u2208 s) (hb : b \u2208 s) (hp : p \u2208 line[\u211d, a, b]) (h_tangent : s.IsTangentAt t (line[\u211d, p, t])) : dist p t ^ 2 = dist p a * dist p b",
+          "have_tree": [
+            {
+              "name": "radius_le_dist",
+              "type": "",
+              "body": "h_tangent.isTangent.radius_le_dist_center (left_mem_affineSpan_pair \u211d p t)",
+              "children": []
+            },
+            {
+              "name": "hr",
+              "type": "",
+              "body": "radius_nonneg_of_mem ha",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

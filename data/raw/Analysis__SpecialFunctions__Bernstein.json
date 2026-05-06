@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Bernstein",
+    "name": "z_zero",
+    "statement": "\u2115} : (0 : Fin (n + 1))/\u2099 = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "bernsteinPolynomial.sum \u211d n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Bernstein",
+    "name": "bernsteinApproximation_uniform",
+    "statement": "C(I, E)) : Tendsto (fun n : \u2115 => bernsteinApproximation n f) atTop (\ud835\udcdd f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsUniformAddGroup E",
+        "body": "isUniformAddGroup_of_addCommGroup",
+        "children": [
+          {
+            "name": "_",
+            "type": "Continuous fun (x, y) \u21a6 gauge U (f x - f y)",
+            "body": "by fun_prop (disch := assumption)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hC\u2080",
+        "type": "0 \u2264 C",
+        "body": "le_trans (gauge_nonneg _) (hC 0 0)",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "CompactSpace.uniformContinuous_of_continuous (map_continuous f)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "nhds_zero",
+        "type": "",
+        "body": "tendsto_const_div_atTop_nhds_zero_nat (C / \u03b4 ^ 2)",
+        "children": []
+      }
+    ]
+  }
+]

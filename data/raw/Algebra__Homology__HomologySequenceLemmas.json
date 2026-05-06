@@ -1,0 +1,67 @@
+[
+  {
+    "module": "HomologySequenceLemmas",
+    "name": "mono_homologyMap_\u03c4\u2083",
+    "statement": "\u03b9) (h\u2081 : Epi (homologyMap \u03c6.\u03c4\u2081 i)) (h\u2082 : Mono (homologyMap \u03c6.\u03c4\u2082 i)) (h\u2083 : \u2200 j, c.Rel i j \u2192 Mono (homologyMap \u03c6.\u03c4\u2081 j)) : Mono (homologyMap \u03c6.\u03c4\u2083 i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hS\u2081.epi_g",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HomologySequenceLemmas",
+    "name": "epi_homologyMap_\u03c4\u2083",
+    "statement": "\u03b9) (h\u2081 : Epi (homologyMap \u03c6.\u03c4\u2082 i)) (h\u2082 : \u2200 j, c.Rel i j \u2192 Epi (homologyMap \u03c6.\u03c4\u2081 j)) (h\u2083 : \u2200 j, c.Rel i j \u2192 Mono (homologyMap \u03c6.\u03c4\u2082 j)) : Epi (homologyMap \u03c6.\u03c4\u2083 i)",
+    "have_tree": [
+      {
+        "name": "eq",
+        "type": "",
+        "body": "(homologyFunctor C _ i).congr_map \u03c6.comm\u2082\u2083",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "epi_homologyMap_of_epi_of_not_rel S\u2082.g i (by simpa using hi)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HomologySequenceLemmas",
+    "name": "isIso_homologyMap_\u03c4\u2083",
+    "statement": "\u03b9) (h\u2081 : Epi (homologyMap \u03c6.\u03c4\u2081 i)) (h\u2082 : IsIso (homologyMap \u03c6.\u03c4\u2082 i)) (h\u2083 : \u2200 j, c.Rel i j \u2192 IsIso (homologyMap \u03c6.\u03c4\u2081 j)) (h\u2084 : \u2200 j, c.Rel i j \u2192 Mono (homologyMap \u03c6.\u03c4\u2082 j)) : IsIso (homologyMap \u03c6.\u03c4\u2083 i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mono_homologyMap_\u03c4\u2083 \u03c6 hS\u2081 hS\u2082 i h\u2081 (IsIso.mono_of_iso _) (fun j hij => by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "h\u2083 j hij",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "epi_homologyMap_\u03c4\u2083 \u03c6 hS\u2081 hS\u2082 i inferInstance (fun j hij => by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "h\u2083 j hij",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

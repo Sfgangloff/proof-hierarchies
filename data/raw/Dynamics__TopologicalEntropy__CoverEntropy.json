@@ -1,0 +1,132 @@
+[
+  {
+    "module": "CoverEntropy",
+    "name": "IsDynCoverOf.iterate_le_pow",
+    "statement": "MapsTo T F F) [U.IsSymm] (n : \u2115) {s : Finset X} (h : IsDynCoverOf T F U m s) : \u2203 t : Finset X, IsDynCoverOf T F (U \u25cb U) (m * n) t \u2227 t.card \u2264 s.card ^ n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty X",
+        "body": "F_nemp.nonempty",
+        "children": []
+      },
+      {
+        "name": "s_nemp",
+        "type": "",
+        "body": "h.nonempty F_nemp",
+        "children": [
+          {
+            "name": "_",
+            "type": "Nonempty s",
+            "body": "Finset.Nonempty.coe_sort s_nemp",
+            "children": [
+              {
+                "name": "_",
+                "type": "",
+                "body": "h (MapsTo.iterate F_inv (m * k) y_F)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "CoverEntropy",
+    "name": "exists_isDynCoverOf_of_isCompact_uniformContinuous",
+    "statement": "IsCompact F) (h : UniformContinuous T) (U_uni : U \u2208 \ud835\udce4 X) (n : \u2115) : \u2203 s : Finset X, IsDynCoverOf T F U n s",
+    "have_tree": [
+      {
+        "name": "uni_ite",
+        "type": "",
+        "body": "dynEntourage_mem_uniformity h hV n",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CoverEntropy",
+    "name": "exists_isDynCoverOf_of_isCompact_invariant",
+    "statement": "IsCompact F) (F_inv : MapsTo T F F) (U_uni : U \u2208 \ud835\udce4 X) (n : \u2115) : \u2203 s : Finset X, IsDynCoverOf T F U n s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsDynCoverOf T F V 1 s",
+        "body": ".of_subset_iUnion_ball <| by simpa using s_cover",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CoverEntropy",
+    "name": "coverMincard_finite_iff",
+    "statement": "X \u2192 X) (F : Set X) (U : SetRel X X) (n : \u2115) : coverMincard T F U n < \u22a4 \u2194 \u2203 s : Finset X, IsDynCoverOf T F U n s \u2227 s.card = coverMincard T F U n",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "ciInf_mem fun s : {s : Finset X // IsDynCoverOf T F U n s} \u21a6 (s.val.card : \u2115\u221e)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CoverEntropy",
+    "name": "coverMincard_zero",
+    "statement": "X \u2192 X) (h : F.Nonempty) (U : SetRel X X) : coverMincard T F U 0 = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isDynCoverOf_zero T F U (singleton_nonempty x)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CoverEntropy",
+    "name": "coverMincard_univ",
+    "statement": "X \u2192 X) (h : F.Nonempty) (n : \u2115) : coverMincard T F univ n = 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isDynCoverOf_univ T F n (singleton_nonempty x)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CoverEntropy",
+    "name": "nonempty_inter_of_coverMincard",
+    "statement": "Finset X} (h : IsDynCoverOf T F U n s) (h' : #s = coverMincard T F U n) : \u2200 x \u2208 s, (F \u2229 ball x (dynEntourage T U n)).Nonempty",
+    "have_tree": [
+      {
+        "name": "smaller_cover",
+        "type": "IsDynCoverOf T F U n (s.erase x)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CoverEntropy",
+    "name": "coverEntropyEntourage_le_log_coverMincard_div",
+    "statement": "MapsTo T F F) [U.IsSymm] (n_pos : n \u2260 0) : coverEntropyEntourage T F (U \u25cb U) \u2264 log (coverMincard T F U n) / n",
+    "have_tree": [
+      {
+        "name": "cv_mono",
+        "type": "Monotone fun m \u21a6 (coverMincard T F (U \u25cb U) m).toENNReal",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "cv_mono.expGrowthSup_comp_mul n_pos",
+        "children": []
+      }
+    ]
+  }
+]

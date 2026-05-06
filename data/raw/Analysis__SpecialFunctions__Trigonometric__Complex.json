@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Complex",
+    "name": "tan_sub",
+    "statement": "\u2102} (h : ((\u2200 k : \u2124, x \u2260 (2 * k + 1) * \u03c0 / 2) \u2227 \u2200 l : \u2124, y \u2260 (2 * l + 1) * \u03c0 / 2) \u2228 (\u2203 k : \u2124, x = (2 * k + 1) * \u03c0 / 2) \u2227 \u2203 l : \u2124, y = (2 * l + 1) * \u03c0 / 2) : tan (x - y) = (tan x - tan y) / (1 + tan x * tan y)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "tan_add (x := x) (y := -y) <| by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Complex",
+    "name": "cos_eq_two_mul_tan_half_div_one_sub_tan_half_sq",
+    "statement": "\u2102) (h : cos x \u2260 -1) : cos x = (1 - tan (x / 2) ^ 2) / (1 + tan (x / 2) ^ 2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "cos (x / 2) \u2260 0",
+        "body": "by grind [cos_ne_zero_iff, cos_eq_neg_one_iff]",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "module": "Convolution",
+    "name": "integrable_prod_sub",
+    "statement": "F\u2081 \u2192L[\ud835\udd5c] F\u2082 \u2192L[\ud835\udd5c] F\u2083) {f\u2081 : E \u2192 F\u2081} {f\u2082 : E \u2192 F\u2082} (hf\u2081 : Integrable f\u2081) (hf\u2082 : Integrable f\u2082) (hf\u2081' : Continuous f\u2081) (hf\u2082' : Continuous f\u2082) : Integrable (fun (p : E \u00d7 E) \u21a6 \u2016B\u2016 * (\u2016f\u2081 (p.1 - p.2)\u2016 * \u2016f\u2082 p.2\u2016)) (volume.prod volume)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Integrable (fun x \u21a6 ((\u222b y, \u2016f\u2081 y\u2016) * \u2016f\u2082 x\u2016))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Convolution",
+    "name": "fourier_bilin_convolution_eq_integral",
+    "statement": "F\u2081 \u2192L[\ud835\udd5c] F\u2082 \u2192L[\ud835\udd5c] F\u2083) {f\u2081 : E \u2192 F\u2081} {f\u2082 : E \u2192 F\u2082} (hf\u2081 : Integrable f\u2081) (hf\u2082 : Integrable f\u2082) (hf\u2081' : Continuous f\u2081) (hf\u2082' : Continuous f\u2082) (\u03be : E) : \ud835\udcd5 (f\u2081 \u22c6[B] f\u2082) \u03be = \u222b y, \u222b x, \ud835\udc1e (-inner \u211d (y + x) \u03be) \u2022 B (f\u2081 x) (f\u2082 y)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2016(B (f\u2081 (y - x))) (f\u2082 x)\u2016 \u2264 \u2016B\u2016 * (\u2016f\u2081 (y - x)\u2016 * \u2016f\u2082 x\u2016)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Convolution",
+    "name": "fourier_bilin_convolution_eq",
+    "statement": "F\u2081 \u2192L[\u2102] F\u2082 \u2192L[\u2102] F\u2083) {f\u2081 : E \u2192 F\u2081} {f\u2082 : E \u2192 F\u2082} (hf\u2081 : Integrable f\u2081) (hf\u2082 : Integrable f\u2082) (hf\u2081' : Continuous f\u2081) (hf\u2082' : Continuous f\u2082) (\u03be : E) : \ud835\udcd5 (f\u2081 \u22c6[B] f\u2082) \u03be = B (\ud835\udcd5 f\u2081 \u03be) (\ud835\udcd5 f\u2082 \u03be)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "MeasureTheory.Integrable (fun x \u21a6 \u2016B\u2016 * \u2016f\u2081 x\u2016) MeasureTheory.volume",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

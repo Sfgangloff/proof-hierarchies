@@ -1,0 +1,89 @@
+[
+  {
+    "module": "Frobenius",
+    "name": "card_pos",
+    "statement": "0 < Nat.card (R \u29f8 Q.under R)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "H.finite_quotient",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Frobenius",
+    "name": "apply_of_pow_eq_one",
+    "statement": "S} {m : \u2115} (h\u03b6 : \u03b6 ^ m = 1) (hk' : \u2191m \u2209 Q) : \u03c6 \u03b6 = \u03b6 ^ Nat.card (R \u29f8 Q.under R)",
+    "have_tree": [
+      {
+        "name": "hm",
+        "type": "m \u2260 0",
+        "body": "by rintro rfl; exact hk' (by simp)",
+        "children": []
+      },
+      {
+        "name": "hk'",
+        "type": "\u2191k \u2209 Q",
+        "body": "fun h \u21a6 hk' (Q.mem_of_dvd (Nat.cast_dvd_cast (h\u03b6.2 m \u2039_\u203a)) h)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "NeZero k",
+        "body": "\u27e8hk.ne'\u27e9",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "sum_mem (t := Finset.range k) fun j _ \u21a6 this j",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "geom_sum_mul (\u03b6 ^ (q + k - i)) k",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Frobenius",
+    "name": "exists_of_isInvariant",
+    "statement": "\u2203 \u03c3 : G, IsArithFrobAt R \u03c3 Q",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Algebra.IsInvariant.isIntegral R S G",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Q.IsMaximal",
+        "body": "Ideal.Quotient.maximal_of_isField _ (Finite.isField_of_domain (S \u29f8 Q))",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Finite (R \u29f8 P)",
+        "body": ".of_injective _ Ideal.algebraMap_quotient_injective",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "CharP.of_ringHom_of_ne_zero (algebraMap (R \u29f8 P) (S \u29f8 Q)) p hp.ne_zero",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "ExpChar (S \u29f8 Q) p",
+        "body": ".prime hp",
+        "children": []
+      }
+    ]
+  }
+]

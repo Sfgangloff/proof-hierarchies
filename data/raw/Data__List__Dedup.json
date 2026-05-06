@@ -1,0 +1,40 @@
+[
+  {
+    "module": "Dedup",
+    "name": "mem_dedup",
+    "statement": "\u03b1} {l : List \u03b1} : a \u2208 dedup l \u2194 a \u2208 l",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "not_congr (@forall_mem_pwFilter \u03b1 (\u00b7 \u2260 \u00b7) _ ?_ a l)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Dedup",
+    "name": "dedup_eq_cons",
+    "statement": "List \u03b1) (a : \u03b1) (l' : List \u03b1) : l.dedup = a :: l' \u2194 a \u2208 l \u2227 a \u2209 l' \u2227 l.dedup.tail = l'",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "count_pos_iff.2 ha",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "count a l.dedup \u2264 1",
+        "body": "nodup_iff_count_le_one.1 (nodup_dedup l) a",
+        "children": []
+      },
+      {
+        "name": "hal",
+        "type": "a \u2208 l.dedup",
+        "body": "mem_dedup.2 h.1",
+        "children": []
+      }
+    ]
+  }
+]

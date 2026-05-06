@@ -1,0 +1,80 @@
+[
+  {
+    "module": "Divisors",
+    "name": "nodup_divisorsAntidiagonalList",
+    "statement": "\u2115} : n.divisorsAntidiagonalList.Nodup",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "@Std.Irrefl (\u2115 \u00d7 \u2115) (\u00b7.fst < \u00b7.fst)",
+        "body": "\u27e8by simp\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Divisors",
+    "name": "swap_mem_divisorsAntidiagonalList",
+    "statement": "\u2115 \u00d7 \u2115} : a.swap \u2208 n.divisorsAntidiagonalList \u2194 a \u2208 n.divisorsAntidiagonalList",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Std.Asymm (\u03b1",
+        "body": "\u2115 \u00d7 \u2115) (\u00b7.snd < \u00b7.snd) := \u27e8fun _ _ \u21a6 lt_asymm\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Divisors",
+    "name": "eq_properDivisors_of_subset_of_sum_eq_sum",
+    "statement": "Finset \u2115} (hsub : s \u2286 n.properDivisors) : ((\u2211 x \u2208 s, x) = \u2211 x \u2208 n.properDivisors, x) \u2192 s = n.properDivisors",
+    "have_tree": [
+      {
+        "name": "hlt",
+        "type": "",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Divisors",
+    "name": "sum_properDivisors_dvd",
+    "statement": "(\u2211 x \u2208 n.properDivisors, x) \u2223 n) : \u2211 x \u2208 n.properDivisors, x = 1 \u2228 \u2211 x \u2208 n.properDivisors, x = n",
+    "have_tree": [
+      {
+        "name": "hlt",
+        "type": "\u2211 x \u2208 n.succ.succ.properDivisors, x < n.succ.succ",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Divisors",
+    "name": "properDivisors_eq_singleton_one_iff_prime",
+    "statement": "n.properDivisors = {1} \u2194 n.Prime",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.le_of_dvd ?_ hdvd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Divisors",
+    "name": "properDivisors_prime_pow",
+    "statement": "\u2115} (pp : p.Prime) (k : \u2115) : properDivisors (p ^ k) = (Finset.range k).map \u27e8(p ^ \u00b7), Nat.pow_right_injective pp.two_le\u27e9",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "mem_properDivisors_prime_pow pp k (x := a)",
+        "children": []
+      }
+    ]
+  }
+]

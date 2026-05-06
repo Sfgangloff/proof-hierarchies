@@ -1,0 +1,149 @@
+[
+  {
+    "original": {
+      "module": "UniformConvergence",
+      "name": "UniformCauchySeqOnFilter.tendstoUniformlyOnFilter_of_tendsto",
+      "statement": "UniformCauchySeqOnFilter F p p') (hF' : \u2200\u1da0 x : \u03b1 in p', Tendsto (fun n => F n x) p (\ud835\udcdd (f x))) : TendstoUniformlyOnFilter F f p p'",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "tendsto_prodAssoc.eventually (tendsto_prod_swap.eventually ((hF t ht).and hmc))",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "hx.and (hm' ht)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "UniformConvergence",
+          "name": "UniformCauchySeqOnFilter.tendstoUniformlyOnFilter_of_tendsto",
+          "statement": "UniformCauchySeqOnFilter F p p') (hF' : \u2200\u1da0 x : \u03b1 in p', Tendsto (fun n => F n x) p (\ud835\udcdd (f x))) : TendstoUniformlyOnFilter F f p p'",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hx.and (hm' ht)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "tendsto_prodAssoc.eventually (tendsto_prod_swap.eventually ((hF t ht).and hmc))",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "UniformConvergence",
+      "name": "TendstoUniformlyOnFilter.tendsto_of_eventually_tendsto",
+      "statement": "TendstoUniformlyOnFilter F f p p') (h2 : \u2200\u1da0 i in p, Tendsto (F i) p' (\ud835\udcdd (L i))) (h3 : Tendsto L p (\ud835\udcdd \u2113)) : Tendsto f p' (\ud835\udcdd \u2113)",
+      "have_tree": [
+        {
+          "name": "p1",
+          "type": "\u2200\u1da0 i in p, (L i, \u2113) \u2208 t",
+          "body": "tendsto_nhds_left.mp h3 ht",
+          "children": []
+        },
+        {
+          "name": "p2",
+          "type": "\u2200\u1da0 i in p, \u2200\u1da0 x in p', (F i x, L i) \u2208 t",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "p3",
+          "type": "\u2200\u1da0 i in p, \u2200\u1da0 x in p', (f x, F i x) \u2208 t",
+          "body": "(h1 t ht).curry",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "UniformConvergence",
+          "name": "TendstoUniformlyOnFilter.tendsto_of_eventually_tendsto",
+          "statement": "TendstoUniformlyOnFilter F f p p') (h2 : \u2200\u1da0 i in p, Tendsto (F i) p' (\ud835\udcdd (L i))) (h3 : Tendsto L p (\ud835\udcdd \u2113)) : Tendsto f p' (\ud835\udcdd \u2113)",
+          "have_tree": [
+            {
+              "name": "p2",
+              "type": "\u2200\u1da0 i in p, \u2200\u1da0 x in p', (F i x, L i) \u2208 t",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "p1",
+              "type": "\u2200\u1da0 i in p, (L i, \u2113) \u2208 t",
+              "body": "tendsto_nhds_left.mp h3 ht",
+              "children": []
+            },
+            {
+              "name": "p3",
+              "type": "\u2200\u1da0 i in p, \u2200\u1da0 x in p', (f x, F i x) \u2208 t",
+              "body": "(h1 t ht).curry",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "UniformConvergence",
+          "name": "TendstoUniformlyOnFilter.tendsto_of_eventually_tendsto",
+          "statement": "TendstoUniformlyOnFilter F f p p') (h2 : \u2200\u1da0 i in p, Tendsto (F i) p' (\ud835\udcdd (L i))) (h3 : Tendsto L p (\ud835\udcdd \u2113)) : Tendsto f p' (\ud835\udcdd \u2113)",
+          "have_tree": [
+            {
+              "name": "p1",
+              "type": "\u2200\u1da0 i in p, (L i, \u2113) \u2208 t",
+              "body": "tendsto_nhds_left.mp h3 ht",
+              "children": []
+            },
+            {
+              "name": "p3",
+              "type": "\u2200\u1da0 i in p, \u2200\u1da0 x in p', (f x, F i x) \u2208 t",
+              "body": "(h1 t ht).curry",
+              "children": []
+            },
+            {
+              "name": "p2",
+              "type": "\u2200\u1da0 i in p, \u2200\u1da0 x in p', (F i x, L i) \u2208 t",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

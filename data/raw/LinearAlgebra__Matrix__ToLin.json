@@ -1,0 +1,54 @@
+[
+  {
+    "module": "ToLin",
+    "name": "Matrix.toLin_self",
+    "statement": "Matrix m n R) (i : n) : Matrix.toLin v\u2081 v\u2082 M (v\u2081 i) = \u2211 j, M j i \u2022 v\u2082 j",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Finset.mem_univ i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ToLin",
+    "name": "Matrix.toLin_apply_eq_zero_iff",
+    "statement": "Type*} [Finite m] [CommRing R] [AddCommGroup M\u2081] [AddCommGroup M\u2082] [Module R M\u2081] [Module R M\u2082] {v\u2081 : Basis n R M\u2081} {v\u2082 : Basis m R M\u2082} {A : Matrix m n R} {x : M\u2081} : A.toLin v\u2081 v\u2082 x = 0 \u2194 \u2200 j, (A *\u1d65 v\u2081.repr x) j = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite m",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ToLin",
+    "name": "linearMap_apply_apply",
+    "statement": "\u03b9\u2082 \u00d7 \u03b9\u2081) (k : \u03b9\u2081) : (b\u2081.linearMap b\u2082 ij) (b\u2081 k) = if ij.2 = k then b\u2082 ij.1 else 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Classical.decEq \u03b9\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ToLin",
+    "name": "isStablyFiniteRing_iff_injective_of_surjective",
+    "statement": "IsStablyFiniteRing A \u2194 \u2200 n (f : Module.End A (Fin n \u2192 A)), Surjective f \u2192 Injective f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(LinearEquiv.ofBijective f \u27e8h _ _ surj, surj\u27e9).symm_comp",
+        "children": []
+      }
+    ]
+  }
+]

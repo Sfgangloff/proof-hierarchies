@@ -1,0 +1,67 @@
+[
+  {
+    "module": "Common",
+    "name": "add_pf_add_lt",
+    "statement": "R) (_ : a\u2082 + b = c) : (a\u2081 + a\u2082) + b = a\u2081 + c",
+    "have_tree": [
+      {
+        "name": "va",
+        "type": "",
+        "body": ".add va\u2081 va\u2082; have vb := .add vb\u2081 vb\u2082 -- FIXME: why does `va@(...)` fail?",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Common",
+    "name": "mul_pp_pf_overlap",
+    "statement": "\u2115} (x : R) (_ : ea + eb = e) (_ : a\u2082 * b\u2082 = c) : (x ^ ea * a\u2082 : R) * (x ^ eb * b\u2082) = x ^ e * c",
+    "have_tree": [
+      {
+        "name": "va",
+        "type": "",
+        "body": ".mul vxa vea va\u2082; have vb := .mul vxb veb vb\u2082 -- FIXME: why does `va@(...)` fail?",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Common",
+    "name": "add_pos_right",
+    "statement": "\u2115} (a\u2081) (h : 0 < a\u2082) : 0 < a\u2081 + a\u2082",
+    "have_tree": [
+      {
+        "name": "lit",
+        "type": "Q(\u2115)",
+        "body": "a.appArg!",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Common",
+    "name": "pow_bit1",
+    "statement": "\u2115} {d : R} (_ : (a : R) ^ k = b) (_ : b * b = c) (_ : c * a = d) : a ^ (Nat.add (Nat.mul (nat_lit 2) k) (nat_lit 1)) = d",
+    "have_tree": [
+      {
+        "name": "m",
+        "type": "Q(\u2115)",
+        "body": "mkRawNatLit nm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Common",
+    "name": "extractCoeff",
+    "statement": "Q(\u2115)} (va : ExProdNat a) : ExtractCoeff a",
+    "have_tree": [
+      {
+        "name": "k",
+        "type": "Q(\u2115)",
+        "body": "a.appArg!",
+        "children": []
+      }
+    ]
+  }
+]

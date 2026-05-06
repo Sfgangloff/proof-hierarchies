@@ -1,0 +1,99 @@
+[
+  {
+    "original": {
+      "module": "Closure",
+      "name": "interior_frontier",
+      "statement": "IsClosed s) : interior (frontier s) = \u2205",
+      "have_tree": [
+        {
+          "name": "B",
+          "type": "interior (frontier s) \u2286 interior s",
+          "body": "by rw [A]; exact interior_mono diff_subset",
+          "children": []
+        },
+        {
+          "name": "C",
+          "type": "interior (frontier s) \u2286 frontier s",
+          "body": "interior_subset",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "interior (frontier s) \u2286 interior s \u2229 (s \\ interior s)",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Closure",
+          "name": "interior_frontier",
+          "statement": "IsClosed s) : interior (frontier s) = \u2205",
+          "have_tree": [
+            {
+              "name": "C",
+              "type": "interior (frontier s) \u2286 frontier s",
+              "body": "interior_subset",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "interior (frontier s) \u2286 interior s",
+              "body": "by rw [A]; exact interior_mono diff_subset",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "interior (frontier s) \u2286 interior s \u2229 (s \\ interior s)",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Closure",
+          "name": "interior_frontier",
+          "statement": "IsClosed s) : interior (frontier s) = \u2205",
+          "have_tree": [
+            {
+              "name": "B",
+              "type": "interior (frontier s) \u2286 interior s",
+              "body": "by rw [A]; exact interior_mono diff_subset",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "interior (frontier s) \u2286 interior s \u2229 (s \\ interior s)",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "C",
+              "type": "interior (frontier s) \u2286 frontier s",
+              "body": "interior_subset",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

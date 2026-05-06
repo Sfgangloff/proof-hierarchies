@@ -1,0 +1,79 @@
+[
+  {
+    "module": "Continuous",
+    "name": "ConvexOn.lipschitzOnWith_of_abs_le",
+    "statement": "ConvexOn \u211d (ball x\u2080 r) f) (h\u03b5 : 0 < \u03b5) (hM : \u2200 a, dist a x\u2080 < r \u2192 |f a| \u2264 M) : LipschitzOnWith (2 * M / \u03b5).toNNReal f (ball x\u2080 (r - \u03b5))",
+    "have_tree": [
+      {
+        "name": "hx\u2080r",
+        "type": "ball x\u2080 (r - \u03b5) \u2286 ball x\u2080 r",
+        "body": "ball_subset_ball <| by linarith",
+        "children": []
+      },
+      {
+        "name": "hx'",
+        "type": "x \u2208 ball x\u2080 r",
+        "body": "hx\u2080r hx",
+        "children": []
+      },
+      {
+        "name": "hy'",
+        "type": "y \u2208 ball x\u2080 r",
+        "body": "hx\u2080r hy",
+        "children": []
+      },
+      {
+        "name": "hz",
+        "type": "z \u2208 ball x\u2080 r",
+        "body": "mem_ball_iff_norm.2 <| by",
+        "children": [
+          {
+            "name": "h",
+            "type": "",
+            "body": "hf.2 hy' hz (by positivity) (by positivity) hab",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Continuous",
+    "name": "ConvexOn.isBoundedUnder_abs",
+    "statement": "ConvexOn \u211d C f) {x\u2080 : E} (hC : C \u2208 \ud835\udcdd x\u2080) : (\ud835\udcdd x\u2080).IsBoundedUnder (\u00b7 \u2264 \u00b7) |f| \u2194 (\ud835\udcdd x\u2080).IsBoundedUnder (\u00b7 \u2264 \u00b7) f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.2 hx' hx (by positivity) (by positivity) (add_halves _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Continuous",
+    "name": "ConvexOn.continuousOn_tfae",
+    "statement": "IsOpen C) (hC' : C.Nonempty) (hf : ConvexOn \u211d C f) : TFAE [ LocallyLipschitzOn C f, ContinuousOn f C, \u2203 x\u2080 \u2208 C, ContinuousAt f x\u2080, \u2203 x\u2080 \u2208 C, (\ud835\udcdd x\u2080).IsBoundedUnder (\u00b7 \u2264 \u00b7) f, \u2200 \u2983x\u2080\u2984, x\u2080 \u2208 C \u2192 (\ud835\udcdd x\u2080).IsBoundedUnder (\u00b7 \u2264 \u00b7) f, \u2200 \u2983x\u2080\u2984, x\u2080 \u2208 C \u2192 (\ud835\udcdd x\u2080).IsBoundedUnder (\u00b7 \u2264 \u00b7) |f|]",
+    "have_tree": [
+      {
+        "name": "hw",
+        "type": "dist w x\u2080 < \u03b5",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Continuous",
+    "name": "ConcaveOn.continuousOn_tfae",
+    "statement": "IsOpen C) (hC' : C.Nonempty) (hf : ConcaveOn \u211d C f) : TFAE [ LocallyLipschitzOn C f, ContinuousOn f C, \u2203 x\u2080 \u2208 C, ContinuousAt f x\u2080, \u2203 x\u2080 \u2208 C, (\ud835\udcdd x\u2080).IsBoundedUnder (\u00b7 \u2265 \u00b7) f, \u2200 \u2983x\u2080\u2984, x\u2080 \u2208 C \u2192 (\ud835\udcdd x\u2080).IsBoundedUnder (\u00b7 \u2265 \u00b7) f, \u2200 \u2983x\u2080\u2984, x\u2080 \u2208 C \u2192 (\ud835\udcdd x\u2080).IsBoundedUnder (\u00b7 \u2264 \u00b7) |f|]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf.neg.continuousOn_tfae hC hC'",
+        "children": []
+      }
+    ]
+  }
+]

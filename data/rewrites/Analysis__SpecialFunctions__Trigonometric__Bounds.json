@@ -1,0 +1,578 @@
+[
+  {
+    "original": {
+      "module": "Bounds",
+      "name": "cos_le_one_sub_mul_cos_sq",
+      "statement": "|x| \u2264 \u03c0) : cos x \u2264 1 - 2 / \u03c0 ^ 2 * x ^ 2",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "x / \u03c0 \u2264 sin (x / 2)",
+          "body": "by simpa using mul_le_sin (x := x / 2) (by positivity) (by linarith)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "(pow_le_pow_left\u2080 (by positivity) this 2).trans_eq (sin_sq_eq_half_sub _)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Bounds",
+          "name": "cos_le_one_sub_mul_cos_sq",
+          "statement": "|x| \u2264 \u03c0) : cos x \u2264 1 - 2 / \u03c0 ^ 2 * x ^ 2",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "(pow_le_pow_left\u2080 (by positivity) this 2).trans_eq (sin_sq_eq_half_sub _)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "x / \u03c0 \u2264 sin (x / 2)",
+              "body": "by simpa using mul_le_sin (x := x / 2) (by positivity) (by linarith)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Bounds",
+      "name": "lt_tan",
+      "statement": "\u211d} (h1 : 0 < x) (h2 : x < \u03c0 / 2) : x < tan x",
+      "have_tree": [
+        {
+          "name": "half_pi_pos",
+          "type": "0 < \u03c0 / 2",
+          "body": "div_pos pi_pos two_pos",
+          "children": []
+        },
+        {
+          "name": "tan_cts_U",
+          "type": "ContinuousOn tan U",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "cos_pos (interior_subset hy)",
+              "children": []
+            },
+            {
+              "name": "bd2",
+              "type": "cos y ^ 2 < 1",
+              "body": "by",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "mono",
+          "type": "",
+          "body": "strictMonoOn_of_deriv_pos (convex_Ico 0 (\u03c0 / 2)) tan_minus_id_cts deriv_pos",
+          "children": []
+        },
+        {
+          "name": "x_in_U",
+          "type": "x \u2208 U",
+          "body": "\u27e8h1.le, h2\u27e9",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Bounds",
+          "name": "lt_tan",
+          "statement": "\u211d} (h1 : 0 < x) (h2 : x < \u03c0 / 2) : x < tan x",
+          "have_tree": [
+            {
+              "name": "half_pi_pos",
+              "type": "0 < \u03c0 / 2",
+              "body": "div_pos pi_pos two_pos",
+              "children": []
+            },
+            {
+              "name": "tan_cts_U",
+              "type": "ContinuousOn tan U",
+              "body": "by",
+              "children": [
+                {
+                  "name": "bd2",
+                  "type": "cos y ^ 2 < 1",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "mono",
+              "type": "",
+              "body": "strictMonoOn_of_deriv_pos (convex_Ico 0 (\u03c0 / 2)) tan_minus_id_cts deriv_pos",
+              "children": []
+            },
+            {
+              "name": "x_in_U",
+              "type": "x \u2208 U",
+              "body": "\u27e8h1.le, h2\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          1
+        ],
+        "result": {
+          "module": "Bounds",
+          "name": "lt_tan",
+          "statement": "\u211d} (h1 : 0 < x) (h2 : x < \u03c0 / 2) : x < tan x",
+          "have_tree": [
+            {
+              "name": "half_pi_pos",
+              "type": "0 < \u03c0 / 2",
+              "body": "div_pos pi_pos two_pos",
+              "children": []
+            },
+            {
+              "name": "tan_cts_U",
+              "type": "ContinuousOn tan U",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "cos_pos (interior_subset hy)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "mono",
+              "type": "",
+              "body": "strictMonoOn_of_deriv_pos (convex_Ico 0 (\u03c0 / 2)) tan_minus_id_cts deriv_pos",
+              "children": []
+            },
+            {
+              "name": "x_in_U",
+              "type": "x \u2208 U",
+              "body": "\u27e8h1.le, h2\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Bounds",
+          "name": "lt_tan",
+          "statement": "\u211d} (h1 : 0 < x) (h2 : x < \u03c0 / 2) : x < tan x",
+          "have_tree": [
+            {
+              "name": "half_pi_pos",
+              "type": "0 < \u03c0 / 2",
+              "body": "div_pos pi_pos two_pos",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "cos_pos (interior_subset hy)",
+              "children": []
+            },
+            {
+              "name": "tan_cts_U",
+              "type": "ContinuousOn tan U",
+              "body": "by",
+              "children": [
+                {
+                  "name": "bd2",
+                  "type": "cos y ^ 2 < 1",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "mono",
+              "type": "",
+              "body": "strictMonoOn_of_deriv_pos (convex_Ico 0 (\u03c0 / 2)) tan_minus_id_cts deriv_pos",
+              "children": []
+            },
+            {
+              "name": "x_in_U",
+              "type": "x \u2208 U",
+              "body": "\u27e8h1.le, h2\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Bounds",
+          "name": "lt_tan",
+          "statement": "\u211d} (h1 : 0 < x) (h2 : x < \u03c0 / 2) : x < tan x",
+          "have_tree": [
+            {
+              "name": "half_pi_pos",
+              "type": "0 < \u03c0 / 2",
+              "body": "div_pos pi_pos two_pos",
+              "children": []
+            },
+            {
+              "name": "bd2",
+              "type": "cos y ^ 2 < 1",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "tan_cts_U",
+              "type": "ContinuousOn tan U",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "cos_pos (interior_subset hy)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "mono",
+              "type": "",
+              "body": "strictMonoOn_of_deriv_pos (convex_Ico 0 (\u03c0 / 2)) tan_minus_id_cts deriv_pos",
+              "children": []
+            },
+            {
+              "name": "x_in_U",
+              "type": "x \u2208 U",
+              "body": "\u27e8h1.le, h2\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Bounds",
+          "name": "lt_tan",
+          "statement": "\u211d} (h1 : 0 < x) (h2 : x < \u03c0 / 2) : x < tan x",
+          "have_tree": [
+            {
+              "name": "tan_cts_U",
+              "type": "ContinuousOn tan U",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "cos_pos (interior_subset hy)",
+                  "children": []
+                },
+                {
+                  "name": "bd2",
+                  "type": "cos y ^ 2 < 1",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "half_pi_pos",
+              "type": "0 < \u03c0 / 2",
+              "body": "div_pos pi_pos two_pos",
+              "children": []
+            },
+            {
+              "name": "mono",
+              "type": "",
+              "body": "strictMonoOn_of_deriv_pos (convex_Ico 0 (\u03c0 / 2)) tan_minus_id_cts deriv_pos",
+              "children": []
+            },
+            {
+              "name": "x_in_U",
+              "type": "x \u2208 U",
+              "body": "\u27e8h1.le, h2\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Bounds",
+          "name": "lt_tan",
+          "statement": "\u211d} (h1 : 0 < x) (h2 : x < \u03c0 / 2) : x < tan x",
+          "have_tree": [
+            {
+              "name": "half_pi_pos",
+              "type": "0 < \u03c0 / 2",
+              "body": "div_pos pi_pos two_pos",
+              "children": []
+            },
+            {
+              "name": "mono",
+              "type": "",
+              "body": "strictMonoOn_of_deriv_pos (convex_Ico 0 (\u03c0 / 2)) tan_minus_id_cts deriv_pos",
+              "children": []
+            },
+            {
+              "name": "tan_cts_U",
+              "type": "ContinuousOn tan U",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "cos_pos (interior_subset hy)",
+                  "children": []
+                },
+                {
+                  "name": "bd2",
+                  "type": "cos y ^ 2 < 1",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "x_in_U",
+              "type": "x \u2208 U",
+              "body": "\u27e8h1.le, h2\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Bounds",
+          "name": "lt_tan",
+          "statement": "\u211d} (h1 : 0 < x) (h2 : x < \u03c0 / 2) : x < tan x",
+          "have_tree": [
+            {
+              "name": "half_pi_pos",
+              "type": "0 < \u03c0 / 2",
+              "body": "div_pos pi_pos two_pos",
+              "children": []
+            },
+            {
+              "name": "tan_cts_U",
+              "type": "ContinuousOn tan U",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "cos_pos (interior_subset hy)",
+                  "children": []
+                },
+                {
+                  "name": "bd2",
+                  "type": "cos y ^ 2 < 1",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "x_in_U",
+              "type": "x \u2208 U",
+              "body": "\u27e8h1.le, h2\u27e9",
+              "children": []
+            },
+            {
+              "name": "mono",
+              "type": "",
+              "body": "strictMonoOn_of_deriv_pos (convex_Ico 0 (\u03c0 / 2)) tan_minus_id_cts deriv_pos",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          1
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Bounds",
+          "name": "lt_tan",
+          "statement": "\u211d} (h1 : 0 < x) (h2 : x < \u03c0 / 2) : x < tan x",
+          "have_tree": [
+            {
+              "name": "half_pi_pos",
+              "type": "0 < \u03c0 / 2",
+              "body": "div_pos pi_pos two_pos",
+              "children": []
+            },
+            {
+              "name": "tan_cts_U",
+              "type": "ContinuousOn tan U",
+              "body": "by",
+              "children": [
+                {
+                  "name": "bd2",
+                  "type": "cos y ^ 2 < 1",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "cos_pos (interior_subset hy)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "mono",
+              "type": "",
+              "body": "strictMonoOn_of_deriv_pos (convex_Ico 0 (\u03c0 / 2)) tan_minus_id_cts deriv_pos",
+              "children": []
+            },
+            {
+              "name": "x_in_U",
+              "type": "x \u2208 U",
+              "body": "\u27e8h1.le, h2\u27e9",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Bounds",
+      "name": "cos_lt_one_div_sqrt_sq_add_one",
+      "statement": "\u211d} (hx1 : -(3 * \u03c0 / 2) \u2264 x) (hx2 : x \u2264 3 * \u03c0 / 2) (hx3 : x \u2260 0) : cos x < (1 / \u221a(x ^ 2 + 1) : \u211d)",
+      "have_tree": [
+        {
+          "name": "hy3",
+          "type": "\u21910 < y ^ 2 + 1",
+          "body": "by linarith [sq_nonneg y]",
+          "children": [
+            {
+              "name": "hy4",
+              "type": "0 < cos y",
+              "body": "cos_pos_of_mem_Ioo \u27e8by linarith, hy2'\u27e9",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Bounds",
+          "name": "cos_lt_one_div_sqrt_sq_add_one",
+          "statement": "\u211d} (hx1 : -(3 * \u03c0 / 2) \u2264 x) (hx2 : x \u2264 3 * \u03c0 / 2) (hx3 : x \u2260 0) : cos x < (1 / \u221a(x ^ 2 + 1) : \u211d)",
+          "have_tree": [
+            {
+              "name": "hy3",
+              "type": "\u21910 < y ^ 2 + 1",
+              "body": "by linarith [sq_nonneg y]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Bounds",
+          "name": "cos_lt_one_div_sqrt_sq_add_one",
+          "statement": "\u211d} (hx1 : -(3 * \u03c0 / 2) \u2264 x) (hx2 : x \u2264 3 * \u03c0 / 2) (hx3 : x \u2260 0) : cos x < (1 / \u221a(x ^ 2 + 1) : \u211d)",
+          "have_tree": [
+            {
+              "name": "hy4",
+              "type": "0 < cos y",
+              "body": "cos_pos_of_mem_Ioo \u27e8by linarith, hy2'\u27e9",
+              "children": []
+            },
+            {
+              "name": "hy3",
+              "type": "\u21910 < y ^ 2 + 1",
+              "body": "by linarith [sq_nonneg y]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

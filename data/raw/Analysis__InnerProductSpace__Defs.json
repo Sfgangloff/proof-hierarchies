@@ -1,0 +1,115 @@
+[
+  {
+    "module": "Defs",
+    "name": "toSeminormedAddCommGroup",
+    "statement": "SeminormedAddCommGroup F",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "\u2016\u27eax, y\u27eb\u2016 \u2264 \u2016x\u2016 * \u2016y\u2016",
+        "body": "norm_inner_le_norm _ _",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "re \u27eax, y\u27eb \u2264 \u2016\u27eax, y\u27eb\u2016",
+        "body": "re_le_norm _",
+        "children": []
+      },
+      {
+        "name": "h\u2083",
+        "type": "re \u27eax, y\u27eb \u2264 \u2016x\u2016 * \u2016y\u2016",
+        "body": "h\u2082.trans h\u2081",
+        "children": []
+      },
+      {
+        "name": "h\u2084",
+        "type": "re \u27eay, x\u27eb \u2264 \u2016x\u2016 * \u2016y\u2016",
+        "body": "by rwa [\u2190 inner_conj_symm, conj_re]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2016x + y\u2016 * \u2016x + y\u2016 \u2264 (\u2016x\u2016 + \u2016y\u2016) * (\u2016x\u2016 + \u2016y\u2016)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "toNormedAddCommGroup",
+    "statement": "NormedAddCommGroup F",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "\u2016\u27eax, y\u27eb\u2016 \u2264 \u2016x\u2016 * \u2016y\u2016",
+        "body": "norm_inner_le_norm _ _",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "re \u27eax, y\u27eb \u2264 \u2016\u27eax, y\u27eb\u2016",
+        "body": "re_le_norm _",
+        "children": []
+      },
+      {
+        "name": "h\u2083",
+        "type": "re \u27eax, y\u27eb \u2264 \u2016x\u2016 * \u2016y\u2016",
+        "body": "h\u2082.trans h\u2081",
+        "children": []
+      },
+      {
+        "name": "h\u2084",
+        "type": "re \u27eay, x\u27eb \u2264 \u2016x\u2016 * \u2016y\u2016",
+        "body": "by rwa [\u2190 inner_conj_symm, conj_re]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2016x + y\u2016 * \u2016x + y\u2016 \u2264 (\u2016x\u2016 + \u2016y\u2016) * (\u2016x\u2016 + \u2016y\u2016)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "topology_eq",
+    "statement": "TopologicalSpace F] [IsTopologicalAddGroup F] [ContinuousConstSMul \ud835\udd5c F] (h : ContinuousAt (fun (v : F) \u21a6 cd.inner v v) 0) (h' : IsVonNBounded \ud835\udd5c {v : F | re (cd.inner v v) < 1}) : tF = cd.toNormedAddCommGroup.toMetricSpace.toUniformSpace.toTopologicalSpace",
+    "have_tree": [
+      {
+        "name": "B",
+        "type": "Set.Iio 1 \u2208 \ud835\udcdd (re (cd.inner 0 0))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "InnerProductSpace.ofCore",
+    "statement": "PreInnerProductSpace.Core \ud835\udd5c F) : InnerProductSpace \ud835\udd5c F",
+    "have_tree": [
+      {
+        "name": "h\u2082",
+        "type": "0 \u2264 re (cd.inner x x)",
+        "body": "InnerProductSpace.Core.inner_self_nonneg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Defs",
+    "name": "InnerProductSpace.ofCoreOfTopology",
+    "statement": "Module \ud835\udd5c F] [TopologicalSpace F] [IsTopologicalAddGroup F] [ContinuousConstSMul \ud835\udd5c F] (cd : InnerProductSpace.Core \ud835\udd5c F) (h : ContinuousAt (fun (v : F) \u21a6 cd.inner v v) 0) (h' : IsVonNBounded \ud835\udd5c {v : F | re (cd.inner v v) < 1}) : letI : NormedAddCommGroup F",
+    "have_tree": [
+      {
+        "name": "h\u2082",
+        "type": "0 \u2264 re (cd.inner x x)",
+        "body": "InnerProductSpace.Core.inner_self_nonneg",
+        "children": []
+      }
+    ]
+  }
+]

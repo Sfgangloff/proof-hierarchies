@@ -1,0 +1,34 @@
+[
+  {
+    "module": "ModCases",
+    "name": "onModCases_start",
+    "statement": "Sort*) (a : \u2124) (n : \u2115) (hn : Nat.ble 1 n = true) (H : OnModCases n a (nat_lit 0) p) : p",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "natCast_pos.2 <| Nat.le_of_ble_eq_true hn",
+        "children": []
+      },
+      {
+        "name": "nonneg",
+        "type": "",
+        "body": "emod_nonneg a <| Int.ne_of_gt this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ModCases",
+    "name": "onModCases_succ",
+    "statement": "Sort*} {n : \u2115} {a : \u2124} (b : \u2115) (h : a \u2261 OfNat.ofNat b [ZMOD OfNat.ofNat n] \u2192 p) (H : OnModCases n a (Nat.add b 1) p) : OnModCases n a b p",
+    "have_tree": [
+      {
+        "name": "b1",
+        "type": "Q(\u2115)",
+        "body": "mkRawNatLit (b.natLit! + 1)",
+        "children": []
+      }
+    ]
+  }
+]

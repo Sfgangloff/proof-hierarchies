@@ -1,0 +1,73 @@
+[
+  {
+    "module": "ImproperIntegrals",
+    "name": "integrableOn_exp_mul_Ioi",
+    "statement": "\u211d} (ha : a < 0) (c : \u211d) : IntegrableOn (fun x : \u211d => Real.exp (a * x)) (Ioi c)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Integrable.norm <| integrableOn_exp_mul_complex_Ioi (a := a) (by simpa using ha) c",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ImproperIntegrals",
+    "name": "integrableOn_exp_mul_Iic",
+    "statement": "\u211d} (ha : 0 < a) (c : \u211d) : IntegrableOn (fun x : \u211d => Real.exp (a * x)) (Iic c)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Integrable.norm <| integrableOn_exp_mul_complex_Iic (a := a) (by simpa using ha) c",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ImproperIntegrals",
+    "name": "integrableOn_add_rpow_Ioi_of_lt",
+    "statement": "\u211d} (ha : a < -1) (hc : -m < c) : IntegrableOn (fun (x : \u211d) \u21a6 (x + m) ^ a) (Ioi c)",
+    "have_tree": [
+      {
+        "name": "hd",
+        "type": "\u2200 x \u2208 Ici c, HasDerivAt (fun t \u21a6 (t + m) ^ (a + 1) / (a + 1)) ((x + m) ^ a) x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "ht",
+        "type": "Tendsto (fun t \u21a6 ((t + m) ^ (a + 1)) / (a + 1)) atTop (nhds (0 / (a + 1)))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ImproperIntegrals",
+    "name": "integrableOn_Ioi_rpow_iff",
+    "statement": "\u211d} (ht : 0 < t) : IntegrableOn (fun x \u21a6 x ^ s) (Ioi t) \u2194 s < -1",
+    "have_tree": [
+      {
+        "name": "H'",
+        "type": "IntegrableOn (fun x \u21a6 x ^ s) (Ioi (max 1 t))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IntegrableOn (fun x \u21a6 x\u207b\u00b9) (Ioi (max 1 t))",
+        "body": "by",
+        "children": [
+          {
+            "name": "x_one",
+            "type": "1 \u2264 x",
+            "body": "((le_max_left _ _).trans_lt (mem_Ioi.1 hx)).le",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

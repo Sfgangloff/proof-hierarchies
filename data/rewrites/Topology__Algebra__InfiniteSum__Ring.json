@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Ring",
+      "name": "HasSum.mul_eq",
+      "statement": "HasSum f s) (hg : HasSum g t) (hfg : HasSum (fun x : \u03b9 \u00d7 \u03ba \u21a6 f x.1 * g x.2) u) : s * t = u",
+      "have_tree": [
+        {
+          "name": "key\u2081",
+          "type": "HasSum (fun i \u21a6 f i * t) (s * t)",
+          "body": "hf.mul_right t",
+          "children": []
+        },
+        {
+          "name": "key\u2082",
+          "type": "HasSum (fun i \u21a6 f i * t) u",
+          "body": "HasSum.prod_fiberwise hfg this",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "HasSum.mul_eq",
+          "statement": "HasSum f s) (hg : HasSum g t) (hfg : HasSum (fun x : \u03b9 \u00d7 \u03ba \u21a6 f x.1 * g x.2) u) : s * t = u",
+          "have_tree": [
+            {
+              "name": "key\u2082",
+              "type": "HasSum (fun i \u21a6 f i * t) u",
+              "body": "HasSum.prod_fiberwise hfg this",
+              "children": []
+            },
+            {
+              "name": "key\u2081",
+              "type": "HasSum (fun i \u21a6 f i * t) (s * t)",
+              "body": "hf.mul_right t",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,155 @@
+[
+  {
+    "module": "Killing",
+    "name": "isSemisimple_ad_of_mem_isCartanSubalgebra",
+    "statement": "L} (hx : x \u2208 H) : (ad K L x).IsSemisimple",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "H \u2192 K} {y : L} (hy : y \u2208 rootSpace H \u03b1) : S y = \u03b1 x' \u2022 y",
+        "body": "by",
+        "children": [
+          {
+            "name": "hyz",
+            "type": "\u2045y, z\u2046 \u2208 rootSpace H (\u03b1 + \u03b2)",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "hy",
+            "type": "y \u2208 \u2a06 \u03b1 : H \u2192 K, rootSpace H \u03b1",
+            "body": "by simp [iSup_genWeightSpace_eq_top]",
+            "children": []
+          },
+          {
+            "name": "hz",
+            "type": "z \u2208 \u2a06 \u03b1 : H \u2192 K, rootSpace H \u03b1",
+            "body": "by simp [iSup_genWeightSpace_eq_top]",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "L) (hz : z \u2208 H) : \u2045y, z\u2046 = 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Killing",
+    "name": "exists_isSl2Triple_of_weight_isNonZero",
+    "statement": "Weight K H L} (h\u03b1 : \u03b1.IsNonZero) : \u2203 h e f : L, IsSl2Triple h e f \u2227 e \u2208 rootSpace H \u03b1 \u2227 f \u2208 rootSpace H (-\u03b1)",
+    "have_tree": [
+      {
+        "name": "hef",
+        "type": "",
+        "body": "lie_eq_killingForm_smul_of_mem_rootSpace_of_mem_rootSpace_neg he\u03b1 hf\u03b1",
+        "children": []
+      },
+      {
+        "name": "hh",
+        "type": "\u03b1 h \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "h = killingForm K L e f' \u2022 (cartanEquivDual H).symm \u03b1",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u2045\u2045e, f'\u2046, e\u2046 = \u03b1 h \u2022 e",
+            "body": "lie_eq_smul_of_mem_rootSpace he\u03b1 h",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "IsAddTorsionFree L",
+            "body": ".of_isTorsionFree K L",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Killing",
+    "name": "_root_.IsSl2Triple.h_eq_coroot",
+    "statement": "Weight K H L} (h\u03b1 : \u03b1.IsNonZero) {h e f : L} (ht : IsSl2Triple h e f) (he\u03b1 : e \u2208 rootSpace H \u03b1) (hf\u03b1 : f \u2208 rootSpace H (-\u03b1)) : h = coroot \u03b1",
+    "have_tree": [
+      {
+        "name": "hef",
+        "type": "",
+        "body": "lie_eq_killingForm_smul_of_mem_rootSpace_of_mem_rootSpace_neg he\u03b1 hf\u03b1",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "\u03b1 h = 2",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "lie_eq_smul_of_mem_rootSpace he\u03b1 h",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_eq",
+        "type": "h = killingForm K L e f \u2022 \u03b1'",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hef\u2080",
+        "type": "killingForm K L e f \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "ht.h_ne_zero",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Killing",
+    "name": "finrank_rootSpace_eq_one",
+    "statement": "Weight K H L) (h\u03b1 : \u03b1.IsNonZero) : finrank K (rootSpace H \u03b1) = 1",
+    "have_tree": [
+      {
+        "name": "h\u2080",
+        "type": "finrank K (rootSpace H \u03b1) \u2260 0",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hF",
+        "type": "LinearMap.ker F \u2260 \u22a5",
+        "body": "F.ker_ne_bot_of_finrank_lt <| by rwa [finrank_self]",
+        "children": [
+          {
+            "name": "_",
+            "type": "killingForm K L y f = 0",
+            "body": "by simpa [F, traceForm_comm] using hy",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "P",
+        "type": "ht.symm.HasPrimitiveVectorWith y (-2 : K)",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

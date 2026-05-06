@@ -1,0 +1,97 @@
+[
+  {
+    "module": "AdjoinRoot",
+    "name": "coe_injective",
+    "statement": "degree f \u2260 0) : Function.Injective ((\u2191) : K \u2192 AdjoinRoot f)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "AdjoinRoot.nontrivial f h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AdjoinRoot",
+    "name": "powerBasis'",
+    "statement": "g.Monic) : PowerBasis R (AdjoinRoot g) where gen",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Finset.mem_univ i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AdjoinRoot",
+    "name": "minpoly_root",
+    "statement": "f \u2260 0) : minpoly K (root f) = f * C f.leadingCoeff\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "f'_monic",
+        "type": "Monic _",
+        "body": "monic_mul_leadingCoeff_inv hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AdjoinRoot",
+    "name": "Irreducible.exists_dvd_monic_irreducible_of_isIntegral",
+    "statement": "Type*} [CommRing K] [IsDomain K] [Field L] [Algebra K L] [Algebra.IsIntegral K L] {f : L[X]} (hf : Irreducible f) : \u2203 g : K[X], g.Monic \u2227 Irreducible g \u2227 f \u2223 g.map (algebraMap K L)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "hf.ne_zero",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "isIntegral_trans (R := K) _ (AdjoinRoot.isIntegral_root h)",
+        "children": []
+      },
+      {
+        "name": "h3",
+        "type": "",
+        "body": "(AdjoinRoot.minpoly_root h) \u25b8 minpoly.dvd_map_of_isScalarTower K L (AdjoinRoot.root f)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "AdjoinRoot",
+    "name": "Polynomial.Monic.exists_splits_map.",
+    "statement": "Type u} [CommRing R] [Nontrivial R] {p : R[X]} (hp : p.Monic) : \u2203 (S : Type u) (_ : CommRing S) (_ : Algebra R S) (_ : Module.Finite R S) (_ : Module.Free R S) (_ : Nontrivial S), (p.map (algebraMap R S)).Splits",
+    "have_tree": [
+      {
+        "name": "hqm",
+        "type": "q.Monic",
+        "body": ".of_mul_monic_left (monic_X_sub_C (.root _)) (hq \u25b8 hp.map _)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hp.free_adjoinRoot",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hp.finite_adjoinRoot",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nontrivial (AdjoinRoot p)",
+        "body": "Ideal.Quotient.nontrivial_iff.mpr (by simpa)",
+        "children": []
+      }
+    ]
+  }
+]

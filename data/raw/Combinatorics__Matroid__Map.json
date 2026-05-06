@@ -1,0 +1,111 @@
+[
+  {
+    "module": "Map",
+    "name": "comap",
+    "statement": "Matroid \u03b2) (f : \u03b1 \u2192 \u03b2) : Matroid \u03b1",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "\u00ac(N \u21be range f).IsBase (f '' I)",
+        "body": "by",
+        "children": [
+          {
+            "name": "h_im",
+            "type": "",
+            "body": "hB.eq_of_subset_indep (by simpa) (image_mono hII'.subset)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h\u2082",
+        "type": "(N \u21be range f).IsBase (f '' B)",
+        "body": "by",
+        "children": [
+          {
+            "name": "hinj",
+            "type": "InjOn f (insert e B)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "heI",
+        "type": "e \u2209 I",
+        "body": "fun heI \u21a6 he' (mem_image_of_mem f heI)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Map",
+    "name": "comap_isBasis_iff",
+    "statement": "Set \u03b1} : (N.comap f).IsBasis I X \u2194 N.IsBasis (f '' I) (f '' X) \u2227 I.InjOn f \u2227 I \u2286 X",
+    "have_tree": [
+      {
+        "name": "heI",
+        "type": "e \u2209 I",
+        "body": "fun heI \u21a6 (he e heI rfl)",
+        "children": []
+      },
+      {
+        "name": "hIE",
+        "type": "insert e I \u2286 (N.comap f).E",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Map",
+    "name": "mapSetEmbedding",
+    "statement": "Matroid \u03b1) (f : M.E \u21aa \u03b2) : Matroid \u03b2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty M.E",
+        "body": "\u27e8\u27e8e,he\u27e9\u27e9",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Nonempty \u03b1",
+        "body": "\u27e8e\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Map",
+    "name": "IsBasis.map",
+    "statement": "Set \u03b1} (hIX : M.IsBasis I X) {f : \u03b1 \u2192 \u03b2} (hf) : (M.map f hf).IsBasis (f '' I) (f '' X)",
+    "have_tree": [
+      {
+        "name": "hss",
+        "type": "",
+        "body": "insert_subset (hIX.subset_ground he) hIX.indep.subset_ground",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Map",
+    "name": "map_isBasis_iff",
+    "statement": "Set \u03b1} (f : \u03b1 \u2192 \u03b2) (hf) (hI : I \u2286 M.E) (hX : X \u2286 M.E) : (M.map f hf).IsBasis (f '' I) (f '' X) \u2194 M.IsBasis I X",
+    "have_tree": [
+      {
+        "name": "hss",
+        "type": "",
+        "body": "(hf.image_subset_image_iff hI hX).1 h.subset",
+        "children": []
+      },
+      {
+        "name": "hIJ'",
+        "type": "",
+        "body": "h.eq_of_subset_indep (hJ.map f hf) (image_mono hIJ) (image_mono hJX)",
+        "children": []
+      }
+    ]
+  }
+]

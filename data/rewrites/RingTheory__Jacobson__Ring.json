@@ -1,0 +1,1592 @@
+[
+  {
+    "original": {
+      "module": "Ring",
+      "name": "isJacobsonRing_iso",
+      "statement": "R \u2243+* S) : IsJacobsonRing R \u2194 IsJacobsonRing S where mp _",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Nontrivial (R \u29f8 comap (algebraMap R S) P)",
+          "body": "by rwa [Quotient.nontrivial_iff]",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "J.IsMaximal",
+          "body": "by simpa using hJ",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "isJacobsonRing_iso",
+          "statement": "R \u2243+* S) : IsJacobsonRing R \u2194 IsJacobsonRing S where mp _",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "J.IsMaximal",
+              "body": "by simpa using hJ",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Nontrivial (R \u29f8 comap (algebraMap R S) P)",
+              "body": "by rwa [Quotient.nontrivial_iff]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Ring",
+      "name": "IsLocalization.isMaximal_iff_isMaximal_disjoint",
+      "statement": "IsJacobsonRing R] (J : Ideal S) : J.IsMaximal \u2194 (comap (algebraMap R S) J).IsMaximal \u2227 y \u2209 Ideal.comap (algebraMap R S) J",
+      "have_tree": [
+        {
+          "name": "hJ",
+          "type": "J.IsPrime",
+          "body": "IsMaximal.isPrime h",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "y \u2209 (comap (algebraMap R S) J).1",
+          "body": "Set.disjoint_left.1 hJ.right (Submonoid.mem_powers _)",
+          "children": [
+            {
+              "name": "_",
+              "type": "J \u2264 I.map (algebraMap R S)",
+              "body": "map_comap (Submonoid.powers y) S J \u25b8 map_mono hI.left",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "IsLocalization.isMaximal_iff_isMaximal_disjoint",
+          "statement": "IsJacobsonRing R] (J : Ideal S) : J.IsMaximal \u2194 (comap (algebraMap R S) J).IsMaximal \u2227 y \u2209 Ideal.comap (algebraMap R S) J",
+          "have_tree": [
+            {
+              "name": "hJ",
+              "type": "J.IsPrime",
+              "body": "IsMaximal.isPrime h",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "y \u2209 (comap (algebraMap R S) J).1",
+              "body": "Set.disjoint_left.1 hJ.right (Submonoid.mem_powers _)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Ring",
+          "name": "IsLocalization.isMaximal_iff_isMaximal_disjoint",
+          "statement": "IsJacobsonRing R] (J : Ideal S) : J.IsMaximal \u2194 (comap (algebraMap R S) J).IsMaximal \u2227 y \u2209 Ideal.comap (algebraMap R S) J",
+          "have_tree": [
+            {
+              "name": "hJ",
+              "type": "J.IsPrime",
+              "body": "IsMaximal.isPrime h",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "J \u2264 I.map (algebraMap R S)",
+              "body": "map_comap (Submonoid.powers y) S J \u25b8 map_mono hI.left",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "y \u2209 (comap (algebraMap R S) J).1",
+              "body": "Set.disjoint_left.1 hJ.right (Submonoid.mem_powers _)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "IsLocalization.isMaximal_iff_isMaximal_disjoint",
+          "statement": "IsJacobsonRing R] (J : Ideal S) : J.IsMaximal \u2194 (comap (algebraMap R S) J).IsMaximal \u2227 y \u2209 Ideal.comap (algebraMap R S) J",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "y \u2209 (comap (algebraMap R S) J).1",
+              "body": "Set.disjoint_left.1 hJ.right (Submonoid.mem_powers _)",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "J \u2264 I.map (algebraMap R S)",
+                  "body": "map_comap (Submonoid.powers y) S J \u25b8 map_mono hI.left",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hJ",
+              "type": "J.IsPrime",
+              "body": "IsMaximal.isPrime h",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Ring",
+      "name": "IsLocalization.orderIsoOfMaximal",
+      "statement": "{ p : Ideal S // p.IsMaximal } \u2243o { p : Ideal R // p.IsMaximal \u2227 y \u2209 p } where toFun p",
+      "have_tree": [
+        {
+          "name": "hP",
+          "type": "",
+          "body": "H.out hP'.isRadical",
+          "children": [
+            {
+              "name": "hxy",
+              "type": "x * y \u2208 (comap (algebraMap R S) P').jacobson",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "IsLocalization.orderIsoOfMaximal",
+          "statement": "{ p : Ideal S // p.IsMaximal } \u2243o { p : Ideal R // p.IsMaximal \u2227 y \u2209 p } where toFun p",
+          "have_tree": [
+            {
+              "name": "hP",
+              "type": "",
+              "body": "H.out hP'.isRadical",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Ring",
+          "name": "IsLocalization.orderIsoOfMaximal",
+          "statement": "{ p : Ideal S // p.IsMaximal } \u2243o { p : Ideal R // p.IsMaximal \u2227 y \u2209 p } where toFun p",
+          "have_tree": [
+            {
+              "name": "hxy",
+              "type": "x * y \u2208 (comap (algebraMap R S) P').jacobson",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hP",
+              "type": "",
+              "body": "H.out hP'.isRadical",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Ring",
+      "name": "jacobson_bot_of_integral_localization",
+      "statement": "Type*} [CommRing R] [IsDomain R] [IsJacobsonRing R] (R\u2098 S\u2098 : Type*) [CommRing R\u2098] [CommRing S\u2098] (\u03c6 : R \u2192+* S) (h\u03c6 : Function.Injective \u2191\u03c6) (x : R) (hx : x \u2260 0) [Algebra R R\u2098] [IsLocalization.Away x R\u2098] [Algebra S S\u2098] [IsLocalization ((Submonoid.powers x).map \u03c6 : Submonoid S) S\u2098] (h\u03c6' : RingHom.IsIntegral (IsLocalization.map S\u2098 \u03c6 (Submonoid.powers x).le_comap_map : R\u2098 \u2192+* S\u2098)) : (\u22a5 : Ideal S).jacobson = (\u22a5 : Ideal S)",
+      "have_tree": [
+        {
+          "name": "hR\u2098",
+          "type": "IsJacobsonRing R\u2098",
+          "body": "isJacobsonRing_localization x",
+          "children": []
+        },
+        {
+          "name": "hS\u2098",
+          "type": "IsJacobsonRing S\u2098",
+          "body": "isJacobsonRing_of_isIntegral' \u03c6' h\u03c6'",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "(I.comap (algebraMap S S\u2098)).IsPrime",
+          "body": "comap_isPrime _ I",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "(I.comap \u03c6').IsPrime",
+          "body": "comap_isPrime \u03c6' I",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "isMaximal_comap_of_isIntegral_of_isMaximal' \u03c6' h\u03c6' I",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "((IsLocalization.isMaximal_iff_isMaximal_disjoint R\u2098 x _).1 this).left",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "((I.comap (algebraMap S S\u2098)).comap \u03c6).IsMaximal",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "jacobson_bot_of_integral_localization",
+          "statement": "Type*} [CommRing R] [IsDomain R] [IsJacobsonRing R] (R\u2098 S\u2098 : Type*) [CommRing R\u2098] [CommRing S\u2098] (\u03c6 : R \u2192+* S) (h\u03c6 : Function.Injective \u2191\u03c6) (x : R) (hx : x \u2260 0) [Algebra R R\u2098] [IsLocalization.Away x R\u2098] [Algebra S S\u2098] [IsLocalization ((Submonoid.powers x).map \u03c6 : Submonoid S) S\u2098] (h\u03c6' : RingHom.IsIntegral (IsLocalization.map S\u2098 \u03c6 (Submonoid.powers x).le_comap_map : R\u2098 \u2192+* S\u2098)) : (\u22a5 : Ideal S).jacobson = (\u22a5 : Ideal S)",
+          "have_tree": [
+            {
+              "name": "hS\u2098",
+              "type": "IsJacobsonRing S\u2098",
+              "body": "isJacobsonRing_of_isIntegral' \u03c6' h\u03c6'",
+              "children": []
+            },
+            {
+              "name": "hR\u2098",
+              "type": "IsJacobsonRing R\u2098",
+              "body": "isJacobsonRing_localization x",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(I.comap (algebraMap S S\u2098)).IsPrime",
+              "body": "comap_isPrime _ I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(I.comap \u03c6').IsPrime",
+              "body": "comap_isPrime \u03c6' I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "isMaximal_comap_of_isIntegral_of_isMaximal' \u03c6' h\u03c6' I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "((IsLocalization.isMaximal_iff_isMaximal_disjoint R\u2098 x _).1 this).left",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "((I.comap (algebraMap S S\u2098)).comap \u03c6).IsMaximal",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "jacobson_bot_of_integral_localization",
+          "statement": "Type*} [CommRing R] [IsDomain R] [IsJacobsonRing R] (R\u2098 S\u2098 : Type*) [CommRing R\u2098] [CommRing S\u2098] (\u03c6 : R \u2192+* S) (h\u03c6 : Function.Injective \u2191\u03c6) (x : R) (hx : x \u2260 0) [Algebra R R\u2098] [IsLocalization.Away x R\u2098] [Algebra S S\u2098] [IsLocalization ((Submonoid.powers x).map \u03c6 : Submonoid S) S\u2098] (h\u03c6' : RingHom.IsIntegral (IsLocalization.map S\u2098 \u03c6 (Submonoid.powers x).le_comap_map : R\u2098 \u2192+* S\u2098)) : (\u22a5 : Ideal S).jacobson = (\u22a5 : Ideal S)",
+          "have_tree": [
+            {
+              "name": "hR\u2098",
+              "type": "IsJacobsonRing R\u2098",
+              "body": "isJacobsonRing_localization x",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(I.comap (algebraMap S S\u2098)).IsPrime",
+              "body": "comap_isPrime _ I",
+              "children": []
+            },
+            {
+              "name": "hS\u2098",
+              "type": "IsJacobsonRing S\u2098",
+              "body": "isJacobsonRing_of_isIntegral' \u03c6' h\u03c6'",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(I.comap \u03c6').IsPrime",
+              "body": "comap_isPrime \u03c6' I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "isMaximal_comap_of_isIntegral_of_isMaximal' \u03c6' h\u03c6' I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "((IsLocalization.isMaximal_iff_isMaximal_disjoint R\u2098 x _).1 this).left",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "((I.comap (algebraMap S S\u2098)).comap \u03c6).IsMaximal",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5,
+          6
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "jacobson_bot_of_integral_localization",
+          "statement": "Type*} [CommRing R] [IsDomain R] [IsJacobsonRing R] (R\u2098 S\u2098 : Type*) [CommRing R\u2098] [CommRing S\u2098] (\u03c6 : R \u2192+* S) (h\u03c6 : Function.Injective \u2191\u03c6) (x : R) (hx : x \u2260 0) [Algebra R R\u2098] [IsLocalization.Away x R\u2098] [Algebra S S\u2098] [IsLocalization ((Submonoid.powers x).map \u03c6 : Submonoid S) S\u2098] (h\u03c6' : RingHom.IsIntegral (IsLocalization.map S\u2098 \u03c6 (Submonoid.powers x).le_comap_map : R\u2098 \u2192+* S\u2098)) : (\u22a5 : Ideal S).jacobson = (\u22a5 : Ideal S)",
+          "have_tree": [
+            {
+              "name": "hR\u2098",
+              "type": "IsJacobsonRing R\u2098",
+              "body": "isJacobsonRing_localization x",
+              "children": []
+            },
+            {
+              "name": "hS\u2098",
+              "type": "IsJacobsonRing S\u2098",
+              "body": "isJacobsonRing_of_isIntegral' \u03c6' h\u03c6'",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(I.comap \u03c6').IsPrime",
+              "body": "comap_isPrime \u03c6' I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(I.comap (algebraMap S S\u2098)).IsPrime",
+              "body": "comap_isPrime _ I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "isMaximal_comap_of_isIntegral_of_isMaximal' \u03c6' h\u03c6' I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "((IsLocalization.isMaximal_iff_isMaximal_disjoint R\u2098 x _).1 this).left",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "((I.comap (algebraMap S S\u2098)).comap \u03c6).IsMaximal",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5,
+          6
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "jacobson_bot_of_integral_localization",
+          "statement": "Type*} [CommRing R] [IsDomain R] [IsJacobsonRing R] (R\u2098 S\u2098 : Type*) [CommRing R\u2098] [CommRing S\u2098] (\u03c6 : R \u2192+* S) (h\u03c6 : Function.Injective \u2191\u03c6) (x : R) (hx : x \u2260 0) [Algebra R R\u2098] [IsLocalization.Away x R\u2098] [Algebra S S\u2098] [IsLocalization ((Submonoid.powers x).map \u03c6 : Submonoid S) S\u2098] (h\u03c6' : RingHom.IsIntegral (IsLocalization.map S\u2098 \u03c6 (Submonoid.powers x).le_comap_map : R\u2098 \u2192+* S\u2098)) : (\u22a5 : Ideal S).jacobson = (\u22a5 : Ideal S)",
+          "have_tree": [
+            {
+              "name": "hR\u2098",
+              "type": "IsJacobsonRing R\u2098",
+              "body": "isJacobsonRing_localization x",
+              "children": []
+            },
+            {
+              "name": "hS\u2098",
+              "type": "IsJacobsonRing S\u2098",
+              "body": "isJacobsonRing_of_isIntegral' \u03c6' h\u03c6'",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(I.comap (algebraMap S S\u2098)).IsPrime",
+              "body": "comap_isPrime _ I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "isMaximal_comap_of_isIntegral_of_isMaximal' \u03c6' h\u03c6' I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(I.comap \u03c6').IsPrime",
+              "body": "comap_isPrime \u03c6' I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "((IsLocalization.isMaximal_iff_isMaximal_disjoint R\u2098 x _).1 this).left",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "((I.comap (algebraMap S S\u2098)).comap \u03c6).IsMaximal",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4,
+          6
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "jacobson_bot_of_integral_localization",
+          "statement": "Type*} [CommRing R] [IsDomain R] [IsJacobsonRing R] (R\u2098 S\u2098 : Type*) [CommRing R\u2098] [CommRing S\u2098] (\u03c6 : R \u2192+* S) (h\u03c6 : Function.Injective \u2191\u03c6) (x : R) (hx : x \u2260 0) [Algebra R R\u2098] [IsLocalization.Away x R\u2098] [Algebra S S\u2098] [IsLocalization ((Submonoid.powers x).map \u03c6 : Submonoid S) S\u2098] (h\u03c6' : RingHom.IsIntegral (IsLocalization.map S\u2098 \u03c6 (Submonoid.powers x).le_comap_map : R\u2098 \u2192+* S\u2098)) : (\u22a5 : Ideal S).jacobson = (\u22a5 : Ideal S)",
+          "have_tree": [
+            {
+              "name": "hR\u2098",
+              "type": "IsJacobsonRing R\u2098",
+              "body": "isJacobsonRing_localization x",
+              "children": []
+            },
+            {
+              "name": "hS\u2098",
+              "type": "IsJacobsonRing S\u2098",
+              "body": "isJacobsonRing_of_isIntegral' \u03c6' h\u03c6'",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(I.comap (algebraMap S S\u2098)).IsPrime",
+              "body": "comap_isPrime _ I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(I.comap \u03c6').IsPrime",
+              "body": "comap_isPrime \u03c6' I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "((IsLocalization.isMaximal_iff_isMaximal_disjoint R\u2098 x _).1 this).left",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "isMaximal_comap_of_isIntegral_of_isMaximal' \u03c6' h\u03c6' I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "((I.comap (algebraMap S S\u2098)).comap \u03c6).IsMaximal",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          5
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "jacobson_bot_of_integral_localization",
+          "statement": "Type*} [CommRing R] [IsDomain R] [IsJacobsonRing R] (R\u2098 S\u2098 : Type*) [CommRing R\u2098] [CommRing S\u2098] (\u03c6 : R \u2192+* S) (h\u03c6 : Function.Injective \u2191\u03c6) (x : R) (hx : x \u2260 0) [Algebra R R\u2098] [IsLocalization.Away x R\u2098] [Algebra S S\u2098] [IsLocalization ((Submonoid.powers x).map \u03c6 : Submonoid S) S\u2098] (h\u03c6' : RingHom.IsIntegral (IsLocalization.map S\u2098 \u03c6 (Submonoid.powers x).le_comap_map : R\u2098 \u2192+* S\u2098)) : (\u22a5 : Ideal S).jacobson = (\u22a5 : Ideal S)",
+          "have_tree": [
+            {
+              "name": "hR\u2098",
+              "type": "IsJacobsonRing R\u2098",
+              "body": "isJacobsonRing_localization x",
+              "children": []
+            },
+            {
+              "name": "hS\u2098",
+              "type": "IsJacobsonRing S\u2098",
+              "body": "isJacobsonRing_of_isIntegral' \u03c6' h\u03c6'",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(I.comap (algebraMap S S\u2098)).IsPrime",
+              "body": "comap_isPrime _ I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(I.comap \u03c6').IsPrime",
+              "body": "comap_isPrime \u03c6' I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "isMaximal_comap_of_isIntegral_of_isMaximal' \u03c6' h\u03c6' I",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "((I.comap (algebraMap S S\u2098)).comap \u03c6).IsMaximal",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "((IsLocalization.isMaximal_iff_isMaximal_disjoint R\u2098 x _).1 this).left",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Ring",
+      "name": "isJacobsonRing_polynomial_of_domain",
+      "statement": "Type*) [CommRing R] [IsDomain R] [hR : IsJacobsonRing R] (P : Ideal R[X]) [IsPrime P] (hP : \u2200 x : R, C x \u2208 P \u2192 x = 0) : P.jacobson = P",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "P'.IsPrime",
+          "body": "comap_isPrime C P",
+          "children": []
+        },
+        {
+          "name": "hR'",
+          "type": "IsJacobsonRing (R \u29f8 P')",
+          "body": "by infer_instance",
+          "children": []
+        },
+        {
+          "name": "hx",
+          "type": "x \u2260 0",
+          "body": "by rwa [Ne, leadingCoeff_eq_zero]",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "isJacobsonRing_polynomial_of_domain",
+          "statement": "Type*) [CommRing R] [IsDomain R] [hR : IsJacobsonRing R] (P : Ideal R[X]) [IsPrime P] (hP : \u2200 x : R, C x \u2208 P \u2192 x = 0) : P.jacobson = P",
+          "have_tree": [
+            {
+              "name": "hR'",
+              "type": "IsJacobsonRing (R \u29f8 P')",
+              "body": "by infer_instance",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "P'.IsPrime",
+              "body": "comap_isPrime C P",
+              "children": []
+            },
+            {
+              "name": "hx",
+              "type": "x \u2260 0",
+              "body": "by rwa [Ne, leadingCoeff_eq_zero]",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "isJacobsonRing_polynomial_of_domain",
+          "statement": "Type*) [CommRing R] [IsDomain R] [hR : IsJacobsonRing R] (P : Ideal R[X]) [IsPrime P] (hP : \u2200 x : R, C x \u2208 P \u2192 x = 0) : P.jacobson = P",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "P'.IsPrime",
+              "body": "comap_isPrime C P",
+              "children": []
+            },
+            {
+              "name": "hx",
+              "type": "x \u2260 0",
+              "body": "by rwa [Ne, leadingCoeff_eq_zero]",
+              "children": []
+            },
+            {
+              "name": "hR'",
+              "type": "IsJacobsonRing (R \u29f8 P')",
+              "body": "by infer_instance",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Ring",
+      "name": "isJacobsonRing_polynomial_of_isJacobsonRing",
+      "statement": "IsJacobsonRing R) : IsJacobsonRing R[X]",
+      "have_tree": [
+        {
+          "name": "hi",
+          "type": "Function.Surjective \u2191i",
+          "body": "((Ideal.Quotient.mk I).comp C).rangeRestrict_surjective",
+          "children": []
+        },
+        {
+          "name": "hi'",
+          "type": "RingHom.ker (mapRingHom i) \u2264 I",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "R'_jacob",
+          "type": "IsJacobsonRing R'",
+          "body": "isJacobsonRing_of_surjective \u27e8i, hi\u27e9",
+          "children": []
+        },
+        {
+          "name": "h_surj",
+          "type": "Function.Surjective (mapRingHom i)",
+          "body": "Polynomial.map_surjective i hi",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "IsPrime J",
+          "body": "map_isPrime_of_surjective h_surj hi'",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "isJacobsonRing_polynomial_of_isJacobsonRing",
+          "statement": "IsJacobsonRing R) : IsJacobsonRing R[X]",
+          "have_tree": [
+            {
+              "name": "hi'",
+              "type": "RingHom.ker (mapRingHom i) \u2264 I",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hi",
+              "type": "Function.Surjective \u2191i",
+              "body": "((Ideal.Quotient.mk I).comp C).rangeRestrict_surjective",
+              "children": []
+            },
+            {
+              "name": "R'_jacob",
+              "type": "IsJacobsonRing R'",
+              "body": "isJacobsonRing_of_surjective \u27e8i, hi\u27e9",
+              "children": []
+            },
+            {
+              "name": "h_surj",
+              "type": "Function.Surjective (mapRingHom i)",
+              "body": "Polynomial.map_surjective i hi",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsPrime J",
+              "body": "map_isPrime_of_surjective h_surj hi'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "isJacobsonRing_polynomial_of_isJacobsonRing",
+          "statement": "IsJacobsonRing R) : IsJacobsonRing R[X]",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "Function.Surjective \u2191i",
+              "body": "((Ideal.Quotient.mk I).comp C).rangeRestrict_surjective",
+              "children": []
+            },
+            {
+              "name": "R'_jacob",
+              "type": "IsJacobsonRing R'",
+              "body": "isJacobsonRing_of_surjective \u27e8i, hi\u27e9",
+              "children": []
+            },
+            {
+              "name": "hi'",
+              "type": "RingHom.ker (mapRingHom i) \u2264 I",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h_surj",
+              "type": "Function.Surjective (mapRingHom i)",
+              "body": "Polynomial.map_surjective i hi",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsPrime J",
+              "body": "map_isPrime_of_surjective h_surj hi'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "isJacobsonRing_polynomial_of_isJacobsonRing",
+          "statement": "IsJacobsonRing R) : IsJacobsonRing R[X]",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "Function.Surjective \u2191i",
+              "body": "((Ideal.Quotient.mk I).comp C).rangeRestrict_surjective",
+              "children": []
+            },
+            {
+              "name": "hi'",
+              "type": "RingHom.ker (mapRingHom i) \u2264 I",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h_surj",
+              "type": "Function.Surjective (mapRingHom i)",
+              "body": "Polynomial.map_surjective i hi",
+              "children": []
+            },
+            {
+              "name": "R'_jacob",
+              "type": "IsJacobsonRing R'",
+              "body": "isJacobsonRing_of_surjective \u27e8i, hi\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsPrime J",
+              "body": "map_isPrime_of_surjective h_surj hi'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "isJacobsonRing_polynomial_of_isJacobsonRing",
+          "statement": "IsJacobsonRing R) : IsJacobsonRing R[X]",
+          "have_tree": [
+            {
+              "name": "hi",
+              "type": "Function.Surjective \u2191i",
+              "body": "((Ideal.Quotient.mk I).comp C).rangeRestrict_surjective",
+              "children": []
+            },
+            {
+              "name": "hi'",
+              "type": "RingHom.ker (mapRingHom i) \u2264 I",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "R'_jacob",
+              "type": "IsJacobsonRing R'",
+              "body": "isJacobsonRing_of_surjective \u27e8i, hi\u27e9",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsPrime J",
+              "body": "map_isPrime_of_surjective h_surj hi'",
+              "children": []
+            },
+            {
+              "name": "h_surj",
+              "type": "Function.Surjective (mapRingHom i)",
+              "body": "Polynomial.map_surjective i hi",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Ring",
+      "name": "isMaximal_comap_C_of_isMaximal",
+      "statement": "\u2200 x : R, C x \u2208 P \u2192 x = 0) : IsMaximal (comap (C : R \u2192+* R[X]) P : Ideal R)",
+      "have_tree": [
+        {
+          "name": "hP'_prime",
+          "type": "P'.IsPrime",
+          "body": "comap_isPrime C P",
+          "children": []
+        },
+        {
+          "name": "hm'",
+          "type": "m \u2260 0",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "hp0",
+          "type": "a \u2260 0",
+          "body": "fun hp0' =>",
+          "children": [
+            {
+              "name": "isloc",
+              "type": "IsLocalization (Submonoid.map \u03c6 M) (Localization M')",
+              "body": "by infer_instance",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          2,
+          0
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "isMaximal_comap_C_of_isMaximal",
+          "statement": "\u2200 x : R, C x \u2208 P \u2192 x = 0) : IsMaximal (comap (C : R \u2192+* R[X]) P : Ideal R)",
+          "have_tree": [
+            {
+              "name": "hP'_prime",
+              "type": "P'.IsPrime",
+              "body": "comap_isPrime C P",
+              "children": []
+            },
+            {
+              "name": "hm'",
+              "type": "m \u2260 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hp0",
+              "type": "a \u2260 0",
+              "body": "fun hp0' =>",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Ring",
+          "name": "isMaximal_comap_C_of_isMaximal",
+          "statement": "\u2200 x : R, C x \u2208 P \u2192 x = 0) : IsMaximal (comap (C : R \u2192+* R[X]) P : Ideal R)",
+          "have_tree": [
+            {
+              "name": "hP'_prime",
+              "type": "P'.IsPrime",
+              "body": "comap_isPrime C P",
+              "children": []
+            },
+            {
+              "name": "hm'",
+              "type": "m \u2260 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "isloc",
+              "type": "IsLocalization (Submonoid.map \u03c6 M) (Localization M')",
+              "body": "by infer_instance",
+              "children": []
+            },
+            {
+              "name": "hp0",
+              "type": "a \u2260 0",
+              "body": "fun hp0' =>",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "isMaximal_comap_C_of_isMaximal",
+          "statement": "\u2200 x : R, C x \u2208 P \u2192 x = 0) : IsMaximal (comap (C : R \u2192+* R[X]) P : Ideal R)",
+          "have_tree": [
+            {
+              "name": "hm'",
+              "type": "m \u2260 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hP'_prime",
+              "type": "P'.IsPrime",
+              "body": "comap_isPrime C P",
+              "children": []
+            },
+            {
+              "name": "hp0",
+              "type": "a \u2260 0",
+              "body": "fun hp0' =>",
+              "children": [
+                {
+                  "name": "isloc",
+                  "type": "IsLocalization (Submonoid.map \u03c6 M) (Localization M')",
+                  "body": "by infer_instance",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "isMaximal_comap_C_of_isMaximal",
+          "statement": "\u2200 x : R, C x \u2208 P \u2192 x = 0) : IsMaximal (comap (C : R \u2192+* R[X]) P : Ideal R)",
+          "have_tree": [
+            {
+              "name": "hP'_prime",
+              "type": "P'.IsPrime",
+              "body": "comap_isPrime C P",
+              "children": []
+            },
+            {
+              "name": "hp0",
+              "type": "a \u2260 0",
+              "body": "fun hp0' =>",
+              "children": [
+                {
+                  "name": "isloc",
+                  "type": "IsLocalization (Submonoid.map \u03c6 M) (Localization M')",
+                  "body": "by infer_instance",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hm'",
+              "type": "m \u2260 0",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Ring",
+      "name": "quotient_mk_comp_C_isIntegral_of_jacobson'",
+      "statement": "IsJacobsonRing R) (hP' : \u2200 x : R, C x \u2208 P \u2192 x = 0) : ((Ideal.Quotient.mk P).comp C : R \u2192+* R[X] \u29f8 P).IsIntegral",
+      "have_tree": [
+        {
+          "name": "hP'_prime",
+          "type": "P'.IsPrime",
+          "body": "comap_isPrime C P",
+          "children": [
+            {
+              "name": "isloc",
+              "type": "IsLocalization M' (Localization M')",
+              "body": "by infer_instance",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "quotient_mk_comp_C_isIntegral_of_jacobson'",
+          "statement": "IsJacobsonRing R) (hP' : \u2200 x : R, C x \u2208 P \u2192 x = 0) : ((Ideal.Quotient.mk P).comp C : R \u2192+* R[X] \u29f8 P).IsIntegral",
+          "have_tree": [
+            {
+              "name": "hP'_prime",
+              "type": "P'.IsPrime",
+              "body": "comap_isPrime C P",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Ring",
+          "name": "quotient_mk_comp_C_isIntegral_of_jacobson'",
+          "statement": "IsJacobsonRing R) (hP' : \u2200 x : R, C x \u2208 P \u2192 x = 0) : ((Ideal.Quotient.mk P).comp C : R \u2192+* R[X] \u29f8 P).IsIntegral",
+          "have_tree": [
+            {
+              "name": "isloc",
+              "type": "IsLocalization M' (Localization M')",
+              "body": "by infer_instance",
+              "children": []
+            },
+            {
+              "name": "hP'_prime",
+              "type": "P'.IsPrime",
+              "body": "comap_isPrime C P",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Ring",
+      "name": "quotient_mk_comp_C_isIntegral_of_isJacobsonRing",
+      "statement": "((Ideal.Quotient.mk P).comp C : R \u2192+* R[X] \u29f8 P).IsIntegral",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "P'.IsPrime",
+          "body": "comap_isPrime C P",
+          "children": []
+        },
+        {
+          "name": "hf",
+          "type": "Function.Surjective \u2191f",
+          "body": "map_surjective (Ideal.Quotient.mk P') Quotient.mk_surjective",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "IsMaximal (Ideal.map (mapRingHom (Ideal.Quotient.mk (comap C P))) P)",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "quotient_mk_comp_C_isIntegral_of_isJacobsonRing",
+          "statement": "((Ideal.Quotient.mk P).comp C : R \u2192+* R[X] \u29f8 P).IsIntegral",
+          "have_tree": [
+            {
+              "name": "hf",
+              "type": "Function.Surjective \u2191f",
+              "body": "map_surjective (Ideal.Quotient.mk P') Quotient.mk_surjective",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "P'.IsPrime",
+              "body": "comap_isPrime C P",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsMaximal (Ideal.map (mapRingHom (Ideal.Quotient.mk (comap C P))) P)",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "quotient_mk_comp_C_isIntegral_of_isJacobsonRing",
+          "statement": "((Ideal.Quotient.mk P).comp C : R \u2192+* R[X] \u29f8 P).IsIntegral",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "P'.IsPrime",
+              "body": "comap_isPrime C P",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "IsMaximal (Ideal.map (mapRingHom (Ideal.Quotient.mk (comap C P))) P)",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hf",
+              "type": "Function.Surjective \u2191f",
+              "body": "map_surjective (Ideal.Quotient.mk P') Quotient.mk_surjective",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Ring",
+      "name": "comp_C_integral_of_surjective_of_isJacobsonRing",
+      "statement": "Type*} [CommRing R] [IsJacobsonRing R] {\u03c3 : Type*} [Finite \u03c3] {S : Type*} [Field S] (f : MvPolynomial \u03c3 R \u2192+* S) (hf : Function.Surjective \u2191f) : (f.comp C).IsIntegral",
+      "have_tree": [
+        {
+          "name": "e",
+          "type": "",
+          "body": "(Fintype.equivFin \u03c3).symm",
+          "children": []
+        },
+        {
+          "name": "hf'",
+          "type": "",
+          "body": "Function.Surjective.comp hf (renameEquiv R e).surjective",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "(f'.comp C).IsIntegral",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "(RingHom.ker f').IsMaximal",
+              "body": "ker_isMaximal_of_surjective f' hf'",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          2,
+          0
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "comp_C_integral_of_surjective_of_isJacobsonRing",
+          "statement": "Type*} [CommRing R] [IsJacobsonRing R] {\u03c3 : Type*} [Finite \u03c3] {S : Type*} [Field S] (f : MvPolynomial \u03c3 R \u2192+* S) (hf : Function.Surjective \u2191f) : (f.comp C).IsIntegral",
+          "have_tree": [
+            {
+              "name": "e",
+              "type": "",
+              "body": "(Fintype.equivFin \u03c3).symm",
+              "children": []
+            },
+            {
+              "name": "hf'",
+              "type": "",
+              "body": "Function.Surjective.comp hf (renameEquiv R e).surjective",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(f'.comp C).IsIntegral",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Ring",
+          "name": "comp_C_integral_of_surjective_of_isJacobsonRing",
+          "statement": "Type*} [CommRing R] [IsJacobsonRing R] {\u03c3 : Type*} [Finite \u03c3] {S : Type*} [Field S] (f : MvPolynomial \u03c3 R \u2192+* S) (hf : Function.Surjective \u2191f) : (f.comp C).IsIntegral",
+          "have_tree": [
+            {
+              "name": "e",
+              "type": "",
+              "body": "(Fintype.equivFin \u03c3).symm",
+              "children": []
+            },
+            {
+              "name": "hf'",
+              "type": "",
+              "body": "Function.Surjective.comp hf (renameEquiv R e).surjective",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(RingHom.ker f').IsMaximal",
+              "body": "ker_isMaximal_of_surjective f' hf'",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(f'.comp C).IsIntegral",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "comp_C_integral_of_surjective_of_isJacobsonRing",
+          "statement": "Type*} [CommRing R] [IsJacobsonRing R] {\u03c3 : Type*} [Finite \u03c3] {S : Type*} [Field S] (f : MvPolynomial \u03c3 R \u2192+* S) (hf : Function.Surjective \u2191f) : (f.comp C).IsIntegral",
+          "have_tree": [
+            {
+              "name": "hf'",
+              "type": "",
+              "body": "Function.Surjective.comp hf (renameEquiv R e).surjective",
+              "children": []
+            },
+            {
+              "name": "e",
+              "type": "",
+              "body": "(Fintype.equivFin \u03c3).symm",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(f'.comp C).IsIntegral",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "(RingHom.ker f').IsMaximal",
+                  "body": "ker_isMaximal_of_surjective f' hf'",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "comp_C_integral_of_surjective_of_isJacobsonRing",
+          "statement": "Type*} [CommRing R] [IsJacobsonRing R] {\u03c3 : Type*} [Finite \u03c3] {S : Type*} [Field S] (f : MvPolynomial \u03c3 R \u2192+* S) (hf : Function.Surjective \u2191f) : (f.comp C).IsIntegral",
+          "have_tree": [
+            {
+              "name": "e",
+              "type": "",
+              "body": "(Fintype.equivFin \u03c3).symm",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(f'.comp C).IsIntegral",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "(RingHom.ker f').IsMaximal",
+                  "body": "ker_isMaximal_of_surjective f' hf'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hf'",
+              "type": "",
+              "body": "Function.Surjective.comp hf (renameEquiv R e).surjective",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Ring",
+      "name": "finite_of_finite_type_of_isJacobsonRing",
+      "statement": "Type*) [CommRing R] [Field S] [Algebra R S] [IsJacobsonRing R] [Algebra.FiniteType R S] : Module.Finite R S",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "(algebraMap R S).IsIntegral",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Algebra.IsIntegral R S",
+          "body": "Algebra.isIntegral_def.mpr this",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Ring",
+          "name": "finite_of_finite_type_of_isJacobsonRing",
+          "statement": "Type*) [CommRing R] [Field S] [Algebra R S] [IsJacobsonRing R] [Algebra.FiniteType R S] : Module.Finite R S",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Algebra.IsIntegral R S",
+              "body": "Algebra.isIntegral_def.mpr this",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(algebraMap R S).IsIntegral",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,103 @@
+[
+  {
+    "module": "Relations",
+    "name": "lie_e_f_same_aux",
+    "statement": "\u03b9) (hki : k \u2260 i) (hki' : k \u2260 P.reflectionPerm i i) : \u2045e i, f i\u2046 (Sum.inr k) (Sum.inr k) = h i (Sum.inr k) (Sum.inr k)",
+    "have_tree": [
+      {
+        "name": "h_lin_ind",
+        "type": "LinearIndependent R ![P.root i, P.root k]",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u03b9) : P.root x = P.root k - P.root i \u2194 P.root k = P.root i + P.root x",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "\u03b9) : P.root x = P.root i + P.root k \u2194 P.root k = P.root x - P.root i",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "h_lin_ind_y",
+            "type": "LinearIndependent R ![P.root i, P.root y]",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hx'",
+            "type": "P.chainBotCoeff i k = P.chainBotCoeff i x + 1",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "hy'",
+            "type": "P.chainTopCoeff i k = P.chainTopCoeff i y + 1",
+            "body": "chainTopCoeff_of_sub h_lin_ind_y hy",
+            "children": []
+          },
+          {
+            "name": "h_lin_ind_x",
+            "type": "LinearIndependent R ![P.root i, P.root x]",
+            "body": "by simpa [hx] using h_lin_ind",
+            "children": []
+          },
+          {
+            "name": "hx'",
+            "type": "P.chainBotCoeff i k = P.chainBotCoeff i x + 1",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "h_lin_ind_y",
+            "type": "LinearIndependent R ![P.root i, P.root y]",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hy'",
+            "type": "P.chainTopCoeff i k = P.chainTopCoeff i y + 1",
+            "body": "chainTopCoeff_of_sub h_lin_ind_y hy",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Relations",
+    "name": "lie_e_f_same",
+    "statement": "\u2045e i, f i\u2046 = h i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAddTorsionFree M",
+        "body": ".of_isTorsionFree R M",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u03b9) : \u00ac (P.root x = P.root i + P.root l \u2227 k = i \u2227 x = i)",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "\u03b9) : \u00ac P.root (-i) = P.root x - P.root i",
+                "body": "by",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

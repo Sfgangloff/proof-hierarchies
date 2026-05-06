@@ -1,0 +1,184 @@
+[
+  {
+    "module": "Pretriangulated",
+    "name": "productTriangle_distinguished",
+    "statement": "Type*} (T : J \u2192 Triangle C) (hT : \u2200 j, T j \u2208 distTriang C) [HasProduct (fun j => (T j).obj\u2081)] [HasProduct (fun j => (T j).obj\u2082)] [HasProduct (fun j => (T j).obj\u2083)] [HasProduct (fun j => (T j).obj\u2081\u27e6(1 : \u2124)\u27e7)] : productTriangle T \u2208 distTriang C",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "\u03c6'.hom\u2081 = \ud835\udfd9 _",
+        "body": "by cat_disch",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "\u03c6'.hom\u2082 = \ud835\udfd9 _",
+        "body": "by cat_disch",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsIso \u03c6'.hom\u2081",
+        "body": "by rw [h\u2081]; infer_instance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsIso \u03c6'.hom\u2082",
+        "body": "by rw [h\u2082]; infer_instance",
+        "children": [
+          {
+            "name": "_",
+            "type": "IsIso \u03c6'",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hf'",
+            "type": "f \u226b T'.mor\u2083 = 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hg'",
+            "type": "\u2200 j, (g \u226b Pi.\u03c0 _ j) \u226b (T j).mor\u2082 = 0",
+            "body": "fun j => by",
+            "children": [
+              {
+                "name": "_",
+                "type": "g \u226b T'.mor\u2082 \u226b \u03c6'.hom\u2083 \u226b Pi.\u03c0 _ j = 0",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "hg''",
+            "type": "",
+            "body": "fun j => (T j).coyoneda_exact\u2082 (hT j) _ (hg' j)",
+            "children": []
+          },
+          {
+            "name": "h\u03b1",
+            "type": "\u2200 j, _ = \u03b1 j \u226b _",
+            "body": "fun j => (hg'' j).choose_spec",
+            "children": []
+          },
+          {
+            "name": "hg'''",
+            "type": "g = Pi.lift \u03b1 \u226b T'.mor\u2081",
+            "body": "by dsimp [f\u2081, T']; ext j; rw [h\u03b1]; simp",
+            "children": [
+              {
+                "name": "zero",
+                "type": "((productTriangle T).mor\u2083) \u226b (shiftFunctor C 1).map T'.mor\u2081 = 0",
+                "body": "by",
+                "children": []
+              },
+              {
+                "name": "_",
+                "type": "",
+                "body": "T'.coyoneda_exact\u2081 hT' (a \u226b (productTriangle T).mor\u2083) (by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "ha''",
+            "type": "",
+            "body": "fun (j : J) => (T j).coyoneda_exact\u2083 (hT j) ((a - a' \u226b \u03c6'.hom\u2083) \u226b Pi.\u03c0 _ j) (by",
+            "children": []
+          },
+          {
+            "name": "hb",
+            "type": "\u2200 j, _ = b j \u226b _",
+            "body": "fun j => (ha'' j).choose_spec",
+            "children": []
+          },
+          {
+            "name": "hb'",
+            "type": "a - a' \u226b \u03c6'.hom\u2083 = Pi.lift b \u226b (productTriangle T).mor\u2082",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "(a' + (by exact Pi.lift b) \u226b T'.mor\u2082) \u226b \u03c6'.hom\u2083 = a",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Pretriangulated",
+    "name": "isoTriangleOfIso\u2081\u2082",
+    "statement": "Triangle C) (hT\u2081 : T\u2081 \u2208 distTriang C) (hT\u2082 : T\u2082 \u2208 distTriang C) (e\u2081 : T\u2081.obj\u2081 \u2245 T\u2082.obj\u2081) (e\u2082 : T\u2081.obj\u2082 \u2245 T\u2082.obj\u2082) (comm : T\u2081.mor\u2081 \u226b e\u2082.hom = e\u2081.hom \u226b T\u2082.mor\u2081) : T\u2081 \u2245 T\u2082",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "exists_iso_of_arrow_iso T\u2081 T\u2082 hT\u2081 hT\u2082 (Arrow.isoMk e\u2081 e\u2082 comm.symm)",
+        "children": [
+          {
+            "name": "eq",
+            "type": "",
+            "body": "h.choose_spec.2",
+            "children": []
+          },
+          {
+            "name": "eq",
+            "type": "",
+            "body": "h.choose_spec.1",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Pretriangulated",
+    "name": "isoTriangleOfIso\u2081\u2083",
+    "statement": "Triangle C) (hT\u2081 : T\u2081 \u2208 distTriang C) (hT\u2082 : T\u2082 \u2208 distTriang C) (e\u2081 : T\u2081.obj\u2081 \u2245 T\u2082.obj\u2081) (e\u2083 : T\u2081.obj\u2083 \u2245 T\u2082.obj\u2083) (comm : T\u2081.mor\u2083 \u226b (shiftFunctor C 1).map e\u2081.hom = e\u2083.hom \u226b T\u2082.mor\u2083) : T\u2081 \u2245 T\u2082",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "exists_iso_of_arrow_iso _ _ (inv_rot_of_distTriang _ hT\u2081)",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "(shiftFunctorCompIsoId C (1 : \u2124) (-1) (by simp)).hom.naturality e\u2081.hom",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h\u2081",
+        "type": "e.hom.hom\u2081 = _",
+        "body": "h.choose_spec.1",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "_ = e.hom.hom\u2082",
+        "body": "h.choose_spec.2.symm",
+        "children": []
+      },
+      {
+        "name": "h\u2083",
+        "type": "",
+        "body": "e.hom.comm\u2083",
+        "children": []
+      },
+      {
+        "name": "h\u2084",
+        "type": "",
+        "body": "(shiftFunctorCompIsoId C (-1 : \u2124) 1 (by simp)).inv.naturality e\u2083.hom",
+        "children": []
+      }
+    ]
+  }
+]

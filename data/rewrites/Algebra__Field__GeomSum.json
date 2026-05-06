@@ -1,0 +1,99 @@
+[
+  {
+    "original": {
+      "module": "GeomSum",
+      "name": "geom_sum_inv",
+      "statement": "x \u2260 1) (hx0 : x \u2260 0) (n : \u2115) : \u2211 i \u2208 range n, x\u207b\u00b9 ^ i = (x - 1)\u207b\u00b9 * (x - x\u207b\u00b9 ^ n * x)",
+      "have_tree": [
+        {
+          "name": "h\u2081",
+          "type": "x\u207b\u00b9 \u2260 1",
+          "body": "by rwa [inv_eq_one_div, Ne, div_eq_iff_mul_eq hx0, one_mul]",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "x\u207b\u00b9 - 1 \u2260 0",
+          "body": "mt sub_eq_zero.1 h\u2081",
+          "children": []
+        },
+        {
+          "name": "h\u2083",
+          "type": "x - 1 \u2260 0",
+          "body": "mt sub_eq_zero.1 hx1",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "GeomSum",
+          "name": "geom_sum_inv",
+          "statement": "x \u2260 1) (hx0 : x \u2260 0) (n : \u2115) : \u2211 i \u2208 range n, x\u207b\u00b9 ^ i = (x - 1)\u207b\u00b9 * (x - x\u207b\u00b9 ^ n * x)",
+          "have_tree": [
+            {
+              "name": "h\u2082",
+              "type": "x\u207b\u00b9 - 1 \u2260 0",
+              "body": "mt sub_eq_zero.1 h\u2081",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "x\u207b\u00b9 \u2260 1",
+              "body": "by rwa [inv_eq_one_div, Ne, div_eq_iff_mul_eq hx0, one_mul]",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "x - 1 \u2260 0",
+              "body": "mt sub_eq_zero.1 hx1",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "GeomSum",
+          "name": "geom_sum_inv",
+          "statement": "x \u2260 1) (hx0 : x \u2260 0) (n : \u2115) : \u2211 i \u2208 range n, x\u207b\u00b9 ^ i = (x - 1)\u207b\u00b9 * (x - x\u207b\u00b9 ^ n * x)",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "x\u207b\u00b9 \u2260 1",
+              "body": "by rwa [inv_eq_one_div, Ne, div_eq_iff_mul_eq hx0, one_mul]",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "x - 1 \u2260 0",
+              "body": "mt sub_eq_zero.1 hx1",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "x\u207b\u00b9 - 1 \u2260 0",
+              "body": "mt sub_eq_zero.1 h\u2081",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

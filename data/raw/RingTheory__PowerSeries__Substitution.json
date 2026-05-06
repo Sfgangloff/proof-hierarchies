@@ -1,0 +1,73 @@
+[
+  {
+    "module": "Substitution",
+    "name": "constantCoeff_subst_eq_zero",
+    "statement": "a.constantCoeff = 0) (f : PowerSeries R) (hf : f.constantCoeff = 0) : MvPowerSeries.constantCoeff (subst a f) = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "MvPowerSeries.constantCoeff_subst_eq_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Substitution",
+    "name": "subst_rescale_of_degree_eq_one",
+    "statement": "R) {\u03c3 : Type*} (p : MvPowerSeries \u03c3 R) (hp_lin : \u2200 d \u2208 Function.support p, d.degree = 1) (f : PowerSeries R) : subst p (rescale a f) = MvPowerSeries.rescale (Function.const \u03c3 a) (subst p f)",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "PowerSeries.HasSubst p",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Substitution",
+    "name": "subst_substInv_right",
+    "statement": "P.subst (substInv P) = X",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "coeff_subst_sum_C_substInvFun_mul_X_pow_sub_X P hP n",
+        "children": [
+          {
+            "name": "_",
+            "type": "X ^ (n + 1) \u2223 mk (substInvFun P) - B",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Substitution",
+    "name": "subst_substInv_left",
+    "statement": "P.substInv.subst P = X",
+    "have_tree": [
+      {
+        "name": "hP'",
+        "type": "HasSubst P",
+        "body": "by simp [HasSubst, \u2190 constantCoeff.eq_def, hP]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Invertible (Q.coeff 1)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hQ'",
+        "type": "HasSubst Q",
+        "body": "by simp [HasSubst, \u2190 constantCoeff.eq_def, hQ]",
+        "children": []
+      }
+    ]
+  }
+]

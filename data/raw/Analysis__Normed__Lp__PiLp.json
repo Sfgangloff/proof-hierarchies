@@ -1,0 +1,93 @@
+[
+  {
+    "module": "PiLp",
+    "name": "pseudoMetricAux",
+    "statement": "PseudoMetricSpace (PiLp p \u03b1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "BddAbove <| .range fun i \u21a6 dist (f i) (g i)",
+        "body": "Finite.bddAbove_range _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PiLp",
+    "name": "antilipschitzWith_ofLp_aux",
+    "statement": "AntilipschitzWith ((Fintype.card \u03b9 : \u211d\u22650) ^ (1 / p).toReal) (@ofLp p (\u2200 i, \u03b2 i))",
+    "have_tree": [
+      {
+        "name": "nonneg",
+        "type": "0 \u2264 1 / p.toReal",
+        "body": "one_div_nonneg.2 (le_of_lt pos)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PiLp",
+    "name": "isUniformInducing_toLp",
+    "statement": "IsUniformInducing (@toLp p (\u03a0 i, \u03b2 i))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PiLp",
+    "name": "nnnorm_toLp",
+    "statement": "\u2200 i, \u03b2 i) : \u2016toLp \u221e f\u2016\u208a = \u2016f\u2016\u208a",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "p.toReal_pos_iff_ne_top.mpr (ne_of_eq_of_ne h <| ENNReal.natCast_ne_top n)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PiLp",
+    "name": "edist_eq_of_L2",
+    "statement": "PiLp 2 \u03b2) : edist x y = (\u2211 i, edist (x i) (y i) ^ 2) ^ (1 / 2 : \u211d)",
+    "have_tree": [
+      {
+        "name": "hpt",
+        "type": "p \u2260 \u22a4",
+        "body": "p.toReal_pos_iff_ne_top.mp hp0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PiLp",
+    "name": "sumPiLpEquivProdLpPiLp",
+    "statement": "WithLp p (\u03a0 i, \u03b1 i) \u2243\u2097\u1d62[\ud835\udd5c] WithLp p (WithLp p (\u03a0 i, \u03b1 (.inl i)) \u00d7 WithLp p (\u03a0 i, \u03b1 (.inr i))) where toLinearEquiv",
+    "have_tree": [
+      {
+        "name": "hpt",
+        "type": "p \u2260 \u22a4",
+        "body": "(toReal_pos_iff_ne_top p).mp this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PiLp",
+    "name": "basisFun_map",
+    "statement": "(basisFun p \ud835\udd5c \u03b9).map (WithLp.linearEquiv p \ud835\udd5c (\u03b9 \u2192 \ud835\udd5c)) = Pi.basisFun \ud835\udd5c \u03b9",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "basis_toMatrix_basisFun_mul (b.map (WithLp.linearEquiv _ \ud835\udd5c _)) A",
+        "children": []
+      }
+    ]
+  }
+]

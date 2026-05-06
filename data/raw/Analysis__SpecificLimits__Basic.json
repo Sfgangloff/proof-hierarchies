@@ -1,0 +1,105 @@
+[
+  {
+    "module": "Basic",
+    "name": "tendsto_pow_atTop_nhds_zero_of_lt_one",
+    "statement": "Type*} [Semifield \ud835\udd5c] [LinearOrder \ud835\udd5c] [IsStrictOrderedRing \ud835\udd5c] [ExistsAddOfLE \ud835\udd5c] [Archimedean \ud835\udd5c] [TopologicalSpace \ud835\udd5c] [OrderTopology \ud835\udd5c] {r : \ud835\udd5c} (h\u2081 : 0 \u2264 r) (h\u2082 : r < 1) : Tendsto (fun n : \u2115 \u21a6 r ^ n) atTop (\ud835\udcdd 0)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(one_lt_inv\u2080 hr).2 h\u2082 |> tendsto_pow_atTop_atTop_of_one_lt",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "ENNReal.tendsto_pow_atTop_nhds_top_iff",
+    "statement": "\u211d\u22650\u221e} : Tendsto (fun n \u21a6 r ^ n) atTop (\ud835\udcdd \u221e) \u2194 1 < r",
+    "have_tree": [
+      {
+        "name": "obs",
+        "type": "",
+        "body": "@Tendsto.inv \u211d\u22650\u221e \u2115 _ _ _ (fun n \u21a6 (r\u207b\u00b9) ^ n) atTop 0",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "hasSum_geometric_of_lt_one",
+    "statement": "\u211d} (h\u2081 : 0 \u2264 r) (h\u2082 : r < 1) : HasSum (fun n : \u2115 \u21a6 r ^ n) (1 - r)\u207b\u00b9",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "r \u2260 1",
+        "body": "ne_of_lt h\u2082",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Tendsto (fun n \u21a6 (r ^ n - 1) * (r - 1)\u207b\u00b9) atTop (\ud835\udcdd ((0 - 1) * (r - 1)\u207b\u00b9))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "dist_le_of_le_geometric_of_tendsto",
+    "statement": "\u03b1} (ha : Tendsto f atTop (\ud835\udcdd a)) (n : \u2115) : dist (f n) a \u2264 C * r ^ n / (1 - r)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "aux_hasSum_of_le_geometric hr hu",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "posSumOfEncodable",
+    "statement": "\u211d} (h\u03b5 : 0 < \u03b5) (\u03b9) [Encodable \u03b9] : { \u03b5' : \u03b9 \u2192 \u211d // (\u2200 i, 0 < \u03b5' i) \u2227 \u2203 c, HasSum \u03b5' c \u2227 c \u2264 \u03b5 }",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "HasSum f \u03b5",
+        "body": "hasSum_geometric_two' _",
+        "children": []
+      },
+      {
+        "name": "f0",
+        "type": "\u2200 n, 0 < f n",
+        "body": "fun n \u21a6 div_pos (half_pos h\u03b5) (pow_pos zero_lt_two _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "exists_pos_tsum_mul_lt_of_countable",
+    "statement": "\u211d\u22650\u221e} (h\u03b5 : \u03b5 \u2260 0) {\u03b9} [Countable \u03b9] (w : \u03b9 \u2192 \u211d\u22650\u221e) (hw : \u2200 i, w i \u2260 \u221e) : \u2203 \u03b4 : \u03b9 \u2192 \u211d\u22650, (\u2200 i, 0 < \u03b4 i) \u2227 (\u2211' i, (w i * \u03b4 i : \u211d\u22650\u221e)) < \u03b5",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 i, 0 < max 1 (w i)",
+        "body": "fun i \u21a6 zero_lt_one.trans_le (le_max_left _ _)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "tendsto_nat_floor_mul_div_atTop",
+    "statement": "R} (ha : 0 \u2264 a) : Tendsto (fun x \u21a6 (\u230aa * x\u230b\u208a : R) / x) atTop (\ud835\udcdd a)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Nat.lt_floor_add_one (a * x)",
+        "children": []
+      }
+    ]
+  }
+]

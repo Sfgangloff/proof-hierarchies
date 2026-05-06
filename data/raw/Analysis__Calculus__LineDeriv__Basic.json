@@ -1,0 +1,66 @@
+[
+  {
+    "module": "Basic",
+    "name": "hasLineDerivWithinAt_congr_set",
+    "statement": "s =\u1da0[\ud835\udcdd x] t) : HasLineDerivWithinAt \ud835\udd5c f f' s x v \u2194 HasLineDerivWithinAt \ud835\udd5c f f' t x v",
+    "have_tree": [
+      {
+        "name": "B",
+        "type": "ContinuousAt F 0",
+        "body": "by apply Continuous.continuousAt; fun_prop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "lineDerivWithin_congr_set",
+    "statement": "s =\u1da0[\ud835\udcdd x] t) : lineDerivWithin \ud835\udd5c f s x v = lineDerivWithin \ud835\udd5c f t x v",
+    "have_tree": [
+      {
+        "name": "B",
+        "type": "ContinuousAt F 0",
+        "body": "by apply Continuous.continuousAt; fun_prop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "Filter.EventuallyEq.hasLineDerivAt_iff",
+    "statement": "f\u2080 =\u1da0[\ud835\udcdd x] f\u2081) : HasLineDerivAt \ud835\udd5c f\u2080 f' x v \u2194 HasLineDerivAt \ud835\udd5c f\u2081 f' x v",
+    "have_tree": [
+      {
+        "name": "B",
+        "type": "ContinuousAt F 0",
+        "body": "by apply Continuous.continuousAt; fun_prop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "HasLineDerivWithinAt.smul",
+    "statement": "HasLineDerivWithinAt \ud835\udd5c f f' s x v) (c : \ud835\udd5c) : HasLineDerivWithinAt \ud835\udd5c f (c \u2022 f') s x (c \u2022 v)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "HasDerivAt g c 0",
+        "body": "by simpa using (hasDerivAt_id (0 : \ud835\udd5c)).const_smul c",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "HasDerivWithinAt (fun t \u21a6 f (x + t \u2022 v)) f' s' (g 0)",
+        "body": "by simpa [g] using h",
+        "children": []
+      },
+      {
+        "name": "Z",
+        "type": "",
+        "body": "B.scomp (0 : \ud835\udd5c) A.hasDerivWithinAt (mapsTo_preimage g s')",
+        "children": []
+      }
+    ]
+  }
+]

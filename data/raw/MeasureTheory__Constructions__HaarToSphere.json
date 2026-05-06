@@ -1,0 +1,92 @@
+[
+  {
+    "module": "HaarToSphere",
+    "name": "volumeIoiPow_apply_Iio",
+    "statement": "\u2115) (x : Ioi (0 : \u211d)) : volumeIoiPow n (Iio x) = ENNReal.ofReal (x.1 ^ (n + 1) / (n + 1))",
+    "have_tree": [
+      {
+        "name": "hr\u2080",
+        "type": "0 \u2264 x.1",
+        "body": "le_of_lt x.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HaarToSphere",
+    "name": "measurePreserving_homeomorphUnitSphereProd",
+    "statement": "MeasurePreserving (homeomorphUnitSphereProd E) (\u03bc.comap (\u2191)) (\u03bc.toSphere.prod (volumeIoiPow (dim E - 1)))",
+    "have_tree": [
+      {
+        "name": "hpos",
+        "type": "0 < dim E",
+        "body": "Module.finrank_pos",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HaarToSphere",
+    "name": "ball_subset_sector_of_small_epsilon",
+    "statement": "Type*} [NormedAddCommGroup E] [NormedSpace \u211d E] (x : E) (hx : \u2016x\u2016 = 1) (\u03b5 : \u211d) (h\u03b5 : 0 < \u03b5) (h\u03b52 : \u03b5 \u2264 2) : ball ((1 - \u03b5 / 4) \u2022 x) (\u03b5 / 4) \u2286 Ioo (0 : \u211d) 1 \u2022 (ball x \u03b5 \u2229 sphere (0 : E) 1)",
+    "have_tree": [
+      {
+        "name": "hy\u2080",
+        "type": "y \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "1 - \u03b5 / 4 < \u03b5 / 4",
+            "body": "by simpa [norm_smul, habs, hx] using hy",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hy\u2081",
+        "type": "\u2016y\u2016 < 1",
+        "body": "calc",
+        "children": []
+      },
+      {
+        "name": "hyx",
+        "type": "",
+        "body": "calc",
+        "children": []
+      },
+      {
+        "name": "huy",
+        "type": "dist u y \u2264 dist x y",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HaarToSphere",
+    "name": "toSphereBallBound_mul_measure_unitBall_le_toSphere_ball",
+    "statement": "\u211d} (h\u03b5 : 0 < \u03b5) (x : sphere (0 : E) 1) : toSphereBallBound (Module.finrank \u211d E) \u03b5 * \u03bc (ball 0 1) \u2264 \u03bc.toSphere (ball x \u03b5)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nontrivial E",
+        "body": "\u27e8\u27e8x, 0, ne_of_apply_ne Norm.norm (by simp)\u27e9\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "HaarToSphere",
+    "name": "integrable_fun_norm_addHaar",
+    "statement": "\u211d \u2192 F} : Integrable (f \u2016\u00b7\u2016) \u03bc \u2194 IntegrableOn (fun y : \u211d \u21a6 y ^ (dim E - 1) \u2022 f y) (Ioi 0)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "\u03bc.measurePreserving_homeomorphUnitSphereProd.integrable_comp_emb (g := f \u2218 (\u2191) \u2218 Prod.snd)",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Basic",
+    "name": "factorial_mul_pow_le_factorial",
+    "statement": "\u2200 {m n : \u2115}, m ! * (m + 1) ^ n \u2264 (m + n)! | m, 0 => by simp | m, n + 1 => by rw [\u2190 Nat.add_assoc, factorial_succ, Nat.mul_comm (_ + 1), Nat.pow_succ, \u2190 Nat.mul_assoc] exact Nat.mul_le_mul factorial_mul_pow_le_factorial (succ_le_succ (le_add_right _ _))  theorem factorial_lt (hn : 0 < n) : n ! < m ! \u2194 n < m",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 {n}, 0 < n \u2192 n ! < (n + 1)!",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "self_le_factorial",
+    "statement": "\u2200 n : \u2115, n \u2264 n ! | 0 => Nat.zero_le _ | k + 1 => Nat.le_mul_of_pos_right _ (Nat.one_le_of_lt k.factorial_pos)  theorem lt_factorial_self {n : \u2115} (hi : 3 \u2264 n) : n < n !",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < n",
+        "body": "by lia",
+        "children": []
+      },
+      {
+        "name": "hn",
+        "type": "1 < pred n",
+        "body": "le_pred_of_lt (succ_le_iff.mp hi)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "add_factorial_succ_lt_factorial_add_succ",
+    "statement": "\u2115} (n : \u2115) (hi : 2 \u2264 i) : i + (n + 1)! < (i + n + 1)!",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(i + n).self_le_factorial",
+        "children": []
+      }
+    ]
+  }
+]

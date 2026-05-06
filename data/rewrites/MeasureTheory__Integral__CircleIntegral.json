@@ -1,0 +1,72 @@
+[
+  {
+    "original": {
+      "module": "CircleIntegral",
+      "name": "hasSum_two_pi_I_cauchyPowerSeries_integral",
+      "statement": "\u2102 \u2192 E} {c : \u2102} {R : \u211d} {w : \u2102} (hf : CircleIntegrable f c R) (hw : \u2016w\u2016 < R) : HasSum (fun n : \u2115 => \u222e z in C(c, R), (w / (z - c)) ^ n \u2022 (z - c)\u207b\u00b9 \u2022 f z) (\u222e z in C(c, R), (z - (c + w))\u207b\u00b9 \u2022 f z)",
+      "have_tree": [
+        {
+          "name": "hR",
+          "type": "0 < R",
+          "body": "(norm_nonneg w).trans_lt hw",
+          "children": [
+            {
+              "name": "_",
+              "type": "\u2016w / (circleMap c R \u03b8 - c)\u2016 < 1",
+              "body": "by simpa [abs_of_pos hR] using hwR.2",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "CircleIntegral",
+          "name": "hasSum_two_pi_I_cauchyPowerSeries_integral",
+          "statement": "\u2102 \u2192 E} {c : \u2102} {R : \u211d} {w : \u2102} (hf : CircleIntegrable f c R) (hw : \u2016w\u2016 < R) : HasSum (fun n : \u2115 => \u222e z in C(c, R), (w / (z - c)) ^ n \u2022 (z - c)\u207b\u00b9 \u2022 f z) (\u222e z in C(c, R), (z - (c + w))\u207b\u00b9 \u2022 f z)",
+          "have_tree": [
+            {
+              "name": "hR",
+              "type": "0 < R",
+              "body": "(norm_nonneg w).trans_lt hw",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "CircleIntegral",
+          "name": "hasSum_two_pi_I_cauchyPowerSeries_integral",
+          "statement": "\u2102 \u2192 E} {c : \u2102} {R : \u211d} {w : \u2102} (hf : CircleIntegrable f c R) (hw : \u2016w\u2016 < R) : HasSum (fun n : \u2115 => \u222e z in C(c, R), (w / (z - c)) ^ n \u2022 (z - c)\u207b\u00b9 \u2022 f z) (\u222e z in C(c, R), (z - (c + w))\u207b\u00b9 \u2022 f z)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "\u2016w / (circleMap c R \u03b8 - c)\u2016 < 1",
+              "body": "by simpa [abs_of_pos hR] using hwR.2",
+              "children": []
+            },
+            {
+              "name": "hR",
+              "type": "0 < R",
+              "body": "(norm_nonneg w).trans_lt hw",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

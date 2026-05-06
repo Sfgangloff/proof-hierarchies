@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Formula",
+    "name": "dblXYZ_of_Z_ne_zero",
+    "statement": "Fin 3 \u2192 F} (hP : W.Equation P) (hQ : W.Equation Q) (hPz : P z \u2260 0) (hQz : Q z \u2260 0) (hx : P x * Q z = Q x * P z) (hy : P y * Q z \u2260 W.negY Q * P z) : W.dblXYZ P = W.dblZ P \u2022 ![W.toAffine.addX (P x / P z) (Q x / Q z) (W.toAffine.slope (P x / P z) (Q x / Q z) (P y / P z) (Q y / Q z)), W.toAffine.addY (P x / P z) (Q x / Q z) (P y / P z) (W.toAffine.slope (P x / P z) (Q x / Q z) (P y / P z) (Q y / Q z)), 1]",
+    "have_tree": [
+      {
+        "name": "hZ",
+        "type": "IsUnit <| W.dblZ P",
+        "body": "isUnit_dblZ_of_Y_ne' hP hQ hPz hQz hx hy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Formula",
+    "name": "addXYZ_of_Z_ne_zero",
+    "statement": "Fin 3 \u2192 F} (hP : W.Equation P) (hQ : W.Equation Q) (hPz : P z \u2260 0) (hQz : Q z \u2260 0) (hx : P x * Q z \u2260 Q x * P z) : W.addXYZ P Q = W.addZ P Q \u2022 ![W.toAffine.addX (P x / P z) (Q x / Q z) (W.toAffine.slope (P x / P z) (Q x / Q z) (P y / P z) (Q y / Q z)), W.toAffine.addY (P x / P z) (Q x / Q z) (P y / P z) (W.toAffine.slope (P x / P z) (Q x / Q z) (P y / P z) (Q y / Q z)), 1]",
+    "have_tree": [
+      {
+        "name": "hZ",
+        "type": "IsUnit <| W.addZ P Q",
+        "body": "isUnit_addZ_of_X_ne hP hQ hx",
+        "children": []
+      }
+    ]
+  }
+]

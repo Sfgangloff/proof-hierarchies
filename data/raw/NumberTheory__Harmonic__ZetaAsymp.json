@@ -1,0 +1,105 @@
+[
+  {
+    "module": "ZetaAsymp",
+    "name": "term_tsum_one",
+    "statement": "HasSum (fun n \u21a6 term (n + 1) 1) (1 - \u03b3)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(tendsto_eulerMascheroniSeq'.comp (tendsto_add_atTop_nat 1)).neg",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZetaAsymp",
+    "name": "continuousOn_term",
+    "statement": "\u2115) : ContinuousOn (fun x \u21a6 term (n + 1) x) (Ici 1)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "1 < x",
+        "body": "lt_of_le_of_lt (by simp) hx.1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZetaAsymp",
+    "name": "tendsto_riemannZeta_sub_one_div_nhds_right",
+    "statement": "Tendsto (fun s : \u211d \u21a6 riemannZeta s - 1 / (s - 1)) (\ud835\udcdd[>] 1) (\ud835\udcdd \u03b3)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "term_tsum_one.tsum_eq",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "continuousOn_term_tsum.continuousWithinAt self_mem_Ici",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZetaAsymp",
+    "name": "tendsto_Gamma_term_aux",
+    "statement": "Tendsto (fun s \u21a6 1 / (s - 1) - 1 / Gamma\u211d s / (s - 1)) (\ud835\udcdd[\u2260] 1) (\ud835\udcdd (-(\u03b3 + Complex.log (4 * \u2191\u03c0)) / 2))",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "hasDerivAt_Gamma\u211d_one",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h.div (hasDerivAt_Gamma\u211d_one.continuousAt.tendsto.mono_left nhdsWithin_le_nhds)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZetaAsymp",
+    "name": "tendsto_riemannZeta_sub_one_div_Gamma\u211d",
+    "statement": "Tendsto (fun s \u21a6 riemannZeta s - 1 / Gamma\u211d s / (s - 1)) (\ud835\udcdd[\u2260] 1) (\ud835\udcdd ((\u03b3 - Complex.log (4 * \u2191\u03c0)) / 2))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "tendsto_riemannZeta_sub_one_div.add tendsto_Gamma_term_aux",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZetaAsymp",
+    "name": "_root_.riemannZeta_one",
+    "statement": "riemannZeta 1 = (\u03b3 - Complex.log (4 * \u2191\u03c0)) / 2",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "(HurwitzZeta.tendsto_hurwitzZetaEven_sub_one_div_nhds_one 0).mono_left",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ZetaAsymp",
+    "name": "_root_.completedRiemannZeta\u2080_one",
+    "statement": "completedRiemannZeta\u2080 1 = (\u03b3 - Complex.log (4 * \u2191\u03c0)) / 2 + 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "completedRiemannZeta_eq 1",
+        "children": []
+      }
+    ]
+  }
+]

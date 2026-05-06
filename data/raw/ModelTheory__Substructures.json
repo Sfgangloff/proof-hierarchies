@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Substructures",
+    "name": "dense_induction",
+    "statement": "M \u2192 Prop} (x : M) {s : Set M} (hs : closure L s = \u22a4) (Hs : \u2200 x \u2208 s, p x) (Hfun : \u2200 {n : \u2115} (f : L.Functions n), ClosedUnder f (setOf p)) : p x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u2200 x \u2208 closure L s, p x",
+        "body": "fun x hx => closure_induction hx Hs fun {n} => Hfun",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Substructures",
+    "name": "substructureReduct",
+    "statement": "L \u2192\u1d38 L') [\u03c6.IsExpansionOn M] : L'.Substructure M \u21aao L.Substructure M where toFun S",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "S.fun_mem (\u03c6.onFunction f) x hx",
+        "children": []
+      }
+    ]
+  }
+]

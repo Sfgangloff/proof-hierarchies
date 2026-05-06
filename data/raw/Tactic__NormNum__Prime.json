@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Prime",
+    "name": "MinFacHelper.one_lt",
+    "statement": "\u2115} (h : MinFacHelper n k) : 1 < n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "2 < minFac n",
+        "body": "h.1.trans_le h.2.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Prime",
+    "name": "minFacHelper_1",
+    "statement": "\u2115} (e : k + 2 = k') (h : MinFacHelper n k) (np : minFac n \u2260 k) : MinFacHelper n k'",
+    "have_tree": [
+      {
+        "name": "h3",
+        "type": "2 \u2223 minFac n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Prime",
+    "name": "minFacHelper_3",
+    "statement": "\u2115} (e : k + 2 = k') (nk : (n % k).beq 0 = false) (h : MinFacHelper n k) : MinFacHelper n k'",
+    "have_tree": [
+      {
+        "name": "nk",
+        "type": "",
+        "body": "Nat.ne_of_beq_eq_false nk",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Prime",
+    "name": "isNat_minFac_4",
+    "statement": "{n n' k : \u2115} \u2192 IsNat n n' \u2192 MinFacHelper n' k \u2192 (k * k).ble n' = false \u2192 IsNat (minFac n) n' | n, _, k, \u27e8rfl\u27e9, h1, h2 => by refine \u27e8(Nat.prime_def_minFac.mp ?_).2\u27e9 rw [Nat.prime_def_le_sqrt] refine \u27e8h1.one_lt, fun m hm hmn h2mn \u21a6 ?_\u27e9 exact lt_irrefl m <| calc m \u2264 sqrt n",
+    "have_tree": [
+      {
+        "name": "ek'",
+        "type": "Q(\u2115)",
+        "body": "mkRawNatLit <| k + 2",
+        "children": []
+      },
+      {
+        "name": "ek'",
+        "type": "Q(\u2115)",
+        "body": "mkRawNatLit <| k + 2",
+        "children": []
+      }
+    ]
+  }
+]

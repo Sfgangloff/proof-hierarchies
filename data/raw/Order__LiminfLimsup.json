@@ -1,0 +1,118 @@
+[
+  {
+    "module": "LiminfLimsup",
+    "name": "liminf_le_of_frequently_le'",
+    "statement": "Filter \u03b1} {u : \u03b1 \u2192 \u03b2} {x : \u03b2} (h : \u2203\u1da0 a in f, u a \u2264 x) : liminf u f \u2264 x",
+    "have_tree": [
+      {
+        "name": "hbx",
+        "type": "\u2203\u1da0 _ in f, b \u2264 x",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LiminfLimsup",
+    "name": "le_liminf_iff'",
+    "statement": "\u03b2} (h\u2081 : f.IsCoboundedUnder (\u00b7 \u2265 \u00b7) u",
+    "have_tree": [
+      {
+        "name": "h\u2083",
+        "type": "f.IsCoboundedUnder (\u00b7 \u2265 \u00b7) u",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u2084",
+        "type": "f.IsCoboundedUnder (\u00b7 \u2264 \u00b7) v",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(le_liminf_iff h\u2083 h\u2081).1 (le_refl (liminf u f)) y y_v",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LiminfLimsup",
+    "name": "liminf_reparam",
+    "statement": "\u03b9 \u2192 \u03b1) (s : \u03b9' \u2192 Set \u03b9) (p : \u03b9' \u2192 Prop) [Countable (Subtype p)] [Nonempty (Subtype p)] (j : Subtype p) : Subtype p",
+    "have_tree": [
+      {
+        "name": "Z",
+        "type": "\u2203 n, g n \u2208 m \u2228 \u2200 j, j \u2209 m",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LiminfLimsup",
+    "name": "HasBasis.liminf_eq_ciSup_ciInf",
+    "statement": "Filter \u03b9} {p : \u03b9' \u2192 Prop} {s : \u03b9' \u2192 Set \u03b9} [Countable (Subtype p)] [Nonempty (Subtype p)] (hv : v.HasBasis p s) {f : \u03b9 \u2192 \u03b1} (hs : \u2200 (j : Subtype p), (s j).Nonempty) (H : \u2203 (j : Subtype p), BddBelow (range (fun (i : s j) \u21a6 f i))) : liminf f v = \u2a06 (j : Subtype p), \u2a05 (i : s (liminf_reparam f s p j)), f i",
+    "have_tree": [
+      {
+        "name": "Z",
+        "type": "\u2203 n, (exists_surjective_nat (Subtype p)).choose n \u2208 m \u2228 \u2200 j, j \u2209 m",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "LiminfLimsup",
+    "name": "limsup_max",
+    "statement": "Filter \u03b1} {u v : \u03b1 \u2192 \u03b2} (h\u2081 : f.IsCoboundedUnder (\u00b7 \u2264 \u00b7) u",
+    "have_tree": [
+      {
+        "name": "bddmax",
+        "type": "",
+        "body": "IsBoundedUnder.sup h\u2083 h\u2084",
+        "children": []
+      },
+      {
+        "name": "cobddmax",
+        "type": "",
+        "body": "isCoboundedUnder_le_max (v := v) (Or.inl h\u2081)",
+        "children": [
+          {
+            "name": "hu",
+            "type": "",
+            "body": "eventually_lt_of_limsup_lt (lt_of_le_of_lt (le_max_left _ _) hb) h\u2083",
+            "children": []
+          },
+          {
+            "name": "hv",
+            "type": "",
+            "body": "eventually_lt_of_limsup_lt (lt_of_le_of_lt (le_max_right _ _) hb) h\u2084",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "LiminfLimsup",
+    "name": "limsup_finset_sup'",
+    "statement": "Filter \u03b1} {F : \u03b9 \u2192 \u03b1 \u2192 \u03b2} {s : Finset \u03b9} (hs : s.Nonempty) (h\u2081 : \u2200 i \u2208 s, f.IsCoboundedUnder (\u00b7 \u2264 \u00b7) (F i)",
+    "have_tree": [
+      {
+        "name": "bddsup",
+        "type": "",
+        "body": "isBoundedUnder_le_finset_sup' hs h\u2082",
+        "children": [
+          {
+            "name": "cobddsup",
+            "type": "",
+            "body": "isCoboundedUnder_le_finset_sup' hs h\u2083",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "module": "Clique",
+    "name": "IsClique.sdiff_of_sup_edge",
+    "statement": "\u03b1} {s : Set \u03b1} (hc : (G \u2294 edge v w).IsClique s) : G.IsClique (s \\ {v})",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hc hx.1 hy.1 hxy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Clique",
+    "name": "IsContained.not_cliqueFree",
+    "statement": "\u2115} (h : completeGraph (Fin n) \u2291 G) : \u00acG.CliqueFree n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isNClique_map_copy_top h.some",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Clique",
+    "name": "cliqueFree_bot",
+    "statement": "2 \u2264 n) : (\u22a5 : SimpleGraph \u03b1).CliqueFree n",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "le_trans h (isNClique_bot_iff.1 ht).1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Clique",
+    "name": "CliqueFree.replaceVertex",
+    "statement": "G.CliqueFree n) (s t : \u03b1) : (G.replaceVertex s t).CliqueFree n",
+    "have_tree": [
+      {
+        "name": "e",
+        "type": "",
+        "body": "@h\u03c6 x y",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Clique",
+    "name": "exists_of_maximal_cliqueFree_not_adj",
+    "statement": "Maximal (fun H \u21a6 H.CliqueFree (n + 1)) G) {x y : \u03b1} (hne : x \u2260 y) (hn : \u00ac G.Adj x y) : \u2203 s, x \u2209 s \u2227 y \u2209 s \u2227 G.IsNClique n (insert x s) \u2227 G.IsNClique n (insert y s)",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "",
+        "body": "h.1.mem_of_sup_edge_isNClique hc",
+        "children": []
+      },
+      {
+        "name": "h2",
+        "type": "",
+        "body": "h.1.mem_of_sup_edge_isNClique (edge_comm .. \u25b8 hc)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Clique",
+    "name": "cliqueNum",
+    "statement": "SimpleGraph \u03b1) : \u2115",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ofFinite \u03b1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Clique",
+    "name": "IsMaximumClique.isMaximalClique",
+    "statement": "Finset \u03b1) (M : G.IsMaximumClique s) : Maximal G.IsClique s",
+    "have_tree": [
+      {
+        "name": "fint",
+        "type": "",
+        "body": "ofFinite t",
+        "children": []
+      },
+      {
+        "name": "ne",
+        "type": "s \u2260 t.toFinset",
+        "body": "fun a \u21a6 by subst a; simp_all[Set.coe_toFinset, not_true_eq_false]",
+        "children": []
+      },
+      {
+        "name": "hle",
+        "type": "#t.toFinset \u2264 #s",
+        "body": "M.maximum t.toFinset (by simp [Set.coe_toFinset, ht])",
+        "children": []
+      },
+      {
+        "name": "hlt",
+        "type": "#s < #t.toFinset",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

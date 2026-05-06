@@ -1,0 +1,181 @@
+[
+  {
+    "module": "Poincare",
+    "name": "curveIntegral_add_curveIntegral_eq_of_hasFDerivWithinAt_off_countable_real",
+    "statement": "E \u2192 E \u2192L[\u211d] F} {d\u03c9 : E \u2192 E \u2192L[\u211d] E \u2192L[\u211d] F} (\u03c6 : (\u03b3\u2081 : C(I, E)).Homotopy \u03b3\u2082) (hs : s.Countable) (h\u03c6t : \u2200 a \u2208 Ioo 0 1, \u2200 b \u2208 Ioo 0 1, \u03c6 (a, b) \u2208 t) (h\u03c9 : \u2200 a \u2208 Ioo (0 : I) 1, \u2200 b \u2208 Ioo (0 : I) 1, (a, b) \u2209 s \u2192 HasFDerivWithinAt \u03c9 (d\u03c9 <| \u03c6 (a, b)) t (\u03c6 (a, b))) (h\u03c9c : ContinuousOn \u03c9 (closure t)) (hd\u03c9_symm : \u2200 a \u2208 Ioo (0 : I) 1, \u2200 b \u2208 Ioo (0 : I) 1, (a, b) \u2209 s \u2192 \u2200 u \u2208 tangentConeAt \u211d t (\u03c6 (a, b)), \u2200 v \u2208 tangentConeAt \u211d t (\u03c6 (a, b)), d\u03c9 (\u03c6 (a, b)) u v = d\u03c9 (\u03c6 (a, b)) v u) (hcontdiff : ContDiffOn \u211d 2 (fun xy : \u211d \u00d7 \u211d \u21a6 Set.IccExtend zero_le_one (\u03c6.extend xy.1) xy.2) (Icc 0 1)) : \u222b\u1d9c x in \u03b3\u2081, \u03c9 x + \u222b\u1d9c x in \u03c6.evalAt 1, \u03c9 x = \u222b\u1d9c x in \u03b3\u2082, \u03c9 x + \u222b\u1d9c x in \u03c6.evalAt 0, \u03c9 x",
+    "have_tree": [
+      {
+        "name": "hinterior",
+        "type": "interior (Icc 0 1) = U",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hunique",
+        "type": "UniqueDiffOn \u211d (Icc 0 1 : Set (\u211d \u00d7 \u211d))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hUopen",
+        "type": "IsOpen U",
+        "body": "isOpen_Ioo.prod isOpen_Ioo",
+        "children": []
+      },
+      {
+        "name": "hU_subset",
+        "type": "U \u2286 Icc 0 1",
+        "body": "hinterior \u25b8 interior_subset",
+        "children": []
+      },
+      {
+        "name": "hclosure",
+        "type": "closure U = Icc 0 1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "h\u03c8\u03c6",
+        "type": "\u2200 a b : I, \u03c8 (a, b) = \u03c6 (a, b)",
+        "body": "by simp [\u03c8]",
+        "children": []
+      },
+      {
+        "name": "h\u03c8_cont",
+        "type": "Continuous \u03c8",
+        "body": "by fun_prop",
+        "children": []
+      },
+      {
+        "name": "h\u03c8Ut",
+        "type": "MapsTo \u03c8 U t",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "I) : (\u2191x, \u2191y) \u2208 s' \u2194 (x, y) \u2208 s",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hs'c",
+        "type": "s'.Countable",
+        "body": "hs.image _",
+        "children": []
+      },
+      {
+        "name": "hd\u03c8",
+        "type": "\u2200 a \u2208 U, HasFDerivAt \u03c8 (d\u03c8 a) a",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hd2\u03c8",
+        "type": "\u2200 a \u2208 U, HasFDerivAt d\u03c8 (d2\u03c8 a) a",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hd2\u03c8_symm",
+        "type": "\u2200 a \u2208 Icc 0 1, \u2200 x y, d2\u03c8 a x y = d2\u03c8 a y x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "\u2200 a \u2208 Icc 0 1, f a = \u03c9 (\u03c8 a) (derivWithin (\u03c8 \u2218 (a.1, \u00b7)) I a.2)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "HasDerivWithinAt (a.1, \u00b7) (0, 1) I a.2",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hg",
+        "type": "\u2200 a \u2208 Icc 0 1, g a = \u03c9 (\u03c8 a) (-derivWithin (\u03c8 \u2218 (\u00b7, a.2)) I a.1)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "HasDerivWithinAt (\u00b7, a.2) (1, 0) I a.1",
+            "body": "",
+            "children": []
+          },
+          {
+            "name": "hf\u2080",
+            "type": "\u222b t in 0..1, f (0, t) = \u222b\u1d9c x in \u03b3\u2081, \u03c9 x",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hf\u2081",
+            "type": "\u222b t in 0..1, f (1, t) = curveIntegral \u03c9 \u03b3\u2082",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "I) : \u222b\u1d9c x in \u03c6.evalAt t, \u03c9 x = -\u222b s in 0..1, g (s, t)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hd\u03b7",
+        "type": "\u2200 a \u2208 U \\ s', HasFDerivAt \u03b7 (d\u03b7 a) a",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hd\u03b7_symm",
+        "type": "\u2200 a \u2208 U \\ s', \u2200 u v, d\u03b7 a u v = d\u03b7 a v u",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "d\u03c8 (a, b) u \u2208 tangentConeAt \u211d t (\u03c6 (a, b))",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "hd\u03c9_symm a hU.1 b hU.2 (by simpa [hmem_s'] using hs') _ (hd\u03c8_mem u) _ (hd\u03c8_mem v)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hf'",
+        "type": "\u2200 a \u2208 U \\ s', HasFDerivAt f (f' a) a",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hg'",
+        "type": "\u2200 a \u2208 U \\ s', HasFDerivAt g (g' a) a",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hf'g'",
+        "type": "(fun a \u21a6 f' a (1, 0) + g' a (0, 1)) =\u1d50[volume.restrict (Icc 0 1)] 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "h\u03b7c",
+            "type": "ContinuousOn \u03b7 (Icc 0 1)",
+            "body": "by",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

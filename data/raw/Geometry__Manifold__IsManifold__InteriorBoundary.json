@@ -1,0 +1,65 @@
+[
+  {
+    "module": "InteriorBoundary",
+    "name": "_root_.DifferentiableAt.mem_interior_convex_of_surjective_fderiv",
+    "statement": "Type*} [NormedAddCommGroup E] [NormedSpace \u211d E] [NormedAddCommGroup H] [NormedSpace \u211d H] {f : E \u2192 H} {x : E} (hf : DifferentiableAt \u211d f x) {u : Set E} (hu : u \u2208 \ud835\udcdd x) {s : Set H} (hs : Convex \u211d s) (hs' : IsClosed s) (hs'' : (interior s).Nonempty) (hfus : Set.MapsTo f u s) (hfx : Function.Surjective (fderiv \u211d f x)) : f x \u2208 interior s",
+    "have_tree": [
+      {
+        "name": "hF'",
+        "type": "MapsTo F s (Iic (F (f x)))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hF\u03c6",
+        "type": "IsLocalMax (F \u2218 f) x",
+        "body": "Filter.eventually_of_mem hu fun y hy \u21a6 hF' <| hfus hy",
+        "children": []
+      },
+      {
+        "name": "h",
+        "type": "",
+        "body": "hF\u03c6.fderiv_eq_zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "InteriorBoundary",
+    "name": "mem_interior_range_of_mem_interior_range_of_mem_atlas",
+    "statement": "n \u2260 0) (he : e \u2208 atlas H M) (he' : e' \u2208 atlas H M) (hex : x \u2208 e.source) (hex' : x \u2208 e'.source) (hx : e.extend I x \u2208 interior (e.extend I).target) : e'.extend I x \u2208 interior (e'.extend I).target",
+    "have_tree": [
+      {
+        "name": "h\u03c6",
+        "type": "ContDiffOn \ud835\udd5c n \u03c6 \u03c6.source",
+        "body": "contDiffOn_extendCoordChange",
+        "children": []
+      },
+      {
+        "name": "h\u03c6x",
+        "type": "\u03c6.source \u2208 \ud835\udcdd (e.extend I x)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "InteriorBoundary",
+    "name": "MDifferentiableAt.isInteriorPoint_of_surjective_mfderiv",
+    "statement": "M \u2192 N} {x : M} (hf : MDifferentiableAt I I' f x) (hf' : Surjective (mfderiv I I' f x)) (hx : I.IsInteriorPoint x) : I'.IsInteriorPoint (f x)",
+    "have_tree": [
+      {
+        "name": "hf''",
+        "type": "",
+        "body": "hf.differentiableWithinAt_writtenInExtChartAt.differentiableAt <| by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "hf''.mem_interior_convex_of_surjective_fderiv (Filter.inter_mem ?_ ?_) I'.convex_range",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "module": "ConstantSpeed",
+    "name": "hasConstantSpeedOnWith_iff_variationOnFromTo_eq",
+    "statement": "HasConstantSpeedOnWith f s l \u2194 LocallyBoundedVariationOn f s \u2227 \u2200 \u2983x\u2984 (_ : x \u2208 s) \u2983y\u2984 (_ : y \u2208 s), variationOnFromTo f s x y = l * (y - x)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "ENNReal.toReal_ofReal (mul_nonneg l.prop (sub_nonneg.mpr yx))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ConstantSpeed",
+    "name": "unique_unit_speed_on_Icc_zero",
+    "statement": "\u211d} (hs : 0 \u2264 s) (ht : 0 \u2264 t) {\u03c6 : \u211d \u2192 \u211d} (\u03c6m : MonotoneOn \u03c6 <| Icc 0 s) (\u03c6st : \u03c6 '' Icc 0 s = Icc 0 t) (hf\u03c6 : HasUnitSpeedOn (f \u2218 \u03c6) (Icc 0 s)) (hf : HasUnitSpeedOn f (Icc 0 t)) : EqOn \u03c6 id (Icc 0 s)",
+    "have_tree": [
+      {
+        "name": "hm",
+        "type": "0 \u2208 \u03c6 '' Icc 0 s",
+        "body": "by simp only [\u03c6st, ht, mem_Icc, le_refl, and_self]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "\u03c6st \u25b8 mapsTo_image \u03c6 (Icc 0 s)",
+        "children": []
+      }
+    ]
+  }
+]

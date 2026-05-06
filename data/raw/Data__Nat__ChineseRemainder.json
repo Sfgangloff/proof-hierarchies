@@ -1,0 +1,104 @@
+[
+  {
+    "module": "ChineseRemainder",
+    "name": "modEq_list_prod_iff",
+    "statement": "List \u2115} (co : l.Pairwise Coprime) : a \u2261 b [MOD l.prod] \u2194 \u2200 i, a \u2261 b [MOD l.get i]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Coprime m l.prod",
+        "body": "coprime_list_prod_right_iff.mpr (List.pairwise_cons.mp co).1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ChineseRemainder",
+    "name": "modEq_list_map_prod_iff",
+    "statement": "\u03b9 \u2192 \u2115} {l : List \u03b9} (co : l.Pairwise (Coprime on s)) : a \u2261 b [MOD (l.map s).prod] \u2194 \u2200 i \u2208 l, a \u2261 b [MOD s i]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Coprime (s i) (l.map s).prod",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ChineseRemainder",
+    "name": "chineseRemainderOfList",
+    "statement": "(l : List \u03b9) \u2192 l.Pairwise (Coprime on s) \u2192 { k // \u2200 i \u2208 l, k \u2261 a i [MOD s i] } | [],     _  => \u27e80, by simp\u27e9 | i :: l, co => by have : Coprime (s i) (l.map s).prod",
+    "have_tree": [
+      {
+        "name": "ih",
+        "type": "",
+        "body": "chineseRemainderOfList l co.of_cons",
+        "children": []
+      },
+      {
+        "name": "k",
+        "type": "",
+        "body": "chineseRemainder this (a i) ih",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ChineseRemainder",
+    "name": "chineseRemainderOfList_nil",
+    "statement": "(chineseRemainderOfList a s [] List.Pairwise.nil : \u2115) = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Coprime (s i) (l.map s).prod",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ChineseRemainder",
+    "name": "chineseRemainderOfList_modEq_unique",
+    "statement": "List \u03b9) (co : l.Pairwise (Coprime on s)) {z} (hz : \u2200 i \u2208 l, z \u2261 a i [MOD s i]) : z \u2261 chineseRemainderOfList a s l co [MOD (l.map s).prod]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Coprime (s i) (l.map s).prod",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "ChineseRemainder",
+    "name": "chineseRemainderOfMultiset",
+    "statement": "Multiset \u03b9} : m.Nodup \u2192 (\u2200 i \u2208 m, s i \u2260 0) \u2192 Set.Pairwise {x | x \u2208 m} (Coprime on s) \u2192 { k // \u2200 i \u2208 m, k \u2261 a i [MOD s i] }",
+    "have_tree": [
+      {
+        "name": "nod",
+        "type": "l.Nodup",
+        "body": "pp.symm.nodup_iff.mp nod'",
+        "children": []
+      },
+      {
+        "name": "hs",
+        "type": "\u2200 i \u2208 l, s i \u2260 0",
+        "body": "by simpa [List.Perm.mem_iff pp] using hs'",
+        "children": []
+      },
+      {
+        "name": "co",
+        "type": "Set.Pairwise {x | x \u2208 l} (Coprime on s)",
+        "body": "by simpa [List.Perm.mem_iff pp] using co'",
+        "children": []
+      },
+      {
+        "name": "lco",
+        "type": "l.Pairwise (Coprime on s)",
+        "body": "List.Nodup.pairwise_of_forall_ne nod co",
+        "children": []
+      }
+    ]
+  }
+]

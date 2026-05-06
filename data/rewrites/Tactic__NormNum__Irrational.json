@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Irrational",
+      "name": "not_power_nat_of_bounds",
+      "statement": "\u2115} (h_left : k ^ d < n) (h_right : n < (k + 1) ^ d) {m : \u2115} : n \u2260 m ^ d",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "k < m",
+          "body": "lt_of_pow_lt_pow_left' d h_left",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "m < k + 1",
+          "body": "lt_of_pow_lt_pow_left' d h_right",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Irrational",
+          "name": "not_power_nat_of_bounds",
+          "statement": "\u2115} (h_left : k ^ d < n) (h_right : n < (k + 1) ^ d) {m : \u2115} : n \u2260 m ^ d",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "m < k + 1",
+              "body": "lt_of_pow_lt_pow_left' d h_right",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "k < m",
+              "body": "lt_of_pow_lt_pow_left' d h_left",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

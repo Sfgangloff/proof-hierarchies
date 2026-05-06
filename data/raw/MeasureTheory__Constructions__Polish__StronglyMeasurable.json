@@ -1,0 +1,34 @@
+[
+  {
+    "module": "StronglyMeasurable",
+    "name": "measurableSet_exists_tendsto",
+    "statement": "\u2200 i, StronglyMeasurable (f i)) : MeasurableSet {x | \u2203 c, Tendsto (f \u00b7 x) l (\ud835\udcdd c)}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "PolishSpace s",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "StronglyMeasurable",
+    "name": "limUnder",
+    "statement": "Nonempty E] (hf : \u2200 i, StronglyMeasurable (f i)) : StronglyMeasurable (fun x \u21a6 limUnder l (f \u00b7 x))",
+    "have_tree": [
+      {
+        "name": "mconv",
+        "type": "MeasurableSet conv",
+        "body": "StronglyMeasurable.measurableSet_exists_tendsto hf",
+        "children": []
+      },
+      {
+        "name": "hs",
+        "type": "IsSeparable s",
+        "body": "(IsSeparable.iUnion (fun i \u21a6 (hf i).isSeparable_range)).closure.union",
+        "children": []
+      }
+    ]
+  }
+]

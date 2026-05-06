@@ -1,0 +1,167 @@
+[
+  {
+    "module": "Isotypic",
+    "name": "IsIsotypic.of_self",
+    "statement": "IsIsotypic R R) : IsIsotypic R M",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsSimpleModule.congr e.symm",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsSimpleModule.congr e'.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Isotypic",
+    "name": "isIsotypicOfType_submodule_iff",
+    "statement": "Submodule R M} : IsIsotypicOfType R N S \u2194 \u2200 m \u2264 N, [IsSimpleModule R m] \u2192 Nonempty (m \u2243\u2097[R] S)",
+    "have_tree": [
+      {
+        "name": "e",
+        "type": "",
+        "body": "Submodule.equivMapOfInjective _ N.subtype_injective",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Isotypic",
+    "name": "isIsotypic_submodule_iff",
+    "statement": "Submodule R M} : IsIsotypic R N \u2194 \u2200 m \u2264 N, [IsSimpleModule R m] \u2192 IsIsotypicOfType R N m",
+    "have_tree": [
+      {
+        "name": "e",
+        "type": "",
+        "body": "Submodule.equivMapOfInjective _ N.subtype_injective",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Isotypic",
+    "name": "Submodule.le_linearEquiv_of_sSup_eq_top",
+    "statement": "sSup s = \u22a4) : \u2203 m \u2208 s, \u2203 S \u2264 m, Nonempty (N \u2243\u2097[R] S)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsSimpleModule.nontrivial R N",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Isotypic",
+    "name": "Submodule.linearEquiv_of_sSup_eq_top",
+    "statement": "\u2200 m : s, IsSimpleModule R m] (hs : sSup s = \u22a4) : \u2203 S \u2208 s, Nonempty (N \u2243\u2097[R] S)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isSemisimpleModule_of_isSemisimpleModule_submodule' (fun _ \u21a6 inferInstance)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isSimpleModule_iff_isAtom.mp (IsSimpleModule.congr e.symm)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "((isSimpleModule_iff_isAtom.mp <| h \u27e8m, hm\u27e9).le_iff_eq this.1).mp le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Isotypic",
+    "name": "Submodule.le_linearEquiv_of_le_sSup",
+    "statement": "\u2200 m : s, IsSemisimpleModule R m] (hN : N \u2264 sSup s) : \u2203 m \u2208 s, \u2203 S \u2264 m, Nonempty (N \u2243\u2097[R] S)",
+    "have_tree": [
+      {
+        "name": "e",
+        "type": "",
+        "body": "LinearEquiv.ofInjective _ (inclusion_injective hN)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsSimpleModule.congr e.symm",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "isSemisimpleModule_biSup_of_isSemisimpleModule_submodule fun m hm \u21a6 hs \u27e8m, hm\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Isotypic",
+    "name": "Submodule.linearEquiv_of_le_sSup",
+    "statement": "\u2200 m : s, IsSimpleModule R m] (hs : N \u2264 sSup s) : \u2203 S \u2208 s, Nonempty (N \u2243\u2097[R] S)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "isSimpleModule_iff_isAtom.mp (.congr e.symm)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "((isSimpleModule_iff_isAtom.mp <| simple \u27e8m, hm\u27e9).le_iff_eq this.1).mp le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Isotypic",
+    "name": "sSupIndep_isotypicComponents",
+    "statement": "sSupIndep (isotypicComponents R M)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsSemisimpleModule R c",
+        "body": "by obtain \u27e8S, _, rfl\u27e9 := hc; infer_instance",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsSemisimpleModule.of_injective _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsSimpleModule.congr e.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Isotypic",
+    "name": "LinearMap.le_comap_isotypicComponent",
+    "statement": "M \u2192\u2097[R] N) : isotypicComponent R M S \u2264 (isotypicComponent R N S).comap f",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsSimpleModule.congr e",
+        "children": []
+      }
+    ]
+  }
+]

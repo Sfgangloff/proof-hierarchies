@@ -1,0 +1,102 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "hasSum_geometric_of_lt_one",
+      "statement": "\u211d} (h\u2081 : 0 \u2264 r) (h\u2082 : r < 1) : HasSum (fun n : \u2115 \u21a6 r ^ n) (1 - r)\u207b\u00b9",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "r \u2260 1",
+          "body": "ne_of_lt h\u2082",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Tendsto (fun n \u21a6 (r ^ n - 1) * (r - 1)\u207b\u00b9) atTop (\ud835\udcdd ((0 - 1) * (r - 1)\u207b\u00b9))",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "hasSum_geometric_of_lt_one",
+          "statement": "\u211d} (h\u2081 : 0 \u2264 r) (h\u2082 : r < 1) : HasSum (fun n : \u2115 \u21a6 r ^ n) (1 - r)\u207b\u00b9",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Tendsto (fun n \u21a6 (r ^ n - 1) * (r - 1)\u207b\u00b9) atTop (\ud835\udcdd ((0 - 1) * (r - 1)\u207b\u00b9))",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "r \u2260 1",
+              "body": "ne_of_lt h\u2082",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "posSumOfEncodable",
+      "statement": "\u211d} (h\u03b5 : 0 < \u03b5) (\u03b9) [Encodable \u03b9] : { \u03b5' : \u03b9 \u2192 \u211d // (\u2200 i, 0 < \u03b5' i) \u2227 \u2203 c, HasSum \u03b5' c \u2227 c \u2264 \u03b5 }",
+      "have_tree": [
+        {
+          "name": "hf",
+          "type": "HasSum f \u03b5",
+          "body": "hasSum_geometric_two' _",
+          "children": []
+        },
+        {
+          "name": "f0",
+          "type": "\u2200 n, 0 < f n",
+          "body": "fun n \u21a6 div_pos (half_pos h\u03b5) (pow_pos zero_lt_two _)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "posSumOfEncodable",
+          "statement": "\u211d} (h\u03b5 : 0 < \u03b5) (\u03b9) [Encodable \u03b9] : { \u03b5' : \u03b9 \u2192 \u211d // (\u2200 i, 0 < \u03b5' i) \u2227 \u2203 c, HasSum \u03b5' c \u2227 c \u2264 \u03b5 }",
+          "have_tree": [
+            {
+              "name": "f0",
+              "type": "\u2200 n, 0 < f n",
+              "body": "fun n \u21a6 div_pos (half_pos h\u03b5) (pow_pos zero_lt_two _)",
+              "children": []
+            },
+            {
+              "name": "hf",
+              "type": "HasSum f \u03b5",
+              "body": "hasSum_geometric_two' _",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

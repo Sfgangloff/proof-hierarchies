@@ -1,0 +1,58 @@
+[
+  {
+    "module": "FiveWheelLike",
+    "name": "minDegree_le_of_cliqueFree_fiveWheelLikeFree_succ",
+    "statement": "G.FiveWheelLikeFree r (k + 1)) : G.minDegree \u2264 (2 * r + k) * \u2016\u03b1\u2016 / (2 * r + k + 3)",
+    "have_tree": [
+      {
+        "name": "dXle",
+        "type": "\u2200 x \u2208 X, 3 \u2264 #{z \u2208 W | \u00ac G.Adj x z}",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u03b1) : 1 \u2264 #{z \u2208 {v} \u222a ({w\u2081} \u222a ({w\u2082} \u222a (s \u222a t))) | \u00ac G.Adj x z}",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "bdW",
+        "type": "",
+        "body": "sum_degree_le_of_le_not_adj dXle (fun y _ \u21a6 one_le y)",
+        "children": []
+      },
+      {
+        "name": "xcle",
+        "type": "\u2200 x \u2208 X\u1d9c, 1 \u2264 #{z \u2208 s \u2229 t | \u00ac G.Adj x z}",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "bdX",
+        "type": "",
+        "body": "sum_degree_le_of_le_not_adj xcle (fun _ _ \u21a6 Nat.zero_le _)",
+        "children": []
+      },
+      {
+        "name": "Wc",
+        "type": "#W + k = 2 * r + 3",
+        "body": "by grind",
+        "children": [
+          {
+            "name": "w3",
+            "type": "3 \u2264 #W",
+            "body": "two_lt_card.2 \u27e8_, mem_insert_self .., _, by simp [W], _, by simp [W],",
+            "children": []
+          },
+          {
+            "name": "hap",
+            "type": "#W - 1 + 2 * (k - 1) = #W - 3 + 2 * k",
+            "body": "by lia",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

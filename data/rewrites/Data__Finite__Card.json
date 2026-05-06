@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "Card",
+      "name": "card_lt_card",
+      "statement": "t.Finite) (hsub : s \u2282 t) : Nat.card s < Nat.card t",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "Fintype t",
+          "body": "Finite.fintype ht",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Fintype s",
+          "body": "Finite.fintype (subset ht (subset_of_ssubset hsub))",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Card",
+          "name": "card_lt_card",
+          "statement": "t.Finite) (hsub : s \u2282 t) : Nat.card s < Nat.card t",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Fintype s",
+              "body": "Finite.fintype (subset ht (subset_of_ssubset hsub))",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Fintype t",
+              "body": "Finite.fintype ht",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

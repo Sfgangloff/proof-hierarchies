@@ -1,0 +1,85 @@
+[
+  {
+    "module": "Basic",
+    "name": "posPart_eq_of_eq_sub_negPart",
+    "statement": "A} (hab : a = b - a\u207b) (hb : 0 \u2264 b",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "",
+        "body": "hab.symm \u25b8 hb.isSelfAdjoint.sub (negPart_nonneg a).isSelfAdjoint",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "negPart_eq_of_eq_PosPart_sub",
+    "statement": "A} (hac : a = a\u207a - c) (hc : 0 \u2264 c",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "",
+        "body": "hac.symm \u25b8 (posPart_nonneg a).isSelfAdjoint.sub hc.isSelfAdjoint",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "negPart_eq_neg",
+    "statement": "A) : a\u207b = -a \u2194 a \u2264 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsSelfAdjoint a",
+        "body": "neg_neg a \u25b8 (IsSelfAdjoint.neg <| .of_nonneg ha)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "posPart_negPart_unique",
+    "statement": "A} (habc : a = b - c) (hbc : b * c = 0) (hb : 0 \u2264 b",
+    "have_tree": [
+      {
+        "name": "hb'",
+        "type": "IsSelfAdjoint b",
+        "body": ".of_nonneg hb",
+        "children": []
+      },
+      {
+        "name": "hc'",
+        "type": "IsSelfAdjoint (-c)",
+        "body": ".neg <| .of_nonneg hc",
+        "children": []
+      },
+      {
+        "name": "ha",
+        "type": "IsSelfAdjoint a",
+        "body": "habc \u25b8 hb'.sub <| .of_nonneg hc",
+        "children": []
+      },
+      {
+        "name": "hs",
+        "type": "CompactSpace s",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Fact (0 \u2208 s)",
+        "body": "\u27e8by aesop\u27e9",
+        "children": [
+          {
+            "name": "_",
+            "type": "ContinuousMapZero.UniqueHom \u211d A",
+            "body": "inferInstance",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

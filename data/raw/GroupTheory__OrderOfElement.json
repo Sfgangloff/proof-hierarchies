@@ -1,0 +1,169 @@
+[
+  {
+    "module": "OrderOfElement",
+    "name": "orderOf_eq_of_pow_and_pow_div_prime",
+    "statement": "0 < n) (hx : x ^ n = 1) (hd : \u2200 p : \u2115, p.Prime \u2192 p \u2223 n \u2192 x ^ (n / p) \u2260 1) : orderOf x = n",
+    "have_tree": [
+      {
+        "name": "a_min_fac_dvd_p_sub_one",
+        "type": "a.minFac \u2223 n",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OrderOfElement",
+    "name": "orderOf_mul_eq_right_of_forall_prime_mul_dvd",
+    "statement": "Commute x y) (hy : IsOfFinOrder y) (hdvd : \u2200 p : \u2115, p.Prime \u2192 p \u2223 orderOf x \u2192 p * orderOf x \u2223 orderOf y) : orderOf (x * y) = orderOf y",
+    "have_tree": [
+      {
+        "name": "hoy",
+        "type": "",
+        "body": "hy.orderOf_pos",
+        "children": []
+      },
+      {
+        "name": "hxy",
+        "type": "",
+        "body": "dvd_of_forall_prime_mul_dvd hdvd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OrderOfElement",
+    "name": "infinite_not_isOfFinOrder",
+    "statement": "G} (h : \u00acIsOfFinOrder x) : { y : G | \u00acIsOfFinOrder y }.Infinite",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Set.not_injOn_infinite_finite_image (Set.Ioi_infinite 0) h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OrderOfElement",
+    "name": "infinite_not_isOfFinOrder",
+    "statement": "G} (h : \u00acIsOfFinOrder x) : { y : G | \u00acIsOfFinOrder y }.Infinite",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Set.not_injOn_infinite_finite_image (Set.Ioi_infinite 0) h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OrderOfElement",
+    "name": "orderOf_eq_zero_iff_eq_zero",
+    "statement": "Type*} [GroupWithZero G\u2080] [Finite G\u2080] {a : G\u2080} : orderOf a = 0 \u2194 a = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Finite G\u2080\u02e3",
+        "body": ".of_injective _ Units.val_injective",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OrderOfElement",
+    "name": "Subgroup.zpowers_eq_zpowers_iff",
+    "statement": "G} (hx : \u00acIsOfFinOrder x) : zpowers x = zpowers y \u2194 x = y \u2228 x\u207b\u00b9 = y",
+    "have_tree": [
+      {
+        "name": "hx_mem",
+        "type": "x \u2208 zpowers y",
+        "body": "by simp [\u2190 h]",
+        "children": []
+      },
+      {
+        "name": "hy_mem",
+        "type": "y \u2208 zpowers x",
+        "body": "by simp [h]",
+        "children": []
+      },
+      {
+        "name": "h1",
+        "type": "",
+        "body": "(injective_zpow_iff_not_isOfFinOrder.mpr hx) hl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OrderOfElement",
+    "name": "powCoprime",
+    "statement": "Type*} [Group G] (h : (Nat.card G).Coprime n) : G \u2243 G where toFun g",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "congr_arg (g ^ \u00b7) ((Nat.card G).gcd_eq_gcd_ab n)",
+        "children": []
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "congr_arg (g ^ \u00b7) ((Nat.card G).gcd_eq_gcd_ab n)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OrderOfElement",
+    "name": "smul_eq_of_le_smul",
+    "statement": "Type*} [Group G] [Finite G] {\u03b1 : Type*} [PartialOrder \u03b1] {g : G} {a : \u03b1} [MulAction G \u03b1] [CovariantClass G \u03b1 HSMul.hSMul LE.le] (h : a \u2264 g \u2022 a) : g \u2022 a = a",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "smul_mono_right g (le_pow_smul h (Nat.card G - 1))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OrderOfElement",
+    "name": "smul_eq_of_smul_le",
+    "statement": "Type*} [Group G] [Finite G] {\u03b1 : Type*} [PartialOrder \u03b1] {g : G} {a : \u03b1} [MulAction G \u03b1] [CovariantClass G \u03b1 HSMul.hSMul LE.le] (h : g \u2022 a \u2264 a) : g \u2022 a = a",
+    "have_tree": [
+      {
+        "name": "key",
+        "type": "",
+        "body": "smul_mono_right g (pow_smul_le h (Nat.card G - 1))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OrderOfElement",
+    "name": "IsOfFinOrder.pi",
+    "statement": "(\u2200 i, IsOfFinOrder (x i)) \u2192 IsOfFinOrder x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "OrderOfElement",
+    "name": "charP_of_prime_pow_injective",
+    "statement": "\u2115) [hp : Fact p.Prime] (hn : card R = p ^ n) (hR : \u2200 i \u2264 n, (p : R) ^ i = 0 \u2192 i = n) : CharP R (p ^ n)",
+    "have_tree": [
+      {
+        "name": "hcpn",
+        "type": "c \u2223 p ^ n",
+        "body": "by rw [\u2190 CharP.cast_eq_zero_iff R c, \u2190 hn, Nat.cast_card_eq_zero]",
+        "children": []
+      }
+    ]
+  }
+]

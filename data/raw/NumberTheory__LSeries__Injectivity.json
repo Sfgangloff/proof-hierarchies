@@ -1,0 +1,60 @@
+[
+  {
+    "module": "Injectivity",
+    "name": "LSeries.tendsto_cpow_mul_atTop",
+    "statement": "\u2115 \u2192 \u2102} {n : \u2115} (h : \u2200 m \u2264 n, f m = 0) (ha : abscissaOfAbsConv f < \u22a4) : Tendsto (fun x : \u211d \u21a6 (n + 1) ^ (x : \u2102) * LSeries f x) atTop (nhds (f (n + 1)))",
+    "have_tree": [
+      {
+        "name": "hys",
+        "type": "Summable (F y)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Injectivity",
+    "name": "LSeries.tendsto_atTop",
+    "statement": "\u2115 \u2192 \u2102} (ha : abscissaOfAbsConv f < \u22a4) : Tendsto (fun x : \u211d \u21a6 LSeries f x) atTop (nhds (f 1))",
+    "have_tree": [
+      {
+        "name": "ha'",
+        "type": "abscissaOfAbsConv F < \u22a4",
+        "body": "(abscissaOfAbsConv_congr hF).symm \u25b8 ha",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Injectivity",
+    "name": "LSeries_sub_eventuallyEq_zero_of_LSeries_eventually_eq",
+    "statement": "\u2115 \u2192 \u2102} (hf : abscissaOfAbsConv f < \u22a4) (hg : abscissaOfAbsConv g < \u22a4) (h : (fun x : \u211d \u21a6 LSeries f x) =\u1da0[atTop] fun x \u21a6 LSeries g x) : (fun x : \u211d \u21a6 LSeries (f - g) x) =\u1da0[atTop] (0 : \u211d \u2192 \u2102)",
+    "have_tree": [
+      {
+        "name": "Hf",
+        "type": "LSeriesSummable f x",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "Hg",
+        "type": "LSeriesSummable g x",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Injectivity",
+    "name": "LSeries.eq_of_LSeries_eventually_eq",
+    "statement": "\u2115 \u2192 \u2102} (hf : abscissaOfAbsConv f < \u22a4) (hg : abscissaOfAbsConv g < \u22a4) (h : (fun x : \u211d \u21a6 LSeries f x) =\u1da0[atTop] fun x \u21a6 LSeries g x) {n : \u2115} (hn : n \u2260 0) : f n = g n",
+    "have_tree": [
+      {
+        "name": "ha",
+        "type": "abscissaOfAbsConv (f - g) \u2260 \u22a4",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

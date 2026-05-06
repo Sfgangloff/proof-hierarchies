@@ -1,0 +1,793 @@
+[
+  {
+    "original": {
+      "module": "lpSpace",
+      "name": "of_exponent_ge",
+      "statement": "\u211d\u22650\u221e} {f : \u2200 i, E i} (hfq : Mem\u2113p f q) (hpq : q \u2264 p) : Mem\u2113p f p",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "0 \u2264 \u2016f i\u2016 ^ q.toReal",
+          "body": "by positivity",
+          "children": []
+        },
+        {
+          "name": "hf'",
+          "type": "",
+          "body": "hfq.summable hq",
+          "children": [
+            {
+              "name": "_",
+              "type": "0 \u2264 \u2016f i\u2016 ^ p.toReal",
+              "body": "by positivity",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "lpSpace",
+          "name": "of_exponent_ge",
+          "statement": "\u211d\u22650\u221e} {f : \u2200 i, E i} (hfq : Mem\u2113p f q) (hpq : q \u2264 p) : Mem\u2113p f p",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "0 \u2264 \u2016f i\u2016 ^ q.toReal",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hf'",
+              "type": "",
+              "body": "hfq.summable hq",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "lpSpace",
+          "name": "of_exponent_ge",
+          "statement": "\u211d\u22650\u221e} {f : \u2200 i, E i} (hfq : Mem\u2113p f q) (hpq : q \u2264 p) : Mem\u2113p f p",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "0 \u2264 \u2016f i\u2016 ^ q.toReal",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "0 \u2264 \u2016f i\u2016 ^ p.toReal",
+              "body": "by positivity",
+              "children": []
+            },
+            {
+              "name": "hf'",
+              "type": "",
+              "body": "hfq.summable hq",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "lpSpace",
+          "name": "of_exponent_ge",
+          "statement": "\u211d\u22650\u221e} {f : \u2200 i, E i} (hfq : Mem\u2113p f q) (hpq : q \u2264 p) : Mem\u2113p f p",
+          "have_tree": [
+            {
+              "name": "hf'",
+              "type": "",
+              "body": "hfq.summable hq",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "0 \u2264 \u2016f i\u2016 ^ p.toReal",
+                  "body": "by positivity",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "0 \u2264 \u2016f i\u2016 ^ q.toReal",
+              "body": "by positivity",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "lpSpace",
+      "name": "norm_eq_zero_iff",
+      "statement": "lp E p} : \u2016f\u2016 = 0 \u2194 f = 0",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "lp.hasSum_norm hp f",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "\u2200 i, 0 \u2264 \u2016f i\u2016 ^ p.toReal",
+          "body": "fun i \u21a6 by positivity",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "lpSpace",
+          "name": "norm_eq_zero_iff",
+          "statement": "lp E p} : \u2016f\u2016 = 0 \u2194 f = 0",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "\u2200 i, 0 \u2264 \u2016f i\u2016 ^ p.toReal",
+              "body": "fun i \u21a6 by positivity",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "lp.hasSum_norm hp f",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "lpSpace",
+      "name": "tsum_mul_le_mul_norm",
+      "statement": "\u211d\u22650\u221e} (hpq : p.toReal.HolderConjugate q.toReal) (f : lp E p) (g : lp E q) : (Summable fun i => \u2016f i\u2016 * \u2016g i\u2016) \u2227 \u2211' i, \u2016f i\u2016 * \u2016g i\u2016 \u2264 \u2016f\u2016 * \u2016g\u2016",
+      "have_tree": [
+        {
+          "name": "hf\u2081",
+          "type": "\u2200 i, 0 \u2264 \u2016f i\u2016",
+          "body": "fun i => norm_nonneg _",
+          "children": []
+        },
+        {
+          "name": "hg\u2081",
+          "type": "\u2200 i, 0 \u2264 \u2016g i\u2016",
+          "body": "fun i => norm_nonneg _",
+          "children": []
+        },
+        {
+          "name": "hf\u2082",
+          "type": "",
+          "body": "lp.hasSum_norm hpq.pos f",
+          "children": []
+        },
+        {
+          "name": "hg\u2082",
+          "type": "",
+          "body": "lp.hasSum_norm hpq.symm.pos g",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "lpSpace",
+          "name": "tsum_mul_le_mul_norm",
+          "statement": "\u211d\u22650\u221e} (hpq : p.toReal.HolderConjugate q.toReal) (f : lp E p) (g : lp E q) : (Summable fun i => \u2016f i\u2016 * \u2016g i\u2016) \u2227 \u2211' i, \u2016f i\u2016 * \u2016g i\u2016 \u2264 \u2016f\u2016 * \u2016g\u2016",
+          "have_tree": [
+            {
+              "name": "hg\u2081",
+              "type": "\u2200 i, 0 \u2264 \u2016g i\u2016",
+              "body": "fun i => norm_nonneg _",
+              "children": []
+            },
+            {
+              "name": "hf\u2081",
+              "type": "\u2200 i, 0 \u2264 \u2016f i\u2016",
+              "body": "fun i => norm_nonneg _",
+              "children": []
+            },
+            {
+              "name": "hf\u2082",
+              "type": "",
+              "body": "lp.hasSum_norm hpq.pos f",
+              "children": []
+            },
+            {
+              "name": "hg\u2082",
+              "type": "",
+              "body": "lp.hasSum_norm hpq.symm.pos g",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "lpSpace",
+          "name": "tsum_mul_le_mul_norm",
+          "statement": "\u211d\u22650\u221e} (hpq : p.toReal.HolderConjugate q.toReal) (f : lp E p) (g : lp E q) : (Summable fun i => \u2016f i\u2016 * \u2016g i\u2016) \u2227 \u2211' i, \u2016f i\u2016 * \u2016g i\u2016 \u2264 \u2016f\u2016 * \u2016g\u2016",
+          "have_tree": [
+            {
+              "name": "hf\u2081",
+              "type": "\u2200 i, 0 \u2264 \u2016f i\u2016",
+              "body": "fun i => norm_nonneg _",
+              "children": []
+            },
+            {
+              "name": "hf\u2082",
+              "type": "",
+              "body": "lp.hasSum_norm hpq.pos f",
+              "children": []
+            },
+            {
+              "name": "hg\u2081",
+              "type": "\u2200 i, 0 \u2264 \u2016g i\u2016",
+              "body": "fun i => norm_nonneg _",
+              "children": []
+            },
+            {
+              "name": "hg\u2082",
+              "type": "",
+              "body": "lp.hasSum_norm hpq.symm.pos g",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "lpSpace",
+          "name": "tsum_mul_le_mul_norm",
+          "statement": "\u211d\u22650\u221e} (hpq : p.toReal.HolderConjugate q.toReal) (f : lp E p) (g : lp E q) : (Summable fun i => \u2016f i\u2016 * \u2016g i\u2016) \u2227 \u2211' i, \u2016f i\u2016 * \u2016g i\u2016 \u2264 \u2016f\u2016 * \u2016g\u2016",
+          "have_tree": [
+            {
+              "name": "hf\u2081",
+              "type": "\u2200 i, 0 \u2264 \u2016f i\u2016",
+              "body": "fun i => norm_nonneg _",
+              "children": []
+            },
+            {
+              "name": "hg\u2081",
+              "type": "\u2200 i, 0 \u2264 \u2016g i\u2016",
+              "body": "fun i => norm_nonneg _",
+              "children": []
+            },
+            {
+              "name": "hg\u2082",
+              "type": "",
+              "body": "lp.hasSum_norm hpq.symm.pos g",
+              "children": []
+            },
+            {
+              "name": "hf\u2082",
+              "type": "",
+              "body": "lp.hasSum_norm hpq.pos f",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "lpSpace",
+      "name": "norm_apply_le_norm",
+      "statement": "p \u2260 0) (f : lp E p) (i : \u03b1) : \u2016f i\u2016 \u2264 \u2016f\u2016",
+      "have_tree": [
+        {
+          "name": "hp''",
+          "type": "0 < p.toReal",
+          "body": "ENNReal.toReal_pos hp hp'",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "\u2200 i, 0 \u2264 \u2016f i\u2016 ^ p.toReal",
+          "body": "fun i \u21a6 by positivity",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "lpSpace",
+          "name": "norm_apply_le_norm",
+          "statement": "p \u2260 0) (f : lp E p) (i : \u03b1) : \u2016f i\u2016 \u2264 \u2016f\u2016",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "\u2200 i, 0 \u2264 \u2016f i\u2016 ^ p.toReal",
+              "body": "fun i \u21a6 by positivity",
+              "children": []
+            },
+            {
+              "name": "hp''",
+              "type": "0 < p.toReal",
+              "body": "ENNReal.toReal_pos hp hp'",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "lpSpace",
+      "name": "norm_const_smul_le",
+      "statement": "p \u2260 0) (c : \ud835\udd5c) (f : lp E p) : \u2016c \u2022 f\u2016 \u2264 \u2016c\u2016 * \u2016f\u2016",
+      "have_tree": [
+        {
+          "name": "hfc",
+          "type": "",
+          "body": "(lp.isLUB_norm f).mul_left (norm_nonneg c)",
+          "children": []
+        },
+        {
+          "name": "hLHS",
+          "type": "",
+          "body": "lp.hasSum_norm hp (c \u2022 f)",
+          "children": []
+        },
+        {
+          "name": "hRHS",
+          "type": "",
+          "body": "(lp.hasSum_norm hp f).mul_left (\u2016c\u2016 ^ p.toReal)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "lpSpace",
+          "name": "norm_const_smul_le",
+          "statement": "p \u2260 0) (c : \ud835\udd5c) (f : lp E p) : \u2016c \u2022 f\u2016 \u2264 \u2016c\u2016 * \u2016f\u2016",
+          "have_tree": [
+            {
+              "name": "hLHS",
+              "type": "",
+              "body": "lp.hasSum_norm hp (c \u2022 f)",
+              "children": []
+            },
+            {
+              "name": "hfc",
+              "type": "",
+              "body": "(lp.isLUB_norm f).mul_left (norm_nonneg c)",
+              "children": []
+            },
+            {
+              "name": "hRHS",
+              "type": "",
+              "body": "(lp.hasSum_norm hp f).mul_left (\u2016c\u2016 ^ p.toReal)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "lpSpace",
+          "name": "norm_const_smul_le",
+          "statement": "p \u2260 0) (c : \ud835\udd5c) (f : lp E p) : \u2016c \u2022 f\u2016 \u2264 \u2016c\u2016 * \u2016f\u2016",
+          "have_tree": [
+            {
+              "name": "hfc",
+              "type": "",
+              "body": "(lp.isLUB_norm f).mul_left (norm_nonneg c)",
+              "children": []
+            },
+            {
+              "name": "hRHS",
+              "type": "",
+              "body": "(lp.hasSum_norm hp f).mul_left (\u2016c\u2016 ^ p.toReal)",
+              "children": []
+            },
+            {
+              "name": "hLHS",
+              "type": "",
+              "body": "lp.hasSum_norm hp (c \u2022 f)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "lpSpace",
+      "name": "hasSum_single",
+      "statement": "p \u2260 \u22a4) (f : lp E p) : HasSum (fun i : \u03b1 => lp.single p i (f i : E i)) f",
+      "have_tree": [
+        {
+          "name": "hp\u2080",
+          "type": "0 < p",
+          "body": "zero_lt_one.trans_le Fact.out",
+          "children": []
+        },
+        {
+          "name": "hp'",
+          "type": "0 < p.toReal",
+          "body": "ENNReal.toReal_pos hp\u2080.ne' hp",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "lp.hasSum_norm hp' f",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "lpSpace",
+          "name": "hasSum_single",
+          "statement": "p \u2260 \u22a4) (f : lp E p) : HasSum (fun i : \u03b1 => lp.single p i (f i : E i)) f",
+          "have_tree": [
+            {
+              "name": "hp'",
+              "type": "0 < p.toReal",
+              "body": "ENNReal.toReal_pos hp\u2080.ne' hp",
+              "children": []
+            },
+            {
+              "name": "hp\u2080",
+              "type": "0 < p",
+              "body": "zero_lt_one.trans_le Fact.out",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "lp.hasSum_norm hp' f",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "lpSpace",
+          "name": "hasSum_single",
+          "statement": "p \u2260 \u22a4) (f : lp E p) : HasSum (fun i : \u03b1 => lp.single p i (f i : E i)) f",
+          "have_tree": [
+            {
+              "name": "hp\u2080",
+              "type": "0 < p",
+              "body": "zero_lt_one.trans_le Fact.out",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "lp.hasSum_norm hp' f",
+              "children": []
+            },
+            {
+              "name": "hp'",
+              "type": "0 < p.toReal",
+              "body": "ENNReal.toReal_pos hp\u2080.ne' hp",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "lpSpace",
+      "name": "uniformContinuous_coe",
+      "statement": "Fact (1 \u2264 p)] : UniformContinuous (\u03b1",
+      "have_tree": [
+        {
+          "name": "hp",
+          "type": "p \u2260 0",
+          "body": "(zero_lt_one.trans_le _i.elim).ne'",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "\u2016f i - g i\u2016 \u2264 \u2016f - g\u2016",
+          "body": "norm_apply_le_norm hp (f - g) i",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "lpSpace",
+          "name": "uniformContinuous_coe",
+          "statement": "Fact (1 \u2264 p)] : UniformContinuous (\u03b1",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "\u2016f i - g i\u2016 \u2264 \u2016f - g\u2016",
+              "body": "norm_apply_le_norm hp (f - g) i",
+              "children": []
+            },
+            {
+              "name": "hp",
+              "type": "p \u2260 0",
+              "body": "(zero_lt_one.trans_le _i.elim).ne'",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "lpSpace",
+      "name": "sum_rpow_le_of_tendsto",
+      "statement": "p \u2260 \u221e) {C : \u211d} {F : \u03b9 \u2192 lp E p} (hCF : \u2200\u1da0 k in l, \u2016F k\u2016 \u2264 C) {f : \u2200 a, E a} (hf : Tendsto (id fun i => F i : \u03b9 \u2192 \u2200 a, E a) l (\ud835\udcdd f)) (s : Finset \u03b1) : \u2211 i \u2208 s, \u2016f i\u2016 ^ p.toReal \u2264 C ^ p.toReal",
+      "have_tree": [
+        {
+          "name": "hp'",
+          "type": "p \u2260 0",
+          "body": "(zero_lt_one.trans_le _i.elim).ne'",
+          "children": []
+        },
+        {
+          "name": "hp''",
+          "type": "0 < p.toReal",
+          "body": "ENNReal.toReal_pos hp' hp",
+          "children": []
+        },
+        {
+          "name": "hG",
+          "type": "Continuous G",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "lpSpace",
+          "name": "sum_rpow_le_of_tendsto",
+          "statement": "p \u2260 \u221e) {C : \u211d} {F : \u03b9 \u2192 lp E p} (hCF : \u2200\u1da0 k in l, \u2016F k\u2016 \u2264 C) {f : \u2200 a, E a} (hf : Tendsto (id fun i => F i : \u03b9 \u2192 \u2200 a, E a) l (\ud835\udcdd f)) (s : Finset \u03b1) : \u2211 i \u2208 s, \u2016f i\u2016 ^ p.toReal \u2264 C ^ p.toReal",
+          "have_tree": [
+            {
+              "name": "hp''",
+              "type": "0 < p.toReal",
+              "body": "ENNReal.toReal_pos hp' hp",
+              "children": []
+            },
+            {
+              "name": "hp'",
+              "type": "p \u2260 0",
+              "body": "(zero_lt_one.trans_le _i.elim).ne'",
+              "children": []
+            },
+            {
+              "name": "hG",
+              "type": "Continuous G",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "lpSpace",
+          "name": "sum_rpow_le_of_tendsto",
+          "statement": "p \u2260 \u221e) {C : \u211d} {F : \u03b9 \u2192 lp E p} (hCF : \u2200\u1da0 k in l, \u2016F k\u2016 \u2264 C) {f : \u2200 a, E a} (hf : Tendsto (id fun i => F i : \u03b9 \u2192 \u2200 a, E a) l (\ud835\udcdd f)) (s : Finset \u03b1) : \u2211 i \u2208 s, \u2016f i\u2016 ^ p.toReal \u2264 C ^ p.toReal",
+          "have_tree": [
+            {
+              "name": "hp'",
+              "type": "p \u2260 0",
+              "body": "(zero_lt_one.trans_le _i.elim).ne'",
+              "children": []
+            },
+            {
+              "name": "hG",
+              "type": "Continuous G",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hp''",
+              "type": "0 < p.toReal",
+              "body": "ENNReal.toReal_pos hp' hp",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "lpSpace",
+      "name": "norm_le_of_tendsto",
+      "statement": "\u211d} {F : \u03b9 \u2192 lp E p} (hCF : \u2200\u1da0 k in l, \u2016F k\u2016 \u2264 C) {f : lp E p} (hf : Tendsto (id fun i => F i : \u03b9 \u2192 \u2200 a, E a) l (\ud835\udcdd f)) : \u2016f\u2016 \u2264 C",
+      "have_tree": [
+        {
+          "name": "hC",
+          "type": "0 \u2264 C",
+          "body": "(norm_nonneg _).trans hi",
+          "children": [
+            {
+              "name": "hp'",
+              "type": "0 < p.toReal",
+              "body": "ENNReal.toReal_pos this.ne' hp.ne",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "lpSpace",
+          "name": "norm_le_of_tendsto",
+          "statement": "\u211d} {F : \u03b9 \u2192 lp E p} (hCF : \u2200\u1da0 k in l, \u2016F k\u2016 \u2264 C) {f : lp E p} (hf : Tendsto (id fun i => F i : \u03b9 \u2192 \u2200 a, E a) l (\ud835\udcdd f)) : \u2016f\u2016 \u2264 C",
+          "have_tree": [
+            {
+              "name": "hC",
+              "type": "0 \u2264 C",
+              "body": "(norm_nonneg _).trans hi",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "lpSpace",
+          "name": "norm_le_of_tendsto",
+          "statement": "\u211d} {F : \u03b9 \u2192 lp E p} (hCF : \u2200\u1da0 k in l, \u2016F k\u2016 \u2264 C) {f : lp E p} (hf : Tendsto (id fun i => F i : \u03b9 \u2192 \u2200 a, E a) l (\ud835\udcdd f)) : \u2016f\u2016 \u2264 C",
+          "have_tree": [
+            {
+              "name": "hp'",
+              "type": "0 < p.toReal",
+              "body": "ENNReal.toReal_pos this.ne' hp.ne",
+              "children": []
+            },
+            {
+              "name": "hC",
+              "type": "0 \u2264 C",
+              "body": "(norm_nonneg _).trans hi",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

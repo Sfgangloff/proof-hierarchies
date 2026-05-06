@@ -1,0 +1,67 @@
+[
+  {
+    "module": "WeightedHomogeneous",
+    "name": "weightedTotalDegree_coe",
+    "statement": "\u03c3 \u2192 M) (p : MvPolynomial \u03c3 R) (hp : p \u2260 0) : weightedTotalDegree' w p = \u2191(weightedTotalDegree w p)",
+    "have_tree": [
+      {
+        "name": "hm'",
+        "type": "weightedTotalDegree' w p \u2264 m",
+        "body": "le_of_eq hm.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeightedHomogeneous",
+    "name": "weightedHomogeneousSubmodule_mul",
+    "statement": "\u03c3 \u2192 M) (m n : M) : weightedHomogeneousSubmodule R w m * weightedHomogeneousSubmodule R w n \u2264 weightedHomogeneousSubmodule R w (m + n)",
+    "have_tree": [
+      {
+        "name": "aux",
+        "type": "coeff d \u03c6 \u2260 0 \u2227 coeff e \u03c8 \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeightedHomogeneous",
+    "name": "isWeightedHomogeneous_of_total_degree_zero",
+    "statement": "\u03c3 \u2192 M) {p : MvPolynomial \u03c3 R} (hp : weightedTotalDegree w p = (\u22a5 : M)) : IsWeightedHomogeneous w p (\u22a5 : M)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "weightedTotalDegree_coe w p (MvPolynomial.ne_zero_iff.mpr \u27e8d, hd\u27e9)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeightedHomogeneous",
+    "name": "coeff_eq_zero",
+    "statement": "\u03c3 \u2192 M} (h\u03c6 : IsWeightedHomogeneous w \u03c6 n) (d : \u03c3 \u2192\u2080 \u2115) (hd : weight w d \u2260 n) : coeff d \u03c6 = 0",
+    "have_tree": [
+      {
+        "name": "aux",
+        "type": "",
+        "body": "mt (@h\u03c6 d) hd",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "WeightedHomogeneous",
+    "name": "sum_weightedHomogeneousComponent",
+    "statement": "(finsum fun m => weightedHomogeneousComponent w m \u03c6) = \u03c6",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "coeff_weightedHomogeneousComponent (w := w) (weight w d) \u03c6 d",
+        "children": []
+      }
+    ]
+  }
+]

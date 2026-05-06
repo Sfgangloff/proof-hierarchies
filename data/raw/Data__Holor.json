@@ -1,0 +1,73 @@
+[
+  {
+    "module": "Holor",
+    "name": "slice",
+    "statement": "Holor \u03b1 (d :: ds)) (i : \u2115) (h : i < d) : Holor \u03b1 ds",
+    "have_tree": [
+      {
+        "name": "hid",
+        "type": "i < d",
+        "body": "(forall\u2082_cons.1 hiisdds).1",
+        "children": []
+      },
+      {
+        "name": "hisds",
+        "type": "Forall\u2082 (\u00b7 < \u00b7) is ds",
+        "body": "(forall\u2082_cons.1 hiisdds).2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Holor",
+    "name": "sum_unitVec_mul_slice",
+    "statement": "Holor \u03b1 (d :: ds)) : (\u2211 i \u2208 (Finset.range d).attach, unitVec d i \u2297 slice x i (Nat.succ_le_of_lt (Finset.mem_range.1 i.prop))) = x",
+    "have_tree": [
+      {
+        "name": "hbi'",
+        "type": "i \u2260 b",
+        "body": "by simpa only [Ne, Subtype.ext_iff, Subtype.coe_mk] using hbi.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Holor",
+    "name": "cprankMax_nil",
+    "statement": "Holor \u03b1 nil) : CPRankMax 1 x",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "CPRankMax.succ 0 x 0 (CPRankMax1.nil x) CPRankMax.zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Holor",
+    "name": "cprankMax_1",
+    "statement": "Holor \u03b1 ds} (h : CPRankMax1 x) : CPRankMax 1 x",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "CPRankMax.succ 0 x 0 h CPRankMax.zero",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Holor",
+    "name": "cprankMax_mul",
+    "statement": "\u2200 (n : \u2115) (x : Holor \u03b1 [d]) (y : Holor \u03b1 ds), CPRankMax n y \u2192 CPRankMax n (x \u2297 y) | 0, x, _, CPRankMax.zero => by simp [mul_zero x, CPRankMax.zero] | n + 1, x, _, CPRankMax.succ _ y\u2081 y\u2082 hy\u2081 hy\u2082 => by rw [mul_left_distrib] rw [Nat.add_comm] apply cprankMax_add \u00b7 exact cprankMax_1 (CPRankMax1.cons _ _ hy\u2081) \u00b7 exact cprankMax_mul _ x y\u2082 hy\u2082  theorem cprankMax_sum [NonUnitalNonAssocSemiring \u03b1] {\u03b2} {n : \u2115} (s : Finset \u03b2) (f : \u03b2 \u2192 Holor \u03b1 ds) : (\u2200 x \u2208 s, CPRankMax n (f x)) \u2192 CPRankMax (s.card * n) (\u2211 x \u2208 s, f x)",
+    "have_tree": [
+      {
+        "name": "ih'",
+        "type": "CPRankMax (Finset.card s * n) (\u2211 x \u2208 s, f x)",
+        "body": "by grind",
+        "children": []
+      }
+    ]
+  }
+]

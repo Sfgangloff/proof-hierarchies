@@ -1,0 +1,145 @@
+[
+  {
+    "module": "PicardLindelof",
+    "name": "dist_iterate_next_apply_le",
+    "statement": "IsPicardLindelof f t\u2080 x\u2080 a r L K) (hx : x \u2208 closedBall x\u2080 r) (\u03b1 \u03b2 : FunSpace t\u2080 x\u2080 r L) (n : \u2115) (t : Icc tmin tmax) : dist ((next hf hx)^[n] \u03b1 t) ((next hf hx)^[n] \u03b2 t) \u2264 (K * |t.1 - t\u2080.1|) ^ n / n ! * dist \u03b1 \u03b2",
+    "have_tree": [
+      {
+        "name": "ht'",
+        "type": "t' \u2208 Icc tmin tmax",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PicardLindelof",
+    "name": "exists_contractingWith_iterate_next",
+    "statement": "IsPicardLindelof f t\u2080 x\u2080 a r L K) : \u2203 (n : \u2115) (C : \u211d\u22650), \u2200 (x : E) (hx : x \u2208 closedBall x\u2080 r), ContractingWith C (next hf hx)^[n]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 \u2264 max (tmax - t\u2080) (t\u2080 - tmin)",
+        "body": "le_max_of_le_left <| sub_nonneg_of_le t\u2080.2.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PicardLindelof",
+    "name": "dist_next_next",
+    "statement": "IsPicardLindelof f t\u2080 x\u2080 a r L K) (hx : x \u2208 closedBall x\u2080 r) (hy : y \u2208 closedBall x\u2080 r) (\u03b1 : FunSpace t\u2080 x\u2080 r L) : dist (next hf hx \u03b1) (next hf hy \u03b1) = dist x y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty (Icc tmin tmax)",
+        "body": "\u27e8t\u2080\u27e9 -- needed for `ciSup_const`",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PicardLindelof",
+    "name": "exists_forall_closedBall_funSpace_dist_le_mul",
+    "statement": "IsPicardLindelof f t\u2080 x\u2080 a r L K) : \u2203 L' : \u211d\u22650, \u2200 (x y : E) (hx : x \u2208 closedBall x\u2080 r) (hy : y \u2208 closedBall x\u2080 r) (\u03b1 \u03b2 : FunSpace t\u2080 x\u2080 r L) (_ : IsFixedPt (next hf hx) \u03b1) (_ : IsFixedPt (next hf hy) \u03b2), dist \u03b1 \u03b2 \u2264 L' * dist x y",
+    "have_tree": [
+      {
+        "name": "hL'",
+        "type": "0 \u2264 L'",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 \u2264 max (tmax - t\u2080) (t\u2080 - tmin)",
+            "body": "le_max_of_le_left <| sub_nonneg_of_le t\u2080.2.2",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PicardLindelof",
+    "name": "hasDerivWithinAt_picard_Icc",
+    "statement": "t\u2080 \u2208 Icc tmin tmax) (hf : ContinuousOn (uncurry f) ((Icc tmin tmax) \u00d7\u02e2 u)) (h\u03b1 : ContinuousOn \u03b1 (Icc tmin tmax)) (hmem : \u2200 t \u2208 Icc tmin tmax, \u03b1 t \u2208 u) (x\u2080 : E) {t : \u211d} (ht : t \u2208 Icc tmin tmax) : HasDerivWithinAt (picard f t\u2080 x\u2080 \u03b1) (f t (\u03b1 t)) (Icc tmin tmax) t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fact (t \u2208 Icc tmin tmax)",
+        "body": "\u27e8ht\u27e9 -- needed to synthesise `FTCFilter` for `Icc`",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PicardLindelof",
+    "name": "contDiffOn_enat_Icc_of_hasDerivWithinAt",
+    "statement": "\u2115\u221e} (hf : ContDiffOn \u211d n (uncurry f) ((Icc tmin tmax) \u00d7\u02e2 u)) (h\u03b1 : \u2200 t \u2208 Icc tmin tmax, HasDerivWithinAt \u03b1 (f t (\u03b1 t)) (Icc tmin tmax) t) (hmem : MapsTo \u03b1 (Icc tmin tmax) u) : ContDiffOn \u211d n \u03b1 (Icc tmin tmax)",
+    "have_tree": [
+      {
+        "name": "ht\u2080",
+        "type": "t\u2080 \u2208 Icc tmin tmax",
+        "body": "\u27e8by linarith, by linarith\u27e9",
+        "children": [
+          {
+            "name": "_",
+            "type": "uIcc t\u2080 t \u2286 Icc tmin tmax",
+            "body": "uIcc_subset_Icc ht\u2080 ht",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PicardLindelof",
+    "name": "weaken_lipschitz",
+    "statement": "IsPicardLindelof f t\u2080 x\u2080 a r L K) {K' : \u211d\u22650} (hK : K \u2264 K') : IsPicardLindelof f t\u2080 x\u2080 a r L K' where lipschitzOnWith t ht",
+    "have_tree": [
+      {
+        "name": "h\u03b5'pos",
+        "type": "0 < \u03b5'",
+        "body": "lt_min h\u03b5 (by positivity)",
+        "children": []
+      },
+      {
+        "name": "h\u03b5'_le",
+        "type": "\u03b5' \u2264 \u03b5",
+        "body": "min_le_left _ _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PicardLindelof",
+    "name": "of_time_independent",
+    "statement": "E \u2192 E} {tmin tmax : \u211d} {t\u2080 : Icc tmin tmax} {x\u2080 : E} {a r L K : \u211d\u22650} (hb : \u2200 x \u2208 closedBall x\u2080 a, \u2016f x\u2016 \u2264 L) (hl : LipschitzOnWith K f (closedBall x\u2080 a)) (hm : L * max (tmax - t\u2080) (t\u2080 - tmin) \u2264 a - r) : (IsPicardLindelof (fun _ \u21a6 f) t\u2080 x\u2080 a r L K) where lipschitzOnWith",
+    "have_tree": [
+      {
+        "name": "hL0",
+        "type": "0 < L",
+        "body": "by positivity",
+        "children": []
+      },
+      {
+        "name": "h\u03b50",
+        "type": "0 < \u03b5",
+        "body": "by positivity",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PicardLindelof",
+    "name": "exists_forall_mem_closedBall_eq_hasDerivWithinAt_lipschitzOnWith",
+    "statement": "IsPicardLindelof f t\u2080 x\u2080 a r L K) : \u2203 \u03b1 : E \u2192 \u211d \u2192 E, (\u2200 x \u2208 closedBall x\u2080 r, \u03b1 x t\u2080 = x \u2227 \u2200 t \u2208 Icc tmin tmax, HasDerivWithinAt (\u03b1 x) (f t (\u03b1 x t)) (Icc tmin tmax) t) \u2227 \u2203 L' : \u211d\u22650, \u2200 t \u2208 Icc tmin tmax, LipschitzOnWith L' (\u03b1 \u00b7 t) (closedBall x\u2080 r)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty (Icc tmin tmax)",
+        "body": "\u27e8t\u2080\u27e9",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,71 @@
+[
+  {
+    "module": "Basic",
+    "name": "inv_mem",
+    "statement": "Type*} [Field F] {P : RingPreordering F} {a : F} (ha : a \u2208 P) : a\u207b\u00b9 \u2208 P",
+    "have_tree": [
+      {
+        "name": "mem",
+        "type": "a * (a\u207b\u00b9 * a\u207b\u00b9) \u2208 P",
+        "body": "by aesop",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "eq_zero_of_mem_of_neg_mem",
+    "statement": "x \u2208 P) (h2 : -x \u2208 P) : x = 0",
+    "have_tree": [
+      {
+        "name": "mem",
+        "type": "-x * x\u207b\u00b9 \u2208 P",
+        "body": "by aesop (erase simp neg_mul)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "isOrdering_iff",
+    "statement": "P.IsOrdering \u2194 \u2200 a b : R, -(a * b) \u2208 P \u2192 a \u2208 P \u2228 b \u2208 P",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "a * b \u2208 P",
+        "body": "by simpa using mul_mem (by aesop : -a \u2208 P) (by aesop : -b \u2208 P)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "a \u2208 P.support \u2228 b \u2208 P.support",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h (-x) y",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h (-x) (-y)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h x y",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h x (-y)",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,156 @@
+[
+  {
+    "module": "Reduced",
+    "name": "IsReduced.linearIndependent",
+    "statement": "i \u2260 j) (h' : P.root i \u2260 -P.root j) : LinearIndependent R ![P.root i, P.root j]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsReduced.eq_or_eq_neg (P := P) i j",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Reduced",
+    "name": "nsmul_notMem_range_root",
+    "statement": "\u2115} [n.AtLeastTwo] {i : \u03b9} : n \u2022 P.root i \u2209 range P.root",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u00ac LinearIndependent R ![n \u2022 P.root i, P.root i]",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "2 \u2264 n",
+            "body": "Nat.AtLeastTwo.prop",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Reduced",
+    "name": "linearIndependent_of_add_mem_range_root'",
+    "statement": "\u03b9} (h : P.root i + P.root j \u2208 range P.root) : LinearIndependent R ![P.root i, P.root j]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAddTorsionFree M",
+        "body": ".of_isTorsionFree R M",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Reduced",
+    "name": "linearIndependent_of_sub_mem_range_root'",
+    "statement": "\u03b9} (h : P.root i - P.root j \u2208 range P.root) : LinearIndependent R ![P.root i, P.root j]",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAddTorsionFree M",
+        "body": ".of_isTorsionFree R M",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Reduced",
+    "name": "pairing_smul_root_eq_of_not_linearIndependent",
+    "statement": "R)] [IsDomain R] [Module.IsTorsionFree R M] (h : \u00ac LinearIndependent R ![P.root i, P.root j]) : P.pairing j i \u2022 P.root i = (2 : R) \u2022 P.root j",
+    "have_tree": [
+      {
+        "name": "h\u2083",
+        "type": "t \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Reduced",
+    "name": "coxeterWeight_ne_four_of_linearIndependent",
+    "statement": "R)] [IsAddTorsionFree M] (hl : LinearIndependent R ![P.root i, P.root j]) : P.coxeterWeight i j \u2260 4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "P.infinite_of_linearIndependent_coxeterWeight_four hl contra",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Reduced",
+    "name": "linearIndependent_iff_coxeterWeight_ne_four",
+    "statement": "LinearIndependent R ![P.root i, P.root j] \u2194 P.coxeterWeight i j \u2260 4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsAddTorsionFree M",
+        "body": ".of_isTorsionFree R M",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "P.pairing_smul_root_eq_of_not_linearIndependent h",
+        "children": []
+      },
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "P.pairing_smul_root_eq_of_not_linearIndependent h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Reduced",
+    "name": "pairing_two_two_iff",
+    "statement": "P.pairing i j = 2 \u2227 P.pairing j i = 2 \u2194 i = j",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "\u00ac LinearIndependent R ![P.root i, P.root j]",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Reduced",
+    "name": "pairing_one_four_iff'",
+    "statement": "IsSMulRegular R (2 : R)) : P.pairing i j = 1 \u2227 P.pairing j i = 4 \u2194 P.root j = (2 : R) \u2022 P.root i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsAddTorsionFree M",
+        "body": ".of_isTorsionFree R M",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAddTorsionFree N",
+        "body": ".of_isTorsionFree R N",
+        "children": []
+      }
+    ]
+  }
+]

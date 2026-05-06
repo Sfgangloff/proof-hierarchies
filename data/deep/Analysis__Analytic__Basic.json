@@ -1,0 +1,186 @@
+[
+  {
+    "module": "Basic",
+    "name": "HasFPowerSeriesWithinOnBall.coeff_zero",
+    "statement": "HasFPowerSeriesWithinOnBall f pf s x r) (v : Fin 0 \u2192 E) : pf 0 v = f x",
+    "have_tree": [
+      {
+        "name": "v_eq",
+        "type": "v = fun i => 0",
+        "body": "Subsingleton.elim _ _",
+        "children": []
+      },
+      {
+        "name": "zero_mem",
+        "type": "(0 : E) \u2208 EMetric.ball (0 : E) r",
+        "body": "by simp [hf.r_pos]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2200 i, i \u2260 0 \u2192 (pf i fun _ => 0) = 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 < i",
+            "body": "pos_iff_ne_zero.2 hi",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "A",
+        "type": "",
+        "body": "(hf.hasSum (by simp) zero_mem).unique (hasSum_single _ this)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "HasFPowerSeriesWithinOnBall.tendsto_partialSum_prod",
+    "statement": "E} (hf : HasFPowerSeriesWithinOnBall f p s x r) (hy : y \u2208 EMetric.ball (0 : E) r) (h'y : x + y \u2208 insert x s) : Tendsto (fun (z : \u2115 \u00d7 E) \u21a6 p.partialSum z.1 z.2) (atTop \u00d7\u02e2 \ud835\udcdd y) (\ud835\udcdd (f (x + y)))",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "Tendsto (fun (z : \u2115 \u00d7 E) \u21a6 p.partialSum z.1 y) (atTop \u00d7\u02e2 \ud835\udcdd y) (\ud835\udcdd (f (x + y)))",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "yr'_2",
+        "type": "\u2016y\u2016 < r'",
+        "body": "by simpa [\u2190 coe_nnnorm] using yr'",
+        "children": []
+      },
+      {
+        "name": "S",
+        "type": "Summable fun n \u21a6 \u2016p n\u2016 * \u2191r' ^ n",
+        "body": "p.summable_norm_mul_pow (r'r.trans_le hf.r_le)",
+        "children": [
+          {
+            "name": "_",
+            "type": "Tendsto (fun k \u21a6 \u2211' n, \u2016p (n + k)\u2016 * \u2191r' ^ (n + k)) atTop (\ud835\udcdd 0)",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "ContinuousAt (fun z \u21a6 p.partialSum k z) y",
+            "body": "(p.partialSum_continuous k).continuousAt",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "B",
+        "type": "\u2200\u1da0 (z : \u2115 \u00d7 E) in atTop \u00d7\u02e2 \ud835\udcdd y, \u2016z.2\u2016\u208a < r'",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Metric.ball 0 r' \u2208 \ud835\udcdd y",
+            "body": "Metric.isOpen_ball.mem_nhds (by simpa using yr'_2)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "C",
+        "type": "\u2200\u1da0 (z : \u2115 \u00d7 E) in atTop \u00d7\u02e2 \ud835\udcdd y, k \u2264 z.1",
+        "body": "tendsto_fst (Ici_mem_atTop _)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "E) (hw : \u2016w\u2016\u208a < r') : \u2016\u2211 i \u2208 Ico k n, p i (fun _ \u21a6 w)\u2016 \u2264 \u03b5 / 4",
+        "body": "calc",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "HasFPowerSeriesWithinOnBall.uniform_geometric_approx'",
+    "statement": "\u211d\u22650} (hf : HasFPowerSeriesWithinOnBall f p s x r) (h : (r' : \u211d\u22650\u221e) < r) : \u2203 a \u2208 Ioo (0 : \u211d) 1, \u2203 C > 0, \u2200 y \u2208 Metric.ball (0 : E) r', \u2200 n, x + y \u2208 insert x s \u2192 \u2016f (x + y) - p.partialSum n y\u2016 \u2264 C * (a * (\u2016y\u2016 / r')) ^ n",
+    "have_tree": [
+      {
+        "name": "yr'",
+        "type": "\u2016y\u2016 < r'",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hr'0",
+        "type": "0 < (r' : \u211d)",
+        "body": "(norm_nonneg _).trans_lt yr'",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "y \u2208 EMetric.ball (0 : E) r",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "ya",
+        "type": "a * (\u2016y\u2016 / \u2191r') \u2264 a",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 < a",
+            "body": "ha.1",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "HasFPowerSeriesWithinOnBall.isBigO_image_sub_image_sub_deriv_principal",
+    "statement": "HasFPowerSeriesWithinOnBall f p s x r) (hr : r' < r) : (fun y : E \u00d7 E => f y.1 - f y.2 - p 1 fun _ => y.1 - y.2) =O[\ud835\udcdf (EMetric.ball (x, x) r' \u2229 ((insert x s) \u00d7\u02e2 (insert x s)))] fun y => \u2016y - (x, x)\u2016 * \u2016y.1 - y.2\u2016",
+    "have_tree": [
+      {
+        "name": "hy",
+        "type": "y \u2208 EMetric.ball x r \u00d7\u02e2 EMetric.ball x r",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hA",
+        "type": "HasSum (fun n => A (n + 2)) (f y.1 - f y.2 - p 1 fun _ => y.1 - y.2)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hAB",
+        "type": "\u2200 n, \u2016A (n + 2)\u2016 \u2264 B n",
+        "body": "fun n =>",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 < a",
+            "body": "ha.1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hBL",
+        "type": "HasSum B (L y)",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2016a\u2016 < 1",
+            "body": "by simp only [Real.norm_eq_abs, abs_of_pos ha.1, ha.2]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

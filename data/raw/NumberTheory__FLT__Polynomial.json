@@ -1,0 +1,222 @@
+[
+  {
+    "module": "Polynomial",
+    "name": "rot_coprime",
+    "statement": "\u2115} {a b c : k[X]} {u v w : k} {hp : p \u2260 0} {hq : q \u2260 0} {hr : r \u2260 0} {hu : u \u2260 0} {hv : v \u2260 0} {hw : w \u2260 0} (heq : C u * a ^ p + C v * b ^ q + C w * c ^ r = 0) (hab : IsCoprime a b) : IsCoprime b c",
+    "have_tree": [
+      {
+        "name": "hCu",
+        "type": "IsUnit (C u)",
+        "body": "hu.isUnit_C",
+        "children": []
+      },
+      {
+        "name": "hCv",
+        "type": "IsUnit (C v)",
+        "body": "hv.isUnit_C",
+        "children": []
+      },
+      {
+        "name": "hCw",
+        "type": "IsUnit (C w)",
+        "body": "hw.isUnit_C",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Polynomial",
+    "name": "Polynomial.flt_catalan_deriv",
+    "statement": "\u2115} (hp : p \u2260 0) (hq : q \u2260 0) (hr : r \u2260 0) (hineq : q * r + r * p + p * q \u2264 p * q * r) (chp : (p : k) \u2260 0) (chq : (q : k) \u2260 0) (chr : (r : k) \u2260 0) {a b c : k[X]} (ha : a \u2260 0) (hb : b \u2260 0) (hc : c \u2260 0) (hab : IsCoprime a b) {u v w : k} (hu : u \u2260 0) (hv : v \u2260 0) (hw : w \u2260 0) (heq : C u * a ^ p + C v * b ^ q + C w * c ^ r = 0) : derivative a = 0 \u2227 derivative b = 0 \u2227 derivative c = 0",
+    "have_tree": [
+      {
+        "name": "hbc",
+        "type": "IsCoprime b c",
+        "body": "by apply rot_coprime heq <;> assumption",
+        "children": []
+      },
+      {
+        "name": "hca",
+        "type": "IsCoprime c a",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hCu",
+        "type": "",
+        "body": "C_ne_zero.mpr hu",
+        "children": []
+      },
+      {
+        "name": "hCv",
+        "type": "",
+        "body": "C_ne_zero.mpr hv",
+        "children": []
+      },
+      {
+        "name": "hCw",
+        "type": "",
+        "body": "C_ne_zero.mpr hw",
+        "children": []
+      },
+      {
+        "name": "hap",
+        "type": "",
+        "body": "pow_ne_zero p ha",
+        "children": []
+      },
+      {
+        "name": "hbq",
+        "type": "",
+        "body": "pow_ne_zero q hb",
+        "children": []
+      },
+      {
+        "name": "hcr",
+        "type": "",
+        "body": "pow_ne_zero r hc",
+        "children": []
+      },
+      {
+        "name": "habp",
+        "type": "IsCoprime (C u * a ^ p) (C v * b ^ q)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hbcp",
+        "type": "IsCoprime (C v * b ^ q) (C w * c ^ r)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hcap",
+        "type": "IsCoprime (C w * c ^ r) (C u * a ^ p)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "habcp",
+        "type": "",
+        "body": "hcap.symm.mul_left hbcp",
+        "children": [
+          {
+            "name": "hpa",
+            "type": "",
+            "body": "hpa'.trans natDegree_radical_le",
+            "children": []
+          },
+          {
+            "name": "hqb",
+            "type": "",
+            "body": "hqb'.trans natDegree_radical_le",
+            "children": []
+          },
+          {
+            "name": "hrc",
+            "type": "",
+            "body": "hrc'.trans natDegree_radical_le",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Polynomial",
+    "name": "find_contract",
+    "statement": "k[X]} (ha : a \u2260 0) (hda : derivative a = 0) (chn0 : ringChar k \u2260 0) : \u2203 ca, ca \u2260 0 \u2227 a = expand k (ringChar k) ca \u2227 a.natDegree = ca.natDegree * ringChar k",
+    "have_tree": [
+      {
+        "name": "heq",
+        "type": "",
+        "body": "(expand_contract (ringChar k) hda chn0).symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Polynomial",
+    "name": "Polynomial.flt_catalan_aux",
+    "statement": "\u2115} {a b c : k[X]} {u v w : k} (heq : C u * a ^ p + C v * b ^ q + C w * c ^ r = 0) (hp : p \u2260 0) (hq : q \u2260 0) (hr : r \u2260 0) (hineq : q * r + r * p + p * q \u2264 p * q * r) (chp : (p : k) \u2260 0) (chq : (q : k) \u2260 0) (chr : (r : k) \u2260 0) (ha : a \u2260 0) (hb : b \u2260 0) (hc : c \u2260 0) (hab : IsCoprime a b) (hu : u \u2260 0) (hv : v \u2260 0) (hw : w \u2260 0) : a.natDegree = 0",
+    "have_tree": [
+      {
+        "name": "czk",
+        "type": "CharZero k",
+        "body": "by",
+        "children": [
+          {
+            "name": "hch2",
+            "type": "2 \u2264 ch",
+            "body": "by lia",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Polynomial",
+    "name": "Polynomial.flt_catalan",
+    "statement": "\u2115} (hp : p \u2260 0) (hq : q \u2260 0) (hr : r \u2260 0) (hineq : q * r + r * p + p * q \u2264 p * q * r) (chp : (p : k) \u2260 0) (chq : (q : k) \u2260 0) (chr : (r : k) \u2260 0) {a b c : k[X]} (ha : a \u2260 0) (hb : b \u2260 0) (hc : c \u2260 0) (hab : IsCoprime a b) {u v w : k} (hu : u \u2260 0) (hv : v \u2260 0) (hw : w \u2260 0) (heq : C u * a ^ p + C v * b ^ q + C w * c ^ r = 0) : a.natDegree = 0 \u2227 b.natDegree = 0 \u2227 c.natDegree = 0",
+    "have_tree": [
+      {
+        "name": "hbc",
+        "type": "IsCoprime b c",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hca",
+        "type": "IsCoprime c a",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Polynomial",
+    "name": "Polynomial.flt",
+    "statement": "\u2115} (hn : 3 \u2264 n) (chn : (n : k) \u2260 0) {a b c : k[X]} (ha : a \u2260 0) (hb : b \u2260 0) (hc : c \u2260 0) (hab : IsCoprime a b) (heq : a ^ n + b ^ n = c ^ n) : a.natDegree = 0 \u2227 b.natDegree = 0 \u2227 c.natDegree = 0",
+    "have_tree": [
+      {
+        "name": "hn'",
+        "type": "0 < n",
+        "body": "by linarith",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Polynomial",
+    "name": "fermatLastTheoremWith'_polynomial",
+    "statement": "\u2115} (hn : 3 \u2264 n) (chn : (n : k) \u2260 0) : FermatLastTheoremWith' k[X] n",
+    "have_tree": [
+      {
+        "name": "hd",
+        "type": "d \u2260 0",
+        "body": "gcd_ne_zero_of_left ha",
+        "children": []
+      },
+      {
+        "name": "hdc",
+        "type": "d \u2223 c",
+        "body": "by",
+        "children": [
+          {
+            "name": "hn",
+            "type": "0 < n",
+            "body": "by lia",
+            "children": []
+          },
+          {
+            "name": "hdncn",
+            "type": "d ^ n \u2223 c ^ n",
+            "body": "\u27e8_, heq.symm\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

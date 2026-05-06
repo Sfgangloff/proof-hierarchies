@@ -1,0 +1,67 @@
+[
+  {
+    "module": "Functions",
+    "name": "zeroDefault",
+    "statement": "TotalFunction \u03b1 \u03b2 \u2192 TotalFunction \u03b1 \u03b2 | .withDefault A _ => .withDefault A 0  /-- The support of a zero default `TotalFunction`. -/ @[simp] def zeroDefaultSupp : TotalFunction \u03b1 \u03b2 \u2192 Finset \u03b1 | .withDefault A _ => List.toFinset <| (A.dedupKeys.filter fun ab => Sigma.snd ab \u2260 0).map Sigma.fst  /-- Create a finitely supported function from a total function by taking the default value to zero. -/ def applyFinsupp (tf : TotalFunction \u03b1 \u03b2) : \u03b1 \u2192\u2080 \u03b2 where support",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "List.mem_dlookup (List.nodupKeys_dedupKeys A) hval",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Functions",
+    "name": "applyId_mem_iff",
+    "statement": "List \u03b1} (h\u2080 : List.Nodup xs) (h\u2081 : xs ~ ys) (x : \u03b1) : List.applyId.{u} (xs.zip ys) x \u2208 ys \u2194 x \u2208 xs",
+    "have_tree": [
+      {
+        "name": "h\u2082",
+        "type": "ys.Nodup",
+        "body": "h\u2081.nodup_iff.1 h\u2080",
+        "children": [
+          {
+            "name": "h\u2086",
+            "type": "",
+            "body": "Nat.succ.inj h\u2081",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Functions",
+    "name": "applyId_injective",
+    "statement": "List \u03b1} (h\u2080 : List.Nodup xs) (h\u2081 : xs ~ ys) : Injective.{u + 1, u + 1} (List.applyId (xs.zip ys))",
+    "have_tree": [
+      {
+        "name": "h\u2082",
+        "type": "",
+        "body": "h\u2081.length_eq",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Functions",
+    "name": "shrink",
+    "statement": "Type} [DecidableEq \u03b1] : InjectiveFunction \u03b1 \u2192 List (InjectiveFunction \u03b1) | \u27e8_, h\u2080, h\u2081\u27e9 => do let \u27e8xs', ys', h\u2080, h\u2081\u27e9 \u2190 InjectiveFunction.shrinkPerm \u27e8_, _, h\u2080, h\u2081\u27e9 have h\u2083 : xs'.length \u2264 ys'.length",
+    "have_tree": [
+      {
+        "name": "h\u2080",
+        "type": "xs.length \u2264 ys.length",
+        "body": "le_of_eq h.length_eq",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "ys.length \u2264 xs.length",
+        "body": "le_of_eq h.length_eq.symm",
+        "children": []
+      }
+    ]
+  }
+]

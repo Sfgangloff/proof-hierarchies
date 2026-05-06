@@ -1,0 +1,73 @@
+[
+  {
+    "module": "CoverLifting",
+    "name": "Adjunction.isContinuous_of_isCocontinuous",
+    "statement": "F \u22a3 G) [F.IsCocontinuous J K] : G.IsContinuous K J",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "adj.isRightAdjoint",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CoverLifting",
+    "name": "liftAux_map'",
+    "statement": "C} (f : G.obj Y \u27f6 X) (f' : G.obj Y' \u27f6 X) {W : C} (a : W \u27f6 Y) (b : W \u27f6 Y') (w : G.map a \u226b f = G.map b \u226b f') : liftAux hF \u03b1 s f \u226b F.map a.op = liftAux hF \u03b1 s f' \u226b F.map b.op",
+    "have_tree": [
+      {
+        "name": "eq\u2081",
+        "type": "",
+        "body": "liftAux_map hF \u03b1 s f (g \u226b a) \u27e8_, _, hg\u27e9 (\ud835\udfd9 _) (by simp)",
+        "children": []
+      },
+      {
+        "name": "eq\u2082",
+        "type": "",
+        "body": "liftAux_map hF \u03b1 s f' (g \u226b b) \u27e8_, _, hg\u27e9 (\ud835\udfd9 _) (by simp [w])",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CoverLifting",
+    "name": "fac",
+    "statement": "S.Arrow) : lift hF hR s \u226b R.map i.f.op = s.\u03b9 i",
+    "have_tree": [
+      {
+        "name": "eq",
+        "type": "",
+        "body": "fac' hF hR s (StructuredArrow.mk (i.f.op \u226b j.hom))",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CoverLifting",
+    "name": "hom_ext",
+    "statement": "A} {f g : W \u27f6 R.obj (op X)} (h : \u2200 (i : S.Arrow), f \u226b R.map i.f.op = g \u226b R.map i.f.op) : f = g",
+    "have_tree": [
+      {
+        "name": "eq",
+        "type": "",
+        "body": "h (GrothendieckTopology.Cover.Arrow.mk _ (G.map i \u226b j.hom.unop) hi)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "CoverLifting",
+    "name": "toSheafify_pullbackSheafificationCompatibility",
+    "statement": "D\u1d52\u1d56 \u2964 A) : toSheafify J (G.op \u22d9 F) \u226b ((G.pushforwardContinuousSheafificationCompatibility A J K).hom.app F).hom = whiskerLeft _ (toSheafify K _)",
+    "have_tree": [
+      {
+        "name": "eq",
+        "type": "",
+        "body": "(adj\u2081.comp adj\u2082).unit_leftAdjointUniq_hom_app (adj\u2083.comp adj\u2084) F",
+        "children": []
+      }
+    ]
+  }
+]

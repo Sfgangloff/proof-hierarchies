@@ -1,0 +1,246 @@
+[
+  {
+    "original": {
+      "module": "Basic",
+      "name": "mul",
+      "statement": "\u211a} (hq : q \u2260 0) (hr : r \u2260 0) : padicValRat p (q * r) = padicValRat p q + padicValRat p r",
+      "have_tree": [
+        {
+          "name": "hq'",
+          "type": "q.num /. q.den \u2260 0",
+          "body": "by rwa [Rat.num_divInt_den]",
+          "children": []
+        },
+        {
+          "name": "hr'",
+          "type": "r.num /. r.den \u2260 0",
+          "body": "by rwa [Rat.num_divInt_den]",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "mul",
+          "statement": "\u211a} (hq : q \u2260 0) (hr : r \u2260 0) : padicValRat p (q * r) = padicValRat p q + padicValRat p r",
+          "have_tree": [
+            {
+              "name": "hr'",
+              "type": "r.num /. r.den \u2260 0",
+              "body": "by rwa [Rat.num_divInt_den]",
+              "children": []
+            },
+            {
+              "name": "hq'",
+              "type": "q.num /. q.den \u2260 0",
+              "body": "by rwa [Rat.num_divInt_den]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "le_padicValRat_add_of_le",
+      "statement": "\u211a} (hqr : q + r \u2260 0) (h : padicValRat p q \u2264 padicValRat p r) : padicValRat p q \u2264 padicValRat p (q + r)",
+      "have_tree": [
+        {
+          "name": "hqn",
+          "type": "q.num \u2260 0",
+          "body": "Rat.num_ne_zero.2 hq",
+          "children": []
+        },
+        {
+          "name": "hrn",
+          "type": "r.num \u2260 0",
+          "body": "Rat.num_ne_zero.2 hr",
+          "children": []
+        },
+        {
+          "name": "hqrd",
+          "type": "q.num * r.den + q.den * r.num \u2260 0",
+          "body": "Rat.mk_num_ne_zero_of_ne_zero hqr hqreq",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "le_padicValRat_add_of_le",
+          "statement": "\u211a} (hqr : q + r \u2260 0) (h : padicValRat p q \u2264 padicValRat p r) : padicValRat p q \u2264 padicValRat p (q + r)",
+          "have_tree": [
+            {
+              "name": "hrn",
+              "type": "r.num \u2260 0",
+              "body": "Rat.num_ne_zero.2 hr",
+              "children": []
+            },
+            {
+              "name": "hqn",
+              "type": "q.num \u2260 0",
+              "body": "Rat.num_ne_zero.2 hq",
+              "children": []
+            },
+            {
+              "name": "hqrd",
+              "type": "q.num * r.den + q.den * r.num \u2260 0",
+              "body": "Rat.mk_num_ne_zero_of_ne_zero hqr hqreq",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "le_padicValRat_add_of_le",
+          "statement": "\u211a} (hqr : q + r \u2260 0) (h : padicValRat p q \u2264 padicValRat p r) : padicValRat p q \u2264 padicValRat p (q + r)",
+          "have_tree": [
+            {
+              "name": "hqn",
+              "type": "q.num \u2260 0",
+              "body": "Rat.num_ne_zero.2 hq",
+              "children": []
+            },
+            {
+              "name": "hqrd",
+              "type": "q.num * r.den + q.den * r.num \u2260 0",
+              "body": "Rat.mk_num_ne_zero_of_ne_zero hqr hqreq",
+              "children": []
+            },
+            {
+              "name": "hrn",
+              "type": "r.num \u2260 0",
+              "body": "Rat.num_ne_zero.2 hr",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Basic",
+      "name": "add_eq_min",
+      "statement": "\u211a} (hqr : q + r \u2260 0) (hq : q \u2260 0) (hr : r \u2260 0) (hval : padicValRat p q \u2260 padicValRat p r) : padicValRat p (q + r) = min (padicValRat p q) (padicValRat p r)",
+      "have_tree": [
+        {
+          "name": "h1",
+          "type": "",
+          "body": "min_le_padicValRat_add (p := p) hqr",
+          "children": []
+        },
+        {
+          "name": "h2",
+          "type": "",
+          "body": "min_le_padicValRat_add (p := p) (ne_of_eq_of_ne (add_neg_cancel_right q r) hq)",
+          "children": []
+        },
+        {
+          "name": "h3",
+          "type": "",
+          "body": "min_le_padicValRat_add (p := p) (ne_of_eq_of_ne (add_neg_cancel_right r q) hr)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "add_eq_min",
+          "statement": "\u211a} (hqr : q + r \u2260 0) (hq : q \u2260 0) (hr : r \u2260 0) (hval : padicValRat p q \u2260 padicValRat p r) : padicValRat p (q + r) = min (padicValRat p q) (padicValRat p r)",
+          "have_tree": [
+            {
+              "name": "h2",
+              "type": "",
+              "body": "min_le_padicValRat_add (p := p) (ne_of_eq_of_ne (add_neg_cancel_right q r) hq)",
+              "children": []
+            },
+            {
+              "name": "h1",
+              "type": "",
+              "body": "min_le_padicValRat_add (p := p) hqr",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "",
+              "body": "min_le_padicValRat_add (p := p) (ne_of_eq_of_ne (add_neg_cancel_right r q) hr)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Basic",
+          "name": "add_eq_min",
+          "statement": "\u211a} (hqr : q + r \u2260 0) (hq : q \u2260 0) (hr : r \u2260 0) (hval : padicValRat p q \u2260 padicValRat p r) : padicValRat p (q + r) = min (padicValRat p q) (padicValRat p r)",
+          "have_tree": [
+            {
+              "name": "h1",
+              "type": "",
+              "body": "min_le_padicValRat_add (p := p) hqr",
+              "children": []
+            },
+            {
+              "name": "h3",
+              "type": "",
+              "body": "min_le_padicValRat_add (p := p) (ne_of_eq_of_ne (add_neg_cancel_right r q) hr)",
+              "children": []
+            },
+            {
+              "name": "h2",
+              "type": "",
+              "body": "min_le_padicValRat_add (p := p) (ne_of_eq_of_ne (add_neg_cancel_right q r) hq)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

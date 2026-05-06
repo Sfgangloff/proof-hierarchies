@@ -1,0 +1,35 @@
+[
+  {
+    "module": "PoissonSummation",
+    "name": "Real.fourierCoeff_tsum_comp_add",
+    "statement": "C(\u211d, \u2102)} (hf : \u2200 K : Compacts \u211d, Summable fun n : \u2124 => \u2016(f.comp (ContinuousMap.addRight n)).restrict K\u2016) (m : \u2124) : fourierCoeff (Periodic.lift <| f.periodic_tsum_comp_add_zsmul 1) m = \ud835\udcd5 (f : \u211d \u2192 \u2102) m",
+    "have_tree": [
+      {
+        "name": "neK",
+        "type": "\u2200 (K : Compacts \u211d) (g : C(\u211d, \u2102)), \u2016(e * g).restrict K\u2016 = \u2016g.restrict K\u2016",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u211d) : \u2016e x\u2016 = 1",
+            "body": "(AddCircle.toCircle (-m \u2022 x)).norm_coe",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "eadd",
+        "type": "\u2200 (n : \u2124), e.comp (ContinuousMap.addRight n) = e",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "Periodic e 1",
+            "body": "Periodic.comp (fun x => AddCircle.coe_add_period 1 x) (fourier (-m))",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

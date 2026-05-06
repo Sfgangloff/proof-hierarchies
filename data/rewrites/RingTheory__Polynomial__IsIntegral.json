@@ -1,0 +1,464 @@
+[
+  {
+    "original": {
+      "module": "IsIntegral",
+      "name": "IsAlmostIntegral.coeff",
+      "statement": "S[X]} (hp : IsAlmostIntegral R[X] p) (i : \u2115) : IsAlmostIntegral R (p.coeff i)",
+      "have_tree": [
+        {
+          "name": "h'",
+          "type": "q.leadingCoeff ^ n \u2260 0",
+          "body": "by aesop",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "IsAlmostIntegral R[X] p.eraseLead",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "IsIntegral",
+          "name": "IsAlmostIntegral.coeff",
+          "statement": "S[X]} (hp : IsAlmostIntegral R[X] p) (i : \u2115) : IsAlmostIntegral R (p.coeff i)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "IsAlmostIntegral R[X] p.eraseLead",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h'",
+              "type": "q.leadingCoeff ^ n \u2260 0",
+              "body": "by aesop",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "IsIntegral",
+      "name": "IsIntegral.coeff",
+      "statement": "S[X]} (hp : IsIntegral R[X] p) (i : \u2115) : IsIntegral R (p.coeff i)",
+      "have_tree": [
+        {
+          "name": "hm\u2081'",
+          "type": "(q.eval (X ^ m)).Monic",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hm\u2081 i",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "hm\u2082",
+          "type": "p.natDegree < m",
+          "body": "by grind",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "(((taylor (X ^ m)) q).map (algebraMap R[X] S[X])).IsRoot (p - X ^ m)",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "X ^ m - p \u2223 (eval (X ^ m) q).map (algebraMap _ _)",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "(isIntegral_coeff_of_dvd _ _ hm\u2081'",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "IsIntegral",
+          "name": "IsIntegral.coeff",
+          "statement": "S[X]} (hp : IsIntegral R[X] p) (i : \u2115) : IsIntegral R (p.coeff i)",
+          "have_tree": [
+            {
+              "name": "hm\u2081'",
+              "type": "(q.eval (X ^ m)).Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hm\u2082",
+              "type": "p.natDegree < m",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(((taylor (X ^ m)) q).map (algebraMap R[X] S[X])).IsRoot (p - X ^ m)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "X ^ m - p \u2223 (eval (X ^ m) q).map (algebraMap _ _)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isIntegral_coeff_of_dvd _ _ hm\u2081'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "IsIntegral",
+          "name": "IsIntegral.coeff",
+          "statement": "S[X]} (hp : IsIntegral R[X] p) (i : \u2115) : IsIntegral R (p.coeff i)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hm\u2081 i",
+              "children": []
+            },
+            {
+              "name": "hm\u2081'",
+              "type": "(q.eval (X ^ m)).Monic",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hm\u2082",
+              "type": "p.natDegree < m",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(((taylor (X ^ m)) q).map (algebraMap R[X] S[X])).IsRoot (p - X ^ m)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "X ^ m - p \u2223 (eval (X ^ m) q).map (algebraMap _ _)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isIntegral_coeff_of_dvd _ _ hm\u2081'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "IsIntegral",
+          "name": "IsIntegral.coeff",
+          "statement": "S[X]} (hp : IsIntegral R[X] p) (i : \u2115) : IsIntegral R (p.coeff i)",
+          "have_tree": [
+            {
+              "name": "hm\u2082",
+              "type": "p.natDegree < m",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "hm\u2081'",
+              "type": "(q.eval (X ^ m)).Monic",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hm\u2081 i",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "(((taylor (X ^ m)) q).map (algebraMap R[X] S[X])).IsRoot (p - X ^ m)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "X ^ m - p \u2223 (eval (X ^ m) q).map (algebraMap _ _)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isIntegral_coeff_of_dvd _ _ hm\u2081'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "IsIntegral",
+          "name": "IsIntegral.coeff",
+          "statement": "S[X]} (hp : IsIntegral R[X] p) (i : \u2115) : IsIntegral R (p.coeff i)",
+          "have_tree": [
+            {
+              "name": "hm\u2081'",
+              "type": "(q.eval (X ^ m)).Monic",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hm\u2081 i",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "(((taylor (X ^ m)) q).map (algebraMap R[X] S[X])).IsRoot (p - X ^ m)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hm\u2082",
+              "type": "p.natDegree < m",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "X ^ m - p \u2223 (eval (X ^ m) q).map (algebraMap _ _)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isIntegral_coeff_of_dvd _ _ hm\u2081'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "IsIntegral",
+          "name": "IsIntegral.coeff",
+          "statement": "S[X]} (hp : IsIntegral R[X] p) (i : \u2115) : IsIntegral R (p.coeff i)",
+          "have_tree": [
+            {
+              "name": "hm\u2081'",
+              "type": "(q.eval (X ^ m)).Monic",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hm\u2081 i",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hm\u2082",
+              "type": "p.natDegree < m",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "X ^ m - p \u2223 (eval (X ^ m) q).map (algebraMap _ _)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(((taylor (X ^ m)) q).map (algebraMap R[X] S[X])).IsRoot (p - X ^ m)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isIntegral_coeff_of_dvd _ _ hm\u2081'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "IsIntegral",
+          "name": "IsIntegral.coeff",
+          "statement": "S[X]} (hp : IsIntegral R[X] p) (i : \u2115) : IsIntegral R (p.coeff i)",
+          "have_tree": [
+            {
+              "name": "hm\u2081'",
+              "type": "(q.eval (X ^ m)).Monic",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hm\u2081 i",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hm\u2082",
+              "type": "p.natDegree < m",
+              "body": "by grind",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(((taylor (X ^ m)) q).map (algebraMap R[X] S[X])).IsRoot (p - X ^ m)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "(isIntegral_coeff_of_dvd _ _ hm\u2081'",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "X ^ m - p \u2223 (eval (X ^ m) q).map (algebraMap _ _)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "IsIntegral",
+      "name": "MvPolynomial.isIntegral_iff_isIntegral_coeff.",
+      "statement": "Type w} {f : MvPolynomial \u03c3 S} : IsIntegral (MvPolynomial \u03c3 R) f \u2194 \u2200 n, IsIntegral R (f.coeff n)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "",
+          "body": "@IH (rename e.symm f) (.of_map (g := (rename e).toRingHom)",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "IH (IsIntegral.coeff (R := MvPolynomial \u03b1 R)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "IsIntegral",
+          "name": "MvPolynomial.isIntegral_iff_isIntegral_coeff.",
+          "statement": "Type w} {f : MvPolynomial \u03c3 S} : IsIntegral (MvPolynomial \u03c3 R) f \u2194 \u2200 n, IsIntegral R (f.coeff n)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "IH (IsIntegral.coeff (R := MvPolynomial \u03b1 R)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "@IH (rename e.symm f) (.of_map (g := (rename e).toRingHom)",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

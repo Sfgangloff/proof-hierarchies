@@ -1,0 +1,65 @@
+[
+  {
+    "module": "ParametricIntegral",
+    "name": "hasFDerivAt_integral_of_dominated_loc_of_lip'",
+    "statement": "\u03b1 \u2192 H \u2192L[\ud835\udd5c] E} (hs : s \u2208 \ud835\udcdd x\u2080) (hF_meas : \u2200 x \u2208 s, AEStronglyMeasurable (F x) \u03bc) (hF_int : Integrable (F x\u2080) \u03bc) (hF'_meas : AEStronglyMeasurable F' \u03bc) (h_lipsch : \u2200\u1d50 a \u2202\u03bc, \u2200 x \u2208 s, \u2016F x a - F x\u2080 a\u2016 \u2264 bound a * \u2016x - x\u2080\u2016) (bound_integrable : Integrable (bound : \u03b1 \u2192 \u211d) \u03bc) (h_diff : \u2200\u1d50 a \u2202\u03bc, HasFDerivAt (F \u00b7 a) (F' a) x\u2080) : Integrable F' \u03bc \u2227 HasFDerivAt (fun x \u21a6 \u222b a, F x a \u2202\u03bc) (\u222b a, F' a \u2202\u03bc) x\u2080",
+    "have_tree": [
+      {
+        "name": "x\u2080_in",
+        "type": "x\u2080 \u2208 ball x\u2080 \u03b5",
+        "body": "mem_ball_self \u03b5_pos",
+        "children": []
+      },
+      {
+        "name": "nneg",
+        "type": "\u2200 x, 0 \u2264 \u2016x - x\u2080\u2016\u207b\u00b9",
+        "body": "fun x \u21a6 inv_nonneg.mpr (norm_nonneg _)",
+        "children": []
+      },
+      {
+        "name": "b_int",
+        "type": "Integrable b \u03bc",
+        "body": "bound_integrable.norm",
+        "children": []
+      },
+      {
+        "name": "b_nonneg",
+        "type": "\u2200 a, 0 \u2264 b a",
+        "body": "fun a \u21a6 abs_nonneg _",
+        "children": []
+      },
+      {
+        "name": "hF_int'",
+        "type": "\u2200 x \u2208 ball x\u2080 \u03b5, Integrable (F x) \u03bc",
+        "body": "fun x x_in \u21a6 by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F x\u2080 a - F x a\u2016 \u2264 \u03b5 * b a",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hF'_int",
+        "type": "Integrable F' \u03bc",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2200\u1d50 a \u2202\u03bc, \u2016F' a\u2016 \u2264 b a",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_ball",
+        "type": "ball x\u2080 \u03b5 \u2208 \ud835\udcdd x\u2080",
+        "body": "ball_mem_nhds x\u2080 \u03b5_pos",
+        "children": []
+      }
+    ]
+  }
+]

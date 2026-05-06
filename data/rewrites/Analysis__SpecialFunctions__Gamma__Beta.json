@@ -1,0 +1,626 @@
+[
+  {
+    "original": {
+      "module": "Beta",
+      "name": "Gamma_mul_Gamma_eq_betaIntegral",
+      "statement": "\u2102} (hs : 0 < re s) (ht : 0 < re t) : Gamma s * Gamma t = Gamma (s + t) * betaIntegral s t",
+      "have_tree": [
+        {
+          "name": "conv_int",
+          "type": "",
+          "body": "integral_posConvolution",
+          "children": []
+        },
+        {
+          "name": "hst",
+          "type": "0 < re (s + t)",
+          "body": "by rw [add_re]; exact add_pos hs ht",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Beta",
+          "name": "Gamma_mul_Gamma_eq_betaIntegral",
+          "statement": "\u2102} (hs : 0 < re s) (ht : 0 < re t) : Gamma s * Gamma t = Gamma (s + t) * betaIntegral s t",
+          "have_tree": [
+            {
+              "name": "hst",
+              "type": "0 < re (s + t)",
+              "body": "by rw [add_re]; exact add_pos hs ht",
+              "children": []
+            },
+            {
+              "name": "conv_int",
+              "type": "",
+              "body": "integral_posConvolution",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Beta",
+      "name": "betaIntegral_recurrence",
+      "statement": "\u2102} (hu : 0 < re u) (hv : 0 < re v) : u * betaIntegral u (v + 1) = v * betaIntegral (u + 1) v",
+      "have_tree": [
+        {
+          "name": "hu'",
+          "type": "0 < re (u + 1)",
+          "body": "by rw [add_re, one_re]; positivity",
+          "children": []
+        },
+        {
+          "name": "hv'",
+          "type": "0 < re (v + 1)",
+          "body": "by rw [add_re, one_re]; positivity",
+          "children": []
+        },
+        {
+          "name": "hc",
+          "type": "ContinuousOn F (Icc 0 1)",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "@HasDerivAt.cpow_const _ _ _ u (hasDerivAt_id (x : \u2102)) (Or.inl ?_)",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "",
+              "body": "@HasDerivAt.cpow_const _ _ _ v (hasDerivAt_id (1 - (x : \u2102))) (Or.inl ?_)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "h_int",
+          "type": "",
+          "body": "((betaIntegral_convergent hu hv').const_mul u).sub",
+          "children": []
+        },
+        {
+          "name": "int_ev",
+          "type": "",
+          "body": "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le zero_le_one hc hder h_int",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          2,
+          0
+        ],
+        "result": {
+          "module": "Beta",
+          "name": "betaIntegral_recurrence",
+          "statement": "\u2102} (hu : 0 < re u) (hv : 0 < re v) : u * betaIntegral u (v + 1) = v * betaIntegral (u + 1) v",
+          "have_tree": [
+            {
+              "name": "hu'",
+              "type": "0 < re (u + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "hv'",
+              "type": "0 < re (v + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "hc",
+              "type": "ContinuousOn F (Icc 0 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "",
+                  "body": "@HasDerivAt.cpow_const _ _ _ v (hasDerivAt_id (1 - (x : \u2102))) (Or.inl ?_)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_int",
+              "type": "",
+              "body": "((betaIntegral_convergent hu hv').const_mul u).sub",
+              "children": []
+            },
+            {
+              "name": "int_ev",
+              "type": "",
+              "body": "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le zero_le_one hc hder h_int",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          2,
+          1
+        ],
+        "result": {
+          "module": "Beta",
+          "name": "betaIntegral_recurrence",
+          "statement": "\u2102} (hu : 0 < re u) (hv : 0 < re v) : u * betaIntegral u (v + 1) = v * betaIntegral (u + 1) v",
+          "have_tree": [
+            {
+              "name": "hu'",
+              "type": "0 < re (u + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "hv'",
+              "type": "0 < re (v + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "hc",
+              "type": "ContinuousOn F (Icc 0 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "@HasDerivAt.cpow_const _ _ _ u (hasDerivAt_id (x : \u2102)) (Or.inl ?_)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_int",
+              "type": "",
+              "body": "((betaIntegral_convergent hu hv').const_mul u).sub",
+              "children": []
+            },
+            {
+              "name": "int_ev",
+              "type": "",
+              "body": "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le zero_le_one hc hder h_int",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Beta",
+          "name": "betaIntegral_recurrence",
+          "statement": "\u2102} (hu : 0 < re u) (hv : 0 < re v) : u * betaIntegral u (v + 1) = v * betaIntegral (u + 1) v",
+          "have_tree": [
+            {
+              "name": "hu'",
+              "type": "0 < re (u + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "hv'",
+              "type": "0 < re (v + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "",
+              "body": "@HasDerivAt.cpow_const _ _ _ u (hasDerivAt_id (x : \u2102)) (Or.inl ?_)",
+              "children": []
+            },
+            {
+              "name": "hc",
+              "type": "ContinuousOn F (Icc 0 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "",
+                  "body": "@HasDerivAt.cpow_const _ _ _ v (hasDerivAt_id (1 - (x : \u2102))) (Or.inl ?_)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_int",
+              "type": "",
+              "body": "((betaIntegral_convergent hu hv').const_mul u).sub",
+              "children": []
+            },
+            {
+              "name": "int_ev",
+              "type": "",
+              "body": "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le zero_le_one hc hder h_int",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Beta",
+          "name": "betaIntegral_recurrence",
+          "statement": "\u2102} (hu : 0 < re u) (hv : 0 < re v) : u * betaIntegral u (v + 1) = v * betaIntegral (u + 1) v",
+          "have_tree": [
+            {
+              "name": "hu'",
+              "type": "0 < re (u + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "hv'",
+              "type": "0 < re (v + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "",
+              "body": "@HasDerivAt.cpow_const _ _ _ v (hasDerivAt_id (1 - (x : \u2102))) (Or.inl ?_)",
+              "children": []
+            },
+            {
+              "name": "hc",
+              "type": "ContinuousOn F (Icc 0 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "@HasDerivAt.cpow_const _ _ _ u (hasDerivAt_id (x : \u2102)) (Or.inl ?_)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_int",
+              "type": "",
+              "body": "((betaIntegral_convergent hu hv').const_mul u).sub",
+              "children": []
+            },
+            {
+              "name": "int_ev",
+              "type": "",
+              "body": "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le zero_le_one hc hder h_int",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4
+        ],
+        "result": {
+          "module": "Beta",
+          "name": "betaIntegral_recurrence",
+          "statement": "\u2102} (hu : 0 < re u) (hv : 0 < re v) : u * betaIntegral u (v + 1) = v * betaIntegral (u + 1) v",
+          "have_tree": [
+            {
+              "name": "hv'",
+              "type": "0 < re (v + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "hu'",
+              "type": "0 < re (u + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "hc",
+              "type": "ContinuousOn F (Icc 0 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "@HasDerivAt.cpow_const _ _ _ u (hasDerivAt_id (x : \u2102)) (Or.inl ?_)",
+                  "children": []
+                },
+                {
+                  "name": "A",
+                  "type": "",
+                  "body": "@HasDerivAt.cpow_const _ _ _ v (hasDerivAt_id (1 - (x : \u2102))) (Or.inl ?_)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_int",
+              "type": "",
+              "body": "((betaIntegral_convergent hu hv').const_mul u).sub",
+              "children": []
+            },
+            {
+              "name": "int_ev",
+              "type": "",
+              "body": "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le zero_le_one hc hder h_int",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4
+        ],
+        "result": {
+          "module": "Beta",
+          "name": "betaIntegral_recurrence",
+          "statement": "\u2102} (hu : 0 < re u) (hv : 0 < re v) : u * betaIntegral u (v + 1) = v * betaIntegral (u + 1) v",
+          "have_tree": [
+            {
+              "name": "hu'",
+              "type": "0 < re (u + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "hc",
+              "type": "ContinuousOn F (Icc 0 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "@HasDerivAt.cpow_const _ _ _ u (hasDerivAt_id (x : \u2102)) (Or.inl ?_)",
+                  "children": []
+                },
+                {
+                  "name": "A",
+                  "type": "",
+                  "body": "@HasDerivAt.cpow_const _ _ _ v (hasDerivAt_id (1 - (x : \u2102))) (Or.inl ?_)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hv'",
+              "type": "0 < re (v + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "h_int",
+              "type": "",
+              "body": "((betaIntegral_convergent hu hv').const_mul u).sub",
+              "children": []
+            },
+            {
+              "name": "int_ev",
+              "type": "",
+              "body": "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le zero_le_one hc hder h_int",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4
+        ],
+        "result": {
+          "module": "Beta",
+          "name": "betaIntegral_recurrence",
+          "statement": "\u2102} (hu : 0 < re u) (hv : 0 < re v) : u * betaIntegral u (v + 1) = v * betaIntegral (u + 1) v",
+          "have_tree": [
+            {
+              "name": "hu'",
+              "type": "0 < re (u + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "hv'",
+              "type": "0 < re (v + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "h_int",
+              "type": "",
+              "body": "((betaIntegral_convergent hu hv').const_mul u).sub",
+              "children": []
+            },
+            {
+              "name": "hc",
+              "type": "ContinuousOn F (Icc 0 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "@HasDerivAt.cpow_const _ _ _ u (hasDerivAt_id (x : \u2102)) (Or.inl ?_)",
+                  "children": []
+                },
+                {
+                  "name": "A",
+                  "type": "",
+                  "body": "@HasDerivAt.cpow_const _ _ _ v (hasDerivAt_id (1 - (x : \u2102))) (Or.inl ?_)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "int_ev",
+              "type": "",
+              "body": "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le zero_le_one hc hder h_int",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "result": {
+          "module": "Beta",
+          "name": "betaIntegral_recurrence",
+          "statement": "\u2102} (hu : 0 < re u) (hv : 0 < re v) : u * betaIntegral u (v + 1) = v * betaIntegral (u + 1) v",
+          "have_tree": [
+            {
+              "name": "hu'",
+              "type": "0 < re (u + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "hv'",
+              "type": "0 < re (v + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "hc",
+              "type": "ContinuousOn F (Icc 0 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "@HasDerivAt.cpow_const _ _ _ u (hasDerivAt_id (x : \u2102)) (Or.inl ?_)",
+                  "children": []
+                },
+                {
+                  "name": "A",
+                  "type": "",
+                  "body": "@HasDerivAt.cpow_const _ _ _ v (hasDerivAt_id (1 - (x : \u2102))) (Or.inl ?_)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "int_ev",
+              "type": "",
+              "body": "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le zero_le_one hc hder h_int",
+              "children": []
+            },
+            {
+              "name": "h_int",
+              "type": "",
+              "body": "((betaIntegral_convergent hu hv').const_mul u).sub",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          2
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Beta",
+          "name": "betaIntegral_recurrence",
+          "statement": "\u2102} (hu : 0 < re u) (hv : 0 < re v) : u * betaIntegral u (v + 1) = v * betaIntegral (u + 1) v",
+          "have_tree": [
+            {
+              "name": "hu'",
+              "type": "0 < re (u + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "hv'",
+              "type": "0 < re (v + 1)",
+              "body": "by rw [add_re, one_re]; positivity",
+              "children": []
+            },
+            {
+              "name": "hc",
+              "type": "ContinuousOn F (Icc 0 1)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "",
+                  "body": "@HasDerivAt.cpow_const _ _ _ v (hasDerivAt_id (1 - (x : \u2102))) (Or.inl ?_)",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "@HasDerivAt.cpow_const _ _ _ u (hasDerivAt_id (x : \u2102)) (Or.inl ?_)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h_int",
+              "type": "",
+              "body": "((betaIntegral_convergent hu hv').const_mul u).sub",
+              "children": []
+            },
+            {
+              "name": "int_ev",
+              "type": "",
+              "body": "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le zero_le_one hc hder h_int",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "module": "PadicNorm",
+    "name": "nonarchimedean_aux",
+    "statement": "\u211a} (h : padicValRat p q \u2264 padicValRat p r) : padicNorm p (q + r) \u2264 max (padicNorm p q) (padicNorm p r)",
+    "have_tree": [
+      {
+        "name": "hnqp",
+        "type": "padicNorm p q \u2265 0",
+        "body": "padicNorm.nonneg _",
+        "children": []
+      },
+      {
+        "name": "hnrp",
+        "type": "padicNorm p r \u2265 0",
+        "body": "padicNorm.nonneg _",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PadicNorm",
+    "name": "add_eq_max_of_ne",
+    "statement": "\u211a} (hne : padicNorm p q \u2260 padicNorm p r) : padicNorm p (q + r) = max (padicNorm p q) (padicNorm p r)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "padicNorm p q \u2264 max (padicNorm p (q + r)) (padicNorm p r)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hnge",
+        "type": "padicNorm p r \u2264 padicNorm p (q + r)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "padicNorm p q \u2264 padicNorm p (q + r)",
+        "body": "by rwa [max_eq_left hnge] at this",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "PadicNorm",
+    "name": "int_eq_one_iff",
+    "statement": "\u2124) : padicNorm p m = 1 \u2194 \u00ac(p : \u2124) \u2223 m",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 \u2264 padicValRat p m",
+        "body": "by simp only [of_int, Nat.cast_nonneg]",
+        "children": []
+      }
+    ]
+  }
+]

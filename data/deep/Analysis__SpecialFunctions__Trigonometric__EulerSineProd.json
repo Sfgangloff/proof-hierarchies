@@ -1,0 +1,40 @@
+[
+  {
+    "module": "EulerSineProd",
+    "name": "sin_pi_mul_eq",
+    "statement": "\u2102) (n : \u2115) : Complex.sin (\u03c0 * z) = ((\u03c0 * z * \u220f j \u2208 Finset.range n, ((1 : \u2102) - z ^ 2 / ((j : \u2102) + 1) ^ 2)) * \u222b x in (0 : \u211d)..\u03c0 / 2, Complex.cos (2 * z * x) * (cos x : \u2102) ^ (2 * n)) / (\u222b x in (0 : \u211d)..\u03c0 / 2, cos x ^ (2 * n) : \u211d)",
+    "have_tree": [
+      {
+        "name": "aux'",
+        "type": "2 * n.succ = 2 * n + 2",
+        "body": "by rw [Nat.succ_eq_add_one, mul_add, mul_one]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(\u222b x in (0 : \u211d)..\u03c0 / 2, cos x ^ (2 * n.succ)) = (2 * (n : \u211d) + 1) / (2 * n + 2) * C",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(C : \u2102) \u2260 0",
+            "body": "Complex.ofReal_ne_zero.mpr (integral_cos_pow_pos _).ne'",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "2 * (n : \u2102) + 1 \u2260 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "(n : \u2102) + 1 \u2260 0",
+            "body": "Nat.cast_add_one_ne_zero n",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

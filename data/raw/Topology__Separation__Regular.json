@@ -1,0 +1,151 @@
+[
+  {
+    "module": "Regular",
+    "name": "regularSpace_TFAE",
+    "statement": "Type u) [TopologicalSpace X] : List.TFAE [RegularSpace X, \u2200 (s : Set X) x, x \u2209 closure s \u2192 Disjoint (\ud835\udcdd\u02e2 s) (\ud835\udcdd x), \u2200 (x : X) (s : Set X), Disjoint (\ud835\udcdd\u02e2 s) (\ud835\udcdd x) \u2194 x \u2209 closure s, \u2200 (x : X) (s : Set X), s \u2208 \ud835\udcdd x \u2192 \u2203 t \u2208 \ud835\udcdd x, IsClosed t \u2227 t \u2286 s, \u2200 x : X, (\ud835\udcdd x).lift' closure \u2264 \ud835\udcdd x, \u2200 x : X, (\ud835\udcdd x).lift' closure = \ud835\udcdd x]",
+    "have_tree": [
+      {
+        "name": "ha'",
+        "type": "s\u1d9c \u2208 \ud835\udcdd a",
+        "body": "by rwa [\u2190 mem_interior_iff_mem_nhds, interior_compl]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "disjoint_nhdsSet_nhds",
+    "statement": "Disjoint (\ud835\udcdd\u02e2 s) (\ud835\udcdd x) \u2194 x \u2209 closure s",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "(regularSpace_TFAE X).out 0 2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "exists_mem_nhds_isClosed_subset",
+    "statement": "X} {s : Set X} (h : s \u2208 \ud835\udcdd x) : \u2203 t \u2208 \ud835\udcdd x, IsClosed t \u2227 t \u2286 s",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "",
+        "body": "(regularSpace_TFAE X).out 0 3",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "IsCompact.exists_isOpen_closure_subset",
+    "statement": "Set X} (hK : IsCompact K) (hU : U \u2208 \ud835\udcdd\u02e2 K) : \u2203 V, IsOpen V \u2227 K \u2286 V \u2227 closure V \u2286 U",
+    "have_tree": [
+      {
+        "name": "hd",
+        "type": "Disjoint (\ud835\udcdd\u02e2 K) (\ud835\udcdd\u02e2 U\u1d9c)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "exists_open_between_and_isCompact_closure",
+    "statement": "Set X} (hK : IsCompact K) (hU : IsOpen U) (hKU : K \u2286 U) : \u2203 V, IsOpen V \u2227 K \u2286 V \u2227 closure V \u2286 U \u2227 IsCompact (closure V)",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "closure (interior L) \u2286 L",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "normal_exists_closure_subset",
+    "statement": "Set X} (hs : IsClosed s) (ht : IsOpen t) (hst : s \u2286 t) : \u2203 u, IsOpen u \u2227 s \u2286 u \u2227 closure u \u2286 t",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Disjoint s t\u1d9c",
+        "body": "Set.disjoint_left.mpr fun x hxs hxt => hxt (hst hxs)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "Topology.IsClosedEmbedding.normalSpace",
+    "statement": "X \u2192 Y} (hf : IsClosedEmbedding f) : NormalSpace X where normal s t hs ht hst",
+    "have_tree": [
+      {
+        "name": "H",
+        "type": "SeparatedNhds (f '' s) (f '' t)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "completelyNormalSpace_iff_forall_isOpen_normalSpace",
+    "statement": "CompletelyNormalSpace X \u2194 \u2200 s : Set X, IsOpen s \u2192 NormalSpace s",
+    "have_tree": [
+      {
+        "name": "he",
+        "type": "IsOpen e",
+        "body": "(isClosed_closure.inter isClosed_closure).isOpen_compl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "Topology.IsEmbedding.t5Space",
+    "statement": "X \u2192 Y} (he : IsEmbedding e) : T5Space X where __",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "he.completelyNormalSpace",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "t5Space_iff_forall_isOpen_t4Space",
+    "statement": "T5Space X \u2194 \u2200 s : Set X, IsOpen s \u2192 T4Space s where mp _ _ _",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "h univ isOpen_univ",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Regular",
+    "name": "connectedComponent_eq_iInter_isClopen",
+    "statement": "X) : connectedComponent x = \u22c2 s : { s : Set X // IsClopen s \u2227 x \u2208 s }, s",
+    "have_tree": [
+      {
+        "name": "H1",
+        "type": "",
+        "body": "(hu.union hv).isClosed_compl.isCompact.inter_iInter_nonempty",
+        "children": []
+      },
+      {
+        "name": "H2",
+        "type": "",
+        "body": "isClopen_inter_of_disjoint_cover_clopen H.1 H.2.2 hv hu huv.symm",
+        "children": []
+      }
+    ]
+  }
+]

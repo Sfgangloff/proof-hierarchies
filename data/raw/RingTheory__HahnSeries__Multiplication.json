@@ -1,0 +1,124 @@
+[
+  {
+    "module": "Multiplication",
+    "name": "smul_add",
+    "statement": "R\u27e6\u0393\u27e7) (y z : HahnModule \u0393' R V) : x \u2022 (y + z) = x \u2022 y + x \u2022 z",
+    "have_tree": [
+      {
+        "name": "hwf",
+        "type": "",
+        "body": "((of R).symm y).isPWO_support.union ((of R).symm z).isPWO_support",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplication",
+    "name": "add_smul",
+    "statement": "R\u27e6\u0393\u27e7} {z : HahnModule \u0393' R V} (h : \u2200 (r s : R) (u : V), (r + s) \u2022 u = r \u2022 u + s \u2022 u) : (x + y) \u2022 z = x \u2022 z + y \u2022 z",
+    "have_tree": [
+      {
+        "name": "hwf",
+        "type": "",
+        "body": "x.isPWO_support.union y.isPWO_support",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplication",
+    "name": "orderTop_vAdd_le_orderTop_smul",
+    "statement": "R\u27e6\u0393\u27e7} [VAdd (WithTop \u0393) (WithTop \u0393')] {y : HahnModule \u0393' R V} (h : \u2200 (\u03b3 : \u0393) (\u03b3' : \u0393'), \u03b3 +\u1d65 \u03b3' = (\u03b3 : WithTop \u0393) +\u1d65 (\u03b3' : WithTop \u0393')) : x.orderTop +\u1d65 ((of R).symm y).orderTop \u2264 ((of R).symm (x \u2022 y)).orderTop",
+    "have_tree": [
+      {
+        "name": "hhy",
+        "type": "((of R).symm y) \u2260 0",
+        "body": "hy",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplication",
+    "name": "orderTop_mul_of_ne_zero",
+    "statement": "R\u27e6\u0393\u27e7} (h : x.leadingCoeff * y.leadingCoeff \u2260 0) : (x * y).orderTop = x.orderTop + y.orderTop",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "(x * y).coeff (x.order + y.order) \u2260 0",
+        "body": "by rwa [coeff_mul_order_add_order x y]",
+        "children": []
+      },
+      {
+        "name": "hxy",
+        "type": "x * y \u2260 0",
+        "body": "fun h \u21a6 (by simp [h] at this)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplication",
+    "name": "order_mul_of_ne_zero",
+    "statement": "R\u27e6\u0393\u27e7} (h : x.leadingCoeff * y.leadingCoeff \u2260 0) : (x * y).order = x.order + y.order",
+    "have_tree": [
+      {
+        "name": "hx",
+        "type": "x.leadingCoeff \u2260 0",
+        "body": "by aesop",
+        "children": []
+      },
+      {
+        "name": "hy",
+        "type": "y.leadingCoeff \u2260 0",
+        "body": "by aesop",
+        "children": []
+      },
+      {
+        "name": "hxy",
+        "type": "(x * y).coeff (x.order + y.order) \u2260 0",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplication",
+    "name": "order_single_mul_of_isRegular",
+    "statement": "\u0393} {r : R} (hr : IsRegular r) {x : R\u27e6\u0393\u27e7} (hx : x \u2260 0) : (((single g) r) * x).order = g + x.order",
+    "have_tree": [
+      {
+        "name": "hrx",
+        "type": "((single g) r).leadingCoeff * x.leadingCoeff \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplication",
+    "name": "orderTopSubOnePos",
+    "statement": "Subgroup R\u27e6\u0393\u27e7\u02e3 where carrier",
+    "have_tree": [
+      {
+        "name": "nz",
+        "type": "y.val.leadingCoeff * y.inv.leadingCoeff \u2260 0",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Multiplication",
+    "name": "C_injective",
+    "statement": "Function.Injective (C : R \u2192 R\u27e6\u0393\u27e7)",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "",
+        "body": "rs 0",
+        "children": []
+      }
+    ]
+  }
+]

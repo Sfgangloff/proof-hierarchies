@@ -1,0 +1,85 @@
+[
+  {
+    "module": "PairReduction",
+    "name": "edist_le_of_mem_pairSet",
+    "statement": "1 < a) (hJ_card : #J \u2264 a ^ n) {s t : T} (h : (s, t) \u2208 pairSet J a c) : edist s t \u2264 n * c",
+    "have_tree": [
+      {
+        "name": "hJ",
+        "type": "J.Nonempty",
+        "body": "Finset.card_pos.mp (Nat.zero_lt_of_lt hiJ)",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Finset.mem_product.mp (pairSet_subset h)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "PairReduction",
+    "name": "iSup_edist_pairSet",
+    "statement": "Type*} [PseudoEMetricSpace E] (ha : 1 < a) (f : T \u2192 E) : \u2a06 (s : J) (t : { t : J // edist s t \u2264 c}), edist (f s) (f t) \u2264 2 * \u2a06 p : pairSet J a c, edist (f p.1.1) (f p.1.2)",
+    "have_tree": [
+      {
+        "name": "hJ",
+        "type": "J.Nonempty",
+        "body": "\u27e8s, hs\u27e9",
+        "children": [
+          {
+            "name": "hl",
+            "type": "l < #J - 1",
+            "body": "by",
+            "children": [
+              {
+                "name": "hlJ",
+                "type": "l + 1 = #J",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "hP",
+            "type": "",
+            "body": "Nat.findGreatest_is_greatest (lt_add_one l) (Nat.add_one_le_of_lt hl)",
+            "children": []
+          },
+          {
+            "name": "hts",
+            "type": "edist t s \u2264 c",
+            "body": "by rw [edist_comm]; exact hst",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hsB",
+        "type": "s \u2208 (logSizeBallSeq J hJ a c l).ball c",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "htB",
+        "type": "t \u2208 (logSizeBallSeq J hJ a c l).ball c",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hsP",
+        "type": "((logSizeBallSeq J hJ a c l).point, s) \u2208 pairSetSeq J a c l",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "htP",
+        "type": "((logSizeBallSeq J hJ a c l).point, t) \u2208 pairSetSeq J a c l",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "module": "Ostrowski",
+    "name": "valuation_eq_valuation_X_zpow_intDegree_of_one_lt_valuation_X",
+    "statement": "RatFunc K} [v.IsTrivialOn K] (hlt : 1 < v X) (hf : f \u2260 0) : v f = v RatFunc.X ^ f.intDegree",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "p \u2260 0",
+        "body": "by contrapose hf; simp [hf]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ostrowski",
+    "name": "one_le_valuation_factor",
+    "statement": "{p : K[X] | v p < 1 \u2227 p \u2260 0}.Nonempty) {a b : K[X]} (hab : v \u2191(a * b) < 1 \u2227 a \u2260 0 \u2227 b \u2260 0) (h\u03c0\u1d65 : degree_lt_wf.min _ hne = a * b) (hb : \u00acIsUnit b) : 1 \u2264 v \u2191a",
+    "have_tree": [
+      {
+        "name": "hda",
+        "type": "a.degree < \u03c0\u1d65.degree",
+        "body": "by",
+        "children": [
+          {
+            "name": "hbpos",
+            "type": "",
+            "body": "degree_pos_of_ne_zero_of_nonunit hab.2.2 hb",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hlea",
+        "type": "",
+        "body": "imp_not_comm.mp (degree_lt_wf.not_lt_min _) hda",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ostrowski",
+    "name": "irreducible_min_polynomial_valuation_lt_one_and_ne_zero",
+    "statement": "{p : K[X] | v p < 1 \u2227 p \u2260 0}.Nonempty) : Irreducible (degree_lt_wf.min {p : K[X] | v p < 1 \u2227 p \u2260 0} hne)",
+    "have_tree": [
+      {
+        "name": "h\u03c0\u1d65",
+        "type": "v \u03c0\u1d65 < 1 \u2227 \u03c0\u1d65 \u2260 0",
+        "body": "degree_lt_wf.min_mem _ hne",
+        "children": [
+          {
+            "name": "hva",
+            "type": "",
+            "body": "one_le_valuation_factor hne h\u03c0\u1d65 hab H.2",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "Right.one_le_mul (one_le_valuation_factor hne h\u03c0\u1d65 hab H.1) hva",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Ostrowski",
+    "name": "uniformizingPolynomial_ne_zero",
+    "statement": "\u03c0\u1d65 \u2260 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "degree_lt_wf.min_mem _ (setOf_polynomial_valuation_lt_one_and_ne_zero_nonempty hle)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ostrowski",
+    "name": "valuationIdeal",
+    "statement": "HeightOneSpectrum K[X] where asIdeal",
+    "have_tree": [
+      {
+        "name": "hne",
+        "type": "",
+        "body": "setOf_polynomial_valuation_lt_one_and_ne_zero_nonempty hle",
+        "children": []
+      },
+      {
+        "name": "h\u03c0irr",
+        "type": "Irreducible \u03c0",
+        "body": "irreducible_min_polynomial_valuation_lt_one_and_ne_zero hne",
+        "children": []
+      },
+      {
+        "name": "h\u03c0",
+        "type": "\u03c0 \u2208 _",
+        "body": "degree_lt_wf.min_mem _ hne",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Polynomial.valuation_le_one_of_valuation_X_le_one _ hle (q % \u03c0)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Ostrowski",
+    "name": "exists_zpow_uniformizingPolynomial",
+    "statement": "RatFunc K} (hf : f \u2260 0) : \u2203 (z : \u2124), v f = v \u03c0\u1d65 ^ z",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "v \u03c0\u1d65 \u2260 0",
+        "body": "by simpa using uniformizingPolynomial_ne_zero hle",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Ostrowski",
+    "name": "uniformizingPolynomial_isUniformizer",
+    "statement": "IsRankOneDiscrete v] : v.IsUniformizer \u03c0\u1d65",
+    "have_tree": [
+      {
+        "name": "h0",
+        "type": "v \u03c0\u1d65 \u2260 0",
+        "body": "by simpa using uniformizingPolynomial_ne_zero hle",
+        "children": [
+          {
+            "name": "_",
+            "type": "v \u2191\u03c0\u1d65 ^ ka \u2260 0",
+            "body": "zpow_ne_zero _ h0",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Ostrowski",
+    "name": "valuation_isEquiv_valuationIdeal_adic_of_valuation_X_le_one",
+    "statement": "v.IsEquiv ((P\u1d65).valuation (RatFunc K))",
+    "have_tree": [
+      {
+        "name": "hp0",
+        "type": "p \u2260 0",
+        "body": "by simp_all",
+        "children": []
+      }
+    ]
+  }
+]

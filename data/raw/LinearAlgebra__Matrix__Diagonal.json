@@ -1,0 +1,34 @@
+[
+  {
+    "module": "Diagonal",
+    "name": "ker_diagonal_toLin'",
+    "statement": "m \u2192 K) : ker (toLin' (diagonal w)) = \u2a06 i \u2208 { i | w i = 0 }, LinearMap.range (LinearMap.single K (fun _ => K) i)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "fun i : m => ker_comp (toLin' (diagonal w)) (proj i)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Diagonal",
+    "name": "rank_diagonal",
+    "statement": "m \u2192 K) : LinearMap.rank (toLin' (diagonal w)) = Fintype.card { i // w i \u2260 0 }",
+    "have_tree": [
+      {
+        "name": "B\u2081",
+        "type": "",
+        "body": "iSup_range_single_eq_iInf_ker_proj K (fun _ : m => K) hd hu (Set.toFinite _)",
+        "children": []
+      },
+      {
+        "name": "B\u2082",
+        "type": "",
+        "body": "iInfKerProjEquiv K (fun _ \u21a6 K) hd hu",
+        "children": []
+      }
+    ]
+  }
+]

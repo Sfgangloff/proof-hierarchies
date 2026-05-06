@@ -1,0 +1,52 @@
+[
+  {
+    "original": {
+      "module": "PSeries",
+      "name": "Real.summable_one_div_nat_add_rpow",
+      "statement": "\u211d) (s : \u211d) : Summable (fun n : \u2115 \u21a6 1 / |n + a| ^ s) \u2194 1 < s",
+      "have_tree": [
+        {
+          "name": "hna",
+          "type": "0 < n + b",
+          "body": "by linarith [lt_of_abs_lt ((abs_neg b).symm \u25b8 Nat.lt_of_ceil_lt hn)]",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Tendsto (fun x \u21a6 (x + b) / (x + c)) atTop (\ud835\udcdd 1)",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "PSeries",
+          "name": "Real.summable_one_div_nat_add_rpow",
+          "statement": "\u211d) (s : \u211d) : Summable (fun n : \u2115 \u21a6 1 / |n + a| ^ s) \u2194 1 < s",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Tendsto (fun x \u21a6 (x + b) / (x + c)) atTop (\ud835\udcdd 1)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hna",
+              "type": "0 < n + b",
+              "body": "by linarith [lt_of_abs_lt ((abs_neg b).symm \u25b8 Nat.lt_of_ceil_lt hn)]",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

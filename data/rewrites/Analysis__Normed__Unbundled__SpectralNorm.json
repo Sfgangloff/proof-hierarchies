@@ -1,0 +1,802 @@
+[
+  {
+    "original": {
+      "module": "SpectralNorm",
+      "name": "norm_root_le_spectralValue",
+      "statement": "AlgebraNorm K L} (hf_pm : IsPowMul f) (hf_na : IsNonarchimedean f) {p : K[X]} (hp : p.Monic) {x : L} (hx : aeval x p = 0) : f x \u2264 spectralValue p",
+      "have_tree": [
+        {
+          "name": "h_deg",
+          "type": "0 < p.natDegree",
+          "body": "natDegree_pos_of_monic_of_aeval_eq_zero hp hx",
+          "children": []
+        },
+        {
+          "name": "h0",
+          "type": "f 0 \u2260 0",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "SpectralNorm",
+          "name": "norm_root_le_spectralValue",
+          "statement": "AlgebraNorm K L} (hf_pm : IsPowMul f) (hf_na : IsNonarchimedean f) {p : K[X]} (hp : p.Monic) {x : L} (hx : aeval x p = 0) : f x \u2264 spectralValue p",
+          "have_tree": [
+            {
+              "name": "h0",
+              "type": "f 0 \u2260 0",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h_deg",
+              "type": "0 < p.natDegree",
+              "body": "natDegree_pos_of_monic_of_aeval_eq_zero hp hx",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "SpectralNorm",
+      "name": "max_norm_root_eq_spectralValue",
+      "statement": "AlgebraNorm K L} (hf_pm : IsPowMul f) (hf_na : IsNonarchimedean f) (hf1 : f 1 = 1) (p : K[X]) (s : Multiset L) (hp : mapAlg K L p = (map (fun a : L \u21a6 X - C a) s).prod) : (\u2a06 x : L, if x \u2208 s then f x else 0) = spectralValue p",
+      "have_tree": [
+        {
+          "name": "h_pr",
+          "type": "f t.prod \u2264 (t.map f).prod",
+          "body": "le_prod_of_submultiplicative_of_nonneg f",
+          "children": []
+        },
+        {
+          "name": "hs_ne",
+          "type": "s \u2260 0",
+          "body": "",
+          "children": [
+            {
+              "name": "hpos",
+              "type": "0 < s.toFinset.card",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hs0",
+                  "type": "0 < s.card",
+                  "body": "hps \u25b8 lt_of_le_of_lt (zero_le _) hm",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "_",
+          "type": "(map f t).prod \u2264 f y ^ (p.natDegree - m)",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "(map g t).prod \u2264 g y ^ (p.natDegree - m)",
+              "body": "h_card \u25b8 prod_le_pow_card _ _ hx_le",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "SpectralNorm",
+          "name": "max_norm_root_eq_spectralValue",
+          "statement": "AlgebraNorm K L} (hf_pm : IsPowMul f) (hf_na : IsNonarchimedean f) (hf1 : f 1 = 1) (p : K[X]) (s : Multiset L) (hp : mapAlg K L p = (map (fun a : L \u21a6 X - C a) s).prod) : (\u2a06 x : L, if x \u2208 s then f x else 0) = spectralValue p",
+          "have_tree": [
+            {
+              "name": "h_pr",
+              "type": "f t.prod \u2264 (t.map f).prod",
+              "body": "le_prod_of_submultiplicative_of_nonneg f",
+              "children": []
+            },
+            {
+              "name": "hs_ne",
+              "type": "s \u2260 0",
+              "body": "",
+              "children": [
+                {
+                  "name": "hs0",
+                  "type": "0 < s.card",
+                  "body": "hps \u25b8 lt_of_le_of_lt (zero_le _) hm",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "(map f t).prod \u2264 f y ^ (p.natDegree - m)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "(map g t).prod \u2264 g y ^ (p.natDegree - m)",
+                  "body": "h_card \u25b8 prod_le_pow_card _ _ hx_le",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0,
+          0
+        ],
+        "result": {
+          "module": "SpectralNorm",
+          "name": "max_norm_root_eq_spectralValue",
+          "statement": "AlgebraNorm K L} (hf_pm : IsPowMul f) (hf_na : IsNonarchimedean f) (hf1 : f 1 = 1) (p : K[X]) (s : Multiset L) (hp : mapAlg K L p = (map (fun a : L \u21a6 X - C a) s).prod) : (\u2a06 x : L, if x \u2208 s then f x else 0) = spectralValue p",
+          "have_tree": [
+            {
+              "name": "h_pr",
+              "type": "f t.prod \u2264 (t.map f).prod",
+              "body": "le_prod_of_submultiplicative_of_nonneg f",
+              "children": []
+            },
+            {
+              "name": "hs_ne",
+              "type": "s \u2260 0",
+              "body": "",
+              "children": [
+                {
+                  "name": "hpos",
+                  "type": "0 < s.toFinset.card",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "(map f t).prod \u2264 f y ^ (p.natDegree - m)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "(map g t).prod \u2264 g y ^ (p.natDegree - m)",
+                  "body": "h_card \u25b8 prod_le_pow_card _ _ hx_le",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          2,
+          0
+        ],
+        "result": {
+          "module": "SpectralNorm",
+          "name": "max_norm_root_eq_spectralValue",
+          "statement": "AlgebraNorm K L} (hf_pm : IsPowMul f) (hf_na : IsNonarchimedean f) (hf1 : f 1 = 1) (p : K[X]) (s : Multiset L) (hp : mapAlg K L p = (map (fun a : L \u21a6 X - C a) s).prod) : (\u2a06 x : L, if x \u2208 s then f x else 0) = spectralValue p",
+          "have_tree": [
+            {
+              "name": "h_pr",
+              "type": "f t.prod \u2264 (t.map f).prod",
+              "body": "le_prod_of_submultiplicative_of_nonneg f",
+              "children": []
+            },
+            {
+              "name": "hs_ne",
+              "type": "s \u2260 0",
+              "body": "",
+              "children": [
+                {
+                  "name": "hpos",
+                  "type": "0 < s.toFinset.card",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "hs0",
+                      "type": "0 < s.card",
+                      "body": "hps \u25b8 lt_of_le_of_lt (zero_le _) hm",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "(map f t).prod \u2264 f y ^ (p.natDegree - m)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "SpectralNorm",
+          "name": "max_norm_root_eq_spectralValue",
+          "statement": "AlgebraNorm K L} (hf_pm : IsPowMul f) (hf_na : IsNonarchimedean f) (hf1 : f 1 = 1) (p : K[X]) (s : Multiset L) (hp : mapAlg K L p = (map (fun a : L \u21a6 X - C a) s).prod) : (\u2a06 x : L, if x \u2208 s then f x else 0) = spectralValue p",
+          "have_tree": [
+            {
+              "name": "h_pr",
+              "type": "f t.prod \u2264 (t.map f).prod",
+              "body": "le_prod_of_submultiplicative_of_nonneg f",
+              "children": []
+            },
+            {
+              "name": "hpos",
+              "type": "0 < s.toFinset.card",
+              "body": "by",
+              "children": [
+                {
+                  "name": "hs0",
+                  "type": "0 < s.card",
+                  "body": "hps \u25b8 lt_of_le_of_lt (zero_le _) hm",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hs_ne",
+              "type": "s \u2260 0",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(map f t).prod \u2264 f y ^ (p.natDegree - m)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "(map g t).prod \u2264 g y ^ (p.natDegree - m)",
+                  "body": "h_card \u25b8 prod_le_pow_card _ _ hx_le",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1,
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "SpectralNorm",
+          "name": "max_norm_root_eq_spectralValue",
+          "statement": "AlgebraNorm K L} (hf_pm : IsPowMul f) (hf_na : IsNonarchimedean f) (hf1 : f 1 = 1) (p : K[X]) (s : Multiset L) (hp : mapAlg K L p = (map (fun a : L \u21a6 X - C a) s).prod) : (\u2a06 x : L, if x \u2208 s then f x else 0) = spectralValue p",
+          "have_tree": [
+            {
+              "name": "h_pr",
+              "type": "f t.prod \u2264 (t.map f).prod",
+              "body": "le_prod_of_submultiplicative_of_nonneg f",
+              "children": []
+            },
+            {
+              "name": "hs_ne",
+              "type": "s \u2260 0",
+              "body": "",
+              "children": [
+                {
+                  "name": "hs0",
+                  "type": "0 < s.card",
+                  "body": "hps \u25b8 lt_of_le_of_lt (zero_le _) hm",
+                  "children": []
+                },
+                {
+                  "name": "hpos",
+                  "type": "0 < s.toFinset.card",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "(map f t).prod \u2264 f y ^ (p.natDegree - m)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "(map g t).prod \u2264 g y ^ (p.natDegree - m)",
+                  "body": "h_card \u25b8 prod_le_pow_card _ _ hx_le",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          2
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "SpectralNorm",
+          "name": "max_norm_root_eq_spectralValue",
+          "statement": "AlgebraNorm K L} (hf_pm : IsPowMul f) (hf_na : IsNonarchimedean f) (hf1 : f 1 = 1) (p : K[X]) (s : Multiset L) (hp : mapAlg K L p = (map (fun a : L \u21a6 X - C a) s).prod) : (\u2a06 x : L, if x \u2208 s then f x else 0) = spectralValue p",
+          "have_tree": [
+            {
+              "name": "h_pr",
+              "type": "f t.prod \u2264 (t.map f).prod",
+              "body": "le_prod_of_submultiplicative_of_nonneg f",
+              "children": []
+            },
+            {
+              "name": "hs_ne",
+              "type": "s \u2260 0",
+              "body": "",
+              "children": [
+                {
+                  "name": "hpos",
+                  "type": "0 < s.toFinset.card",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "hs0",
+                      "type": "0 < s.card",
+                      "body": "hps \u25b8 lt_of_le_of_lt (zero_le _) hm",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "_",
+              "type": "(map g t).prod \u2264 g y ^ (p.natDegree - m)",
+              "body": "h_card \u25b8 prod_le_pow_card _ _ hx_le",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(map f t).prod \u2264 f y ^ (p.natDegree - m)",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "SpectralNorm",
+          "name": "max_norm_root_eq_spectralValue",
+          "statement": "AlgebraNorm K L} (hf_pm : IsPowMul f) (hf_na : IsNonarchimedean f) (hf1 : f 1 = 1) (p : K[X]) (s : Multiset L) (hp : mapAlg K L p = (map (fun a : L \u21a6 X - C a) s).prod) : (\u2a06 x : L, if x \u2208 s then f x else 0) = spectralValue p",
+          "have_tree": [
+            {
+              "name": "hs_ne",
+              "type": "s \u2260 0",
+              "body": "",
+              "children": [
+                {
+                  "name": "hpos",
+                  "type": "0 < s.toFinset.card",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "hs0",
+                      "type": "0 < s.card",
+                      "body": "hps \u25b8 lt_of_le_of_lt (zero_le _) hm",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "h_pr",
+              "type": "f t.prod \u2264 (t.map f).prod",
+              "body": "le_prod_of_submultiplicative_of_nonneg f",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(map f t).prod \u2264 f y ^ (p.natDegree - m)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "(map g t).prod \u2264 g y ^ (p.natDegree - m)",
+                  "body": "h_card \u25b8 prod_le_pow_card _ _ hx_le",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "SpectralNorm",
+          "name": "max_norm_root_eq_spectralValue",
+          "statement": "AlgebraNorm K L} (hf_pm : IsPowMul f) (hf_na : IsNonarchimedean f) (hf1 : f 1 = 1) (p : K[X]) (s : Multiset L) (hp : mapAlg K L p = (map (fun a : L \u21a6 X - C a) s).prod) : (\u2a06 x : L, if x \u2208 s then f x else 0) = spectralValue p",
+          "have_tree": [
+            {
+              "name": "h_pr",
+              "type": "f t.prod \u2264 (t.map f).prod",
+              "body": "le_prod_of_submultiplicative_of_nonneg f",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(map f t).prod \u2264 f y ^ (p.natDegree - m)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "(map g t).prod \u2264 g y ^ (p.natDegree - m)",
+                  "body": "h_card \u25b8 prod_le_pow_card _ _ hx_le",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hs_ne",
+              "type": "s \u2260 0",
+              "body": "",
+              "children": [
+                {
+                  "name": "hpos",
+                  "type": "0 < s.toFinset.card",
+                  "body": "by",
+                  "children": [
+                    {
+                      "name": "hs0",
+                      "type": "0 < s.card",
+                      "body": "hps \u25b8 lt_of_le_of_lt (zero_le _) hm",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "SpectralNorm",
+      "name": "spectralNorm_eq_invariantExtension",
+      "statement": "IsUltrametricDist K] : spectralNorm K L = invariantExtension K L",
+      "have_tree": [
+        {
+          "name": "hna",
+          "type": "",
+          "body": "hu.isNonarchimedean_norm",
+          "children": []
+        },
+        {
+          "name": "hf_pow",
+          "type": "IsPowMul f",
+          "body": "(Classical.choose_spec",
+          "children": []
+        },
+        {
+          "name": "hf_na",
+          "type": "IsNonarchimedean f",
+          "body": "(Classical.choose_spec",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "SpectralNorm",
+          "name": "spectralNorm_eq_invariantExtension",
+          "statement": "IsUltrametricDist K] : spectralNorm K L = invariantExtension K L",
+          "have_tree": [
+            {
+              "name": "hf_pow",
+              "type": "IsPowMul f",
+              "body": "(Classical.choose_spec",
+              "children": []
+            },
+            {
+              "name": "hna",
+              "type": "",
+              "body": "hu.isNonarchimedean_norm",
+              "children": []
+            },
+            {
+              "name": "hf_na",
+              "type": "IsNonarchimedean f",
+              "body": "(Classical.choose_spec",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "SpectralNorm",
+          "name": "spectralNorm_eq_invariantExtension",
+          "statement": "IsUltrametricDist K] : spectralNorm K L = invariantExtension K L",
+          "have_tree": [
+            {
+              "name": "hna",
+              "type": "",
+              "body": "hu.isNonarchimedean_norm",
+              "children": []
+            },
+            {
+              "name": "hf_na",
+              "type": "IsNonarchimedean f",
+              "body": "(Classical.choose_spec",
+              "children": []
+            },
+            {
+              "name": "hf_pow",
+              "type": "IsPowMul f",
+              "body": "(Classical.choose_spec",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "SpectralNorm",
+      "name": "spectralAlgNorm_isPowMul",
+      "statement": "IsPowMul (spectralAlgNorm K L)",
+      "have_tree": [
+        {
+          "name": "hKx_fin",
+          "type": "FiniteDimensional K \u21a5K\u27eex\u27ef",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "FiniteDimensional K E",
+          "body": "hKx_fin",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "SpectralNorm",
+          "name": "spectralAlgNorm_isPowMul",
+          "statement": "IsPowMul (spectralAlgNorm K L)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "FiniteDimensional K E",
+              "body": "hKx_fin",
+              "children": []
+            },
+            {
+              "name": "hKx_fin",
+              "type": "FiniteDimensional K \u21a5K\u27eex\u27ef",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "SpectralNorm",
+      "name": "algNormFromConst_def",
+      "statement": "(spectralAlgNorm K L).toRingSeminorm 1 \u2264 1) {x y : L} (hx : x \u2260 0) : algNormFromConst h1 hx y = seminormFromConst h1 (ne_of_gt (spectralNorm_zero_lt hx (Algebra.IsAlgebraic.isAlgebraic x))) isPowMul_spectralNorm y",
+      "have_tree": [
+        {
+          "name": "hf1",
+          "type": "(spectralAlgNorm K L) 1 \u2264 1",
+          "body": "le_of_eq spectralAlgNorm_one",
+          "children": []
+        },
+        {
+          "name": "hf_pow",
+          "type": "IsPowMul f",
+          "body": "seminormFromConst_isPowMul hf1 hx' isPowMul_spectralNorm",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "SpectralNorm",
+          "name": "algNormFromConst_def",
+          "statement": "(spectralAlgNorm K L).toRingSeminorm 1 \u2264 1) {x y : L} (hx : x \u2260 0) : algNormFromConst h1 hx y = seminormFromConst h1 (ne_of_gt (spectralNorm_zero_lt hx (Algebra.IsAlgebraic.isAlgebraic x))) isPowMul_spectralNorm y",
+          "have_tree": [
+            {
+              "name": "hf_pow",
+              "type": "IsPowMul f",
+              "body": "seminormFromConst_isPowMul hf1 hx' isPowMul_spectralNorm",
+              "children": []
+            },
+            {
+              "name": "hf1",
+              "type": "(spectralAlgNorm K L) 1 \u2264 1",
+              "body": "le_of_eq spectralAlgNorm_one",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "SpectralNorm",
+      "name": "spectralNorm_eq_norm_coeff_zero_rpow",
+      "statement": "L) : spectralNorm K L x = \u2016(minpoly K x).coeff 0\u2016 ^ (1 / (minpoly K x).natDegree : \u211d)",
+      "have_tree": [
+        {
+          "name": "hspl",
+          "type": "Splits (mapAlg K E (minpoly K x))",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Algebra.IsAlgebraic L E",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Algebra.IsAlgebraic K E",
+          "body": "Algebra.IsAlgebraic.trans K L E",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "SpectralNorm",
+          "name": "spectralNorm_eq_norm_coeff_zero_rpow",
+          "statement": "L) : spectralNorm K L x = \u2016(minpoly K x).coeff 0\u2016 ^ (1 / (minpoly K x).natDegree : \u211d)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic L E",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hspl",
+              "type": "Splits (mapAlg K E (minpoly K x))",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic K E",
+              "body": "Algebra.IsAlgebraic.trans K L E",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "SpectralNorm",
+          "name": "spectralNorm_eq_norm_coeff_zero_rpow",
+          "statement": "L) : spectralNorm K L x = \u2016(minpoly K x).coeff 0\u2016 ^ (1 / (minpoly K x).natDegree : \u211d)",
+          "have_tree": [
+            {
+              "name": "hspl",
+              "type": "Splits (mapAlg K E (minpoly K x))",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic K E",
+              "body": "Algebra.IsAlgebraic.trans K L E",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Algebra.IsAlgebraic L E",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

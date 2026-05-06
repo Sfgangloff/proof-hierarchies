@@ -1,0 +1,375 @@
+[
+  {
+    "module": "Basic",
+    "name": "finite_of_isArtinianRing_of_isLocalRing",
+    "statement": "Module.Finite R S",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.Finite R (S \u29f8 (maximalIdeal R).map (algebraMap R S))",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "Module.Finite R ((maximalIdeal R).Fiber S)",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.Module.Finite.of_quasiFinite",
+    "statement": "Module.Finite R S",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype (PrimeSpectrum R)",
+        "body": ".ofFinite _",
+        "children": [
+          {
+            "name": "_",
+            "type": "Module.Finite R (Localization.AtPrime p.asIdeal)",
+            "body": "",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "trans",
+    "statement": "QuasiFinite R T",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.Finite (P.Fiber S) ((P.Fiber S) \u2297[S] T)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite P.ResidueField ((P.Fiber S) \u2297[S] T)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "of_surjective_algHom",
+    "statement": "S \u2192\u2090[R] T) (hf : Function.Surjective f) : QuasiFinite R T",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.Finite S T",
+        "body": ".of_surjective (Algebra.linearMap _ _) hf",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "of_restrictScalars",
+    "statement": "QuasiFinite S T",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "Function.Surjective f",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite P.ResidueField (P.ResidueField \u2297[R] T)",
+        "body": ".of_quasiFinite",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "iff_finite_comap_preimage_singleton",
+    "statement": "QuasiFinite R S \u2194 \u2200 x, (PrimeSpectrum.comap (algebraMap R S) \u207b\u00b9' {x}).Finite",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsJacobsonRing (P.Fiber S)",
+        "body": "isJacobsonRing_of_finiteType (A := P.ResidueField)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Finite (PrimeSpectrum (P.Fiber S))",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "of_isIntegral_of_finiteType",
+    "statement": "S) [IsLocalization.Away s T] : Algebra.QuasiFinite R T",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsScalarTower R A (Localization.Away sA)",
+        "body": "OreLocalization.instIsScalarTower",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsScalarTower A (Localization.Away sA) T",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsScalarTower R (Localization.Away sA) T",
+        "body": ".to\u2081\u2083\u2084 R A (Localization.Away sA) T",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.IsIntegral (Localization.Away sA) T",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "_root_.IsIntegral (Localization.Away sA) (algebraMap S T x)",
+            "body": "",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite (Localization.Away sA) T",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "Algebra.FiniteType (Localization.Away sA) T",
+            "body": ".of_restrictScalars_finiteType R _ _",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite R A",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Algebra.QuasiFinite R (Localization.Away sA)",
+        "body": ".of_isLocalization (.powers sA)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "QuasiFiniteAt.eq_of_le_of_under_eq",
+    "statement": "Ideal S} [P.IsPrime] [Q.IsPrime] (h\u2081 : P \u2264 Q) (h\u2082 : P.under R = Q.under R) [QuasiFiniteAt R Q] : P = Q",
+    "have_tree": [
+      {
+        "name": "inst",
+        "type": "",
+        "body": "IsLocalization.isPrime_of_isPrime_disjoint _ (Localization.AtPrime Q) P \u2039_\u203a this",
+        "children": []
+      },
+      {
+        "name": "H",
+        "type": "",
+        "body": "QuasiFinite.eq_of_le_of_under_eq (R := R)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "QuasiFiniteAt.exists_basicOpen_eq_singleton",
+    "statement": "Ideal S) [p.IsPrime] [IsArtinianRing R] [Algebra.EssFiniteType R S] [Algebra.QuasiFiniteAt R p] : \u2203 f \u2209 p, (PrimeSpectrum.basicOpen f : Set (PrimeSpectrum S)) = {\u27e8p, \u2039_\u203a\u27e9}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsLocalizedModule p.primeCompl (.id (R",
+        "body": "S) (M := Localization.AtPrime p)) :=",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite R (Localization.AtPrime p)",
+        "body": ".of_quasiFinite",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.Finite S (Localization.AtPrime p)",
+        "body": ".of_restrictScalars_finite R _ _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsArtinianRing (Localization.AtPrime p)",
+        "body": ".of_finite R _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsNoetherianRing S",
+        "body": "Algebra.EssFiniteType.isNoetherianRing R S",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.FinitePresentation S (Localization.AtPrime p)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsLocalization (.powers r) (Localization.AtPrime p)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "QuasiFiniteAt.isClopen_singleton",
+    "statement": "PrimeSpectrum S) [IsArtinianRing R] [Algebra.FiniteType R S] [Algebra.QuasiFiniteAt R p.asIdeal] : IsClopen {p}",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsJacobsonRing S",
+        "body": "isJacobsonRing_of_finiteType (A := R)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsNoetherianRing S",
+        "body": "Algebra.FiniteType.isNoetherianRing R S",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "QuasiFiniteAt.of_isOpen_singleton",
+    "statement": "PrimeSpectrum S) [Algebra.FiniteType R S] (H : IsOpen {p}) : Algebra.QuasiFiniteAt R p.asIdeal",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsNoetherianRing S",
+        "body": "Algebra.FiniteType.isNoetherianRing R S",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsJacobsonRing S",
+        "body": "isJacobsonRing_of_finiteType (A := R)",
+        "children": []
+      },
+      {
+        "name": "hep",
+        "type": "e \u2209 p.asIdeal",
+        "body": "H.le rfl",
+        "children": []
+      },
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "(PrimeSpectrum.localization_away_comap_range (Localization.Away e) e).trans H.symm",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Subsingleton (PrimeSpectrum (Localization.Away e))",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "hf",
+        "type": "Function.Surjective f",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "Subsingleton.elim ((IsLocalRing.closedPoint _).comap f.toRingHom) \u27e8M, inferInstance\u27e9",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "congr(($this).1).ge (H (Ideal.mem_span_singleton_self _))",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "Algebra.FiniteType R (Localization.AtPrime p.asIdeal)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "(PrimeSpectrum.comap_injective_of_surjective f.toRingHom hf).subsingleton",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.Ideal.exists_not_mem_forall_mem_of_ne_of_liesOver",
+    "statement": "Ideal R) [p.IsPrime] (q : Ideal S) [q.IsPrime] [q.LiesOver p] [Algebra.EssFiniteType R S] [Algebra.QuasiFiniteAt R q] : \u2203 s \u2209 q, \u2200 q' : Ideal S, q'.IsPrime \u2192 q' \u2260 q \u2192 q'.LiesOver p \u2192 s \u2208 q'",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Algebra.QuasiFiniteAt p.ResidueField qF.asIdeal",
+        "body": ".baseChange q _",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "x \u2209 q",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "r \u2209 _",
+            "body": "hrq.ge rfl",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.Ideal.Fiber.lift_residueField_surjective",
+    "statement": "Ideal R) [p.IsPrime] (q : Ideal S) [q.IsPrime] [q.LiesOver p] [Algebra.QuasiFiniteAt R q] : Function.Surjective (Algebra.TensorProduct.lift (Algebra.ofId _ _) (IsScalarTower.toAlgHom _ _ _) fun _ _ \u21a6 .all _ _ : p.Fiber S \u2192\u2090[p.ResidueField] q.ResidueField)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Algebra.QuasiFiniteAt p.ResidueField q'",
+        "body": ".baseChange q _ hq'",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "q'.IsMaximal",
+        "body": "(PrimeSpectrum.isClosed_singleton_iff_isMaximal _).mp",
+        "children": []
+      }
+    ]
+  }
+]

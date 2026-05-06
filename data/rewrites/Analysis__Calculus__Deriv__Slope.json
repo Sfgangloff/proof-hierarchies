@@ -1,0 +1,307 @@
+[
+  {
+    "original": {
+      "module": "Slope",
+      "name": "range_derivWithin_subset_closure_span_image",
+      "statement": "\ud835\udd5c \u2192 F) {s t : Set \ud835\udd5c} (h : s \u2286 closure (s \u2229 t)) : range (derivWithin f s) \u2286 closure (Submodule.span \ud835\udd5c (f '' t))",
+      "have_tree": [
+        {
+          "name": "I",
+          "type": "(\ud835\udcdd[(s \u2229 t) \\ {x}] x).NeBot",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Tendsto (slope f x) (\ud835\udcdd[(s \u2229 t) \\ {x}] x) (\ud835\udcdd (derivWithin f s x))",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Slope",
+          "name": "range_derivWithin_subset_closure_span_image",
+          "statement": "\ud835\udd5c \u2192 F) {s t : Set \ud835\udd5c} (h : s \u2286 closure (s \u2229 t)) : range (derivWithin f s) \u2286 closure (Submodule.span \ud835\udd5c (f '' t))",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "Tendsto (slope f x) (\ud835\udcdd[(s \u2229 t) \\ {x}] x) (\ud835\udcdd (derivWithin f s x))",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "I",
+              "type": "(\ud835\udcdd[(s \u2229 t) \\ {x}] x).NeBot",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Slope",
+      "name": "HasDerivWithinAt.nonneg_of_monotoneOn",
+      "statement": "AccPt x (\ud835\udcdf s)) (hd : HasDerivWithinAt g g' s x) (hg : MonotoneOn g s) : 0 \u2264 g'",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "(\ud835\udcdd[s \\ {x}] x).NeBot",
+          "body": "accPt_principal_iff_nhdsWithin.mp hx",
+          "children": []
+        },
+        {
+          "name": "h'g",
+          "type": "MonotoneOn g (insert x s)",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "Tendsto (slope g x) (\ud835\udcdd[s \\ {x}] x) (\ud835\udcdd g')",
+          "body": "hasDerivWithinAt_iff_tendsto_slope.mp hd",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2
+        ],
+        "result": {
+          "module": "Slope",
+          "name": "HasDerivWithinAt.nonneg_of_monotoneOn",
+          "statement": "AccPt x (\ud835\udcdf s)) (hd : HasDerivWithinAt g g' s x) (hg : MonotoneOn g s) : 0 \u2264 g'",
+          "have_tree": [
+            {
+              "name": "h'g",
+              "type": "MonotoneOn g (insert x s)",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "(\ud835\udcdd[s \\ {x}] x).NeBot",
+              "body": "accPt_principal_iff_nhdsWithin.mp hx",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Tendsto (slope g x) (\ud835\udcdd[s \\ {x}] x) (\ud835\udcdd g')",
+              "body": "hasDerivWithinAt_iff_tendsto_slope.mp hd",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1
+        ],
+        "result": {
+          "module": "Slope",
+          "name": "HasDerivWithinAt.nonneg_of_monotoneOn",
+          "statement": "AccPt x (\ud835\udcdf s)) (hd : HasDerivWithinAt g g' s x) (hg : MonotoneOn g s) : 0 \u2264 g'",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "(\ud835\udcdd[s \\ {x}] x).NeBot",
+              "body": "accPt_principal_iff_nhdsWithin.mp hx",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "Tendsto (slope g x) (\ud835\udcdd[s \\ {x}] x) (\ud835\udcdd g')",
+              "body": "hasDerivWithinAt_iff_tendsto_slope.mp hd",
+              "children": []
+            },
+            {
+              "name": "h'g",
+              "type": "MonotoneOn g (insert x s)",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Slope",
+      "name": "HasDerivWithinAt.limsup_norm_slope_le",
+      "statement": "HasDerivWithinAt f f' s x) (hr : \u2016f'\u2016 < r) : \u2200\u1da0 z in \ud835\udcdd[s] x, \u2016z - x\u2016\u207b\u00b9 * \u2016f z - f x\u2016 < r",
+      "have_tree": [
+        {
+          "name": "hr\u2080",
+          "type": "0 < r",
+          "body": "lt_of_le_of_lt (norm_nonneg f') hr",
+          "children": []
+        },
+        {
+          "name": "A",
+          "type": "\u2200\u1da0 z in \ud835\udcdd[s \\ {x}] x, \u2016(z - x)\u207b\u00b9 \u2022 (f z - f x)\u2016 \u2208 Iio r",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "B",
+          "type": "\u2200\u1da0 z in \ud835\udcdd[{x}] x, \u2016(z - x)\u207b\u00b9 \u2022 (f z - f x)\u2016 \u2208 Iio r",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "C",
+          "type": "",
+          "body": "mem_sup.2 \u27e8A, B\u27e9",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "Slope",
+          "name": "HasDerivWithinAt.limsup_norm_slope_le",
+          "statement": "HasDerivWithinAt f f' s x) (hr : \u2016f'\u2016 < r) : \u2200\u1da0 z in \ud835\udcdd[s] x, \u2016z - x\u2016\u207b\u00b9 * \u2016f z - f x\u2016 < r",
+          "have_tree": [
+            {
+              "name": "A",
+              "type": "\u2200\u1da0 z in \ud835\udcdd[s \\ {x}] x, \u2016(z - x)\u207b\u00b9 \u2022 (f z - f x)\u2016 \u2208 Iio r",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "hr\u2080",
+              "type": "0 < r",
+              "body": "lt_of_le_of_lt (norm_nonneg f') hr",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "\u2200\u1da0 z in \ud835\udcdd[{x}] x, \u2016(z - x)\u207b\u00b9 \u2022 (f z - f x)\u2016 \u2208 Iio r",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "C",
+              "type": "",
+              "body": "mem_sup.2 \u27e8A, B\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "Slope",
+          "name": "HasDerivWithinAt.limsup_norm_slope_le",
+          "statement": "HasDerivWithinAt f f' s x) (hr : \u2016f'\u2016 < r) : \u2200\u1da0 z in \ud835\udcdd[s] x, \u2016z - x\u2016\u207b\u00b9 * \u2016f z - f x\u2016 < r",
+          "have_tree": [
+            {
+              "name": "hr\u2080",
+              "type": "0 < r",
+              "body": "lt_of_le_of_lt (norm_nonneg f') hr",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "\u2200\u1da0 z in \ud835\udcdd[{x}] x, \u2016(z - x)\u207b\u00b9 \u2022 (f z - f x)\u2016 \u2208 Iio r",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "\u2200\u1da0 z in \ud835\udcdd[s \\ {x}] x, \u2016(z - x)\u207b\u00b9 \u2022 (f z - f x)\u2016 \u2208 Iio r",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "C",
+              "type": "",
+              "body": "mem_sup.2 \u27e8A, B\u27e9",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "Slope",
+          "name": "HasDerivWithinAt.limsup_norm_slope_le",
+          "statement": "HasDerivWithinAt f f' s x) (hr : \u2016f'\u2016 < r) : \u2200\u1da0 z in \ud835\udcdd[s] x, \u2016z - x\u2016\u207b\u00b9 * \u2016f z - f x\u2016 < r",
+          "have_tree": [
+            {
+              "name": "hr\u2080",
+              "type": "0 < r",
+              "body": "lt_of_le_of_lt (norm_nonneg f') hr",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "\u2200\u1da0 z in \ud835\udcdd[s \\ {x}] x, \u2016(z - x)\u207b\u00b9 \u2022 (f z - f x)\u2016 \u2208 Iio r",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "C",
+              "type": "",
+              "body": "mem_sup.2 \u27e8A, B\u27e9",
+              "children": []
+            },
+            {
+              "name": "B",
+              "type": "\u2200\u1da0 z in \ud835\udcdd[{x}] x, \u2016(z - x)\u207b\u00b9 \u2022 (f z - f x)\u2016 \u2208 Iio r",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

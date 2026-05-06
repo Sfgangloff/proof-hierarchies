@@ -1,0 +1,149 @@
+[
+  {
+    "module": "MultipleTransitivity",
+    "name": "isPreprimitive_of_is_two_pretransitive",
+    "statement": "IsMultiplyPretransitive G \u03b1 2) : IsPreprimitive G \u03b1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsPretransitive G \u03b1",
+        "body": "isPretransitive_of_is_two_pretransitive",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MultipleTransitivity",
+    "name": "isMultiplyPretransitive",
+    "statement": "\u2115} {a : \u03b1} : IsMultiplyPretransitive G \u03b1 n.succ \u2194 IsMultiplyPretransitive (stabilizer G a) (SubMulAction.ofStabilizer G a) n",
+    "have_tree": [
+      {
+        "name": "hg",
+        "type": "g \u2208 stabilizer G a",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MultipleTransitivity",
+    "name": "isMultiplyPretransitive",
+    "statement": "\u2115} [Hn : IsMultiplyPretransitive G \u03b1 n] (s : Set \u03b1) [Finite s] (hmn : s.ncard + m = n) : IsMultiplyPretransitive (fixingSubgroup G s) (ofFixingSubgroup G s) m where exists_smul_eq x y",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsMultiplyPretransitive G \u03b1 (s.ncard + m)",
+        "body": "by rw [hmn]; infer_instance",
+        "children": []
+      },
+      {
+        "name": "Hs",
+        "type": "Nonempty (Fin (s.ncard) \u2243 s)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MultipleTransitivity",
+    "name": "IsMultiplyPretransitive.index_of_fixingSubgroup_mul",
+    "statement": "\u2115} (Hk : IsMultiplyPretransitive G \u03b1 k) {s : Set \u03b1} (hs : s.ncard = k) : (fixingSubgroup G s).index * (Nat.card \u03b1 - k).factorial = (Nat.card \u03b1).factorial",
+    "have_tree": [
+      {
+        "name": "hGX",
+        "type": "IsPretransitive G \u03b1",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "s.Nonempty",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "hfs",
+        "type": "",
+        "body": "SubMulAction.fixingSubgroup_of_insert a t",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MultipleTransitivity",
+    "name": "eq_top_of_isMultiplyPretransitive",
+    "statement": "Subgroup (Equiv.Perm \u03b1)} (hmt : IsMultiplyPretransitive G \u03b1 (Nat.card \u03b1 - 1)) : G = \u22a4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "Fintype.ofFinite \u03b1",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MultipleTransitivity",
+    "name": "isMultiplyPretransitive",
+    "statement": "IsMultiplyPretransitive (alternatingGroup \u03b1) \u03b1 (Nat.card \u03b1 - 2)",
+    "have_tree": [
+      {
+        "name": "h2le",
+        "type": "Nat.card \u03b1 - 2 \u2264 Nat.card \u03b1",
+        "body": "sub_le (Nat.card \u03b1) 2",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Equiv.Perm.isMultiplyPretransitive \u03b1 (Nat.card \u03b1)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsMultiplyPretransitive (Equiv.Perm \u03b1) \u03b1 (Nat.card \u03b1 - 2)",
+        "body": "",
+        "children": [
+          {
+            "name": "h",
+            "type": "x i \u2208 Finset.univ.image x",
+            "body": "Finset.mem_image.mpr \u27e8i, Finset.mem_univ i, rfl\u27e9",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "MultipleTransitivity",
+    "name": "_root_.IsMultiplyPretransitive.alternatingGroup_le",
+    "statement": "Subgroup (Equiv.Perm \u03b1)) (hmt : IsMultiplyPretransitive G \u03b1 (Nat.card \u03b1 - 2)) : alternatingGroup \u03b1 \u2264 G",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hmt.index_of_fixingSubgroup_mul rfl",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "MultipleTransitivity",
+    "name": "isTrivialBlock_of_isBlock",
+    "statement": "Set \u03b1} (hB : IsBlock (alternatingGroup \u03b1) B) : IsTrivialBlock B",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsPretransitive (alternatingGroup \u03b1) \u03b1",
+        "body": "isPretransitive_of_three_le_card \u03b1 h3.ge",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsPreprimitive (alternatingGroup \u03b1) \u03b1",
+        "body": "IsPreprimitive.of_prime_card (h3 \u25b8 prime_three)",
+        "children": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,288 @@
+[
+  {
+    "original": {
+      "module": "Traj",
+      "name": "le_lmarginalPartialTraj_succ",
+      "statement": "\u2115 \u2192 (\u03a0 n, X n) \u2192 \u211d\u22650\u221e} {a : \u2115 \u2192 \u2115} (hcte : \u2200 n, DependsOn (f n) (Iic (a n))) (mf : \u2200 n, Measurable (f n)) {bound : \u211d\u22650\u221e} (fin_bound : bound \u2260 \u221e) (le_bound : \u2200 n x, f n x \u2264 bound) {k : \u2115} (anti : \u2200 x, Antitone (fun n \u21a6 lmarginalPartialTraj \u03ba (k + 1) (a n) (f n) x)) {l : (\u03a0 n, X n) \u2192 \u211d\u22650\u221e} (htendsto : \u2200 x, Tendsto (fun n \u21a6 lmarginalPartialTraj \u03ba (k + 1) (a n) (f n) x) atTop (\ud835\udcdd (l x))) (\u03b5 : \u211d\u22650\u221e) (y : \u03a0 i : Iic k, X i) (hpos : \u2200 x n, \u03b5 \u2264 lmarginalPartialTraj \u03ba k (a n) (f n) (updateFinset x (Iic k) y)) : \u2203 z, \u2200 x n, \u03b5 \u2264 lmarginalPartialTraj \u03ba (k + 1) (a n) (f n) (update (updateFinset x (Iic k) y) (k + 1) z)",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "\u222b\u207b x, l (update (updateFinset x_ _ y) (k + 1) x) \u2202(\u03ba k y) \u2260 \u221e",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "",
+          "body": "le_trans hx ((anti _).le_of_tendsto (tendstoF _) n)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Traj",
+          "name": "le_lmarginalPartialTraj_succ",
+          "statement": "\u2115 \u2192 (\u03a0 n, X n) \u2192 \u211d\u22650\u221e} {a : \u2115 \u2192 \u2115} (hcte : \u2200 n, DependsOn (f n) (Iic (a n))) (mf : \u2200 n, Measurable (f n)) {bound : \u211d\u22650\u221e} (fin_bound : bound \u2260 \u221e) (le_bound : \u2200 n x, f n x \u2264 bound) {k : \u2115} (anti : \u2200 x, Antitone (fun n \u21a6 lmarginalPartialTraj \u03ba (k + 1) (a n) (f n) x)) {l : (\u03a0 n, X n) \u2192 \u211d\u22650\u221e} (htendsto : \u2200 x, Tendsto (fun n \u21a6 lmarginalPartialTraj \u03ba (k + 1) (a n) (f n) x) atTop (\ud835\udcdd (l x))) (\u03b5 : \u211d\u22650\u221e) (y : \u03a0 i : Iic k, X i) (hpos : \u2200 x n, \u03b5 \u2264 lmarginalPartialTraj \u03ba k (a n) (f n) (updateFinset x (Iic k) y)) : \u2203 z, \u2200 x n, \u03b5 \u2264 lmarginalPartialTraj \u03ba (k + 1) (a n) (f n) (update (updateFinset x (Iic k) y) (k + 1) z)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "le_trans hx ((anti _).le_of_tendsto (tendstoF _) n)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "\u222b\u207b x, l (update (updateFinset x_ _ y) (k + 1) x) \u2202(\u03ba k y) \u2260 \u221e",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Traj",
+      "name": "trajContent_tendsto_zero",
+      "statement": "\u2115 \u2192 Set (\u03a0 n, X n)} (A_mem : \u2200 n, A n \u2208 measurableCylinders X) (A_anti : Antitone A) (A_inter : \u22c2 n, A n = \u2205) {p : \u2115} (x\u2080 : \u03a0 i : Iic p, X i) : Tendsto (fun n \u21a6 trajContent \u03ba x\u2080 (A n)) atTop (\ud835\udcdd 0)",
+      "have_tree": [
+        {
+          "name": "\u03c7_anti",
+          "type": "Antitone \u03c7",
+          "body": "fun m n hmn y \u21a6 by",
+          "children": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hl p (updateFinset x _ x\u2080)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "0 < \u03c7 n z",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "Traj",
+          "name": "trajContent_tendsto_zero",
+          "statement": "\u2115 \u2192 Set (\u03a0 n, X n)} (A_mem : \u2200 n, A n \u2208 measurableCylinders X) (A_anti : Antitone A) (A_inter : \u22c2 n, A n = \u2205) {p : \u2115} (x\u2080 : \u03a0 i : Iic p, X i) : Tendsto (fun n \u21a6 trajContent \u03ba x\u2080 (A n)) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "\u03c7_anti",
+              "type": "Antitone \u03c7",
+              "body": "fun m n hmn y \u21a6 by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "0 < \u03c7 n z",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          0,
+          1
+        ],
+        "result": {
+          "module": "Traj",
+          "name": "trajContent_tendsto_zero",
+          "statement": "\u2115 \u2192 Set (\u03a0 n, X n)} (A_mem : \u2200 n, A n \u2208 measurableCylinders X) (A_anti : Antitone A) (A_inter : \u22c2 n, A n = \u2205) {p : \u2115} (x\u2080 : \u03a0 i : Iic p, X i) : Tendsto (fun n \u21a6 trajContent \u03ba x\u2080 (A n)) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "\u03c7_anti",
+              "type": "Antitone \u03c7",
+              "body": "fun m n hmn y \u21a6 by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hl p (updateFinset x _ x\u2080)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "Traj",
+          "name": "trajContent_tendsto_zero",
+          "statement": "\u2115 \u2192 Set (\u03a0 n, X n)} (A_mem : \u2200 n, A n \u2208 measurableCylinders X) (A_anti : Antitone A) (A_inter : \u22c2 n, A n = \u2205) {p : \u2115} (x\u2080 : \u03a0 i : Iic p, X i) : Tendsto (fun n \u21a6 trajContent \u03ba x\u2080 (A n)) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "",
+              "body": "hl p (updateFinset x _ x\u2080)",
+              "children": []
+            },
+            {
+              "name": "\u03c7_anti",
+              "type": "Antitone \u03c7",
+              "body": "fun m n hmn y \u21a6 by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "0 < \u03c7 n z",
+                  "body": "by",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "Traj",
+          "name": "trajContent_tendsto_zero",
+          "statement": "\u2115 \u2192 Set (\u03a0 n, X n)} (A_mem : \u2200 n, A n \u2208 measurableCylinders X) (A_anti : Antitone A) (A_inter : \u22c2 n, A n = \u2205) {p : \u2115} (x\u2080 : \u03a0 i : Iic p, X i) : Tendsto (fun n \u21a6 trajContent \u03ba x\u2080 (A n)) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "0 < \u03c7 n z",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "\u03c7_anti",
+              "type": "Antitone \u03c7",
+              "body": "fun m n hmn y \u21a6 by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hl p (updateFinset x _ x\u2080)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          0
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Traj",
+          "name": "trajContent_tendsto_zero",
+          "statement": "\u2115 \u2192 Set (\u03a0 n, X n)} (A_mem : \u2200 n, A n \u2208 measurableCylinders X) (A_anti : Antitone A) (A_inter : \u22c2 n, A n = \u2205) {p : \u2115} (x\u2080 : \u03a0 i : Iic p, X i) : Tendsto (fun n \u21a6 trajContent \u03ba x\u2080 (A n)) atTop (\ud835\udcdd 0)",
+          "have_tree": [
+            {
+              "name": "\u03c7_anti",
+              "type": "Antitone \u03c7",
+              "body": "fun m n hmn y \u21a6 by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "0 < \u03c7 n z",
+                  "body": "by",
+                  "children": []
+                },
+                {
+                  "name": "_",
+                  "type": "",
+                  "body": "hl p (updateFinset x _ x\u2080)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "Traj",
+      "name": "condExp_traj'",
+      "statement": "\u2115} (hab : a \u2264 b) (hbc : b \u2264 c) (x\u2080 : \u03a0 i : Iic a, X i) (f : (\u03a0 n, X n) \u2192 E) : (traj \u03ba a x\u2080)[f | piLE b] =\u1d50[traj \u03ba a x\u2080] fun x \u21a6 \u222b y, ((traj \u03ba a x\u2080)[f | piLE c]) (updateFinset x (Iic c) y) \u2202partialTraj \u03ba b c (frestrictLe b x)",
+      "have_tree": [
+        {
+          "name": "i_cf",
+          "type": "Integrable ((traj \u03ba a x\u2080)[f | piLE c]) (traj \u03ba a x\u2080)",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "mcf",
+          "type": "StronglyMeasurable ((traj \u03ba a x\u2080)[f | piLE c])",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "Traj",
+          "name": "condExp_traj'",
+          "statement": "\u2115} (hab : a \u2264 b) (hbc : b \u2264 c) (x\u2080 : \u03a0 i : Iic a, X i) (f : (\u03a0 n, X n) \u2192 E) : (traj \u03ba a x\u2080)[f | piLE b] =\u1d50[traj \u03ba a x\u2080] fun x \u21a6 \u222b y, ((traj \u03ba a x\u2080)[f | piLE c]) (updateFinset x (Iic c) y) \u2202partialTraj \u03ba b c (frestrictLe b x)",
+          "have_tree": [
+            {
+              "name": "mcf",
+              "type": "StronglyMeasurable ((traj \u03ba a x\u2080)[f | piLE c])",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "i_cf",
+              "type": "Integrable ((traj \u03ba a x\u2080)[f | piLE c]) (traj \u03ba a x\u2080)",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

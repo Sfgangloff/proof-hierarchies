@@ -1,0 +1,78 @@
+[
+  {
+    "module": "Affine",
+    "name": "isAffine_of_isAffineOpen_basicOpen",
+    "statement": "Set \u0393(X, \u22a4)) (hs : Ideal.span s = \u22a4) (hs\u2082 : \u2200 i \u2208 s, IsAffineOpen (X.basicOpen i)) : IsAffine X",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "QuasiSeparatedSpace X",
+        "body": "isAffine_of_isAffineOpen_basicOpen_aux s hs hs\u2082",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "CompactSpace X",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Affine",
+    "name": "IsAffineOpen.isCompact_pullback_inf",
+    "statement": "Scheme.{u}} {f : X \u27f6 Z} {g : Y \u27f6 Z} {U : X.Opens} (hU : IsAffineOpen U) {V : Y.Opens} (hV : IsCompact (V : Set Y)) {W : Z.Opens} (hW : IsAffineOpen W) (hUW : U \u2264 f \u207b\u00b9\u1d41 W) (hVW : V \u2264 g \u207b\u00b9\u1d41 W) : IsCompact (pullback.fst f g \u207b\u00b9\u1d41 U \u2293 pullback.snd f g \u207b\u00b9\u1d41 V : Set \u2191(pullback f g))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsAffine U.toScheme",
+        "body": "hU",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAffine W.toScheme",
+        "body": "hW",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "CompactSpace V",
+        "body": "isCompact_iff_compactSpace.mp hV",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Affine",
+    "name": "isIso_morphismRestrict_iff_isIso_app",
+    "statement": "Y.Opens} (hU : IsAffineOpen U) : IsIso (f \u2223_ U) \u2194 IsIso (f.app U)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "IsAffine U",
+        "body": "hU",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Affine",
+    "name": "diagonal_isAffine_iff_forall_isAffineOpen_inf",
+    "statement": "X \u27f6 Y) : AffineTargetMorphismProperty.diagonal (fun X _ _ _ \u21a6 IsAffine X) f \u2194 \u2200 (U V : X.Opens), IsAffineOpen U \u2192 IsAffineOpen V \u2192 IsAffineOpen (U \u2293 V)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "IsOpenImmersion.isPullback (X.homOfLE inf_le_left) (X.homOfLE inf_le_right)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAffineOpen (pullback.fst f\u2081 f\u2082 \u226b f\u2081).opensRange",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

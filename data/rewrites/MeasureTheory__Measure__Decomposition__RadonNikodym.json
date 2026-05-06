@@ -1,0 +1,796 @@
+[
+  {
+    "original": {
+      "module": "RadonNikodym",
+      "name": "rnDeriv_withDensity_withDensity_rnDeriv_left",
+      "statement": "Measure \u03b1) [SigmaFinite \u03bc] [SigmaFinite \u03bd] (hf_ne_top : \u2200\u1d50 x \u2202\u03bc, f x \u2260 \u221e) : ((\u03bd.withDensity (\u03bc.rnDeriv \u03bd)).withDensity f).rnDeriv \u03bd =\u1d50[\u03bd] (\u03bc.withDensity f).rnDeriv \u03bd",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "SigmaFinite ((\u03bc.singularPart \u03bd).withDensity f)",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "SigmaFinite ((\u03bd.withDensity (\u03bc.rnDeriv \u03bd)).withDensity f)",
+          "body": "",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "RadonNikodym",
+          "name": "rnDeriv_withDensity_withDensity_rnDeriv_left",
+          "statement": "Measure \u03b1) [SigmaFinite \u03bc] [SigmaFinite \u03bd] (hf_ne_top : \u2200\u1d50 x \u2202\u03bc, f x \u2260 \u221e) : ((\u03bd.withDensity (\u03bc.rnDeriv \u03bd)).withDensity f).rnDeriv \u03bd =\u1d50[\u03bd] (\u03bc.withDensity f).rnDeriv \u03bd",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "SigmaFinite ((\u03bd.withDensity (\u03bc.rnDeriv \u03bd)).withDensity f)",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "SigmaFinite ((\u03bc.singularPart \u03bd).withDensity f)",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "RadonNikodym",
+      "name": "rnDeriv_withDensity_withDensity_rnDeriv_right",
+      "statement": "Measure \u03b1) [SigmaFinite \u03bc] [SigmaFinite \u03bd] (hf : AEMeasurable f \u03bd) (hf_ne_zero : \u2200\u1d50 x \u2202\u03bd, f x \u2260 0) (hf_ne_top : \u2200\u1d50 x \u2202\u03bd, f x \u2260 \u221e) : (\u03bd.withDensity (\u03bc.rnDeriv \u03bd)).rnDeriv (\u03bd.withDensity f) =\u1d50[\u03bd] \u03bc.rnDeriv (\u03bd.withDensity f)",
+      "have_tree": [
+        {
+          "name": "h\u03bd_ac",
+          "type": "\u03bd \u226a \u03bd.withDensity f",
+          "body": "withDensity_absolutelyContinuous' hf hf_ne_zero",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "SigmaFinite (\u03bd.withDensity f)",
+          "body": "SigmaFinite.withDensity_of_ne_top hf_ne_top",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "RadonNikodym",
+          "name": "rnDeriv_withDensity_withDensity_rnDeriv_right",
+          "statement": "Measure \u03b1) [SigmaFinite \u03bc] [SigmaFinite \u03bd] (hf : AEMeasurable f \u03bd) (hf_ne_zero : \u2200\u1d50 x \u2202\u03bd, f x \u2260 0) (hf_ne_top : \u2200\u1d50 x \u2202\u03bd, f x \u2260 \u221e) : (\u03bd.withDensity (\u03bc.rnDeriv \u03bd)).rnDeriv (\u03bd.withDensity f) =\u1d50[\u03bd] \u03bc.rnDeriv (\u03bd.withDensity f)",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "SigmaFinite (\u03bd.withDensity f)",
+              "body": "SigmaFinite.withDensity_of_ne_top hf_ne_top",
+              "children": []
+            },
+            {
+              "name": "h\u03bd_ac",
+              "type": "\u03bd \u226a \u03bd.withDensity f",
+              "body": "withDensity_absolutelyContinuous' hf hf_ne_zero",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "RadonNikodym",
+      "name": "rnDeriv_withDensity_left",
+      "statement": "Measure \u03b1} [SigmaFinite \u03bc] [SigmaFinite \u03bd] (hf\u03bd : AEMeasurable f \u03bd) (hf_ne_top : \u2200\u1d50 x \u2202\u03bc, f x \u2260 \u221e) : (\u03bc.withDensity f).rnDeriv \u03bd =\u1d50[\u03bd] fun x \u21a6 f x * \u03bc.rnDeriv \u03bd x",
+      "have_tree": [
+        {
+          "name": "h\u03bc'\u03bd",
+          "type": "\u03bc' \u226a \u03bd",
+          "body": "withDensity_absolutelyContinuous _ _",
+          "children": []
+        },
+        {
+          "name": "h",
+          "type": "",
+          "body": "rnDeriv_withDensity_left_of_absolutelyContinuous h\u03bc'\u03bd hf\u03bd",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "RadonNikodym",
+          "name": "rnDeriv_withDensity_left",
+          "statement": "Measure \u03b1} [SigmaFinite \u03bc] [SigmaFinite \u03bd] (hf\u03bd : AEMeasurable f \u03bd) (hf_ne_top : \u2200\u1d50 x \u2202\u03bc, f x \u2260 \u221e) : (\u03bc.withDensity f).rnDeriv \u03bd =\u1d50[\u03bd] fun x \u21a6 f x * \u03bc.rnDeriv \u03bd x",
+          "have_tree": [
+            {
+              "name": "h",
+              "type": "",
+              "body": "rnDeriv_withDensity_left_of_absolutelyContinuous h\u03bc'\u03bd hf\u03bd",
+              "children": []
+            },
+            {
+              "name": "h\u03bc'\u03bd",
+              "type": "\u03bc' \u226a \u03bd",
+              "body": "withDensity_absolutelyContinuous _ _",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "RadonNikodym",
+      "name": "rnDeriv_eq_zero_of_mutuallySingular",
+      "statement": "Measure \u03b1} [HaveLebesgueDecomposition \u03bc \u03bd'] [SigmaFinite \u03bd'] (h : \u03bc \u27c2\u2098 \u03bd) (h\u03bd\u03bd' : \u03bd \u226a \u03bd') : \u03bc.rnDeriv \u03bd' =\u1d50[\u03bd] 0",
+      "have_tree": [
+        {
+          "name": "ht",
+          "type": "MeasurableSet t",
+          "body": "h.measurableSet_nullSet",
+          "children": [
+            {
+              "name": "h_ac'",
+              "type": "\u03bd.restrict t \u226a \u03bd'",
+              "body": "restrict_le_self.absolutelyContinuous.trans h\u03bd\u03bd'",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          0,
+          0
+        ],
+        "result": {
+          "module": "RadonNikodym",
+          "name": "rnDeriv_eq_zero_of_mutuallySingular",
+          "statement": "Measure \u03b1} [HaveLebesgueDecomposition \u03bc \u03bd'] [SigmaFinite \u03bd'] (h : \u03bc \u27c2\u2098 \u03bd) (h\u03bd\u03bd' : \u03bd \u226a \u03bd') : \u03bc.rnDeriv \u03bd' =\u1d50[\u03bd] 0",
+          "have_tree": [
+            {
+              "name": "ht",
+              "type": "MeasurableSet t",
+              "body": "h.measurableSet_nullSet",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          0
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "RadonNikodym",
+          "name": "rnDeriv_eq_zero_of_mutuallySingular",
+          "statement": "Measure \u03b1} [HaveLebesgueDecomposition \u03bc \u03bd'] [SigmaFinite \u03bd'] (h : \u03bc \u27c2\u2098 \u03bd) (h\u03bd\u03bd' : \u03bd \u226a \u03bd') : \u03bc.rnDeriv \u03bd' =\u1d50[\u03bd] 0",
+          "have_tree": [
+            {
+              "name": "h_ac'",
+              "type": "\u03bd.restrict t \u226a \u03bd'",
+              "body": "restrict_le_self.absolutelyContinuous.trans h\u03bd\u03bd'",
+              "children": []
+            },
+            {
+              "name": "ht",
+              "type": "MeasurableSet t",
+              "body": "h.measurableSet_nullSet",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "RadonNikodym",
+      "name": "rnDeriv_add_right_of_mutuallySingular'",
+      "statement": "Measure \u03b1} [SigmaFinite \u03bc] [SigmaFinite \u03bd] [SigmaFinite \u03bd'] (h\u03bc\u03bd' : \u03bc \u27c2\u2098 \u03bd') (h\u03bd\u03bd' : \u03bd \u27c2\u2098 \u03bd') : \u03bc.rnDeriv (\u03bd + \u03bd') =\u1d50[\u03bd] \u03bc.rnDeriv \u03bd",
+      "have_tree": [
+        {
+          "name": "h_ac",
+          "type": "\u03bd \u226a \u03bd + \u03bd'",
+          "body": "Measure.AbsolutelyContinuous.rfl.add_right _",
+          "children": []
+        },
+        {
+          "name": "h\u2081",
+          "type": "",
+          "body": "rnDeriv_add' (\u03bc.singularPart \u03bd) (\u03bd.withDensity (\u03bc.rnDeriv \u03bd)) (\u03bd + \u03bd')",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "",
+          "body": "rnDeriv_add' (\u03bc.singularPart \u03bd) (\u03bd.withDensity (\u03bc.rnDeriv \u03bd)) \u03bd",
+          "children": []
+        },
+        {
+          "name": "h\u2083",
+          "type": "",
+          "body": "rnDeriv_add_right_of_absolutelyContinuous_of_mutuallySingular",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "RadonNikodym",
+          "name": "rnDeriv_add_right_of_mutuallySingular'",
+          "statement": "Measure \u03b1} [SigmaFinite \u03bc] [SigmaFinite \u03bd] [SigmaFinite \u03bd'] (h\u03bc\u03bd' : \u03bc \u27c2\u2098 \u03bd') (h\u03bd\u03bd' : \u03bd \u27c2\u2098 \u03bd') : \u03bc.rnDeriv (\u03bd + \u03bd') =\u1d50[\u03bd] \u03bc.rnDeriv \u03bd",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "rnDeriv_add' (\u03bc.singularPart \u03bd) (\u03bd.withDensity (\u03bc.rnDeriv \u03bd)) (\u03bd + \u03bd')",
+              "children": []
+            },
+            {
+              "name": "h_ac",
+              "type": "\u03bd \u226a \u03bd + \u03bd'",
+              "body": "Measure.AbsolutelyContinuous.rfl.add_right _",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "rnDeriv_add' (\u03bc.singularPart \u03bd) (\u03bd.withDensity (\u03bc.rnDeriv \u03bd)) \u03bd",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "rnDeriv_add_right_of_absolutelyContinuous_of_mutuallySingular",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "RadonNikodym",
+          "name": "rnDeriv_add_right_of_mutuallySingular'",
+          "statement": "Measure \u03b1} [SigmaFinite \u03bc] [SigmaFinite \u03bd] [SigmaFinite \u03bd'] (h\u03bc\u03bd' : \u03bc \u27c2\u2098 \u03bd') (h\u03bd\u03bd' : \u03bd \u27c2\u2098 \u03bd') : \u03bc.rnDeriv (\u03bd + \u03bd') =\u1d50[\u03bd] \u03bc.rnDeriv \u03bd",
+          "have_tree": [
+            {
+              "name": "h_ac",
+              "type": "\u03bd \u226a \u03bd + \u03bd'",
+              "body": "Measure.AbsolutelyContinuous.rfl.add_right _",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "rnDeriv_add' (\u03bc.singularPart \u03bd) (\u03bd.withDensity (\u03bc.rnDeriv \u03bd)) \u03bd",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "rnDeriv_add' (\u03bc.singularPart \u03bd) (\u03bd.withDensity (\u03bc.rnDeriv \u03bd)) (\u03bd + \u03bd')",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "rnDeriv_add_right_of_absolutelyContinuous_of_mutuallySingular",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "RadonNikodym",
+          "name": "rnDeriv_add_right_of_mutuallySingular'",
+          "statement": "Measure \u03b1} [SigmaFinite \u03bc] [SigmaFinite \u03bd] [SigmaFinite \u03bd'] (h\u03bc\u03bd' : \u03bc \u27c2\u2098 \u03bd') (h\u03bd\u03bd' : \u03bd \u27c2\u2098 \u03bd') : \u03bc.rnDeriv (\u03bd + \u03bd') =\u1d50[\u03bd] \u03bc.rnDeriv \u03bd",
+          "have_tree": [
+            {
+              "name": "h_ac",
+              "type": "\u03bd \u226a \u03bd + \u03bd'",
+              "body": "Measure.AbsolutelyContinuous.rfl.add_right _",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "rnDeriv_add' (\u03bc.singularPart \u03bd) (\u03bd.withDensity (\u03bc.rnDeriv \u03bd)) (\u03bd + \u03bd')",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "rnDeriv_add_right_of_absolutelyContinuous_of_mutuallySingular",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "rnDeriv_add' (\u03bc.singularPart \u03bd) (\u03bd.withDensity (\u03bc.rnDeriv \u03bd)) \u03bd",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "RadonNikodym",
+      "name": "rnDeriv_add_right_of_mutuallySingular",
+      "statement": "Measure \u03b1} [SigmaFinite \u03bc] [SigmaFinite \u03bd] [SigmaFinite \u03bd'] (h\u03bd\u03bd' : \u03bd \u27c2\u2098 \u03bd') : \u03bc.rnDeriv (\u03bd + \u03bd') =\u1d50[\u03bd] \u03bc.rnDeriv \u03bd",
+      "have_tree": [
+        {
+          "name": "h_ac",
+          "type": "\u03bd \u226a \u03bd + \u03bd'",
+          "body": "Measure.AbsolutelyContinuous.rfl.add_right _",
+          "children": []
+        },
+        {
+          "name": "h\u2081",
+          "type": "",
+          "body": "rnDeriv_add' (\u03bc.singularPart \u03bd') (\u03bd'.withDensity (\u03bc.rnDeriv \u03bd')) (\u03bd + \u03bd')",
+          "children": []
+        },
+        {
+          "name": "h\u2082",
+          "type": "",
+          "body": "rnDeriv_add' (\u03bc.singularPart \u03bd') (\u03bd'.withDensity (\u03bc.rnDeriv \u03bd')) \u03bd",
+          "children": []
+        },
+        {
+          "name": "h\u2083",
+          "type": "",
+          "body": "rnDeriv_add_right_of_mutuallySingular' (?_ : \u03bc.singularPart \u03bd' \u27c2\u2098 \u03bd') h\u03bd\u03bd'",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "RadonNikodym",
+          "name": "rnDeriv_add_right_of_mutuallySingular",
+          "statement": "Measure \u03b1} [SigmaFinite \u03bc] [SigmaFinite \u03bd] [SigmaFinite \u03bd'] (h\u03bd\u03bd' : \u03bd \u27c2\u2098 \u03bd') : \u03bc.rnDeriv (\u03bd + \u03bd') =\u1d50[\u03bd] \u03bc.rnDeriv \u03bd",
+          "have_tree": [
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "rnDeriv_add' (\u03bc.singularPart \u03bd') (\u03bd'.withDensity (\u03bc.rnDeriv \u03bd')) (\u03bd + \u03bd')",
+              "children": []
+            },
+            {
+              "name": "h_ac",
+              "type": "\u03bd \u226a \u03bd + \u03bd'",
+              "body": "Measure.AbsolutelyContinuous.rfl.add_right _",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "rnDeriv_add' (\u03bc.singularPart \u03bd') (\u03bd'.withDensity (\u03bc.rnDeriv \u03bd')) \u03bd",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "rnDeriv_add_right_of_mutuallySingular' (?_ : \u03bc.singularPart \u03bd' \u27c2\u2098 \u03bd') h\u03bd\u03bd'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "RadonNikodym",
+          "name": "rnDeriv_add_right_of_mutuallySingular",
+          "statement": "Measure \u03b1} [SigmaFinite \u03bc] [SigmaFinite \u03bd] [SigmaFinite \u03bd'] (h\u03bd\u03bd' : \u03bd \u27c2\u2098 \u03bd') : \u03bc.rnDeriv (\u03bd + \u03bd') =\u1d50[\u03bd] \u03bc.rnDeriv \u03bd",
+          "have_tree": [
+            {
+              "name": "h_ac",
+              "type": "\u03bd \u226a \u03bd + \u03bd'",
+              "body": "Measure.AbsolutelyContinuous.rfl.add_right _",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "rnDeriv_add' (\u03bc.singularPart \u03bd') (\u03bd'.withDensity (\u03bc.rnDeriv \u03bd')) \u03bd",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "rnDeriv_add' (\u03bc.singularPart \u03bd') (\u03bd'.withDensity (\u03bc.rnDeriv \u03bd')) (\u03bd + \u03bd')",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "rnDeriv_add_right_of_mutuallySingular' (?_ : \u03bc.singularPart \u03bd' \u27c2\u2098 \u03bd') h\u03bd\u03bd'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "RadonNikodym",
+          "name": "rnDeriv_add_right_of_mutuallySingular",
+          "statement": "Measure \u03b1} [SigmaFinite \u03bc] [SigmaFinite \u03bd] [SigmaFinite \u03bd'] (h\u03bd\u03bd' : \u03bd \u27c2\u2098 \u03bd') : \u03bc.rnDeriv (\u03bd + \u03bd') =\u1d50[\u03bd] \u03bc.rnDeriv \u03bd",
+          "have_tree": [
+            {
+              "name": "h_ac",
+              "type": "\u03bd \u226a \u03bd + \u03bd'",
+              "body": "Measure.AbsolutelyContinuous.rfl.add_right _",
+              "children": []
+            },
+            {
+              "name": "h\u2081",
+              "type": "",
+              "body": "rnDeriv_add' (\u03bc.singularPart \u03bd') (\u03bd'.withDensity (\u03bc.rnDeriv \u03bd')) (\u03bd + \u03bd')",
+              "children": []
+            },
+            {
+              "name": "h\u2083",
+              "type": "",
+              "body": "rnDeriv_add_right_of_mutuallySingular' (?_ : \u03bc.singularPart \u03bd' \u27c2\u2098 \u03bd') h\u03bd\u03bd'",
+              "children": []
+            },
+            {
+              "name": "h\u2082",
+              "type": "",
+              "body": "rnDeriv_add' (\u03bc.singularPart \u03bd') (\u03bd'.withDensity (\u03bc.rnDeriv \u03bd')) \u03bd",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "RadonNikodym",
+      "name": "setIntegral_toReal_rnDeriv_le",
+      "statement": "Set \u03b1} (h\u03bcs : \u03bc s \u2260 \u221e) : \u222b x in s, (\u03bc.rnDeriv \u03bd x).toReal \u2202\u03bd \u2264 \u03bc.real s",
+      "have_tree": [
+        {
+          "name": "ht_m",
+          "type": "MeasurableSet t",
+          "body": "measurableSet_toMeasurable \u03bc s",
+          "children": []
+        },
+        {
+          "name": "h\u03bct",
+          "type": "\u03bc t \u2260 \u221e",
+          "body": "by rwa [ht, measure_toMeasurable s]",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "RadonNikodym",
+          "name": "setIntegral_toReal_rnDeriv_le",
+          "statement": "Set \u03b1} (h\u03bcs : \u03bc s \u2260 \u221e) : \u222b x in s, (\u03bc.rnDeriv \u03bd x).toReal \u2202\u03bd \u2264 \u03bc.real s",
+          "have_tree": [
+            {
+              "name": "h\u03bct",
+              "type": "\u03bc t \u2260 \u221e",
+              "body": "by rwa [ht, measure_toMeasurable s]",
+              "children": []
+            },
+            {
+              "name": "ht_m",
+              "type": "MeasurableSet t",
+              "body": "measurableSet_toMeasurable \u03bc s",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "RadonNikodym",
+      "name": "rnDeriv_self_add",
+      "statement": "Measure \u03b1) [SigmaFinite \u03bc] [SigmaFinite \u03bd] : \u03bc.rnDeriv (\u03bc + \u03bd) =\u1d50[\u03bd] fun x \u21a6 \u03bc.rnDeriv \u03bd x / (\u03bc.rnDeriv \u03bd x + 1)",
+      "have_tree": [
+        {
+          "name": "h_one_add",
+          "type": "",
+          "body": "(ae_add_measure_iff.mp (\u03bc + \u03bd).rnDeriv_self).2",
+          "children": []
+        },
+        {
+          "name": "h",
+          "type": "",
+          "body": "add_mul (\u03bc.rnDeriv \u03bd a) 1 (\u03bc.rnDeriv \u03bd a + 1)\u207b\u00b9",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "RadonNikodym",
+          "name": "rnDeriv_self_add",
+          "statement": "Measure \u03b1) [SigmaFinite \u03bc] [SigmaFinite \u03bd] : \u03bc.rnDeriv (\u03bc + \u03bd) =\u1d50[\u03bd] fun x \u21a6 \u03bc.rnDeriv \u03bd x / (\u03bc.rnDeriv \u03bd x + 1)",
+          "have_tree": [
+            {
+              "name": "h",
+              "type": "",
+              "body": "add_mul (\u03bc.rnDeriv \u03bd a) 1 (\u03bc.rnDeriv \u03bd a + 1)\u207b\u00b9",
+              "children": []
+            },
+            {
+              "name": "h_one_add",
+              "type": "",
+              "body": "(ae_add_measure_iff.mp (\u03bc + \u03bd).rnDeriv_self).2",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "RadonNikodym",
+      "name": "_root_.MeasurableEmbedding.rnDeriv_map",
+      "statement": "MeasurableEmbedding f) (\u03bc \u03bd : Measure \u03b1) [SigmaFinite \u03bc] [SigmaFinite \u03bd] : (fun x \u21a6 (\u03bc.map f).rnDeriv (\u03bd.map f) (f x)) =\u1d50[\u03bd] \u03bc.rnDeriv \u03bd",
+      "have_tree": [
+        {
+          "name": "_",
+          "type": "SigmaFinite (map f \u03bd)",
+          "body": "hf.sigmaFinite_map",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "SigmaFinite (map f (\u03bc.singularPart \u03bd))",
+          "body": "hf.sigmaFinite_map",
+          "children": []
+        },
+        {
+          "name": "_",
+          "type": "SigmaFinite (map f (\u03bd.withDensity (\u03bc.rnDeriv \u03bd)))",
+          "body": "hf.sigmaFinite_map",
+          "children": []
+        },
+        {
+          "name": "h_add",
+          "type": "",
+          "body": "Measure.rnDeriv_add' ((\u03bc.singularPart \u03bd).map f)",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3
+        ],
+        "result": {
+          "module": "RadonNikodym",
+          "name": "_root_.MeasurableEmbedding.rnDeriv_map",
+          "statement": "MeasurableEmbedding f) (\u03bc \u03bd : Measure \u03b1) [SigmaFinite \u03bc] [SigmaFinite \u03bd] : (fun x \u21a6 (\u03bc.map f).rnDeriv (\u03bd.map f) (f x)) =\u1d50[\u03bd] \u03bc.rnDeriv \u03bd",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "SigmaFinite (map f (\u03bc.singularPart \u03bd))",
+              "body": "hf.sigmaFinite_map",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "SigmaFinite (map f \u03bd)",
+              "body": "hf.sigmaFinite_map",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "SigmaFinite (map f (\u03bd.withDensity (\u03bc.rnDeriv \u03bd)))",
+              "body": "hf.sigmaFinite_map",
+              "children": []
+            },
+            {
+              "name": "h_add",
+              "type": "",
+              "body": "Measure.rnDeriv_add' ((\u03bc.singularPart \u03bd).map f)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "result": {
+          "module": "RadonNikodym",
+          "name": "_root_.MeasurableEmbedding.rnDeriv_map",
+          "statement": "MeasurableEmbedding f) (\u03bc \u03bd : Measure \u03b1) [SigmaFinite \u03bc] [SigmaFinite \u03bd] : (fun x \u21a6 (\u03bc.map f).rnDeriv (\u03bd.map f) (f x)) =\u1d50[\u03bd] \u03bc.rnDeriv \u03bd",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "SigmaFinite (map f \u03bd)",
+              "body": "hf.sigmaFinite_map",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "SigmaFinite (map f (\u03bd.withDensity (\u03bc.rnDeriv \u03bd)))",
+              "body": "hf.sigmaFinite_map",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "SigmaFinite (map f (\u03bc.singularPart \u03bd))",
+              "body": "hf.sigmaFinite_map",
+              "children": []
+            },
+            {
+              "name": "h_add",
+              "type": "",
+              "body": "Measure.rnDeriv_add' ((\u03bc.singularPart \u03bd).map f)",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "result": {
+          "module": "RadonNikodym",
+          "name": "_root_.MeasurableEmbedding.rnDeriv_map",
+          "statement": "MeasurableEmbedding f) (\u03bc \u03bd : Measure \u03b1) [SigmaFinite \u03bc] [SigmaFinite \u03bd] : (fun x \u21a6 (\u03bc.map f).rnDeriv (\u03bd.map f) (f x)) =\u1d50[\u03bd] \u03bc.rnDeriv \u03bd",
+          "have_tree": [
+            {
+              "name": "_",
+              "type": "SigmaFinite (map f \u03bd)",
+              "body": "hf.sigmaFinite_map",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "SigmaFinite (map f (\u03bc.singularPart \u03bd))",
+              "body": "hf.sigmaFinite_map",
+              "children": []
+            },
+            {
+              "name": "h_add",
+              "type": "",
+              "body": "Measure.rnDeriv_add' ((\u03bc.singularPart \u03bd).map f)",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "SigmaFinite (map f (\u03bd.withDensity (\u03bc.rnDeriv \u03bd)))",
+              "body": "hf.sigmaFinite_map",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

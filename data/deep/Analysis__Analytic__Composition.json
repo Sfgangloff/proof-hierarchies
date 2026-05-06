@@ -1,0 +1,123 @@
+[
+  {
+    "module": "Composition",
+    "name": "id_comp",
+    "statement": "FormalMultilinearSeries \ud835\udd5c E F) (v0 : Fin 0 \u2192 E) : (id \ud835\udd5c F (p 0 v0)).comp p = p",
+    "have_tree": [
+      {
+        "name": "A",
+        "type": "1 < b.length",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "b.length \u2260 1",
+            "body": "by simpa [Composition.eq_single_iff_length] using hb",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "0 < b.length",
+            "body": "Composition.length_pos_of_pos b n_pos",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Composition",
+    "name": "comp_summable_nnreal",
+    "statement": "FormalMultilinearSeries \ud835\udd5c F G) (p : FormalMultilinearSeries \ud835\udd5c E F) (hq : 0 < q.radius) (hp : 0 < p.radius) : \u2203 r > (0 : \u211d\u22650), Summable fun i : \u03a3 n, Composition n => \u2016q.compAlongComposition p i.2\u2016\u208a * r ^ i.1",
+    "have_tree": [
+      {
+        "name": "r0_pos",
+        "type": "0 < r0",
+        "body": "inv_pos.2 (mul_pos zero_lt_four (zero_lt_one.trans_le hCp1))",
+        "children": []
+      },
+      {
+        "name": "r_pos",
+        "type": "0 < r",
+        "body": "mul_pos (mul_pos rp_pos rq_pos) r0_pos",
+        "children": [
+          {
+            "name": "A",
+            "type": "",
+            "body": "calc",
+            "children": []
+          },
+          {
+            "name": "B",
+            "type": "",
+            "body": "calc",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u2200 n : \u2115, HasSum (fun c : Composition n => (4 ^ n : \u211d\u22650)\u207b\u00b9) (2 ^ (n - 1) / 4 ^ n)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Composition",
+    "name": "HasFPowerSeriesWithinAt.comp",
+    "statement": "F \u2192 G} {f : E \u2192 F} {q : FormalMultilinearSeries \ud835\udd5c F G} {p : FormalMultilinearSeries \ud835\udd5c E F} {x : E} {t : Set F} {s : Set E} (hg : HasFPowerSeriesWithinAt g q t (f x)) (hf : HasFPowerSeriesWithinAt f p s x) (hs : Set.MapsTo f s t) : HasFPowerSeriesWithinAt (g \u2218 f) (q.comp p) s x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "insert (f x) t \u2229 EMetric.ball (f x) rg \u2208 \ud835\udcdd[insert (f x) t] (f x)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Hf.analyticWithinAt.continuousWithinAt_insert.tendsto_nhdsWithin (hs.insert x) this",
+        "children": []
+      },
+      {
+        "name": "min_pos",
+        "type": "0 < min rf' r",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "y_mem",
+        "type": "y \u2208 EMetric.ball (0 : E) rf",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "fy_mem",
+        "type": "f (x + y) \u2208 insert (f x) t \u2229 EMetric.ball (f x) rg",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "y \u2208 EMetric.ball (0 : E) \u03b4",
+            "body": "",
+            "children": [
+              {
+                "name": "_",
+                "type": "",
+                "body": "le_trans (le_of_lt hy) (min_le_right _ _)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "E",
+        "type": "HasSum (fun n => (q.comp p) n fun _j => y) (g (f (x + y)))",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

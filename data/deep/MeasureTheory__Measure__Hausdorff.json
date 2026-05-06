@@ -1,0 +1,104 @@
+[
+  {
+    "module": "Hausdorff",
+    "name": "hausdorffMeasure_image_le",
+    "statement": "HolderOnWith C r f s) (hr : 0 < r) {d : \u211d} (hd : 0 \u2264 d) : \u03bcH[d] (f '' s) \u2264 (C : \u211d\u22650\u221e) ^ d * \u03bcH[r * d] s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "f '' s = {f x}",
+        "body": "",
+        "children": [
+          {
+            "name": "_",
+            "type": "(f '' s).Subsingleton",
+            "body": "by simpa [ediam_eq_zero_iff] using h.ediam_image_le",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hCd",
+        "type": "(C : \u211d\u22650\u221e) ^ d \u2260 \u221e",
+        "body": "by simp [hd]",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Tendsto (fun d : \u211d\u22650\u221e => (C : \u211d\u22650\u221e) * d ^ (r : \u211d)) (\ud835\udcdd 0) (\ud835\udcdd 0)",
+        "body": "",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hausdorff",
+    "name": "hausdorffMeasure_preimage_le",
+    "statement": "AntilipschitzWith K f) (hd : 0 \u2264 d) (s : Set Y) : \u03bcH[d] (f \u207b\u00b9' s) \u2264 (K : \u211d\u22650\u221e) ^ d * \u03bcH[d] s",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "f \u207b\u00b9' s = {x}",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "(f \u207b\u00b9' s).Subsingleton",
+            "body": "subsingleton_univ.anti (subset_univ _)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hKd0",
+        "type": "(K : \u211d\u22650\u221e) ^ d \u2260 0",
+        "body": "by simp [h0]",
+        "children": []
+      },
+      {
+        "name": "hKd",
+        "type": "(K : \u211d\u22650\u221e) ^ d \u2260 \u221e",
+        "body": "by simp [hd]",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Hausdorff",
+    "name": "hausdorffMeasure_pi_real",
+    "statement": "Type*} [Fintype \u03b9] : (\u03bcH[Fintype.card \u03b9] : Measure (\u03b9 \u2192 \u211d)) = volume",
+    "have_tree": [
+      {
+        "name": "I",
+        "type": "\u2200 i, 0 \u2264 (b i : \u211d) - a i",
+        "body": "fun i => by",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "Tendsto (fun n : \u2115 => 1 / (n : \u211d\u22650\u221e)) atTop (\ud835\udcdd 0)",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "\u2200\u1da0 n in atTop, \u2200 i : \u03b3 n, ediam (t n i) \u2264 1 / n",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "C",
+        "type": "\u2200\u1da0 n in atTop, (Set.pi univ fun i : \u03b9 => Ioo (a i : \u211d) (b i)) \u2286 \u22c3 i : \u03b3 n, t n i",
+        "body": "by",
+        "children": [
+          {
+            "name": "npos",
+            "type": "(0 : \u211d) < n",
+            "body": "Nat.cast_pos.2 hn",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

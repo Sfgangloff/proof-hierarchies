@@ -1,0 +1,28 @@
+[
+  {
+    "module": "Adjugate",
+    "name": "adjugate_mul_distrib_aux",
+    "statement": "Matrix n n \u03b1) (hA : IsLeftRegular A.det) (hB : IsLeftRegular B.det) : adjugate (A * B) = adjugate B * adjugate A",
+    "have_tree": [
+      {
+        "name": "hAB",
+        "type": "IsLeftRegular (A * B).det",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Adjugate",
+    "name": "adjugate_adjugate",
+    "statement": "Matrix n n \u03b1) (h : Fintype.card n \u2260 1) : adjugate (adjugate A) = det A ^ (Fintype.card n - 2) \u2022 A",
+    "have_tree": [
+      {
+        "name": "is_reg",
+        "type": "IsSMulRegular (MvPolynomial (n \u00d7 n) \u2124) (det A')",
+        "body": "fun x y =>",
+        "children": []
+      }
+    ]
+  }
+]

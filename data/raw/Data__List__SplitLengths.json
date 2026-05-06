@@ -1,0 +1,34 @@
+[
+  {
+    "module": "SplitLengths",
+    "name": "splitLengths_length_getElem",
+    "statement": "Type*} (l : List \u03b1) (sz : List \u2115) (h : sz.sum \u2264 l.length) (i : \u2115) (hi : i < (sz.splitLengths l).length) : (sz.splitLengths l)[i].length = sz[i]'(by simpa using hi)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "map_splitLengths_length l sz h",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "SplitLengths",
+    "name": "length_mem_splitLengths",
+    "statement": "Type*} (l : List \u03b1) (sz : List \u2115) (b : \u2115) (h : \u2200 n \u2208 sz, n \u2264 b) : \u2200 l\u2082 \u2208 sz.splitLengths l, l\u2082.length \u2264 b",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "length_splitLengths_getElem_le l sz (hi := hi)",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "h (sz[i]'(by simpa using hi)) (getElem_mem ..)",
+        "children": []
+      }
+    ]
+  }
+]

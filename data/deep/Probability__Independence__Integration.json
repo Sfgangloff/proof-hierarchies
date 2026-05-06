@@ -1,0 +1,118 @@
+[
+  {
+    "module": "Integration",
+    "name": "lintegral_mul_indicator_eq_lintegral_mul_lintegral_indicator",
+    "statement": "MeasurableSpace \u03a9} {\u03bc : Measure \u03a9} (hMf : Mf \u2264 m\u03a9) (c : \u211d\u22650\u221e) {T : Set \u03a9} (h_meas_T : MeasurableSet T) (h_ind : IndepSets {s | MeasurableSet[Mf] s} {T} \u03bc) (h_meas_f : Measurable[Mf] f) : (\u222b\u207b \u03c9, f \u03c9 * T.indicator (fun _ => c) \u03c9 \u2202\u03bc) = (\u222b\u207b \u03c9, f \u03c9 \u2202\u03bc) * \u222b\u207b \u03c9, T.indicator (fun _ => c) \u03c9 \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "h_mul_indicator",
+        "type": "\u2200 g, Measurable g \u2192 Measurable fun a => g a * T.indicator (fun _ => c) a",
+        "body": "",
+        "children": [
+          {
+            "name": "h_measM_f'",
+            "type": "Measurable f'",
+            "body": "h_meas_f'.mono hMf le_rfl",
+            "children": []
+          },
+          {
+            "name": "h_measM_f",
+            "type": "\u2200 n, Measurable (f n)",
+            "body": "fun n => (h_meas_f n).mono hMf le_rfl",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Integration",
+    "name": "lintegral_mul_eq_lintegral_mul_lintegral_of_independent_measurableSpace",
+    "statement": "MeasurableSpace \u03a9} {\u03bc : Measure \u03a9} (hMf : Mf \u2264 m\u03a9) (hMg : Mg \u2264 m\u03a9) (h_ind : Indep Mf Mg \u03bc) (h_meas_f : Measurable[Mf] f) (h_meas_g : Measurable[Mg] g) : \u222b\u207b \u03c9, f \u03c9 * g \u03c9 \u2202\u03bc = (\u222b\u207b \u03c9, f \u03c9 \u2202\u03bc) * \u222b\u207b \u03c9, g \u03c9 \u2202\u03bc",
+    "have_tree": [
+      {
+        "name": "h_measM_f",
+        "type": "Measurable f",
+        "body": "h_meas_f.mono hMf le_rfl",
+        "children": [
+          {
+            "name": "h_measM_f'",
+            "type": "Measurable f'",
+            "body": "h_measMg_f'.mono hMg le_rfl",
+            "children": []
+          },
+          {
+            "name": "h_measM_f'",
+            "type": "\u2200 n, Measurable (f' n)",
+            "body": "fun n => (h_meas_f' n).mono hMg le_rfl",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Integration",
+    "name": "IndepFun.integrable_left_of_integrable_mul",
+    "statement": "Type*} [MeasurableSpace \u03b2] {X Y : \u03a9 \u2192 \u03b2} [NormedDivisionRing \u03b2] [OpensMeasurableSpace \u03b2] (hXY : X \u27c2\u1d62[\u03bc] Y) (h'XY : Integrable (X * Y) \u03bc) (hX : AEStronglyMeasurable X \u03bc) (hY : AEStronglyMeasurable Y \u03bc) (h'Y : \u00acY =\u1d50[\u03bc] 0) : Integrable X \u03bc",
+    "have_tree": [
+      {
+        "name": "I",
+        "type": "(\u222b\u207b \u03c9, \u2016Y \u03c9\u2016\u2091 \u2202\u03bc) \u2260 0",
+        "body": "fun H \u21a6 by",
+        "children": [
+          {
+            "name": "I",
+            "type": "(fun \u03c9 => \u2016Y \u03c9\u2016\u2091 : \u03a9 \u2192 \u211d\u22650\u221e) =\u1d50[\u03bc] 0",
+            "body": "(lintegral_eq_zero_iff' hY.enorm).1 H",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "J",
+        "type": "(\u2016X \u00b7\u2016\u2091) \u27c2\u1d62[\u03bc] (\u2016Y \u00b7\u2016\u2091)",
+        "body": "hXY.comp measurable_enorm measurable_enorm",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "\u222b\u207b \u03c9, \u2016X \u03c9 * Y \u03c9\u2016\u2091 \u2202\u03bc < \u221e",
+        "body": "h'XY.2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Integration",
+    "name": "IndepFun.integrable_right_of_integrable_mul",
+    "statement": "Type*} [MeasurableSpace \u03b2] {X Y : \u03a9 \u2192 \u03b2} [NormedDivisionRing \u03b2] [OpensMeasurableSpace \u03b2] (hXY : X \u27c2\u1d62[\u03bc] Y) (h'XY : Integrable (X * Y) \u03bc) (hX : AEStronglyMeasurable X \u03bc) (hY : AEStronglyMeasurable Y \u03bc) (h'X : \u00acX =\u1d50[\u03bc] 0) : Integrable Y \u03bc",
+    "have_tree": [
+      {
+        "name": "I",
+        "type": "\u222b\u207b \u03c9, \u2016X \u03c9\u2016\u2091 \u2202\u03bc \u2260 0",
+        "body": "fun H \u21a6 by",
+        "children": [
+          {
+            "name": "I",
+            "type": "((\u2016X \u00b7\u2016\u2091) : \u03a9 \u2192 \u211d\u22650\u221e) =\u1d50[\u03bc] 0",
+            "body": "(lintegral_eq_zero_iff' hX.enorm).1 H",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "J",
+        "type": "(fun \u03c9 => \u2016X \u03c9\u2016\u2091 : \u03a9 \u2192 \u211d\u22650\u221e) \u27c2\u1d62[\u03bc] (fun \u03c9 => \u2016Y \u03c9\u2016\u2091 : \u03a9 \u2192 \u211d\u22650\u221e)",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "A",
+        "type": "\u222b\u207b \u03c9, \u2016X \u03c9 * Y \u03c9\u2016\u2091 \u2202\u03bc < \u221e",
+        "body": "h'XY.2",
+        "children": []
+      }
+    ]
+  }
+]

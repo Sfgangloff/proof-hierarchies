@@ -1,0 +1,350 @@
+[
+  {
+    "module": "Lemmas",
+    "name": "coxeterWeightIn_le_four",
+    "statement": "Type*) [CommRing S] [LinearOrder S] [IsStrictOrderedRing S] [Algebra S R] [FaithfulSMul S R] [Module S M] [IsScalarTower S R M] [P.IsValuedIn S] (i j : \u03b9) : P.coxeterWeightIn S i j \u2264 4",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      },
+      {
+        "name": "cs",
+        "type": "4 * lij ^ 2 \u2264 4 * (li * lj)",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "coxeterWeightIn_mem_set_of_isCrystallographic",
+    "statement": "P.coxeterWeightIn \u2124 i j \u2208 ({0, 1, 2, 3, 4} : Set \u2124)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": [
+          {
+            "name": "_",
+            "type": "0 \u2264 P.coxeterWeightIn \u2124 i j",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "P.coxeterWeightIn \u2124 i j \u2264 4",
+        "body": "P.coxeterWeightIn_le_four \u2124 i j",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "pairingIn_pairingIn_mem_set_of_isCrystal_of_isRed",
+    "statement": "(P.pairingIn \u2124 i j, P.pairingIn \u2124 j i) \u2208 ({(0, 0), (1, 1), (-1, -1), (1, 2), (2, 1), (-1, -2), (-2, -1), (1, 3), (3, 1), (-1, -3), (-3, -1), (2, 2), (-2, -2)} : Set (\u2124 \u00d7 \u2124))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "aux\u2081",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystallographic i j",
+        "children": []
+      },
+      {
+        "name": "aux\u2082",
+        "type": "P.pairingIn \u2124 i j * P.pairingIn \u2124 j i \u2260 4",
+        "body": "P.coxeterWeightIn_ne_four \u2124 h\u2081 h\u2082",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "pairingIn_pairingIn_mem_set_of_isCrystal_of_isRed'",
+    "statement": "\u03b1 i \u2260 \u03b1 j) (hij' : \u03b1 i \u2260 -\u03b1 j) : (P.pairingIn \u2124 i j, P.pairingIn \u2124 j i) \u2208 ({(0, 0), (1, 1), (-1, -1), (1, 2), (2, 1), (-1, -2), (-2, -1), (1, 3), (3, 1), (-1, -3), (-3, -1)} : Set (\u2124 \u00d7 \u2124))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystal_of_isRed i j",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "RootPositiveForm.rootLength_le_of_pairingIn_eq",
+    "statement": "P.RootPositiveForm \u2124) {i j : \u03b9} (hij : P.pairingIn \u2124 i j = -1 \u2228 P.pairingIn \u2124 i j = 1) : B.rootLength i \u2264 B.rootLength j",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystallographic i j",
+        "children": []
+      },
+      {
+        "name": "h'",
+        "type": "",
+        "body": "B.pairingIn_mul_eq_pairingIn_mul_swap i j",
+        "children": []
+      },
+      {
+        "name": "hi",
+        "type": "",
+        "body": "B.rootLength_pos i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "RootPositiveForm.rootLength_lt_of_pairingIn_notMem",
+    "statement": "P.RootPositiveForm \u2124) {i j : \u03b9} (hne : \u03b1 i \u2260 \u03b1 j) (hne' : \u03b1 i \u2260 -\u03b1 j) (hij : P.pairingIn \u2124 i j \u2209 ({-1, 0, 1} : Set \u2124)) : B.rootLength j < B.rootLength i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystallographic i j",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystallographic i j",
+        "children": []
+      },
+      {
+        "name": "aux\u2082",
+        "type": "",
+        "body": "B.pairingIn_mul_eq_pairingIn_mul_swap i j",
+        "children": []
+      },
+      {
+        "name": "hi",
+        "type": "",
+        "body": "B.rootLength_pos i",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "pairingIn_pairingIn_mem_set_of_length_eq",
+    "statement": "P.InvariantForm} (len_eq : B.form (\u03b1 i) (\u03b1 i) = B.form (\u03b1 j) (\u03b1 j)) : (P.pairingIn \u2124 i j, P.pairingIn \u2124 j i) \u2208 ({(0, 0), (1, 1), (-1, -1), (2, 2), (-2, -2)} : Set (\u2124 \u00d7 \u2124))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystallographic i j",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "pairingIn_pairingIn_mem_set_of_length_eq_of_ne",
+    "statement": "P.InvariantForm} (len_eq : B.form (\u03b1 i) (\u03b1 i) = B.form (\u03b1 j) (\u03b1 j)) (ne : i \u2260 j) (ne' : \u03b1 i \u2260 -\u03b1 j) : (P.pairingIn \u2124 i j, P.pairingIn \u2124 j i) \u2208 ({(0, 0), (1, 1), (-1, -1)} : Set (\u2124 \u00d7 \u2124))",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_length_eq len_eq",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "root_sub_root_mem_of_pairingIn_pos",
+    "statement": "0 < P.pairingIn \u2124 i j) (h' : i \u2260 j) : \u03b1 i - \u03b1 j \u2208 \u03a6",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R M",
+        "body": ".of_isPerfPair P.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "Module.IsReflexive R N",
+        "body": ".of_isPerfPair P.flip.toLinearMap",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsAddTorsionFree M",
+        "body": ".of_isTorsionFree R M",
+        "children": [
+          {
+            "name": "aux\u2081",
+            "type": "",
+            "body": "P.coxeterWeightIn_mem_set_of_isCrystallographic i j",
+            "children": []
+          },
+          {
+            "name": "aux\u2082",
+            "type": "",
+            "body": "(linearIndependent_iff_coxeterWeightIn_ne_four P \u2124).mp hli",
+            "children": []
+          },
+          {
+            "name": "aux\u2083",
+            "type": "P.coxeterWeightIn \u2124 i j \u2260 0",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "_",
+            "type": "",
+            "body": "P.pairingIn_pairingIn_mem_set_of_isCrystallographic i j",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "root_mem_submodule_iff_of_add_mem_invtSubmodule",
+    "statement": "Type*} [Field K] [NeZero (2 : K)] [Module K M] [Module K N] {P : RootPairing \u03b9 K M N} (q : P.invtRootSubmodule) (hij : P.root i + P.root j \u2208 range P.root) : P.root i \u2208 (q : Submodule K M) \u2194 P.root j \u2208 (q : Submodule K M)",
+    "have_tree": [
+      {
+        "name": "aux",
+        "type": "",
+        "body": "this j i (by rwa [add_comm]); tauto",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "apply_eq_or_aux",
+    "statement": "\u03b9) (h : P.pairingIn \u2124 i j \u2260 0) : B.form (\u03b1 i) (\u03b1 i) = B.form (\u03b1 j) (\u03b1 j) \u2228 B.form (\u03b1 i) (\u03b1 i) = 2 * B.form (\u03b1 j) (\u03b1 j) \u2228 B.form (\u03b1 i) (\u03b1 i) = 3 * B.form (\u03b1 j) (\u03b1 j) \u2228 B.form (\u03b1 j) (\u03b1 j) = 2 * B.form (\u03b1 i) (\u03b1 i) \u2228 B.form (\u03b1 j) (\u03b1 j) = 3 * B.form (\u03b1 i) (\u03b1 i)",
+    "have_tree": [
+      {
+        "name": "h\u2081",
+        "type": "",
+        "body": "P.pairingIn_pairingIn_mem_set_of_isCrystal_of_isRed i j",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "exists_apply_eq_or",
+    "statement": "\u2203 i j, \u2200 k, B.form (\u03b1 k) (\u03b1 k) = B.form (\u03b1 i) (\u03b1 i) \u2228 B.form (\u03b1 k) (\u03b1 k) = B.form (\u03b1 j) (\u03b1 j)",
+    "have_tree": [
+      {
+        "name": "hij",
+        "type": "",
+        "body": "(B.apply_eq_or i j).resolve_left hji_ne.symm",
+        "children": []
+      },
+      {
+        "name": "hik",
+        "type": "",
+        "body": "(B.apply_eq_or i k).resolve_left hki_ne.symm",
+        "children": []
+      },
+      {
+        "name": "hjk",
+        "type": "",
+        "body": "(B.apply_eq_or j k).resolve_left hkj_ne.symm",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "apply_eq_or_of_apply_ne",
+    "statement": "B.form (\u03b1 i) (\u03b1 i) \u2260 B.form (\u03b1 j) (\u03b1 j)) (k : \u03b9) : B.form (\u03b1 k) (\u03b1 k) = B.form (\u03b1 i) (\u03b1 i) \u2228 B.form (\u03b1 k) (\u03b1 k) = B.form (\u03b1 j) (\u03b1 j)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Nonempty \u03b9",
+        "body": "\u27e8i\u27e9",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Lemmas",
+    "name": "forall_pairing_eq_swap_or",
+    "statement": "(\u2200 i j, P.pairing i j = P.pairing j i \u2228 P.pairing i j = 2 * P.pairing j i \u2228 P.pairing j i = 2 * P.pairing i j) \u2228 (\u2200 i j, P.pairing i j = P.pairing j i \u2228 P.pairing i j = 3 * P.pairing j i \u2228 P.pairing j i = 3 * P.pairing i j)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Fintype \u03b9",
+        "body": "Fintype.ofFinite \u03b9",
+        "children": []
+      },
+      {
+        "name": "B",
+        "type": "",
+        "body": "(P.posRootForm \u2124).toInvariantForm",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "B.pairing_mul_eq_pairing_mul_swap j i",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "key",
+        "type": "",
+        "body": "B.apply_eq_or_of_apply_ne hij",
+        "children": [
+          {
+            "name": "_",
+            "type": "",
+            "body": "B.apply_eq_or i j; tauto",
+            "children": []
+          },
+          {
+            "name": "hk",
+            "type": "",
+            "body": "B.pairing_mul_eq_pairing_mul_swap k\u2081 k\u2082",
+            "children": []
+          },
+          {
+            "name": "hk",
+            "type": "",
+            "body": "B.pairing_mul_eq_pairing_mul_swap k\u2081 k\u2082",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,155 @@
+[
+  {
+    "module": "Riemannian",
+    "name": "ContinuousWithinAt.inner_bundle",
+    "statement": "ContinuousWithinAt (fun m \u21a6 (v m : TotalSpace F E)) s x) (hw : ContinuousWithinAt (fun m \u21a6 (w m : TotalSpace F E)) s x) : ContinuousWithinAt (fun m \u21a6 \u27eav m, w m\u27eb) s x",
+    "have_tree": [
+      {
+        "name": "hf",
+        "type": "ContinuousWithinAt b s x",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Riemannian",
+    "name": "eventually_norm_symmL_trivializationAt_self_comp_lt",
+    "statement": "B) {r : \u211d} (hr : 1 < r) : \u2200\u1da0 y in \ud835\udcdd x, \u2016((trivializationAt F E x).symmL \u211d x) \u2218L ((trivializationAt F E x).continuousLinearMapAt \u211d y)\u2016 < r",
+    "have_tree": [
+      {
+        "name": "h'x",
+        "type": "x \u2208 (trivializationAt F E x).baseSet",
+        "body": "FiberBundle.mem_baseSet_trivializationAt' x",
+        "children": [
+          {
+            "name": "B",
+            "type": "Tendsto (fun \u03b4 \u21a6 1 - \u03b4 * C) (\ud835\udcdd[>] 0) (\ud835\udcdd (1 - 0 * C))",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "B'",
+            "type": "\u2200\u1da0 \u03b4 in \ud835\udcdd[>] 0, (r' ^ 2)\u207b\u00b9 < 1 - \u03b4 * C",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hg'",
+        "type": "ContinuousAt g' x",
+        "body": "by",
+        "children": [
+          {
+            "name": "W",
+            "type": "",
+            "body": "g_cont.continuousAt (x := x)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u2200\u1da0 y in \ud835\udcdd x, dist (g' y) (g' x) < \u03b4",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2016g' x - g' y\u2016 \u2264 \u03b4",
+        "body": "by rw [\u2190 dist_eq_norm']; exact hy.le",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "g' x w w \u2264 \u03b4 * C * g' x w w + g' y w w",
+        "body": "calc",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "(1 - \u03b4 * C) * g' x w w \u2264 g' y w w",
+        "body": "by linarith",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Riemannian",
+    "name": "eventually_norm_trivializationAt_lt",
+    "statement": "B) : \u2203 C > 0, \u2200\u1da0 y in \ud835\udcdd x, \u2016(trivializationAt F E x).continuousLinearMapAt \u211d y\u2016 < C",
+    "have_tree": [
+      {
+        "name": "h'x",
+        "type": "x \u2208 (trivializationAt F E x).baseSet",
+        "body": "FiberBundle.mem_baseSet_trivializationAt' x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Riemannian",
+    "name": "eventually_norm_symmL_trivializationAt_comp_self_lt",
+    "statement": "B) {r : \u211d} (hr : 1 < r) : \u2200\u1da0 y in \ud835\udcdd x, \u2016((trivializationAt F E x).symmL \u211d y) \u2218L ((trivializationAt F E x).continuousLinearMapAt \u211d x)\u2016 < r",
+    "have_tree": [
+      {
+        "name": "h'x",
+        "type": "x \u2208 (trivializationAt F E x).baseSet",
+        "body": "FiberBundle.mem_baseSet_trivializationAt' x",
+        "children": [
+          {
+            "name": "B",
+            "type": "Tendsto (fun \u03b4 \u21a6 1 + \u03b4 * C) (\ud835\udcdd[>] 0) (\ud835\udcdd (1 + 0 * C))",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "B'",
+            "type": "\u2200\u1da0 \u03b4 in \ud835\udcdd[>] 0, 1 + \u03b4 * C < r' ^ 2",
+            "body": "by",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hg'",
+        "type": "ContinuousAt g' x",
+        "body": "by",
+        "children": [
+          {
+            "name": "W",
+            "type": "",
+            "body": "g_cont.continuousAt (x := x)",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "_",
+        "type": "\u2200\u1da0 y in \ud835\udcdd x, dist (g' y) (g' x) < \u03b4",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "\u2016g' y - g' x\u2016 \u2264 \u03b4",
+        "body": "by rw [\u2190 dist_eq_norm]; exact hy.le",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Riemannian",
+    "name": "eventually_norm_symmL_trivializationAt_lt",
+    "statement": "B) : \u2203 C > 0, \u2200\u1da0 y in \ud835\udcdd x, \u2016(trivializationAt F E x).symmL \u211d y\u2016 < C",
+    "have_tree": [
+      {
+        "name": "h'x",
+        "type": "x \u2208 (trivializationAt F E x).baseSet",
+        "body": "FiberBundle.mem_baseSet_trivializationAt' x",
+        "children": []
+      }
+    ]
+  }
+]

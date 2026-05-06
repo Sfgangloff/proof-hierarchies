@@ -1,0 +1,54 @@
+[
+  {
+    "module": "Artanh",
+    "name": "artanh_zero",
+    "statement": "artanh 0 = 0",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < \u221a((1 + x) / (1 - x))",
+        "body": "sqrt_pos_of_pos <| div_pos (by grind) (by grind)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Artanh",
+    "name": "cosh_artanh",
+    "statement": "\u211d} (hx : x \u2208 Ioo (-1) 1) : cosh (artanh x) = 1 / \u221a(1 - x ^ 2)",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "0 < \u221a((1 + x) / (1 - x))",
+        "body": "sqrt_pos_of_pos <| div_pos (by grind) (by grind)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Artanh",
+    "name": "tanh_artanh",
+    "statement": "\u211d} (hx : x \u2208 Ioo (-1) 1) : tanh (artanh x) = x",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "sq_sub_sq 1 x",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Artanh",
+    "name": "artanh_tanh",
+    "statement": "\u211d) : artanh (tanh x) = x",
+    "have_tree": [
+      {
+        "name": "h",
+        "type": "0 < (1 + tanh x) / (1 - tanh x)",
+        "body": "",
+        "children": []
+      }
+    ]
+  }
+]

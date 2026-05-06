@@ -1,0 +1,138 @@
+[
+  {
+    "module": "Basic",
+    "name": "cyclotomic'_eq_X_pow_sub_one_div",
+    "statement": "Type*} [CommRing K] [IsDomain K] {\u03b6 : K} {n : \u2115} (hpos : 0 < n) (h : IsPrimitiveRoot \u03b6 n) : cyclotomic' n K = (X ^ n - 1) /\u2098 \u220f i \u2208 Nat.properDivisors n, cyclotomic' i K",
+    "have_tree": [
+      {
+        "name": "prod_monic",
+        "type": "(\u220f i \u2208 Nat.properDivisors n, cyclotomic' i K).Monic",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "int_coeff_of_cyclotomic'",
+    "statement": "Type*} [CommRing K] [IsDomain K] {\u03b6 : K} {n : \u2115} (h : IsPrimitiveRoot \u03b6 n) : \u2203 P : \u2124[X], map (Int.castRingHom K) P = cyclotomic' n K \u2227 P.degree = (cyclotomic' n K).degree \u2227 P.Monic",
+    "have_tree": [
+      {
+        "name": "Bmo",
+        "type": "B.Monic",
+        "body": "by",
+        "children": []
+      },
+      {
+        "name": "Bint",
+        "type": "B \u2208 lifts (Int.castRingHom K)",
+        "body": "by",
+        "children": [
+          {
+            "name": "xsmall",
+            "type": "",
+            "body": "(Nat.mem_properDivisors.1 hx).2",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "map_cyclotomic",
+    "statement": "\u2115) {R S : Type*} [Ring R] [Ring S] (f : R \u2192+* S) : map f (cyclotomic n R) = cyclotomic n S",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "Subsingleton (\u2124 \u2192+* S)",
+        "body": "inferInstance",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "X_pow_sub_one_mul_prod_cyclotomic_eq_X_pow_sub_one_of_dvd",
+    "statement": "\u2115} (hdvd : d \u2223 n) (hn : n \u2260 0) : ((X ^ d - 1) * \u220f x \u2208 n.divisors \\ d.divisors, cyclotomic x R) = X ^ n - 1",
+    "have_tree": [
+      {
+        "name": "h0d",
+        "type": "0 < d",
+        "body": "Nat.pos_of_dvd_of_pos hdvd (by positivity)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "cyclotomic_eq_X_pow_sub_one_div",
+    "statement": "Type*} [CommRing R] {n : \u2115} (hpos : 0 < n) : cyclotomic n R = (X ^ n - 1) /\u2098 \u220f i \u2208 Nat.properDivisors n, cyclotomic i R",
+    "have_tree": [
+      {
+        "name": "prod_monic",
+        "type": "(\u220f i \u2208 Nat.properDivisors n, cyclotomic i R).Monic",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "cyclotomic_prime_pow_eq_geom_sum",
+    "statement": "Type*} [CommRing R] {p n : \u2115} (hp : p.Prime) : cyclotomic (p ^ (n + 1)) R = \u2211 i \u2208 Finset.range p, (X ^ p ^ n) ^ i",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "eq_cyclotomic_iff (R := R) (P := \u2211 i \u2208 range p, (X ^ p ^ m) ^ i)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "cyclotomic_coeff_zero",
+    "statement": "Type*) [CommRing R] {n : \u2115} (hn : 1 < n) : (cyclotomic n R).coeff 0 = 1",
+    "have_tree": [
+      {
+        "name": "hleq",
+        "type": "\u2200 j \u2208 n.properDivisors.erase 1, 2 \u2264 j",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "dvd_C_mul_X_sub_one_pow_add_one",
+    "statement": "\u2115} (hpri : p.Prime) (hp : p \u2260 2) (a r : R) (h\u2081 : r \u2223 a ^ p) (h\u2082 : r \u2223 p * a) : C r \u2223 (C a * X - 1) ^ p + 1",
+    "have_tree": [
+      {
+        "name": "_",
+        "type": "",
+        "body": "hpri.dvd_add_pow_sub_pow_of_dvd (C a * X) (-1) (r := C r) ?_ ?_",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Basic",
+    "name": "_root_.IsPrimitiveRoot.pow_sub_pow_eq_prod_sub_mul",
+    "statement": "0 < n) (h : IsPrimitiveRoot \u03b6 n) : x ^ n - y ^ n = \u220f \u03b6 \u2208 nthRootsFinset n (1 : R), (x - \u03b6 * y)",
+    "have_tree": [
+      {
+        "name": "h'",
+        "type": "IsPrimitiveRoot (algebraMap R K \u03b6) n",
+        "body": "",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "",
+        "body": "Set.surj_on_of_inj_on_of_ncard_le (s := nthRootsFinset n (1 : R))",
+        "children": []
+      }
+    ]
+  }
+]

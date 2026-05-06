@@ -1,0 +1,90 @@
+[
+  {
+    "module": "Rayleigh",
+    "name": "hasEigenvalue_iSup_of_finiteDimensional",
+    "statement": "T.IsSymmetric) : HasEigenvalue T (\u2a06 x : { x : E // x \u2260 0 }, RCLike.re \u27eaT x, x\u27eb / \u2016(x : E)\u2016 ^ 2 : \u211d)",
+    "have_tree": [
+      {
+        "name": "H\u2081",
+        "type": "IsCompact (sphere (0 : E) \u2016x\u2016)",
+        "body": "isCompact_sphere _ _",
+        "children": []
+      },
+      {
+        "name": "H\u2082",
+        "type": "(sphere (0 : E) \u2016x\u2016).Nonempty",
+        "body": "\u27e8x, by simp\u27e9",
+        "children": []
+      },
+      {
+        "name": "hx\u2080",
+        "type": "\u2016x\u2080\u2016 = \u2016x\u2016",
+        "body": "by simpa using hx\u2080'",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsMaxOn T'.val.reApplyInnerSelf (sphere 0 \u2016x\u2080\u2016) x\u2080",
+        "body": "by simpa only [\u2190 hx\u2080] using hTx\u2080",
+        "children": []
+      },
+      {
+        "name": "hx\u2080_ne",
+        "type": "x\u2080 \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2016x\u2080\u2016 \u2260 0",
+            "body": "by simp only [hx\u2080, norm_eq_zero, hx, Ne, not_false_iff]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "Rayleigh",
+    "name": "hasEigenvalue_iInf_of_finiteDimensional",
+    "statement": "T.IsSymmetric) : HasEigenvalue T (\u2a05 x : { x : E // x \u2260 0 }, RCLike.re \u27eaT x, x\u27eb / \u2016(x : E)\u2016 ^ 2 : \u211d)",
+    "have_tree": [
+      {
+        "name": "H\u2081",
+        "type": "IsCompact (sphere (0 : E) \u2016x\u2016)",
+        "body": "isCompact_sphere _ _",
+        "children": []
+      },
+      {
+        "name": "H\u2082",
+        "type": "(sphere (0 : E) \u2016x\u2016).Nonempty",
+        "body": "\u27e8x, by simp\u27e9",
+        "children": []
+      },
+      {
+        "name": "hx\u2080",
+        "type": "\u2016x\u2080\u2016 = \u2016x\u2016",
+        "body": "by simpa using hx\u2080'",
+        "children": []
+      },
+      {
+        "name": "_",
+        "type": "IsMinOn T'.val.reApplyInnerSelf (sphere 0 \u2016x\u2080\u2016) x\u2080",
+        "body": "by simpa only [\u2190 hx\u2080] using hTx\u2080",
+        "children": []
+      },
+      {
+        "name": "hx\u2080_ne",
+        "type": "x\u2080 \u2260 0",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "\u2016x\u2080\u2016 \u2260 0",
+            "body": "by simp only [hx\u2080, norm_eq_zero, hx, Ne, not_false_iff]",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

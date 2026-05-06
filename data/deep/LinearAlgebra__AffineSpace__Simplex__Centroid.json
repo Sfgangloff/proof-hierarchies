@@ -1,0 +1,130 @@
+[
+  {
+    "module": "Centroid",
+    "name": "median_eq_line_point_centroid",
+    "statement": "Simplex k P n) (i : Fin (n + 1)) : s.median i = line[k, s.points i, s.centroid]",
+    "have_tree": [
+      {
+        "name": "h1",
+        "type": "s.median i \u2264 line[k, s.points i, s.centroid]",
+        "body": "by",
+        "children": [
+          {
+            "name": "_",
+            "type": "-(s.points i -\u1d65 s.centroid) = (-1 : k) \u2022 (s.points i -\u1d65 s.centroid)",
+            "body": "by simp",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h2",
+        "type": "line[k, s.points i, s.centroid] \u2264 s.median i",
+        "body": "by",
+        "children": []
+      }
+    ]
+  },
+  {
+    "module": "Centroid",
+    "name": "eq_centroid_of_forall_mem_median",
+    "statement": "Simplex k P n) {hn : 1 < n} {p : P} (h : \u2200 i, p \u2208 s.median i) : p = s.centroid",
+    "have_tree": [
+      {
+        "name": "hp",
+        "type": "p = (p -\u1d65 s.centroid) +\u1d65 s.centroid",
+        "body": "by rw [vsub_vadd]",
+        "children": []
+      },
+      {
+        "name": "h_span",
+        "type": "\u2200 i : s', p -\u1d65 s.centroid \u2208 (Submodule.span k ({u i} : Set V))",
+        "body": "by",
+        "children": [
+          {
+            "name": "hi",
+            "type": "",
+            "body": "h i",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "hi",
+        "type": "LinearIndependent k u",
+        "body": "by",
+        "children": [
+          {
+            "name": "hindep",
+            "type": "AffineIndependent k p",
+            "body": "by",
+            "children": [
+              {
+                "name": "_",
+                "type": "",
+                "body": "affineIndependent_points_update_centroid s i\u2080",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "h1",
+            "type": "",
+            "body": "(affineIndependent_iff_linearIndependent_vsub k p i\u2080).mp hindep",
+            "children": [
+              {
+                "name": "_",
+                "type": "{x // x \u2208 ({i\u2080}\u1d9c : Finset (Fin (n+1)))}) : x.val \u2260 i\u2080",
+                "body": "by",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "f_inj",
+            "type": "Function.Injective f",
+            "body": "by intro x y hxy; grind",
+            "children": []
+          },
+          {
+            "name": "h2",
+            "type": "",
+            "body": "h1.comp f f_inj",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "he",
+        "type": "\u2203 i j : s', i \u2260 j",
+        "body": "by",
+        "children": [
+          {
+            "name": "hcard",
+            "type": "s'.card = n",
+            "body": "by",
+            "children": []
+          },
+          {
+            "name": "hcard'",
+            "type": "1 < #s'",
+            "body": "by grind",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "h_ij",
+        "type": "Disjoint ({i} : Set {x // x \u2208 s'}) {j}",
+        "body": "by simp [hij]",
+        "children": []
+      },
+      {
+        "name": "h_disjoint",
+        "type": "Disjoint (Submodule.span k {u i}) (Submodule.span k {u j})",
+        "body": "by",
+        "children": []
+      }
+    ]
+  }
+]

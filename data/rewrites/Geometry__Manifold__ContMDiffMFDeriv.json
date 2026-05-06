@@ -1,0 +1,1433 @@
+[
+  {
+    "original": {
+      "module": "ContMDiffMFDeriv",
+      "name": "ContMDiffWithinAt.mfderivWithin",
+      "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : CMDiffAt[t \u00d7\u02e2 u] n (Function.uncurry f) (x\u2080, g x\u2080)) (hg : CMDiffAt[t] m g x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : CMDiffAt[t] m (inTangentCoordinates I I' g (fun x \u21a6 f x (g x)) (fun x \u21a6 mfderiv[u] (f x) (g x)) x\u2080) x\u2080",
+      "have_tree": [
+        {
+          "name": "ht't",
+          "type": "t' \u2286 t",
+          "body": "inter_subset_left",
+          "children": []
+        },
+        {
+          "name": "hx\u2080gx\u2080",
+          "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+          "body": "by simp [hx\u2080, hu hx\u2080]",
+          "children": []
+        },
+        {
+          "name": "h4f",
+          "type": "ContinuousWithinAt (fun x \u21a6 f x (g x)) t x\u2080",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "h4f",
+          "type": "",
+          "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+          "children": []
+        },
+        {
+          "name": "h3f",
+          "type": "",
+          "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+          "children": []
+        },
+        {
+          "name": "h2f",
+          "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, CMDiffAt[u] 1 (f x\u2082) (g x\u2082)",
+          "body": "by",
+          "children": [
+            {
+              "name": "_",
+              "type": "MapsTo (fun x \u21a6 (x, g x)) t (t \u00d7\u02e2 u)",
+              "body": "fun y hy \u21a6 by simp [hy, hu hy]",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "h2g",
+          "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+          "body": "",
+          "children": [
+            {
+              "name": "hf'",
+              "type": "",
+              "body": "hf.mono (prod_mono_left ht't)",
+              "children": []
+            },
+            {
+              "name": "hg'",
+              "type": "",
+              "body": "hg.mono (show t' \u2286 t from inter_subset_left)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "h1",
+          "type": "g x \u2208 u",
+          "body": "hu hxt",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          5,
+          0
+        ],
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffWithinAt.mfderivWithin",
+          "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : CMDiffAt[t \u00d7\u02e2 u] n (Function.uncurry f) (x\u2080, g x\u2080)) (hg : CMDiffAt[t] m g x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : CMDiffAt[t] m (inTangentCoordinates I I' g (fun x \u21a6 f x (g x)) (fun x \u21a6 mfderiv[u] (f x) (g x)) x\u2080) x\u2080",
+          "have_tree": [
+            {
+              "name": "ht't",
+              "type": "t' \u2286 t",
+              "body": "inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "hx\u2080gx\u2080",
+              "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+              "body": "by simp [hx\u2080, hu hx\u2080]",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "ContinuousWithinAt (fun x \u21a6 f x (g x)) t x\u2080",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "",
+              "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+              "children": []
+            },
+            {
+              "name": "h3f",
+              "type": "",
+              "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+              "children": []
+            },
+            {
+              "name": "h2f",
+              "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, CMDiffAt[u] 1 (f x\u2082) (g x\u2082)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h2g",
+              "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+              "body": "",
+              "children": [
+                {
+                  "name": "hf'",
+                  "type": "",
+                  "body": "hf.mono (prod_mono_left ht't)",
+                  "children": []
+                },
+                {
+                  "name": "hg'",
+                  "type": "",
+                  "body": "hg.mono (show t' \u2286 t from inter_subset_left)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h1",
+              "type": "g x \u2208 u",
+              "body": "hu hxt",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          6,
+          0
+        ],
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffWithinAt.mfderivWithin",
+          "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : CMDiffAt[t \u00d7\u02e2 u] n (Function.uncurry f) (x\u2080, g x\u2080)) (hg : CMDiffAt[t] m g x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : CMDiffAt[t] m (inTangentCoordinates I I' g (fun x \u21a6 f x (g x)) (fun x \u21a6 mfderiv[u] (f x) (g x)) x\u2080) x\u2080",
+          "have_tree": [
+            {
+              "name": "ht't",
+              "type": "t' \u2286 t",
+              "body": "inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "hx\u2080gx\u2080",
+              "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+              "body": "by simp [hx\u2080, hu hx\u2080]",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "ContinuousWithinAt (fun x \u21a6 f x (g x)) t x\u2080",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "",
+              "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+              "children": []
+            },
+            {
+              "name": "h3f",
+              "type": "",
+              "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+              "children": []
+            },
+            {
+              "name": "h2f",
+              "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, CMDiffAt[u] 1 (f x\u2082) (g x\u2082)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "MapsTo (fun x \u21a6 (x, g x)) t (t \u00d7\u02e2 u)",
+                  "body": "fun y hy \u21a6 by simp [hy, hu hy]",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h2g",
+              "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+              "body": "",
+              "children": [
+                {
+                  "name": "hg'",
+                  "type": "",
+                  "body": "hg.mono (show t' \u2286 t from inter_subset_left)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h1",
+              "type": "g x \u2208 u",
+              "body": "hu hxt",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "merge",
+        "path": [
+          6,
+          1
+        ],
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffWithinAt.mfderivWithin",
+          "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : CMDiffAt[t \u00d7\u02e2 u] n (Function.uncurry f) (x\u2080, g x\u2080)) (hg : CMDiffAt[t] m g x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : CMDiffAt[t] m (inTangentCoordinates I I' g (fun x \u21a6 f x (g x)) (fun x \u21a6 mfderiv[u] (f x) (g x)) x\u2080) x\u2080",
+          "have_tree": [
+            {
+              "name": "ht't",
+              "type": "t' \u2286 t",
+              "body": "inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "hx\u2080gx\u2080",
+              "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+              "body": "by simp [hx\u2080, hu hx\u2080]",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "ContinuousWithinAt (fun x \u21a6 f x (g x)) t x\u2080",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "",
+              "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+              "children": []
+            },
+            {
+              "name": "h3f",
+              "type": "",
+              "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+              "children": []
+            },
+            {
+              "name": "h2f",
+              "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, CMDiffAt[u] 1 (f x\u2082) (g x\u2082)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "MapsTo (fun x \u21a6 (x, g x)) t (t \u00d7\u02e2 u)",
+                  "body": "fun y hy \u21a6 by simp [hy, hu hy]",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h2g",
+              "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+              "body": "",
+              "children": [
+                {
+                  "name": "hf'",
+                  "type": "",
+                  "body": "hf.mono (prod_mono_left ht't)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h1",
+              "type": "g x \u2208 u",
+              "body": "hu hxt",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          5
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffWithinAt.mfderivWithin",
+          "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : CMDiffAt[t \u00d7\u02e2 u] n (Function.uncurry f) (x\u2080, g x\u2080)) (hg : CMDiffAt[t] m g x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : CMDiffAt[t] m (inTangentCoordinates I I' g (fun x \u21a6 f x (g x)) (fun x \u21a6 mfderiv[u] (f x) (g x)) x\u2080) x\u2080",
+          "have_tree": [
+            {
+              "name": "ht't",
+              "type": "t' \u2286 t",
+              "body": "inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "hx\u2080gx\u2080",
+              "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+              "body": "by simp [hx\u2080, hu hx\u2080]",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "ContinuousWithinAt (fun x \u21a6 f x (g x)) t x\u2080",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "",
+              "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+              "children": []
+            },
+            {
+              "name": "h3f",
+              "type": "",
+              "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+              "children": []
+            },
+            {
+              "name": "_",
+              "type": "MapsTo (fun x \u21a6 (x, g x)) t (t \u00d7\u02e2 u)",
+              "body": "fun y hy \u21a6 by simp [hy, hu hy]",
+              "children": []
+            },
+            {
+              "name": "h2f",
+              "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, CMDiffAt[u] 1 (f x\u2082) (g x\u2082)",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h2g",
+              "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+              "body": "",
+              "children": [
+                {
+                  "name": "hf'",
+                  "type": "",
+                  "body": "hf.mono (prod_mono_left ht't)",
+                  "children": []
+                },
+                {
+                  "name": "hg'",
+                  "type": "",
+                  "body": "hg.mono (show t' \u2286 t from inter_subset_left)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h1",
+              "type": "g x \u2208 u",
+              "body": "hu hxt",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          6
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffWithinAt.mfderivWithin",
+          "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : CMDiffAt[t \u00d7\u02e2 u] n (Function.uncurry f) (x\u2080, g x\u2080)) (hg : CMDiffAt[t] m g x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : CMDiffAt[t] m (inTangentCoordinates I I' g (fun x \u21a6 f x (g x)) (fun x \u21a6 mfderiv[u] (f x) (g x)) x\u2080) x\u2080",
+          "have_tree": [
+            {
+              "name": "ht't",
+              "type": "t' \u2286 t",
+              "body": "inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "hx\u2080gx\u2080",
+              "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+              "body": "by simp [hx\u2080, hu hx\u2080]",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "ContinuousWithinAt (fun x \u21a6 f x (g x)) t x\u2080",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "",
+              "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+              "children": []
+            },
+            {
+              "name": "h3f",
+              "type": "",
+              "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+              "children": []
+            },
+            {
+              "name": "h2f",
+              "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, CMDiffAt[u] 1 (f x\u2082) (g x\u2082)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "MapsTo (fun x \u21a6 (x, g x)) t (t \u00d7\u02e2 u)",
+                  "body": "fun y hy \u21a6 by simp [hy, hu hy]",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hf'",
+              "type": "",
+              "body": "hf.mono (prod_mono_left ht't)",
+              "children": []
+            },
+            {
+              "name": "h2g",
+              "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+              "body": "",
+              "children": [
+                {
+                  "name": "hg'",
+                  "type": "",
+                  "body": "hg.mono (show t' \u2286 t from inter_subset_left)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h1",
+              "type": "g x \u2208 u",
+              "body": "hu hxt",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          6
+        ],
+        "child_index": 1,
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffWithinAt.mfderivWithin",
+          "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : CMDiffAt[t \u00d7\u02e2 u] n (Function.uncurry f) (x\u2080, g x\u2080)) (hg : CMDiffAt[t] m g x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : CMDiffAt[t] m (inTangentCoordinates I I' g (fun x \u21a6 f x (g x)) (fun x \u21a6 mfderiv[u] (f x) (g x)) x\u2080) x\u2080",
+          "have_tree": [
+            {
+              "name": "ht't",
+              "type": "t' \u2286 t",
+              "body": "inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "hx\u2080gx\u2080",
+              "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+              "body": "by simp [hx\u2080, hu hx\u2080]",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "ContinuousWithinAt (fun x \u21a6 f x (g x)) t x\u2080",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "",
+              "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+              "children": []
+            },
+            {
+              "name": "h3f",
+              "type": "",
+              "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+              "children": []
+            },
+            {
+              "name": "h2f",
+              "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, CMDiffAt[u] 1 (f x\u2082) (g x\u2082)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "MapsTo (fun x \u21a6 (x, g x)) t (t \u00d7\u02e2 u)",
+                  "body": "fun y hy \u21a6 by simp [hy, hu hy]",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hg'",
+              "type": "",
+              "body": "hg.mono (show t' \u2286 t from inter_subset_left)",
+              "children": []
+            },
+            {
+              "name": "h2g",
+              "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+              "body": "",
+              "children": [
+                {
+                  "name": "hf'",
+                  "type": "",
+                  "body": "hf.mono (prod_mono_left ht't)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h1",
+              "type": "g x \u2208 u",
+              "body": "hu hxt",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffWithinAt.mfderivWithin",
+          "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : CMDiffAt[t \u00d7\u02e2 u] n (Function.uncurry f) (x\u2080, g x\u2080)) (hg : CMDiffAt[t] m g x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : CMDiffAt[t] m (inTangentCoordinates I I' g (fun x \u21a6 f x (g x)) (fun x \u21a6 mfderiv[u] (f x) (g x)) x\u2080) x\u2080",
+          "have_tree": [
+            {
+              "name": "hx\u2080gx\u2080",
+              "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+              "body": "by simp [hx\u2080, hu hx\u2080]",
+              "children": []
+            },
+            {
+              "name": "ht't",
+              "type": "t' \u2286 t",
+              "body": "inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "ContinuousWithinAt (fun x \u21a6 f x (g x)) t x\u2080",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "",
+              "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+              "children": []
+            },
+            {
+              "name": "h3f",
+              "type": "",
+              "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+              "children": []
+            },
+            {
+              "name": "h2f",
+              "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, CMDiffAt[u] 1 (f x\u2082) (g x\u2082)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "MapsTo (fun x \u21a6 (x, g x)) t (t \u00d7\u02e2 u)",
+                  "body": "fun y hy \u21a6 by simp [hy, hu hy]",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h2g",
+              "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+              "body": "",
+              "children": [
+                {
+                  "name": "hf'",
+                  "type": "",
+                  "body": "hf.mono (prod_mono_left ht't)",
+                  "children": []
+                },
+                {
+                  "name": "hg'",
+                  "type": "",
+                  "body": "hg.mono (show t' \u2286 t from inter_subset_left)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h1",
+              "type": "g x \u2208 u",
+              "body": "hu hxt",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffWithinAt.mfderivWithin",
+          "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : CMDiffAt[t \u00d7\u02e2 u] n (Function.uncurry f) (x\u2080, g x\u2080)) (hg : CMDiffAt[t] m g x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : CMDiffAt[t] m (inTangentCoordinates I I' g (fun x \u21a6 f x (g x)) (fun x \u21a6 mfderiv[u] (f x) (g x)) x\u2080) x\u2080",
+          "have_tree": [
+            {
+              "name": "ht't",
+              "type": "t' \u2286 t",
+              "body": "inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "ContinuousWithinAt (fun x \u21a6 f x (g x)) t x\u2080",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "hx\u2080gx\u2080",
+              "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+              "body": "by simp [hx\u2080, hu hx\u2080]",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "",
+              "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+              "children": []
+            },
+            {
+              "name": "h3f",
+              "type": "",
+              "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+              "children": []
+            },
+            {
+              "name": "h2f",
+              "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, CMDiffAt[u] 1 (f x\u2082) (g x\u2082)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "MapsTo (fun x \u21a6 (x, g x)) t (t \u00d7\u02e2 u)",
+                  "body": "fun y hy \u21a6 by simp [hy, hu hy]",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h2g",
+              "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+              "body": "",
+              "children": [
+                {
+                  "name": "hf'",
+                  "type": "",
+                  "body": "hf.mono (prod_mono_left ht't)",
+                  "children": []
+                },
+                {
+                  "name": "hg'",
+                  "type": "",
+                  "body": "hg.mono (show t' \u2286 t from inter_subset_left)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h1",
+              "type": "g x \u2208 u",
+              "body": "hu hxt",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5,
+          6,
+          7
+        ],
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffWithinAt.mfderivWithin",
+          "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : CMDiffAt[t \u00d7\u02e2 u] n (Function.uncurry f) (x\u2080, g x\u2080)) (hg : CMDiffAt[t] m g x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : CMDiffAt[t] m (inTangentCoordinates I I' g (fun x \u21a6 f x (g x)) (fun x \u21a6 mfderiv[u] (f x) (g x)) x\u2080) x\u2080",
+          "have_tree": [
+            {
+              "name": "ht't",
+              "type": "t' \u2286 t",
+              "body": "inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "hx\u2080gx\u2080",
+              "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+              "body": "by simp [hx\u2080, hu hx\u2080]",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "",
+              "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "ContinuousWithinAt (fun x \u21a6 f x (g x)) t x\u2080",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h3f",
+              "type": "",
+              "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+              "children": []
+            },
+            {
+              "name": "h2f",
+              "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, CMDiffAt[u] 1 (f x\u2082) (g x\u2082)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "MapsTo (fun x \u21a6 (x, g x)) t (t \u00d7\u02e2 u)",
+                  "body": "fun y hy \u21a6 by simp [hy, hu hy]",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h2g",
+              "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+              "body": "",
+              "children": [
+                {
+                  "name": "hf'",
+                  "type": "",
+                  "body": "hf.mono (prod_mono_left ht't)",
+                  "children": []
+                },
+                {
+                  "name": "hg'",
+                  "type": "",
+                  "body": "hg.mono (show t' \u2286 t from inter_subset_left)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h1",
+              "type": "g x \u2208 u",
+              "body": "hu hxt",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5,
+          6,
+          7
+        ],
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffWithinAt.mfderivWithin",
+          "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : CMDiffAt[t \u00d7\u02e2 u] n (Function.uncurry f) (x\u2080, g x\u2080)) (hg : CMDiffAt[t] m g x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : CMDiffAt[t] m (inTangentCoordinates I I' g (fun x \u21a6 f x (g x)) (fun x \u21a6 mfderiv[u] (f x) (g x)) x\u2080) x\u2080",
+          "have_tree": [
+            {
+              "name": "ht't",
+              "type": "t' \u2286 t",
+              "body": "inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "hx\u2080gx\u2080",
+              "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+              "body": "by simp [hx\u2080, hu hx\u2080]",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "ContinuousWithinAt (fun x \u21a6 f x (g x)) t x\u2080",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h3f",
+              "type": "",
+              "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "",
+              "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+              "children": []
+            },
+            {
+              "name": "h2f",
+              "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, CMDiffAt[u] 1 (f x\u2082) (g x\u2082)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "MapsTo (fun x \u21a6 (x, g x)) t (t \u00d7\u02e2 u)",
+                  "body": "fun y hy \u21a6 by simp [hy, hu hy]",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h2g",
+              "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+              "body": "",
+              "children": [
+                {
+                  "name": "hf'",
+                  "type": "",
+                  "body": "hf.mono (prod_mono_left ht't)",
+                  "children": []
+                },
+                {
+                  "name": "hg'",
+                  "type": "",
+                  "body": "hg.mono (show t' \u2286 t from inter_subset_left)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h1",
+              "type": "g x \u2208 u",
+              "body": "hu hxt",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          4,
+          6,
+          7
+        ],
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffWithinAt.mfderivWithin",
+          "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : CMDiffAt[t \u00d7\u02e2 u] n (Function.uncurry f) (x\u2080, g x\u2080)) (hg : CMDiffAt[t] m g x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : CMDiffAt[t] m (inTangentCoordinates I I' g (fun x \u21a6 f x (g x)) (fun x \u21a6 mfderiv[u] (f x) (g x)) x\u2080) x\u2080",
+          "have_tree": [
+            {
+              "name": "ht't",
+              "type": "t' \u2286 t",
+              "body": "inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "hx\u2080gx\u2080",
+              "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+              "body": "by simp [hx\u2080, hu hx\u2080]",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "ContinuousWithinAt (fun x \u21a6 f x (g x)) t x\u2080",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "",
+              "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+              "children": []
+            },
+            {
+              "name": "h2f",
+              "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, CMDiffAt[u] 1 (f x\u2082) (g x\u2082)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "MapsTo (fun x \u21a6 (x, g x)) t (t \u00d7\u02e2 u)",
+                  "body": "fun y hy \u21a6 by simp [hy, hu hy]",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h3f",
+              "type": "",
+              "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+              "children": []
+            },
+            {
+              "name": "h2g",
+              "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+              "body": "",
+              "children": [
+                {
+                  "name": "hf'",
+                  "type": "",
+                  "body": "hf.mono (prod_mono_left ht't)",
+                  "children": []
+                },
+                {
+                  "name": "hg'",
+                  "type": "",
+                  "body": "hg.mono (show t' \u2286 t from inter_subset_left)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h1",
+              "type": "g x \u2208 u",
+              "body": "hu hxt",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          5,
+          7
+        ],
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffWithinAt.mfderivWithin",
+          "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : CMDiffAt[t \u00d7\u02e2 u] n (Function.uncurry f) (x\u2080, g x\u2080)) (hg : CMDiffAt[t] m g x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : CMDiffAt[t] m (inTangentCoordinates I I' g (fun x \u21a6 f x (g x)) (fun x \u21a6 mfderiv[u] (f x) (g x)) x\u2080) x\u2080",
+          "have_tree": [
+            {
+              "name": "ht't",
+              "type": "t' \u2286 t",
+              "body": "inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "hx\u2080gx\u2080",
+              "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+              "body": "by simp [hx\u2080, hu hx\u2080]",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "ContinuousWithinAt (fun x \u21a6 f x (g x)) t x\u2080",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "",
+              "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+              "children": []
+            },
+            {
+              "name": "h3f",
+              "type": "",
+              "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+              "children": []
+            },
+            {
+              "name": "h2g",
+              "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+              "body": "",
+              "children": [
+                {
+                  "name": "hf'",
+                  "type": "",
+                  "body": "hf.mono (prod_mono_left ht't)",
+                  "children": []
+                },
+                {
+                  "name": "hg'",
+                  "type": "",
+                  "body": "hg.mono (show t' \u2286 t from inter_subset_left)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h2f",
+              "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, CMDiffAt[u] 1 (f x\u2082) (g x\u2082)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "MapsTo (fun x \u21a6 (x, g x)) t (t \u00d7\u02e2 u)",
+                  "body": "fun y hy \u21a6 by simp [hy, hu hy]",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h1",
+              "type": "g x \u2208 u",
+              "body": "hu hxt",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          6
+        ],
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffWithinAt.mfderivWithin",
+          "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : CMDiffAt[t \u00d7\u02e2 u] n (Function.uncurry f) (x\u2080, g x\u2080)) (hg : CMDiffAt[t] m g x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : CMDiffAt[t] m (inTangentCoordinates I I' g (fun x \u21a6 f x (g x)) (fun x \u21a6 mfderiv[u] (f x) (g x)) x\u2080) x\u2080",
+          "have_tree": [
+            {
+              "name": "ht't",
+              "type": "t' \u2286 t",
+              "body": "inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "hx\u2080gx\u2080",
+              "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+              "body": "by simp [hx\u2080, hu hx\u2080]",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "ContinuousWithinAt (fun x \u21a6 f x (g x)) t x\u2080",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "",
+              "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+              "children": []
+            },
+            {
+              "name": "h3f",
+              "type": "",
+              "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+              "children": []
+            },
+            {
+              "name": "h2f",
+              "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, CMDiffAt[u] 1 (f x\u2082) (g x\u2082)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "MapsTo (fun x \u21a6 (x, g x)) t (t \u00d7\u02e2 u)",
+                  "body": "fun y hy \u21a6 by simp [hy, hu hy]",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h1",
+              "type": "g x \u2208 u",
+              "body": "hu hxt",
+              "children": []
+            },
+            {
+              "name": "h2g",
+              "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+              "body": "",
+              "children": [
+                {
+                  "name": "hf'",
+                  "type": "",
+                  "body": "hf.mono (prod_mono_left ht't)",
+                  "children": []
+                },
+                {
+                  "name": "hg'",
+                  "type": "",
+                  "body": "hg.mono (show t' \u2286 t from inter_subset_left)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [
+          6
+        ],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffWithinAt.mfderivWithin",
+          "statement": "N} {f : N \u2192 M \u2192 M'} {g : N \u2192 M} {t : Set N} {u : Set M} (hf : CMDiffAt[t \u00d7\u02e2 u] n (Function.uncurry f) (x\u2080, g x\u2080)) (hg : CMDiffAt[t] m g x\u2080) (hx\u2080 : x\u2080 \u2208 t) (hu : MapsTo g t u) (hmn : m + 1 \u2264 n) (h'u : UniqueMDiffOn I u) : CMDiffAt[t] m (inTangentCoordinates I I' g (fun x \u21a6 f x (g x)) (fun x \u21a6 mfderiv[u] (f x) (g x)) x\u2080) x\u2080",
+          "have_tree": [
+            {
+              "name": "ht't",
+              "type": "t' \u2286 t",
+              "body": "inter_subset_left",
+              "children": []
+            },
+            {
+              "name": "hx\u2080gx\u2080",
+              "type": "(x\u2080, g x\u2080) \u2208 t \u00d7\u02e2 u",
+              "body": "by simp [hx\u2080, hu hx\u2080]",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "ContinuousWithinAt (fun x \u21a6 f x (g x)) t x\u2080",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "h4f",
+              "type": "",
+              "body": "h4f.preimage_mem_nhdsWithin (extChartAt_source_mem_nhds (I := I') (f x\u2080 (g x\u2080)))",
+              "children": []
+            },
+            {
+              "name": "h3f",
+              "type": "",
+              "body": "(contMDiffWithinAt_iff_contMDiffWithinAt_nhdsWithin (by simp)).mp",
+              "children": []
+            },
+            {
+              "name": "h2f",
+              "type": "\u2200\u1da0 x\u2082 in \ud835\udcdd[t] x\u2080, CMDiffAt[u] 1 (f x\u2082) (g x\u2082)",
+              "body": "by",
+              "children": [
+                {
+                  "name": "_",
+                  "type": "MapsTo (fun x \u21a6 (x, g x)) t (t \u00d7\u02e2 u)",
+                  "body": "fun y hy \u21a6 by simp [hy, hu hy]",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h2g",
+              "type": "g \u207b\u00b9' (extChartAt I (g x\u2080)).source \u2208 \ud835\udcdd[t] x\u2080",
+              "body": "",
+              "children": [
+                {
+                  "name": "hg'",
+                  "type": "",
+                  "body": "hg.mono (show t' \u2286 t from inter_subset_left)",
+                  "children": []
+                },
+                {
+                  "name": "hf'",
+                  "type": "",
+                  "body": "hf.mono (prod_mono_left ht't)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "h1",
+              "type": "g x \u2208 u",
+              "body": "hu hxt",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "ContMDiffMFDeriv",
+      "name": "ContMDiffOn.contMDiffOn_tangentMapWithin",
+      "statement": "CMDiff[s] n f) (hmn : m + 1 \u2264 n) (hs : UniqueMDiffOn I s) : CMDiff[(\u03c0 E (TangentSpace I) \u207b\u00b9' s)] m (tangentMapWithin I I' f s)",
+      "have_tree": [
+        {
+          "name": "hb\u2082",
+          "type": "CMDiffAt[s'] m b\u2082 x\u2080",
+          "body": "",
+          "children": []
+        },
+        {
+          "name": "h\u03d5",
+          "type": "CMDiffAt[s'] m (fun y \u21a6 ContinuousLinearMap.inCoordinates E (TangentSpace I (M",
+          "body": "M)) E'",
+          "children": [
+            {
+              "name": "A",
+              "type": "CMDiffAt[s] m (fun y \u21a6 ContinuousLinearMap.inCoordinates E (TangentSpace I (M",
+              "body": "M)) E'",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "merge",
+        "path": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffOn.contMDiffOn_tangentMapWithin",
+          "statement": "CMDiff[s] n f) (hmn : m + 1 \u2264 n) (hs : UniqueMDiffOn I s) : CMDiff[(\u03c0 E (TangentSpace I) \u207b\u00b9' s)] m (tangentMapWithin I I' f s)",
+          "have_tree": [
+            {
+              "name": "hb\u2082",
+              "type": "CMDiffAt[s'] m b\u2082 x\u2080",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "h\u03d5",
+              "type": "CMDiffAt[s'] m (fun y \u21a6 ContinuousLinearMap.inCoordinates E (TangentSpace I (M",
+              "body": "M)) E'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "split",
+        "path": [
+          1
+        ],
+        "child_index": 0,
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffOn.contMDiffOn_tangentMapWithin",
+          "statement": "CMDiff[s] n f) (hmn : m + 1 \u2264 n) (hs : UniqueMDiffOn I s) : CMDiff[(\u03c0 E (TangentSpace I) \u207b\u00b9' s)] m (tangentMapWithin I I' f s)",
+          "have_tree": [
+            {
+              "name": "hb\u2082",
+              "type": "CMDiffAt[s'] m b\u2082 x\u2080",
+              "body": "",
+              "children": []
+            },
+            {
+              "name": "A",
+              "type": "CMDiffAt[s] m (fun y \u21a6 ContinuousLinearMap.inCoordinates E (TangentSpace I (M",
+              "body": "M)) E'",
+              "children": []
+            },
+            {
+              "name": "h\u03d5",
+              "type": "CMDiffAt[s'] m (fun y \u21a6 ContinuousLinearMap.inCoordinates E (TangentSpace I (M",
+              "body": "M)) E'",
+              "children": []
+            }
+          ]
+        }
+      },
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "ContMDiffOn.contMDiffOn_tangentMapWithin",
+          "statement": "CMDiff[s] n f) (hmn : m + 1 \u2264 n) (hs : UniqueMDiffOn I s) : CMDiff[(\u03c0 E (TangentSpace I) \u207b\u00b9' s)] m (tangentMapWithin I I' f s)",
+          "have_tree": [
+            {
+              "name": "h\u03d5",
+              "type": "CMDiffAt[s'] m (fun y \u21a6 ContinuousLinearMap.inCoordinates E (TangentSpace I (M",
+              "body": "M)) E'",
+              "children": [
+                {
+                  "name": "A",
+                  "type": "CMDiffAt[s] m (fun y \u21a6 ContinuousLinearMap.inCoordinates E (TangentSpace I (M",
+                  "body": "M)) E'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "hb\u2082",
+              "type": "CMDiffAt[s'] m b\u2082 x\u2080",
+              "body": "",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "original": {
+      "module": "ContMDiffMFDeriv",
+      "name": "contMDiff_equivTangentBundleProd_symm",
+      "statement": "CMDiff n (equivTangentBundleProd I M I' M').symm",
+      "have_tree": [
+        {
+          "name": "D0",
+          "type": "DifferentiableWithinAt \ud835\udd5c \u03c6 (Set.range I) (I ((chartAt H p.1.proj) p.1.proj))",
+          "body": "by",
+          "children": []
+        },
+        {
+          "name": "D0",
+          "type": "DifferentiableWithinAt \ud835\udd5c \u03c6 (Set.range I') (I' ((chartAt H' p.2.proj) p.2.proj))",
+          "body": "by",
+          "children": []
+        }
+      ]
+    },
+    "rewrites": [
+      {
+        "op": "reorder",
+        "path": [],
+        "perm": [
+          1,
+          0
+        ],
+        "result": {
+          "module": "ContMDiffMFDeriv",
+          "name": "contMDiff_equivTangentBundleProd_symm",
+          "statement": "CMDiff n (equivTangentBundleProd I M I' M').symm",
+          "have_tree": [
+            {
+              "name": "D0",
+              "type": "DifferentiableWithinAt \ud835\udd5c \u03c6 (Set.range I') (I' ((chartAt H' p.2.proj) p.2.proj))",
+              "body": "by",
+              "children": []
+            },
+            {
+              "name": "D0",
+              "type": "DifferentiableWithinAt \ud835\udd5c \u03c6 (Set.range I) (I ((chartAt H p.1.proj) p.1.proj))",
+              "body": "by",
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+]
