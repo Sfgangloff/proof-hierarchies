@@ -26,6 +26,45 @@ DEFAULT_MODULES = [
     "Mathlib.Logic.Equiv.Basic",
 ]
 
+# Broader, diverse Mathlib slice for the Stage 0d gate signal.
+# Names that don't exist at v4.26.0 will fail gracefully (handled per module).
+BROADER_MODULES = [
+    # Algebra
+    "Mathlib.Algebra.Group.Basic",
+    "Mathlib.Algebra.Order.Group.Defs",
+    "Mathlib.Algebra.Ring.Basic",
+    # Analysis
+    "Mathlib.Analysis.Calculus.Deriv.Basic",
+    "Mathlib.Analysis.Normed.Group.Basic",
+    # Topology
+    "Mathlib.Topology.Basic",
+    "Mathlib.Topology.ContinuousOn",
+    "Mathlib.Topology.MetricSpace.Basic",
+    # Order
+    "Mathlib.Order.Bounds.Basic",
+    "Mathlib.Order.Lattice",
+    "Mathlib.Order.WellFounded",
+    # Logic / Function
+    "Mathlib.Logic.Function.Basic",
+    # Data
+    "Mathlib.Data.Int.Basic",
+    "Mathlib.Data.List.Basic",
+    "Mathlib.Data.Set.Lattice",
+    "Mathlib.Data.Finset.Basic",
+    # Measure
+    "Mathlib.MeasureTheory.MeasurableSpace.Basic",
+    # Combinatorics
+    "Mathlib.Combinatorics.SimpleGraph.Basic",
+    # NumberTheory
+    "Mathlib.NumberTheory.Divisors",
+    # GroupTheory
+    "Mathlib.GroupTheory.Subgroup.Basic",
+    # CategoryTheory
+    "Mathlib.CategoryTheory.Functor.Basic",
+    # Tactic
+    "Mathlib.Tactic.Linarith.Frontend",
+]
+
 app = modal.App("proof-hierarchies-extract")
 vol = modal.Volume.from_name(VOLUME_NAME, create_if_missing=True)
 
@@ -93,6 +132,44 @@ def extract_premises(modules: str = ""):
     with open(f"{out_dir}/_summary.json", "w") as f:
         json.dump(summary, f, indent=2)
     vol.commit()
+    print(json.dumps(summary, indent=2))
+
+
+@app.function(image=image, volumes={VOL_ROOT: vol}, timeout=60 * 60 * 3)
+def extract_broader(modules: str = ""):
+    """Sequential have_tree + premises over BROADER_MODULES (or CSV override).
+    One Modal container, detach-safe (unlike `.map` which can't coexist with
+    `--detach` — the parent disconnects and parallel inputs are cancelled)."""
+    import subprocess, os, json
+    mods = [m.strip() for m in modules.split(",") if m.strip()] or BROADER_MODULES
+    os.makedirs(CORPUS, exist_ok=True)
+    os.makedirs(f"{CORPUS}/premises", exist_ok=True)
+    summary = []
+    for i, m in enumerate(mods, 1):
+        print(f"\n[{i}/{len(mods)}] {m}", flush=True)
+        out_h = f"{CORPUS}/{m}.jsonl"
+        out_p = f"{CORPUS}/premises/{m}.jsonl"
+        with open(out_h, "w") as f:
+            r1 = subprocess.run(["lake", "exe", "have_tree", m],
+                                cwd=NTP, stdout=f, stderr=subprocess.STDOUT)
+        with open(out_p, "w") as f:
+            r2 = subprocess.run(["lake", "exe", "premises", m],
+                                cwd=NTP, stdout=f, stderr=subprocess.STDOUT)
+        rec = {
+            "module": m,
+            "have_ok": r1.returncode == 0,
+            "premises_ok": r2.returncode == 0,
+            "have_lines": sum(1 for _ in open(out_h)),
+            "premises_lines": sum(1 for _ in open(out_p)),
+        }
+        summary.append(rec)
+        print(f"   have:{rec['have_ok']}({rec['have_lines']}) "
+              f"prem:{rec['premises_ok']}({rec['premises_lines']})")
+        vol.commit()                       # checkpoint each module
+    with open(f"{CORPUS}/_summary_broader.json", "w") as f:
+        json.dump(summary, f, indent=2)
+    vol.commit()
+    print("\n=== summary ===")
     print(json.dumps(summary, indent=2))
 
 

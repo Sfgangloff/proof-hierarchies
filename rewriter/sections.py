@@ -21,13 +21,33 @@ from typing import Iterable, Callable
 import json
 
 
+_NOISE_LEMMA_PREFIXES = ("_private.", "inst", "Lean.", "Bool.")
+_NOISE_LEMMA_NAMES = {
+    "_", "[anonymous]", "sorryAx", "Eq", "And", "Or", "Iff", "Not", "Ne",
+    "True", "False", "Nat", "Bool", "Int", "Prop", "Sort", "Type", "HEq",
+    "Decidable", "OfNat.ofNat", "Eq.mp", "Eq.mpr", "Eq.refl", "Eq.symm",
+    "Eq.trans", "congrArg", "id", "rfl", "this",
+}
+
+
 def _is_user_lemma(name: str) -> bool:
-    """Filter out obvious noise (private aux defs, instance synthesis,
-    hygienic temps). v1 heuristic — refine when the corpus tells us to."""
-    if name.startswith("_private."): return False
-    if name.startswith("inst"): return False
+    """Drop obvious non-lemma noise: private aux, instance synthesis,
+    hygienic temps, Lean metaprogramming, type/constructor names. v1
+    heuristic — refine as the corpus tells us to."""
+    if any(name.startswith(p) for p in _NOISE_LEMMA_PREFIXES): return False
     if "._@." in name or "_hyg" in name: return False
-    if name in {"_", "[anonymous]"}: return False
+    if name in _NOISE_LEMMA_NAMES: return False
+    return True
+
+
+def is_user_decl(decl_name: str) -> bool:
+    """A `real' theorem (not auto-generated). Drops simp/proof variants,
+    private aux, and the `._eq_*` equation lemmas the elaborator emits."""
+    bad_segs = ("._simp_", "._proof_", "._eq_", "._fun_",
+                "._cstage", "._unsafe_rec")
+    if any(seg in decl_name for seg in bad_segs): return False
+    if decl_name.startswith("_private."): return False
+    if "._@." in decl_name: return False
     return True
 
 

@@ -7,7 +7,7 @@ from __future__ import annotations
 import argparse, glob, json
 from collections import Counter
 from statistics import median, mean
-from rewriter.sections import ProofTree, POLICIES
+from rewriter.sections import ProofTree, POLICIES, is_user_decl
 
 
 def load_premises(root: str) -> dict[str, set[str]]:
@@ -33,6 +33,7 @@ def load_corpus(root: str) -> list[ProofTree]:
             if not line: continue
             try: d = json.loads(line)
             except json.JSONDecodeError: continue
+            if not is_user_decl(d["declName"]): continue   # drop auto-vars
             prems = premises.get(d["declName"], set())
             trees.append(ProofTree.join_with_premises(d, prems))
     return trees
