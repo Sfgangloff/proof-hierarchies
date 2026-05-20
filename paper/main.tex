@@ -1,0 +1,193 @@
+% =====================================================================
+%  Proof-Decomposition Granularity for Small Theorem Provers
+%  LIVING DRAFT — incomplete by design. Fill incrementally.
+%  Target venue: ICLR 2027.  Swap this preamble for the official
+%  iclr20XX_conference.sty when the style file is released; the
+%  \documentclass/article setup below is a placeholder so the draft
+%  compiles standalone in the meantime.
+% =====================================================================
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{natbib}
+
+\newcommand{\TODO}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
+\newcommand{\PLACEHOLDER}[1]{\textcolor{blue}{\emph{[placeholder: #1]}}}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+
+\title{Proof-Decomposition Granularity is a Controllable\\
+       Training-Data Axis for Small Theorem Provers}
+\author{\TODO{authors} }
+\date{Draft compiled \today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Long formal proofs are hard for small models for the same reason long-horizon
+control is hard for learned world models: compounding step-wise error and a
+search space that grows exponentially in the horizon. In control, this is
+mitigated by \emph{hierarchical planning} across temporal scales
+\citep{zhang2026hierarchical}. We ask the analogous question for theorem
+proving: \emph{does the granularity at which a proof is decomposed into
+sub-results change what a small prover can learn?} We formalize a proof as a
+node in the acyclic dependency graph of a library, made finite by a bounded
+\emph{expansion frontier}, and define a \emph{decomposition} as a
+\emph{section} --- a maximal antichain (cut) of the resulting proof poset. A
+section induces a Lean-verified rewrite of the proof; semantics preservation is
+not assumed but \emph{checked}. We compare a family of systematic
+section-selection policies as a controlled, \emph{within-theorem}
+training-data axis, fine-tune small ($\leq$1.5\,B) provers under a fixed token
+budget, and measure held-out \texttt{pass@}$k$ on miniF2F and ProofNet.
+\PLACEHOLDER{headline result: an intermediate section granularity dominates the
+flat and maximally-decomposed extremes, with the effect growing as model size
+decreases.}
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+\paragraph{The horizon problem, twice.} \citet{zhang2026hierarchical} show that
+model-predictive control with a single-scale learned world model fails on
+long-horizon tasks because prediction errors compound and the planning search
+space grows exponentially; planning hierarchically across temporal scales
+recovers long-horizon performance, and the advantage of the hierarchical
+planner over the flat one \emph{grows with the horizon}. Autoregressive
+theorem provers face a structurally identical problem: tactic-level error
+compounds over proof length and proof search is exponential in depth. This
+motivates a proof-theoretic analog of temporal abstraction --- decomposing a
+proof through intermediate results --- and the central empirical question of
+this paper: \emph{which decomposition?}
+
+\paragraph{Contributions.}
+\begin{enumerate}
+  \item A formalization of proof decomposition as a \emph{section} (maximal
+        antichain) of the bounded-unfolded library dependency DAG
+        (\S\ref{sec:formalism}), which strictly generalizes
+        \texttt{have}-tree decompositions.
+  \item A \emph{generate-then-verify} pipeline: every decomposition is
+        reconstructed into Lean and machine-checked against the original
+        theorem with an axiom audit, so semantics preservation is a verified
+        property, not an assumption (\S\ref{sec:method}).
+  \item A controlled, within-theorem study of section-selection policies as a
+        training-data axis for small provers, with explicit decorrelation of
+        granularity from sequence length and difficulty
+        (\S\ref{sec:protocol}).
+  \item \PLACEHOLDER{empirical finding + the granularity $\times$ model-size
+        interaction.}
+\end{enumerate}
+
+\section{Formalism: proofs, frontiers, sections}
+\label{sec:formalism}
+
+\paragraph{The proof DAG.} Let $V$ be the named declarations of the library.
+For $d\in V$, its elaborated proof term references constants $C(d)\subseteq V$;
+edges $d\to e$ for $e\in C(d)$ form an acyclic graph $G=(V,\to)$ (proofs are
+well-founded). Within one declaration's tactic block, \emph{internal nodes}
+(\texttt{have}, \texttt{suffices}, \texttt{calc} steps, \dots) carry a
+typed statement and a justification, forming a tree hanging off $d$.
+
+\paragraph{Bounded unfolding.} Unfolding $G$ from a root $t$ into a tree is
+super-exponential and bottoms out only at primitive recursors. We therefore
+define the proof tree $T(t,F)$ relative to an \emph{expansion frontier}
+$F\subseteq V$: recurse into a child $e$ iff $e\notin F$; nodes in $F$ and
+primitives are opaque leaves. $F=V$ recovers the in-proof \texttt{have}-tree
+as a special case.
+
+\begin{definition}[Section]
+\label{def:section}
+A \emph{section} of $T(t,F)$ with order $\preceq$ is a set $S$ that is
+(i)~an antichain (no two elements $\preceq$-comparable) and (ii)~maximal:
+every node of $T$ is $\preceq$-comparable to some $s\in S$. Equivalently,
+every root-to-leaf path meets $S$ exactly once.
+\end{definition}
+
+A section partitions $T$ into the \emph{upper part} (the proof of $t$ to be
+produced, using $S$ as named lemmas) and the subtrees below each $s\in S$.
+The extremes are $S=\{t\}$ (flat, no decomposition) and $S=\mathrm{leaves}(T)$
+(maximal decomposition at $F$).
+
+\section{Method: policies and verified reconstruction}
+\label{sec:method}
+
+\paragraph{Section-selection policies.} The number of maximal antichains is
+exponential; we compare a fixed family of policies $\pi:(t,F)\mapsto S$:
+$\pi_{\mathrm{root}}$, $\pi_{\mathrm{leaf}}$ (controls);
+$\pi_{\mathrm{depth}(k)}$, $\pi_{\mathrm{size}(\tau)}$,
+$\pi_{\mathrm{premise}(p)}$, $\pi_{\mathrm{balanced}}$, $\pi_{\mathrm{named}}$
+(systematic interior); and a learned predictor $\pi_{\mathrm{learned}}$ as a
+hierarchical-planning analog of \citet{zhang2026hierarchical} (Variant~B).
+
+\paragraph{Verified reconstruction.} Each $(t,F,S)$ is rendered to a single
+Lean artifact (section nodes as \texttt{have}/auxiliary lemmas) and checked:
+it must compile against $t$'s original statement and \texttt{\#print axioms}
+must not exceed the original's axiom set (no \texttt{sorry}, no smuggled
+axioms). Non-verifying decompositions are discarded; reconstruction yield is
+reported. All verification uses a single frozen toolchain --- Lean
+\texttt{v4.26.0}, Mathlib \texttt{2df2f015\ldots}, \texttt{repl}
+\texttt{a9a6f5ba\ldots} --- shared byte-identically by extraction (a fork of
+ntp-toolkit \citep{hu2024minictx} at its verified v4.26.0 state), rewriting,
+and evaluation, eliminating toolchain skew between the corpus and the
+verifier.
+
+\section{Experimental protocol}
+\label{sec:protocol}
+
+\paragraph{Within-theorem design \& decorrelation.} The set of root theorems
+is identical across all policy corpora; only articulation differs. Granularity
+is decorrelated from sequence length and difficulty (matched token budgets,
+length as a regression covariate, difficulty strata, and the
+length-controlled policy $\pi_{\mathrm{size}}$).
+
+\paragraph{Models, training, evaluation.} Primary base
+Kimina-Prover-Distill-1.5B \citep{kimina2025}; controls Qwen2.5-Math-1.5B
+and Qwen2.5-0.5B;
+QLoRA on a single T4 at fixed token budget. Held-out \texttt{pass@}1/8 on
+miniF2F \citep{zheng2022minif2f} (and the corrected miniF2F\_v2
+\citep{minif2f_v2}) and ProofNet \citep{azerbayev2023proofnet}, all checked by
+the same Lean harness. Full configuration and decision gates: see the
+companion protocol \texttt{EXPERIMENT.md}.
+
+\section{Related work}
+\label{sec:related}
+
+\paragraph{Hierarchical planning and abstraction.} Our framing is borrowed
+directly from hierarchical planning with multi-scale world models
+\citep{zhang2026hierarchical}: their temporal abstraction is, in the proof
+setting, a section of the dependency DAG, and their finding that intermediate
+abstraction beats single-level planning on long horizons is the control-domain
+analog of our central hypothesis. We test that principle where a verifier
+provides ground truth.
+
+\paragraph{Sketch- and subgoal-based proving.} Draft--Sketch--Prove
+\citep{jiang2023draft}, LEGO-Prover \citep{wang2024lego}, Lean-STaR
+\citep{lin2024leanstar}, and subgoal decomposition in DeepSeek-Prover
+\citep{xin2024deepseekprover,ren2025deepseekproverv2} \emph{generate}
+sketches or subgoals at inference. ProofAug \citep{liu2025proofaug} analyzes proof structure and
+inserts automation at multiple granularities, also at inference time, and
+likewise improves a 1.5\,B prover. \textbf{Distinction:} we vary decomposition
+granularity as a \emph{controlled training-data axis} over the \emph{same}
+verified proofs, not as an inference-time procedure.
+
+\paragraph{Extraction and benchmarks.} We build on the miniCTX/ntp-toolkit
+extraction stack \citep{hu2024minictx} and LeanDojo \citep{yang2023leandojo},
+and report on miniF2F \citep{zheng2022minif2f,minif2f_v2} and ProofNet
+\citep{azerbayev2023proofnet}.
+
+\section{Results}
+\label{sec:results}
+\PLACEHOLDER{Stage 0.5 pilot, then Stage 3 main table: held-out pass@k vs.
+section-policy granularity, per model size; verified-reconstruction yield;
+length-controlled regression; per-Mathlib-area ablation.}
+
+\section{Conclusion}
+\PLACEHOLDER{}
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\end{document}

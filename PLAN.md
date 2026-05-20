@@ -1,3 +1,8 @@
+> **SUPERSEDED by `EXPERIMENT.md`** (2026-05-18). Kept for history of the
+> original three-motivation framing. The active protocol — generalized to the
+> proof-dependency DAG and section/maximal-antichain decompositions — is in
+> `EXPERIMENT.md`.
+
 # Hierarchical Rewriting of Proofs — Research Plan
 
 ## Core Idea
