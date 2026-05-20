@@ -10,13 +10,20 @@
 ## 1. Research question and claim
 
 > A *proof decomposition* is a choice of which intermediate results a proof is
-> articulated through. We can generate, **for the same theorem**, a controlled
-> family of verified decompositions by selecting different *sections* (maximal
-> antichains) of its proof-dependency structure. **Claim:** the
-> section-selection policy is a controllable training-data axis for small
-> theorem provers — it materially shifts held-out `pass@k`, and there exists an
-> intermediate granularity that beats both the flat (no decomposition) and the
-> maximally-decomposed extremes, with the effect growing as the model shrinks.
+> articulated through. We can generate, **for the same theorem**, two verified
+> granularities — a *rough* form (in-proof haves inlined into the main proof
+> body) and a *fine* form (haves kept as named intermediates) — using
+> sections of its dependency poset. **Claim (calibrated 2026-05-20):** the
+> rough/fine choice is a controllable training-data axis for small theorem
+> provers — it materially shifts held-out `pass@k`, and the effect grows as
+> the model shrinks.
+>
+> **Why binary rather than the original 'intermediate granularity is
+> optimal' framing:** the 21-module Stage 0d gate signal shows real Mathlib
+> proofs are 96% one-liners; among the 4% decomposable, dep-poset depth ≤ 3
+> and policy variance is moderate (π_root vs π_leaf ≈ 22% size difference).
+> A multi-level "U-shape" claim is not what the data supports; the binary
+> rough/fine contrast is, and it remains a clean within-theorem ablation.
 
 The independent variable is the **section-selection policy**, applied within
 theorem (the same mathematical content, re-articulated). The dependent variable
@@ -136,26 +143,20 @@ The number of maximal antichains is exponential; we do **not** enumerate. We
 compare a fixed family of *policies* `π : (t, F) ↦ S`. Each policy yields a
 corpus; we SFT a small model per corpus and compare held-out `pass@k`.
 
-Baseline / reference policies:
+**Calibrated to binary granularity** given the §9 corpus signal (depth ≤ 3 in
+real Mathlib). The primary contrast is two policies:
 
-- **π_root** — `S = {t}` (flat, no decomposition). Lower control.
-- **π_leaf** — `S = leaves(T)` (maximal decomposition). Upper control.
+- **π_root** — maximal antichain near the theorem (in-proof haves inlined
+  into the main proof body; library lemmas cited directly). The "rough"
+  decomposition. Rendered by source-level inlining of `have h : T := body`
+  into the proof tail.
+- **π_leaf** — minimal antichain at the bottom (haves kept named; lemma
+  invocations kept as intermediate references). The "fine" decomposition.
+  Rendered as the (verified) original proof structure.
 
-Systematic interior policies (the heart of the study):
-
-- **π_depth(k)** — cut at tree depth `k` (uniform-depth frontier).
-- **π_size(τ)** — cut so each lower subtree has proof-token size ≤ `τ`
-  (size-balanced; controls the length confound by construction).
-- **π_premise(p)** — promote to a section node any subgoal whose statement uses
-  ≥ `p` distinct premises (semantic-complexity cut).
-- **π_balanced(b)** — choose the antichain minimizing variance of subtree sizes
-  subject to `|S| ≤ b` (greedy).
-- **π_named** — section = exactly the directly-invoked named library lemmas of
-  `t` (the "natural mathematical" decomposition; `F`-aligned).
-- **π_learned** *(extension, §6 variant B)** — a trained predictor of `S`.
-
-All interior policies are parameterized; we sweep a small grid and also report
-the *envelope* (best interior vs. the two controls).
+Interior policies (`π_depth`, `π_size`, `π_premise`, `π_balanced`, `π_named`,
+`π_learned`) remain implemented in `rewriter/sections.py` for ablation /
+follow-on work, but are not the primary axis of comparison given the data.
 
 ---
 
@@ -265,9 +266,13 @@ frozen across extraction, rewriting, verification, eval.**
   subset. **Proceed only if**: (i) verified-reconstruction yield ≥ ~50 %;
   (ii) any measurable `pass@1` gap between policies; (iii) the Modal T4 + Kimina
   loop runs end-to-end within free-tier limits.
-- **Stage 0d GATE** — scale to full corpus. **Proceed only if** ≥ 5–10 k root
-  theorems each with ≥ 2 verified decompositions, and the policy axis is
-  decorrelated from length/difficulty (§7). Else pivot.
+- **Stage 0d GATE — early signal (2026-05-20):** 21-module broader sample
+  (1,715 real user theorems) shows **4% decomposable** (≥ 2 in-proof
+  nodes), **max depth 3**, π_root vs π_leaf ≈ 22% size variation. Extrapolated
+  to full Mathlib (~200k decls): ~8k decomposable — **barely clears the
+  5–10k threshold** but suffices for a calibrated binary-granularity pilot.
+  Proceed under the calibrated (§1) framing; the full-Mathlib gate is met
+  empirically once Stage 0c reconstruction yields verified pairs at scale.
 
 ---
 
