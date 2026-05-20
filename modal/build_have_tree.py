@@ -39,6 +39,10 @@ LEAN_EXE_BLOCK = """
 lean_exe have_tree where
   root := `scripts.have_tree
   supportInterpreter := true
+
+lean_exe proof_terms where
+  root := `scripts.proof_terms
+  supportInterpreter := true
 """
 
 
@@ -57,6 +61,8 @@ def _sync_sources():
          f"{NTP}/TrainingData/InfoTree/HaveTree.lean"),
         ("/src/scripts/have_tree.lean",
          f"{NTP}/scripts/have_tree.lean"),
+        ("/src/scripts/proof_terms.lean",
+         f"{NTP}/scripts/proof_terms.lean"),
         ("/src/TrainingData/HaveSelfTest.lean",
          f"{NTP}/TrainingData/HaveSelfTest.lean"),
     ]
@@ -66,11 +72,16 @@ def _sync_sources():
         print(f"synced {s} -> {d}")
     lf = f"{NTP}/lakefile.lean"
     txt = open(lf).read()
-    if "lean_exe have_tree" not in txt:
-        open(lf, "a").write("\n" + LEAN_EXE_BLOCK)
-        print("patched lakefile.lean (added lean_exe have_tree)")
+    needed = "lean_exe proof_terms" not in txt
+    if needed:
+        # remove any prior partial patch then re-append the canonical block
+        txt = "\n".join(l for l in txt.splitlines()
+                       if not (l.startswith("lean_exe have_tree")
+                               or l.startswith("  root := `scripts.have_tree")))
+        open(lf, "w").write(txt.rstrip() + "\n" + LEAN_EXE_BLOCK)
+        print("patched lakefile.lean (have_tree + proof_terms)")
     else:
-        print("lakefile.lean already has lean_exe have_tree")
+        print("lakefile.lean already has both exes")
 
 
 @app.function(image=image, volumes={VOL_ROOT: vol}, timeout=60 * 40)
@@ -78,7 +89,7 @@ def build_ht():
     assert "MATHLIB_COMMIT=2df2f0150c275ad53cb3c90f7c98ec15a56a1a67" \
         in open(f"{VOL_ROOT}/PIN.txt").read(), "pin mismatch — STOP"
     _sync_sources()
-    r = _sh("lake build have_tree", cwd=NTP, check=False)
+    r = _sh("lake build have_tree proof_terms", cwd=NTP, check=False)
     vol.commit()   # persist synced sources + patched lakefile + build artifacts
     if r.returncode != 0:
         print(f"\n=== BUILD FAILED (exit {r.returncode}) — fix and re-run ===")
@@ -91,7 +102,8 @@ def build_ht():
 def cat_src():
     """Print the known-good ntp-toolkit sources we model have_tree on
     (ground truth at the frozen SHA)."""
-    for rel in ("scripts/full_proof_training_data.lean",
+    for rel in ("scripts/declarations.lean",
+                "scripts/full_proof_training_data.lean",
                 "TrainingData/Frontend.lean"):
         p = f"{NTP}/{rel}"
         print(f"\n===== {rel} =====")
@@ -101,3 +113,9 @@ def cat_src():
 @app.function(image=image, volumes={VOL_ROOT: vol}, timeout=60 * 30)
 def run_ht(module: str = "Mathlib.Logic.Basic"):
     _sh(f"lake exe have_tree {module} | head -c 4000 ; echo", cwd=NTP)
+
+
+@app.function(image=image, volumes={VOL_ROOT: vol}, timeout=60 * 30)
+def run_proof_terms(module: str = "Mathlib.Logic.Basic"):
+    """Sanity-check the proof_terms extractor on one module."""
+    _sh(f"lake exe proof_terms {module} | head -c 4000 ; echo", cwd=NTP)

@@ -173,6 +173,32 @@ def extract_broader(modules: str = ""):
     print(json.dumps(summary, indent=2))
 
 
+@app.function(image=image, volumes={VOL_ROOT: vol}, timeout=60 * 60 * 3)
+def extract_full_proofs(modules: str = ""):
+    """Run ntp-toolkit's `full_proof_training_data` exe (per-decl source
+    proof text) over the broader slice. Needed by Stage 0c reconstruction
+    so we can manipulate the actual proof string (inline haves)."""
+    import subprocess, os, json
+    mods = [m.strip() for m in modules.split(",") if m.strip()] or BROADER_MODULES
+    out_dir = f"{CORPUS}/full_proofs"
+    os.makedirs(out_dir, exist_ok=True)
+    summary = []
+    for i, m in enumerate(mods, 1):
+        print(f"\n[{i}/{len(mods)}] {m}", flush=True)
+        dest = f"{out_dir}/{m}.jsonl"
+        with open(dest, "w") as f:
+            r = subprocess.run(["lake", "exe", "full_proof_training_data", m],
+                               cwd=NTP, stdout=f, stderr=subprocess.STDOUT)
+        rec = {"module": m, "ok": r.returncode == 0,
+               "lines": sum(1 for _ in open(dest))}
+        summary.append(rec)
+        print(f"   ok:{rec['ok']} lines:{rec['lines']}")
+        vol.commit()
+    with open(f"{out_dir}/_summary.json", "w") as f:
+        json.dump(summary, f, indent=2)
+    vol.commit()
+
+
 @app.function(image=image, volumes={VOL_ROOT: vol}, timeout=60 * 5)
 def pull(module: str = "Mathlib.Logic.Basic"):
     """Print one module's JSONL (for local inspection / quick debugging)."""
