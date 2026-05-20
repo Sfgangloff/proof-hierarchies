@@ -174,6 +174,31 @@ def extract_broader(modules: str = ""):
 
 
 @app.function(image=image, volumes={VOL_ROOT: vol}, timeout=60 * 60 * 3)
+def extract_proof_terms(modules: str = ""):
+    """Run our new `proof_terms` exe over BROADER_MODULES — per-decl
+    round-trip-PP'd proof TERM for the binary-granularity 'rough' form."""
+    import subprocess, os, json
+    mods = [m.strip() for m in modules.split(",") if m.strip()] or BROADER_MODULES
+    out_dir = f"{CORPUS}/proof_terms"
+    os.makedirs(out_dir, exist_ok=True)
+    summary = []
+    for i, m in enumerate(mods, 1):
+        print(f"\n[{i}/{len(mods)}] {m}", flush=True)
+        dest = f"{out_dir}/{m}.jsonl"
+        with open(dest, "w") as f:
+            r = subprocess.run(["lake", "exe", "proof_terms", m],
+                               cwd=NTP, stdout=f, stderr=subprocess.STDOUT)
+        rec = {"module": m, "ok": r.returncode == 0,
+               "lines": sum(1 for _ in open(dest))}
+        summary.append(rec)
+        print(f"   ok:{rec['ok']} lines:{rec['lines']}")
+        vol.commit()
+    with open(f"{out_dir}/_summary.json", "w") as f:
+        json.dump(summary, f, indent=2)
+    vol.commit()
+
+
+@app.function(image=image, volumes={VOL_ROOT: vol}, timeout=60 * 60 * 3)
 def extract_full_proofs(modules: str = ""):
     """Run ntp-toolkit's `full_proof_training_data` exe (per-decl source
     proof text) over the broader slice. Needed by Stage 0c reconstruction

@@ -16,6 +16,16 @@ import TrainingData.Utils.TheoremPrettyPrinting
 
 open Lean Meta TheoremPrettyPrinting
 
+/-- Pretty-print options chosen for ROUND-TRIP PARSEABILITY: print all
+    implicit args + universe levels + full names so the resulting string
+    is a valid Lean source term (no `⋯` ellipses, no notation-only forms).
+    Verbose, but that's the price of guaranteed re-elaboration. -/
+def withRoundTripPP {α} (x : MetaM α) : MetaM α :=
+  withOptions (fun o =>
+    o.setBool `pp.all true
+      |>.setBool `pp.fullNames true
+      |>.setBool `pp.universes true) x
+
 /-- A "real" user theorem (matches declarations.lean's isHumanTheorem
     criterion, slightly stricter than just `.thmInfo`). -/
 def isUserTheorem (cinfo : ConstantInfo) : CoreM Bool := do
@@ -37,7 +47,7 @@ def emitTermsForModules (moduleNames : Array Name) : MetaM Unit := do
             if ← isUserTheorem cinfo then
               try
                 let ppType ← withHammerPPOptions <| ppExpr val.type
-                let ppTerm ← withHammerPPOptions <| ppExpr val.value
+                let ppTerm ← withRoundTripPP <| ppExpr val.value
                 let j := Json.mkObj [
                   ("module",   Json.str moduleName.toString),
                   ("declName", Json.str name.toString),
