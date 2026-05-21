@@ -43,9 +43,12 @@ def _build_lean(module: str, terms_path: str, out_path: str) -> list[str]:
     """Generate a verify-Lean file; return parallel list of declNames."""
     import json
     names: list[str] = []
-    with open(terms_path) as fin, open(out_path, "w") as fout:
-        fout.write(f"-- round-trip verify for {module}\n")
-        fout.write(f"import {module}\n\n")
+    # Collect every universe name referenced so we can declare them globally.
+    # `pp.all true` emits `Sort u_1`, `@Eq.{u_2 + 1}` etc.; without an enclosing
+    # `universe` decl Lean rejects them with "unknown universe level u_1".
+    universes: set[str] = set()
+    rows: list[tuple[str, str]] = []
+    with open(terms_path) as fin:
         for line in fin:
             line = line.strip()
             if not line: continue
@@ -53,10 +56,19 @@ def _build_lean(module: str, terms_path: str, out_path: str) -> list[str]:
             except json.JSONDecodeError: continue
             term = d.get("term", "").strip()
             if not term: continue
-            i = len(names)
-            names.append(d["declName"])
+            rows.append((d["declName"], term))
+            for u in (d.get("levels") or []):
+                universes.add(u)
+    with open(out_path, "w") as fout:
+        fout.write(f"-- round-trip verify for {module}\n")
+        fout.write(f"import {module}\n")
+        if universes:
+            fout.write("universe " + " ".join(sorted(universes)) + "\n")
+        fout.write("\n")
+        for i, (decl, term) in enumerate(rows):
+            names.append(decl)
             # Marker comment lets us map errors back: stderr cites Lean line nums.
-            fout.write(f"-- IDX:{i}  {d['declName']}\n")
+            fout.write(f"-- IDX:{i}  {decl}\n")
             fout.write(f"example := {term}\n\n")
     return names
 
@@ -146,3 +158,44 @@ def verify_all():
     vol.commit()
     print("\n=== overall ===")
     print(json.dumps(overall, indent=2))
+
+
+@app.function(image=image, volumes={VOL_ROOT: vol}, timeout=60 * 40)
+def diagnose(module: str = "Mathlib.Logic.Basic", max_per_decl: int = 1):
+    """Re-elaborate the already-generated _verify_<M>.lean and surface the
+    first Lean error message for each failed decl. Lightweight: reuses the
+    .lean file from the prior verify_one run on the same volume."""
+    import subprocess, os, json, collections
+    out_lean = f"{NTP}/_verify_{module.replace('.', '_')}.lean"
+    if not os.path.exists(out_lean):
+        print(f"[skip] no {out_lean}")
+        return
+    # rebuild line→idx map (same logic as _parse_results)
+    line_to_idx, line_to_name = {}, {}
+    current_idx, current_name = -1, ""
+    with open(out_lean) as f:
+        for lineno, line in enumerate(f, 1):
+            if line.startswith("-- IDX:"):
+                head = line.split(":", 1)[1].split(maxsplit=1)
+                try: current_idx = int(head[0])
+                except: pass
+                current_name = head[1].strip() if len(head) > 1 else ""
+            line_to_idx[lineno] = current_idx
+            line_to_name[lineno] = current_name
+    r = subprocess.run(["lake", "env", "lean", out_lean],
+                       cwd=NTP, capture_output=True, text=True, timeout=60*30)
+    blob = (r.stderr or "") + (r.stdout or "")
+    per_decl = collections.defaultdict(list)
+    for line in blob.splitlines():
+        if "error:" not in line: continue
+        parts = line.split(":")
+        if len(parts) < 3: continue
+        try: ln = int(parts[1])
+        except ValueError: continue
+        name = line_to_name.get(ln, "?")
+        if len(per_decl[name]) < max_per_decl:
+            per_decl[name].append(line.strip())
+    print(f"\n=== {module}: {len(per_decl)} failing decls ===")
+    for name, errs in list(per_decl.items())[:60]:
+        print(f"\n--- {name}")
+        for e in errs: print(f"   {e}")

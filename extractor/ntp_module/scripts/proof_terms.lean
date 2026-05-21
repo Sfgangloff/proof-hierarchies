@@ -19,7 +19,11 @@ open Lean Meta TheoremPrettyPrinting
 /-- Pretty-print options chosen for ROUND-TRIP PARSEABILITY: print all
     implicit args + universe levels + full names so the resulting string
     is a valid Lean source term (no `⋯` ellipses, no notation-only forms).
-    Verbose, but that's the price of guaranteed re-elaboration. -/
+    Caveat: terms referencing auto-generated `_private.<mod>.0.<helper>`
+    decls (Lean's `_proof_N`, `match_N`, `_simp_N` for proofs of complex
+    user theorems) cannot round-trip — those private helpers have no
+    parseable source-level alias. Expect ~80% verify pass on Mathlib;
+    the residual is structurally un-round-trippable. -/
 def withRoundTripPP {α} (x : MetaM α) : MetaM α :=
   withOptions (fun o =>
     o.setBool `pp.all true
@@ -48,9 +52,12 @@ def emitTermsForModules (moduleNames : Array Name) : MetaM Unit := do
               try
                 let ppType ← withHammerPPOptions <| ppExpr val.type
                 let ppTerm ← withRoundTripPP <| ppExpr val.value
+                let levels : Array Json :=
+                  val.levelParams.toArray.map (fun n => Json.str n.toString)
                 let j := Json.mkObj [
                   ("module",   Json.str moduleName.toString),
                   ("declName", Json.str name.toString),
+                  ("levels",   Json.arr levels),
                   ("type",     Json.str (toString ppType)),
                   ("term",     Json.str (toString ppTerm))
                 ]
