@@ -1,0 +1,135 @@
+{
+  "$comment": "Project-local Claude Code policy for proof-hierarchies. Committed to the repo so it persists across machines/sessions. After clone, run bin/setup.sh once to install git hooks. Launch: cd <repo> && claude --permission-mode acceptEdits",
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "TodoWrite",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(git stash:*)",
+      "Bash(git switch:*)",
+      "Bash(git checkout -b:*)",
+      "Bash(git restore:*)",
+      "Bash(.venv/bin/python:*)",
+      "Bash(.venv/bin/python3:*)",
+      "Bash(.venv/bin/pip list:*)",
+      "Bash(.venv/bin/pip show:*)",
+      "Bash(.venv/bin/modal:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(du:*)",
+      "Bash(file:*)",
+      "Bash(stat:*)",
+      "Bash(mkdir:*)",
+      "Bash(cat:*)",
+      "Bash(echo:*)",
+      "Bash(printf:*)",
+      "Bash(diff:*)",
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+      "Bash(awk:*)",
+      "Bash(sed -n:*)",
+      "Bash(jq:*)",
+      "Bash(lake build:*)",
+      "Bash(lake exe:*)",
+      "Bash(lean --version:*)"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(git commit --amend:*)",
+      "Bash(.venv/bin/pip install:*)",
+      "Bash(pip install:*)",
+      "Bash(pip3 install:*)",
+      "WebFetch",
+      "WebSearch"
+    ],
+    "deny": [
+      "Bash(rm:*)",
+      "Bash(rmdir:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git push --force-with-lease:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git rebase:*)",
+      "Bash(git checkout main:*)",
+      "Bash(git checkout main )",
+      "Bash(git switch main:*)",
+      "Bash(git branch -D:*)",
+      "Bash(git branch --delete --force:*)",
+      "Bash(git config:*)",
+      "Bash(git remote:*)",
+      "Bash(git filter-branch:*)",
+      "Bash(git clean:*)",
+      "Bash(modal volume delete:*)",
+      "Bash(modal volume rm:*)",
+      "Bash(modal app delete:*)",
+      "Bash(modal token:*)",
+      "Bash(.venv/bin/modal volume delete:*)",
+      "Bash(.venv/bin/modal volume rm:*)",
+      "Bash(.venv/bin/modal app delete:*)",
+      "Bash(.venv/bin/modal token:*)",
+      "Bash(sudo:*)",
+      "Bash(brew:*)",
+      "Bash(npm install:*)",
+      "Bash(npx:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(ssh:*)",
+      "Bash(scp:*)",
+      "Read(//Users/silveregangloff/.ssh/**)",
+      "Read(//Users/silveregangloff/.aws/**)",
+      "Read(//Users/silveregangloff/.config/gcloud/**)",
+      "Read(//Users/silveregangloff/.claude/sessions/**)",
+      "Read(//Users/silveregangloff/.claude/history.jsonl)",
+      "Read(//Users/silveregangloff/.modal.toml)",
+      "Write(/etc/**)",
+      "Write(/usr/**)",
+      "Write(//Users/silveregangloff/.ssh/**)",
+      "Write(//Users/silveregangloff/.aws/**)",
+      "Write(//Users/silveregangloff/.config/**)",
+      "Edit(/etc/**)",
+      "Edit(/usr/**)",
+      "Edit(//Users/silveregangloff/.ssh/**)",
+      "mcp__meta-tools__develop_tool"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Turn complete — findings ready\" with title \"proof-hierarchies\" sound name \"Glass\"'"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Awaiting your input\" with title \"proof-hierarchies\" sound name \"Funk\"'"
+          }
+        ]
+      }
+    ]
+  }
+}

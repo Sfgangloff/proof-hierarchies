@@ -1,0 +1,28 @@
+#!/bin/bash
+# Git pre-push guardrail. Refuses force-pushes (incl. --force-with-lease)
+# and any push to main/master. To bypass for a one-off (NOT recommended),
+# git push --no-verify.
+set -e
+
+remote="$1"
+
+zero="0000000000000000000000000000000000000000"
+while read local_ref local_sha remote_ref remote_sha; do
+  # Refuse pushes to main/master.
+  case "$remote_ref" in
+    refs/heads/main|refs/heads/master)
+      echo "pre-push: refusing push to '$remote_ref' on $remote." >&2
+      exit 1
+      ;;
+  esac
+
+  # Refuse non-fast-forward (force-push) when the remote ref exists.
+  if [ "$remote_sha" != "$zero" ] && [ -n "$remote_sha" ]; then
+    if ! git merge-base --is-ancestor "$remote_sha" "$local_sha" 2>/dev/null; then
+      echo "pre-push: non-fast-forward push to '$remote_ref' refused (would rewrite remote history)." >&2
+      exit 1
+    fi
+  fi
+done
+
+exit 0

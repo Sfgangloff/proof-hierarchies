@@ -1,0 +1,45 @@
+#!/bin/bash
+# Git pre-commit guardrail. See CLAUDE.md and .claude/settings.json for
+# the surrounding policy. To bypass for a one-off (NOT recommended),
+# git commit --no-verify.
+set -e
+
+# 1) Refuse commits to main.
+branch=$(git symbolic-ref --short HEAD 2>/dev/null || echo "")
+if [ "$branch" = "main" ] || [ "$branch" = "master" ]; then
+  echo "pre-commit: refusing direct commit to '$branch'. Switch to a work branch." >&2
+  exit 1
+fi
+
+# 2) Reject .DS_Store and other OS junk.
+junk=$(git diff --cached --name-only --diff-filter=AM | grep -E '(\.DS_Store$|Thumbs\.db$|\.swp$)' || true)
+if [ -n "$junk" ]; then
+  echo "pre-commit: OS-junk files staged — unstage with: git rm --cached <file>" >&2
+  echo "$junk" >&2
+  exit 1
+fi
+
+# 3) Basic secret scan on the staged diff.
+if git diff --cached -U0 | grep -EnP \
+    '(AKIA[0-9A-Z]{16}|sk-[A-Za-z0-9]{40,}|ghp_[A-Za-z0-9]{36}|MODAL_TOKEN_(ID|SECRET)\s*=\s*['"'"'"][^'"'"'"]{8,})' \
+    > /tmp/.precommit-secret-hit 2>/dev/null; then
+  echo "pre-commit: suspected secret in staged diff:" >&2
+  cat /tmp/.precommit-secret-hit >&2
+  rm -f /tmp/.precommit-secret-hit
+  exit 1
+fi
+rm -f /tmp/.precommit-secret-hit
+
+# 4) py_compile staged Python files.
+py_files=$(git diff --cached --name-only --diff-filter=AM | grep '\.py$' || true)
+if [ -n "$py_files" ]; then
+  while IFS= read -r f; do
+    [ -z "$f" ] && continue
+    if ! python3 -m py_compile "$f" 2>&1; then
+      echo "pre-commit: py_compile failed on $f" >&2
+      exit 1
+    fi
+  done <<< "$py_files"
+fi
+
+exit 0
