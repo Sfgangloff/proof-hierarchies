@@ -1,13 +1,31 @@
 #!/bin/bash
-# One-time per-clone setup: install git hooks + verify Claude Code policy.
-# Run this immediately after cloning the repo.
+# Per-clone setup: install git hooks + verify Claude Code policy.
+# Run this after every clone AND after pulling changes to .githooks/.
+#
+# Why copy instead of `core.hooksPath = .githooks`: hooks must fire on
+# EVERY branch, including older branches (e.g. main) that don't have
+# .githooks/ in their tree. Files under .git/hooks/ are per-clone and
+# branch-agnostic, so they always fire.
 set -e
 cd "$(dirname "$0")/.."
 
-# Wire the tracked hooks directory into git.
-git config core.hooksPath .githooks
-chmod +x .githooks/* 2>/dev/null || true
-echo "[setup] git core.hooksPath -> .githooks"
+# Install tracked hooks into the local .git/hooks/ (overwrites).
+mkdir -p .git/hooks
+installed=()
+for src in .githooks/*; do
+  [ -f "$src" ] || continue
+  dst=".git/hooks/$(basename "$src")"
+  cp "$src" "$dst"
+  chmod +x "$dst"
+  installed+=("$(basename "$src")")
+done
+echo "[setup] installed git hooks: ${installed[*]}"
+
+# Clear any stale core.hooksPath override (older docs used this).
+if git config --get core.hooksPath >/dev/null 2>&1; then
+  git config --unset core.hooksPath
+  echo "[setup] cleared stale core.hooksPath"
+fi
 
 # Sanity: confirm the Claude policy file is present.
 if [ ! -f .claude/settings.json ]; then
