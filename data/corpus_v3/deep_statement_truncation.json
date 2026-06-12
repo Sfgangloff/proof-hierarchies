@@ -1,0 +1,36 @@
+{
+  "source": "data/deep statements \u2014 q-0009 left-truncation caveat audit",
+  "caveat_audited": "e-0017/e-0020/e-0024 all soften their pessimistic section-predictor learnability findings by asserting 'statements are left-truncated, so a real transformer sees more'. This quantifies how much is actually lost.",
+  "n_decls": 1261,
+  "LEFT_TRUNCATED": {
+    "n": 1117,
+    "pct": 88.6,
+    "note": "detected via running bracket depth going negative; a lower bound (bracket-free lost prefixes are invisible)."
+  },
+  "min_bracket_depth_dist(how_many_binder_levels_cut)": {
+    "-2": 5,
+    "-1": 1112
+  },
+  "single_binder_group_cut(depth==-1)": {
+    "n": 1112,
+    "pct_of_truncated": 99.6
+  },
+  "surviving_cut_binder_TYPE_tail_chars": {
+    "min": 1,
+    "p50": 6,
+    "p90": 22,
+    "max": 177,
+    "mean": 10.45
+  },
+  "truncated_whose_surviving_tail_has_library_token": {
+    "n": 807,
+    "pct_of_truncated": 72.2,
+    "note": "library content lives in TYPES (preserved after the cut names), not in the lost binder names."
+  },
+  "truncated_with_INTACT_conclusion(balanced)": {
+    "n": 1112,
+    "pct_of_truncated": 99.6,
+    "note": "the conclusion \u2014 the predictor's key input \u2014 survives."
+  },
+  "interpretation": "Truncation is DOMINANT (88.6%) but SHALLOW: 99.6% lose exactly one leading binder group (depth -1), the cut sits at the binder-name boundary (short surviving type tail), and the full conclusion + all hypotheses after the first group survive (99.6% intact conclusions). The lost material is one binder group's NAMES (lowercase locals); library/content vocabulary lives in the preserved types and conclusion. So the e-0020/e-0024 'lower bound, transformer sees more' escape hatch is bounded to one binder group's names \u2014 it cannot rescue the 37.5%-grounding / no-width-prediction findings by much. q-0009's learnability concern stands close to face value."
+}
