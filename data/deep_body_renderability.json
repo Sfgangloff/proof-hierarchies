@@ -1,0 +1,149 @@
+{
+  "description": "Body-renderability gate for the data/deep same-format build (e-0033/a-0032 follow-up). Quantifies how much of the same-format rough/fine build is already renderable from data/deep vs needs the mandatory Modal re-extraction to recover elided tactic bodies. 'captured' = have body present in the record; 'elided' = bare `by` (tactic block dropped at extraction). Top-level named substantive frontier haves over the 633 wide-frontier targets.",
+  "n_targets_with_named_haves": 629,
+  "n_missing_record": 0,
+  "named_substantive_haves": 2225,
+  "body_capture": {
+    "captured": 1138,
+    "captured_frac": 0.5115,
+    "elided_bare_by": 1087,
+    "elided_frac": 0.4885
+  },
+  "pi_leaf_fine_renderability": {
+    "note": "pi_leaf keeps `have name : type := body` -> needs a captured body for EVERY named have",
+    "targets_fully_renderable": 127,
+    "targets_fully_renderable_frac": 0.2019,
+    "targets_partial": 363,
+    "targets_none_renderable": 139,
+    "mean_per_target_capture_frac": 0.4977,
+    "median_per_target_capture_frac": 0.5
+  },
+  "pi_root_rough_renderability": {
+    "note": "pi_root inlines: INDEPENDENT haves drop the header (no body needed, renderable regardless of elision); only SIBLING-REFERENCED haves need the body substituted, so pi_root is blocked ONLY by sibling-referenced haves whose body is elided",
+    "independent_haves_header_drop": 1941,
+    "independent_haves_frac": 0.8724,
+    "sibling_referenced_haves": 284,
+    "sibling_referenced_with_elided_body": 98,
+    "pi_root_blocked_haves_frac_of_named": 0.044,
+    "targets_fully_renderable": 553,
+    "targets_fully_renderable_frac": 0.8792
+  },
+  "per_area_body_capture": {
+    "Analysis": {
+      "named": 462,
+      "captured": 244,
+      "frac": 0.53
+    },
+    "MeasureTheory": {
+      "named": 452,
+      "captured": 217,
+      "frac": 0.48
+    },
+    "NumberTheory": {
+      "named": 200,
+      "captured": 92,
+      "frac": 0.46
+    },
+    "RingTheory": {
+      "named": 169,
+      "captured": 89,
+      "frac": 0.53
+    },
+    "Topology": {
+      "named": 147,
+      "captured": 84,
+      "frac": 0.57
+    },
+    "Algebra": {
+      "named": 138,
+      "captured": 62,
+      "frac": 0.45
+    },
+    "LinearAlgebra": {
+      "named": 127,
+      "captured": 59,
+      "frac": 0.46
+    },
+    "Geometry": {
+      "named": 93,
+      "captured": 45,
+      "frac": 0.48
+    },
+    "Combinatorics": {
+      "named": 72,
+      "captured": 41,
+      "frac": 0.57
+    },
+    "Probability": {
+      "named": 60,
+      "captured": 26,
+      "frac": 0.43
+    },
+    "Data": {
+      "named": 58,
+      "captured": 31,
+      "frac": 0.53
+    },
+    "Computability": {
+      "named": 51,
+      "captured": 39,
+      "frac": 0.76
+    },
+    "FieldTheory": {
+      "named": 44,
+      "captured": 21,
+      "frac": 0.48
+    },
+    "GroupTheory": {
+      "named": 36,
+      "captured": 13,
+      "frac": 0.36
+    },
+    "CategoryTheory": {
+      "named": 19,
+      "captured": 15,
+      "frac": 0.79
+    },
+    "Order": {
+      "named": 18,
+      "captured": 7,
+      "frac": 0.39
+    },
+    "SetTheory": {
+      "named": 17,
+      "captured": 10,
+      "frac": 0.59
+    },
+    "AlgebraicGeometry": {
+      "named": 15,
+      "captured": 7,
+      "frac": 0.47
+    },
+    "Dynamics": {
+      "named": 15,
+      "captured": 11,
+      "frac": 0.73
+    },
+    "Tactic": {
+      "named": 11,
+      "captured": 11,
+      "frac": 1.0
+    },
+    "AlgebraicTopology": {
+      "named": 10,
+      "captured": 8,
+      "frac": 0.8
+    },
+    "RepresentationTheory": {
+      "named": 7,
+      "captured": 3,
+      "frac": 0.43
+    },
+    "ModelTheory": {
+      "named": 4,
+      "captured": 3,
+      "frac": 0.75
+    }
+  },
+  "caveats": "have_tree records contain ONLY the named have nodes, NOT the residual main proof body around them; so even a fully-body-captured target is not runnable Lean from data/deep -- the residual tactic block is absent for ALL 633. The Modal re-extraction must recover (a) the residual for every target AND (b) the elided have bodies counted here; this gate scopes (b) only. Sibling-reference detection sees sibling bodies+types only (residual->have refs unobservable), so sibling_referenced and pi_root blockers are LOWER bounds. Data-level only; no Lean/Modal/round-trip; no verified pairs."
+}
