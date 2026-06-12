@@ -1,0 +1,76 @@
+{
+  "source": "q-0009 domain-transfer gate: deep training supply vs miniF2F eval",
+  "n_deep_wide_targets": 633,
+  "n_eval_problems": 488,
+  "DEEP_SUPPLY_by_namespace": {
+    "MeasureTheory": 132,
+    "Analysis": 130,
+    "RingTheory": 53,
+    "Topology": 43,
+    "NumberTheory": 40,
+    "Algebra": 39,
+    "LinearAlgebra": 32,
+    "Probability": 25,
+    "Geometry": 24,
+    "Data": 21,
+    "Combinatorics": 19,
+    "Computability": 14,
+    "FieldTheory": 13,
+    "GroupTheory": 11,
+    "Order": 7,
+    "CategoryTheory": 6,
+    "SetTheory": 5,
+    "AlgebraicGeometry": 4,
+    "Tactic": 4,
+    "AlgebraicTopology": 4,
+    "Dynamics": 3,
+    "RepresentationTheory": 2,
+    "ModelTheory": 2
+  },
+  "DEEP_SUPPLY_by_subject": {
+    "measure/prob-advanced": 157,
+    "analysis-advanced": 133,
+    "ring/field-advanced": 66,
+    "elementary-algebra": 60,
+    "topology-advanced": 47,
+    "number-theory": 40,
+    "linear-algebra-advanced": 32,
+    "geometry": 24,
+    "combinatorics": 19,
+    "computability": 14,
+    "group-theory-advanced": 11,
+    "order": 7,
+    "category-advanced": 6,
+    "set-theory": 5,
+    "alg-geometry-advanced": 4,
+    "other-advanced": 4,
+    "tactic-meta": 4
+  },
+  "EVAL_by_subject": {
+    "elementary-algebra": 176,
+    "competition-elementary": 160,
+    "number-theory": 136,
+    "induction": 16
+  },
+  "OVERLAP": {
+    "deep_targets_in_eval_covered_subjects": {
+      "n": 150,
+      "pct": 23.7,
+      "subjects": [
+        "combinatorics",
+        "elementary-algebra",
+        "geometry",
+        "number-theory",
+        "order"
+      ]
+    },
+    "deep_targets_in_advanced_subjects(zero_eval_coverage)": {
+      "n": 483,
+      "pct": 76.3
+    },
+    "eval_is_entirely": "elementary algebra / number theory / olympiad"
+  },
+  "INTERPRETATION": "The 633 deep wide-frontier TRAINING targets are dominated by research-level subjects (Analysis, RingTheory, MeasureTheory, Topology, CategoryTheory) that have ZERO representation in the miniF2F EVAL set, which is entirely elementary algebra / number theory / olympiad. Only the elementary-algebra + number-theory slice (150/633, 23.7%) of the training supply shares a subject with the eval. A section-predictor trained on this supply learns to emit wide frontiers for advanced Mathlib, a distribution disjoint from where pass@k is scored. The data-level gates e-0012..e-0021 confirmed wide-frontier supply EXISTS but never that it matches the eval; this is a transfer confound the eventual Modal run must control for (e.g. eval on a held-out slice of the SAME deep distribution, or source a competition-math decomposable corpus).",
+  "CAVEAT": "Subject buckets are coarse (top-namespace heuristic); 'olympiad' AMC/IMO/AIME problems do span elementary algebra/NT/combinatorics/geometry, so 'zero coverage' is at the RESEARCH-LEVEL granularity, not the broad area. This measures distribution mismatch, not whether a predictor can still transfer; transfer is an outcome only the Modal SFT+eval can settle. It does not refute Variant B; it names a confound the prior chain skipped.",
+  "out": "data/corpus_v3/deep_eval_domain_match.json"
+}
