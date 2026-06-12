@@ -1,0 +1,149 @@
+{
+  "description": "Same-format (both-tactic-mode) serializer prototype + constructibility audit over the 633 deep wide-frontier targets. Demonstrates the rough/fine difference is purely the named-have headers (term-vs-tactic FORMAT delta = 0 by construction), and audits how often the pi_root inliner needs substitution (named have referenced by a sibling) vs a simple drop. Retires the 'serialize both policies in tactic mode -- a build decision not yet made' caveat in a-0026/a-0027/a-0030/a-0031.",
+  "n_targets": 633,
+  "n_missing_record": 0,
+  "named_substantive_haves": 2225,
+  "anon_substantive_haves": 385,
+  "inliner_simple_drop": 1941,
+  "inliner_simple_drop_frac": 0.8724,
+  "inliner_substitution_required": 284,
+  "inliner_substitution_required_frac": 0.1276,
+  "format_confound": {
+    "term_vs_tactic_length_ratio": 1.0,
+    "note": "0 by construction: both policies emit tactic mode and share the residual body; they differ only by named headers. vs corpus_v3 rough(term)/fine(tactic) = 144x (a-0010)."
+  },
+  "realized_same_format_header_delta": {
+    "note": "header text pi_leaf adds over pi_root, per decl; cross-checks e-0027 (~117 char / ~29 tok)",
+    "chars_median": 147,
+    "chars_mean": 173.8,
+    "chars_p90": 307,
+    "chars_max": 1024,
+    "approx_tok_median": 36.8,
+    "approx_tok_p90": 76.8
+  },
+  "per_area_substitution_required": {
+    "Analysis": {
+      "named_haves": 462,
+      "substitution": 59,
+      "frac": 0.13
+    },
+    "MeasureTheory": {
+      "named_haves": 452,
+      "substitution": 56,
+      "frac": 0.12
+    },
+    "NumberTheory": {
+      "named_haves": 200,
+      "substitution": 23,
+      "frac": 0.12
+    },
+    "RingTheory": {
+      "named_haves": 169,
+      "substitution": 21,
+      "frac": 0.12
+    },
+    "Topology": {
+      "named_haves": 147,
+      "substitution": 29,
+      "frac": 0.2
+    },
+    "Algebra": {
+      "named_haves": 138,
+      "substitution": 19,
+      "frac": 0.14
+    },
+    "LinearAlgebra": {
+      "named_haves": 127,
+      "substitution": 14,
+      "frac": 0.11
+    },
+    "Geometry": {
+      "named_haves": 93,
+      "substitution": 9,
+      "frac": 0.1
+    },
+    "Combinatorics": {
+      "named_haves": 72,
+      "substitution": 10,
+      "frac": 0.14
+    },
+    "Probability": {
+      "named_haves": 60,
+      "substitution": 5,
+      "frac": 0.08
+    },
+    "Data": {
+      "named_haves": 58,
+      "substitution": 8,
+      "frac": 0.14
+    },
+    "Computability": {
+      "named_haves": 51,
+      "substitution": 10,
+      "frac": 0.2
+    },
+    "FieldTheory": {
+      "named_haves": 44,
+      "substitution": 6,
+      "frac": 0.14
+    },
+    "GroupTheory": {
+      "named_haves": 36,
+      "substitution": 2,
+      "frac": 0.06
+    },
+    "CategoryTheory": {
+      "named_haves": 19,
+      "substitution": 4,
+      "frac": 0.21
+    },
+    "Order": {
+      "named_haves": 18,
+      "substitution": 1,
+      "frac": 0.06
+    },
+    "SetTheory": {
+      "named_haves": 17,
+      "substitution": 5,
+      "frac": 0.29
+    },
+    "AlgebraicGeometry": {
+      "named_haves": 15,
+      "substitution": 1,
+      "frac": 0.07
+    },
+    "Dynamics": {
+      "named_haves": 15,
+      "substitution": 0,
+      "frac": 0.0
+    },
+    "Tactic": {
+      "named_haves": 11,
+      "substitution": 2,
+      "frac": 0.18
+    },
+    "AlgebraicTopology": {
+      "named_haves": 10,
+      "substitution": 0,
+      "frac": 0.0
+    },
+    "RepresentationTheory": {
+      "named_haves": 7,
+      "substitution": 0,
+      "frac": 0.0
+    },
+    "ModelTheory": {
+      "named_haves": 4,
+      "substitution": 0,
+      "frac": 0.0
+    }
+  },
+  "sample_pair": {
+    "decl": "not_isHamiltonian_of_isBridge",
+    "module": "Mathlib.Combinatorics.SimpleGraph.Hamiltonian",
+    "pi_leaf_fine_tactic_mode": "by\n  -- binder hxne : x \u2260 y\n  have hne : Fintype.card V \u2260 1 := by\n  -- binder he_not_in_cycle : s(x, y) \u2209 c.edges\n  have hcycleX : cX.IsCycle := hcHam.isCycle.rotate (hcHam.mem_support x)\n  -- binder he_not_in_cX : s(x, y) \u2209 cX.edges\n  have hyX : y \u2208 cX.support := by\n  -- binder he_not_in_p : s(x, y) \u2209 p.edges",
+    "pi_root_rough_tactic_mode": "by\n  -- binder hxne : x \u2260 y\n  by\n  -- binder he_not_in_cycle : s(x, y) \u2209 c.edges\n  hcHam.isCycle.rotate (hcHam.mem_support x)\n  -- binder he_not_in_cX : s(x, y) \u2209 cX.edges\n  by\n  -- binder he_not_in_p : s(x, y) \u2209 p.edges",
+    "header_delta_chars": 97
+  },
+  "caveats": "Data-level only; no Lean/Modal/round-trip; no verified pairs. deep bodies are mostly elided to 'by', so (a) only SIBLING-to-sibling references are observable -- residual->have references are not, making the substitution-required count a LOWER bound; (b) emitted texts are structural skeletons, not runnable Lean. Establishes the same-format SCHEME is well-defined and the rough/fine difference is purely the named headers; a full rendered build still needs the Modal re-extract."
+}
