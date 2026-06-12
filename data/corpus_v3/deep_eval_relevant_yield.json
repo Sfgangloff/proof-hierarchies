@@ -1,0 +1,67 @@
+{
+  "source": "q-0009 synthesis: VERIFIED x EVAL-RELEVANT wide-frontier yield funnel",
+  "inputs": {
+    "manifest": "data/corpus_v3/deep_wide_targets.json",
+    "eval_domain_filter": "e-0022 buckets",
+    "yield_filter": "e-0028 per-namespace corpus_v3 round-trip rates",
+    "corpus_v3_pooled_yield": 0.847,
+    "advanced_pooled_yield": 0.894
+  },
+  "FUNNEL": {
+    "1_wide_frontier_targets": 633,
+    "2_expected_verified(all_subjects)": 558.0,
+    "3_eval_relevant_targets(raw)": 150,
+    "3_eval_relevant_pct": 23.7,
+    "4_expected_verified_AND_eval_relevant": 125.5,
+    "4_as_pct_of_633": 19.8
+  },
+  "eval_relevant_slice_by_namespace": {
+    "NumberTheory": 40,
+    "Algebra": 39,
+    "Geometry": 24,
+    "Data": 21,
+    "Combinatorics": 19,
+    "Order": 7
+  },
+  "eval_relevant_slice_by_subject": {
+    "elementary-algebra": 60,
+    "number-theory": 40,
+    "geometry": 24,
+    "combinatorics": 19,
+    "order": 7
+  },
+  "deep_supply_by_namespace": {
+    "MeasureTheory": 132,
+    "Analysis": 130,
+    "RingTheory": 53,
+    "Topology": 43,
+    "NumberTheory": 40,
+    "Algebra": 39,
+    "LinearAlgebra": 32,
+    "Probability": 25,
+    "Geometry": 24,
+    "Data": 21,
+    "Combinatorics": 19,
+    "Computability": 14,
+    "FieldTheory": 13,
+    "GroupTheory": 11,
+    "Order": 7,
+    "CategoryTheory": 6,
+    "SetTheory": 5,
+    "AlgebraicGeometry": 4,
+    "Tactic": 4,
+    "AlgebraicTopology": 4,
+    "Dynamics": 3,
+    "RepresentationTheory": 2,
+    "ModelTheory": 2
+  },
+  "trainability": {
+    "min_trainable_ref": 100,
+    "ample_ref": 300,
+    "verified_eval_relevant_vs_min": 125.5,
+    "verdict": "MARGINAL"
+  },
+  "INTERPRETATION": "Composing the eval-domain filter (e-0022) with per-area yield (e-0028) over the 633 wide-frontier targets: ~558.0 verify in TOTAL (cross-checks e-0028's ~558), but only 150 (23.7%) are in an eval-covered subject, and after yield only ~125.5 are BOTH verified AND eval-relevant \u2014 19.8% of the headline 633. The rich deep supply that 'unblocks' q-0009 is overwhelmingly off-domain for the miniF2F metric: the on-domain verified training signal is ~125.5 frontiers, a MARGINAL band. So the Modal go/no-go should be scoped to this composed number, not the gross 633/558 \u2014 either accept a section-predictor trained on advanced Mathlib and EVAL on a held-out slice of the SAME distribution (the within-deep eval e-0022 suggested), or source a competition-math decomposable corpus, rather than expecting the 633 advanced targets to transfer to miniF2F.",
+  "CAVEAT": "Composes two coarse data-level filters: (1) eval-domain buckets are top-namespace heuristics (e-0022) \u2014 olympiad AMC/IMO problems do span elementary algebra/NT, so 'eval-relevant' is a broad-area match, not a difficulty match; (2) per-namespace yield is the corpus_v3 round-trip rate (e-0028), with namespaces absent from corpus_v3 given the advanced-pooled rate. This projects COUNTS, not pass@k; it is a go/no-go scoping number, not an outcome. The MIN_TRAINABLE/AMPLE bands are reference anchors from the chain (e-0012's ~27 'far too few', e-0014's ~850 'ample'), not a measured SFT learning curve.",
+  "out": "data/corpus_v3/deep_eval_relevant_yield.json"
+}
