@@ -1,0 +1,80 @@
+{
+  "source": "q-0009 routing: feasibility of a module-disjoint WITHIN-DEEP eval split",
+  "inputs": {
+    "manifest": "data/corpus_v3/deep_wide_targets.json",
+    "holdout": "area-stratified module-disjoint, every 5th module (~80/20)",
+    "yield_filter": "e-0028 per-namespace corpus_v3 round-trip rates",
+    "advanced_pooled_yield": 0.894
+  },
+  "SPLIT": {
+    "total_targets": 633,
+    "total_modules": 452,
+    "train_targets": 502,
+    "eval_targets": 131,
+    "eval_modules": 82,
+    "module_disjoint": true,
+    "train_expected_verified": 442.2,
+    "eval_expected_verified": 115.8,
+    "train_areas": 23,
+    "eval_areas": 17
+  },
+  "trainability": {
+    "ample_ref": 300,
+    "min_trainable_ref": 100,
+    "min_eval_ref": 30,
+    "train_verdict": "AMPLE",
+    "eval_sufficient": true
+  },
+  "ROUTING_vs_e0029": {
+    "miniF2F_route_on_domain_verified": 126,
+    "within_deep_route_train_verified": 442.2,
+    "within_deep_route_eval_verified": 115.8
+  },
+  "eval_areas_breakdown": {
+    "MeasureTheory": 34,
+    "Analysis": 29,
+    "RingTheory": 10,
+    "NumberTheory": 8,
+    "LinearAlgebra": 8,
+    "Topology": 8,
+    "Algebra": 8,
+    "Combinatorics": 4,
+    "Geometry": 4,
+    "FieldTheory": 3,
+    "Data": 3,
+    "Probability": 3,
+    "GroupTheory": 2,
+    "Computability": 2,
+    "Order": 2,
+    "CategoryTheory": 2,
+    "SetTheory": 1
+  },
+  "train_areas_breakdown": {
+    "Analysis": 101,
+    "MeasureTheory": 98,
+    "RingTheory": 43,
+    "Topology": 35,
+    "NumberTheory": 32,
+    "Algebra": 31,
+    "LinearAlgebra": 24,
+    "Probability": 22,
+    "Geometry": 20,
+    "Data": 18,
+    "Combinatorics": 15,
+    "Computability": 12,
+    "FieldTheory": 10,
+    "GroupTheory": 9,
+    "Order": 5,
+    "AlgebraicGeometry": 4,
+    "SetTheory": 4,
+    "CategoryTheory": 4,
+    "Tactic": 4,
+    "AlgebraicTopology": 4,
+    "Dynamics": 3,
+    "RepresentationTheory": 2,
+    "ModelTheory": 2
+  },
+  "INTERPRETATION": "A module-disjoint within-deep split is FEASIBLE and not leakage-prone by construction: the 633 targets span 452 modules with no module above 0.9% of targets, so an area-stratified every-5th-module holdout cleanly partitions them into 502 train / 131 eval targets (82 eval modules), with NO module on both sides and all 17/23 areas represented on each. Projecting e-0028's per-area yield gives ~442.2 verified train frontiers (AMPLE) and ~115.8 verified eval frontiers (>= the ~30 needed to score pass@k). So e-0029's MARGINAL ~126 verdict is SPECIFIC to insisting on miniF2F transfer: the within-deep route (e-0029's option a) restores an AMPLE training band (~442.2 vs 300) with a leakage-controlled held-out eval \u2014 at the cost of measuring the granularity/planner effect on the deep distribution itself, not on competition math. This routes the Modal go/no-go: option (a) is the cheap, supply-ample path; the only residual cost is the external-validity narrowing (deep eval, not miniF2F).",
+  "CAVEAT": "Module-disjoint is the standard, defensible leakage control for a proof corpus (build_sft.py uses module-stratified splits) but it is not airtight: two decls in DIFFERENT modules can still share a frontier lemma, so a residual cross-module leakage is possible and would need a lemma-overlap audit at verify time. Verified counts are the e-0028 per-area projection, not an actual round-trip (needs the Modal pass); this projects COUNTS not pass@k. Bands are chain anchors (e-0014 ~850 'ample', e-0029 ~100 floor), not a measured SFT learning curve.",
+  "out": "data/corpus_v3/deep_within_eval_split.json"
+}
