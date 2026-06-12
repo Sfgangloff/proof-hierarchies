@@ -1,0 +1,244 @@
+{
+  "summary": {
+    "n_decls_with_ge2_haves": 7,
+    "n_top_level_haves": 17,
+    "n_inlineable_named_haves": 13,
+    "n_destructure_binders": 4,
+    "format_delta": "0 by construction (both policies tactic-mode; shared residual)",
+    "downstream_ref_distribution_over_inlineable": {
+      "0": 2,
+      "1": 7,
+      "2+": 4
+    },
+    "header_len_delta_pi_leaf_over_pi_root": {
+      "median": 39,
+      "max": 158,
+      "all": [
+        158,
+        80,
+        77,
+        60,
+        56,
+        39,
+        39,
+        33,
+        31,
+        27,
+        18,
+        12,
+        12
+      ]
+    },
+    "net_len_pi_root_minus_pi_leaf": {
+      "median": -38,
+      "min": -80,
+      "max": 249
+    },
+    "compression_inversions_root_longer": 4,
+    "compression_inversion_rate": 0.3076923076923077
+  },
+  "per_decl": [
+    {
+      "decl": "ContinuousOn.preimage_mem_nhdsSetWithin",
+      "module": "Mathlib.Topology.ContinuousOn",
+      "n_haves": 2,
+      "haves": [
+        {
+          "name": null,
+          "kind": "destructure",
+          "header_len": 17,
+          "body_len": 22,
+          "full_len": 39,
+          "full": "  have ⟨v, hv⟩ := mem_nhdsSetWithin.1 h",
+          "refs": null
+        },
+        {
+          "name": null,
+          "kind": "destructure",
+          "header_len": 17,
+          "body_len": 30,
+          "full_len": 47,
+          "full": "  have ⟨w, hw⟩ := continuousOn_iff'.1 hf v hv.1",
+          "refs": null
+        }
+      ]
+    },
+    {
+      "decl": "Measurable.measurable_of_countable_ne",
+      "module": "Mathlib.MeasureTheory.MeasurableSpace.Basic",
+      "n_haves": 2,
+      "haves": [
+        {
+          "name": "this",
+          "kind": "anon_this",
+          "header_len": 80,
+          "body_len": 41,
+          "full_len": 121,
+          "full": "  have : g ⁻¹' t = g ⁻¹' t ∩ { x | f x = g x }ᶜ ∪ g ⁻¹' t ∩ { x | f x = g x } := by\n    simp [← inter_union_distrib_left]",
+          "refs": 1
+        },
+        {
+          "name": "this",
+          "kind": "anon_this",
+          "header_len": 77,
+          "body_len": 34,
+          "full_len": 111,
+          "full": "  have : g ⁻¹' t ∩ { x : α | f x = g x } = f ⁻¹' t ∩ { x : α | f x = g x } := by\n    ext x\n    simp +contextual",
+          "refs": 1
+        }
+      ]
+    },
+    {
+      "decl": "Set.biUnion_compl_eq_of_pairwise_disjoint_of_iUnion_eq_univ",
+      "module": "Mathlib.Data.Set.Lattice",
+      "n_haves": 2,
+      "haves": [
+        {
+          "name": "obs",
+          "kind": "named",
+          "header_len": 56,
+          "body_len": 305,
+          "full_len": 361,
+          "full": "  have obs : ∀ (J : Set ι), x ∈ ⋃ j ∈ J, Es j ↔ i ∈ J := by\n    refine fun J ↦ ⟨?_, fun i_in_J ↦ by simpa only [mem_iUnion, exists_prop] using ⟨i, i_in_J, hix⟩⟩\n    intro x_in_U\n    simp only [mem_iUnion, exists_prop] at x_in_U\n    obtain ⟨j, j_in_J, hjx⟩ := x_in_U\n    rwa [show i = j by by_contra i_ne_j; exact Disjoint.ne_of_mem (Es_disj i_ne_j) hix hjx rfl]",
+          "refs": 2
+        },
+        {
+          "name": "obs'",
+          "kind": "named",
+          "header_len": 60,
+          "body_len": 67,
+          "full_len": 127,
+          "full": "  have obs' : ∀ (J : Set ι), x ∈ (⋃ j ∈ J, Es j)ᶜ ↔ i ∉ J :=\n    fun J ↦ by simpa only [mem_compl_iff, not_iff_not] using obs J",
+          "refs": 1
+        }
+      ]
+    },
+    {
+      "decl": "Lattice.mk'",
+      "module": "Mathlib.Order.Lattice",
+      "n_haves": 3,
+      "haves": [
+        {
+          "name": "sup_idem",
+          "kind": "named",
+          "header_len": 39,
+          "body_len": 108,
+          "full_len": 147,
+          "full": "  have sup_idem : ∀ b : α, b ⊔ b = b := fun b =>\n    calc\n      b ⊔ b = b ⊔ b ⊓ (b ⊔ b) := by rw [inf_sup_self]\n      _ = b := by rw [sup_inf_self]",
+          "refs": 1
+        },
+        {
+          "name": "inf_idem",
+          "kind": "named",
+          "header_len": 39,
+          "body_len": 108,
+          "full_len": 147,
+          "full": "  have inf_idem : ∀ b : α, b ⊓ b = b := fun b =>\n    calc\n      b ⊓ b = b ⊓ (b ⊔ b ⊓ b) := by rw [sup_inf_self]\n      _ = b := by rw [inf_sup_self]",
+          "refs": 1
+        },
+        {
+          "name": "partial_order_eq",
+          "kind": "named",
+          "header_len": 158,
+          "body_len": 115,
+          "full_len": 273,
+          "full": "  have partial_order_eq : @SemilatticeSup.toPartialOrder _ semilatt_sup_inst =\n                          @SemilatticeInf.toPartialOrder _ semilatt_inf_inst :=\n    semilatticeSup_mk'_partialOrder_eq_semilatticeInf_mk'_partialOrder _ _ _ _ _ _\n      sup_inf_self inf_sup_self",
+          "refs": 3
+        }
+      ]
+    },
+    {
+      "decl": "HasDerivAt.comp_semilinear",
+      "module": "Mathlib.Analysis.Calculus.Deriv.Basic",
+      "n_haves": 2,
+      "haves": [
+        {
+          "name": "this",
+          "kind": "anon_this",
+          "header_len": 31,
+          "body_len": 7,
+          "full_len": 38,
+          "full": "  have : RingHomIsometric σ' := .inv σ",
+          "refs": 0
+        },
+        {
+          "name": "hR",
+          "kind": "named",
+          "header_len": 33,
+          "body_len": 4,
+          "full_len": 37,
+          "full": "  have hR (k : 𝕜) : R k = σ' k := rfl",
+          "refs": 1
+        }
+      ]
+    },
+    {
+      "decl": "Function.hfunext",
+      "module": "Mathlib.Logic.Function.Basic",
+      "n_haves": 2,
+      "haves": [
+        {
+          "name": "this",
+          "kind": "anon_this",
+          "header_len": 27,
+          "body_len": 27,
+          "full_len": 54,
+          "full": "  have : ∀ a, f a ≍ f' a := fun a ↦ h a a (HEq.refl a)",
+          "refs": 0
+        },
+        {
+          "name": "this",
+          "kind": "anon_this",
+          "header_len": 18,
+          "body_len": 43,
+          "full_len": 61,
+          "full": "  have : β = β' := by funext a; exact type_eq_of_heq (this a)",
+          "refs": 1
+        }
+      ]
+    },
+    {
+      "decl": "Function.surjective_comp_right_iff_injective",
+      "module": "Mathlib.Logic.Function.Basic",
+      "n_haves": 4,
+      "haves": [
+        {
+          "name": null,
+          "kind": "destructure",
+          "header_len": 26,
+          "body_len": 8,
+          "full_len": 34,
+          "full": "  have ⟨a₁, a₂, eq, ne⟩ := not_inj",
+          "refs": null
+        },
+        {
+          "name": null,
+          "kind": "destructure",
+          "header_len": 17,
+          "body_len": 32,
+          "full_len": 49,
+          "full": "  have ⟨f, hf⟩ := surj (if · = a₂ then c else c')",
+          "refs": null
+        },
+        {
+          "name": "h₁",
+          "kind": "named",
+          "header_len": 12,
+          "body_len": 16,
+          "full_len": 28,
+          "full": "  have h₁ := congr_fun hf a₁",
+          "refs": 2
+        },
+        {
+          "name": "h₂",
+          "kind": "named",
+          "header_len": 12,
+          "body_len": 16,
+          "full_len": 28,
+          "full": "  have h₂ := congr_fun hf a₂",
+          "refs": 2
+        }
+      ]
+    }
+  ]
+}
