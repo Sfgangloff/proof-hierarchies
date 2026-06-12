@@ -1,0 +1,152 @@
+{
+  "description": "Substitution-severity gate refining e-0033/a-0032 over the 633 deep wide-frontier targets. Quantifies how bad the 12.8% substitution-required subset is: reference multiplicity (use sites a sound inliner must rewrite) and the per-have net char delta of a SOUND pi_root inliner (body duplicated at each site), revealing where pi_root becomes LONGER than pi_leaf -- the opposite-sign length component the e-0033 drop-only serializer and the +173-char header-delta omit.",
+  "n_named_substantive_haves": 2225,
+  "n_substitution_required": 284,
+  "substitution_required_frac": 0.1276,
+  "reference_multiplicity": {
+    "note": "occurrences of the have-name across sibling bodies+types (sound-inliner rewrite sites); lower bound",
+    "median": 1.0,
+    "mean": 1.22,
+    "max": 4,
+    "n_with_ge2_sites": 55,
+    "frac_of_referenced_ge2_sites": 0.1937,
+    "histogram_n_sites": {
+      "1": 229,
+      "2": 48,
+      "3": 6,
+      "4": 1
+    }
+  },
+  "length_direction_observable_body": {
+    "note": "sound-inliner net char delta = n_occ*(len(body)+2-len(name)) - header_len; >0 means pi_root LONGER than pi_leaf (compression INVERTS). Observable (term-mode) bodies only; elided `by` bodies unquantifiable.",
+    "n_observable_referenced": 151,
+    "n_elided_referenced_unquantifiable": 133,
+    "n_invert_root_longer": 20,
+    "invert_frac_of_observable_referenced": 0.1325,
+    "invert_frac_of_all_named_haves": 0.009,
+    "net_delta_chars": {
+      "median": -25,
+      "mean": -20.1,
+      "p90": 6,
+      "max": 75,
+      "min": -81
+    }
+  },
+  "per_area_substitution": {
+    "Analysis": {
+      "substitution_required": 59,
+      "inverts": 1
+    },
+    "MeasureTheory": {
+      "substitution_required": 56,
+      "inverts": 4
+    },
+    "Topology": {
+      "substitution_required": 29,
+      "inverts": 3
+    },
+    "NumberTheory": {
+      "substitution_required": 23,
+      "inverts": 3
+    },
+    "RingTheory": {
+      "substitution_required": 21,
+      "inverts": 1
+    },
+    "Algebra": {
+      "substitution_required": 19,
+      "inverts": 0
+    },
+    "LinearAlgebra": {
+      "substitution_required": 14,
+      "inverts": 1
+    },
+    "Combinatorics": {
+      "substitution_required": 10,
+      "inverts": 2
+    },
+    "Computability": {
+      "substitution_required": 10,
+      "inverts": 2
+    },
+    "Geometry": {
+      "substitution_required": 9,
+      "inverts": 0
+    },
+    "Data": {
+      "substitution_required": 8,
+      "inverts": 0
+    },
+    "FieldTheory": {
+      "substitution_required": 6,
+      "inverts": 0
+    },
+    "Probability": {
+      "substitution_required": 5,
+      "inverts": 1
+    },
+    "SetTheory": {
+      "substitution_required": 5,
+      "inverts": 0
+    },
+    "CategoryTheory": {
+      "substitution_required": 4,
+      "inverts": 1
+    },
+    "Tactic": {
+      "substitution_required": 2,
+      "inverts": 0
+    },
+    "GroupTheory": {
+      "substitution_required": 2,
+      "inverts": 1
+    },
+    "Order": {
+      "substitution_required": 1,
+      "inverts": 0
+    },
+    "AlgebraicGeometry": {
+      "substitution_required": 1,
+      "inverts": 0
+    }
+  },
+  "sample_inversions": [
+    {
+      "decl": "psp_from_prime_psp",
+      "module": "Mathlib.NumberTheory.FermatPsp",
+      "have": "hi_A",
+      "n_ref_sites": 2,
+      "body_len": 68,
+      "header_len": 89,
+      "net_delta_root_minus_leaf": 43
+    },
+    {
+      "decl": "psp_from_prime_psp",
+      "module": "Mathlib.NumberTheory.FermatPsp",
+      "have": "hi_B",
+      "n_ref_sites": 2,
+      "body_len": 50,
+      "header_len": 71,
+      "net_delta_root_minus_leaf": 25
+    },
+    {
+      "decl": "Submodule.basis_of_pid_aux",
+      "module": "Mathlib.LinearAlgebra.FreeModule.PID",
+      "have": "y'M",
+      "n_ref_sites": 3,
+      "body_len": 46,
+      "header_len": 67,
+      "net_delta_root_minus_leaf": 68
+    },
+    {
+      "decl": "Lp.induction_stronglyMeasurable",
+      "module": "Mathlib.MeasureTheory.Function.ConditionalExpectation.AEMeasurable",
+      "have": "hs_f",
+      "n_ref_sites": 2,
+      "body_len": 47,
+      "header_len": 83,
+      "net_delta_root_minus_leaf": 7
+    }
+  ],
+  "caveats": "Data-level only; no Lean/Modal/round-trip. Sibling-to-sibling refs only (residual->have refs unobservable: deep main bodies elided), so multiplicity and the substitution count are LOWER bounds. Length direction computed only on the observable (term-mode) body subset; elided `by` bodies reported separately as unquantifiable. Char/4 token proxy. A sound rendered build still needs Modal re-extraction."
+}
