@@ -1,0 +1,104 @@
+{
+  "what": "Eval compute-budget gate: prices the e-0047 statistically-recommended headline design (within-deep n, interior-k pass@k, multi-size DiD) as a multiple of the one eval run e-0006/a-0005 proved fits the free tier (50 samples / 56 T4-min). EVAL only; training (e-0007) excluded; PRE-SFT lower bounds.",
+  "anchor": {
+    "problems": 50,
+    "minutes": 56.0,
+    "k": 1,
+    "samples": 50,
+    "t1_min_per_sample": 1.12
+  },
+  "route": {
+    "effective_n_ge1": 115,
+    "effective_n_ge2": 106,
+    "policies": 2,
+    "best_k_per_sf": {
+      "0.05": 16,
+      "0.1": 16,
+      "0.2": 4
+    },
+    "gen_share": 0.5
+  },
+  "grid": [
+    {
+      "k": 1,
+      "sizes": 2,
+      "policies": 2,
+      "n": 106,
+      "samples": 424,
+      "units_of_proven_run": 8.5,
+      "linear_T4_min": 474.9,
+      "batched_T4_min": 474.9
+    },
+    {
+      "k": 4,
+      "sizes": 2,
+      "policies": 2,
+      "n": 106,
+      "samples": 1696,
+      "units_of_proven_run": 33.9,
+      "linear_T4_min": 1899.5,
+      "batched_T4_min": 1187.2
+    },
+    {
+      "k": 8,
+      "sizes": 2,
+      "policies": 2,
+      "n": 106,
+      "samples": 3392,
+      "units_of_proven_run": 67.8,
+      "linear_T4_min": 3799.0,
+      "batched_T4_min": 2137.0
+    },
+    {
+      "k": 16,
+      "sizes": 2,
+      "policies": 2,
+      "n": 106,
+      "samples": 6784,
+      "units_of_proven_run": 135.7,
+      "linear_T4_min": 7598.1,
+      "batched_T4_min": 4036.5
+    },
+    {
+      "k": 1,
+      "sizes": 3,
+      "policies": 2,
+      "n": 106,
+      "samples": 636,
+      "units_of_proven_run": 12.7,
+      "linear_T4_min": 712.3,
+      "batched_T4_min": 712.3
+    },
+    {
+      "k": 4,
+      "sizes": 3,
+      "policies": 2,
+      "n": 106,
+      "samples": 2544,
+      "units_of_proven_run": 50.9,
+      "linear_T4_min": 2849.3,
+      "batched_T4_min": 1780.8
+    },
+    {
+      "k": 8,
+      "sizes": 3,
+      "policies": 2,
+      "n": 106,
+      "samples": 5088,
+      "units_of_proven_run": 101.8,
+      "linear_T4_min": 5698.6,
+      "batched_T4_min": 3205.4
+    },
+    {
+      "k": 16,
+      "sizes": 3,
+      "policies": 2,
+      "n": 106,
+      "samples": 10176,
+      "units_of_proven_run": 203.5,
+      "linear_T4_min": 11397.1,
+      "batched_T4_min": 6054.7
+    }
+  ],
+  "verdict": "The statistically-recommended headline design is COMPUTE-EXPENSIVE relative to the only eval run the project has proven affordable. At the within-deep effective n=106 (2 policies), the full powered interaction (k=16, 3 sizes) = 204x the proven-affordable e-0006 run (190.0h T4 linear, 100.9h gen-batched), dominated by the irreducible n*k Lean verifications. The interior-k lever that e-0047 needs to make the interaction resolvable is the SAME lever that drives this cost. Affordable-side options: the k=4/2-size powered design = 34x (31.7h), and the single-size pass@1 gap (q-0007 only, NOT the interaction) = 8x (7.9h). All figures are PRE-SFT lower bounds (t1 from the degenerate model; SFT'd generation+verification is slower) and EXCLUDE QLoRA training (e-0007). Decision: stage the eval -- run the single-size pass@1 gap first (8x, resolves +0.11-0.16), and only escalate to the multi-size interior-k interaction once a single-size signal justifies the 68-204x spend."
+}
