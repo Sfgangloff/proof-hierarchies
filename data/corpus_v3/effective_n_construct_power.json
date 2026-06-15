@@ -1,0 +1,54 @@
+{
+  "what": "Effective-n gate: granularity-bearing pairs PER SPLIT x e-0040 McNemar power. Only granularity-bearing test pairs can express a granularity (not format) effect, so they -- not n=63 -- set the effective sample size for the headline q-0007/q-0001 claim.",
+  "splits": {
+    "train": {
+      "n_pairs": 485,
+      "granularity_bearing_ge1": 35,
+      "granularity_bearing_frac": 0.0722,
+      "nontrivial_frontier_ge2": 23
+    },
+    "dev": {
+      "n_pairs": 59,
+      "granularity_bearing_ge1": 2,
+      "granularity_bearing_frac": 0.0339,
+      "nontrivial_frontier_ge2": 1
+    },
+    "test": {
+      "n_pairs": 63,
+      "granularity_bearing_ge1": 5,
+      "granularity_bearing_frac": 0.0794,
+      "nontrivial_frontier_ge2": 3
+    }
+  },
+  "test_split": {
+    "n_nominal": 63,
+    "n_effective_granularity_ge1": 5,
+    "n_effective_granularity_ge2": 3
+  },
+  "mcnemar_combinatorial_floor": {
+    "min_discordant_pairs_for_alpha_0.05": 6,
+    "min_two_sided_p_at_n_eff_ge1": 0.0625,
+    "min_two_sided_p_at_n_eff_ge2": 0.25,
+    "test_ge1_can_ever_reject": false,
+    "test_ge2_can_ever_reject": false
+  },
+  "mde": {
+    "nominal_n_test_FORMAT_axis": {
+      "0.05": 0.16,
+      "0.1": 0.18,
+      "0.2": 0.21
+    },
+    "effective_n_GRANULARITY_axis_ge1": {
+      "0.05": ">0.50/unreachable",
+      "0.1": ">0.50/unreachable",
+      "0.2": ">0.50/unreachable"
+    },
+    "note": "nominal column = the term-vs-tactic FORMAT effect e-0040 priced at n=63; effective column = the GRANULARITY effect, the project's actual headline, at n_eff."
+  },
+  "rho": 0.5,
+  "alpha": 0.05,
+  "target_power": 0.8,
+  "M": 1500,
+  "seed": 0,
+  "interpretation": "The held-out test split has 63 pairs but only 5 are granularity-bearing (3 with a >=2 frontier). McNemar's exact two-sided test needs >=6 same-direction discordant pairs to reach alpha=0.05; with at most 5 granularity-bearing problems the discordant ceiling is 5 < 6, so the test CANNOT reject under ANY effect size -- power is exactly 0, not merely low. The n=63 MDE the power quartet reported prices the term-vs-tactic FORMAT effect, not the granularity effect the paper claims. To make the granularity effect even POSSIBLE to resolve, the eval must draw its held-out set from granularity-bearing decls (the data/deep route) -- corpus_v3's split cannot do it."
+}
