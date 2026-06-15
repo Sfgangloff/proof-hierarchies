@@ -1,0 +1,64 @@
+{
+  "source": "e-0057: construct-valid hardening of e-0055/a-0053's pi_mid eval-power verdict -- does pi_mid survive when nesting depth counts only substantive (non-empty-body) named haves, not binder-only chains?",
+  "method": "Re-run e-0055 verbatim (e-0046 split, e-0028 per-area yield, e-0045 D>=6 floor) swapping ONLY the depth: SUBSTANTIVE named depth counts a named node iff its body is a real proof (non-empty), reusing analyze_deep_construct_validity.py's body classification. Side-by-side vs e-0055's RAW named depth.",
+  "structural_availability_whole_study": {
+    "total_targets": 633,
+    "raw_depth_ge2_pct": 55.9,
+    "substantive_depth_ge2_pct": 50.2,
+    "raw_depth_ge3_pct": 6.5,
+    "substantive_depth_ge3_pct": 5.4
+  },
+  "split": {
+    "total_targets": 633,
+    "train_targets": 502,
+    "eval_targets": 131,
+    "eval_modules": 82,
+    "advanced_pooled_yield": 0.894,
+    "module_disjoint": true
+  },
+  "contrasts": {
+    "umid_depth_ge2_RAW(e-0055)": {
+      "train_carriers": 274,
+      "train_verified": 241.4,
+      "eval_carriers": 80,
+      "eval_verified": 70.4,
+      "eval_verified_ge_mcnemar_floor_6": true,
+      "power_verdict": "POWERABLE"
+    },
+    "umid_depth_ge2_SUBSTANTIVE": {
+      "train_carriers": 246,
+      "train_verified": 216.8,
+      "eval_carriers": 72,
+      "eval_verified": 63.3,
+      "eval_verified_ge_mcnemar_floor_6": true,
+      "power_verdict": "POWERABLE"
+    },
+    "four_level_depth_ge3_RAW(e-0055)": {
+      "train_carriers": 24,
+      "train_verified": 21.7,
+      "eval_carriers": 17,
+      "eval_verified": 15.3,
+      "eval_verified_ge_mcnemar_floor_6": true,
+      "power_verdict": "POWERABLE"
+    },
+    "four_level_depth_ge3_SUBSTANTIVE": {
+      "train_carriers": 20,
+      "train_verified": 18.0,
+      "eval_carriers": 14,
+      "eval_verified": 12.6,
+      "eval_verified_ge_mcnemar_floor_6": true,
+      "power_verdict": "POWERABLE"
+    },
+    "binary_depth_ge1_SUBSTANTIVE": {
+      "train_carriers": 501,
+      "train_verified": 441.3,
+      "eval_carriers": 131,
+      "eval_verified": 115.8,
+      "eval_verified_ge_mcnemar_floor_6": true,
+      "power_verdict": "POWERABLE"
+    }
+  },
+  "pi_mid_eval_verified_retention_substantive_over_raw": 0.899,
+  "headline": "pi_mid SURVIVES the construct-valid tightening. Counting only substantive (non-empty-body) named haves, the intermediate-cut (depth>=2) eval supply falls from e-0055's ~70.4 to ~63.3 verified carriers (90% retained) -- still ~10.5x the McNemar D=6 floor. Whole-study availability holds at 50.2% (vs e-0054's 55.9% raw). So a-0053's U-shape reopening is NOT a binder-chain artifact: the intermediate named level carries real inline-able sub-derivations, and pi_mid stays power-resolvable on the existing holdout. The 4-level depth>=3 arm drops to ~12.6 verified (POWERABLE). Remaining 3rd-arm gate shrinks to the FORMAT confound (e-0036/e-0037, off-disk) + ~1.5x compute (a-0054) -- the on-disk construct half is now cleared for the 3-level contrast.",
+  "CAVEAT": "This hardens ONE half of a-0053's construct gate: the substantive-body (is-it-a-real-sub-derivation) half, which is on-disk. The OTHER half -- term-vs-tactic FORMAT confound (e-0036/e-0037) -- still needs the paid extract and is untouched. Eval 'verified' remains the e-0028 per-area COUNT projection, not a real round-trip; it projects supply not pass@k. Verified carriers UPPER-bound the McNemar discordant total, so >=6 is NECESSARY not sufficient. Body classification ('by'/term/empty) is syntactic; a one-token term-mode body still counts as substantive."
+}
