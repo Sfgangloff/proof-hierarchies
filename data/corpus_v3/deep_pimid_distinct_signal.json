@@ -1,0 +1,82 @@
+{
+  "what": "Structural distinct-signal gate for pi_mid -- the CPU-only half of the construct-validity gate that a-0052/a-0053/a-0055 flagged but deferred. For every depth>=2 substantive carrier it measures the two named-block increments that define a genuine third level: mid-root (top-level block pi_mid names that pi_root inlines) and leaf-mid (nested block pi_leaf names that pi_mid inlines). pi_mid is structurally distinct from BOTH endpoints iff BOTH increments are non-trivial.",
+  "n_carriers_depth_ge2": 427,
+  "substantive_named_def": "name != '_' AND type non-empty AND body non-empty (e-0026/e-0032 inline-or-name unit)",
+  "increment_distributions": {
+    "mid_minus_root_count": {
+      "n": 427,
+      "median": 2.0,
+      "q25": 1.0,
+      "q75": 4.0,
+      "mean": 2.8
+    },
+    "leaf_minus_mid_count": {
+      "n": 427,
+      "median": 1.0,
+      "q25": 1.0,
+      "q75": 2.0,
+      "mean": 2.1
+    },
+    "mid_minus_root_chars": {
+      "n": 427,
+      "median": 117.0,
+      "q25": 67.0,
+      "q75": 216.0,
+      "mean": 160.4
+    },
+    "leaf_minus_mid_chars": {
+      "n": 427,
+      "median": 77.0,
+      "q25": 56.0,
+      "q75": 145.0,
+      "mean": 124.6
+    },
+    "mid_block_share_of_leaf": {
+      "n": 427,
+      "median": 0.6,
+      "q25": 0.4,
+      "q75": 0.7,
+      "mean": 0.6
+    }
+  },
+  "non_collapsing_rate": {
+    "thr_1c": {
+      "both_blocks_nontrivial": 427,
+      "frac": 1.0,
+      "collapses_to_root": 0,
+      "collapses_to_leaf": 0
+    },
+    "thr_20c": {
+      "both_blocks_nontrivial": 427,
+      "frac": 1.0,
+      "collapses_to_root": 0,
+      "collapses_to_leaf": 0
+    },
+    "thr_50c": {
+      "both_blocks_nontrivial": 308,
+      "frac": 0.721,
+      "collapses_to_root": 55,
+      "collapses_to_leaf": 79
+    },
+    "thr_100c": {
+      "both_blocks_nontrivial": 91,
+      "frac": 0.213,
+      "collapses_to_root": 189,
+      "collapses_to_leaf": 274
+    }
+  },
+  "mid_position_share_histogram": {
+    "bins": {
+      "[0.0,0.2)": 20,
+      "[0.2,0.4)": 86,
+      "[0.4,0.6)": 122,
+      "[0.6,0.8)": 148,
+      "[0.8,1.0]": 51
+    },
+    "interior_0.2_to_0.8": 356,
+    "interior_frac": 0.834,
+    "note": "mid_block_share = mid-block chars / total leaf-block chars; interior (0.2-0.8) = pi_mid names a substantial-but-partial fraction of the eventual fine block, the U-shape-relevant case."
+  },
+  "caveats": "STRUCTURAL/on-disk half ONLY: separates the three named blocks by count+chars; the remaining unmet half is the term-vs-tactic FORMAT confound (e-0036/e-0037, off-disk, paid extract). Body classification is syntactic (a one-token term-mode body counts substantive). pi_mid antichain modelled as top-level substantive haves with binder pass-through (matches e-0054/e-0057 depth convention); does not model the chosen cut's exact serialization. No Lean, no Modal.",
+  "verdict": "Over the 427 depth>=2 deep carriers that admit an intermediate cut, pi_mid carries a genuine, distinct block at BOTH boundaries on the on-disk structure: the top-level block pi_mid names over pi_root has median 117.0 chars (2.0 haves) and the nested block pi_leaf names over pi_mid has median 77.0 chars (1.0 haves). At a 50-char non-triviality threshold 308 carriers (72%) keep BOTH blocks non-trivial -- pi_mid does NOT collapse onto either endpoint -- while 79 would collapse toward pi_leaf (trivial nested block) and 55 toward pi_root. pi_mid sits in the interior (0.2-0.8 of the eventual fine block) on 83% of carriers, so it is a genuine third granularity level rather than an endpoint clone for the bulk of the study set. CONSEQUENCE: the STRUCTURAL half of the distinct-signal gate that a-0053/a-0055 deferred is now CLEARED -- a 3-level rough/mid/fine U-shape is structurally warranted (distinct named content at each level), and the only remaining open gate on the 3rd arm is the off-disk term-vs-tactic FORMAT confound (e-0036/e-0037, paid extract) plus the ~1.5x compute (a-0054). CAVEAT: on-disk chars/count separation only; format-vs-content distinctness still needs the extract."
+}
