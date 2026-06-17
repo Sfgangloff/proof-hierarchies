@@ -1,0 +1,122 @@
+{
+  "what": "Third-arm (pi_mid) cost gate for q-0005: prices the incremental eval+training compute of the 3-policy rough/mid/fine U-shape design vs the 2-policy binary design, in e-0048 proven-affordable units, and reads it against the staged-eval decision and the now-cleared structural gates (e-0054/e-0055/e-0057/e-0064).",
+  "n_binary_route": 106,
+  "n_umid_carriers": 63,
+  "n_umid_note": "e-0057 substantive pi_mid eval-verified carriers (depth>=2 intersection where all three levels are distinct).",
+  "cost_grid_units_of_proven_run": [
+    {
+      "k": 1,
+      "sizes": 2,
+      "two_policy_n106": 8.5,
+      "three_policy_same_n106": 12.7,
+      "marginal_3rd_arm_same_n": 4.2,
+      "marginal_ratio_same_n": 1.5,
+      "ushape_as_run_3policy_n63": 7.6,
+      "ushape_vs_binary_ratio": 0.892
+    },
+    {
+      "k": 4,
+      "sizes": 2,
+      "two_policy_n106": 33.9,
+      "three_policy_same_n106": 50.9,
+      "marginal_3rd_arm_same_n": 17.0,
+      "marginal_ratio_same_n": 1.5,
+      "ushape_as_run_3policy_n63": 30.2,
+      "ushape_vs_binary_ratio": 0.892
+    },
+    {
+      "k": 8,
+      "sizes": 2,
+      "two_policy_n106": 67.8,
+      "three_policy_same_n106": 101.8,
+      "marginal_3rd_arm_same_n": 33.9,
+      "marginal_ratio_same_n": 1.5,
+      "ushape_as_run_3policy_n63": 60.5,
+      "ushape_vs_binary_ratio": 0.892
+    },
+    {
+      "k": 16,
+      "sizes": 2,
+      "two_policy_n106": 135.7,
+      "three_policy_same_n106": 203.5,
+      "marginal_3rd_arm_same_n": 67.8,
+      "marginal_ratio_same_n": 1.5,
+      "ushape_as_run_3policy_n63": 121.0,
+      "ushape_vs_binary_ratio": 0.892
+    },
+    {
+      "k": 1,
+      "sizes": 3,
+      "two_policy_n106": 12.7,
+      "three_policy_same_n106": 19.1,
+      "marginal_3rd_arm_same_n": 6.4,
+      "marginal_ratio_same_n": 1.5,
+      "ushape_as_run_3policy_n63": 11.3,
+      "ushape_vs_binary_ratio": 0.892
+    },
+    {
+      "k": 4,
+      "sizes": 3,
+      "two_policy_n106": 50.9,
+      "three_policy_same_n106": 76.3,
+      "marginal_3rd_arm_same_n": 25.4,
+      "marginal_ratio_same_n": 1.5,
+      "ushape_as_run_3policy_n63": 45.4,
+      "ushape_vs_binary_ratio": 0.892
+    },
+    {
+      "k": 8,
+      "sizes": 3,
+      "two_policy_n106": 101.8,
+      "three_policy_same_n106": 152.6,
+      "marginal_3rd_arm_same_n": 50.9,
+      "marginal_ratio_same_n": 1.5,
+      "ushape_as_run_3policy_n63": 90.7,
+      "ushape_vs_binary_ratio": 0.892
+    },
+    {
+      "k": 16,
+      "sizes": 3,
+      "two_policy_n106": 203.5,
+      "three_policy_same_n106": 305.3,
+      "marginal_3rd_arm_same_n": 101.8,
+      "marginal_ratio_same_n": 1.5,
+      "ushape_as_run_3policy_n63": 181.4,
+      "ushape_vs_binary_ratio": 0.892
+    }
+  ],
+  "anchor_designs": {
+    "stage1_single_size_pass1": {
+      "two_policy": 8.5,
+      "three_policy_same_n": 12.7,
+      "marginal_3rd_arm": 4.2,
+      "ushape_as_run": 7.6
+    },
+    "cheap_powered_k4_2size": {
+      "two_policy": 33.9,
+      "three_policy_same_n": 50.9,
+      "marginal_3rd_arm": 17.0,
+      "ushape_as_run": 30.2
+    },
+    "lean_powered_k8_2size": {
+      "two_policy": 67.8,
+      "three_policy_same_n": 101.8,
+      "marginal_3rd_arm": 34.0,
+      "ushape_as_run": 60.5
+    },
+    "full_headline_k16_3size": {
+      "two_policy": 203.5,
+      "three_policy_same_n": 305.3,
+      "marginal_3rd_arm": 101.8,
+      "ushape_as_run": 181.4
+    }
+  },
+  "training": {
+    "adapters_2policy": "2 policies x n_sizes",
+    "adapters_3policy": "3 policies x n_sizes",
+    "adapter_count_ratio": 1.5,
+    "note": "QLoRA trains one adapter per (policy,size) (e-0007); the 3rd policy adds n_sizes adapters -> 1.5x training; per-adapter wall not absolutely priced (e-0052 relative only)."
+  },
+  "caveats": "PRE-SFT lower bounds (e-0048 t1). Training wall not absolutely priced (1.5x adapter-count multiplier only). The FORMAT half of the 3rd-arm warrant is still Modal-blocked (e-0036: 0/633 residual bodies on disk; e-0037 paid extract), so a GO here = 'affordable AND structurally warranted on disk', still conditional on the paid format extract. n_umid is the e-0057 per-area COUNT projection, not a real round-trip.",
+  "verdict": "The 2-arm Stage-0.5 cost chain (e-0048/e-0052) never priced the 3rd (pi_mid) arm; this gate does. APPLES-TO-APPLES at fixed n, the 3rd policy is exactly +50% eval compute (a-0054's quote confirmed): e.g. the full headline (k=16, 3 sizes) goes 204x -> 305x of the proven-affordable run (+102x), and the cheap powered design (k=4, 2 sizes) 34x -> 51x (+17x); training adds n_sizes adapters (1.5x). BUT the U-shape actually RUNS on the smaller pi_mid carrier set (n_umid=63, e-0057), so the marginal cost of ANSWERING the U-shape is LESS than 1.5x: the full 3-policy U-shape at n_umid is 181x vs the binary 204x (ratio 0.89), and the stage-1 single-size pass@1 3-level screen is only 8x. COMPOSED with e-0064 (pi_mid carries distinct on-disk content on 72-83% of carriers) and the staged-eval decision (e-0048): the 3rd arm's cost lands in STAGE 2, gated behind a cheap 2-arm single-size signal, NOT paid up front; and because the U-shape carrier set is smaller, the stage-2 3-level escalation costs ~0.89x the binary stage-2, not 1.5x. VERDICT for q-0005: the 3-level U-shape is now cleared on supply, power, substantive depth, distinct content (e-0064) AND cost (this gate, affordable as a gated stage-2 add-on); the SOLE remaining open gate is the off-disk term-vs-tactic FORMAT confound (e-0036/e-0037), which needs the paid extract -- so binary-vs-3-level is decidable the moment that extract runs, with every CPU-side prerequisite now met."
+}
