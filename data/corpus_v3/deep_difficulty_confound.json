@@ -1,0 +1,135 @@
+{
+  "source": "data/deep/*.json",
+  "n_decls": 1261,
+  "paired_contrast_threat": {
+    "design": "Stage 3 = WITHIN-THEOREM paired (same theorem, rough vs fine serialization); build_sft.py uses identical theorem indices across policies (e-0006).",
+    "verdict": "Per-theorem difficulty is held CONSTANT by construction in the paired contrast, so it cannot confound the (rough-fine) difference. The length half (a-0027) is the remaining within-pair confound, already dissolved by the same-format deep route."
+  },
+  "selection_threat": {
+    "n_wide": 633,
+    "n_nonwide": 628,
+    "pct_wide": 50.2,
+    "stmt_chars": {
+      "wide": {
+        "n": 633,
+        "median": 123.0,
+        "q25": 83.0,
+        "q75": 196.0,
+        "mean": 157.3
+      },
+      "nonwide": {
+        "n": 628,
+        "median": 99.0,
+        "q25": 66.0,
+        "q75": 161.2,
+        "mean": 123.1
+      },
+      "test": {
+        "U_wide": 235556.5,
+        "AUC_P_wide_gt_nonwide": 0.593,
+        "cliffs_delta": 0.185,
+        "rank_biserial_r": 0.185,
+        "z": 5.691,
+        "p_two_sided": 1.26e-08
+      }
+    },
+    "tree_nodes": {
+      "wide": {
+        "n": 633,
+        "median": 6.0,
+        "q25": 4.0,
+        "q75": 9.0,
+        "mean": 7.3
+      },
+      "nonwide": {
+        "n": 628,
+        "median": 3.0,
+        "q25": 2.0,
+        "q75": 4.0,
+        "mean": 3.8
+      },
+      "test": {
+        "U_wide": 326218.0,
+        "AUC_P_wide_gt_nonwide": 0.821,
+        "cliffs_delta": 0.641,
+        "rank_biserial_r": 0.641,
+        "z": 19.911,
+        "p_two_sided": 3.29e-88
+      }
+    },
+    "tree_depth": {
+      "wide": {
+        "n": 633,
+        "median": 2.0,
+        "q25": 2.0,
+        "q75": 2.0,
+        "mean": 2.2
+      },
+      "nonwide": {
+        "n": 628,
+        "median": 2.0,
+        "q25": 2.0,
+        "q75": 2.0,
+        "mean": 2.1
+      },
+      "test": {
+        "U_wide": 209802.5,
+        "AUC_P_wide_gt_nonwide": 0.528,
+        "cliffs_delta": 0.056,
+        "rank_biserial_r": 0.056,
+        "z": 3.126,
+        "p_two_sided": 0.00177
+      }
+    },
+    "difficulty": {
+      "wide": {
+        "n": 633,
+        "median": 0.6,
+        "q25": 0.5,
+        "q75": 0.7,
+        "mean": 0.6
+      },
+      "nonwide": {
+        "n": 628,
+        "median": 0.4,
+        "q25": 0.3,
+        "q75": 0.5,
+        "mean": 0.4
+      },
+      "test": {
+        "U_wide": 302277.5,
+        "AUC_P_wide_gt_nonwide": 0.76,
+        "cliffs_delta": 0.521,
+        "rank_biserial_r": 0.521,
+        "z": 16.01,
+        "p_two_sided": 1.09e-57
+      }
+    }
+  },
+  "effect_modification_threat": {
+    "spearman_delta_vs_difficulty": {
+      "rho": 0.524,
+      "p_two_sided": 8.49e-54,
+      "n": 633
+    },
+    "spearman_width_vs_difficulty": {
+      "rho": 0.4,
+      "p_two_sided": 5.77e-28,
+      "n": 633
+    },
+    "note": "delta = e-0027 named-header granularity length delta (chars); the ONLY thing differing between rough/fine arms in a same-format pair."
+  },
+  "stratified": {
+    "wide_count_by_population_difficulty_tertile": {
+      "low": 106,
+      "mid": 206,
+      "high": 321
+    },
+    "median_granularity_delta_chars_by_tertile": {
+      "low": 118.5,
+      "mid": 153.5,
+      "high": 244
+    }
+  },
+  "difficulty_proxy_def": "composite = mean percentile-rank of {stmt_chars, tree_nodes, tree_depth}; named_width excluded (defines selection). CPU-structural proxy; no ground-truth pass rate (Modal-blocked)."
+}
